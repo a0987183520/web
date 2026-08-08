@@ -5,6 +5,7 @@ const POLICIES_DATA = [
         categoryName: "生活美學與未來教育",
         title: "草地音樂節",
         subtitle: "讓公園成為跨世代的生活舞台",
+        image: "images/policy_01_music.png",
         highlight: "善用明德市民活動中心旁的公園草地，透過專業策展、資源整合與居民參與，逐步打造散步就能抵達的草地音樂活動。",
         icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"></path><circle cx="6" cy="18" r="3"></circle><circle cx="18" cy="16" r="3"></circle></svg>`,
         description: "我們希望善用明德市民活動中心旁的公園綠地，在春秋兩季的假日，規劃結合音樂、休閒與社區互動的草地音樂節。這不是耗資百萬的政客宣傳秀，而是串接在地資源、讓孩子奔跑、家長放鬆、長者同樂的常態性美學角落。",
@@ -23,6 +24,7 @@ const POLICIES_DATA = [
         categoryName: "生活美學與未來教育",
         title: "全齡 EQ 成長課程",
         subtitle: "讓情緒教育成為家庭的日常支持",
+        image: "images/policy_02_eq.png",
         highlight: "提供涵蓋孩子、家長、青壯年與長者都能參與的情緒管理與同理溝通課程，以生活化情緒教育提升家庭和諧。",
         icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a5 5 0 1 0 10 0v-2H12z"></path><path d="M12 10a8 8 0 1 0 8 8v-8H12z"></path><circle cx="12" cy="12" r="10"></circle><path d="M8 14s1.5 2 4 2 4-2 4-2"></path><line x1="9" y1="9" x2="9.01" y2="9"></line><line x1="15" y1="9" x2="15.01" y2="9"></line></svg>`,
         description: "情緒管理、親子溝通與人際互動是人生的終身課題。我們希望以輕鬆、實用且系統化的 EQ 成長課程，在社區活動中心搭建情緒共學平台，增進家庭與鄰里的跨世代同理與和諧。",
@@ -41,6 +43,7 @@ const POLICIES_DATA = [
         categoryName: "生活美學與未來教育",
         title: "無人機與 AI 未來體驗營",
         subtitle: "讓科技變成孩子看得見的可能",
+        image: "images/policy_03_tech.png",
         highlight: "為里內家庭提供安全的無人機飛行體驗、AI 影像與寫作創作坊，協助家長用 AI 輔助孩子提升自主學習力。",
         icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>`,
         description: "科技發展日新月異，我們不希望里內的孩子只能透過網路螢幕被動觀看。透過建立高安全性、有人引導的科技實作體驗，讓明德里的孩子在日常中就能啟發科學探索的興趣，掌握未來 AI 世代的必備工具。",
@@ -59,6 +62,7 @@ const POLICIES_DATA = [
         categoryName: "專業治理與精準服務",
         title: "明德活動中心 2.0",
         subtitle: "打造跨世代全齡生活基地",
+        image: "images/policy_04_lounge.png",
         highlight: "活化活動中心空間，公開租借與課表以消弭落差，增設「社區音樂共學角」與跨世代桌遊交流，提供全齡共學空間。",
         icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>`,
         description: "在不排擠既有銀髮共餐與健康促進服務的前提下，我們希望透過更合理的空間與時間規劃，讓活動中心在平日晚上與假日成為年輕人、上班族與親子家庭也熱愛走入的「全齡社區生活基地」。",
@@ -77,6 +81,7 @@ const POLICIES_DATA = [
         categoryName: "專業治理與精準服務",
         title: "數位里政與健康導航",
         subtitle: "讓里民需求被看見、把資源接上",
+        image: "images/policy_05_guide.png",
         highlight: "建立整合公告、報修、常見問題與意見回饋的數位入口，引進 AI 助理輔助分類常見問答，並提供易懂的社福資源指引。",
         icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>`,
         description: "里政服務不該只靠里民親自跑里長辦公室或打電話。我們希望建立一個對白天上班族友善的數位里政資訊站，同時為家中長輩設計精準、直觀的社會福利資源導航，省去在複雜政府網站中迷路的時間。",
@@ -95,6 +100,7 @@ const POLICIES_DATA = [
         categoryName: "空間活化與生活民主",
         title: "智慧安全與友善步行",
         subtitle: "用資料追蹤真正的社區風險點",
+        image: "images/policy_06_safety.png",
         highlight: "建立居民協作的步行安全地圖，針對積水、照明死角、破損人行道等危險因子，進行數據化追蹤，現勘提案改善。",
         icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"></polygon><line x1="9" y1="3" x2="9" y2="18"></line><line x1="15" y1="6" x2="15" y2="21"></line></svg>`,
         description: "社區安全不該只是頭痛醫頭、腳痛醫腳。透過科學化的數據蒐集與里民協作，我們將路燈失靈、騎樓濕滑、人行道破損、防滑不足、反射鏡死角等步行安全危險因子繪製成「明德安全步行地圖」，讓有限的政府預算能精準花在刀口上。",
@@ -112,6 +118,7 @@ const POLICIES_DATA = [
         categoryName: "空間活化與生活民主",
         title: "參與式公共治理",
         subtitle: "讓白天上班族也能參與社區大小事",
+        image: "images/policy_07_participate.png",
         highlight: "公開公部門會勘紀錄，建立線上與實體並行的意見搜集與回饋管道，讓無法出席實體會勘的上班族也能表達意見。",
         icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>`,
         description: "社區內的交通號誌調整、停車格畫設、公園遊具更新等重要會勘，往往都在平日的上班時間舉行，導致多數青壯年與上班族的聲音被忽略。我們將建立一套結合線上與線下的參與式機制，讓不能請假到現場的里民，權益同樣受到保障。",
@@ -206,19 +213,28 @@ function renderPolicies(filterCategory = 'all') {
         card.className = 'policy-card glass reveal'; // Added 'reveal' to trigger scroll animation
         card.dataset.id = policy.id;
         card.innerHTML = `
-            <span class="policy-number">計畫 0${policy.id}</span>
-            <div class="value-icon">${policy.icon}</div>
-            <h3>${policy.title}</h3>
-            <p class="policy-highlight">${policy.highlight}</p>
-            <div class="policy-card-footer">
-                <span class="policy-category">${policy.categoryName}</span>
-                <button class="learn-more-btn">
-                    深入瞭解
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <line x1="5" y1="12" x2="19" y2="12"></line>
-                        <polyline points="12 5 19 12 12 19"></polyline>
-                    </svg>
-                </button>
+            <div class="policy-card-image-wrapper">
+                <img class="policy-card-image" src="${policy.image}" alt="${policy.title}" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="policy-card-image-placeholder" style="display: none;">
+                    <div class="placeholder-icon">${policy.icon}</div>
+                    <span class="placeholder-text">示意圖規劃中</span>
+                </div>
+            </div>
+            <div class="policy-card-body">
+                <span class="policy-number">計畫 0${policy.id}</span>
+                <div class="value-icon-inline">${policy.icon}</div>
+                <h3>${policy.title}</h3>
+                <p class="policy-highlight">${policy.highlight}</p>
+                <div class="policy-card-footer">
+                    <span class="policy-category">${policy.categoryName}</span>
+                    <button class="learn-more-btn">
+                        深入瞭解
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </button>
+                </div>
             </div>
         `;
         card.addEventListener('click', () => openDrawer(policy.id));
@@ -251,6 +267,14 @@ function openDrawer(policyId) {
     document.getElementById('drawer-number').textContent = `計畫 0${policy.id} ✕ ${policy.categoryName}`;
     document.getElementById('drawer-title').textContent = policy.title;
     document.getElementById('drawer-description').textContent = policy.description;
+
+    // Populate drawer image
+    const drawerImgWrapper = document.getElementById('drawer-image-wrapper');
+    if (drawerImgWrapper) {
+        drawerImgWrapper.innerHTML = `
+            <img class="drawer-image" src="${policy.image}" alt="${policy.title}" onerror="this.parentNode.style.display='none';" onload="this.parentNode.style.display='block';">
+        `;
+    }
 
     // How to do list
     const howToDoList = document.getElementById('drawer-howtodo-list');
