@@ -10,7 +10,7 @@ const POLICIES_DATA = [
         description: "我們希望善用明德市民活動中心旁的公園綠地，在春秋兩季的假日，規劃結合音樂、休閒與社區互動的草地音樂節。這不是耗資百萬的政客宣傳秀，而是串接在地資源、讓孩子奔跑、家長放鬆、長者同樂的常態性美學角落。",
         howToDo: [
             "以春秋假日的小型試辦開始，再依居民對音量、交通與整潔的反饋逐步調整規模。",
-            "結合候選人本人的流行音樂產業背景與街頭藝人人脈，邀請優秀樂手、學校音樂社團與在地團體共同展演。",
+            "結合候選人本人的流行音樂產業背景與街頭藝人與獨立樂手人脈，邀請優秀樂手、學校音樂社團與在地團體共同展演。",
             "落實場地合規申請，嚴格管控音量時段，做好防噪、垃圾清運、草地保護與完善的雨備方案。",
             "依法爭取符合資格的文化、教育或終身學習外部資源補助，所有經費使用公開透明、可受檢驗。"
         ],
@@ -32,7 +32,7 @@ const POLICIES_DATA = [
             "開辦適合長者與青壯年的情緒調適、同理聆聽及人際共融互動茶會。",
             "建立課後滾動式評估機制，視里民參與反饋持續微調課程主題、師資與時段。"
         ],
-        whyPossible: "候選人擔任樂利國小 EQ 志工組長多年，具備 8 年以上的情緒教育講師資歷，親自培訓過數十名志工並指導過無數學童，擁有完整的師資、教材設計經驗及專業協會之人脈資源，能快速將情緒教育在地化推廣。",
+        whyPossible: "候選人擔任樂利國小 EQ 志工組長多年，具備 8 年以上的情緒教育講師資歷，親自培訓過數十名志工並指導過無統計學童，擁有完整的師資、教材設計經驗及專業協會之人脈資源，能快速將情緒教育在地化推廣。",
         principles: "情緒教育成長課程屬於學習與心理支持性質，不具有醫療或心理諮商行為。任何涉及病理性心理治療、醫療診斷或校園輔導體系之事項，均須轉介予專業醫療或心理諮商機構處理。"
     },
     {
@@ -76,7 +76,7 @@ const POLICIES_DATA = [
         category: "governance",
         categoryName: "專業治理與精準服務",
         title: "數位里政與健康導航",
-        subtitle: "讓里民需求被看見、把社會資源接上",
+        subtitle: "讓里民需求被看見、把資源接上",
         highlight: "建立整合公告、報修、常見問題與意見回饋的數位入口，引進 AI 助理輔助分類常見問答，並提供易懂的社福資源指引。",
         icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>`,
         description: "里政服務不該只靠里民親自跑里長辦公室或打電話。我們希望建立一個對白天上班族友善的數位里政資訊站，同時為家中長輩設計精準、直觀的社會福利資源導航，省去在複雜政府網站中迷路的時間。",
@@ -116,7 +116,7 @@ const POLICIES_DATA = [
         icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>`,
         description: "社區內的交通號誌調整、停車格畫設、公園遊具更新等重要會勘，往往都在平日的上班時間舉行，導致多數青壯年與上班族的聲音被忽略。我們將建立一套結合線上與線下的參與式機制，讓不能請假到現場的里民，權益同樣受到保障。",
         howToDo: [
-            "會勘前 5 天，以地圖、QR Code 與看板提前公告會勘議題，提供線上與現場回報入口收集里民想法。",
+            "會勘前 5 天，以圖文、地圖、QR Code 與看板提前公告會勘議題，提供線上與現場回報入口收集里民想法。",
             "會勘後 3 天內，在不涉及公務與個人隱私前提下，公開整理「會勘重點摘要」，包括出席單位、各方意見、初步結論與下一步時程。",
             "在規劃形成前，保留 3 到 5 天的第二輪線上回饋期，讓更多里民能確認初步方案，並公開採納或未採納之考量原因。",
             "針對公園改造、重大空間活化等軟性議題，舉辦親子或跨世代工作坊與問卷調查，廣納新舊里民意見。"
@@ -175,7 +175,7 @@ function updateThemeToggleIcon() {
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
             </svg>
-        `; // Moon icon (click to go dark)
+        `; // Moon icon
     } else {
         toggleBtn.innerHTML = `
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -189,7 +189,7 @@ function updateThemeToggleIcon() {
                 <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
                 <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
             </svg>
-        `; // Sun icon (click to go light)
+        `; // Sun icon
     }
 }
 
@@ -203,7 +203,7 @@ function renderPolicies(filterCategory = 'all') {
         
     filteredPolicies.forEach(policy => {
         const card = document.createElement('div');
-        card.className = 'policy-card glass';
+        card.className = 'policy-card glass reveal'; // Added 'reveal' to trigger scroll animation
         card.dataset.id = policy.id;
         card.innerHTML = `
             <span class="policy-number">計畫 0${policy.id}</span>
@@ -224,6 +224,9 @@ function renderPolicies(filterCategory = 'all') {
         card.addEventListener('click', () => openDrawer(policy.id));
         policyGrid.appendChild(card);
     });
+
+    // Re-initialize observer for dynamically rendered elements
+    observeRevealElements();
 }
 
 // Filter Event Delegation
@@ -263,11 +266,6 @@ function openDrawer(policyId) {
     });
 
     // Why possible section
-    const capabilityTitle = policy.id <= 3 ? "我為什麼做得到" : "我為什麼做得到";
-    document.getElementById('drawer-capability-title').innerHTML = `
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
-        ${capabilityTitle}
-    `;
     document.getElementById('drawer-capability-text').textContent = policy.whyPossible;
 
     // Principles section
@@ -285,5 +283,51 @@ function closeDrawer() {
     document.body.style.overflow = ''; // Unlock main scroll
 }
 
-// Initial Render
+// IntersectionObserver Logic for Scroll Fade-in & Fade-out Reveal Animations
+let revealObserver;
+
+function observeRevealElements() {
+    // Collect all elements with reveal classes
+    const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+    
+    // Disconnect old observer if exists
+    if (revealObserver) {
+        revealObserver.disconnect();
+    }
+    
+    // Define options
+    const observerOptions = {
+        root: null,
+        threshold: 0.08, // Trigger when 8% is visible
+        rootMargin: "-10px 0px -10px 0px" // Slight buffer area to prevent instant triggers near boundary
+    };
+    
+    // Instantiate observer
+    revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+            } else {
+                // Dynamically remove active class to allow fade-out when scrolling away (both up and down)
+                entry.target.classList.remove('active');
+            }
+        });
+    }, observerOptions);
+    
+    // Observe
+    revealElements.forEach(el => revealObserver.observe(el));
+}
+
+// Form Submission handling (Prevent actual action, show nice notice)
+const fbForm = document.getElementById('feedback-form');
+if (fbForm) {
+    fbForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        alert('感謝您的回饋！競選決策小組已收到您的意見，我們將認真評估並納入未來計畫的修正考量！');
+        fbForm.reset();
+    });
+}
+
+// Initial Render and setup
 renderPolicies();
+observeRevealElements();
