@@ -261,7 +261,7 @@ nav {
 /* Hero Section */
 .hero {
     position: relative;
-    padding-top: 190px;
+    padding-top: 135px; /* 由 190px 調降，將 A 區與 B 區靠得更近 */
     padding-bottom: 120px;
     overflow: hidden;
 }
