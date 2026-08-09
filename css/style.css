@@ -342,7 +342,7 @@ nav {
 .hero-description {
     font-size: 1.25rem;
     color: var(--text-secondary);
-    margin-bottom: 3rem;
+    margin-bottom: 1.8rem; /* 縮小垂直段距 */
     line-height: 1.6;
 }
 
@@ -351,9 +351,9 @@ nav {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 0.9rem;
-    margin-top: 2.2rem;
-    font-size: 0.95rem;
+    gap: 1.2rem;
+    margin-top: 0.8rem; /* 縮小垂直段距 */
+    font-size: 1.25rem; /* 字體放大至 1.25rem，與描述段落等大 */
 }
 
 .badge-row {
@@ -361,13 +361,14 @@ nav {
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
+    gap: 1.5rem; /* 左右兩個徽章的間距 */
 }
 
 .skill-badge {
     background: rgba(255, 255, 255, 0.04);
     border: 1px solid rgba(255, 255, 255, 0.08);
-    padding: 0.5rem 1.1rem;
-    border-radius: 20px;
+    padding: 0.6rem 1.4rem; /* 隨字體放大微調內邊距 */
+    border-radius: 24px; /* 隨比例微調圓角 */
     font-weight: 500;
     color: var(--text-primary);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
