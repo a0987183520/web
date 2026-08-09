@@ -373,13 +373,15 @@ nav {
 }
 
 .hero-image-card:hover {
+    transform: scale(1.5);
+    z-index: 10;
     border-color: rgba(251, 191, 36, 0.25);
     box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.8), 
-                0 0 50px rgba(251, 191, 36, 0.2);
+                0 0 50px rgba(251, 191, 36, 0.25);
 }
 
 .hero-image-card:hover .hero-image {
-    transform: scale(1.03);
+    transform: scale(1.0);
 }
 
 /* Core Values Section */
