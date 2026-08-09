@@ -185,6 +185,18 @@ nav {
     background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
     border-radius: 7px;
     display: inline-block;
+    box-shadow: 0 0 8px rgba(251, 191, 36, 0.35); /* 增加 1px 的琥珀金發光陰影 */
+}
+
+.logo-main {
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.logo-sub {
+    font-weight: 900;
+    color: var(--accent-primary); /* 使用主題琥珀點綴色 */
+    margin-left: 2px;
 }
 
 .nav-links {
@@ -312,7 +324,19 @@ nav {
     font-size: 3.8rem;
     font-weight: 800;
     margin-bottom: 1.8rem;
-    line-height: 1.2;
+    line-height: 1.25;
+}
+
+.hero-title .title-verb {
+    font-size: 0.55em; /* 隨響應式標題比例縮放，避免行動端失真 */
+    font-weight: 300; /* 細體 */
+    color: var(--text-muted); /* 更淡的灰色 */
+    margin-right: 0.05em;
+    vertical-align: middle;
+}
+
+.hero-title .title-noun {
+    font-weight: 900; /* 極粗體 */
 }
 
 .hero-description {
