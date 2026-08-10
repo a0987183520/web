@@ -7,29 +7,85 @@
     <meta name="description" content="明德里里長候選人官方網站：具備30年科技背景、20年音樂產業、10年社區治理與8年EQ情緒講師經驗的「專業經理人型里長」。推動智慧里政、全齡EQ情緒課程、草地音樂節，用專案管理思維活化公共空間、爭取外部資源。">
     <link rel="stylesheet" href="css/style.css">
     <style>
-    /* 方案一：心跳呼吸感特有樣式 */
+    /* 方案三：集合心跳（3D懸浮心跳節奏重複2-3次）與流光來回穿梭（左上到右下，停留，右下到左上，停留，重複2-3次）的加強版 */
     .hero-image-card {
+        position: relative;
         transform: scale(1);
-        transition: transform 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease;
+        transition: border-color 0.5s ease, box-shadow 0.5s ease;
+    }
+    /* 流光遮罩 */
+    .hero-image-card::after {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -150%;
+        width: 60%;
+        height: 200%;
+        background: linear-gradient(
+            90deg,
+            rgba(255, 255, 255, 0) 0%,
+            rgba(255, 255, 255, 0.25) 50%,
+            rgba(255, 255, 255, 0) 100%
+        );
+        transform: skewX(-25deg);
+        z-index: 3;
+        pointer-events: none;
     }
     .hero-image-card:hover {
-        transform: scale(1); /* 覆寫 style.css 的 1.5 倍放大，允許 animation 生效 */
-        animation: heartbeat 1.2s ease-in-out;
         border-color: rgba(251, 191, 36, 0.35);
-        box-shadow: 0 25px 50px -15px rgba(0, 0, 0, 0.7), 
-                    0 0 40px rgba(251, 191, 36, 0.25);
+        box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.75), 
+                    0 0 45px rgba(251, 191, 36, 0.25);
         z-index: 10;
+        /* 觸發同步的 3D 懸浮心跳動畫，重複 3 次 */
+        animation: heartbeat3d-sync 3.5s ease-in-out 3;
+        transform: perspective(1000px) translateY(-8px) rotateX(2deg) rotateY(-2deg) scale(1.02); /* 動畫結束後的落點 */
+    }
+    .hero-image-card:hover::after {
+        /* 觸發來回穿梭流光動畫，重複 3 次 */
+        animation: shimmer-sweep 3.5s ease-in-out 3;
     }
     .hero-image-card:hover .hero-image {
         transform: scale(1); /* 覆寫 style.css 的 hover 效果 */
     }
-    @keyframes heartbeat {
-        0% { transform: scale(1); }
-        14% { transform: scale(0.97); }
-        28% { transform: scale(1.03); }
-        42% { transform: scale(0.98); }
-        70% { transform: scale(1.02); }
-        100% { transform: scale(1); }
+
+    /* 3D 懸浮心跳動畫配合流光來回節奏 */
+    @keyframes heartbeat3d-sync {
+        /* 起步：平滑浮起並微幅向右上方傾斜 */
+        0% { transform: perspective(1000px) translateY(0) rotateX(0deg) rotateY(0deg) scale(1); }
+        
+        /* 第一次心跳脈動 (配合左上到右下的流光) */
+        10% { transform: perspective(1000px) translateY(-6px) rotateX(1.5deg) rotateY(-1.5deg) scale(0.97); }
+        20% { transform: perspective(1000px) translateY(-10px) rotateX(2.5deg) rotateY(-2.5deg) scale(1.03); }
+        30% { transform: perspective(1000px) translateY(-7px) rotateX(1.8deg) rotateY(-1.8deg) scale(0.98); }
+        40% { transform: perspective(1000px) translateY(-8px) rotateX(2deg) rotateY(-2deg) scale(1.02); }
+        
+        /* 停留等待期 (配合流光在右側停留) */
+        50% { transform: perspective(1000px) translateY(-8px) rotateX(2deg) rotateY(-2deg) scale(1.02); }
+        
+        /* 第二次心跳脈動 (配合右下到左上的流光) */
+        60% { transform: perspective(1000px) translateY(-6px) rotateX(1.5deg) rotateY(-1.5deg) scale(0.97); }
+        70% { transform: perspective(1000px) translateY(-10px) rotateX(2.5deg) rotateY(-2.5deg) scale(1.03); }
+        80% { transform: perspective(1000px) translateY(-7px) rotateX(1.8deg) rotateY(-1.8deg) scale(0.98); }
+        90% { transform: perspective(1000px) translateY(-8px) rotateX(2deg) rotateY(-2deg) scale(1.02); }
+        
+        /* 停留等待期 (配合流光在左側停留) */
+        100% { transform: perspective(1000px) translateY(-8px) rotateX(2deg) rotateY(-2deg) scale(1.02); }
+    }
+
+    /* 流光來回穿梭與停留動畫 */
+    @keyframes shimmer-sweep {
+        /* 1. 從左上到右下 */
+        0% { left: -150%; }
+        30% { left: 150%; }
+        
+        /* 2. 在右側停留等待 */
+        50% { left: 150%; }
+        
+        /* 3. 從右下到左上 */
+        80% { left: -150%; }
+        
+        /* 4. 在左側停留等待 */
+        100% { left: -150%; }
     }
     </style>
 </head>
