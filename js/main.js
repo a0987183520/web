@@ -24,7 +24,7 @@ const POLICIES_DATA = [
         categoryName: "生活美學與未來教育",
         title: "EQ 教育課程",
         subtitle: "讓情緒教育成為家庭的日常支持",
-        image: "images/policy_02_eq.png",
+        image: "images/policy_02_eq_1.png",
         highlight: "提供涵蓋孩子、家長、青壯年與長者都能參與的情緒管理與同理溝通課程，以生活化情緒教育提升家庭和諧。",
         icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a5 5 0 1 0 10 0v-2H12z"></path><path d="M12 10a8 8 0 1 0 8 8v-8H12z"></path><circle cx="12" cy="12" r="10"></circle><path d="M8 14s1.5 2 4 2 4-2 4-2"></path><line x1="9" y1="9" x2="9.01" y2="9"></line><line x1="15" y1="9" x2="15.01" y2="9"></line></svg>`,
         description: "情緒管理、親子溝通與人際互動是人生的終身課題。我們希望以輕鬆、實用且系統化的 EQ 成長課程，在社區活動中心搭建情緒共學平台，增進家庭與鄰里的跨世代同理與和諧。",
@@ -271,9 +271,19 @@ function openDrawer(policyId) {
     // Populate drawer image
     const drawerImgWrapper = document.getElementById('drawer-image-wrapper');
     if (drawerImgWrapper) {
-        drawerImgWrapper.innerHTML = `
-            <img class="drawer-image" src="${policy.image}" alt="${policy.title}" onerror="this.parentNode.style.display='none';" onload="this.parentNode.style.display='block';">
-        `;
+        // 如果是計畫 02 (id 為 2)，渲染兩張圖 (上為 _2，下為 _1)
+        if (policy.id === 2) {
+            drawerImgWrapper.style.display = 'block';
+            drawerImgWrapper.innerHTML = `
+                <img class="drawer-image" src="images/policy_02_eq_2.png" alt="${policy.title} 概念圖二" style="margin-bottom: 1.5rem; border-radius: 12px; border: 1px solid var(--card-border);">
+                <img class="drawer-image" src="images/policy_02_eq_1.png" alt="${policy.title} 概念圖一" style="border-radius: 12px; border: 1px solid var(--card-border);">
+            `;
+        } else {
+            // 其餘一般計畫渲染單張圖
+            drawerImgWrapper.innerHTML = `
+                <img class="drawer-image" src="${policy.image}" alt="${policy.title}" onerror="this.parentNode.style.display='none';" onload="this.parentNode.style.display='block';">
+            `;
+        }
     }
 
     // How to do list

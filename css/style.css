@@ -841,8 +841,8 @@ nav {
     box-shadow: -20px 0 60px rgba(0, 0, 0, 0.5);
     display: flex;
     flex-direction: column;
-    /* 彈出速度調慢：從原本的 0.5s 改為 0.8s (手機版慢一倍) */
-    transition: right 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    /* 手機版滑出速度調整為 1.5 秒 */
+    transition: right 1.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .drawer.active {
@@ -864,8 +864,8 @@ nav {
 @media (min-width: 951px) {
     .drawer {
         max-width: 80rem; /* 大幅拓寬電腦版展示空間 */
-        /* 電腦版彈出速度保持優雅 */
-        transition: right 1s cubic-bezier(0.16, 1, 0.3, 1);
+        /* 電腦版彈出速度配合調慢為 1.8s，呈現更高級優雅的平滑動態 */
+        transition: right 1.8s cubic-bezier(0.16, 1, 0.3, 1);
     }
     
     .drawer-two-columns {
@@ -883,12 +883,6 @@ nav {
     
     .drawer-right-column {
         width: 52%;
-    }
-    
-    /* 大幅放大電腦版圖片比例 */
-    .drawer-image-wrapper {
-        aspect-ratio: 16 / 10 !important;
-        border-radius: 20px !important;
     }
 }
 
@@ -944,13 +938,11 @@ nav {
     flex-grow: 1;
 }
 
+/* 優化圖片容器以自適應多張圖片的載入 */
 .drawer-image-wrapper {
     width: 100%;
-    aspect-ratio: 16 / 9;
     border-radius: 16px;
-    overflow: hidden;
     margin-bottom: 2rem;
-    border: 1px solid var(--card-border);
     background: rgba(0, 0, 0, 0.2);
     display: none;
 }
