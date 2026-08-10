@@ -841,11 +841,55 @@ nav {
     box-shadow: -20px 0 60px rgba(0, 0, 0, 0.5);
     display: flex;
     flex-direction: column;
-    transition: right 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    /* 彈出速度調慢：從原本的 0.5s 改為 0.8s (手機版慢一倍) */
+    transition: right 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .drawer.active {
     right: 0;
+}
+
+/* 兩欄式佈局樣式（預設單欄以相容手機版） */
+.drawer-two-columns {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.drawer-left-column, .drawer-right-column {
+    width: 100%;
+}
+
+/* 電腦版大螢幕優化 (左圖右文、更寬的空間) */
+@media (min-width: 951px) {
+    .drawer {
+        max-width: 80rem; /* 大幅拓寬電腦版展示空間 */
+        /* 電腦版彈出速度保持優雅 */
+        transition: right 1s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    
+    .drawer-two-columns {
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 3.5rem;
+    }
+    
+    /* 左側大圖佔 48%，右側文字佔 52% */
+    .drawer-left-column {
+        width: 48%;
+        position: sticky;
+        top: 0;
+    }
+    
+    .drawer-right-column {
+        width: 52%;
+    }
+    
+    /* 大幅放大電腦版圖片比例 */
+    .drawer-image-wrapper {
+        aspect-ratio: 16 / 10 !important;
+        border-radius: 20px !important;
+    }
 }
 
 .drawer-header {
