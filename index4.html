@@ -12,8 +12,8 @@
         grid-template-columns: 1fr 1.2fr !important;
         gap: 3.5rem !important;
     }
-
-    /* 方案三：集合心跳（3D懸浮心跳節奏重複2-3次）與流光來回穿梭（左上到右下，停留，右下到左上，停留，重複2-3次）的加強版 */
+    
+    /* 方案四：心跳節奏由大變小時同步觸發流光穿梭（第一次左上到右下，第二次右下到左上，跑完兩次後停止） */
     .hero-image-card {
         position: relative;
         transform: scale(1);
@@ -42,55 +42,48 @@
         box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.75), 
                     0 0 45px rgba(251, 191, 36, 0.25);
         z-index: 10;
-        /* 觸發同步的 3D 懸浮心跳動畫，重複 3 次 */
-        animation: heartbeat3d-sync 3.5s ease-in-out 3;
-        transform: perspective(1000px) translateY(-8px) rotateX(2deg) rotateY(-2deg) scale(1.02); /* 動畫結束後的落點 */
+        /* 觸發兩次心跳動畫，只執行 1 次即結束 */
+        animation: heartbeat-double 2.4s ease-in-out 1 forwards;
     }
     .hero-image-card:hover::after {
-        /* 觸發來回穿梭流光動畫，重複 3 次 */
-        animation: shimmer-sweep 3.5s ease-in-out 3;
+        /* 觸發兩次流光動畫，只執行 1 次即結束 */
+        animation: shimmer-double 2.4s ease-in-out 1 forwards;
     }
     .hero-image-card:hover .hero-image {
         transform: scale(1); /* 覆寫 style.css 的 hover 效果 */
     }
 
-    /* 3D 懸浮心跳動畫配合流光來回節奏 */
-    @keyframes heartbeat3d-sync {
-        /* 起步：平滑浮起並微幅向右上方傾斜 */
-        0% { transform: perspective(1000px) translateY(0) rotateX(0deg) rotateY(0deg) scale(1); }
-        
-        /* 第一次心跳脈動 (配合左上到右下的流光) */
-        10% { transform: perspective(1000px) translateY(-6px) rotateX(1.5deg) rotateY(-1.5deg) scale(0.97); }
-        20% { transform: perspective(1000px) translateY(-10px) rotateX(2.5deg) rotateY(-2.5deg) scale(1.03); }
-        30% { transform: perspective(1000px) translateY(-7px) rotateX(1.8deg) rotateY(-1.8deg) scale(0.98); }
-        40% { transform: perspective(1000px) translateY(-8px) rotateX(2deg) rotateY(-2deg) scale(1.02); }
-        
-        /* 停留等待期 (配合流光在右側停留) */
-        50% { transform: perspective(1000px) translateY(-8px) rotateX(2deg) rotateY(-2deg) scale(1.02); }
-        
-        /* 第二次心跳脈動 (配合右下到左上的流光) */
-        60% { transform: perspective(1000px) translateY(-6px) rotateX(1.5deg) rotateY(-1.5deg) scale(0.97); }
-        70% { transform: perspective(1000px) translateY(-10px) rotateX(2.5deg) rotateY(-2.5deg) scale(1.03); }
-        80% { transform: perspective(1000px) translateY(-7px) rotateX(1.8deg) rotateY(-1.8deg) scale(0.98); }
-        90% { transform: perspective(1000px) translateY(-8px) rotateX(2deg) rotateY(-2deg) scale(1.02); }
-        
-        /* 停留等待期 (配合流光在左側停留) */
-        100% { transform: perspective(1000px) translateY(-8px) rotateX(2deg) rotateY(-2deg) scale(1.02); }
+    /* 兩次心跳動畫 (每次心跳節奏比照 index1 的 1.2秒，共 2.4 秒) */
+    @keyframes heartbeat-double {
+        /* 第一次心跳 (0s ~ 1.2s，當 0% 開始縮小時流光同步啟動) */
+        0% { transform: scale(1); }
+        7% { transform: scale(0.97); }    /* 0.0s ~ 0.17s 縮小 */
+        14% { transform: scale(1.03); }   /* 0.34s 放大 */
+        21% { transform: scale(0.98); }   /* 0.50s 縮小 */
+        35% { transform: scale(1.02); }   /* 0.84s 放大 */
+        50% { transform: scale(1); }      /* 1.20s 回彈 */
+
+        /* 第二次心跳 (1.2s ~ 2.4s，當 50% 開始縮小時流光同步啟動) */
+        57% { transform: scale(0.97); }   /* 1.37s 縮小 */
+        64% { transform: scale(1.03); }   /* 1.54s 放大 */
+        71% { transform: scale(0.98); }   /* 1.70s 縮小 */
+        85% { transform: scale(1.02); }   /* 2.04s 放大 */
+        100% { transform: scale(1); }     /* 2.40s 結束並停留在 100% 原始尺寸 */
     }
 
-    /* 流光來回穿梭與停留動畫 */
-    @keyframes shimmer-sweep {
-        /* 1. 從左上到右下 */
+    /* 兩次流光動畫 (與心跳縮小點同步啟動) */
+    @keyframes shimmer-double {
+        /* 第一次心跳流光：左上到右下 (0.0s ~ 0.8s) */
         0% { left: -150%; }
-        30% { left: 150%; }
+        33% { left: 150%; }
         
-        /* 2. 在右側停留等待 */
+        /* 在右側停留等待，直到第二次心跳縮小啟動 (0.8s ~ 1.2s) */
         50% { left: 150%; }
         
-        /* 3. 從右下到左上 */
-        80% { left: -150%; }
+        /* 第二次心跳流光：右下到左上 (1.2s ~ 2.0s) */
+        83% { left: -150%; }
         
-        /* 4. 在左側停留等待 */
+        /* 在左側停留等待結束 (2.0s ~ 2.4s) */
         100% { left: -150%; }
     }
     </style>
