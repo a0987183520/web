@@ -80,6 +80,55 @@
         /* 在左側停留等待結束 (1.08s ~ 1.20s) */
         100% { left: -150%; }
     }
+
+    /* 資歷背景區塊樣式 - 採主背景色與 Contact 交替 */
+    .experience-section {
+        padding: 90px 0;
+        background-color: var(--bg-primary);
+        transition: background-color 0.4s ease;
+    }
+    .experience-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 2rem;
+    }
+    .experience-card {
+        border-radius: 24px;
+        padding: 2.8rem 2rem;
+        transition: var(--transition-smooth);
+    }
+    .experience-card:hover {
+        transform: translateY(-6px);
+        border-color: var(--accent-primary);
+        box-shadow: 0 20px 40px -15px var(--accent-primary-glow);
+    }
+    .experience-icon {
+        width: 52px;
+        height: 52px;
+        border-radius: 14px;
+        background: var(--accent-primary-glow);
+        color: var(--accent-primary);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1.5rem;
+    }
+    .experience-icon svg {
+        width: 24px;
+        height: 24px;
+        fill: none;
+        stroke: currentColor;
+        stroke-width: 2;
+    }
+    .experience-card h3 {
+        margin-bottom: 0.8rem;
+        font-size: 1.3rem;
+    }
+    .experience-card p {
+        color: var(--text-secondary);
+        font-size: 0.92rem;
+        line-height: 1.6;
+    }
     </style>
 </head>
 <body>
@@ -131,21 +180,34 @@
                     舊活動會持續　新活動將加入<br>
                     讓公園飄揚著音樂　讓你的意見能被聽見
                 </p>
-                <div class="hero-meta-skills reveal">
-                    <div class="badge-row">
-                        <span class="skill-badge">30年科技背景</span>
-                        <span class="skill-badge">20年音樂產業</span>
-                    </div>
-                    <div class="badge-row">
-                        <span class="skill-badge">10年社區治理</span>
-                        <span class="skill-badge">8年ＥＱ講師</span>
-                    </div>
-                </div>
             </div>
             <div class="hero-image-area reveal-right">
                 <div class="hero-image-card glass">
                     <img src="images/hero_vision.png" alt="明德里 2.0 社區願景" class="hero-image">
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Policies Section -->
+    <section class="policies-section" id="policies-section">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2>政策與建設計畫白皮書</h2>
+                <p>首頁僅展示計畫精華。您可以點擊任何一個計畫，在側邊欄閱讀包含「我會怎麼做」、「優勢與執行限制」等詳盡白皮書條文。</p>
+            </div>
+
+            <!-- Filter Controls -->
+            <div class="filter-controls reveal" id="filter-controls">
+                <button class="filter-btn active" data-filter="all">全部計畫</button>
+                <button class="filter-btn" data-filter="education">生活美學與未來教育</button>
+                <button class="filter-btn" data-filter="governance">專業治理與精準服務</button>
+                <button class="filter-btn" data-filter="democracy">空間活化與生活民主</button>
+            </div>
+
+            <!-- Policy Cards Grid -->
+            <div class="policies-grid" id="policies-grid">
+                <!-- Injected dynamically by main.js -->
             </div>
         </div>
     </section>
@@ -194,28 +256,6 @@
         </div>
     </section>
 
-    <!-- Policies Section -->
-    <section class="policies-section" id="policies-section">
-        <div class="container">
-            <div class="section-header reveal">
-                <h2>政策與建設計畫白皮書</h2>
-                <p>首頁僅展示計畫精華。您可以點擊任何一個計畫，在側邊欄閱讀包含「我會怎麼做」、「優勢與執行限制」等詳盡白皮書條文。</p>
-            </div>
-
-            <!-- Filter Controls -->
-            <div class="filter-controls reveal" id="filter-controls">
-                <button class="filter-btn active" data-filter="all">全部計畫</button>
-                <button class="filter-btn" data-filter="education">生活美學與未來教育</button>
-                <button class="filter-btn" data-filter="governance">專業治理與精準服務</button>
-                <button class="filter-btn" data-filter="democracy">空間活化與生活民主</button>
-            </div>
-
-            <!-- Policy Cards Grid -->
-            <div class="policies-grid" id="policies-grid">
-                <!-- Injected dynamically by main.js -->
-            </div>
-        </div>
-    </section>
 
     <!-- Common Promises Section -->
     <section class="promises-section" id="promises-section">
@@ -324,6 +364,50 @@
                         </div>
                         <button type="submit" class="submit-btn">送出意見回饋</button>
                     </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section (資歷背景) -->
+    <section class="experience-section" id="experience-section">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2>專業候選人資歷背景</h2>
+                <p>結合科技產業、人文藝術、情緒教育與基層治理經驗，用經理人思維全面革新明德里。</p>
+            </div>
+            <div class="experience-grid">
+                <!-- Card 1 -->
+                <div class="experience-card glass reveal">
+                    <div class="experience-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect><rect x="9" y="9" width="6" height="6"></rect><line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line><line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line><line x1="20" y1="9" x2="23" y2="9"></line><line x1="20" y1="15" x2="23" y2="15"></line><line x1="1" y1="9" x2="4" y2="9"></line><line x1="1" y1="15" x2="4" y2="15"></line></svg>
+                    </div>
+                    <h3>30年科技背景</h3>
+                    <p>具備 30 年科技產業與專案管理資歷，以系統化思維導入「智慧里政」，推動里區報修與服務數位化，讓里政運作科學、透明且高效率。</p>
+                </div>
+                <!-- Card 2 -->
+                <div class="experience-card glass reveal">
+                    <div class="experience-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"></path><circle cx="6" cy="18" r="3"></circle><circle cx="18" cy="16" r="3"></circle></svg>
+                    </div>
+                    <h3>20年音樂產業</h3>
+                    <p>深耕音樂與文創產業 20 年，具備大型文藝活動策劃與跨界資源串接能力。未來將開創「草地音樂節」，用音符點綴社區生活。</p>
+                </div>
+                <!-- Card 3 -->
+                <div class="experience-card glass reveal">
+                    <div class="experience-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                    </div>
+                    <h3>10年社區治理</h3>
+                    <p>投入明德里地方公共事務與基層服務達 10 年，深切了解在地巷弄問題與居民心聲，善於協調溝通並積極爭取外部預算資源。</p>
+                </div>
+                <!-- Card 4 -->
+                <div class="experience-card glass reveal">
+                    <div class="experience-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                    </div>
+                    <h3>8年ＥＱ講師</h3>
+                    <p>擁有 8 年專業情緒教育與溝通講師背景。深信社區的核心在於「人」，將推動全齡情緒課程，建立溫暖且和諧的鄰里關係。</p>
                 </div>
             </div>
         </div>
