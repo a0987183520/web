@@ -7,10 +7,12 @@
     <meta name="description" content="明德里里長候選人官方網站：具備30年科技背景、20年音樂產業、10年社區治理與8年EQ情緒講師經驗的「專業經理人型里長」。推動智慧里政、全齡EQ情緒課程、草地音樂節，用專案管理思維活化公共空間、爭取外部資源。">
     <link rel="stylesheet" href="css/style.css">
     <style>
-    /* 調整主版面兩欄比例與間距，使預設呈現如附件的大尺寸與高清晰度 */
-    .hero-container {
-        grid-template-columns: 1fr 1.2fr !important;
-        gap: 3.5rem !important;
+    /* 調整主版面兩欄比例與間距，僅在桌機版生效以確保手機版正常響應式排版 */
+    @media (min-width: 951px) {
+        .hero-container {
+            grid-template-columns: 1fr 1.2fr !important;
+            gap: 3.5rem !important;
+        }
     }
     
     /* 方案四：心跳節奏由大變小時同步觸發流光穿梭（第一次左上到右下，第二次右下到左上，跑完兩次後停止） */
