@@ -6,6 +6,79 @@
     <title>明德里 2.0 ✕ 專業經理人里長候選人 | 競選官方白皮書網站</title>
     <meta name="description" content="明德里里長候選人官方網站：具備30年科技背景、20年音樂產業、10年社區治理與8年EQ情緒講師經驗的「專業經理人型里長」。推動智慧里政、全齡EQ情緒課程、草地音樂節，用專案管理思維活化公共空間、爭取外部資源。">
     <link rel="stylesheet" href="css/style.css">
+    <style>
+    /* 調整主版面兩欄比例與間距，使預設呈現如附件的大尺寸與高清晰度 */
+    .hero-container {
+        grid-template-columns: 1fr 1.2fr !important;
+        gap: 3.5rem !important;
+    }
+    
+    /* 方案四：心跳節奏由大變小時同步觸發流光穿梭（第一次左上到右下，第二次右下到左上，跑完兩次後停止） */
+    .hero-image-card {
+        position: relative;
+        transform: scale(1);
+        transition: border-color 0.5s ease, box-shadow 0.5s ease;
+    }
+    /* 流光遮罩 */
+    .hero-image-card::after {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -150%;
+        width: 60%;
+        height: 200%;
+        background: linear-gradient(
+            90deg,
+            rgba(255, 255, 255, 0) 0%,
+            rgba(255, 255, 255, 0.25) 50%,
+            rgba(255, 255, 255, 0) 100%
+        );
+        transform: skewX(-25deg);
+        z-index: 3;
+        pointer-events: none;
+    }
+    .hero-image-card:hover {
+        border-color: rgba(251, 191, 36, 0.35);
+        box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.75), 
+                    0 0 45px rgba(251, 191, 36, 0.25);
+        z-index: 10;
+        /* 觸發單次心跳動畫 (1.2s)，只執行 1 次即結束 */
+        animation: heartbeat-once 1.2s ease-in-out 1 forwards;
+    }
+    .hero-image-card:hover::after {
+        /* 觸發兩次半心跳流光動畫 (1.2s)，只執行 1 次即結束 */
+        animation: shimmer-half 1.2s ease-in-out 1 forwards;
+    }
+    .hero-image-card:hover .hero-image {
+        transform: scale(1); /* 覆寫 style.css 的 hover 效果 */
+    }
+
+    /* 單次心跳動畫 (共 1.2 秒) */
+    @keyframes heartbeat-once {
+        0% { transform: scale(1); }
+        14% { transform: scale(0.97); }    /* 0.0s ~ 0.17s 縮小 */
+        28% { transform: scale(1.03); }   /* 0.34s 放大 */
+        42% { transform: scale(0.98); }   /* 0.50s 縮小 */
+        70% { transform: scale(1.02); }   /* 0.84s 放大 */
+        100% { transform: scale(1); }     /* 1.20s 回彈結束並停留在原尺寸 */
+    }
+
+    /* 每半個心跳光影跑一次的動畫 (共 1.2 秒) */
+    @keyframes shimmer-half {
+        /* 第一個半心跳流光：左上到右下 (0.0s ~ 0.48s) */
+        0% { left: -150%; }
+        40% { left: 150%; }
+        
+        /* 在右側微停等待第二個半心跳 (0.48s ~ 0.60s) */
+        50% { left: 150%; }
+        
+        /* 第二個半心跳流光：右下到左上 (0.60s ~ 1.08s) */
+        90% { left: -150%; }
+        
+        /* 在左側停留等待結束 (1.08s ~ 1.20s) */
+        100% { left: -150%; }
+    }
+    </style>
 </head>
 <body>
 
