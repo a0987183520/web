@@ -42,48 +42,40 @@
         box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.75), 
                     0 0 45px rgba(251, 191, 36, 0.25);
         z-index: 10;
-        /* 觸發兩次心跳動畫，只執行 1 次即結束 */
-        animation: heartbeat-double 2.4s ease-in-out 1 forwards;
+        /* 觸發單次心跳動畫 (1.2s)，只執行 1 次即結束 */
+        animation: heartbeat-once 1.2s ease-in-out 1 forwards;
     }
     .hero-image-card:hover::after {
-        /* 觸發兩次流光動畫，只執行 1 次即結束 */
-        animation: shimmer-double 2.4s ease-in-out 1 forwards;
+        /* 觸發兩次半心跳流光動畫 (1.2s)，只執行 1 次即結束 */
+        animation: shimmer-half 1.2s ease-in-out 1 forwards;
     }
     .hero-image-card:hover .hero-image {
         transform: scale(1); /* 覆寫 style.css 的 hover 效果 */
     }
 
-    /* 兩次心跳動畫 (每次心跳節奏比照 index1 的 1.2秒，共 2.4 秒) */
-    @keyframes heartbeat-double {
-        /* 第一次心跳 (0s ~ 1.2s，當 0% 開始縮小時流光同步啟動) */
+    /* 單次心跳動畫 (共 1.2 秒) */
+    @keyframes heartbeat-once {
         0% { transform: scale(1); }
-        7% { transform: scale(0.97); }    /* 0.0s ~ 0.17s 縮小 */
-        14% { transform: scale(1.03); }   /* 0.34s 放大 */
-        21% { transform: scale(0.98); }   /* 0.50s 縮小 */
-        35% { transform: scale(1.02); }   /* 0.84s 放大 */
-        50% { transform: scale(1); }      /* 1.20s 回彈 */
-
-        /* 第二次心跳 (1.2s ~ 2.4s，當 50% 開始縮小時流光同步啟動) */
-        57% { transform: scale(0.97); }   /* 1.37s 縮小 */
-        64% { transform: scale(1.03); }   /* 1.54s 放大 */
-        71% { transform: scale(0.98); }   /* 1.70s 縮小 */
-        85% { transform: scale(1.02); }   /* 2.04s 放大 */
-        100% { transform: scale(1); }     /* 2.40s 結束並停留在 100% 原始尺寸 */
+        14% { transform: scale(0.97); }    /* 0.0s ~ 0.17s 縮小 */
+        28% { transform: scale(1.03); }   /* 0.34s 放大 */
+        42% { transform: scale(0.98); }   /* 0.50s 縮小 */
+        70% { transform: scale(1.02); }   /* 0.84s 放大 */
+        100% { transform: scale(1); }     /* 1.20s 回彈結束並停留在原尺寸 */
     }
 
-    /* 兩次流光動畫 (與心跳縮小點同步啟動) */
-    @keyframes shimmer-double {
-        /* 第一次心跳流光：左上到右下 (0.0s ~ 0.8s) */
+    /* 每半個心跳光影跑一次的動畫 (共 1.2 秒) */
+    @keyframes shimmer-half {
+        /* 第一個半心跳流光：左上到右下 (0.0s ~ 0.48s) */
         0% { left: -150%; }
-        33% { left: 150%; }
+        40% { left: 150%; }
         
-        /* 在右側停留等待，直到第二次心跳縮小啟動 (0.8s ~ 1.2s) */
+        /* 在右側微停等待第二個半心跳 (0.48s ~ 0.60s) */
         50% { left: 150%; }
         
-        /* 第二次心跳流光：右下到左上 (1.2s ~ 2.0s) */
-        83% { left: -150%; }
+        /* 第二個半心跳流光：右下到左上 (0.60s ~ 1.08s) */
+        90% { left: -150%; }
         
-        /* 在左側停留等待結束 (2.0s ~ 2.4s) */
+        /* 在左側停留等待結束 (1.08s ~ 1.20s) */
         100% { left: -150%; }
     }
     </style>
