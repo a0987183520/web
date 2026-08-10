@@ -22,7 +22,7 @@ const POLICIES_DATA = [
         id: 2,
         category: "education",
         categoryName: "生活美學與未來教育",
-        title: "全齡 EQ 成長課程",
+        title: "EQ 教育課程",
         subtitle: "讓情緒教育成為家庭的日常支持",
         image: "images/policy_02_eq.png",
         highlight: "提供涵蓋孩子、家長、青壯年與長者都能參與的情緒管理與同理溝通課程，以生活化情緒教育提升家庭和諧。",
