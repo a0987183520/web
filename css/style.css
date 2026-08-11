@@ -48,7 +48,6 @@
 html {
     scroll-behavior: smooth;
     font-size: 16px;
-    scroll-snap-type: y proximity;
 }
 
 body {
@@ -560,9 +559,6 @@ nav {
     overflow: hidden;
     transition: var(--transition-smooth);
     border: 1px solid rgba(255, 255, 255, 0.15) !important;
-    scroll-snap-align: start;
-    scroll-snap-stop: normal;
-    scroll-margin-top: 100px;
 }
 
 [data-theme="light"] .policy-card {
