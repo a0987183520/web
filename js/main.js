@@ -292,8 +292,8 @@ function openDrawer(policyId) {
                     <input type="range" min="0" max="100" value="50" class="slider-range" id="slider-range" aria-label="Before/After 拖拽滑動條">
                     <div class="slider-line" id="slider-line"></div>
                     <div class="slider-button" id="slider-button"></div>
-                    <span class="slider-label slider-label-before">現況反映</span>
-                    <span class="slider-label slider-label-after">未來願景</span>
+                    <span class="slider-label slider-label-before">未來願景</span>
+                    <span class="slider-label slider-label-after">現況反映</span>
                 </div>
             `;
             // Add event listener to range input to handle clip-path and button/line position
