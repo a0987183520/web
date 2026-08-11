@@ -100,7 +100,7 @@ const POLICIES_DATA = [
         categoryName: "空間活化與生活民主",
         title: "智慧安全與友善步行",
         subtitle: "用資料追蹤真正的社區風險點",
-        image: "images/policy_06_safety.png",
+        image: "images/policy_06_safety_2.png",
         highlight: "建立居民協作的步行安全地圖，針對積水、照明死角、破損人行道等危險因子，進行數據化追蹤，現勘提案改善。",
         icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"></polygon><line x1="9" y1="3" x2="9" y2="18"></line><line x1="15" y1="6" x2="15" y2="21"></line></svg>`,
         description: "社區安全不該只是頭痛醫頭、腳痛醫腳。透過科學化的數據蒐集與里民協作，我們將路燈失靈、騎樓濕滑、人行道破損、防滑不足、反射鏡死角等步行安全危險因子繪製成「明德安全步行地圖」，讓有限的政府預算能精準花在刀口上。",
@@ -279,6 +279,41 @@ function openDrawer(policyId) {
                 <img class="drawer-image" src="images/policy_02_eq_2.png" alt="${policy.title} 概念圖二" style="margin-bottom: 1.5rem; border-radius: 12px; border: 1px solid var(--card-border);">
                 <img class="drawer-image" src="images/policy_02_eq_1.png" alt="${policy.title} 概念圖一" style="border-radius: 12px; border: 1px solid var(--card-border);">
             `;
+        } else if (policy.id === 6) {
+            drawerImgWrapper.style.display = 'block';
+            drawerImgWrapper.innerHTML = `
+                <div class="before-after-slider">
+                    <div class="slider-image-before">
+                        <img src="images/policy_06_safety_1.jpg" alt="現況：人行道破損補丁">
+                    </div>
+                    <div class="slider-image-after" id="slider-image-after">
+                        <img src="images/policy_06_safety_2.png" alt="未來：防滑平整人行道">
+                    </div>
+                    <input type="range" min="0" max="100" value="50" class="slider-range" id="slider-range" aria-label="Before/After 拖拽滑動條">
+                    <div class="slider-line" id="slider-line"></div>
+                    <div class="slider-button" id="slider-button"></div>
+                    <span class="slider-label slider-label-before">現況反映</span>
+                    <span class="slider-label slider-label-after">未來願景</span>
+                </div>
+            `;
+            // Add event listener to range input to handle clip-path and button/line position
+            const range = document.getElementById('slider-range');
+            const afterImage = document.getElementById('slider-image-after');
+            const line = document.getElementById('slider-line');
+            const button = document.getElementById('slider-button');
+            
+            const updateSlider = () => {
+                const value = range.value;
+                afterImage.style.clipPath = `polygon(0 0, ${value}% 0, ${value}% 100%, 0 100%)`;
+                line.style.left = `${value}%`;
+                button.style.left = `${value}%`;
+            };
+            
+            range.addEventListener('input', updateSlider);
+            range.addEventListener('change', updateSlider);
+            
+            // Set initial position
+            updateSlider();
         } else {
             // 其餘一般計畫渲染單張圖
             drawerImgWrapper.innerHTML = `
