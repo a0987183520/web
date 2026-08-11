@@ -402,3 +402,60 @@ if (fbForm) {
 // Initial Render and setup
 renderPolicies();
 observeRevealElements();
+initSmartSnap();
+
+// Smart Scroll Alignment
+function initSmartSnap() {
+    let isScrollingTimer = null;
+    let isUserInteracting = false;
+
+    // Track user touch interactions
+    window.addEventListener('touchstart', () => { isUserInteracting = true; }, { passive: true });
+    window.addEventListener('touchend', () => { isUserInteracting = false; }, { passive: true });
+
+    window.addEventListener('scroll', () => {
+        clearTimeout(isScrollingTimer);
+
+        isScrollingTimer = setTimeout(() => {
+            // Don't snap if user is actively touching/dragging
+            if (isUserInteracting) return;
+
+            const policiesSection = document.getElementById('policies-section');
+            if (!policiesSection) return;
+
+            const sectionRect = policiesSection.getBoundingClientRect();
+            const headerOffset = 95;
+
+            // Only trigger snap if the user is inside the policies section area
+            // If user scrolled up above the section, do nothing (allows smooth scrolling to Hero)
+            if (sectionRect.top > headerOffset || sectionRect.bottom < 200) {
+                return;
+            }
+
+            const cards = Array.from(document.querySelectorAll('.policy-card'));
+            if (cards.length === 0) return;
+
+            // Find the closest card to the header alignment point
+            let closestCard = null;
+            let minDistance = Infinity;
+
+            cards.forEach(card => {
+                const rect = card.getBoundingClientRect();
+                const distance = Math.abs(rect.top - headerOffset);
+                if (distance < minDistance) {
+                    minDistance = distance;
+                    closestCard = card;
+                }
+            });
+
+            // Only snap if we are within a 140px threshold of the target card top
+            if (closestCard && minDistance > 15 && minDistance < 150) {
+                const cardTargetTop = window.scrollY + closestCard.getBoundingClientRect().top - headerOffset;
+                window.scrollTo({
+                    top: cardTargetTop,
+                    behavior: 'smooth'
+                });
+            }
+        }, 180); // 180ms debounce for natural feel
+    }, { passive: true });
+}
