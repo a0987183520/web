@@ -48,6 +48,7 @@
 html {
     scroll-behavior: smooth;
     font-size: 16px;
+    scroll-snap-type: y proximity;
 }
 
 body {
@@ -558,6 +559,20 @@ nav {
     cursor: pointer;
     overflow: hidden;
     transition: var(--transition-smooth);
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    scroll-snap-align: start;
+    scroll-snap-stop: normal;
+}
+
+[data-theme="light"] .policy-card {
+    border: 1px solid rgba(28, 25, 23, 0.12) !important;
+}
+
+.policy-card-header {
+    padding: 2.2rem 2.2rem 1.2rem 2.2rem;
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid var(--card-border);
 }
 
 .policy-card-image-wrapper {
@@ -613,7 +628,7 @@ nav {
 }
 
 .policy-card-body {
-    padding: 2.2rem;
+    padding: 1.6rem 2.2rem 2.2rem 2.2rem;
     display: flex;
     flex-direction: column;
     flex-grow: 1;
@@ -626,7 +641,7 @@ nav {
 
 .policy-card:hover {
     transform: translateY(-8px);
-    border-color: rgba(251, 191, 36, 0.3);
+    border-color: rgba(251, 191, 36, 0.5) !important;
     box-shadow: 0 25px 50px -15px rgba(0, 0, 0, 0.4);
 }
 
@@ -635,13 +650,13 @@ nav {
     font-weight: 700;
     color: var(--accent-primary);
     text-transform: uppercase;
-    margin-bottom: 0.8rem;
+    margin-bottom: 0.5rem;
     letter-spacing: 0.05em;
 }
 
 .policy-card h3 {
     font-size: 1.45rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0;
     transition: var(--transition-smooth);
 }
 
@@ -1218,6 +1233,9 @@ footer {
     }
     .feedback-form {
         padding: 1.8rem;
+    }
+    .policies-grid {
+        gap: 2.8rem;
     }
 }
 

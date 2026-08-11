@@ -213,6 +213,10 @@ function renderPolicies(filterCategory = 'all') {
         card.className = 'policy-card glass reveal'; // Added 'reveal' to trigger scroll animation
         card.dataset.id = policy.id;
         card.innerHTML = `
+            <div class="policy-card-header">
+                <span class="policy-number">計畫 0${policy.id}</span>
+                <h3>${policy.title}</h3>
+            </div>
             <div class="policy-card-image-wrapper">
                 <img class="policy-card-image" src="${policy.image}" alt="${policy.title}" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                 <div class="policy-card-image-placeholder" style="display: none;">
@@ -221,9 +225,6 @@ function renderPolicies(filterCategory = 'all') {
                 </div>
             </div>
             <div class="policy-card-body">
-                <span class="policy-number">計畫 0${policy.id}</span>
-                <div class="value-icon-inline">${policy.icon}</div>
-                <h3>${policy.title}</h3>
                 <p class="policy-highlight">${policy.highlight}</p>
                 <div class="policy-card-footer">
                     <span class="policy-category">${policy.categoryName}</span>
