@@ -275,6 +275,7 @@ function openDrawer(policyId) {
         if (policy.id === 2) {
             drawerImgWrapper.style.display = 'block';
             drawerImgWrapper.innerHTML = `
+                <img class="drawer-image" src="images/policy_02_eq_3.png" alt="${policy.title} 概念圖三" style="margin-bottom: 1.5rem; border-radius: 12px; border: 1px solid var(--card-border);">
                 <img class="drawer-image" src="images/policy_02_eq_2.png" alt="${policy.title} 概念圖二" style="margin-bottom: 1.5rem; border-radius: 12px; border: 1px solid var(--card-border);">
                 <img class="drawer-image" src="images/policy_02_eq_1.png" alt="${policy.title} 概念圖一" style="border-radius: 12px; border: 1px solid var(--card-border);">
             `;
