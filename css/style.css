@@ -1518,4 +1518,127 @@ footer {
     transform: translate3d(0, 0, 0);
 }
 
+/* ==========================================================================
+   首創標章 & 極簡單行頁尾 CC BY-ND 規範樣式
+   ========================================================================== */
+
+.innovative-badge-wrap {
+    margin: 0.8rem 0 1.2rem 0;
+    display: flex;
+    justify-content: center;
+}
+
+.badge-innovative {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.35rem 1rem;
+    background: linear-gradient(135deg, rgba(251, 191, 36, 0.15) 0%, rgba(245, 158, 11, 0.08) 100%);
+    border: 1px solid rgba(251, 191, 36, 0.35);
+    border-radius: 50px;
+    color: #fbbf24;
+    font-size: 0.88rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    box-shadow: 0 4px 15px rgba(251, 191, 36, 0.12);
+    backdrop-filter: blur(8px);
+}
+
+.badge-innovative-sm {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.2rem 0.65rem;
+    background: rgba(251, 191, 36, 0.12);
+    border: 1px solid rgba(251, 191, 36, 0.3);
+    border-radius: 20px;
+    color: #fbbf24;
+    font-size: 0.78rem;
+    font-weight: 600;
+    line-height: 1;
+}
+
+.pulse-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: #fbbf24;
+    box-shadow: 0 0 8px #fbbf24;
+    animation: pulse-glow 1.8s infinite ease-in-out;
+}
+
+@keyframes pulse-glow {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.4);
+        opacity: 0.5;
+    }
+}
+
+.copyright-single-line {
+    font-size: 0.92rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    letter-spacing: 0.01em;
+    padding-top: 1.2rem;
+    border-top: 1px solid var(--card-border);
+}
+
+.cc-badge-link {
+    position: relative;
+    display: inline-block;
+    padding: 0.15rem 0.5rem;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 6px;
+    color: var(--text-primary);
+    font-weight: 600;
+    cursor: help;
+    transition: var(--transition-smooth);
+}
+
+.cc-badge-link:hover,
+.cc-badge-link:focus {
+    background: rgba(251, 191, 36, 0.2);
+    border-color: #fbbf24;
+    color: #fbbf24;
+}
+
+/* Tooltip Popup for CC BY-ND 4.0 */
+.cc-badge-link::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 135%;
+    left: 50%;
+    transform: translateX(-50%) translateY(5px);
+    width: 260px;
+    padding: 0.75rem 0.9rem;
+    background: rgba(15, 23, 42, 0.96);
+    border: 1px solid rgba(251, 191, 36, 0.4);
+    border-radius: 8px;
+    color: #e2e8f0;
+    font-size: 0.82rem;
+    font-weight: 400;
+    line-height: 1.5;
+    text-align: left;
+    white-space: normal;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
+    z-index: 100;
+}
+
+.cc-badge-link:hover::after,
+.cc-badge-link:focus::after {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+
 

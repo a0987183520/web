@@ -320,7 +320,10 @@ function renderPolicies() {
         card.dataset.index = index;
         card.innerHTML = `
             <div class="policy-card-header">
-                <span class="policy-number">計畫 ${policy.id < 10 ? '0' + policy.id : policy.id}</span>
+                <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; margin-bottom: 0.4rem;">
+                    <span class="policy-number">計畫 ${policy.id < 10 ? '0' + policy.id : policy.id}</span>
+                    <span class="badge-innovative-sm"><span class="pulse-dot"></span>首創</span>
+                </div>
                 <h3>${policy.title}</h3>
             </div>
             <div class="policy-card-image-wrapper">
@@ -358,7 +361,7 @@ function openDrawer(policyId) {
 
     // Populate drawer elements
     const formattedNum = policy.id < 10 ? `0${policy.id}` : policy.id;
-    document.getElementById('drawer-number').textContent = `計畫 ${formattedNum}`;
+    document.getElementById('drawer-number').innerHTML = `計畫 ${formattedNum} <span class="badge-innovative-sm" style="margin-left: 0.5rem;"><span class="pulse-dot"></span>本里首創 ‧ 獨家政見</span>`;
     document.getElementById('drawer-title').textContent = policy.title;
     document.getElementById('drawer-description').textContent = policy.description;
 
