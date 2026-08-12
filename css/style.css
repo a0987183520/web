@@ -463,8 +463,9 @@ nav {
 }
 
 .section-header h2 {
-    font-size: 2.4rem;
+    font-size: clamp(1.4rem, 5.5vw, 2.4rem);
     margin-bottom: 1.2rem;
+    word-break: keep-all;
 }
 
 .section-header p {

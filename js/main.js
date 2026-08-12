@@ -1,12 +1,10 @@
 const POLICIES_DATA = [
     {
         id: 1,
-        category: "education",
-        categoryName: "生活美學與未來教育",
         title: "草地音樂節",
         subtitle: "讓公園成為跨世代的生活舞台",
         image: "images/policy_01_music.png",
-        highlight: "善用明德市民活動中心旁的公園草地，透過專業策展、資源整合與居民參與，打造散步就能抵達的草地音樂活動。",
+        highlight: "善用明德活動中心旁的公園草地，透過專業策展經驗整合街頭藝人資源，打造散步就能抵達的草地音樂節。",
         icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"></path><circle cx="6" cy="18" r="3"></circle><circle cx="18" cy="16" r="3"></circle></svg>`,
         description: "我們希望善用明德市民活動中心旁的公園綠地，在春秋兩季的假日，規劃結合音樂、休閒與社區互動的草地音樂節。這不是耗資百萬的政客宣傳秀，而是串接在地資源、讓孩子奔跑、家長放鬆、長者同樂的常態性美學角落。",
         howToDo: [
@@ -20,12 +18,10 @@ const POLICIES_DATA = [
     },
     {
         id: 2,
-        category: "education",
-        categoryName: "生活美學與未來教育",
         title: "EQ 教育課程",
         subtitle: "讓情緒教育成為家庭的日常支持",
         image: "images/policy_02_eq_1.png",
-        highlight: "提供涵蓋孩子、家長、青壯年與長者都能參與的情緒管理與同理溝通課程，以生活化情緒教育提升家庭和諧。",
+        highlight: "提供涵蓋孩子、家長與長者都能參與的情緒管理課程，陪伴大家了解情緒、覺察委屈、避免遷怒、遠離霸凌。",
         icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a5 5 0 1 0 10 0v-2H12z"></path><path d="M12 10a8 8 0 1 0 8 8v-8H12z"></path><circle cx="12" cy="12" r="10"></circle><path d="M8 14s1.5 2 4 2 4-2 4-2"></path><line x1="9" y1="9" x2="9.01" y2="9"></line><line x1="15" y1="9" x2="15.01" y2="9"></line></svg>`,
         description: "情緒管理、親子溝通與人際互動是人生的終身課題。我們希望以輕鬆、實用且系統化的 EQ 成長課程，在社區活動中心搭建情緒共學平台，增進家庭與鄰里的跨世代同理與和諧。",
         howToDo: [
@@ -39,12 +35,10 @@ const POLICIES_DATA = [
     },
     {
         id: 3,
-        category: "education",
-        categoryName: "生活美學與未來教育",
         title: "無人機與 AI 未來體驗營",
         subtitle: "讓科技變成孩子看得見的可能",
         image: "images/policy_03_tech.png",
-        highlight: "為里內家庭提供安全的無人機飛行體驗、AI 影像與寫作創作坊，協助家長用 AI 輔助孩子提升自主學習力。",
+        highlight: "為里內家庭提供安全的無人機與 AI 體驗課。無人機是未來趨勢，大人、小孩到長輩都適合學習，全面提升手腦協調與科技視野。",
         icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>`,
         description: "科技發展日新月異，我們不希望里內的孩子只能透過網路螢幕被動觀看。透過建立高安全性、有人引導的科技實作體驗，讓明德里的孩子在日常中就能啟發科學探索的興趣，掌握未來 AI 世代的必備工具。",
         howToDo: [
@@ -154,20 +148,19 @@ const POLICIES_DATA = [
         id: 9,
         category: "culture",
         categoryName: "空間活化與美學生活",
-        title: "全齡多元活動中心與幸福寵物空間",
-        subtitle: "活化公共設施夜間與假日使用　打造寵物友善社區",
-        image: "images/policy_09_pet.png",
-        highlight: "活化活動中心空間成立全齡共學角，並於公園周邊規劃寵物撿便袋補充站與繫留設施，打造毛小孩友善空間。",
-        icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="22"></line></svg>`,
-        description: "公共空間活化遵循「增量不取代」原則！活動中心在不排擠既有銀髮共餐的前提下，開放平日晚上與假日全齡共學；同時於公園綠地周邊規劃便攜撿便袋補充站與友善牽繩繫留區，打造人與毛小孩共融的優質社區環境。",
+        title: "全齡多元活動中心",
+        subtitle: "活化公共設施夜間與假日使用　打造社區溫馨共學角落",
+        image: "images/policy_09_lounge.png",
+        highlight: "遵循增量不取代原則，開放活動中心夜間與假日空間成立全齡共學角，讓青年與長者獲得溫馨交流空間。",
+        icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>`,
+        description: "公共空間活化遵循「增量不取代」原則！活動中心在不排擠既有銀髮共餐的前提下，開放平日晚上與假日全齡共學角，提供閱讀、桌遊交流與講座場地，讓里內青壯年與學童也有舒適的公共休閒空間。",
         howToDo: [
             "建置公開透明的活動中心夜間與假日共學課表，提供桌遊、閱讀與音樂交流。",
-            "於里內公園適當地點爭取設置「寵物便攜袋補充站」與清掃工具箱，引導飼主自主維護環境。",
-            "舉辦「毛小孩健康與行為學講座」，邀請獸醫師與訓練師分享寵物教養經驗。",
-            "結合志工維護社區公園草地清潔，兼顧長輩孩童活動安全與寵物活動權益。"
+            "維護活動中心內部燈光與座椅設施，打造溫馨安靜的自主學習角落。",
+            "招募社區青年志工輪值服務，維持公共設施安全與現場清潔管理。"
         ],
-        whyPossible: "候選人具備 10 年社區公寓大廈管委會經驗，深諳公共空間規約管理與里民需求協調，能以最小花費落實友善設施。",
-        principles: "寵物友善設施以「環境清潔衛生與不影響他人安全」為第一原則，犬隻於公共區域活動均須依法繫繩。"
+        whyPossible: "候選人具備 10 年社區公寓大廈管委會經驗，深諳公共空間規約管理與里民需求協調，能以最小花費落實友善空間活化。",
+        principles: "活動中心活化採「增量與時段分流」原則，絕不強迫改動或排擠長輩既有的銀髮共餐與日間據點活動。"
     },
     {
         id: 10,
@@ -187,12 +180,49 @@ const POLICIES_DATA = [
         ],
         whyPossible: "候選人擁有 10 年社區大廈管委會主委與委員溝通調解實務，熟悉住宅規約與相鄰關係協調，並有競選團隊顧問律師提供專業法律見解後盾。",
         principles: "本服務定位為「私權糾紛之中立溝通輔導與法律常識諮詢」，里辦公處不具行政處罰或司法裁判權，重大糾紛仍須經由法定調解或司法途徑處理。"
+    },
+    {
+        id: 11,
+        category: "culture",
+        categoryName: "空間活化與美學生活",
+        title: "幸福寵物空間",
+        subtitle: "優化公園綠地設施　打造毛小孩友善共融社區",
+        image: "images/policy_11_pet.png",
+        highlight: "於明德公園周邊爭取規劃寵物撿便袋補充站與繫留設施，兼顧公園乾淨衛生與毛小孩活動權益。",
+        icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="22"></line></svg>`,
+        description: "明德里有許多喜愛毛小孩的寵物家庭。我們希望在公園綠地周邊爭取設立「便攜撿便袋補充站」與友善牽繩繫留區，並倡導負責任的飼主文化，讓毛小孩與長輩、孩童都能在安全的公園綠地和諧共處。",
+        howToDo: [
+            "爭取於里內公園適當地點設置「寵物便攜袋補充站」與清掃工具箱，方便飼主隨手維護環境。",
+            "規劃友善牽繩繫留角落，讓飼主在休憩時能安心固定牽繩。",
+            "舉辦「毛小孩健康與行為學講座」，邀請獸醫師與訓練師分享教養與衛教常識。",
+            "結合志工維護社區公園草地清潔，兼顧公共衛生與寵物活動權益。"
+        ],
+        whyPossible: "候選人具備 10 年社區規約管理與空間協調經驗，能尊重非養寵物里民對環境衛生的訴求，建立雙贏管理機制。",
+        principles: "寵物友善設施以「環境清潔衛生與不影響他人安全」為第一原則，犬隻於公共區域活動均須依法繫繩。"
+    },
+    {
+        id: 12,
+        category: "education",
+        categoryName: "生活美學與未來教育",
+        title: "斜槓導師徵才計畫",
+        subtitle: "發掘鄰里臥虎藏龍人才　提供斜槓跨世代展演舞台",
+        image: "images/policy_12_mentor.png",
+        highlight: "招募里內故事媽媽、EQ爸爸、手工皂、AI剪輯師、獨立樂手與熱舞導師，在活動中心開辦多元工作坊。",
+        icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>`,
+        description: "明德里臥虎藏龍，有許多具備專業才藝與熱情的斜槓人才！從說故事的故事媽媽、EQ志工爸爸、手工皂與園藝達人，到擅長 AI 影音剪輯、音樂演奏與熱舞街舞的青年導師。我們將搭建「鄰里斜槓導師庫」，讓才藝在社區發光發熱。",
+        howToDo: [
+            "建立「社區斜槓導師人才資料庫」，公開徵求具備才藝與教學熱情的里民報名。",
+            "提供活動中心免租金場地支持，協助斜槓導師試辦小班制手作、AI 影片創用或舞蹈工作坊。",
+            "結合社區節慶或草地音樂節，為斜槓導師與學生團隊舉辦跨世代成果發表展演。",
+            "建立雙向回饋評鑑機制，協助優秀社區導師對接區公所或社會局之多元才藝獎助資源。"
+        ],
+        whyPossible: "候選人擁有 20 年流行音樂產業經紀與 8 年 EQ 志工培訓背景，擅長挖掘人才天賦、規劃課程與展演舞台，能吸引豐富的斜槓導師加入。",
+        principles: "斜槓導師徵才採「自願報名與公益共享」原則，課程收費與材料費均須公開透明，絕不進行強迫推銷或商業詐騙。"
     }
 ];
 
 // DOM Elements
 const policyGrid = document.getElementById('policies-grid');
-const filterContainer = document.getElementById('filter-controls');
 const drawerBackdrop = document.getElementById('drawer-backdrop');
 const drawer = document.getElementById('drawer');
 const drawerClose = document.getElementById('drawer-close');
@@ -258,25 +288,31 @@ function updateThemeToggleIcon() {
 }
 
 // Generate Policy Cards
-function renderPolicies(filterCategory = 'all') {
+function renderPolicies() {
     policyGrid.innerHTML = '';
     
-    const filteredPolicies = filterCategory === 'all' 
-        ? POLICIES_DATA 
-        : POLICIES_DATA.filter(p => p.category === filterCategory);
-        
-    filteredPolicies.forEach((policy, index) => {
+    POLICIES_DATA.forEach((policy, index) => {
         const card = document.createElement('div');
         
-        // Dynamically compute alternating reveal animation direction
+        // Dynamically compute layout-aware reveal animation direction
         const isMobile = window.innerWidth <= 768;
         let animationClass = 'reveal-left';
         if (isMobile) {
             // Mobile single column: alternating left & right
             animationClass = (index % 2 === 0) ? 'reveal-left' : 'reveal-right';
         } else {
-            // Desktop 2-column: alternating left & right columns
-            animationClass = (index % 2 === 0) ? 'reveal-left' : 'reveal-right';
+            // Desktop 3-column grid layout:
+            // Column 0 (Left): reveal-left
+            // Column 1 (Middle): reveal-bottom
+            // Column 2 (Right): reveal-right
+            const col = index % 3;
+            if (col === 0) {
+                animationClass = 'reveal-left';
+            } else if (col === 1) {
+                animationClass = 'reveal-bottom';
+            } else {
+                animationClass = 'reveal-right';
+            }
         }
 
         card.className = `policy-card glass ${animationClass}`;
@@ -297,7 +333,6 @@ function renderPolicies(filterCategory = 'all') {
             <div class="policy-card-body">
                 <p class="policy-highlight">${policy.highlight}</p>
                 <div class="policy-card-footer">
-                    <span class="policy-category">${policy.categoryName}</span>
                     <button class="learn-more-btn">
                         深入瞭解
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -316,19 +351,6 @@ function renderPolicies(filterCategory = 'all') {
     observeRevealElements();
 }
 
-// Filter Event Delegation
-filterContainer.addEventListener('click', (e) => {
-    if (e.target.classList.contains('filter-btn')) {
-        // Toggle active button
-        document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
-        e.target.classList.add('active');
-        
-        // Render
-        const category = e.target.dataset.filter;
-        renderPolicies(category);
-    }
-});
-
 // Drawer Functions
 function openDrawer(policyId) {
     const policy = POLICIES_DATA.find(p => p.id === policyId);
@@ -336,7 +358,7 @@ function openDrawer(policyId) {
 
     // Populate drawer elements
     const formattedNum = policy.id < 10 ? `0${policy.id}` : policy.id;
-    document.getElementById('drawer-number').textContent = `計畫 ${formattedNum} ✕ ${policy.categoryName}`;
+    document.getElementById('drawer-number').textContent = `計畫 ${formattedNum}`;
     document.getElementById('drawer-title').textContent = policy.title;
     document.getElementById('drawer-description').textContent = policy.description;
 
