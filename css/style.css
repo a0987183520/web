@@ -965,8 +965,8 @@ nav {
 }
 
 .drawer-title-group .drawer-number {
-    font-size: 0.8rem;
-    font-weight: 700;
+    font-size: 1.05rem;
+    font-weight: 800;
     color: var(--accent-primary);
     text-transform: uppercase;
     letter-spacing: 0.05em;
@@ -1029,27 +1029,28 @@ nav {
 }
 
 .drawer-section h3 {
-    font-size: 1.15rem;
+    font-size: 1.32rem;
     color: var(--text-primary);
     margin-bottom: 1.2rem;
     display: flex;
     align-items: center;
     gap: 0.6rem;
     border-bottom: 1.5px solid var(--card-border);
-    padding-bottom: 0.5rem;
+    padding-bottom: 0.6rem;
 }
 
 .drawer-section h3 svg {
-    width: 18px;
-    height: 18px;
+    width: 22px;
+    height: 22px;
     fill: var(--accent-primary);
 }
 
 .drawer-section p {
-    color: var(--text-secondary);
-    font-size: 0.98rem;
+    color: var(--text-primary);
+    font-size: 1.12rem;
     white-space: pre-line;
-    line-height: 1.65;
+    line-height: 1.72;
+    letter-spacing: 0.01em;
 }
 
 .drawer-list {
@@ -1075,9 +1076,10 @@ nav {
 }
 
 .drawer-list-text {
-    color: var(--text-secondary);
-    font-size: 0.98rem;
-    line-height: 1.6;
+    color: var(--text-primary);
+    font-size: 1.1rem;
+    line-height: 1.68;
+    letter-spacing: 0.01em;
 }
 
 .drawer-alert {
@@ -1103,9 +1105,9 @@ nav {
 }
 
 .drawer-alert-text {
-    font-size: 0.88rem;
-    color: var(--text-secondary);
-    line-height: 1.6;
+    font-size: 1.02rem;
+    color: var(--text-primary);
+    line-height: 1.65;
 }
 
 /* Contact Area / Campaign Info Placeholders */
