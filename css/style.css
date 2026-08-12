@@ -210,6 +210,45 @@ nav {
     margin-left: 2px;
 }
 
+.brand-divider {
+    width: 1px;
+    height: 18px;
+    background: var(--card-border);
+    margin: 0 0.5rem;
+    display: inline-block;
+}
+
+.candidate-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    background: rgba(251, 191, 36, 0.1);
+    border: 1px solid rgba(251, 191, 36, 0.3);
+    color: var(--text-primary);
+    font-size: 0.9rem;
+    transition: var(--transition-smooth);
+}
+
+.candidate-badge:hover {
+    background: rgba(251, 191, 36, 0.18);
+    border-color: rgba(251, 191, 36, 0.5);
+}
+
+.candidate-name {
+    font-weight: 800;
+    color: var(--accent-primary);
+    letter-spacing: 0.04em;
+}
+
+.candidate-title {
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    letter-spacing: 0.02em;
+}
+
 .nav-links {
     display: flex;
     gap: 2.2rem;
@@ -1227,6 +1266,18 @@ footer {
 @media (max-width: 768px) {
     html {
         font-size: 15px;
+    }
+    .brand-divider {
+        height: 14px;
+        margin: 0 0.35rem;
+    }
+    .candidate-badge {
+        padding: 0.18rem 0.55rem;
+        font-size: 0.82rem;
+        gap: 0.25rem;
+    }
+    .candidate-title {
+        font-size: 0.68rem;
     }
     header {
         position: fixed;
