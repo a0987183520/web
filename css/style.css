@@ -509,10 +509,11 @@ nav {
 }
 
 .section-header p {
-    color: var(--text-secondary);
-    max-width: 620px;
+    color: var(--text-primary);
+    max-width: 650px;
     margin: 0 auto;
-    font-size: 1.05rem;
+    font-size: 1.12rem;
+    line-height: 1.68;
 }
 
 .values-grid {
@@ -556,9 +557,11 @@ nav {
 }
 
 .value-card p {
-    color: var(--text-secondary);
-    font-size: 0.95rem;
-    line-height: 1.6;
+    color: var(--text-primary);
+    font-size: 1.08rem;
+    font-weight: 450;
+    line-height: 1.68;
+    letter-spacing: 0.01em;
 }
 
 /* Filter Controls */
@@ -829,9 +832,11 @@ nav {
 }
 
 .promise-item p {
-    color: var(--text-secondary);
-    font-size: 0.92rem;
-    line-height: 1.6;
+    color: var(--text-primary);
+    font-size: 1.08rem;
+    font-weight: 450;
+    line-height: 1.68;
+    letter-spacing: 0.01em;
 }
 
 /* Interactive Campaign Brand Block */
