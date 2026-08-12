@@ -693,8 +693,8 @@ nav {
 }
 
 .policy-number {
-    font-size: 0.85rem;
-    font-weight: 700;
+    font-size: 1.12rem;
+    font-weight: 800;
     color: var(--accent-primary);
     text-transform: uppercase;
     margin-bottom: 0.5rem;
@@ -737,20 +737,20 @@ nav {
 }
 
 .learn-more-btn {
-    font-size: 0.85rem;
-    font-weight: 600;
+    font-size: 1.08rem;
+    font-weight: 700;
     color: var(--accent-primary);
     background: none;
     border: none;
     cursor: pointer;
     display: flex;
     align-items: center;
-    gap: 0.4rem;
+    gap: 0.45rem;
 }
 
 .learn-more-btn svg {
-    width: 14px;
-    height: 14px;
+    width: 18px;
+    height: 18px;
     fill: currentColor;
     transition: var(--transition-smooth);
 }
