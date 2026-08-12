@@ -265,10 +265,23 @@ function renderPolicies(filterCategory = 'all') {
         ? POLICIES_DATA 
         : POLICIES_DATA.filter(p => p.category === filterCategory);
         
-    filteredPolicies.forEach(policy => {
+    filteredPolicies.forEach((policy, index) => {
         const card = document.createElement('div');
-        card.className = 'policy-card glass reveal'; // Added 'reveal' to trigger scroll animation
+        
+        // Dynamically compute alternating reveal animation direction
+        const isMobile = window.innerWidth <= 768;
+        let animationClass = 'reveal-left';
+        if (isMobile) {
+            // Mobile single column: alternating left & right
+            animationClass = (index % 2 === 0) ? 'reveal-left' : 'reveal-right';
+        } else {
+            // Desktop 2-column: alternating left & right columns
+            animationClass = (index % 2 === 0) ? 'reveal-left' : 'reveal-right';
+        }
+
+        card.className = `policy-card glass ${animationClass}`;
         card.dataset.id = policy.id;
+        card.dataset.index = index;
         card.innerHTML = `
             <div class="policy-card-header">
                 <span class="policy-number">計畫 ${policy.id < 10 ? '0' + policy.id : policy.id}</span>
@@ -413,12 +426,13 @@ function closeDrawer() {
     document.body.style.overflow = ''; // Unlock main scroll
 }
 
-// IntersectionObserver Logic for Scroll Fade-in & Fade-out Reveal Animations
+// Bi-directional Scroll Observer with Scroll Direction Awareness
 let revealObserver;
+let lastScrollY = window.scrollY;
 
 function observeRevealElements() {
     // Collect all elements with reveal classes
-    const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+    const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-bottom, .reveal-top');
     
     // Disconnect old observer if exists
     if (revealObserver) {
@@ -429,16 +443,20 @@ function observeRevealElements() {
     const observerOptions = {
         root: null,
         threshold: 0.08, // Trigger when 8% is visible
-        rootMargin: "-10px 0px -10px 0px" // Slight buffer area to prevent instant triggers near boundary
+        rootMargin: "-10px 0px -10px 0px" // Buffer area for smooth triggering
     };
     
     // Instantiate observer
     revealObserver = new IntersectionObserver((entries) => {
+        const currentScrollY = window.scrollY;
+        const isScrollingUp = currentScrollY < lastScrollY;
+        lastScrollY = currentScrollY;
+
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('active');
             } else {
-                // Dynamically remove active class to allow fade-out when scrolling away (both up and down)
+                // Dynamically remove active class to allow smooth re-trigger when scrolling back
                 entry.target.classList.remove('active');
             }
         });
