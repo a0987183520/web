@@ -557,7 +557,7 @@ nav {
 }
 
 .value-card p {
-    color: var(--text-primary);
+    color: #d4d4d8;
     font-size: 1.08rem;
     font-weight: 450;
     line-height: 1.68;
@@ -832,7 +832,7 @@ nav {
 }
 
 .promise-item p {
-    color: var(--text-primary);
+    color: #d4d4d8;
     font-size: 1.08rem;
     font-weight: 450;
     line-height: 1.68;
