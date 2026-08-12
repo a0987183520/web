@@ -230,18 +230,24 @@ nav {
 }
 
 .candidate-name {
-    font-size: 1.4rem;
-    font-weight: 800;
-    color: var(--accent-primary);
-    letter-spacing: 0.04em;
+    font-size: 1.6rem;
+    font-weight: 900;
+    color: #ffffff;
+    text-shadow: 0 0 12px rgba(251, 191, 36, 0.45);
+    letter-spacing: 0.05em;
     line-height: 1;
 }
 
+[data-theme="light"] .candidate-name {
+    color: #1c1917;
+    text-shadow: 0 0 12px rgba(217, 119, 6, 0.3);
+}
+
 .candidate-title {
-    font-size: 0.78rem;
-    font-weight: 500;
-    color: var(--text-secondary);
-    letter-spacing: 0.02em;
+    font-size: 1.02rem;
+    font-weight: 600;
+    color: var(--accent-primary);
+    letter-spacing: 0.03em;
 }
 
 .nav-links {
@@ -1273,10 +1279,10 @@ footer {
         margin: 0 0.35rem;
     }
     .candidate-name {
-        font-size: 1.25rem;
+        font-size: 1.4rem;
     }
     .candidate-title {
-        font-size: 0.7rem;
+        font-size: 0.92rem;
     }
     header {
         position: fixed;
