@@ -271,7 +271,7 @@ function renderPolicies(filterCategory = 'all') {
         card.dataset.id = policy.id;
         card.innerHTML = `
             <div class="policy-card-header">
-                <span class="policy-number">計畫 0${policy.id}</span>
+                <span class="policy-number">計畫 ${policy.id < 10 ? '0' + policy.id : policy.id}</span>
                 <h3>${policy.title}</h3>
             </div>
             <div class="policy-card-image-wrapper">
@@ -322,14 +322,15 @@ function openDrawer(policyId) {
     if (!policy) return;
 
     // Populate drawer elements
-    document.getElementById('drawer-number').textContent = `計畫 0${policy.id} ✕ ${policy.categoryName}`;
+    const formattedNum = policy.id < 10 ? `0${policy.id}` : policy.id;
+    document.getElementById('drawer-number').textContent = `計畫 ${formattedNum} ✕ ${policy.categoryName}`;
     document.getElementById('drawer-title').textContent = policy.title;
     document.getElementById('drawer-description').textContent = policy.description;
 
     // Populate drawer image
     const drawerImgWrapper = document.getElementById('drawer-image-wrapper');
     if (drawerImgWrapper) {
-        // 如果是計畫 02 (id 為 2)，渲染兩張圖 (上為 _2，下為 _1)
+        // 如果是計畫 02 (id 為 2)，渲染三張圖
         if (policy.id === 2) {
             drawerImgWrapper.style.display = 'block';
             drawerImgWrapper.innerHTML = `
@@ -337,15 +338,16 @@ function openDrawer(policyId) {
                 <img class="drawer-image" src="images/policy_02_eq_2.png" alt="${policy.title} 概念圖二" style="margin-bottom: 1.5rem; border-radius: 12px; border: 1px solid var(--card-border);">
                 <img class="drawer-image" src="images/policy_02_eq_1.png" alt="${policy.title} 概念圖一" style="border-radius: 12px; border: 1px solid var(--card-border);">
             `;
-        } else if (policy.id === 6) {
+        } else if (policy.id === 4) {
+            // 如果是計畫 04 (id 為 4)，渲染 Before/After 現況對比滑塊
             drawerImgWrapper.style.display = 'block';
             drawerImgWrapper.innerHTML = `
                 <div class="before-after-slider">
                     <div class="slider-image-before">
-                        <img src="images/policy_06_safety_1.jpg" alt="現況：人行道破損補丁">
+                        <img src="images/policy_04_safety_1.jpg" alt="現況：人行道破損補丁">
                     </div>
                     <div class="slider-image-after" id="slider-image-after">
-                        <img src="images/policy_06_safety_2.png" alt="未來：防滑平整人行道">
+                        <img src="images/policy_04_safety_2.png" alt="未來：防滑平整人行道">
                     </div>
                     <input type="range" min="0" max="100" value="50" class="slider-range" id="slider-range" aria-label="Before/After 拖拽滑動條">
                     <div class="slider-line" id="slider-line"></div>
