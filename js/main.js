@@ -327,7 +327,8 @@ function renderPolicies() {
                 <h3>${policy.title}</h3>
             </div>
             <div class="policy-card-image-wrapper">
-                <img class="policy-card-image" src="${policy.image}" alt="${policy.title}" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <img class="policy-card-image" src="${policy.image}" alt="${policy.title} - 未來里政願景示意圖" onerror="this.style.display='none'; if(this.nextElementSibling) this.nextElementSibling.style.display='none'; this.parentElement.querySelector('.policy-card-image-placeholder').style.display='flex';">
+                <span class="vision-badge">未來里政願景示意圖</span>
                 <div class="policy-card-image-placeholder" style="display: none;">
                     <div class="placeholder-icon">${policy.icon}</div>
                     <span class="placeholder-text">示意圖規劃中</span>
@@ -372,9 +373,18 @@ function openDrawer(policyId) {
         if (policy.id === 2) {
             drawerImgWrapper.style.display = 'block';
             drawerImgWrapper.innerHTML = `
-                <img class="drawer-image" src="images/policy_02_eq_3.png" alt="${policy.title} 概念圖三" style="margin-bottom: 1.5rem; border-radius: 12px; border: 1px solid var(--card-border);">
-                <img class="drawer-image" src="images/policy_02_eq_2.png" alt="${policy.title} 概念圖二" style="margin-bottom: 1.5rem; border-radius: 12px; border: 1px solid var(--card-border);">
-                <img class="drawer-image" src="images/policy_02_eq_1.png" alt="${policy.title} 概念圖一" style="border-radius: 12px; border: 1px solid var(--card-border);">
+                <div style="position: relative; margin-bottom: 1.5rem; border-radius: 12px; overflow: hidden; border: 1px solid var(--card-border);">
+                    <img class="drawer-image" src="images/policy_02_eq_3.png" alt="${policy.title} 概念圖三 - 未來里政願景示意圖">
+                    <span class="vision-badge">未來里政願景示意圖</span>
+                </div>
+                <div style="position: relative; margin-bottom: 1.5rem; border-radius: 12px; overflow: hidden; border: 1px solid var(--card-border);">
+                    <img class="drawer-image" src="images/policy_02_eq_2.png" alt="${policy.title} 概念圖二 - 未來里政願景示意圖">
+                    <span class="vision-badge">未來里政願景示意圖</span>
+                </div>
+                <div style="position: relative; border-radius: 12px; overflow: hidden; border: 1px solid var(--card-border);">
+                    <img class="drawer-image" src="images/policy_02_eq_1.png" alt="${policy.title} 概念圖一 - 未來里政願景示意圖">
+                    <span class="vision-badge">未來里政願景示意圖</span>
+                </div>
             `;
         } else if (policy.id === 4) {
             // 如果是計畫 04 (id 為 4)，渲染 Before/After 現況對比滑塊
@@ -382,16 +392,17 @@ function openDrawer(policyId) {
             drawerImgWrapper.innerHTML = `
                 <div class="before-after-slider">
                     <div class="slider-image-before">
-                        <img src="images/policy_04_safety_1.jpg" alt="現況：人行道破損補丁">
+                        <img src="images/policy_04_safety_1.jpg" alt="現況：人行道破損補丁（實景記錄）">
                     </div>
                     <div class="slider-image-after" id="slider-image-after">
-                        <img src="images/policy_04_safety_2.png" alt="未來：防滑平整人行道">
+                        <img src="images/policy_04_safety_2.png" alt="未來：防滑平整人行道 - 未來里政願景示意圖">
                     </div>
                     <input type="range" min="0" max="100" value="50" class="slider-range" id="slider-range" aria-label="Before/After 拖拽滑動條">
                     <div class="slider-line" id="slider-line"></div>
                     <div class="slider-button" id="slider-button"></div>
-                    <span class="slider-label slider-label-before">未來願景</span>
+                    <span class="slider-label slider-label-before">未來願景（示意）</span>
                     <span class="slider-label slider-label-after">現況反映</span>
+                    <span class="vision-badge">未來里政願景示意圖</span>
                 </div>
             `;
             // Add event listener to range input to handle clip-path and button/line position
@@ -415,7 +426,10 @@ function openDrawer(policyId) {
         } else {
             // 其餘一般計畫渲染單張圖
             drawerImgWrapper.innerHTML = `
-                <img class="drawer-image" src="${policy.image}" alt="${policy.title}" onerror="this.parentNode.style.display='none';" onload="this.parentNode.style.display='block';">
+                <div style="position: relative; border-radius: 16px; overflow: hidden; border: 1px solid var(--card-border);">
+                    <img class="drawer-image" src="${policy.image}" alt="${policy.title} - 未來里政願景示意圖" onerror="this.closest('#drawer-image-wrapper').style.display='none';" onload="this.closest('#drawer-image-wrapper').style.display='block';">
+                    <span class="vision-badge">未來里政願景示意圖</span>
+                </div>
             `;
         }
     }

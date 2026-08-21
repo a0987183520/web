@@ -1640,5 +1640,35 @@ footer {
     transform: translateX(-50%) translateY(0);
 }
 
+/* ==========================================================================
+   AI 願景示意圖合規浮層標籤 (Vision Badge)
+   ========================================================================== */
+.vision-badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: rgba(15, 23, 42, 0.82);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    color: #fbbf24;
+    border: 1px solid rgba(251, 191, 36, 0.4);
+    border-radius: 6px;
+    padding: 4px 10px;
+    font-size: 0.76rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    z-index: 5;
+    pointer-events: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    user-select: none;
+}
 
-
+[data-theme="light"] .vision-badge {
+    background: rgba(255, 255, 255, 0.9);
+    color: #b45309;
+    border-color: rgba(217, 119, 6, 0.45);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
