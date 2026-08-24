@@ -596,19 +596,33 @@ function getQAData() {
 }
 
 let currentQAFilter = 'all';
+let currentQAKeyword = '';
 
 function renderQACards() {
     const container = document.getElementById('qa-cards-container');
     if (!container) return;
 
+    const isQAPage = document.body.getAttribute('data-page') === 'qa-page';
     const allData = getQAData();
-    const filtered = allData.filter(item => {
-        if (currentQAFilter === 'all') return true;
-        return item.type === currentQAFilter;
+
+    // Filter by category tab and search keyword
+    let filtered = allData.filter(item => {
+        const matchesCategory = (currentQAFilter === 'all') || (item.type === currentQAFilter);
+        const matchesKeyword = !currentQAKeyword || 
+            item.title.toLowerCase().includes(currentQAKeyword.toLowerCase()) || 
+            item.question.toLowerCase().includes(currentQAKeyword.toLowerCase()) || 
+            item.category.toLowerCase().includes(currentQAKeyword.toLowerCase()) || 
+            item.response.toLowerCase().includes(currentQAKeyword.toLowerCase());
+        return matchesCategory && matchesKeyword;
     });
 
+    // If on homepage (not qa-page), only show top 3 cards
+    if (!isQAPage) {
+        filtered = filtered.slice(0, 3);
+    }
+
     if (filtered.length === 0) {
-        container.innerHTML = `<div class="qa-card glass" style="text-align:center; color:var(--text-muted); padding:3rem;">此類別目前尚無公開提案</div>`;
+        container.innerHTML = `<div class="qa-card glass" style="text-align:center; color:var(--text-muted); padding:3rem;">查無符合條件之里民提案</div>`;
         return;
     }
 
@@ -664,6 +678,15 @@ function initQATabs() {
             renderQACards();
         });
     });
+
+    // Initialize Keyword Search if on qa-page
+    const searchInput = document.getElementById('qa-keyword-search');
+    if (searchInput) {
+        searchInput.addEventListener('input', (e) => {
+            currentQAKeyword = e.target.value.trim();
+            renderQACards();
+        });
+    }
 }
 
 // User Proposal Submission Handler
