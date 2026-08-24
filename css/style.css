@@ -2563,3 +2563,149 @@ footer {
 .btn-guide-close:hover {
     transform: scale(1.02);
 }
+
+/* ==========================================================================
+   手機版 Q&A 卡片、導引按鈕與頁尾 2x2 排版優化 (Mobile Optimization)
+   ========================================================================== */
+.btn-qa-view-all {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    padding: 0.95rem 2rem;
+    font-size: 1.05rem;
+    white-space: normal;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    /* Q&A 卡片手機端內距與左側切齊排版 */
+    .qa-card {
+        padding: 1.6rem 1.4rem;
+        border-radius: 20px;
+    }
+
+    .qa-card-meta {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75rem;
+        padding-bottom: 0.9rem;
+        margin-bottom: 1.2rem;
+    }
+
+    .qa-tag-group {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 0.6rem;
+        width: 100%;
+    }
+
+    .qa-category-tag {
+        font-size: 0.95rem;
+        padding: 0.38rem 0.85rem;
+        border-radius: 8px;
+    }
+
+    .qa-status-badge {
+        font-size: 0.95rem;
+        padding: 0.38rem 0.95rem;
+        border-radius: 8px;
+    }
+
+    .qa-author-time {
+        font-size: 0.95rem;
+        font-weight: 600;
+        color: var(--text-secondary);
+        align-self: flex-start;
+        text-align: left;
+    }
+
+    .qa-question-title {
+        font-size: 1.25rem;
+        line-height: 1.45;
+        margin-bottom: 0.7rem;
+    }
+
+    .qa-question-text {
+        font-size: 1.05rem;
+        line-height: 1.72;
+    }
+
+    .qa-response-box {
+        padding: 1.4rem 1.4rem;
+        border-radius: 16px;
+    }
+
+    .qa-response-name {
+        font-size: 1.02rem;
+    }
+
+    .qa-response-content {
+        font-size: 1.05rem;
+        line-height: 1.75;
+    }
+
+    /* 導引專頁橫幅在手機端完全自適應，不超出螢幕 */
+    .qa-view-all-banner {
+        padding: 1.8rem 1.4rem;
+        flex-direction: column;
+        text-align: center;
+        gap: 1.4rem;
+    }
+
+    .qa-view-all-info h3 {
+        font-size: 1.22rem;
+        line-height: 1.4;
+    }
+
+    .qa-view-all-info p {
+        font-size: 0.98rem;
+    }
+
+    .btn-qa-view-all {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        padding: 0.85rem 1.2rem;
+        font-size: 1.02rem;
+    }
+
+    /* 頁尾 4 個按鈕改為 2x2（兩欄兩行）排版 */
+    .footer-links {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 0.8rem 1rem !important;
+        width: 100% !important;
+        max-width: 360px !important;
+        margin: 0 auto !important;
+        padding: 0 !important;
+    }
+
+    .footer-links li {
+        list-style: none !important;
+        display: flex !important;
+        width: 100% !important;
+    }
+
+    .footer-links a {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        width: 100% !important;
+        padding: 0.75rem 0.6rem !important;
+        background: rgba(255, 255, 255, 0.05) !important;
+        border: 1px solid var(--card-border) !important;
+        border-radius: 12px !important;
+        font-size: 0.95rem !important;
+        font-weight: 600 !important;
+        text-align: center !important;
+        white-space: nowrap !important;
+        transition: var(--transition-smooth) !important;
+    }
+
+    [data-theme="light"] .footer-links a {
+        background: rgba(0, 0, 0, 0.04) !important;
+    }
+}
+
