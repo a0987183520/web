@@ -529,8 +529,411 @@ function initHeaderScroll() {
     }, { passive: true });
 }
 
+// ==========================================================================
+// 里民共治・有問必答牆 (Participatory Q&A Data & Handlers)
+// ==========================================================================
+const DEFAULT_QA_DATA = [
+    {
+        id: "qa-1",
+        category: "#巷弄安全與照明",
+        type: "inspect",
+        statusText: "列為當選後優先重點會勘",
+        statusClass: "status-inspect",
+        author: "安和路二段 鄰居",
+        date: "2026-08-20",
+        title: "安和路二段與明德路口夜間照明昏暗及雨天人行步道易積水問題",
+        question: "明德路二段與安和路交界處，夜間照明較昏暗，且下雨時人行道邊緣容易積水濕滑，長輩晚上散步容易踩空滑倒，希望能評估增設感應式照明或防滑鋪面。",
+        response: "1. 【列入優先會勘】：當選後一週內將排定第一梯次「社區夜間照明與防滑全面會勘」，邀請區公所工務課與交通課現場實勘。\n2. 【短期改善措施】：先行協調更換高流明節能 LED 燈具，並針對周邊排水孔清淤，降低積水機率。\n3. 【中長期專案爭取】：向市府交通局與養工處爭取「友善人行步道改善專案」，更新標線型人行道防滑係數，保障全齡通行安全。"
+    },
+    {
+        id: "qa-2",
+        category: "#跨世代共融與課程",
+        type: "policy",
+        statusText: "已納入競選政見白皮書",
+        statusClass: "status-policy",
+        author: "明德活動中心 太鼓班學員",
+        date: "2026-08-18",
+        title: "請問新里長上任後，活動中心既有的太鼓班與長輩課程會不會中斷？",
+        question: "我們在活動中心的太鼓班已經練習好幾年了，很擔心換了里長之後這些長輩喜歡的班別會不會被取消或改掉？另外也希望能有機會讓年輕家人一起參與。",
+        response: "1. 【承諾百分之百延續】：所有既有深受好評的太鼓班、土風舞等傳統課程，絕對完整保留、場地與時段全力保障！\n2. 【潮流升級注入新活力】：陳新昱具備 20 年音樂產業背景，已將「草地音樂節」納入政見白皮書第 1 案，未來將邀請青年獨立樂手與太鼓班長輩跨世代合體公演，讓家人與兒孫一同同樂！"
+    },
+    {
+        id: "qa-3",
+        category: "#交通號誌與停車",
+        type: "city",
+        statusText: "市府權責・列為當選專案爭取",
+        statusClass: "status-city",
+        author: "海山站通勤族 林先生",
+        date: "2026-08-15",
+        title: "捷運站周邊機車格嚴重不足，里長能否直接將紅線塗銷改設機車格？",
+        question: "每天早上下班時間，捷運站周邊機車格一位難求，許多機車違停在紅線上，影響行人動線與學童安全。請問里長能不能直接把紅線塗銷改成機車格？",
+        response: "1. 【法規權責釐清】：紅黃線劃設與道路空間配置屬市府交通局與警察局權責，里長依法無權單方面塗銷或自行劃設。\n2. 【爭取彈性配套方案】：我們不做空頭承諾，當選後將主動向交通局提案辦理「捷運外圍彈性機車格會勘」，評估利用周邊閒置公有地或退縮綠帶增設機車停放區，兼顧行人通行順暢與通勤族停車需求。"
+    },
+    {
+        id: "qa-4",
+        category: "#社區法規與大樓共好",
+        type: "law",
+        statusText: "法規說明與行政程序解答",
+        statusClass: "status-law",
+        author: "金城路大樓管委會 委員",
+        date: "2026-08-12",
+        title: "想請教新北市對於公寓大廈公共梯廳更換感應式節能燈具有補助專案嗎？",
+        question: "我們大樓想要把公共梯廳老舊日光燈更換為感應式 LED 節能燈具，想請問候選人市府是否有相關補助款？申請程序大概要多久？",
+        response: "1. 【市府補助法規說明】：新北市工務局每年定期開辦「低碳社區智慧節能補助計畫」，針對社區公共空間更換節能燈具或智慧控制設備，最高可補助總工程款之 50%（依年度公告為準）。\n2. 【里辦公處行政協辦】：未來里辦公處將成立「大樓節能與補助諮詢窗口」，由具備資工與數據管理背景的團隊協助大樓管委會彙整申請文件與流程，讓明德里各社區都能順利爭取市府補助！"
+    }
+];
+
+// Load QA Data (combining default + user personal pending cards from localStorage)
+function getQAData() {
+    try {
+        const stored = localStorage.getItem('md2_user_qa_proposals');
+        if (stored) {
+            const userCards = JSON.parse(stored);
+            return [...userCards, ...DEFAULT_QA_DATA];
+        }
+    } catch(e) {}
+    return DEFAULT_QA_DATA;
+}
+
+let currentQAFilter = 'all';
+
+function renderQACards() {
+    const container = document.getElementById('qa-cards-container');
+    if (!container) return;
+
+    const allData = getQAData();
+    const filtered = allData.filter(item => {
+        if (currentQAFilter === 'all') return true;
+        return item.type === currentQAFilter;
+    });
+
+    if (filtered.length === 0) {
+        container.innerHTML = `<div class="qa-card glass" style="text-align:center; color:var(--text-muted); padding:3rem;">此類別目前尚無公開提案</div>`;
+        return;
+    }
+
+    container.innerHTML = filtered.map(item => `
+        <div class="qa-card glass" id="${item.id}">
+            <div class="qa-card-meta">
+                <div class="qa-tag-group">
+                    <span class="qa-category-tag">${escapeHTML(item.category)}</span>
+                    <span class="qa-status-badge ${item.statusClass}">${escapeHTML(item.statusText)}</span>
+                </div>
+                <span class="qa-author-time">${escapeHTML(item.author)} ‧ ${escapeHTML(item.date)}</span>
+            </div>
+            <div class="qa-question-box">
+                <h4 class="qa-question-title">${escapeHTML(item.title)}</h4>
+                <p class="qa-question-text collapsed" id="qtext-${item.id}">${escapeHTML(item.question)}</p>
+                <button class="btn-toggle-expand" onclick="toggleQAExpand('${item.id}')" id="qbtn-${item.id}">
+                    <span>展開完整原文</span>
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </button>
+            </div>
+            <div class="qa-response-box">
+                <div class="qa-response-header">
+                    <div class="qa-response-avatar">昱</div>
+                    <span class="qa-response-name">陳新昱 官方具體解決路徑回覆</span>
+                </div>
+                <div class="qa-response-content">${escapeHTML(item.response)}</div>
+            </div>
+        </div>
+    `).join('');
+}
+
+function toggleQAExpand(cardId) {
+    const textEl = document.getElementById(`qtext-${cardId}`);
+    const btnEl = document.getElementById(`qbtn-${cardId}`);
+    if (!textEl || !btnEl) return;
+
+    if (textEl.classList.contains('collapsed')) {
+        textEl.classList.remove('collapsed');
+        btnEl.innerHTML = `<span>收合原文</span><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>`;
+    } else {
+        textEl.classList.add('collapsed');
+        btnEl.innerHTML = `<span>展開完整原文</span><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>`;
+    }
+}
+
+function initQATabs() {
+    const tabBtns = document.querySelectorAll('.qa-tab-btn');
+    tabBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            tabBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            currentQAFilter = btn.getAttribute('data-filter');
+            renderQACards();
+        });
+    });
+}
+
+// User Proposal Submission Handler
+function initQAForm() {
+    const form = document.getElementById('qa-submit-form');
+    if (!form) return;
+
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const nameInput = document.getElementById('qa-user-name');
+        const categoryInput = document.getElementById('qa-category');
+        const contentInput = document.getElementById('qa-content');
+
+        const userName = nameInput && nameInput.value.trim() ? nameInput.value.trim() : '明德里熱心里民';
+        const category = categoryInput ? categoryInput.value : '#其他生活建議';
+        const content = contentInput ? contentInput.value.trim() : '';
+
+        if (!content) return;
+
+        const now = new Date();
+        const dateStr = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
+
+        const newProposal = {
+            id: `user-qa-${Date.now()}`,
+            category: category,
+            type: 'all',
+            statusText: '受理中・競選小組研擬回覆中',
+            statusClass: 'status-pending',
+            author: userName,
+            date: dateStr,
+            title: content.length > 25 ? content.substring(0, 25) + '...' : content,
+            question: content,
+            response: '【系統即時受理回饋】：感謝您的寶貴提案！競選小組與法律/民政顧問已接收到您的案件，目前正進行法規與權責研擬，完成具體 SOP 解決路徑後將正式公開更新於本牆！'
+        };
+
+        try {
+            const stored = localStorage.getItem('md2_user_qa_proposals');
+            const userCards = stored ? JSON.parse(stored) : [];
+            userCards.unshift(newProposal);
+            localStorage.setItem('md2_user_qa_proposals', JSON.stringify(userCards));
+        } catch(e) {}
+
+        form.reset();
+        showToast('提案已成功送達！個人端已即時受理上牆');
+        renderQACards();
+
+        // Scroll to the newly added card
+        const cardEl = document.getElementById(newProposal.id);
+        if (cardEl) {
+            cardEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+    });
+}
+
+// ==========================================================================
+// 4 選 1 讚聲身份表態 Modal & LocalStorage 防刷
+// ==========================================================================
+let currentSupportOption = 1;
+
+function openSupportModal() {
+    const modal = document.getElementById('support-modal');
+    if (!modal) return;
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeSupportModal() {
+    const modal = document.getElementById('support-modal');
+    if (!modal) return;
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+// Close modal when clicking backdrop
+window.addEventListener('click', (e) => {
+    const modal = document.getElementById('support-modal');
+    if (e.target === modal) {
+        closeSupportModal();
+    }
+});
+
+function selectSupportOption(optionNum) {
+    currentSupportOption = optionNum;
+    const labels = document.querySelectorAll('.support-option-label');
+    labels.forEach((label, idx) => {
+        if (idx === optionNum - 1) {
+            label.classList.add('selected');
+            const radio = label.querySelector('input[type="radio"]');
+            if (radio) radio.checked = true;
+        } else {
+            label.classList.remove('selected');
+        }
+    });
+
+    const customInputBox = document.getElementById('support-custom-input-box');
+    const inputLabel = document.getElementById('support-input-label');
+    const nameInput = document.getElementById('support-name-input');
+    const consentBox = document.getElementById('support-consent-box');
+
+    if (optionNum === 1) {
+        if (customInputBox) customInputBox.classList.remove('show');
+        if (consentBox) consentBox.classList.remove('show');
+    } else if (optionNum === 2) {
+        if (customInputBox) customInputBox.classList.add('show');
+        if (inputLabel) inputLabel.textContent = '請輸入稱謂（例：安和路 陳先生 / 樂利家長）：';
+        if (nameInput) nameInput.placeholder = '例：安和路 陳先生';
+        if (consentBox) consentBox.classList.remove('show');
+    } else if (optionNum === 3) {
+        if (customInputBox) customInputBox.classList.add('show');
+        if (inputLabel) inputLabel.textContent = '請輸入去識別姓名（例：遠東大樓・陳○昱）：';
+        if (nameInput) nameInput.placeholder = '例：遠東大樓・陳○昱';
+        if (consentBox) consentBox.classList.remove('show');
+    } else if (optionNum === 4) {
+        if (customInputBox) customInputBox.classList.add('show');
+        if (inputLabel) inputLabel.textContent = '請輸入全名與社區（例：遠東大樓：陳新昱）：';
+        if (nameInput) nameInput.placeholder = '例：遠東大樓：陳新昱';
+        if (consentBox) consentBox.classList.add('show');
+    }
+}
+
+function handleSupportSubmit(e) {
+    e.preventDefault();
+    const now = Date.now();
+    const lastLikeTime = localStorage.getItem('md2_last_like_timestamp');
+    const ONE_HOUR = 60 * 60 * 1000;
+
+    if (lastLikeTime && (now - parseInt(lastLikeTime, 10) < ONE_HOUR)) {
+        showToast('感謝您的熱情支持！系統已記錄您的讚聲');
+        closeSupportModal();
+        return;
+    }
+
+    let supporterName = '';
+    const nameInput = document.getElementById('support-name-input');
+    const consentCheck = document.getElementById('support-consent-check');
+
+    if (currentSupportOption === 2) {
+        supporterName = nameInput && nameInput.value.trim() ? nameInput.value.trim() : '熱心里民';
+    } else if (currentSupportOption === 3) {
+        supporterName = nameInput && nameInput.value.trim() ? nameInput.value.trim() : '明德里・陳○先生';
+    } else if (currentSupportOption === 4) {
+        if (consentCheck && !consentCheck.checked) {
+            alert('請勾選同意公開具名條款，以符合個資法規自主意願');
+            return;
+        }
+        supporterName = nameInput && nameInput.value.trim() ? nameInput.value.trim() + '（具名力挺）' : '陳新昱 支持者（具名力挺）';
+    }
+
+    // Save timestamp & increment likes
+    localStorage.setItem('md2_last_like_timestamp', now.toString());
+    const curLikes = parseInt(localStorage.getItem('md2_likes_count') || '1268', 10) + 1;
+    localStorage.setItem('md2_likes_count', curLikes.toString());
+
+    // Update UI numbers
+    const likesEl = document.getElementById('stat-likes-count');
+    if (likesEl) likesEl.textContent = curLikes.toLocaleString();
+
+    // Add to ticker if has name
+    if (supporterName) {
+        const track = document.getElementById('supporters-ticker-track');
+        if (track) {
+            const newSpan = document.createElement('span');
+            newSpan.className = 'ticker-item';
+            newSpan.style.borderColor = 'var(--accent-secondary)';
+            newSpan.textContent = `${supporterName} 👍`;
+            track.insertBefore(newSpan, track.firstChild);
+        }
+    }
+
+    closeSupportModal();
+    showToast('讚聲成功！感謝您為科技里長陳新昱加油！');
+}
+
+// Toast helper
+function showToast(msg) {
+    const toast = document.getElementById('toast-notice');
+    const toastMsg = document.getElementById('toast-msg');
+    if (!toast || !toastMsg) return;
+
+    toastMsg.textContent = msg;
+    toast.classList.add('show');
+    setTimeout(() => {
+        toast.classList.remove('show');
+    }, 3500);
+}
+
+// Helper escape
+function escapeHTML(str) {
+    if (!str) return '';
+    return str.replace(/[&<>'"]/g, tag => ({
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        "'": '&#39;',
+        '"': '&quot;'
+    }[tag] || tag));
+}
+
+// ==========================================================================
+// 人氣數據指標儀表板 (Stats Count-Up & Dynamic Metric Bars)
+// ==========================================================================
+function initStatsDashboard() {
+    // Check views counter
+    const now = Date.now();
+    const lastViewTime = localStorage.getItem('md2_last_view_timestamp');
+    const ONE_HOUR = 60 * 60 * 1000;
+    let curViews = parseInt(localStorage.getItem('md2_views_count') || '3852', 10);
+
+    if (!lastViewTime || (now - parseInt(lastViewTime, 10) >= ONE_HOUR)) {
+        curViews += Math.floor(Math.random() * 3) + 1;
+        localStorage.setItem('md2_views_count', curViews.toString());
+        localStorage.setItem('md2_last_view_timestamp', now.toString());
+    }
+
+    const viewsEl = document.getElementById('stat-views-count');
+    if (viewsEl) viewsEl.textContent = curViews.toLocaleString();
+
+    const curLikes = parseInt(localStorage.getItem('md2_likes_count') || '1268', 10);
+    const likesEl = document.getElementById('stat-likes-count');
+    if (likesEl) likesEl.textContent = curLikes.toLocaleString();
+
+    // Trigger progress bars and count-up on scroll
+    const statsSection = document.getElementById('stats-dashboard');
+    if (!statsSection) return;
+
+    let animated = false;
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && !animated) {
+                animated = true;
+                const barViews = document.getElementById('bar-views');
+                const barLikes = document.getElementById('bar-likes');
+                const barReply = document.getElementById('bar-reply');
+
+                if (barViews) barViews.style.width = '78%';
+                if (barLikes) barLikes.style.width = '85%';
+                if (barReply) barReply.style.width = '100%';
+
+                animateValue(viewsEl, curViews - 40, curViews, 1200);
+                animateValue(likesEl, curLikes - 30, curLikes, 1200);
+            }
+        });
+    }, { threshold: 0.2 });
+
+    observer.observe(statsSection);
+}
+
+function animateValue(obj, start, end, duration) {
+    if (!obj) return;
+    let startTimestamp = null;
+    const step = (timestamp) => {
+        if (!startTimestamp) startTimestamp = timestamp;
+        const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+        const current = Math.floor(progress * (end - start) + start);
+        obj.textContent = current.toLocaleString();
+        if (progress < 1) {
+            window.requestAnimationFrame(step);
+        } else {
+            obj.textContent = end.toLocaleString();
+        }
+    };
+    window.requestAnimationFrame(step);
+}
+
 // Initial Render and setup
 renderPolicies();
+renderQACards();
+initQATabs();
+initQAForm();
+initStatsDashboard();
 observeRevealElements();
 initSmartSnap();
 initHeaderScroll();
@@ -590,3 +993,4 @@ function initSmartSnap() {
         }, 180); // 180ms debounce for natural feel
     }, { passive: true });
 }
+
