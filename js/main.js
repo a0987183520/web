@@ -622,12 +622,12 @@ function renderQACards() {
     }
 
     if (filtered.length === 0) {
-        container.innerHTML = `<div class="qa-card glass" style="text-align:center; color:var(--text-muted); padding:3rem;">查無符合條件之里民提案</div>`;
+        container.innerHTML = `<div class="qa-card" style="text-align:center; color:var(--text-muted); padding:3rem;">查無符合條件之里民提案</div>`;
         return;
     }
 
     container.innerHTML = filtered.map(item => `
-        <div class="qa-card glass" id="${item.id}">
+        <div class="qa-card" id="${item.id}">
             <div class="qa-card-meta">
                 <div class="qa-tag-group">
                     <span class="qa-category-tag">${escapeHTML(item.category)}</span>
