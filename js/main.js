@@ -951,12 +951,26 @@ function animateValue(obj, start, end, duration) {
     window.requestAnimationFrame(step);
 }
 
+// LINE 內嵌瀏覽器導引彈窗展示 (若仍在 iOS LINE 內部)
+function initLineGuideModal() {
+    try {
+        const ua = (navigator.userAgent || '').toLowerCase();
+        if (ua.indexOf('line') > -1) {
+            const lineModal = document.getElementById('lineGuideModal');
+            if (lineModal) {
+                lineModal.classList.remove('hidden');
+            }
+        }
+    } catch(e) {}
+}
+
 // Initial Render and setup
 renderPolicies();
 renderQACards();
 initQATabs();
 initQAForm();
 initStatsDashboard();
+initLineGuideModal();
 observeRevealElements();
 initSmartSnap();
 initHeaderScroll();
