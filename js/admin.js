@@ -268,6 +268,8 @@ function renderAdminList() {
             : `<span style="color:#34d399; background:rgba(16,185,129,0.15); padding:0.15rem 0.5rem; border-radius:4px; font-size:0.75rem; font-weight:700;">🟢 已公開</span>`;
 
         const previewText = item.question ? (item.question.length > 38 ? item.question.substring(0, 38) + '...' : item.question) : '（無提問內容）';
+        const agreeCount = item.agreeCount || 0;
+        const subCount = item.subCount || 0;
 
         return `
         <div class="admin-item-card ${isSelected ? 'active' : ''}" onclick="selectProposal('${item.id}')">
@@ -276,9 +278,13 @@ function renderAdminList() {
                 ${statusBadge}
             </div>
             <div class="admin-item-title">${previewText}</div>
-            <div class="admin-item-meta">
+            <div class="admin-item-meta" style="margin-bottom:0.4rem;">
                 <span>👤 ${item.author || '熱心里民'}</span>
                 <span>🏷️ ${item.category || '#生活建議'}</span>
+            </div>
+            <div style="font-size:0.78rem; color:var(--accent-secondary); display:flex; gap:0.8rem; font-weight:700;">
+                <span>👍 ${agreeCount} 認同</span>
+                <span>📝 ${subCount} 附議</span>
             </div>
         </div>
         `;
@@ -296,7 +302,14 @@ function loadActiveProposalIntoEditor() {
     const item = adminProposals.find(p => p.id === activeProposalId);
     if (!item) return;
 
-    document.getElementById('editor-active-id').textContent = item.id;
+    const agreeCount = item.agreeCount || 0;
+    const subCount = item.subCount || 0;
+
+    document.getElementById('editor-active-id').innerHTML = `
+        <span style="color:var(--accent-primary); font-weight:800;">${item.id}</span>
+        <span style="color:#34d399; margin-left:0.6rem;">👍 ${agreeCount} 認同</span>
+        <span style="color:#fbbf24; margin-left:0.6rem;">📝 ${subCount} 附議</span>
+    `;
     document.getElementById('edit-author').value = item.author || '';
     document.getElementById('edit-category').value = item.category || '#巷弄安全與照明';
     document.getElementById('edit-status').value = item.status || '已審核公開';
@@ -469,17 +482,17 @@ function syncWithGoogleSheets() {
  * 1. 📥 從 Google 試算表拉取最新提案 (Download / Pull)
  */
 function downloadFromGoogleSheets() {
-    const btn = document.getElementById('btn-download-sheets');
+    const btn = document.getElementById('btn-refresh-sheets');
     if (btn) {
         btn.disabled = true;
-        btn.innerHTML = '⏳ 正在下載中...';
+        btn.innerHTML = '⏳ 正在刷新...';
     }
-    showToast('📥 正在從 Google 試算表下載最新案件...');
+    showToast('🔄 正在連線 Google 試算表刷新案件...');
 
     fetchGoogleSheetProposals(true, () => {
         if (btn) {
             btn.disabled = false;
-            btn.innerHTML = '📥 下載雲端案件';
+            btn.innerHTML = '🔄 刷新案件';
         }
     });
 }

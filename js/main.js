@@ -295,193 +295,254 @@ function renderPolicies() {
         const card = document.createElement('div');
         
         // Dynamically compute layout-aware reveal animation direction
-        const isMobile = window.innerWidth <= 768;
-        let animationClass = 'reveal-left';
-        if (isMobile) {
-            // Mobile single column: alternating left & right
-            animationClass = (index % 2 === 0) ? 'reveal-left' : 'reveal-right';
-        } else {
-            // Desktop 3-column grid layout:
-            // Column 0 (Left): reveal-left
-            // Column 1 (Middle): reveal-bottom
-            // Column 2 (Right): reveal-right
-            const col = index % 3;
-            if (col === 0) {
-                animationClass = 'reveal-left';
-            } else if (col === 1) {
-                animationClass = 'reveal-bottom';
-            } else {
-                animationClass = 'reveal-right';
-            }
-        }
+    const DEFAULT_QA_DATA = [
+    {
+        id: "qa-1",
+        category: "#交通號誌與停車",
+        type: "policy",
+        statusText: "已納入競選政見白皮書",
+        statusClass: "status-policy",
+        agreeCount: 48,
+        subCount: 3,
+        author: "每天被塞車所苦的明德里通勤族",
+        date: "2026-08-20",
+        title: "明德路二段學府路口行人時相太短與學士路口號誌不同步塞車連環卡死",
+        question: "每天上下班經過明德路二段真的快被氣死！學府路口那個行人專用時相開放時間短得可憐，只要沒開放，轉彎車為了禮讓行人根本動彈不得，一個綠燈才過一兩台車就被第一輛卡死！更扯的是學士路口往金城路那段，前後兩個紅綠燈完全不同步，前一個剛綠燈、下一個馬上變紅燈，車子直接卡在路中間動彈不得連環大塞車！每天塞到懷疑人生，里長到底能不能幫忙找市府好好把這幾個紅綠燈連動處理一下？",
+        response: "1. 【感同身受！此案早已列為政見白皮書第 4 案】：\n感謝您的精準直擊！塞車之苦所有里民都感同身受，這也是我自己每天出門最深刻的痛點。我在 8 月初正式發布的「十二大新里政白皮書第 4 案」中，已將明德路二段動態綠波與學府路時相優化完整列入核心政見，這證明里民的痛苦與想法都一致！\n2. 【專業解析與學府路口解方】：\n• 「全向行人專用時相」：全路口車輛全紅燈，行人專屬安心過，人車 100% 徹底分流。\n• 「早開時相」：初衷是讓行人提早 5 秒起步提高能見度，原適用於人車稀少的路段；但在學府路口這種日間人車密集熱點，行人絡繹不絕，車輛綠燈轉彎時依然會被卡在斑馬線前，第一輛車動彈不得，整條路就跟著癱瘓！\n• 具體方案：當選後將在最短時間內向交通局爭取日間與尖峰全時段採用「全向行人專用時相」，讓轉彎車綠燈時零阻礙順暢通行；「早開時相」則回歸其初衷，僅保留於人車稀少的深夜時段。\n3. 【學士路口往金城路智慧綠波】：\n前後紅綠燈打架是號誌沒有連鎖！我具備 30 年資工數據專長，將在會勘中調閱交通局交控中心時制數據，以專業分析精準建言，爭取幹道「綠波續進 (Green Wave)」，一路順暢不再原地苦等！"
+    },
+    {
+        id: "qa-2",
+        category: "#跨世代共融與課程",
+        type: "policy",
+        statusText: "已納入競選政見白皮書",
+        statusClass: "status-policy",
+        agreeCount: 32,
+        subCount: 1,
+        author: "明德市民活動中心 太鼓班學員",
+        date: "2026-08-18",
+        title: "請問新里長上任後，活動中心既有的太鼓班與長輩課程會不會中斷？",
+        question: "我們在明德活動中心的太鼓班已經練習好幾年了，很擔心換了里長之後這些長輩喜歡的班別會不會被取消或改掉？另外也希望能有機會讓年輕家人一起參與。",
+        response: "1. 【承諾百分之百延續】：所有既有深受好評的太鼓班、土風舞等傳統課程，絕對完整保留、場地與時段全力保障！\n2. 【潮流升級注入新活力】：陳新昱具備 20 年音樂產業背景，已將「草地音樂節」納入政見白皮書第 1 案，未來將邀請青年獨立樂手與太鼓班長輩跨世代合體公演，讓家人與兒孫一同同樂！"
+    },
+    {
+        id: "qa-3",
+        category: "#交通號誌與停車",
+        type: "city",
+        statusText: "市府權責・列為當選專案爭取",
+        statusClass: "status-city",
+        agreeCount: 26,
+        subCount: 2,
+        author: "學府路通勤族 林先生",
+        date: "2026-08-15",
+        title: "學府路一段近海山捷運連通道機車格需求與紅線會勘",
+        question: "每天早上下班時間，學府路一段往海山站方向機車格一位難求，許多機車違停在紅線上，影響行人動線與學童安全。請問里長能不能直接把紅線塗銷改成機車格？",
+        response: "1. 【法規權責釐清】：紅黃線劃設與道路空間配置屬市府交通局與警察局權責，里長依法無權單方面塗銷或自行劃設。\n2. 【爭取彈性配套方案】：我們不做空頭承諾，當選後將主動向交通局提案辦理「捷運外圍彈性機車格會勘」，評估利用周邊閒置公有地或退縮綠帶增設機車停放區，兼顧行人通行順暢與通勤族停車需求。"
+    },
+    {
+        id: "qa-4",
+        category: "#社區法規與大樓共好",
+        type: "law",
+        statusText: "法規說明與行政程序解答",
+        statusClass: "status-law",
+        agreeCount: 19,
+        subCount: 0,
+        author: "金城路大樓管委會 委員",
+        date: "2026-08-12",
+        title: "金城路二段大樓公共梯廳更換感應式節能燈具有市府補助專案嗎？",
+        question: "我們大樓（如金城路社區）想要把公共梯廳老舊日光燈更換為感應式 LED 節能燈具，想請問候選人市府是否有相關補助款？申請程序大概要多久？",
+        response: "1. 【市府補助法規說明】：新北市工務局每年定期開辦「低碳社區智慧節能補助計畫」，針對社區公共空間更換節能燈具或智慧控制設備，最高可補助總工程款之 50%（依年度公告為準）。\n2. 【里辦公處行政協辦】：未來里辦公處將成立「大樓節能與補助諮詢窗口」，由具備資工與數據管理背景的團隊協助大樓管委會彙整申請文件與流程，讓明德里各社區都能順利爭取市府補助！"
+    },
+    {
+        id: "qa-5",
+        category: "#巷弄安全與照明",
+        type: "policy",
+        statusText: "已納入競選政見白皮書",
+        statusClass: "status-policy",
+        agreeCount: 35,
+        subCount: 2,
+        author: "樂利國小家長志工團 林媽媽",
+        date: "2026-08-10",
+        title: "樂利國小周邊通學步道安全與家長接送區標線優化",
+        question: "上下學時段樂利國小周邊車流量大，部分人行道因高低差與標線磨損，家長牽著低年級學童走起來提心吊膽，希望里長能協助通學路徑升級。",
+        response: "1. 【納入政見白皮書第4案】：已將「智慧安全與友善步行」列為核心政見，建立里民通報之步行安全危險點資料庫。\n2. 【跨單位會勘爭取】：當選後將優先協同校方、交通局與公所辦理通學步道會勘，爭取劃設綠底標線行人行道與增設減速警示。"
+    },
+    {
+        id: "qa-6",
+        category: "#環境衛生與整潔",
+        type: "inspect",
+        statusText: "列為當選後優先重點會勘",
+        statusClass: "status-inspect",
+        agreeCount: 22,
+        subCount: 1,
+        author: "明德路二段 住戶 陳先生",
+        date: "2026-08-08",
+        title: "明德路二段後方巷弄側溝清淤與防汛期異味防治",
+        question: "夏季午後雷陣雨頻繁，明德路二段部分舊公寓後側排水溝容易有積水異味，擔心孳生病媒蚊，希望里長協助定期排程清淤與消毒。",
+        response: "1. 【列入防汛優先清淤清單】：當選後立即彙整全里排水溝熱點，主動向土城區清潔隊申請全面清淤與預防性消毒噴藥。\n2. 【建立定期通報機制】：導入數位里政回報系統，里民發現水溝阻塞可一鍵拍照通報，里辦公處即時追蹤處理進度。"
+    },
+    {
+        id: "qa-7",
+        category: "#跨世代共融與課程",
+        type: "city",
+        statusText: "市府權責・列為當選專案爭取",
+        statusClass: "status-city",
+        agreeCount: 18,
+        subCount: 0,
+        author: "孔雀王朝 社區住戶",
+        date: "2026-08-05",
+        title: "明德市民活動中心旁草地公園夜間休閒照明與座椅增設",
+        question: "活動中心旁邊的綠地很多長輩和家庭晚上會去散步，但部分角落照明較暗，且休閒座椅數量有限，希望能向市府爭取改善。",
+        response: "1. 【專案提案市府景觀處】：該草地公園屬公有綠地，當選後將向景觀處與公所提案「社區綠美化與友善休閒設施專案」。\n2. 【增設景觀矮燈與人體工學座椅】：規劃以低眩光暖色 LED 矮燈提升夜間安全性，並增設透水鋪面與長者友善休閒長椅。"
+    },
+    {
+        id: "qa-8",
+        category: "#跨世代共融與課程",
+        type: "policy",
+        statusText: "已納入競選政見白皮書",
+        statusClass: "status-policy",
+        agreeCount: 29,
+        subCount: 1,
+        author: "美麗宏國 社區長者",
+        date: "2026-08-02",
+        title: "銀髮長輩 24H AI 智慧健康管家與用藥提醒工作坊開辦期程",
+        question: "常聽候選人提到 AI 健康管家可以幫忙記血壓和提醒吃藥，我們年紀大不會用複雜的手機，請問真的會有人手把手教我們嗎？",
+        response: "1. 【納入政見白皮書第7案】：陳新昱具備30年資工背景，將親自在活動中心開辦「銀髮大字體 AI 智慧健康工作坊」。\n2. 【志工一對一手把手輔導】：培訓青年與志工團隊一對一協助長輩完成語音輸入與每日用藥提醒設定，簡單好用零門檻。"
+    },
+    {
+        id: "qa-9",
+        category: "#交通號誌與停車",
+        type: "inspect",
+        statusText: "列為當選後優先重點會勘",
+        statusClass: "status-inspect",
+        agreeCount: 24,
+        subCount: 1,
+        author: "立德路 駕駛里民",
+        date: "2026-07-28",
+        title: "立德路轉角反射鏡視線死角改善與路口減速警示標線",
+        question: "立德路部分轉角處因大樓外牆視線遮蔽，現有反射鏡角度偏移，常常有車輛快速駛出造成險象環生，希望調整反射鏡並加劃減速標線。",
+        response: "1. 【列入第一梯次交通會勘】：當選後一週內排定現勘，邀請交通局現勘調整反射鏡角度並評估更換大廣角鏡面。\n2. 【路口鋪設減速標線】：爭取於路口前增設「慢」字警示與太陽能閃爍警示標誌，有效降低車速保障出入安全。"
+    },
+    {
+        id: "qa-10",
+        category: "#跨世代共融與課程",
+        type: "policy",
+        statusText: "已納入競選政見白皮書",
+        statusClass: "status-policy",
+        agreeCount: 31,
+        subCount: 2,
+        author: "學府路 家長 吳先生",
+        date: "2026-07-15",
+        title: "社區青年與學童無人機飛行安全體驗與 AI 數位創作營開辦細節",
+        question: "看到文宣中有無人機與 AI 體驗課，請問小朋友幾歲可以參加？室內操作會不會有安全顧慮？",
+        response: "1. 【納入政見白皮書第3案】：由具備30年資工背景的陳新昱親自規劃，適合國小三年級以上學童與家長親子共同參與。\n2. 【安全至上原則】：室內一律限用 50g 以下微型機種，配備螺旋槳全防護罩與專屬安全防護網，一次一人並由安全員全程隨行指導。"
+    }
+];
 
-        card.className = `policy-card glass ${animationClass}`;
-        card.dataset.id = policy.id;
-        card.dataset.index = index;
-        card.innerHTML = `
-            <div class="policy-card-header">
-                <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; margin-bottom: 0.4rem;">
-                    <span class="policy-number">計畫 ${policy.id < 10 ? '0' + policy.id : policy.id}</span>
-                    <span class="badge-innovative-sm"><span class="pulse-dot"></span>首創</span>
-                </div>
-                <h3>${policy.title}</h3>
-            </div>
-            <div class="policy-card-image-wrapper">
-                <img class="policy-card-image" src="${policy.image}" alt="${policy.title} - 未來示意圖" onerror="this.style.display='none'; if(this.nextElementSibling) this.nextElementSibling.style.display='none'; this.parentElement.querySelector('.policy-card-image-placeholder').style.display='flex';">
-                <span class="vision-badge">未來示意圖</span>
-                <div class="policy-card-image-placeholder" style="display: none;">
-                    <div class="placeholder-icon">${policy.icon}</div>
-                    <span class="placeholder-text">示意圖規劃中</span>
-                </div>
-            </div>
-            <div class="policy-card-body">
-                <p class="policy-highlight">${policy.highlight}</p>
-                <div class="policy-card-footer">
-                    <button class="learn-more-btn">
-                        深入瞭解
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <line x1="5" y1="12" x2="19" y2="12"></line>
-                            <polyline points="12 5 19 12 12 19"></polyline>
-                        </svg>
-                    </button>
-                </div>
-            </div>
-        `;
-        card.addEventListener('click', () => openDrawer(policy.id));
-        policyGrid.appendChild(card);
+// Load QA Data (combining default + user personal pending cards from localStorage)
+function getQAData() {
+    try {
+        const stored = localStorage.getItem('md2_user_qa_proposals');
+        if (stored) {
+            const userCards = JSON.parse(stored);
+            return [...userCards, ...DEFAULT_QA_DATA];
+        }
+    } catch(e) {}
+    return DEFAULT_QA_DATA;
+}
+
+let currentQAFilter = 'all';
+let currentQAKeyword = '';
+
+function renderQACards() {
+    const container = document.getElementById('qa-cards-container');
+    if (!container) return;
+
+    const isQAPage = document.body.getAttribute('data-page') === 'qa-page';
+    const allData = getQAData();
+
+    // Filter by category tab and search keyword
+    let filtered = allData.filter(item => {
+        const matchesCategory = (currentQAFilter === 'all') || (item.type === currentQAFilter);
+        const matchesKeyword = !currentQAKeyword || 
+            item.title.toLowerCase().includes(currentQAKeyword.toLowerCase()) || 
+            item.question.toLowerCase().includes(currentQAKeyword.toLowerCase()) || 
+            item.category.toLowerCase().includes(currentQAKeyword.toLowerCase()) || 
+            item.response.toLowerCase().includes(currentQAKeyword.toLowerCase());
+        return matchesCategory && matchesKeyword;
     });
 
-    // Re-initialize observer for dynamically rendered elements
-    observeRevealElements();
-}
-
-// Drawer Functions
-function openDrawer(policyId) {
-    const policy = POLICIES_DATA.find(p => p.id === policyId);
-    if (!policy) return;
-
-    // Populate drawer elements
-    const formattedNum = policy.id < 10 ? `0${policy.id}` : policy.id;
-    document.getElementById('drawer-number').innerHTML = `計畫 ${formattedNum} <span class="badge-innovative-sm" style="margin-left: 0.5rem;"><span class="pulse-dot"></span>本里首創 ‧ 獨家政見</span>`;
-    document.getElementById('drawer-title').textContent = policy.title;
-    document.getElementById('drawer-description').textContent = policy.description;
-
-    // Populate drawer image
-    const drawerImgWrapper = document.getElementById('drawer-image-wrapper');
-    if (drawerImgWrapper) {
-        // 如果是計畫 02 (id 為 2)，渲染三張圖
-        if (policy.id === 2) {
-            drawerImgWrapper.style.display = 'block';
-            drawerImgWrapper.innerHTML = `
-                <div style="position: relative; margin-bottom: 1.5rem; border-radius: 12px; overflow: hidden; border: 1px solid var(--card-border);">
-                    <img class="drawer-image" src="images/policy_02_eq_3.png" alt="${policy.title} 概念圖三 - 未來示意圖">
-                    <span class="vision-badge">未來示意圖</span>
-                </div>
-                <div style="position: relative; margin-bottom: 1.5rem; border-radius: 12px; overflow: hidden; border: 1px solid var(--card-border);">
-                    <img class="drawer-image" src="images/policy_02_eq_2.png" alt="${policy.title} 概念圖二 - 未來示意圖">
-                    <span class="vision-badge">未來示意圖</span>
-                </div>
-                <div style="position: relative; border-radius: 12px; overflow: hidden; border: 1px solid var(--card-border);">
-                    <img class="drawer-image" src="images/policy_02_eq_1.png" alt="${policy.title} 概念圖一 - 未來示意圖">
-                    <span class="vision-badge">未來示意圖</span>
-                </div>
-            `;
-        } else if (policy.id === 4) {
-            // 如果是計畫 04 (id 為 4)，渲染 Before/After 現況對比滑塊
-            drawerImgWrapper.style.display = 'block';
-            drawerImgWrapper.innerHTML = `
-                <div class="before-after-slider">
-                    <div class="slider-image-before">
-                        <img src="images/policy_04_safety_1.jpg" alt="現況：人行道破損補丁（實景記錄）">
-                    </div>
-                    <div class="slider-image-after" id="slider-image-after">
-                        <img src="images/policy_04_safety_2.png" alt="未來：防滑平整人行道 - 未來示意圖">
-                    </div>
-                    <input type="range" min="0" max="100" value="50" class="slider-range" id="slider-range" aria-label="Before/After 拖拽滑動條">
-                    <div class="slider-line" id="slider-line"></div>
-                    <div class="slider-button" id="slider-button"></div>
-                    <span class="slider-label slider-label-before">未來願景</span>
-                    <span class="slider-label slider-label-after">現況實景</span>
-                    <span class="vision-badge">未來示意圖</span>
-                </div>
-            `;
-            // Add event listener to range input to handle clip-path and button/line position
-            const range = document.getElementById('slider-range');
-            const afterImage = document.getElementById('slider-image-after');
-            const line = document.getElementById('slider-line');
-            const button = document.getElementById('slider-button');
-            
-            const updateSlider = () => {
-                const value = range.value;
-                afterImage.style.clipPath = `polygon(0 0, ${value}% 0, ${value}% 100%, 0 100%)`;
-                line.style.left = `${value}%`;
-                button.style.left = `${value}%`;
-            };
-            
-            range.addEventListener('input', updateSlider);
-            range.addEventListener('change', updateSlider);
-            
-            // Set initial position
-            updateSlider();
-        } else {
-            // 其餘一般計畫渲染單張圖
-            drawerImgWrapper.innerHTML = `
-                <div style="position: relative; border-radius: 16px; overflow: hidden; border: 1px solid var(--card-border);">
-                    <img class="drawer-image" src="${policy.image}" alt="${policy.title} - 未來示意圖" onerror="this.closest('#drawer-image-wrapper').style.display='none';" onload="this.closest('#drawer-image-wrapper').style.display='block';">
-                    <span class="vision-badge">未來示意圖</span>
-                </div>
-            `;
-        }
+    // If on homepage (not qa-page), only show top 3 cards
+    if (!isQAPage) {
+        filtered = filtered.slice(0, 3);
     }
 
-    // How to do list
-    const howToDoList = document.getElementById('drawer-howtodo-list');
-    howToDoList.innerHTML = '';
-    policy.howToDo.forEach(step => {
-        const li = document.createElement('li');
-        li.className = 'drawer-list-item';
-        li.innerHTML = `
-            <span class="drawer-list-bullet"></span>
-            <span class="drawer-list-text">${step}</span>
+    if (filtered.length === 0) {
+        container.innerHTML = `<div class="qa-card" style="text-align:center; color:var(--text-muted); padding:3rem;">查無符合條件之里民提案</div>`;
+        return;
+    }
+
+    container.innerHTML = filtered.map(item => {
+        // Extract ~25 chars summary for response preview
+        const cleanResp = item.response.replace(/\n/g, ' ');
+        const shortResp = cleanResp.length > 25 ? cleanResp.substring(0, 25) + '...' : cleanResp;
+
+        // Check user agree status from localStorage
+        const isAgreed = localStorage.getItem(`md2_agreed_${item.id}`) === 'true';
+        const dynamicAgrees = parseInt(localStorage.getItem(`md2_agree_count_${item.id}`) || (item.agreeCount || 0), 10);
+        const dynamicSubs = parseInt(localStorage.getItem(`md2_sub_count_${item.id}`) || (item.subCount || 0), 10);
+
+        const hotBadge = dynamicAgrees >= 10 
+            ? `<span class="badge-hot-topic">🔥 全里高度關注 (${dynamicAgrees}人認同)</span>` 
+            : '';
+
+        return `
+        <div class="qa-card" id="${item.id}">
+            <div class="qa-card-meta">
+                <div class="qa-tag-group">
+                    <span class="qa-status-badge ${item.statusClass}">${escapeHTML(item.statusText)}</span>
+                    ${hotBadge}
+                </div>
+            </div>
+            <div class="qa-question-box">
+                <h4 class="qa-question-title">${escapeHTML(item.title)}</h4>
+                <p class="qa-question-text collapsed" id="qtext-${item.id}">${escapeHTML(item.question)}</p>
+                <div class="qa-expanded-meta" id="qmeta-${item.id}" style="display:none;">
+                    <span class="qa-category-pill">${escapeHTML(item.category)}</span>
+                    <span class="qa-author-time">反映里民：${escapeHTML(item.author)} ‧ ${escapeHTML(item.date)}</span>
+                </div>
+                <button class="btn-toggle-expand" onclick="toggleQAExpand('${item.id}')" id="qbtn-${item.id}">
+                    <span>展開完整原文</span>
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </button>
+            </div>
+            <div class="qa-response-box">
+                <div class="qa-response-header">
+                    <div class="qa-response-avatar">昱</div>
+                    <span class="qa-response-name">陳新昱 官方具體解決路徑回覆</span>
+                </div>
+                <div class="qa-response-summary" id="rsum-${item.id}">${escapeHTML(shortResp)}</div>
+                <div class="qa-response-content" id="resp-${item.id}" style="display:none;">${escapeHTML(item.response)}</div>
+                <button class="btn-toggle-response-expand" onclick="toggleQAResponseExpand('${item.id}')" id="rbtn-${item.id}">
+                    <span>展開完整 SOP 解決路徑 ▼</span>
+                </button>
+            </div>
+            
+            <!-- 參與式里政互動列 (認同 +1 ＆ 補充附議) -->
+            <div class="qa-interaction-bar">
+                <button class="btn-qa-agree ${isAgreed ? 'active' : ''}" onclick="handleAgreeVote('${item.id}', this)" id="agree-btn-${item.id}">
+                    <span class="agree-icon">👍</span>
+                    <span class="agree-text">${isAgreed ? '已認同' : '我也認同'}</span>
+                    <span class="agree-count" id="agree-count-${item.id}">${dynamicAgrees}</span>
+                </button>
+                <button class="btn-qa-sub" onclick="openSubProposalModal('${item.id}', '${escapeHTML(item.title).replace(/'/g, "\\'")}')">
+                    <span class="sub-icon">📝</span>
+                    <span class="sub-text">補充在地現況 (${dynamicSubs})</span>
+                </button>
+            </div>
+        </div>
         `;
-        howToDoList.appendChild(li);
-    });
-
-    // Why possible section
-    document.getElementById('drawer-capability-text').textContent = policy.whyPossible;
-
-    // Principles section
-    document.getElementById('drawer-principles-text').textContent = policy.principles;
-
-    // Open drawer view
-    drawerBackdrop.classList.add('active');
-    drawer.classList.add('active');
-    document.body.style.overflow = 'hidden'; // Lock main scroll
-}
-
-function closeDrawer() {
-    drawerBackdrop.classList.remove('active');
-    drawer.classList.remove('active');
-    document.body.style.overflow = ''; // Unlock main scroll
-}
-
-// Bi-directional Scroll Observer with Scroll Direction Awareness
-let revealObserver;
-let lastScrollY = window.scrollY;
-
-function observeRevealElements() {
-    // Collect all elements with reveal classes
-    const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-bottom, .reveal-top');
-    
-    // Disconnect old observer if exists
-    if (revealObserver) {
-        revealObserver.disconnect();
-    }
-    
-    // Define options
-    const observerOptions = {
-        root: null,
-        threshold: 0.08, // Trigger when 8% is visible
+    }).join('');
+}when 8% is visible
         rootMargin: "-10px 0px -10px 0px" // Buffer area for smooth triggering
     };
     
@@ -867,6 +928,130 @@ function initQAForm() {
             cardEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }
     });
+}
+
+// ==========================================================================
+// 參與式里政互動：👍 我也認同 (+1) ＆ 📝 補充在地現況 (附議子單據)
+// ==========================================================================
+function handleAgreeVote(cardId, btnEl) {
+    const agreeKey = `md2_agreed_${cardId}`;
+    const countKey = `md2_agree_count_${cardId}`;
+
+    if (localStorage.getItem(agreeKey) === 'true') {
+        showToast('您已為此案讚聲認同過囉！感謝您的熱情支持！');
+        return;
+    }
+
+    // Mark as agreed in localStorage
+    localStorage.setItem(agreeKey, 'true');
+    const allData = getQAData();
+    const item = allData.find(p => p.id === cardId);
+    let curCount = parseInt(localStorage.getItem(countKey) || (item ? item.agreeCount : 20) || '20', 10) + 1;
+    localStorage.setItem(countKey, curCount.toString());
+
+    // Update UI dynamically
+    if (btnEl) {
+        btnEl.classList.add('active');
+        const textSpan = btnEl.querySelector('.agree-text');
+        const countSpan = btnEl.querySelector('.agree-count');
+        if (textSpan) textSpan.textContent = '已認同';
+        if (countSpan) countSpan.textContent = curCount;
+    }
+
+    // Trigger toast
+    showToast(`👍 感謝認同！此案民意熱度已累積至 ${curCount} 票！`);
+
+    // Sync to Google Sheets (Proposals_Master AgreeCount + 1)
+    if (GOOGLE_SCRIPT_URL) {
+        fetch(GOOGLE_SCRIPT_URL, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                action: 'vote_agree',
+                id: cardId,
+                timestamp: new Date().toISOString()
+            })
+        }).catch(err => console.log('Vote agree sync error:', err));
+    }
+
+    // Re-render Q&A cards to update hot badge if reached >= 10
+    setTimeout(() => {
+        renderQACards();
+    }, 400);
+}
+
+let currentSubParentId = null;
+let currentSubParentTitle = '';
+
+function openSubProposalModal(cardId, parentTitle) {
+    currentSubParentId = cardId;
+    currentSubParentTitle = parentTitle;
+
+    const modal = document.getElementById('sub-proposal-modal');
+    const targetBox = document.getElementById('sub-parent-display');
+    if (targetBox) {
+        targetBox.textContent = `📌 正在為【${cardId} ‧ ${parentTitle}】補充在地現況`;
+    }
+
+    if (modal) {
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+}
+
+function closeSubProposalModal() {
+    const modal = document.getElementById('sub-proposal-modal');
+    if (modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+}
+
+function handleSubProposalSubmit(e) {
+    e.preventDefault();
+    const nameInput = document.getElementById('qa-sub-name');
+    const contactInput = document.getElementById('qa-sub-contact');
+    const contentInput = document.getElementById('qa-sub-content');
+
+    const userName = nameInput && nameInput.value.trim() ? nameInput.value.trim() : '明德里熱心里民';
+    const contact = contactInput ? contactInput.value.trim() : '';
+    const content = contentInput ? contentInput.value.trim() : '';
+
+    if (!content) {
+        alert('請輸入您的在地現況補充說明！');
+        return;
+    }
+
+    // Increment local subCount
+    const subCountKey = `md2_sub_count_${currentSubParentId}`;
+    let curSubCount = parseInt(localStorage.getItem(subCountKey) || '1', 10) + 1;
+    localStorage.setItem(subCountKey, curSubCount.toString());
+
+    // Sync to Google Sheets (Proposals_Detail)
+    if (GOOGLE_SCRIPT_URL) {
+        fetch(GOOGLE_SCRIPT_URL, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                action: 'submit_sub_proposal',
+                parentId: currentSubParentId,
+                parentTitle: currentSubParentTitle,
+                userName: userName,
+                contact: contact,
+                content: content,
+                timestamp: new Date().toISOString()
+            })
+        }).catch(err => console.log('Sub proposal sync error:', err));
+    }
+
+    const form = document.getElementById('sub-proposal-form');
+    if (form) form.reset();
+
+    closeSubProposalModal();
+    showToast('📝 補充意見已成功送達！感謝您參與明德里共治，團隊將儘速彙整入本案！');
+    renderQACards();
 }
 
 // ==========================================================================

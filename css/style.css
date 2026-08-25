@@ -3151,4 +3151,203 @@ footer {
     }
 }
 
+/* ==========================================================================
+   參與式里政互動列 (Participatory Action Bar) & 附議 Modal
+   ========================================================================== */
+.qa-interaction-bar {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+    margin-top: 1.2rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+[data-theme="light"] .qa-interaction-bar {
+    border-top-color: rgba(0, 0, 0, 0.08);
+}
+
+.btn-qa-agree {
+    background: rgba(16, 185, 129, 0.12);
+    border: 1px solid rgba(16, 185, 129, 0.4);
+    color: #34d399;
+    padding: 0.55rem 1.1rem;
+    border-radius: 24px;
+    font-size: 0.92rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    user-select: none;
+}
+
+[data-theme="light"] .btn-qa-agree {
+    background: rgba(5, 150, 105, 0.1);
+    border-color: rgba(5, 150, 105, 0.3);
+    color: #059669;
+}
+
+.btn-qa-agree:hover {
+    background: #10b981;
+    color: #060b09;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.35);
+}
+
+.btn-qa-agree.active {
+    background: #10b981;
+    color: #060b09;
+    border-color: #10b981;
+    box-shadow: 0 0 16px rgba(16, 185, 129, 0.5);
+}
+
+.agree-count {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 0.15rem 0.55rem;
+    border-radius: 12px;
+    font-size: 0.82rem;
+}
+
+.btn-qa-agree.active .agree-count {
+    background: rgba(0, 0, 0, 0.2);
+    color: #060b09;
+    font-weight: 900;
+}
+
+.btn-qa-sub {
+    background: rgba(251, 191, 36, 0.12);
+    border: 1px solid rgba(251, 191, 36, 0.4);
+    color: #fbbf24;
+    padding: 0.55rem 1.1rem;
+    border-radius: 24px;
+    font-size: 0.92rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+}
+
+[data-theme="light"] .btn-qa-sub {
+    background: rgba(217, 119, 6, 0.1);
+    border-color: rgba(217, 119, 6, 0.3);
+    color: #d97706;
+}
+
+.btn-qa-sub:hover {
+    background: #fbbf24;
+    color: #060b09;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(251, 191, 36, 0.35);
+}
+
+.badge-hot-topic {
+    background: linear-gradient(135deg, rgba(239, 68, 68, 0.2) 0%, rgba(249, 115, 22, 0.2) 100%);
+    border: 1px solid #f97316;
+    color: #fb923c;
+    font-size: 0.78rem;
+    font-weight: 800;
+    padding: 0.25rem 0.65rem;
+    border-radius: 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    animation: hotPulse 2s infinite ease-in-out;
+}
+
+@keyframes hotPulse {
+    0%, 100% { box-shadow: 0 0 0 rgba(249, 115, 22, 0); }
+    50% { box-shadow: 0 0 12px rgba(249, 115, 22, 0.4); }
+}
+
+/* 附議彈窗 Modal */
+.sub-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(4, 8, 6, 0.88);
+    backdrop-filter: blur(14px);
+    z-index: 10000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 1.2rem;
+}
+
+.sub-modal-overlay.active {
+    display: flex;
+    animation: fadeInModal 0.3s ease forwards;
+}
+
+.sub-modal-card {
+    background: #0f1915;
+    border: 1px solid rgba(251, 191, 36, 0.4);
+    border-radius: 20px;
+    width: 100%;
+    max-width: 540px;
+    padding: 2rem;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+    position: relative;
+    text-align: left;
+}
+
+[data-theme="light"] .sub-modal-card {
+    background: #ffffff;
+    border-color: rgba(217, 119, 6, 0.4);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+}
+
+.sub-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1.2rem;
+}
+
+.sub-modal-title {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: var(--accent-primary);
+    margin-bottom: 0.3rem;
+}
+
+.sub-modal-subtitle {
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+.sub-modal-close {
+    background: none;
+    border: none;
+    font-size: 1.6rem;
+    color: var(--text-muted);
+    cursor: pointer;
+    padding: 0 0.5rem;
+    transition: var(--transition-smooth);
+}
+
+.sub-modal-close:hover {
+    color: #ef4444;
+}
+
+.sub-parent-target {
+    background: rgba(251, 191, 36, 0.1);
+    border-left: 3px solid var(--accent-primary);
+    padding: 0.7rem 1rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 1.5rem;
+}
+
+
 

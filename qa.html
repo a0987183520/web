@@ -363,12 +363,51 @@
         </div>
     </div>
 
+    <!-- 參與式里政：補充在地現況 (附議) 彈窗 Modal -->
+    <div class="sub-modal-overlay" id="sub-proposal-modal" role="dialog" aria-labelledby="sub-modal-title" aria-modal="true">
+        <div class="sub-modal-card">
+            <div class="sub-modal-header">
+                <div>
+                    <h3 class="sub-modal-title" id="sub-modal-title">📝 補充在地現況 ‧ 參與式附議</h3>
+                    <p class="sub-modal-subtitle">歡迎提供更詳細的時段、路況細節或親身遭遇，讓會勘與改善更精準！</p>
+                </div>
+                <button class="sub-modal-close" onclick="closeSubProposalModal()" aria-label="關閉視窗">&times;</button>
+            </div>
+            
+            <div class="sub-parent-target" id="sub-parent-display">
+                📌 正在為案件補充在地現況...
+            </div>
+
+            <form id="sub-proposal-form" onsubmit="handleSubProposalSubmit(event)">
+                <div class="form-group" style="margin-bottom: 1.2rem;">
+                    <label for="qa-sub-name" style="font-weight:700; font-size:0.92rem; color:var(--text-primary); margin-bottom:0.4rem; display:block;">稱謂 / 居住社區（例：明德路二段住戶 / 樂利家長）：</label>
+                    <input type="text" id="qa-sub-name" class="form-control" placeholder="例：學府路通勤族 林先生" required>
+                </div>
+
+                <div class="form-group" style="margin-bottom: 1.2rem;">
+                    <label for="qa-sub-contact" style="font-weight:700; font-size:0.92rem; color:var(--text-primary); margin-bottom:0.4rem; display:block;">聯絡電話或 Email（選填，供選服進度回報）：</label>
+                    <input type="text" id="qa-sub-contact" class="form-control" placeholder="例：0912-xxx-xxx 或 Email">
+                </div>
+
+                <div class="form-group" style="margin-bottom: 1.5rem;">
+                    <label for="qa-sub-content" style="font-weight:700; font-size:0.92rem; color:var(--text-primary); margin-bottom:0.4rem; display:block;">具體現況補充或痛點時段（必填）：</label>
+                    <textarea id="qa-sub-content" class="form-control" rows="4" placeholder="請具體說明您所觀察到的時段、路段細節或遭遇..." required></textarea>
+                </div>
+
+                <div style="display:flex; justify-content:flex-end; gap:0.8rem;">
+                    <button type="button" class="btn-cancel" onclick="closeSubProposalModal()" style="padding:0.7rem 1.4rem; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.1); border-radius:10px; color:var(--text-secondary); cursor:pointer; font-weight:700;">取消</button>
+                    <button type="submit" class="submit-btn" style="width:auto; padding:0.7rem 1.8rem;">送出補充意見</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
     <!-- Toast 提示通知元件 -->
     <div class="toast-notice" id="toast-notice">
         <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
         <span id="toast-msg">感謝您的讚聲力挺！</span>
     </div>
 
-    <script src="js/main.js?v=3.10"></script>
+    <script src="js/main.js?v=3.13"></script>
 </body>
 </html>
