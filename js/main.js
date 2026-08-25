@@ -692,16 +692,29 @@ const DEFAULT_QA_DATA = [
     }
 ];
 
-// Load QA Data (combining default + user personal pending cards from localStorage)
+// Global State for Cloud Synced QA Data (Stale-While-Revalidate)
+let liveCloudQAData = null;
+try {
+    const cachedCloud = localStorage.getItem('md2_cloud_qa_data');
+    if (cachedCloud) {
+        liveCloudQAData = JSON.parse(cachedCloud);
+    }
+} catch(e) {}
+
+// Load QA Data (combining cloud-synced/default + user personal pending cards from localStorage)
 function getQAData() {
+    const baseData = (liveCloudQAData && Array.isArray(liveCloudQAData) && liveCloudQAData.length > 0)
+        ? liveCloudQAData
+        : DEFAULT_QA_DATA;
+
     try {
         const stored = localStorage.getItem('md2_user_qa_proposals');
         if (stored) {
             const userCards = JSON.parse(stored);
-            return [...userCards, ...DEFAULT_QA_DATA];
+            return [...userCards, ...baseData];
         }
     } catch(e) {}
-    return DEFAULT_QA_DATA;
+    return baseData;
 }
 
 let currentQAFilter = 'all';
@@ -1208,32 +1221,85 @@ function escapeHTML(str) {
 }
 
 // ==========================================================================
+// Google 試算表雙向即時雲端同步 (Live Cloud Sync for Stats & QA Data)
+// ==========================================================================
+function syncCloudData() {
+    if (!GOOGLE_SCRIPT_URL) return;
+
+    fetch(GOOGLE_SCRIPT_URL)
+        .then(res => res.json())
+        .then(data => {
+            if (!data || data.status !== 'success') return;
+
+            // 1. 同步即時造訪與讚聲人氣數據
+            if (data.views) {
+                localStorage.setItem('md2_views_count', data.views.toString());
+                const viewsEl = document.getElementById('stat-views-count');
+                if (viewsEl) viewsEl.textContent = Number(data.views).toLocaleString();
+            }
+            if (data.likes) {
+                localStorage.setItem('md2_likes_count', data.likes.toString());
+                const likesEl = document.getElementById('stat-likes-count');
+                if (likesEl) likesEl.textContent = Number(data.likes).toLocaleString();
+            }
+
+            // 2. 同步 Google 試算表最新審核公開之有問必答題目與官方回覆
+            if (Array.isArray(data.proposals) && data.proposals.length > 0) {
+                const approved = data.proposals.filter(p => p.status === '已審核公開' || p.status === 'approved' || !p.status);
+                if (approved.length > 0) {
+                    const formatted = approved.map(item => {
+                        const type = item.type || 'policy';
+                        let statusText = '已納入競選政見白皮書';
+                        let statusClass = 'status-policy';
+                        if (type === 'inspect') {
+                            statusText = '列為當選後優先重點會勘';
+                            statusClass = 'status-inspect';
+                        } else if (type === 'city') {
+                            statusText = '市府權責・列為當選專案爭取';
+                            statusClass = 'status-city';
+                        } else if (type === 'law') {
+                            statusText = '法規說明與行政程序解答';
+                            statusClass = 'status-law';
+                        }
+
+                        const defMatch = DEFAULT_QA_DATA.find(d => d.id === item.id);
+                        const title = item.title || (defMatch ? defMatch.title : (item.question.length > 30 ? item.question.substring(0, 30) + '...' : item.question));
+
+                        return {
+                            id: item.id,
+                            category: item.category || (defMatch ? defMatch.category : '#其他生活建議'),
+                            type: type,
+                            statusText: item.statusText || (defMatch ? defMatch.statusText : statusText),
+                            statusClass: item.statusClass || (defMatch ? defMatch.statusClass : statusClass),
+                            agreeCount: Number(item.agreeCount || (defMatch ? defMatch.agreeCount : 20) || 20),
+                            subCount: Number(item.subCount || (defMatch ? defMatch.subCount : 0) || 0),
+                            author: item.author || (defMatch ? defMatch.author : '明德里熱心里民'),
+                            date: item.date ? item.date.split(' ')[0] : (defMatch ? defMatch.date : '2026-08-20'),
+                            title: title,
+                            question: item.question,
+                            response: item.response
+                        };
+                    });
+
+                    liveCloudQAData = formatted;
+                    try {
+                        localStorage.setItem('md2_cloud_qa_data', JSON.stringify(formatted));
+                    } catch(e) {}
+
+                    // 即時平滑更新 Q&A 卡片清單
+                    renderQACards();
+                }
+            }
+        })
+        .catch(err => {
+            console.log('Live cloud sync fallback:', err);
+        });
+}
+
+// ==========================================================================
 // 人氣數據指標儀表板 (Stats Count-Up & Dynamic Metric Bars)
 // ==========================================================================
 function initStatsDashboard() {
-    // 優先從 Google Sheets 獲取最新雲端數據
-    if (GOOGLE_SCRIPT_URL) {
-        fetch(GOOGLE_SCRIPT_URL)
-            .then(res => res.json())
-            .then(data => {
-                if (data && data.status === 'success') {
-                    if (data.views) {
-                        localStorage.setItem('md2_views_count', data.views.toString());
-                        const viewsEl = document.getElementById('stat-views-count');
-                        if (viewsEl) viewsEl.textContent = Number(data.views).toLocaleString();
-                    }
-                    if (data.likes) {
-                        localStorage.setItem('md2_likes_count', data.likes.toString());
-                        const likesEl = document.getElementById('stat-likes-count');
-                        if (likesEl) likesEl.textContent = Number(data.likes).toLocaleString();
-                    }
-                }
-            })
-            .catch(() => {
-                // 離線或跨域限制時平滑使用 LocalStorage
-            });
-    }
-
     const curViews = parseInt(localStorage.getItem('md2_views_count') || '1280', 10);
     const viewsEl = document.getElementById('stat-views-count');
     if (viewsEl) viewsEl.textContent = curViews.toLocaleString();
@@ -1332,6 +1398,7 @@ initQATabs();
 initQAForm();
 initCollapsibles();
 initStatsDashboard();
+syncCloudData(); // 非同步雙軌即時拉取最新 Google 試算表 Q&A 與人氣數據
 initLineGuideModal();
 observeRevealElements();
 initSmartSnap();
