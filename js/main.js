@@ -530,6 +530,11 @@ function initHeaderScroll() {
 }
 
 // ==========================================================================
+// Google Apps Script (GAS) 雲端試算表 API 串接端點
+// ==========================================================================
+const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzJVXWjcRGzSDMWBsO6aHQR-UbX5BOM6pcKpNpKVYMYVwj8ceWV6Pu9X7UP6ldlPrTn/exec';
+
+// ==========================================================================
 // 里民共治・有問必答牆 (Participatory Q&A Data & Handlers)
 // ==========================================================================
 const DEFAULT_QA_DATA = [
@@ -850,6 +855,7 @@ function initQAForm() {
             response: '【系統即時受理回饋】：感謝您的寶貴提案！競選小組與法律/民政顧問已接收到您的案件，目前正進行法規與權責研擬，完成具體 SOP 解決路徑後將正式公開更新於本牆！'
         };
 
+        // 1. 本地即時上牆
         try {
             const stored = localStorage.getItem('md2_user_qa_proposals');
             const userCards = stored ? JSON.parse(stored) : [];
@@ -857,8 +863,26 @@ function initQAForm() {
             localStorage.setItem('md2_user_qa_proposals', JSON.stringify(userCards));
         } catch(e) {}
 
+        // 2. 同步傳送至 Google 試算表 (GAS 雲端資料庫)
+        if (GOOGLE_SCRIPT_URL) {
+            const contactInput = document.getElementById('qa-contact');
+            const contactVal = contactInput ? contactInput.value.trim() : '';
+            fetch(GOOGLE_SCRIPT_URL, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    action: 'submit_proposal',
+                    userName: userName,
+                    category: category,
+                    contact: contactVal,
+                    content: content
+                })
+            }).catch(err => console.log('Google Sheets sync error:', err));
+        }
+
         form.reset();
-        showToast('提案已成功送達！個人端已即時受理上牆');
+        showToast('提案已成功送達！個人端已即時受理上牆並同步至競選總部資料庫');
         renderQACards();
 
         // Scroll to the newly added card
@@ -965,8 +989,23 @@ function handleSupportSubmit(e) {
 
     // Save timestamp & increment likes
     localStorage.setItem('md2_last_like_timestamp', now.toString());
-    const curLikes = parseInt(localStorage.getItem('md2_likes_count') || '1268', 10) + 1;
+    const curLikes = parseInt(localStorage.getItem('md2_likes_count') || '342', 10) + 1;
     localStorage.setItem('md2_likes_count', curLikes.toString());
+
+    // 同步傳送至 Google 試算表 (GAS 雲端資料庫)
+    if (GOOGLE_SCRIPT_URL) {
+        fetch(GOOGLE_SCRIPT_URL, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                action: 'submit_support',
+                supportType: currentSupportOption === 1 ? 'quick' : (currentSupportOption === 2 ? 'title' : (currentSupportOption === 3 ? 'mask' : 'full')),
+                displayName: supporterName || '熱心里民',
+                consent: (currentSupportOption === 4)
+            })
+        }).catch(err => console.log('Google Sheets sync error:', err));
+    }
 
     // Update UI numbers
     const likesEl = document.getElementById('stat-likes-count');
@@ -1017,22 +1056,34 @@ function escapeHTML(str) {
 // 人氣數據指標儀表板 (Stats Count-Up & Dynamic Metric Bars)
 // ==========================================================================
 function initStatsDashboard() {
-    // Check views counter
-    const now = Date.now();
-    const lastViewTime = localStorage.getItem('md2_last_view_timestamp');
-    const ONE_HOUR = 60 * 60 * 1000;
-    let curViews = parseInt(localStorage.getItem('md2_views_count') || '3852', 10);
-
-    if (!lastViewTime || (now - parseInt(lastViewTime, 10) >= ONE_HOUR)) {
-        curViews += Math.floor(Math.random() * 3) + 1;
-        localStorage.setItem('md2_views_count', curViews.toString());
-        localStorage.setItem('md2_last_view_timestamp', now.toString());
+    // 優先從 Google Sheets 獲取最新雲端數據
+    if (GOOGLE_SCRIPT_URL) {
+        fetch(GOOGLE_SCRIPT_URL)
+            .then(res => res.json())
+            .then(data => {
+                if (data && data.status === 'success') {
+                    if (data.views) {
+                        localStorage.setItem('md2_views_count', data.views.toString());
+                        const viewsEl = document.getElementById('stat-views-count');
+                        if (viewsEl) viewsEl.textContent = Number(data.views).toLocaleString();
+                    }
+                    if (data.likes) {
+                        localStorage.setItem('md2_likes_count', data.likes.toString());
+                        const likesEl = document.getElementById('stat-likes-count');
+                        if (likesEl) likesEl.textContent = Number(data.likes).toLocaleString();
+                    }
+                }
+            })
+            .catch(() => {
+                // 離線或跨域限制時平滑使用 LocalStorage
+            });
     }
 
+    const curViews = parseInt(localStorage.getItem('md2_views_count') || '1280', 10);
     const viewsEl = document.getElementById('stat-views-count');
     if (viewsEl) viewsEl.textContent = curViews.toLocaleString();
 
-    const curLikes = parseInt(localStorage.getItem('md2_likes_count') || '1268', 10);
+    const curLikes = parseInt(localStorage.getItem('md2_likes_count') || '342', 10);
     const likesEl = document.getElementById('stat-likes-count');
     if (likesEl) likesEl.textContent = curLikes.toLocaleString();
 
@@ -1053,8 +1104,8 @@ function initStatsDashboard() {
                 if (barLikes) barLikes.style.width = '85%';
                 if (barReply) barReply.style.width = '100%';
 
-                animateValue(viewsEl, curViews - 40, curViews, 1200);
-                animateValue(likesEl, curLikes - 30, curLikes, 1200);
+                animateValue(viewsEl, Math.max(0, curViews - 40), curViews, 1200);
+                animateValue(likesEl, Math.max(0, curLikes - 30), curLikes, 1200);
             }
         });
     }, { threshold: 0.2 });
