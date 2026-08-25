@@ -120,7 +120,42 @@ const INITIAL_ADMIN_DATA = [
     }
 ];
 
+// 預設附議明細備援資料庫
+const INITIAL_SUB_PROPOSALS = [
+    {
+        subId: "sub-1",
+        parentId: "qa-1",
+        parentTitle: "明德路二段學府路口行人時相太短與學士路口號誌不同步塞車連環卡死",
+        author: "學府路通勤機車族 趙小姐",
+        contact: "0921-xxx-xxx",
+        content: "每天早上 07:45~08:30 在學府路一段往海山站方向，學府路口綠燈時轉彎車真的完全動不了，甚至有汽車直接違規切入斑馬線，希望能有義交或志工在尖峰時段協勤導引！",
+        date: "2026-08-21 08:35:00",
+        status: "🟢 已採納列管"
+    },
+    {
+        subId: "sub-2",
+        parentId: "qa-1",
+        parentTitle: "明德路二段學府路口行人時相太短與學士路口號誌不同步塞車連環卡死",
+        author: "金城路二段 居民 郭先生",
+        contact: "0932-xxx-xxx",
+        content: "學士路口往金城路那段在傍晚 18:00 下班時間更嚴重，前後紅綠燈秒數差了快 10 秒，經常回堵整整兩個街區，希望里長當選後調閱交控中心秒數時制表進行會勘！",
+        date: "2026-08-22 18:15:00",
+        status: "🔴 待審核"
+    },
+    {
+        subId: "sub-3",
+        parentId: "qa-3",
+        parentTitle: "學府路一段近海山捷運連通道機車格需求與紅線會勘",
+        author: "明德路二段 捷運通勤族 孫先生",
+        contact: "sun@example.com",
+        content: "捷運連通道附近人行道轉角常有違規機車斜插停放，造成輪椅與嬰兒推車必須繞走馬路，非常危險，建議除增設停車區外，路口轉角務必加裝防撞軟桿！",
+        date: "2026-08-16 10:20:00",
+        status: "🔴 待審核"
+    }
+];
+
 let adminProposals = [];
+let adminSubProposals = [];
 let activeProposalId = null;
 let currentAdminFilter = 'all';
 let currentAdminSearch = '';
@@ -178,6 +213,18 @@ function loadAdminData() {
         adminProposals = [...INITIAL_ADMIN_DATA];
     }
 
+    try {
+        const storedSubs = localStorage.getItem('md2_admin_sub_proposals');
+        if (storedSubs) {
+            adminSubProposals = JSON.parse(storedSubs);
+        } else {
+            adminSubProposals = [...INITIAL_SUB_PROPOSALS];
+            saveSubProposalData();
+        }
+    } catch(e) {
+        adminSubProposals = [...INITIAL_SUB_PROPOSALS];
+    }
+
     if (adminProposals.length > 0 && !activeProposalId) {
         activeProposalId = adminProposals[0].id;
     }
@@ -199,17 +246,25 @@ function fetchGoogleSheetProposals(showToastOnComplete = false, onComplete = nul
     fetch(GOOGLE_SCRIPT_URL)
         .then(res => res.json())
         .then(data => {
-            if (data && data.status === 'success' && Array.isArray(data.proposals) && data.proposals.length > 0) {
-                adminProposals = data.proposals;
-                saveLocalData();
+            if (data && data.status === 'success') {
+                if (Array.isArray(data.proposals) && data.proposals.length > 0) {
+                    adminProposals = data.proposals;
+                    saveLocalData();
+                }
+                if (Array.isArray(data.subProposals)) {
+                    adminSubProposals = data.subProposals;
+                    saveSubProposalData();
+                }
+
                 if (!activeProposalId || !adminProposals.find(p => p.id === activeProposalId)) {
-                    activeProposalId = adminProposals[0].id;
+                    activeProposalId = adminProposals.length > 0 ? adminProposals[0].id : null;
                 }
                 renderAdminList();
                 loadActiveProposalIntoEditor();
                 updateCounts();
+
                 if (showToastOnComplete) {
-                    showToast(`📥 成功從 Google 試算表下載 ${adminProposals.length} 筆最新案件！`);
+                    showToast(`📥 成功從 Google 試算表下載 ${adminProposals.length} 筆母案與 ${adminSubProposals.length} 筆附議明細！`);
                 }
             } else if (showToastOnComplete) {
                 showToast('已連線 Google 試算表，資料皆為最新！');
@@ -231,6 +286,12 @@ function fetchGoogleSheetProposals(showToastOnComplete = false, onComplete = nul
 function saveLocalData() {
     try {
         localStorage.setItem('md2_admin_proposals', JSON.stringify(adminProposals));
+    } catch(e) {}
+}
+
+function saveSubProposalData() {
+    try {
+        localStorage.setItem('md2_admin_sub_proposals', JSON.stringify(adminSubProposals));
     } catch(e) {}
 }
 
@@ -269,7 +330,14 @@ function renderAdminList() {
 
         const previewText = item.question ? (item.question.length > 38 ? item.question.substring(0, 38) + '...' : item.question) : '（無提問內容）';
         const agreeCount = item.agreeCount || 0;
-        const subCount = item.subCount || 0;
+        
+        // 動態計算此母案關聯的附議總數與待審核數
+        const matchingSubs = adminSubProposals.filter(s => s.parentId === item.id);
+        const subCount = matchingSubs.length > 0 ? matchingSubs.length : (item.subCount || 0);
+        const pendingSubCount = matchingSubs.filter(s => s.status && s.status.includes('待審核')).length;
+        const pendingSubBadge = pendingSubCount > 0 
+            ? `<span style="color:#f87171; background:rgba(239,68,68,0.2); padding:0.1rem 0.4rem; border-radius:4px; font-size:0.72rem; margin-left:0.3rem;">⚠️ ${pendingSubCount} 筆待審</span>` 
+            : '';
 
         return `
         <div class="admin-item-card ${isSelected ? 'active' : ''}" onclick="selectProposal('${item.id}')">
@@ -279,12 +347,12 @@ function renderAdminList() {
             </div>
             <div class="admin-item-title">${previewText}</div>
             <div class="admin-item-meta" style="margin-bottom:0.4rem;">
-                <span>👤 ${item.author || '熱心里民'}</span>
-                <span>🏷️ ${item.category || '#生活建議'}</span>
+                <span>👤 ${escapeHTML(item.author || '熱心里民')}</span>
+                <span>🏷️ ${escapeHTML(item.category || '#生活建議')}</span>
             </div>
-            <div style="font-size:0.78rem; color:var(--accent-secondary); display:flex; gap:0.8rem; font-weight:700;">
+            <div style="font-size:0.78rem; color:var(--accent-secondary); display:flex; align-items:center; gap:0.8rem; font-weight:700;">
                 <span>👍 ${agreeCount} 認同</span>
-                <span>📝 ${subCount} 附議</span>
+                <span>📝 ${subCount} 附議 ${pendingSubBadge}</span>
             </div>
         </div>
         `;
@@ -303,7 +371,8 @@ function loadActiveProposalIntoEditor() {
     if (!item) return;
 
     const agreeCount = item.agreeCount || 0;
-    const subCount = item.subCount || 0;
+    const matchingSubs = adminSubProposals.filter(s => s.parentId === item.id);
+    const subCount = matchingSubs.length > 0 ? matchingSubs.length : (item.subCount || 0);
 
     document.getElementById('editor-active-id').innerHTML = `
         <span style="color:var(--accent-primary); font-weight:800;">${item.id}</span>
@@ -318,6 +387,126 @@ function loadActiveProposalIntoEditor() {
     document.getElementById('edit-date').value = item.date || '';
     document.getElementById('edit-question').value = item.question || '';
     document.getElementById('edit-response').value = item.response || '';
+
+    // 渲染關聯之附議明細清單
+    renderSubProposals(item.id);
+}
+
+// 4.1 渲染附議審查清單
+function renderSubProposals(parentId) {
+    const container = document.getElementById('sub-proposals-container');
+    const countDisplay = document.getElementById('sub-count-display');
+    if (!container) return;
+
+    const matching = adminSubProposals.filter(s => s.parentId === parentId);
+    if (countDisplay) countDisplay.textContent = matching.length;
+
+    if (matching.length === 0) {
+        container.innerHTML = `
+            <div style="text-align:center; color:var(--text-muted); padding:1.5rem; background:rgba(255,255,255,0.02); border:1px dashed rgba(255,255,255,0.08); border-radius:10px; font-size:0.9rem;">
+                📍 目前尚無里民針對此案提交在地補充意見
+            </div>
+        `;
+        return;
+    }
+
+    container.innerHTML = matching.map(sub => {
+        const isPending = sub.status && (sub.status.includes('待審核') || sub.status === 'pending');
+        const statusBadge = isPending
+            ? `<span style="color:#f87171; background:rgba(239,68,68,0.15); padding:0.15rem 0.5rem; border-radius:4px; font-size:0.75rem; font-weight:700;">🔴 待審核</span>`
+            : `<span style="color:#34d399; background:rgba(16,185,129,0.15); padding:0.15rem 0.5rem; border-radius:4px; font-size:0.75rem; font-weight:700;">${escapeHTML(sub.status || '🟢 已採納列管')}</span>`;
+
+        return `
+        <div class="sub-proposal-card" id="${sub.subId}">
+            <div class="sub-card-header">
+                <div style="display:flex; align-items:center; gap:0.6rem;">
+                    <span style="font-family:monospace; font-size:0.78rem; color:var(--accent-secondary); font-weight:700;">${sub.subId}</span>
+                    <span class="sub-card-author">${escapeHTML(sub.author || '熱心里民')}</span>
+                    ${statusBadge}
+                </div>
+                <div class="sub-card-meta">
+                    <span>📞 ${escapeHTML(sub.contact || '未留聯絡方式')}</span>
+                    <span>🕒 ${escapeHTML(sub.date || '')}</span>
+                </div>
+            </div>
+            <div class="sub-card-body">${escapeHTML(sub.content || '')}</div>
+            <div class="sub-card-actions">
+                <div style="display:flex; gap:0.5rem;">
+                    <button class="btn-sub-action btn-sub-approve" onclick="handleUpdateSubStatus('${sub.subId}', '🟢 已採納列管')">
+                        ✓ 採納列管
+                    </button>
+                    <button class="btn-sub-action btn-sub-archive" onclick="handleUpdateSubStatus('${sub.subId}', '⚪ 已封存備查')">
+                        ✕ 封存
+                    </button>
+                </div>
+                <button class="btn-copy-ai" style="font-size:0.78rem; padding:0.25rem 0.6rem;" onclick="copySubProposalToAI('${sub.subId}')">
+                    📋 複製此補充給 AI
+                </button>
+            </div>
+        </div>
+        `;
+    }).join('');
+}
+
+// 4.2 更新附議審查處置狀態 (一鍵同步雲端試算表)
+function handleUpdateSubStatus(subId, newStatus) {
+    const sub = adminSubProposals.find(s => s.subId === subId);
+    if (!sub) return;
+
+    sub.status = newStatus;
+    saveSubProposalData();
+    renderSubProposals(activeProposalId);
+    renderAdminList();
+
+    // 同步更新至 Google Apps Script
+    if (GOOGLE_SCRIPT_URL) {
+        fetch(GOOGLE_SCRIPT_URL, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                action: 'update_sub_proposal_status',
+                subId: subId,
+                status: newStatus
+            })
+        }).catch(err => console.log('Update sub status error:', err));
+    }
+
+    showToast(`附議案件 ${subId} 審查狀態已更新為：${newStatus}`);
+}
+
+// 4.3 複製單筆附議補充給 AI
+function copySubProposalToAI(subId) {
+    const sub = adminSubProposals.find(s => s.subId === subId);
+    const parent = adminProposals.find(p => p.id === (sub ? sub.parentId : activeProposalId));
+    if (!sub || !parent) return;
+
+    const textToCopy = `【里民附議現況補充諮詢】
+* 母案編號：${parent.id}（${parent.category}）
+* 母案提問：${parent.question}
+
+* 附議編號：${sub.subId}
+* 附議里民：${sub.author}
+* 聯絡方式：${sub.contact || '無'}
+* 補充內容：
+${sub.content}
+
+請競選小組與法規顧問評估此項補充細節，並研擬是否需補充至官方具體 SOP 回覆中。`;
+
+    navigator.clipboard.writeText(textToCopy).then(() => {
+        showToast(`已複製附議 ${sub.subId} 與母案背景給 AI！`);
+    });
+}
+
+function escapeHTML(str) {
+    if (!str) return '';
+    return String(str).replace(/[&<>'"]/g, tag => ({
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        "'": '&#39;',
+        '"': '&quot;'
+    }[tag] || tag));
 }
 
 // 5. 儲存並發布
@@ -412,17 +601,26 @@ function copyFullQAToAI() {
     const item = adminProposals.find(p => p.id === activeProposalId);
     if (!item) return;
 
+    const matchingSubs = adminSubProposals.filter(s => s.parentId === item.id);
+    let subsText = "";
+    if (matchingSubs.length > 0) {
+        subsText = `\n\n* **里民在地補充/附議明細 (${matchingSubs.length} 筆)**：\n` + matchingSubs.map((s, idx) => 
+            `  ${idx + 1}. [${s.subId}] (${s.author} / ${s.status})：${s.content}`
+        ).join('\n');
+    }
+
     const fullText = `### 【案件 ${item.id}】${item.category}
 * **反映人**：${item.author} (${item.date})
 * **審核狀態**：${item.status}
 * **問題原文**：
 ${item.question}
+${subsText}
 
 * **官方回覆**：
 ${item.response}`;
 
     navigator.clipboard.writeText(fullText).then(() => {
-        showToast('已複製完整問答全文！');
+        showToast('已複製完整問答與附議補充全文！');
     });
 }
 
