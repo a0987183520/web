@@ -539,11 +539,11 @@ const DEFAULT_QA_DATA = [
         type: "inspect",
         statusText: "列為當選後優先重點會勘",
         statusClass: "status-inspect",
-        author: "安和路二段 鄰居",
+        author: "立德路 鄰居",
         date: "2026-08-20",
-        title: "安和路二段與明德路口夜間照明昏暗及雨天人行步道易積水問題",
-        question: "明德路二段與安和路交界處，夜間照明較昏暗，且下雨時人行道邊緣容易積水濕滑，長輩晚上散步容易踩空滑倒，希望能評估增設感應式照明或防滑鋪面。",
-        response: "1. 【列入優先會勘】：當選後一週內將排定第一梯次「社區夜間照明與防滑全面會勘」，邀請區公所工務課與交通課現場實勘。\n2. 【短期改善措施】：先行協調更換高流明節能 LED 燈具，並針對周邊排水孔清淤，降低積水機率。\n3. 【中長期專案爭取】：向市府交通局與養工處爭取「友善人行步道改善專案」，更新標線型人行道防滑係數，保障全齡通行安全。"
+        title: "明德路一段與立德路口夜間照明死角與雨天標線防滑改善",
+        question: "明德路一段靠近活動中心與立德路交界路段，夜間死角照明較昏暗，且下雨時人行標線容易積水濕滑，長輩早晚散步運動容易踩空滑倒，希望能評估增設感應式照明或防滑鋪面。",
+        response: "1. 【列入優先重點會勘】：當選後一週內將排定第一梯次「社區夜間照明與防滑全面會勘」，邀請土城區公所工務課與交通課現場實勘。\n2. 【短期改善措施】：先行協調更換高流明節能 LED 燈具，並針對周邊排水孔清淤，降低積水機率。\n3. 【中長期專案爭取】：向市府交通局與養工處爭取「友善人行步道改善專案」，更新標線型人行道防滑係數，保障全齡通行安全。"
     },
     {
         id: "qa-2",
@@ -551,10 +551,10 @@ const DEFAULT_QA_DATA = [
         type: "policy",
         statusText: "已納入競選政見白皮書",
         statusClass: "status-policy",
-        author: "明德活動中心 太鼓班學員",
+        author: "明德市民活動中心 太鼓班學員",
         date: "2026-08-18",
         title: "請問新里長上任後，活動中心既有的太鼓班與長輩課程會不會中斷？",
-        question: "我們在活動中心的太鼓班已經練習好幾年了，很擔心換了里長之後這些長輩喜歡的班別會不會被取消或改掉？另外也希望能有機會讓年輕家人一起參與。",
+        question: "我們在明德活動中心的太鼓班已經練習好幾年了，很擔心換了里長之後這些長輩喜歡的班別會不會被取消或改掉？另外也希望能有機會讓年輕家人一起參與。",
         response: "1. 【承諾百分之百延續】：所有既有深受好評的太鼓班、土風舞等傳統課程，絕對完整保留、場地與時段全力保障！\n2. 【潮流升級注入新活力】：陳新昱具備 20 年音樂產業背景，已將「草地音樂節」納入政見白皮書第 1 案，未來將邀請青年獨立樂手與太鼓班長輩跨世代合體公演，讓家人與兒孫一同同樂！"
     },
     {
@@ -563,10 +563,10 @@ const DEFAULT_QA_DATA = [
         type: "city",
         statusText: "市府權責・列為當選專案爭取",
         statusClass: "status-city",
-        author: "海山站通勤族 林先生",
+        author: "學府路通勤族 林先生",
         date: "2026-08-15",
-        title: "捷運站周邊機車格嚴重不足，里長能否直接將紅線塗銷改設機車格？",
-        question: "每天早上下班時間，捷運站周邊機車格一位難求，許多機車違停在紅線上，影響行人動線與學童安全。請問里長能不能直接把紅線塗銷改成機車格？",
+        title: "學府路一段近海山捷運連通道機車格需求與紅線會勘",
+        question: "每天早上下班時間，學府路一段往海山站方向機車格一位難求，許多機車違停在紅線上，影響行人動線與學童安全。請問里長能不能直接把紅線塗銷改成機車格？",
         response: "1. 【法規權責釐清】：紅黃線劃設與道路空間配置屬市府交通局與警察局權責，里長依法無權單方面塗銷或自行劃設。\n2. 【爭取彈性配套方案】：我們不做空頭承諾，當選後將主動向交通局提案辦理「捷運外圍彈性機車格會勘」，評估利用周邊閒置公有地或退縮綠帶增設機車停放區，兼顧行人通行順暢與通勤族停車需求。"
     },
     {
@@ -577,8 +577,8 @@ const DEFAULT_QA_DATA = [
         statusClass: "status-law",
         author: "金城路大樓管委會 委員",
         date: "2026-08-12",
-        title: "想請教新北市對於公寓大廈公共梯廳更換感應式節能燈具有補助專案嗎？",
-        question: "我們大樓想要把公共梯廳老舊日光燈更換為感應式 LED 節能燈具，想請問候選人市府是否有相關補助款？申請程序大概要多久？",
+        title: "金城路二段大樓公共梯廳更換感應式節能燈具有市府補助專案嗎？",
+        question: "我們大樓（如金城路社區）想要把公共梯廳老舊日光燈更換為感應式 LED 節能燈具，想請問候選人市府是否有相關補助款？申請程序大概要多久？",
         response: "1. 【市府補助法規說明】：新北市工務局每年定期開辦「低碳社區智慧節能補助計畫」，針對社區公共空間更換節能燈具或智慧控制設備，最高可補助總工程款之 50%（依年度公告為準）。\n2. 【里辦公處行政協辦】：未來里辦公處將成立「大樓節能與補助諮詢窗口」，由具備資工與數據管理背景的團隊協助大樓管委會彙整申請文件與流程，讓明德里各社區都能順利爭取市府補助！"
     }
 ];
@@ -630,14 +630,16 @@ function renderQACards() {
         <div class="qa-card" id="${item.id}">
             <div class="qa-card-meta">
                 <div class="qa-tag-group">
-                    <span class="qa-category-tag">${escapeHTML(item.category)}</span>
                     <span class="qa-status-badge ${item.statusClass}">${escapeHTML(item.statusText)}</span>
                 </div>
-                <span class="qa-author-time">${escapeHTML(item.author)} ‧ ${escapeHTML(item.date)}</span>
             </div>
             <div class="qa-question-box">
                 <h4 class="qa-question-title">${escapeHTML(item.title)}</h4>
-                <p class="qa-question-text collapsed" id="qtext-${item.id}">${escapeHTML(item.question)}</p>
+                <div class="qa-sub-meta">
+                    <span class="qa-category-pill">${escapeHTML(item.category)}</span>
+                    <span class="qa-author-time">${escapeHTML(item.author)} ‧ ${escapeHTML(item.date)}</span>
+                </div>
+                <p class="qa-question-text collapsed" id="qtext-${item.id}" style="margin-top:0.8rem;">${escapeHTML(item.question)}</p>
                 <button class="btn-toggle-expand" onclick="toggleQAExpand('${item.id}')" id="qbtn-${item.id}">
                     <span>展開完整原文</span>
                     <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
@@ -648,7 +650,10 @@ function renderQACards() {
                     <div class="qa-response-avatar">昱</div>
                     <span class="qa-response-name">陳新昱 官方具體解決路徑回覆</span>
                 </div>
-                <div class="qa-response-content">${escapeHTML(item.response)}</div>
+                <div class="qa-response-content collapsed" id="resp-${item.id}">${escapeHTML(item.response)}</div>
+                <button class="btn-toggle-response-expand" onclick="toggleQAResponseExpand('${item.id}')" id="rbtn-${item.id}">
+                    <span>展開完整 SOP 解決路徑 ▼</span>
+                </button>
             </div>
         </div>
     `).join('');
@@ -665,6 +670,20 @@ function toggleQAExpand(cardId) {
     } else {
         textEl.classList.add('collapsed');
         btnEl.innerHTML = `<span>展開完整原文</span><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>`;
+    }
+}
+
+function toggleQAResponseExpand(cardId) {
+    const textEl = document.getElementById(`resp-${cardId}`);
+    const btnEl = document.getElementById(`rbtn-${cardId}`);
+    if (!textEl || !btnEl) return;
+
+    if (textEl.classList.contains('collapsed')) {
+        textEl.classList.remove('collapsed');
+        btnEl.innerHTML = `<span>收合解決路徑 ▲</span>`;
+    } else {
+        textEl.classList.add('collapsed');
+        btnEl.innerHTML = `<span>展開完整 SOP 解決路徑 ▼</span>`;
     }
 }
 
@@ -791,18 +810,18 @@ function selectSupportOption(optionNum) {
         if (consentBox) consentBox.classList.remove('show');
     } else if (optionNum === 2) {
         if (customInputBox) customInputBox.classList.add('show');
-        if (inputLabel) inputLabel.textContent = '請輸入稱謂（例：安和路 陳先生 / 樂利家長）：';
-        if (nameInput) nameInput.placeholder = '例：安和路 陳先生';
+        if (inputLabel) inputLabel.textContent = '請輸入稱謂（例：明德路 陳先生 / 孔雀王朝 樂利家長）：';
+        if (nameInput) nameInput.placeholder = '例：明德路 陳先生';
         if (consentBox) consentBox.classList.remove('show');
     } else if (optionNum === 3) {
         if (customInputBox) customInputBox.classList.add('show');
-        if (inputLabel) inputLabel.textContent = '請輸入去識別姓名（例：遠東大樓・陳○昱）：';
-        if (nameInput) nameInput.placeholder = '例：遠東大樓・陳○昱';
+        if (inputLabel) inputLabel.textContent = '請輸入去識別姓名（例：孔雀王朝・陳○昱）：';
+        if (nameInput) nameInput.placeholder = '例：孔雀王朝・陳○昱';
         if (consentBox) consentBox.classList.remove('show');
     } else if (optionNum === 4) {
         if (customInputBox) customInputBox.classList.add('show');
-        if (inputLabel) inputLabel.textContent = '請輸入全名與社區（例：遠東大樓：陳新昱）：';
-        if (nameInput) nameInput.placeholder = '例：遠東大樓：陳新昱';
+        if (inputLabel) inputLabel.textContent = '請輸入全名與社區（例：孔雀王朝：陳新昱）：';
+        if (nameInput) nameInput.placeholder = '例：孔雀王朝：陳新昱';
         if (consentBox) consentBox.classList.add('show');
     }
 }
@@ -964,11 +983,22 @@ function initLineGuideModal() {
     } catch(e) {}
 }
 
+// Initialize Collapsible Accordions (Governance Principles & Promises)
+function initCollapsibles() {
+    const collapsibles = document.querySelectorAll('.value-card.collapsible, .promise-item.collapsible');
+    collapsibles.forEach(item => {
+        item.addEventListener('click', () => {
+            item.classList.toggle('open');
+        });
+    });
+}
+
 // Initial Render and setup
 renderPolicies();
 renderQACards();
 initQATabs();
 initQAForm();
+initCollapsibles();
 initStatsDashboard();
 initLineGuideModal();
 observeRevealElements();
