@@ -701,6 +701,52 @@ try {
     }
 } catch(e) {}
 
+// 預設已審核採納之附議明細備援
+const INITIAL_APPROVED_SUBS = [
+    {
+        subId: "sub-1",
+        parentId: "qa-1",
+        author: "學府路通勤機車族 趙小姐",
+        content: "每天早上 07:45~08:30 在學府路一段往海山站方向，學府路口綠燈時轉彎車真的完全動不了，甚至有汽車直接違規切入斑馬線，希望能有義交或志工在尖峰時段協勤導引！",
+        date: "2026-08-21",
+        status: "🟢 已採納列管"
+    },
+    {
+        subId: "sub-2",
+        parentId: "qa-1",
+        author: "金城路二段 居民 郭先生",
+        content: "學士路口往金城路那段在傍晚 18:00 下班時間更嚴重，前後紅綠燈秒數差了快 10 秒，經常回堵整整兩個街區，希望里長當選後調閱交控中心秒數時制表進行會勘！",
+        date: "2026-08-22",
+        status: "🟢 已採納列管"
+    },
+    {
+        subId: "sub-3",
+        parentId: "qa-3",
+        author: "明德路二段 捷運通勤族 孫先生",
+        content: "捷運連通道附近人行道轉角常有違規機車斜插停放，造成輪椅與嬰兒推車必須繞走馬路，非常危險，建議除增設停車區外，路口轉角務必加裝防撞軟桿！",
+        date: "2026-08-16",
+        status: "🟢 已採納列管"
+    }
+];
+
+let liveCloudSubProposals = null;
+try {
+    const cachedSubs = localStorage.getItem('md2_cloud_sub_proposals');
+    if (cachedSubs) {
+        liveCloudSubProposals = JSON.parse(cachedSubs);
+    }
+} catch(e) {}
+
+function getApprovedSubProposals(parentId) {
+    const allSubs = (liveCloudSubProposals && Array.isArray(liveCloudSubProposals) && liveCloudSubProposals.length > 0)
+        ? liveCloudSubProposals
+        : INITIAL_APPROVED_SUBS;
+
+    return allSubs.filter(s => s.parentId === parentId && (
+        !s.status || s.status.includes('已採納') || s.status.includes('已審核') || s.status.includes('已公開') || s.status === 'approved'
+    ));
+}
+
 // Load QA Data (combining cloud-synced/default + user personal pending cards from localStorage)
 function getQAData() {
     const baseData = (liveCloudQAData && Array.isArray(liveCloudQAData) && liveCloudQAData.length > 0)
@@ -756,11 +802,44 @@ function renderQACards() {
         // Check user agree status from localStorage
         const isAgreed = localStorage.getItem(`md2_agreed_${item.id}`) === 'true';
         const dynamicAgrees = parseInt(localStorage.getItem(`md2_agree_count_${item.id}`) || (item.agreeCount || 0), 10);
-        const dynamicSubs = parseInt(localStorage.getItem(`md2_sub_count_${item.id}`) || (item.subCount || 0), 10);
+        
+        // 取得此母案已審核採納的在地補充
+        const approvedSubs = getApprovedSubProposals(item.id);
+        const dynamicSubs = Math.max(approvedSubs.length, parseInt(localStorage.getItem(`md2_sub_count_${item.id}`) || (item.subCount || 0), 10));
 
         const hotBadge = dynamicAgrees >= 10 
             ? `<span class="badge-hot-topic">🔥 全里高度關注 (${dynamicAgrees}人認同)</span>` 
             : '';
+
+        // 方案 A ＋ 方案 C：折疊式在地補充氣泡 ＋ 直達獨立專頁
+        let subAccordionHtml = '';
+        if (approvedSubs.length > 0) {
+            subAccordionHtml = `
+            <div class="qa-sub-accordion-wrapper" id="sub-wrapper-${item.id}">
+                <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.5rem;">
+                    <button type="button" class="qa-sub-toggle-pill" onclick="toggleSubAccordion('${item.id}')" id="sub-pill-${item.id}">
+                        <span>📍 已彙整 ${approvedSubs.length} 則在地里民現況補充</span>
+                        <span class="qa-sub-toggle-arrow">▼</span>
+                    </button>
+                    ${!isQAPage ? `<a href="qa.html#${item.id}" class="qa-sub-link-qa" title="前往獨立專頁檢視完整討論串"><span>查看專頁完整討論 ↗</span></a>` : ''}
+                </div>
+                <div class="qa-sub-list" id="sub-list-${item.id}">
+                    ${approvedSubs.map(sub => `
+                        <div class="qa-sub-bubble">
+                            <div class="qa-sub-bubble-header">
+                                <div style="display:flex; align-items:center; gap:0.5rem;">
+                                    <span class="qa-sub-bubble-author">👤 ${escapeHTML(sub.author)}</span>
+                                    <span class="qa-sub-bubble-badge">${escapeHTML(sub.status || '🟢 已採納列管')}</span>
+                                </div>
+                                <span class="qa-sub-bubble-date">🕒 ${escapeHTML(sub.date ? sub.date.split(' ')[0] : '')}</span>
+                            </div>
+                            <div class="qa-sub-bubble-content">${escapeHTML(sub.content)}</div>
+                        </div>
+                    `).join('')}
+                </div>
+            </div>
+            `;
+        }
 
         return `
         <div class="qa-card" id="${item.id}">
@@ -794,6 +873,8 @@ function renderQACards() {
                 </button>
             </div>
             
+            ${subAccordionHtml}
+
             <!-- 參與式里政互動列 (認同 +1 ＆ 補充附議) -->
             <div class="qa-interaction-bar">
                 <button class="btn-qa-agree ${isAgreed ? 'active' : ''}" onclick="handleAgreeVote('${item.id}', this)" id="agree-btn-${item.id}">
@@ -809,6 +890,13 @@ function renderQACards() {
         </div>
         `;
     }).join('');
+}
+
+function toggleSubAccordion(cardId) {
+    const wrapper = document.getElementById(`sub-wrapper-${cardId}`);
+    if (wrapper) {
+        wrapper.classList.toggle('open');
+    }
 }
 
 function toggleQAExpand(cardId) {
@@ -1285,11 +1373,19 @@ function syncCloudData() {
                     try {
                         localStorage.setItem('md2_cloud_qa_data', JSON.stringify(formatted));
                     } catch(e) {}
-
-                    // 即時平滑更新 Q&A 卡片清單
-                    renderQACards();
                 }
             }
+
+            // 3. 同步 Google 試算表最新審核採納之附議明細
+            if (Array.isArray(data.subProposals) && data.subProposals.length > 0) {
+                liveCloudSubProposals = data.subProposals;
+                try {
+                    localStorage.setItem('md2_cloud_sub_proposals', JSON.stringify(data.subProposals));
+                } catch(e) {}
+            }
+
+            // 即時平滑更新 Q&A 卡片清單 (含母案與附議子案)
+            renderQACards();
         })
         .catch(err => {
             console.log('Live cloud sync fallback:', err);
@@ -1391,6 +1487,32 @@ function initCollapsibles() {
     });
 }
 
+// 錨點導航與自動展開 (方案 C 專頁聯動)
+function initHashAnchorNavigation() {
+    const hash = window.location.hash;
+    if (hash && hash.startsWith('#qa-')) {
+        setTimeout(() => {
+            const targetCard = document.querySelector(hash);
+            if (targetCard) {
+                targetCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                const qaId = hash.replace('#', '');
+                const fullEl = document.getElementById(`resp-${qaId}`);
+                const sumEl = document.getElementById(`rsum-${qaId}`);
+                const rbtnEl = document.getElementById(`rbtn-${qaId}`);
+                if (fullEl && fullEl.style.display === 'none') {
+                    if (sumEl) sumEl.style.display = 'none';
+                    fullEl.style.display = 'block';
+                    if (rbtnEl) rbtnEl.innerHTML = `<span>收合解決路徑 ▲</span>`;
+                }
+                const subWrapper = document.getElementById(`sub-wrapper-${qaId}`);
+                if (subWrapper) {
+                    subWrapper.classList.add('open');
+                }
+            }
+        }, 400);
+    }
+}
+
 // Initial Render and setup
 renderPolicies();
 renderQACards();
@@ -1398,7 +1520,8 @@ initQATabs();
 initQAForm();
 initCollapsibles();
 initStatsDashboard();
-syncCloudData(); // 非同步雙軌即時拉取最新 Google 試算表 Q&A 與人氣數據
+syncCloudData(); // 非同步雙軌即時拉取最新 Google 試算表 Q&A、附議與人氣數據
+initHashAnchorNavigation();
 initLineGuideModal();
 observeRevealElements();
 initSmartSnap();
