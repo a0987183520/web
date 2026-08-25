@@ -580,6 +580,102 @@ const DEFAULT_QA_DATA = [
         title: "金城路二段大樓公共梯廳更換感應式節能燈具有市府補助專案嗎？",
         question: "我們大樓（如金城路社區）想要把公共梯廳老舊日光燈更換為感應式 LED 節能燈具，想請問候選人市府是否有相關補助款？申請程序大概要多久？",
         response: "1. 【市府補助法規說明】：新北市工務局每年定期開辦「低碳社區智慧節能補助計畫」，針對社區公共空間更換節能燈具或智慧控制設備，最高可補助總工程款之 50%（依年度公告為準）。\n2. 【里辦公處行政協辦】：未來里辦公處將成立「大樓節能與補助諮詢窗口」，由具備資工與數據管理背景的團隊協助大樓管委會彙整申請文件與流程，讓明德里各社區都能順利爭取市府補助！"
+    },
+    {
+        id: "qa-5",
+        category: "#巷弄安全與照明",
+        type: "policy",
+        statusText: "已納入競選政見白皮書",
+        statusClass: "status-policy",
+        author: "樂利國小家長志工團 林媽媽",
+        date: "2026-08-10",
+        title: "樂利國小周邊通學步道安全與家長接送區標線優化",
+        question: "上下學時段樂利國小周邊車流量大，部分人行道因高低差與標線磨損，家長牽著低年級學童走起來提心吊膽，希望里長能協助通學路徑升級。",
+        response: "1. 【納入政見白皮書第4案】：已將「智慧安全與友善步行」列為核心政見，建立里民通報之步行安全危險點資料庫。\n2. 【跨單位會勘爭取】：當選後將優先協同校方、交通局與公所辦理通學步道會勘，爭取劃設綠底標線行人行道與增設減速警示。"
+    },
+    {
+        id: "qa-6",
+        category: "#環境衛生與整潔",
+        type: "inspect",
+        statusText: "列為當選後優先重點會勘",
+        statusClass: "status-inspect",
+        author: "明德路二段 住戶 陳先生",
+        date: "2026-08-08",
+        title: "明德路二段後方巷弄側溝清淤與防汛期異味防治",
+        question: "夏季午後雷陣雨頻繁，明德路二段部分舊公寓後側排水溝容易有積水異味，擔心孳生病媒蚊，希望里長協助定期排程清淤與消毒。",
+        response: "1. 【列入防汛優先清淤清單】：當選後立即彙整全里排水溝熱點，主動向土城區清潔隊申請全面清淤與預防性消毒噴藥。\n2. 【建立定期通報機制】：導入數位里政回報系統，里民發現水溝阻塞可一鍵拍照通報，里辦公處即時追蹤處理進度。"
+    },
+    {
+        id: "qa-7",
+        category: "#跨世代共融與課程",
+        type: "city",
+        statusText: "市府權責・列為當選專案爭取",
+        statusClass: "status-city",
+        author: "孔雀王朝 社區住戶",
+        date: "2026-08-05",
+        title: "明德市民活動中心旁草地公園夜間休閒照明與座椅增設",
+        question: "活動中心旁邊的綠地很多長輩和家庭晚上會去散步，但部分角落照明較暗，且休閒座椅數量有限，希望能向市府爭取改善。",
+        response: "1. 【專案提案市府景觀處】：該草地公園屬公有綠地，當選後將向景觀處與公所提案「社區綠美化與友善休閒設施專案」。\n2. 【增設景觀矮燈與人體工學座椅】：規劃以低眩光暖色 LED 矮燈提升夜間安全性，並增設透水鋪面與長者友善休閒長椅。"
+    },
+    {
+        id: "qa-8",
+        category: "#跨世代共融與課程",
+        type: "policy",
+        statusText: "已納入競選政見白皮書",
+        statusClass: "status-policy",
+        author: "美麗宏國 社區長者",
+        date: "2026-08-02",
+        title: "銀髮長輩 24H AI 智慧健康管家與用藥提醒工作坊開辦期程",
+        question: "常聽候選人提到 AI 健康管家可以幫忙記血壓和提醒吃藥，我們年紀大不會用複雜的手機，請問真的會有人手把手教我們嗎？",
+        response: "1. 【納入政見白皮書第7案】：陳新昱具備30年資工背景，將親自在活動中心開辦「銀髮大字體 AI 智慧健康工作坊」。\n2. 【志工一對一手把手輔導】：培訓青年與志工團隊一對一協助長輩完成語音輸入與每日用藥提醒設定，簡單好用零門檻。"
+    },
+    {
+        id: "qa-9",
+        category: "#交通號誌與停車",
+        type: "inspect",
+        statusText: "列為當選後優先重點會勘",
+        statusClass: "status-inspect",
+        author: "立德路 駕駛里民",
+        date: "2026-07-28",
+        title: "立德路轉角反射鏡視線死角改善與路口減速警示標線",
+        question: "立德路部分轉角處因大樓外牆視線遮蔽，現有反射鏡角度偏移，常常有車輛快速駛出造成險象環生，希望調整反射鏡並加劃減速標線。",
+        response: "1. 【列入第一梯次交通會勘】：當選後一週內排定現勘，邀請交通局現勘調整反射鏡角度並評估更換大廣角鏡面。\n2. 【路口鋪設減速標線】：爭取於路口前增設「慢」字警示與太陽能閃爍警示標誌，有效降低車速保障出入安全。"
+    },
+    {
+        id: "qa-10",
+        category: "#環境衛生與整潔",
+        type: "city",
+        statusText: "市府權責・列為當選專案爭取",
+        statusClass: "status-city",
+        author: "明德路 毛小孩飼主",
+        date: "2026-07-25",
+        title: "爭取於明德公園周邊設置毛小孩便攜撿便袋補充站與繫留設施",
+        question: "明德里很多鄰居都有養狗，散步時偶爾會看到少數未清狗便影響環境，希望能設置公用撿便袋箱與宣導繫留設施。",
+        response: "1. 【納入政見白皮書第11案】：積極推動「幸福寵物空間」，向動保處與公所專案爭取「環保撿便袋補充箱」。\n2. 【宣導共融公約】：結合社區志工定期巡查維護草地衛生，營造飼主與非養寵物居民相互尊重、乾淨友善的和諧環境。"
+    },
+    {
+        id: "qa-11",
+        category: "#社區法規與大樓共好",
+        type: "law",
+        statusText: "法規說明與行政程序解答",
+        statusClass: "status-law",
+        author: "美麗宏國 大樓總幹事",
+        date: "2026-07-20",
+        title: "社區大樓住戶私設鞋櫃佔用樓梯間與公共通道之消防法規諮詢",
+        question: "社區常有住戶在梯廳公共走廊擺放鞋櫃雜物，引發鄰里摩擦，管委會規勸常無效，想請問里長在法規與行政上如何妥善協調？",
+        response: "1. 【公寓大廈與消防法規說明】：依《公寓大廈管理條例》第16條第2項，樓梯間與走廊不得堆置雜物阻礙逃生，工務局與消防局可依法開罰。\n2. 【里辦中立協調窗口】：候選人擁有10年社區管理實務，團隊律師顧問可協助管委會擬定合法柔性公告與標準程序，兼顧法理情。"
+    },
+    {
+        id: "qa-12",
+        category: "#跨世代共融與課程",
+        type: "policy",
+        statusText: "已納入競選政見白皮書",
+        statusClass: "status-policy",
+        author: "學府路 家長 吳先生",
+        date: "2026-07-15",
+        title: "社區青年與學童無人機飛行安全體驗與 AI 數位創作營開辦細節",
+        question: "看到文宣中有無人機與 AI 體驗課，請問小朋友幾歲可以參加？室內操作會不會有安全顧慮？",
+        response: "1. 【納入政見白皮書第3案】：由具備30年資工背景的陳新昱親自規劃，適合國小三年級以上學童與家長親子共同參與。\n2. 【安全至上原則】：室內一律限用 50g 以下微型機種，配備螺旋槳全防護罩與專屬安全防護網，一次一人並由安全員全程隨行指導。"
     }
 ];
 
@@ -626,7 +722,12 @@ function renderQACards() {
         return;
     }
 
-    container.innerHTML = filtered.map(item => `
+    container.innerHTML = filtered.map(item => {
+        // Extract ~25 chars summary for response preview
+        const cleanResp = item.response.replace(/\n/g, ' ');
+        const shortResp = cleanResp.length > 25 ? cleanResp.substring(0, 25) + '...' : cleanResp;
+
+        return `
         <div class="qa-card" id="${item.id}">
             <div class="qa-card-meta">
                 <div class="qa-tag-group">
@@ -635,11 +736,11 @@ function renderQACards() {
             </div>
             <div class="qa-question-box">
                 <h4 class="qa-question-title">${escapeHTML(item.title)}</h4>
-                <div class="qa-sub-meta">
+                <p class="qa-question-text collapsed" id="qtext-${item.id}">${escapeHTML(item.question)}</p>
+                <div class="qa-expanded-meta" id="qmeta-${item.id}" style="display:none;">
                     <span class="qa-category-pill">${escapeHTML(item.category)}</span>
-                    <span class="qa-author-time">${escapeHTML(item.author)} ‧ ${escapeHTML(item.date)}</span>
+                    <span class="qa-author-time">反映里民：${escapeHTML(item.author)} ‧ ${escapeHTML(item.date)}</span>
                 </div>
-                <p class="qa-question-text collapsed" id="qtext-${item.id}" style="margin-top:0.8rem;">${escapeHTML(item.question)}</p>
                 <button class="btn-toggle-expand" onclick="toggleQAExpand('${item.id}')" id="qbtn-${item.id}">
                     <span>展開完整原文</span>
                     <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
@@ -650,39 +751,47 @@ function renderQACards() {
                     <div class="qa-response-avatar">昱</div>
                     <span class="qa-response-name">陳新昱 官方具體解決路徑回覆</span>
                 </div>
-                <div class="qa-response-content collapsed" id="resp-${item.id}">${escapeHTML(item.response)}</div>
+                <div class="qa-response-summary" id="rsum-${item.id}">${escapeHTML(shortResp)}</div>
+                <div class="qa-response-content" id="resp-${item.id}" style="display:none;">${escapeHTML(item.response)}</div>
                 <button class="btn-toggle-response-expand" onclick="toggleQAResponseExpand('${item.id}')" id="rbtn-${item.id}">
                     <span>展開完整 SOP 解決路徑 ▼</span>
                 </button>
             </div>
         </div>
-    `).join('');
+        `;
+    }).join('');
 }
 
 function toggleQAExpand(cardId) {
     const textEl = document.getElementById(`qtext-${cardId}`);
+    const metaEl = document.getElementById(`qmeta-${cardId}`);
     const btnEl = document.getElementById(`qbtn-${cardId}`);
     if (!textEl || !btnEl) return;
 
     if (textEl.classList.contains('collapsed')) {
         textEl.classList.remove('collapsed');
+        if (metaEl) metaEl.style.display = 'flex';
         btnEl.innerHTML = `<span>收合原文</span><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>`;
     } else {
         textEl.classList.add('collapsed');
+        if (metaEl) metaEl.style.display = 'none';
         btnEl.innerHTML = `<span>展開完整原文</span><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>`;
     }
 }
 
 function toggleQAResponseExpand(cardId) {
-    const textEl = document.getElementById(`resp-${cardId}`);
+    const sumEl = document.getElementById(`rsum-${cardId}`);
+    const fullEl = document.getElementById(`resp-${cardId}`);
     const btnEl = document.getElementById(`rbtn-${cardId}`);
-    if (!textEl || !btnEl) return;
+    if (!fullEl || !btnEl) return;
 
-    if (textEl.classList.contains('collapsed')) {
-        textEl.classList.remove('collapsed');
+    if (fullEl.style.display === 'none') {
+        if (sumEl) sumEl.style.display = 'none';
+        fullEl.style.display = 'block';
         btnEl.innerHTML = `<span>收合解決路徑 ▲</span>`;
     } else {
-        textEl.classList.add('collapsed');
+        if (sumEl) sumEl.style.display = 'block';
+        fullEl.style.display = 'none';
         btnEl.innerHTML = `<span>展開完整 SOP 解決路徑 ▼</span>`;
     }
 }
@@ -983,12 +1092,29 @@ function initLineGuideModal() {
     } catch(e) {}
 }
 
-// Initialize Collapsible Accordions (Governance Principles & Promises)
+// Initialize Collapsible Accordions (Governance Principles & Promises with Mutex Single-Open Behavior)
 function initCollapsibles() {
-    const collapsibles = document.querySelectorAll('.value-card.collapsible, .promise-item.collapsible');
-    collapsibles.forEach(item => {
+    // 四大治理原則手風琴 (互斥單開)
+    const valueCards = document.querySelectorAll('.value-card.collapsible');
+    valueCards.forEach(card => {
+        card.addEventListener('click', () => {
+            const wasOpen = card.classList.contains('open');
+            valueCards.forEach(c => c.classList.remove('open'));
+            if (!wasOpen) {
+                card.classList.add('open');
+            }
+        });
+    });
+
+    // 共同承諾手風琴 (互斥單開)
+    const promiseItems = document.querySelectorAll('.promise-item.collapsible');
+    promiseItems.forEach(item => {
         item.addEventListener('click', () => {
-            item.classList.toggle('open');
+            const wasOpen = item.classList.contains('open');
+            promiseItems.forEach(p => p.classList.remove('open'));
+            if (!wasOpen) {
+                item.classList.add('open');
+            }
         });
     });
 }
