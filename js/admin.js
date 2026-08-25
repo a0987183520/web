@@ -215,7 +215,7 @@ function loadAdminData() {
 
     try {
         const storedSubs = localStorage.getItem('md2_admin_sub_proposals');
-        if (storedSubs) {
+        if (storedSubs && JSON.parse(storedSubs).length > 0) {
             adminSubProposals = JSON.parse(storedSubs);
         } else {
             adminSubProposals = [...INITIAL_SUB_PROPOSALS];
@@ -251,8 +251,11 @@ function fetchGoogleSheetProposals(showToastOnComplete = false, onComplete = nul
                     adminProposals = data.proposals;
                     saveLocalData();
                 }
-                if (Array.isArray(data.subProposals)) {
+                if (Array.isArray(data.subProposals) && data.subProposals.length > 0) {
                     adminSubProposals = data.subProposals;
+                    saveSubProposalData();
+                } else if (adminSubProposals.length === 0) {
+                    adminSubProposals = [...INITIAL_SUB_PROPOSALS];
                     saveSubProposalData();
                 }
 
