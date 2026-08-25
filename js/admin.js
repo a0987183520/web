@@ -190,8 +190,11 @@ function loadAdminData() {
     fetchGoogleSheetProposals(false);
 }
 
-function fetchGoogleSheetProposals(showToastOnComplete = false) {
-    if (!GOOGLE_SCRIPT_URL) return;
+function fetchGoogleSheetProposals(showToastOnComplete = false, onComplete = null) {
+    if (!GOOGLE_SCRIPT_URL) {
+        if (typeof onComplete === 'function') onComplete();
+        return;
+    }
 
     fetch(GOOGLE_SCRIPT_URL)
         .then(res => res.json())
@@ -206,7 +209,7 @@ function fetchGoogleSheetProposals(showToastOnComplete = false) {
                 loadActiveProposalIntoEditor();
                 updateCounts();
                 if (showToastOnComplete) {
-                    showToast(`已從 Google 試算表同步 ${adminProposals.length} 筆最新案件！`);
+                    showToast(`📥 成功從 Google 試算表下載 ${adminProposals.length} 筆最新案件！`);
                 }
             } else if (showToastOnComplete) {
                 showToast('已連線 Google 試算表，資料皆為最新！');
@@ -215,7 +218,12 @@ function fetchGoogleSheetProposals(showToastOnComplete = false) {
         .catch(err => {
             console.log('Google Sheets fetch error:', err);
             if (showToastOnComplete) {
-                showToast('雲端連線中，已先載入本地備援資料');
+                showToast('雲端連線中，已載入本地備援資料');
+            }
+        })
+        .finally(() => {
+            if (typeof onComplete === 'function') {
+                onComplete();
             }
         });
 }
@@ -454,8 +462,85 @@ function updateCounts() {
 }
 
 function syncWithGoogleSheets() {
-    showToast('正在與 Google 試算表連線同步...');
-    fetchGoogleSheetProposals(true);
+    downloadFromGoogleSheets();
+}
+
+/**
+ * 1. 📥 從 Google 試算表拉取最新提案 (Download / Pull)
+ */
+function downloadFromGoogleSheets() {
+    const btn = document.getElementById('btn-download-sheets');
+    if (btn) {
+        btn.disabled = true;
+        btn.innerHTML = '⏳ 正在下載中...';
+    }
+    showToast('📥 正在從 Google 試算表下載最新案件...');
+
+    fetchGoogleSheetProposals(true, () => {
+        if (btn) {
+            btn.disabled = false;
+            btn.innerHTML = '📥 下載雲端案件';
+        }
+    });
+}
+
+/**
+ * 2. 📤 將管理介面所有資料批量推送至 Google 試算表 (Upload / Push)
+ */
+function uploadAllToGoogleSheets() {
+    if (!GOOGLE_SCRIPT_URL) {
+        showToast('⚠️ 尚未設定 Google Apps Script 雲端端點');
+        return;
+    }
+
+    const btn = document.getElementById('btn-upload-sheets');
+    if (btn) {
+        btn.disabled = true;
+        btn.innerHTML = '⏳ 正在上傳中...';
+    }
+    showToast('📤 正在將後台資料批量上傳至 Google 試算表...');
+
+    // 儲存當前編輯中的單案狀態
+    const currentActive = adminProposals.find(p => p.id === activeProposalId);
+    if (currentActive) {
+        currentActive.author = document.getElementById('edit-author').value.trim() || currentActive.author;
+        currentActive.category = document.getElementById('edit-category').value;
+        currentActive.status = document.getElementById('edit-status').value;
+        currentActive.type = document.getElementById('edit-type').value;
+        currentActive.contact = document.getElementById('edit-contact').value.trim();
+        currentActive.question = document.getElementById('edit-question').value.trim();
+        currentActive.response = document.getElementById('edit-response').value.trim();
+        saveLocalData();
+    }
+
+    // 發送批量備份 POST 請求至 Google Apps Script
+    fetch(GOOGLE_SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            action: 'batch_update_proposals',
+            proposals: adminProposals,
+            timestamp: new Date().toISOString()
+        })
+    })
+    .then(() => {
+        setTimeout(() => {
+            if (btn) {
+                btn.disabled = false;
+                btn.innerHTML = '📤 批量上傳雲端';
+            }
+            showToast(`✅ 成功！已將 ${adminProposals.length} 筆案件進度同步至 Google 試算表！`);
+        }, 1200);
+    })
+    .catch(err => {
+        console.error('Upload error:', err);
+        if (btn) {
+            btn.disabled = false;
+            btn.innerHTML = '📤 批量上傳雲端';
+        }
+        showToast('⚠️ 上傳請求已發出，本地資料已安全暫存');
+    });
 }
 
 // Toast

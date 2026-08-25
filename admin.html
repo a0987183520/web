@@ -81,15 +81,28 @@
         box-shadow: 0 0 15px rgba(251, 191, 36, 0.4);
     }
 
-    .btn-admin-sync {
+    .btn-admin-download {
         background: rgba(16, 185, 129, 0.15);
         border: 1px solid #10b981;
         color: #34d399;
     }
 
-    .btn-admin-sync:hover {
+    .btn-admin-download:hover {
         background: #10b981;
         color: #0b1411;
+        box-shadow: 0 0 15px rgba(16, 185, 129, 0.4);
+    }
+
+    .btn-admin-upload {
+        background: rgba(59, 130, 246, 0.15);
+        border: 1px solid #3b82f6;
+        color: #60a5fa;
+    }
+
+    .btn-admin-upload:hover {
+        background: #3b82f6;
+        color: #ffffff;
+        box-shadow: 0 0 15px rgba(59, 130, 246, 0.4);
     }
 
     .btn-admin-logout {
@@ -458,7 +471,8 @@
         </div>
         <div class="admin-nav-right">
             <button class="btn-admin-action btn-admin-primary" onclick="handleNewProposal()">+ 新增提案題目</button>
-            <button class="btn-admin-action btn-admin-sync" onclick="syncWithGoogleSheets()">🔄 同步雲端試算表</button>
+            <button class="btn-admin-action btn-admin-download" id="btn-download-sheets" onclick="downloadFromGoogleSheets()" title="從 Google 試算表下載最新里民提問">📥 下載雲端案件</button>
+            <button class="btn-admin-action btn-admin-upload" id="btn-upload-sheets" onclick="uploadAllToGoogleSheets()" title="將管理後台所有編輯進度整批同步至 Google 試算表">📤 批量上傳雲端</button>
             <button class="btn-admin-action btn-admin-logout" onclick="handleAdminLogout()">🚪 登出</button>
         </div>
     </header>
@@ -579,6 +593,6 @@
         <span id="toast-msg">已成功複製至剪貼簿！</span>
     </div>
 
-    <script src="js/admin.js?v=3.11"></script>
+    <script src="js/admin.js?v=3.12"></script>
 </body>
 </html>
