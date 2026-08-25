@@ -72,7 +72,7 @@ const INITIAL_ADMIN_DATA = [
         contact: "0966-xxx-xxx",
         date: "2026-08-08 15:40:00",
         question: "夏季午後雷陣雨頻繁，明德路二段部分舊公寓後側排水溝容易有積水異味，希望里長協助定期排程清淤與消毒。",
-        response: "1. 【列入防汛優先清淤清單】：當選後立即彙整全里熱點，主動向土城清潔隊申請全面清淤與預防性噴藥。\n2. 【建立定期通報機制】：導入數位里政回報系統，里民一鍵拍照通報即時追蹤。"
+        response: "1. 【列入防汛優先清淤清單】：當選後立即彙整全里熱點，主動向土城清潔隊申請全面清淤與預防性噴藥。"
     },
     {
         id: "qa-7",
@@ -164,7 +164,7 @@ function handleAdminLogout() {
     window.location.reload();
 }
 
-// 2. 資料載入 (LocalStorage ＋ Google Sheets 同步)
+// 2. 資料載入 (優先從 Google 試算表拉取最新全量資料，離線時使用 LocalStorage 備援)
 function loadAdminData() {
     try {
         const stored = localStorage.getItem('md2_admin_proposals');
@@ -185,6 +185,39 @@ function loadAdminData() {
     renderAdminList();
     loadActiveProposalIntoEditor();
     updateCounts();
+
+    // 背景立即與 Google 試算表雲端同步
+    fetchGoogleSheetProposals(false);
+}
+
+function fetchGoogleSheetProposals(showToastOnComplete = false) {
+    if (!GOOGLE_SCRIPT_URL) return;
+
+    fetch(GOOGLE_SCRIPT_URL)
+        .then(res => res.json())
+        .then(data => {
+            if (data && data.status === 'success' && Array.isArray(data.proposals) && data.proposals.length > 0) {
+                adminProposals = data.proposals;
+                saveLocalData();
+                if (!activeProposalId || !adminProposals.find(p => p.id === activeProposalId)) {
+                    activeProposalId = adminProposals[0].id;
+                }
+                renderAdminList();
+                loadActiveProposalIntoEditor();
+                updateCounts();
+                if (showToastOnComplete) {
+                    showToast(`已從 Google 試算表同步 ${adminProposals.length} 筆最新案件！`);
+                }
+            } else if (showToastOnComplete) {
+                showToast('已連線 Google 試算表，資料皆為最新！');
+            }
+        })
+        .catch(err => {
+            console.log('Google Sheets fetch error:', err);
+            if (showToastOnComplete) {
+                showToast('雲端連線中，已先載入本地備援資料');
+            }
+        });
 }
 
 function saveLocalData() {
@@ -201,7 +234,7 @@ function renderAdminList() {
     let filtered = adminProposals.filter(item => {
         let matchFilter = true;
         if (currentAdminFilter === 'pending') matchFilter = item.status === '待決策小組審核';
-        if (currentAdminFilter === 'approved') matchFilter = item.status === '已審核公開';
+        if (currentAdminFilter === 'approved') matchFilter = item.status === '已審核公開' || item.status === '已納入競選政見白皮書' || item.status === '列為當選後優先重點會勘';
 
         let matchSearch = true;
         if (currentAdminSearch) {
@@ -226,7 +259,7 @@ function renderAdminList() {
             ? `<span style="color:#f87171; background:rgba(239,68,68,0.15); padding:0.15rem 0.5rem; border-radius:4px; font-size:0.75rem; font-weight:700;">🔴 待審核</span>`
             : `<span style="color:#34d399; background:rgba(16,185,129,0.15); padding:0.15rem 0.5rem; border-radius:4px; font-size:0.75rem; font-weight:700;">🟢 已公開</span>`;
 
-        const previewText = item.question.length > 38 ? item.question.substring(0, 38) + '...' : item.question;
+        const previewText = item.question ? (item.question.length > 38 ? item.question.substring(0, 38) + '...' : item.question) : '（無提問內容）';
 
         return `
         <div class="admin-item-card ${isSelected ? 'active' : ''}" onclick="selectProposal('${item.id}')">
@@ -422,10 +455,7 @@ function updateCounts() {
 
 function syncWithGoogleSheets() {
     showToast('正在與 Google 試算表連線同步...');
-    loadAdminData();
-    setTimeout(() => {
-        showToast('已完成與 Google 試算表同步！');
-    }, 1000);
+    fetchGoogleSheetProposals(true);
 }
 
 // Toast
