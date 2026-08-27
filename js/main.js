@@ -699,14 +699,17 @@ function getQAData() {
         ? liveCloudQAData
         : DEFAULT_QA_DATA;
 
+    // 後進先出 (LIFO)：最新追加的議案（序號最大、時間最新）永遠排在最上方
+    const lifoData = [...baseData].reverse();
+
     try {
         const stored = localStorage.getItem('md2_user_qa_proposals');
         if (stored) {
             const userCards = JSON.parse(stored);
-            return [...userCards, ...baseData];
+            return [...userCards, ...lifoData];
         }
     } catch(e) {}
-    return baseData;
+    return lifoData;
 }
 
 let currentQAFilter = 'all';
