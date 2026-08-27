@@ -1352,7 +1352,21 @@ function syncCloudData() {
                 const approved = data.proposals.filter(p => p.status === '已審核公開' || p.status === 'approved' || !p.status);
                 if (approved.length > 0) {
                     const formatted = approved.map(item => {
-                        const type = item.type || 'policy';
+                        const defMatch = DEFAULT_QA_DATA.find(d => d.id === item.id);
+                        const category = item.category || (defMatch ? defMatch.category : '#其他生活建議');
+                        
+                        // 自動依議題分類關鍵字推導類型
+                        let type = 'policy';
+                        if (category.includes('會勘') || category.includes('環境') || category.includes('衛生') || category.includes('清淤')) {
+                            type = 'inspect';
+                        } else if (category.includes('交通') || category.includes('停車') || category.includes('號誌')) {
+                            type = (defMatch && defMatch.type) ? defMatch.type : 'city';
+                        } else if (category.includes('法規') || category.includes('大樓') || category.includes('補助')) {
+                            type = 'law';
+                        } else if (defMatch && defMatch.type) {
+                            type = defMatch.type;
+                        }
+
                         let statusText = '已納入競選政見白皮書';
                         let statusClass = 'status-policy';
                         if (type === 'inspect') {
@@ -1366,7 +1380,6 @@ function syncCloudData() {
                             statusClass = 'status-law';
                         }
 
-                        const defMatch = DEFAULT_QA_DATA.find(d => d.id === item.id);
                         const title = item.title || (defMatch ? defMatch.title : (item.question.length > 30 ? item.question.substring(0, 30) + '...' : item.question));
 
                         return {
