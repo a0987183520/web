@@ -1,17 +1,22 @@
 # Robots.txt for Mingde 2.0 Official Campaign Website
-# Allow all search engine crawlers to crawl and index all content
+# Allow all search engine crawlers to crawl public content, disallow admin
 
 User-agent: *
+Disallow: /admin.html
 Allow: /
 
 User-agent: Googlebot
+Disallow: /admin.html
 Allow: /
 
 User-agent: Googlebot-Image
+Disallow: /admin.html
 Allow: /
 
 User-agent: Bingbot
+Disallow: /admin.html
 Allow: /
 
 # XML Sitemap Directive
 Sitemap: https://a0987183520.github.io/web/sitemap.xml
+
