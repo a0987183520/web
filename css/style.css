@@ -3498,8 +3498,35 @@ footer {
 }
 
 /* ==========================================================================
-   政見區副標題與預算解密大看板 (Budget Transparency Showcase)
+   政見區發光膠囊大標題與預算解密大看板 (Policy Glowing Title & Budget Showcase)
    ========================================================================== */
+
+.policy-glowing-pill-title {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    padding: 0.85rem 2.5rem !important;
+    background: linear-gradient(135deg, var(--accent-primary) 0%, #d97706 100%) !important;
+    color: #060b09 !important;
+    font-weight: 900 !important;
+    font-size: clamp(1.6rem, 3.2vw, 2.25rem) !important;
+    border-radius: 40px !important;
+    box-shadow: 0 10px 30px -5px rgba(251, 191, 36, 0.55), 0 0 28px rgba(251, 191, 36, 0.38) !important;
+    margin: 0 auto 1.2rem auto !important;
+    letter-spacing: -0.01em;
+    transition: var(--transition-smooth);
+    border: none !important;
+}
+
+.policy-glowing-pill-title:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 15px 35px -5px rgba(251, 191, 36, 0.75), 0 0 35px rgba(251, 191, 36, 0.5) !important;
+}
+
+[data-theme="light"] .policy-glowing-pill-title {
+    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%) !important;
+    box-shadow: 0 10px 25px -5px rgba(217, 119, 6, 0.45), 0 0 20px rgba(217, 119, 6, 0.3) !important;
+}
 
 .policy-header-lead {
     font-size: 1.15rem !important;
@@ -3720,6 +3747,11 @@ footer {
 }
 
 @media (max-width: 768px) {
+    .policy-glowing-pill-title {
+        padding: 0.75rem 1.6rem !important;
+        font-size: 1.4rem !important;
+        border-radius: 30px !important;
+    }
     .budget-transparency-banner {
         padding: 2.5rem 1.4rem;
         margin-top: 3.5rem;
