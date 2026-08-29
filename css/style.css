@@ -3497,5 +3497,222 @@ footer {
     margin-bottom: 1.5rem;
 }
 
+/* ==========================================================================
+   政見區副標題與預算解密大看板 (Budget Transparency Showcase)
+   ========================================================================== */
+
+.policy-header-lead {
+    font-size: 1.15rem !important;
+    line-height: 1.7 !important;
+    color: var(--text-secondary);
+    margin-top: 0.6rem;
+}
+
+.policy-header-lead .highlight-action {
+    color: var(--accent-primary);
+    font-weight: 700;
+    text-shadow: 0 0 12px rgba(251, 191, 36, 0.25);
+}
+
+/* 預算解密全寬大看板 */
+.budget-transparency-banner {
+    margin-top: 4.5rem;
+    padding: 3.5rem 2.8rem;
+    border-radius: 28px;
+    background: rgba(20, 26, 23, 0.95);
+    border: 2px solid rgba(251, 191, 36, 0.5);
+    box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.7), 0 0 40px -10px rgba(251, 191, 36, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+[data-theme="light"] .budget-transparency-banner {
+    background: rgba(255, 253, 248, 0.98);
+    border: 2px solid rgba(217, 119, 6, 0.5);
+    box-shadow: 0 25px 60px -15px rgba(217, 119, 6, 0.2);
+}
+
+.transparency-header {
+    text-align: center;
+    max-width: 920px;
+    margin: 0 auto 3rem auto;
+}
+
+.transparency-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(251, 191, 36, 0.15);
+    border: 1px solid rgba(251, 191, 36, 0.4);
+    color: var(--accent-primary);
+    padding: 0.45rem 1.4rem;
+    border-radius: 30px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    margin-bottom: 1.2rem;
+    box-shadow: 0 4px 15px rgba(251, 191, 36, 0.12);
+}
+
+.transparency-main-title {
+    font-size: clamp(1.65rem, 3.2vw, 2.35rem) !important;
+    font-weight: 900 !important;
+    color: var(--accent-primary) !important;
+    line-height: 1.35 !important;
+    margin-bottom: 1.2rem !important;
+    letter-spacing: -0.01em;
+    text-shadow: 0 4px 25px rgba(251, 191, 36, 0.3);
+}
+
+[data-theme="light"] .transparency-main-title {
+    color: #b45309 !important;
+    text-shadow: 0 2px 10px rgba(180, 83, 9, 0.15);
+}
+
+.transparency-subtitle {
+    font-size: 1.15rem;
+    line-height: 1.75;
+    color: var(--text-primary);
+    font-weight: 500;
+    max-width: 820px;
+    margin: 0 auto;
+}
+
+/* 三大底氣卡片網格 */
+.transparency-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+    gap: 2rem;
+}
+
+.transparency-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 2.2rem 1.8rem;
+    transition: var(--transition-smooth);
+    display: flex;
+    flex-direction: column;
+}
+
+[data-theme="light"] .transparency-card {
+    background: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+}
+
+.transparency-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--accent-primary);
+    box-shadow: 0 15px 35px -10px var(--accent-primary-glow);
+}
+
+.t-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.2rem;
+}
+
+.t-icon {
+    font-size: 2rem;
+    line-height: 1;
+}
+
+.t-badge {
+    font-size: 0.82rem;
+    font-weight: 700;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+}
+
+.t-badge-green {
+    background: rgba(16, 185, 129, 0.15);
+    color: #10b981;
+    border: 1px solid rgba(16, 185, 129, 0.35);
+}
+
+.t-badge-gold {
+    background: rgba(251, 191, 36, 0.15);
+    color: #fbbf24;
+    border: 1px solid rgba(251, 191, 36, 0.35);
+}
+
+.t-badge-blue {
+    background: rgba(59, 130, 246, 0.15);
+    color: #60a5fa;
+    border: 1px solid rgba(59, 130, 246, 0.35);
+}
+
+.transparency-card h4 {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    margin-bottom: 0.9rem;
+    line-height: 1.4;
+}
+
+.transparency-card p {
+    font-size: 0.96rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* 側邊欄經費來源專屬樣式 */
+.drawer-budget-section {
+    background: rgba(251, 191, 36, 0.06);
+    border: 1px solid rgba(251, 191, 36, 0.25);
+    border-radius: 16px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+[data-theme="light"] .drawer-budget-section {
+    background: rgba(217, 119, 6, 0.06);
+    border: 1px solid rgba(217, 119, 6, 0.25);
+}
+
+.drawer-budget-badge-wrap {
+    margin-bottom: 0.8rem;
+}
+
+.drawer-budget-badge {
+    display: inline-block;
+    background: var(--accent-primary);
+    color: #060b09;
+    font-size: 0.92rem;
+    font-weight: 800;
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(251, 191, 36, 0.25);
+}
+
+#drawer-budget-text {
+    font-size: 0.98rem;
+    line-height: 1.7;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .budget-transparency-banner {
+        padding: 2.5rem 1.4rem;
+        margin-top: 3.5rem;
+        border-radius: 20px;
+    }
+    .transparency-main-title {
+        font-size: 1.55rem !important;
+    }
+    .transparency-subtitle {
+        font-size: 1.02rem;
+    }
+    .transparency-grid {
+        grid-template-columns: 1fr;
+        gap: 1.4rem;
+    }
+}
+
+
 
 
