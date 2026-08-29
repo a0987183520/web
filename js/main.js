@@ -722,6 +722,9 @@ function renderQACards() {
     const isQAPage = document.body.getAttribute('data-page') === 'qa-page';
     const allData = getQAData();
 
+    // 動態更新頁籤案件數量
+    updateQATabCounts(allData);
+
     // Filter by category tab and search keyword
     let filtered = allData.filter(item => {
         const matchesCategory = (currentQAFilter === 'all') || (item.type === currentQAFilter);
@@ -880,6 +883,26 @@ function toggleQAResponseExpand(cardId) {
         fullEl.style.display = 'none';
         btnEl.innerHTML = `<span>展開完整 SOP 解決路徑 ▼</span>`;
     }
+}
+
+function updateQATabCounts(allData) {
+    if (!allData || !Array.isArray(allData)) return;
+
+    const countAll = allData.length;
+    const countPolicy = allData.filter(d => d.type === 'policy').length;
+    const countInspect = allData.filter(d => d.type === 'inspect').length;
+    const countCity = allData.filter(d => d.type === 'city').length;
+    const countLaw = allData.filter(d => d.type === 'law').length;
+
+    const tabBtns = document.querySelectorAll('.qa-tab-btn');
+    tabBtns.forEach(btn => {
+        const filter = btn.getAttribute('data-filter');
+        if (filter === 'all') btn.textContent = `全部提案 (${countAll})`;
+        else if (filter === 'policy') btn.textContent = `已納入政見 (${countPolicy})`;
+        else if (filter === 'inspect') btn.textContent = `重點會勘 (${countInspect})`;
+        else if (filter === 'city') btn.textContent = `專案爭取 (${countCity})`;
+        else if (filter === 'law') btn.textContent = `法規解答 (${countLaw})`;
+    });
 }
 
 function initQATabs() {

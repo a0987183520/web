@@ -349,6 +349,70 @@ function loadActiveProposalIntoEditor() {
 
     // 渲染關聯之附議明細清單
     renderSubProposals(item.id);
+    updateEditorStatusIndicator(item.status || '已審核公開');
+}
+
+// 4.0 更新編輯器頂部狀態指示燈
+function updateEditorStatusIndicator(status) {
+    const indicator = document.getElementById('editor-status-indicator');
+    if (!indicator) return;
+
+    if (status === '已審核公開' || status === 'approved') {
+        indicator.textContent = '🟢 已審核公開（前台可見）';
+        indicator.style.background = 'rgba(16,185,129,0.15)';
+        indicator.style.color = '#34d399';
+        indicator.style.border = '1px solid #10b981';
+    } else if (status === '待決策小組審核' || status === 'pending') {
+        indicator.textContent = '🔴 待決策小組審核（前台未公開）';
+        indicator.style.background = 'rgba(239,68,68,0.15)';
+        indicator.style.color = '#f87171';
+        indicator.style.border = '1px solid #ef4444';
+    } else {
+        indicator.textContent = '⚪ 已封存備查';
+        indicator.style.background = 'rgba(156,163,175,0.15)';
+        indicator.style.color = '#9ca3af';
+        indicator.style.border = '1px solid #6b7280';
+    }
+}
+
+// 4.0.1 一鍵快速切換狀態 (免進選單、即時發布並同步雲端)
+function handleQuickStatusChange(newStatus) {
+    const item = adminProposals.find(p => p.id === activeProposalId);
+    if (!item) return;
+
+    item.status = newStatus;
+    const statusSelect = document.getElementById('edit-status');
+    if (statusSelect) statusSelect.value = newStatus;
+    
+    updateEditorStatusIndicator(newStatus);
+    saveLocalData();
+    renderAdminList();
+    updateCounts();
+
+    // 即時同步至 Google 試算表
+    if (GOOGLE_SCRIPT_URL) {
+        fetch(GOOGLE_SCRIPT_URL, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                action: 'update_proposal_status',
+                id: item.id,
+                status: newStatus,
+                userName: item.author,
+                category: item.category,
+                type: item.type,
+                question: item.question,
+                response: item.response,
+                timestamp: new Date().toISOString()
+            })
+        }).catch(err => console.log('Quick status sync error:', err));
+    }
+
+    const toastText = newStatus === '已審核公開' 
+        ? `🟢 案件 ${item.id} 已成功審核並正式發布公開！` 
+        : `案件 ${item.id} 狀態已更新為：${newStatus}`;
+    showToast(toastText);
 }
 
 // 4.1 渲染附議審查清單
@@ -481,27 +545,33 @@ function handleSaveProposal() {
     item.question = document.getElementById('edit-question').value.trim();
     item.response = document.getElementById('edit-response').value.trim();
 
+    updateEditorStatusIndicator(item.status);
     saveLocalData();
     renderAdminList();
     updateCounts();
 
-    // 同步更新至 Google 試算表
+    // 完整同步更新至 Google 試算表（包含狀態與官方回覆）
     if (GOOGLE_SCRIPT_URL) {
         fetch(GOOGLE_SCRIPT_URL, {
             method: 'POST',
             mode: 'no-cors',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
-                action: 'submit_proposal',
+                action: 'update_proposal',
+                id: item.id,
                 userName: item.author,
                 category: item.category,
+                status: item.status,
+                type: item.type,
                 contact: item.contact,
-                content: item.question
+                question: item.question,
+                response: item.response,
+                timestamp: new Date().toISOString()
             })
         }).catch(err => console.log('Sync error:', err));
     }
 
-    showToast(`案件 ${item.id} 已成功儲存！`);
+    showToast(`案件 ${item.id} 已成功儲存並同步至雲端！`);
 }
 
 // 6. 新增提案

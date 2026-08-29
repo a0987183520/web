@@ -556,6 +556,7 @@
         <div class="admin-nav-right">
             <button class="btn-admin-action btn-admin-primary" onclick="handleNewProposal()">+ 新增提案題目</button>
             <button class="btn-admin-action btn-admin-sync" id="btn-refresh-sheets" onclick="downloadFromGoogleSheets()" title="刷新取得最新里民提案">🔄 刷新案件</button>
+            <button class="btn-admin-action btn-admin-sync" id="btn-upload-sheets" onclick="uploadAllToGoogleSheets()" title="將所有案件狀態同步推送至 Google 試算表">📤 批量上傳雲端</button>
             <button class="btn-admin-action btn-admin-logout" onclick="handleAdminLogout()">🚪 登出</button>
         </div>
     </header>
@@ -580,7 +581,28 @@
         <section class="admin-editor-panel" id="admin-editor-panel">
             <div class="editor-section-title">
                 <span>📝 提案審查與回覆編輯工作區</span>
-                <span id="editor-active-id" style="font-size:0.9rem; color:var(--text-muted); font-family:monospace;">qa-1</span>
+                <div style="display:flex; align-items:center; gap:0.6rem;">
+                    <span id="editor-active-id" style="font-size:0.9rem; color:var(--text-muted); font-family:monospace;">qa-1</span>
+                </div>
+            </div>
+
+            <!-- 一鍵審核發布快捷操作橫幅 -->
+            <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.1); border-radius:10px; padding:0.8rem 1rem; margin-bottom:1.5rem; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.8rem;">
+                <div style="display:flex; align-items:center; gap:0.6rem;">
+                    <span style="font-size:0.88rem; color:var(--text-secondary); font-weight:700;">目前前台公開狀態：</span>
+                    <span id="editor-status-indicator" style="font-size:0.88rem; font-weight:800; padding:0.2rem 0.6rem; border-radius:6px; background:rgba(16,185,129,0.15); color:#34d399; border:1px solid #10b981;">🟢 已審核公開</span>
+                </div>
+                <div style="display:flex; gap:0.5rem; flex-wrap:wrap;">
+                    <button type="button" class="btn-admin-action" id="btn-quick-approve" onclick="handleQuickStatusChange('已審核公開')" style="background:#10b981; color:#060b09; font-weight:800;">
+                        ✓ 一鍵審核公開
+                    </button>
+                    <button type="button" class="btn-admin-action" id="btn-quick-pending" onclick="handleQuickStatusChange('待決策小組審核')" style="background:rgba(239,68,68,0.15); border:1px solid #ef4444; color:#f87171;">
+                        ✕ 設為待審核
+                    </button>
+                    <button type="button" class="btn-admin-action" id="btn-quick-archive" onclick="handleQuickStatusChange('已封存')" style="background:rgba(156,163,175,0.15); border:1px solid #6b7280; color:#9ca3af;">
+                        ⚪ 封存
+                    </button>
+                </div>
             </div>
 
             <div class="editor-meta-grid">
@@ -601,7 +623,7 @@
                 </div>
                 <div class="form-group">
                     <label class="editor-label">審核處置狀態</label>
-                    <select id="edit-status" class="form-control" style="background:#080d0b; padding:0.6rem 0.8rem;">
+                    <select id="edit-status" class="form-control" style="background:#080d0b; padding:0.6rem 0.8rem;" onchange="updateEditorStatusIndicator(this.value)">
                         <option value="已審核公開">🟢 已審核公開</option>
                         <option value="待決策小組審核">🔴 待決策小組審核</option>
                         <option value="已封存">⚪ 已封存備查</option>
@@ -672,9 +694,9 @@
                         📋 一鍵複製完整問答給 AI
                     </button>
                 </div>
-                <div class="editor-action-right">
+                <div class="editor-action-right" style="display:flex; gap:0.8rem; align-items:center;">
                     <button class="btn-save-publish" onclick="handleSaveProposal()">
-                        <span>💾 儲存並同步至 Google 試算表</span>
+                        <span>💾 儲存案件並同步雲端</span>
                     </button>
                 </div>
             </div>
@@ -687,6 +709,6 @@
         <span id="toast-msg">已成功複製至剪貼簿！</span>
     </div>
 
-    <script src="js/admin.js?v=4.08"></script>
+    <script src="js/admin.js?v=4.10"></script>
 </body>
 </html>
