@@ -640,6 +640,35 @@ function renderPolicies() {
         const isVoted = isPolicyInCooldown(policy.id);
         const count = getPolicyVoteCount(policy.id);
 
+        let imageHtml = '';
+        if (policy.id === 14) {
+            imageHtml = `
+                <div class="before-after-slider card-slider-14" onclick="event.stopPropagation()">
+                    <div class="slider-image-before">
+                        <img src="images/policy_04_safety_1.jpg" alt="現況：人行道標線磨損補丁（實地現況）">
+                    </div>
+                    <div class="slider-image-after" id="card-slider-image-after-14">
+                        <img src="images/policy_04_safety_2.png" alt="願景：防滑平整友善人行步道 - 概念示意圖">
+                    </div>
+                    <input type="range" min="0" max="100" value="50" class="slider-range" id="card-slider-range-14" aria-label="Before/After 拖拽滑塊對比" onclick="event.stopPropagation()">
+                    <div class="slider-line" id="card-slider-line-14"></div>
+                    <div class="slider-button" id="card-slider-button-14"></div>
+                    <span class="slider-label slider-label-before">改建願景</span>
+                    <span class="slider-label slider-label-after">現況實景</span>
+                    <span class="vision-badge">概念示意圖</span>
+                </div>
+            `;
+        } else {
+            imageHtml = `
+                <img class="policy-card-image" src="${policy.image}" alt="${policy.title} - 概念示意圖" onerror="this.style.display='none'; if(this.nextElementSibling) this.nextElementSibling.style.display='none'; this.parentElement.querySelector('.policy-card-image-placeholder').style.display='flex';">
+                <span class="vision-badge">概念示意圖</span>
+                <div class="policy-card-image-placeholder" style="display: none;">
+                    <div class="placeholder-icon">${policy.icon}</div>
+                    <span class="placeholder-text">示意圖繪製中</span>
+                </div>
+            `;
+        }
+
         card.className = 'policy-card glass';
         card.dataset.id = policy.id;
         card.dataset.index = index;
@@ -661,12 +690,7 @@ function renderPolicies() {
                 <h3>${policy.title}</h3>
             </div>
             <div class="policy-card-image-wrapper">
-                <img class="policy-card-image" src="${policy.image}" alt="${policy.title} - 概念示意圖" onerror="this.style.display='none'; if(this.nextElementSibling) this.nextElementSibling.style.display='none'; this.parentElement.querySelector('.policy-card-image-placeholder').style.display='flex';">
-                <span class="vision-badge">概念示意圖</span>
-                <div class="policy-card-image-placeholder" style="display: none;">
-                    <div class="placeholder-icon">${policy.icon}</div>
-                    <span class="placeholder-text">示意圖繪製中</span>
-                </div>
+                ${imageHtml}
             </div>
             <div class="policy-card-body">
                 <p class="policy-punchline">${policy.subtitle}</p>
@@ -683,6 +707,30 @@ function renderPolicies() {
         `;
         card.addEventListener('click', () => openDrawer(policy.id));
         policyGrid.appendChild(card);
+
+        // 如果是計畫 14，初始化卡片上的滑塊事件
+        if (policy.id === 14) {
+            const cardRange = card.querySelector('#card-slider-range-14');
+            const cardAfterImage = card.querySelector('#card-slider-image-after-14');
+            const cardLine = card.querySelector('#card-slider-line-14');
+            const cardButton = card.querySelector('#card-slider-button-14');
+
+            if (cardRange && cardAfterImage && cardLine && cardButton) {
+                const updateCardSlider = (e) => {
+                    if (e) e.stopPropagation();
+                    const value = cardRange.value;
+                    cardAfterImage.style.clipPath = `polygon(0 0, ${value}% 0, ${value}% 100%, 0 100%)`;
+                    cardLine.style.left = `${value}%`;
+                    cardButton.style.left = `${value}%`;
+                };
+                cardRange.addEventListener('input', updateCardSlider);
+                cardRange.addEventListener('change', updateCardSlider);
+                cardRange.addEventListener('click', (e) => e.stopPropagation());
+                cardRange.addEventListener('mousedown', (e) => e.stopPropagation());
+                cardRange.addEventListener('touchstart', (e) => e.stopPropagation(), { passive: true });
+                updateCardSlider();
+            }
+        }
     });
 
     // Re-initialize observer for dynamically rendered elements

@@ -1649,6 +1649,45 @@ footer {
     }
 }
 
+/* 首頁卡片內的 Before/After 滑塊適配 */
+.policy-card-image-wrapper .before-after-slider {
+    height: 100% !important;
+    aspect-ratio: 16 / 9;
+    border-radius: 0;
+    border: none;
+    background: transparent;
+}
+
+.policy-card-image-wrapper .slider-button {
+    width: 32px;
+    height: 32px;
+}
+
+.policy-card-image-wrapper .slider-button::before {
+    border-right: 5px solid var(--accent-primary);
+    left: 6px;
+}
+
+.policy-card-image-wrapper .slider-button::after {
+    border-left: 5px solid var(--accent-primary);
+    right: 6px;
+}
+
+.policy-card-image-wrapper .slider-label {
+    bottom: 12px;
+    padding: 4px 10px;
+    font-size: 0.74rem;
+    font-weight: 700;
+}
+
+.policy-card-image-wrapper .slider-label-before {
+    left: 12px;
+}
+
+.policy-card-image-wrapper .slider-label-after {
+    right: 12px;
+}
+
 /* Bi-directional Cross-Slide Reveal Animations (Default Visible) */
 .reveal,
 .reveal-left,
