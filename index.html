@@ -119,7 +119,7 @@
       ]
     }
     </script>
-    <link rel="stylesheet" href="css/style.css?v=5.25">
+    <link rel="stylesheet" href="css/style.css?v=5.26">
     <style>
     /* 調整主版面兩欄比例與間距，僅在桌機版生效以確保手機版正常響應式排版 */
     @media (min-width: 951px) {
@@ -789,7 +789,8 @@
         <div class="modal-dialog glass vote-survey-dialog" role="dialog" aria-modal="true" aria-labelledby="vote-survey-title">
             <div class="modal-header">
                 <div>
-                    <h3 id="vote-survey-title" class="survey-headline-title">我想要【草地音樂節】</h3>
+                    <div class="survey-headline-sub">參與式政見</div>
+                    <h3 id="vote-survey-title" class="survey-headline-title">你的意見 就是我的政見</h3>
                 </div>
                 <button class="modal-close" onclick="closeVoteSurveyModal()" aria-label="關閉視窗">
                     <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -799,30 +800,31 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form id="vote-survey-form" onsubmit="submitVoteSurvey(event)">
+                <form id="vote-survey-form" onsubmit="event.preventDefault()">
                     <!-- 年齡區間色塊群組 (琥珀金微光框) -->
                     <div class="survey-color-group survey-group-age">
+                        <div class="survey-section-label">我的年齡是</div>
                         <div class="survey-options-grid age-options">
                             <label class="survey-radio-card">
-                                <input type="radio" name="survey-age" value="under-20" required>
+                                <input type="radio" name="survey-age" value="under-20" onchange="handleSurveyOptionChange()">
                                 <span class="radio-card-content">
                                     <span class="radio-title">20 歲以下</span>
                                 </span>
                             </label>
                             <label class="survey-radio-card">
-                                <input type="radio" name="survey-age" value="20-40" required>
+                                <input type="radio" name="survey-age" value="20-40" onchange="handleSurveyOptionChange()">
                                 <span class="radio-card-content">
                                     <span class="radio-title">20 - 40 歲</span>
                                 </span>
                             </label>
                             <label class="survey-radio-card">
-                                <input type="radio" name="survey-age" value="40-60" required>
+                                <input type="radio" name="survey-age" value="40-60" onchange="handleSurveyOptionChange()">
                                 <span class="radio-card-content">
                                     <span class="radio-title">40 - 60 歲</span>
                                 </span>
                             </label>
                             <label class="survey-radio-card">
-                                <input type="radio" name="survey-age" value="over-60" required>
+                                <input type="radio" name="survey-age" value="over-60" onchange="handleSurveyOptionChange()">
                                 <span class="radio-card-content">
                                     <span class="radio-title">60 歲以上</span>
                                 </span>
@@ -832,27 +834,21 @@
 
                     <!-- 性別選擇色塊群組 (翡翠綠微光框) -->
                     <div class="survey-color-group survey-group-gender">
+                        <div class="survey-section-label">我的性別是</div>
                         <div class="survey-options-grid gender-options">
                             <label class="survey-radio-card">
-                                <input type="radio" name="survey-gender" value="male" required>
+                                <input type="radio" name="survey-gender" value="male" onchange="handleSurveyOptionChange()">
                                 <span class="radio-card-content">
                                     <span class="radio-title">👨 男性</span>
                                 </span>
                             </label>
                             <label class="survey-radio-card">
-                                <input type="radio" name="survey-gender" value="female" required>
+                                <input type="radio" name="survey-gender" value="female" onchange="handleSurveyOptionChange()">
                                 <span class="radio-card-content">
                                     <span class="radio-title">👩 女性</span>
                                 </span>
                             </label>
                         </div>
-                    </div>
-
-                    <div class="survey-actions" style="margin-top: 1.2rem; display: flex; gap: 0.8rem; justify-content: flex-end;">
-                        <button type="button" class="btn-guide-close" onclick="closeVoteSurveyModal()" style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); color: var(--text-secondary); padding: 0.8rem 1.4rem; border-radius: 12px; font-weight: 700; font-size: 1rem; cursor: pointer;">取消</button>
-                        <button type="submit" class="btn-stat-like btn-survey-submit" style="margin:0; padding: 0.8rem 1.8rem; background: linear-gradient(135deg, #f59e0b, #ef4444); font-size: 1.15rem; border: none; border-radius: 12px; color: #fff; font-weight: 800; cursor: pointer; box-shadow: 0 4px 18px rgba(239, 68, 68, 0.45); letter-spacing: 0.02em;">
-                            ❤️ 我喜歡這個活動
-                        </button>
                     </div>
                 </form>
             </div>
@@ -1098,6 +1094,6 @@
         </div>
     </div>
 
-    <script src="js/main.js?v=5.25"></script>
+    <script src="js/main.js?v=5.26"></script>
 </body>
 </html>

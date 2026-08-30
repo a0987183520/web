@@ -482,11 +482,13 @@ function handleWantVoteClick(e, policyId) {
 function openVoteSurveyModal(policyId) {
     const modal = document.getElementById('vote-survey-modal');
     if (!modal) return;
-    const policy = POLICIES_DATA.find(p => p.id === policyId);
-    const titleEl = document.getElementById('vote-survey-title');
-    if (titleEl) {
-        titleEl.textContent = `我想要【${policy ? policy.title : '這項計畫'}】`;
-    }
+    
+    // 重設選取狀態
+    const ageInputs = modal.querySelectorAll('input[name="survey-age"]');
+    const genderInputs = modal.querySelectorAll('input[name="survey-gender"]');
+    ageInputs.forEach(i => i.checked = false);
+    genderInputs.forEach(i => i.checked = false);
+
     modal.classList.add('active');
     document.body.style.overflow = 'hidden';
 }
@@ -499,24 +501,24 @@ function closeVoteSurveyModal() {
     document.body.style.overflow = '';
 }
 
-// 提交問卷並執行投票
-function submitVoteSurvey(e) {
-    e.preventDefault();
+// 選項變更處理：年齡與性別均已選中時，自動觸發投票！
+function handleSurveyOptionChange() {
     const ageEl = document.querySelector('input[name="survey-age"]:checked');
     const genderEl = document.querySelector('input[name="survey-gender"]:checked');
-    if (!ageEl || !genderEl) {
-        alert('請選取您的年齡區間與性別，謝謝！');
-        return;
-    }
+    
+    if (ageEl && genderEl) {
+        const age = ageEl.value;
+        const gender = genderEl.value;
+        saveVoterProfile(age, gender);
 
-    const age = ageEl.value;
-    const gender = genderEl.value;
-    saveVoterProfile(age, gender);
-    closeVoteSurveyModal();
-
-    if (pendingVotePolicyId) {
-        executePolicyVote(pendingVotePolicyId, age, gender);
-        pendingVotePolicyId = null;
+        // 延遲 180ms 讓選民看到選取高光反饋，隨後流暢關窗並執行投票
+        setTimeout(() => {
+            closeVoteSurveyModal();
+            if (pendingVotePolicyId) {
+                executePolicyVote(pendingVotePolicyId, age, gender);
+                pendingVotePolicyId = null;
+            }
+        }, 180);
     }
 }
 

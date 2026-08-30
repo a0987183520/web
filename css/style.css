@@ -3941,18 +3941,49 @@ footer {
     width: 92% !important;
 }
 
-.survey-headline-title {
-    font-size: 1.35rem;
+.survey-headline-sub {
+    font-size: 1.15rem;
     font-weight: 800;
     color: #fbbf24;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.25rem;
+    text-shadow: 0 0 10px rgba(251, 191, 36, 0.35);
+}
+
+[data-theme="light"] .survey-headline-sub {
+    color: #d97706;
+    text-shadow: none;
+}
+
+.survey-headline-title {
+    font-size: 1.45rem;
+    font-weight: 900;
+    color: #ffffff;
     margin: 0;
-    line-height: 1.4;
+    line-height: 1.35;
     text-align: left;
-    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+    letter-spacing: -0.01em;
 }
 
 [data-theme="light"] .survey-headline-title {
-    color: #d97706;
+    color: #0f172a;
+    text-shadow: none;
+}
+
+.survey-section-label {
+    font-size: 1.12rem;
+    font-weight: 800;
+    color: #f1f5f9;
+    margin-bottom: 0.65rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    letter-spacing: 0.02em;
+}
+
+[data-theme="light"] .survey-section-label {
+    color: #1e293b;
 }
 
 /* 雙色塊群組容器 */
