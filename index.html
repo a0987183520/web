@@ -119,7 +119,7 @@
       ]
     }
     </script>
-    <link rel="stylesheet" href="css/style.css?v=5.34">
+    <link rel="stylesheet" href="css/style.css?v=5.35">
     <style>
     /* 調整主版面兩欄比例與間距，僅在桌機版生效以確保手機版正常響應式排版 */
     @media (min-width: 951px) {
@@ -341,8 +341,7 @@
                     <div class="budget-toggle-wrapper" id="budget-toggle-wrapper">
                         <button type="button" class="btn-budget-toggle" id="btn-budget-open" onclick="openBudgetDetails()">
                             <span class="toggle-icon">💡</span>
-                            <span class="toggle-text">里政預算大解密 ‧ 看詳情</span>
-                            <span class="toggle-arrow">▾</span>
+                            <span class="toggle-text">點我看解密 ▾</span>
                         </button>
                     </div>
 
@@ -455,8 +454,7 @@
                     <div class="governance-toggle-wrapper" id="governance-toggle-wrapper">
                         <button type="button" class="btn-budget-toggle" id="btn-governance-open" onclick="openGovernanceDetails()">
                             <span class="toggle-icon">💡</span>
-                            <span class="toggle-text">四大原則 ‧ 看詳情</span>
-                            <span class="toggle-arrow">▾</span>
+                            <span class="toggle-text">看完整規劃 ▾</span>
                         </button>
                     </div>
 
@@ -574,8 +572,7 @@
                     <div class="promises-toggle-wrapper" id="promises-toggle-wrapper">
                         <button type="button" class="btn-budget-toggle" id="btn-promises-open" onclick="openPromisesDetails()">
                             <span class="toggle-icon">✓</span>
-                            <span class="toggle-text">可行、透明、可檢驗 ‧ 看詳情</span>
-                            <span class="toggle-arrow">▾</span>
+                            <span class="toggle-text">看完整規劃 ▾</span>
                         </button>
                     </div>
 
@@ -694,8 +691,7 @@
                     <div class="qa-toggle-wrapper" id="qa-toggle-wrapper">
                         <button type="button" class="btn-budget-toggle" id="btn-qa-open" onclick="openQADetails()">
                             <span class="toggle-icon">💬</span>
-                            <span class="toggle-text">里民共治 ‧ 看詳情</span>
-                            <span class="toggle-arrow">▾</span>
+                            <span class="toggle-text">點我看解密 ▾</span>
                         </button>
                     </div>
 
@@ -721,7 +717,7 @@
                             <!-- 中間：打開專頁單一俐落按鈕 -->
                             <div style="display:flex; justify-content:center; margin: 2rem auto;">
                                 <a href="qa.html" class="btn-hero-primary btn-qa-view-all" style="padding: 1rem 2.5rem; font-size: 1.15rem; font-weight: 700; border-radius: 50px;">
-                                    <span>打開有問必答牆 (共 11 案) ↗</span>
+                                    <span>查看全部問答 (共 11 案) ↗</span>
                                 </a>
                             </div>
 
@@ -785,21 +781,14 @@
     </section>
 
     <!-- Stats & Popularity Dashboard (人氣數據指標儀表板) -->
-    <section class="stats-section reveal" id="stats-dashboard">
+    <section class="stats-section reveal" id="stats-dashboard" style="padding: 2.5rem 0;">
         <div class="container">
-            <div class="section-header">
-                <div class="two-line-header-badge">全民參與 ‧ 即時數據</div>
-                <h2>里民關注與支持動能</h2>
-                <p>透明公開每一位里民的造訪關心、實名讚聲熱度與政策問答達成率。</p>
-            </div>
-
-            <!-- 三大指標卡片 -->
+            <!-- 三大指標卡片 (無干擾極簡版) -->
             <div class="stats-grid">
                 <!-- Card 1: 累計造訪關注 -->
                 <div class="stat-card glass">
                     <div class="stat-header">
                         <span class="stat-title">🔥 累計造訪關注</span>
-                        <span class="stat-badge">全網熱度</span>
                     </div>
                     <div class="stat-value-row">
                         <span class="stat-number" id="stat-views-count">3,852</span>
@@ -810,7 +799,6 @@
                     </div>
                     <div class="stat-footer-text">
                         <span>每日全里真實造訪持續累積</span>
-                        <span>🔥 熱度攀升</span>
                     </div>
                 </div>
 
@@ -818,7 +806,6 @@
                 <div class="stat-card glass">
                     <div class="stat-header">
                         <span class="stat-title">👍 全里讚聲支持</span>
-                        <span class="stat-badge">實質認同</span>
                     </div>
                     <div class="stat-value-row">
                         <span class="stat-number" id="stat-likes-count">1,268</span>
@@ -829,7 +816,6 @@
                     </div>
                     <div class="stat-footer-text">
                         <span>含去識別稱謂與具名力挺</span>
-                        <span>💪 氣勢如虹</span>
                     </div>
                     <button class="btn-stat-like" onclick="openSupportModal()">
                         <span>👍 立即為陳新昱讚聲</span>
@@ -840,7 +826,6 @@
                 <div class="stat-card glass">
                     <div class="stat-header">
                         <span class="stat-title">⚡ 提案回覆率</span>
-                        <span class="stat-badge">最高效率</span>
                     </div>
                     <div class="stat-value-row">
                         <span class="stat-number" id="stat-reply-rate">100%</span>
@@ -850,23 +835,23 @@
                         <div class="metric-bar-fill bg-gradient-emerald" id="bar-reply" style="width: 0%;"></div>
                     </div>
                     <div class="stat-footer-text">
-                        <span>已提 12 案 ‧ 官方研擬回覆 12 案</span>
-                        <span>✅ 100% 達成</span>
+                        <span>11 案全數完成具體 SOP 回覆</span>
+                        <span>🛡️ 說到做到</span>
                     </div>
                 </div>
             </div>
 
-            <!-- 最新讚聲支持者動態滾動條 -->
+            <!-- 最新讚聲支持者動態滾動條 (在地真實地緣版) -->
             <div class="supporters-ticker-container glass">
                 <div class="ticker-label">
                     <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
                     最新讚聲名單：
                 </div>
                 <div class="ticker-track" id="supporters-ticker-track">
-                    <span class="ticker-item">明德路一段 陳先生 👍</span>
-                    <span class="ticker-item">孔雀王朝・李○宇 👍</span>
-                    <span class="ticker-item">立德路 曾小姐 👍</span>
-                    <span class="ticker-item">明德活動中心 太鼓班學員 👍</span>
+                    <span class="ticker-item">明德路二段 陳先生 👍</span>
+                    <span class="ticker-item">孔雀王朝一期 👍</span>
+                    <span class="ticker-item">學府路一段 曾小姐 👍</span>
+                    <span class="ticker-item">明德活動中心 跆拳道學員 👍</span>
                     <span class="ticker-item">樂利國小家長志工團 林媽媽 👍</span>
                     <span class="ticker-item">學府路通勤族 張先生 👍</span>
                     <span class="ticker-item">金城路二段：王大華（具名力挺）👍</span>
@@ -875,14 +860,12 @@
         </div>
     </section>
 
-    <!-- Experience & Qualifications Section -->
-    <section class="experience-section" id="qualifications">
-    <!-- Experience & Qualifications Section (我的經歷) -->
+    <!-- Experience & Qualifications Section (我的四大經歷) -->
     <section class="experience-section" id="qualifications">
         <div class="container">
             <div class="experience-transparency-banner glass reveal" id="experience-banner">
                 <div class="transparency-header">
-                    <h3 class="transparency-main-title">我的經歷</h3>
+                    <h3 class="transparency-main-title">我的四大經歷</h3>
                     
                     <!-- 第 1 層：引導按鈕（預設顯眼露出，點擊後自身隱藏並展開第 2 層） -->
                     <div class="experience-toggle-wrapper" id="experience-toggle-wrapper">
@@ -1325,6 +1308,6 @@
         </div>
     </div>
 
-    <script src="js/main.js?v=5.34"></script>
+    <script src="js/main.js?v=5.35"></script>
 </body>
 </html>
