@@ -264,7 +264,7 @@ const POLICIES_DATA = [
         categoryName: "健康樂齡與活力共融",
         title: "銀髮樂齡共餐 2.0",
         subtitle: "餐前動腦尋寶活力護照",
-        image: "images/policy_13_dining.png",
+        image: "images/policy_13_dining.png?v=20260830_2",
         budgetSource: "社會局銀髮共餐專案 ✕ 志願服務法定專款",
         budgetSub: "（法定專款專用，零額外自費）",
         budgetDesc: "共餐食材費嚴格依社會局專款專用規定核銷；益智動腦教材與志工四大法定保障（服務學習時數、保險、免費便當、法定交通誤餐補助）由社區志願服務與文教活動專案合法支應，完全不佔用里內基層工程款！",
