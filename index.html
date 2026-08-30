@@ -119,7 +119,7 @@
       ]
     }
     </script>
-    <link rel="stylesheet" href="css/style.css?v=5.31">
+    <link rel="stylesheet" href="css/style.css?v=5.32">
     <style>
     /* 調整主版面兩欄比例與間距，僅在桌機版生效以確保手機版正常響應式排版 */
     @media (min-width: 951px) {
@@ -447,147 +447,247 @@
     <!-- Core Governance Principles Section -->
     <section class="values-section" id="governance-vision">
         <div class="container">
-            <div class="section-header reveal">
-                <h2>我們的治理四大原則</h2>
-                <p>里長不只是廣播與發送公文。我要用 EQ 拉近距離，用科技提升生活；建立系統治理，在既有基礎上更上一層樓。</p>
-            </div>
-            <div class="values-grid">
-                <!-- Card 1 -->
-                <div class="value-card glass collapsible reveal-left open">
-                    <div class="value-card-header">
-                        <div class="value-card-header-left">
-                            <div class="value-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            <div class="governance-transparency-banner glass reveal" id="governance-banner">
+                <div class="transparency-header">
+                    <h3 class="transparency-main-title">我們的治理四大原則</h3>
+                    
+                    <!-- 第 1 層：引導按鈕（預設顯眼露出，點擊後自身隱藏並展開第 2 層） -->
+                    <div class="governance-toggle-wrapper" id="governance-toggle-wrapper">
+                        <button type="button" class="btn-budget-toggle" id="btn-governance-open" onclick="openGovernanceDetails()">
+                            <span class="toggle-icon">💡</span>
+                            <span class="toggle-text">治理四大原則 ‧ 看詳情</span>
+                            <span class="toggle-arrow">▾</span>
+                        </button>
+                    </div>
+
+                    <!-- 第 2 & 3 層：展開內容容器（預設收納折疊） -->
+                    <div class="governance-collapsible-content" id="governance-collapsible-content">
+                        <!-- 副標題 -->
+                        <p class="transparency-subtitle">
+                            里長不只是廣播與發送公文。我要用 EQ 拉近距離，用科技提升生活；建立系統治理，在既有基礎上更上一層樓。
+                        </p>
+                        
+                        <!-- 垂直上下互斥手風琴清單 -->
+                        <div class="budget-accordion-list" id="governance-accordion-list">
+                            <!-- Item 1 -->
+                            <div class="budget-acc-item collapsible">
+                                <div class="budget-acc-header">
+                                    <div class="budget-acc-header-left">
+                                        <span class="t-icon">🛡️</span>
+                                        <div class="budget-acc-title-wrap">
+                                            <span class="t-badge t-badge-green">安心照護與延續</span>
+                                            <h4>延續有用服務</h4>
+                                        </div>
+                                    </div>
+                                    <div class="budget-acc-toggle">
+                                        <span class="acc-action-text">看詳情</span>
+                                        <span class="acc-arrow">▾</span>
+                                    </div>
+                                </div>
+                                <div class="budget-acc-body">
+                                    <p>舊有的銀髮共餐、社區照顧與關懷不間斷，並藉由更好的志工機制與行政優化，使福利服務更永續。</p>
+                                </div>
                             </div>
-                            <h3>延續有用服務</h3>
-                        </div>
-                        <div class="value-toggle-btn">+</div>
-                    </div>
-                    <div class="value-card-body">
-                        <p>舊有的銀髮共餐、社區照顧與關懷不間斷，並藉由更好的志工機制與行政優化，使福利服務更永續。</p>
-                    </div>
-                </div>
-                <!-- Card 2 -->
-                <div class="value-card glass collapsible reveal-left">
-                    <div class="value-card-header">
-                        <div class="value-card-header-left">
-                            <div class="value-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+
+                            <!-- Item 2 -->
+                            <div class="budget-acc-item collapsible">
+                                <div class="budget-acc-header">
+                                    <div class="budget-acc-header-left">
+                                        <span class="t-icon">👥</span>
+                                        <div class="budget-acc-title-wrap">
+                                            <span class="t-badge t-badge-gold">全齡共享與共融</span>
+                                            <h4>擴大受益族群</h4>
+                                        </div>
+                                    </div>
+                                    <div class="budget-acc-toggle">
+                                        <span class="acc-action-text">看詳情</span>
+                                        <span class="acc-arrow">▾</span>
+                                    </div>
+                                </div>
+                                <div class="budget-acc-body">
+                                    <p>活化社區空間的使用時段，為白天上班族、青年、家庭主婦與孩童量身打造能共同參與的學習與娛樂資源。</p>
+                                </div>
                             </div>
-                            <h3>擴大受益族群</h3>
-                        </div>
-                        <div class="value-toggle-btn">+</div>
-                    </div>
-                    <div class="value-card-body">
-                        <p>活化社區空間的使用時段，為白天上班族、青年、家庭主婦與孩童量身打造能共同參與的學習與娛樂資源。</p>
-                    </div>
-                </div>
-                <!-- Card 3 -->
-                <div class="value-card glass collapsible reveal-right">
-                    <div class="value-card-header">
-                        <div class="value-card-header-left">
-                            <div class="value-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path></svg>
+
+                            <!-- Item 3 -->
+                            <div class="budget-acc-item collapsible">
+                                <div class="budget-acc-header">
+                                    <div class="budget-acc-header-left">
+                                        <span class="t-icon">💻</span>
+                                        <div class="budget-acc-title-wrap">
+                                            <span class="t-badge t-badge-blue">數位轉型與接軌</span>
+                                            <h4>用科技創造新機會</h4>
+                                        </div>
+                                    </div>
+                                    <div class="budget-acc-toggle">
+                                        <span class="acc-action-text">看詳情</span>
+                                        <span class="acc-arrow">▾</span>
+                                    </div>
+                                </div>
+                                <div class="budget-acc-body">
+                                    <p>導入 24 小時 AI 里政資訊查詢、數位保修系統，並為家庭設計實體無人機與 AI 創作學習，接軌未來技能。</p>
+                                </div>
                             </div>
-                            <h3>用科技創造新機會</h3>
-                        </div>
-                        <div class="value-toggle-btn">+</div>
-                    </div>
-                    <div class="value-card-body">
-                        <p>導入 24 小時 AI 里政資訊查詢、數位保修系統，並為家庭設計實體無人機與 AI 創作學習，接軌未來技能。</p>
-                    </div>
-                </div>
-                <!-- Card 4 -->
-                <div class="value-card glass collapsible reveal-right">
-                    <div class="value-card-header">
-                        <div class="value-card-header-left">
-                            <div class="value-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path></svg>
+
+                            <!-- Item 4 -->
+                            <div class="budget-acc-item collapsible">
+                                <div class="budget-acc-header">
+                                    <div class="budget-acc-header-left">
+                                        <span class="t-icon">🤝</span>
+                                        <div class="budget-acc-title-wrap">
+                                            <span class="t-badge t-badge-gold">公開透明與共治</span>
+                                            <h4>讓里民共同參與</h4>
+                                        </div>
+                                    </div>
+                                    <div class="budget-acc-toggle">
+                                        <span class="acc-action-text">看詳情</span>
+                                        <span class="acc-arrow">▾</span>
+                                    </div>
+                                </div>
+                                <div class="budget-acc-body">
+                                    <p>建立資訊公開的會勘紀錄與線上/實體並行的提案回饋機制，讓白天需要上班的里民也能共同決定社區大小事。</p>
+                                </div>
                             </div>
-                            <h3>讓里民共同參與</h3>
                         </div>
-                        <div class="value-toggle-btn">+</div>
-                    </div>
-                    <div class="value-card-body">
-                        <p>建立資訊公開的會勘紀錄與線上/實體並行的提案回饋機制，讓白天需要上班的里民也能共同決定社區大小事。</p>
+
+                        <!-- 底部向上收合按鈕 -->
+                        <div class="budget-close-wrapper">
+                            <button type="button" class="btn-budget-close" onclick="closeGovernanceDetails()">
+                                <span class="close-arrow">▴</span>
+                                <span class="close-text">收起治理原則</span>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-
     <!-- Common Promises Section -->
     <section class="promises-section" id="promises-section">
         <div class="container">
-            <div class="promises-container">
-                <div class="promises-content reveal-left">
-                    <h2>我們的共同承諾<br><span class="gradient-text">可行、透明、可檢驗</span></h2>
-                    <p>不做天馬行空的承諾，不喊口號。所有計畫秉持四項最高執行標準：</p>
-                    <div class="promises-list">
-                        <!-- Item 1 -->
-                        <div class="promise-item collapsible open">
-                            <div class="promise-item-header">
-                                <div class="promise-item-header-left">
-                                    <div class="promise-check">✓</div>
-                                    <h4>調查評估優先</h4>
+            <div class="promises-transparency-banner glass reveal" id="promises-banner">
+                <div class="transparency-header">
+                    <h3 class="transparency-main-title">我們的共同承諾<br><span style="font-size:0.75em; opacity:0.9;">可行、透明、可檢驗</span></h3>
+                    
+                    <!-- 第 1 層：引導按鈕（預設顯眼露出，點擊後自身隱藏並展開第 2 層） -->
+                    <div class="promises-toggle-wrapper" id="promises-toggle-wrapper">
+                        <button type="button" class="btn-budget-toggle" id="btn-promises-open" onclick="openPromisesDetails()">
+                            <span class="toggle-icon">✓</span>
+                            <span class="toggle-text">共同承諾最高標準 ‧ 看詳情</span>
+                            <span class="toggle-arrow">▾</span>
+                        </button>
+                    </div>
+
+                    <!-- 第 2 & 3 層：展開內容容器（預設收納折疊） -->
+                    <div class="promises-collapsible-content" id="promises-collapsible-content">
+                        <!-- 副標題 -->
+                        <p class="transparency-subtitle">
+                            不做天馬行空的承諾，不喊口號。所有計畫秉持四項最高執行標準：
+                        </p>
+                        
+                        <!-- 垂直上下互斥手風琴清單 -->
+                        <div class="budget-accordion-list" id="promises-accordion-list">
+                            <!-- Item 1 -->
+                            <div class="budget-acc-item collapsible">
+                                <div class="budget-acc-header">
+                                    <div class="budget-acc-header-left">
+                                        <span class="t-icon">🔍</span>
+                                        <div class="budget-acc-title-wrap">
+                                            <span class="t-badge t-badge-green">科學調研 ‧ 不浪費資源</span>
+                                            <h4>調查評估優先</h4>
+                                        </div>
+                                    </div>
+                                    <div class="budget-acc-toggle">
+                                        <span class="acc-action-text">看詳情</span>
+                                        <span class="acc-arrow">▾</span>
+                                    </div>
                                 </div>
-                                <div class="promise-toggle-btn">+</div>
+                                <div class="budget-acc-body">
+                                    <p>先調查居民真實需求與主管機關之法定權責，再提出可行性計畫與小規模試辦，不浪費社區資源。</p>
+                                </div>
                             </div>
-                            <div class="promise-item-body">
-                                <p>先調查居民真實需求與主管機關之法定權責，再提出可行性計畫與小規模試辦，不浪費社區資源。</p>
+
+                            <!-- Item 2 -->
+                            <div class="budget-acc-item collapsible">
+                                <div class="budget-acc-header">
+                                    <div class="budget-acc-header-left">
+                                        <span class="t-icon">🏛️</span>
+                                        <div class="budget-acc-title-wrap">
+                                            <span class="t-badge t-badge-blue">依法爭取 ‧ 專業提案</span>
+                                            <h4>依法爭取外部資源</h4>
+                                        </div>
+                                    </div>
+                                    <div class="budget-acc-toggle">
+                                        <span class="acc-action-text">看詳情</span>
+                                        <span class="acc-arrow">▾</span>
+                                    </div>
+                                </div>
+                                <div class="budget-acc-body">
+                                    <p>以專案計畫書依法向公部門、民間機構爭取專案經費或場地補助，絕不把「尚未核定」的預算包裝為既成事實。</p>
+                                </div>
+                            </div>
+
+                            <!-- Item 3 -->
+                            <div class="budget-acc-item collapsible">
+                                <div class="budget-acc-header">
+                                    <div class="budget-acc-header-left">
+                                        <span class="t-icon">📢</span>
+                                        <div class="budget-acc-title-wrap">
+                                            <span class="t-badge t-badge-gold">陽光公開 ‧ 全民監督</span>
+                                            <h4>過程全面公開</h4>
+                                        </div>
+                                    </div>
+                                    <div class="budget-acc-toggle">
+                                        <span class="acc-action-text">看詳情</span>
+                                        <span class="acc-arrow">▾</span>
+                                    </div>
+                                </div>
+                                <div class="budget-acc-body">
+                                    <p>公開所有專案執行進度、會勘記錄、外部合作合約原則、經費原則與居民反饋，接受全民監督。</p>
+                                </div>
+                            </div>
+
+                            <!-- Item 4 -->
+                            <div class="budget-acc-item collapsible">
+                                <div class="budget-acc-header">
+                                    <div class="budget-acc-header-left">
+                                        <span class="t-icon">📊</span>
+                                        <div class="budget-acc-title-wrap">
+                                            <span class="t-badge t-badge-green">年終檢驗 ‧ 持續進化</span>
+                                            <h4>年度效益檢視</h4>
+                                        </div>
+                                    </div>
+                                    <div class="budget-acc-toggle">
+                                        <span class="acc-action-text">看詳情</span>
+                                        <span class="acc-arrow">▾</span>
+                                    </div>
+                                </div>
+                                <div class="budget-acc-body">
+                                    <p>每年底公開檢視每項計畫「服務到哪些人」、「解決了哪些問題」以及「下一步如何優化」，定期修正方向。</p>
+                                </div>
                             </div>
                         </div>
-                        <!-- Item 2 -->
-                        <div class="promise-item collapsible">
-                            <div class="promise-item-header">
-                                <div class="promise-item-header-left">
-                                    <div class="promise-check">✓</div>
-                                    <h4>依法爭取外部資源</h4>
-                                </div>
-                                <div class="promise-toggle-btn">+</div>
-                            </div>
-                            <div class="promise-item-body">
-                                <p>以專案計畫書依法向公部門、民間機構爭取專案經費或場地補助，絕不把「尚未核定」的預算包裝為既成事實。</p>
-                            </div>
-                        </div>
-                        <!-- Item 3 -->
-                        <div class="promise-item collapsible">
-                            <div class="promise-item-header">
-                                <div class="promise-item-header-left">
-                                    <div class="promise-check">✓</div>
-                                    <h4>過程全面公開</h4>
-                                </div>
-                                <div class="promise-toggle-btn">+</div>
-                            </div>
-                            <div class="promise-item-body">
-                                <p>公開所有專案執行進度、會勘記錄、外部合作合約原則、經費原則與居民反饋，接受全民監督。</p>
-                            </div>
-                        </div>
-                        <!-- Item 4 -->
-                        <div class="promise-item collapsible">
-                            <div class="promise-item-header">
-                                <div class="promise-item-header-left">
-                                    <div class="promise-check">✓</div>
-                                    <h4>年度效益檢視</h4>
-                                </div>
-                                <div class="promise-toggle-btn">+</div>
-                            </div>
-                            <div class="promise-item-body">
-                                <p>每年底公開檢視每項計畫「服務到哪些人」、「解決了哪些問題」以及「下一步如何優化」，定期修正方向。</p>
-                            </div>
+
+                        <!-- 底部向上收合按鈕 -->
+                        <div class="budget-close-wrapper">
+                            <button type="button" class="btn-budget-close" onclick="closePromisesDetails()">
+                                <span class="close-arrow">▴</span>
+                                <span class="close-text">收起共同承諾</span>
+                            </button>
                         </div>
                     </div>
                 </div>
-                <!-- Interactive campaign branding block -->
-                <div class="brand-showcase-card glass reveal-right">
-                    <h3 class="gradient-text">明德里，升級 2.0</h3>
-                    <p>
-                        這是一場關於「地方共融、數位效能、生活美學與專業治理」的社區實踐。我們需要您的意見，共同完成這本屬於明德里的未來計畫書。
-                    </p>
-                    <div class="brand-quote">
-                        「我們不需要口號，我們需要能把事情做好的專業經理人，用溫暖的手牽起科技的未來。」<br>— 明德里 2.0 競選團隊
-                    </div>
+            </div>
+
+            <!-- 明德里 2.0 理念總結全寬大卡片 (上下獨立排列) -->
+            <div class="brand-showcase-card glass reveal" style="margin-top: 3.5rem;">
+                <h3 class="gradient-text" style="font-size: 1.85rem; font-weight: 800; margin-bottom: 1rem;">明德里，升級 2.0</h3>
+                <p style="font-size: 1.15rem; line-height: 1.8; margin-bottom: 1.5rem;">
+                    這是一場關於「地方共融、數位效能、生活美學與專業治理」的社區實踐。我們需要您的意見，共同完成這本屬於明德里的未來計畫書。
+                </p>
+                <div class="brand-quote" style="font-size: 1.1rem; line-height: 1.8;">
+                    「我們不需要口號，我們需要能把事情做好的專業經理人，用溫暖的手牽起科技的未來。」<br>— 明德里 2.0 競選團隊
                 </div>
             </div>
         </div>
@@ -1171,6 +1271,6 @@
         </div>
     </div>
 
-    <script src="js/main.js?v=5.31"></script>
+    <script src="js/main.js?v=5.32"></script>
 </body>
 </html>

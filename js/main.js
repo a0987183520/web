@@ -1854,7 +1854,56 @@ function closeBudgetDetails() {
 
     if (content) {
         content.classList.remove('active');
-        // 收合所有內層手風琴
+        const items = content.querySelectorAll('.budget-acc-item');
+        items.forEach(it => it.classList.remove('open'));
+    }
+    if (toggleWrap) toggleWrap.style.display = 'flex';
+
+    if (banner) {
+        banner.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+}
+
+// 治理四大原則漸進式揭露切換
+function openGovernanceDetails() {
+    const toggleWrap = document.getElementById('governance-toggle-wrapper');
+    const content = document.getElementById('governance-collapsible-content');
+    if (toggleWrap) toggleWrap.style.display = 'none';
+    if (content) content.classList.add('active');
+}
+
+function closeGovernanceDetails() {
+    const toggleWrap = document.getElementById('governance-toggle-wrapper');
+    const content = document.getElementById('governance-collapsible-content');
+    const banner = document.getElementById('governance-banner');
+
+    if (content) {
+        content.classList.remove('active');
+        const items = content.querySelectorAll('.budget-acc-item');
+        items.forEach(it => it.classList.remove('open'));
+    }
+    if (toggleWrap) toggleWrap.style.display = 'flex';
+
+    if (banner) {
+        banner.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+}
+
+// 共同承諾漸進式揭露切換
+function openPromisesDetails() {
+    const toggleWrap = document.getElementById('promises-toggle-wrapper');
+    const content = document.getElementById('promises-collapsible-content');
+    if (toggleWrap) toggleWrap.style.display = 'none';
+    if (content) content.classList.add('active');
+}
+
+function closePromisesDetails() {
+    const toggleWrap = document.getElementById('promises-toggle-wrapper');
+    const content = document.getElementById('promises-collapsible-content');
+    const banner = document.getElementById('promises-banner');
+
+    if (content) {
+        content.classList.remove('active');
         const items = content.querySelectorAll('.budget-acc-item');
         items.forEach(it => it.classList.remove('open'));
     }
@@ -1867,39 +1916,18 @@ function closeBudgetDetails() {
 
 // Initialize Collapsible Accordions (Governance Principles, Promises, Experience, Budget with Mutex Single-Open Behavior)
 function initCollapsibles() {
-    // 預算大解密手風琴 (互斥單開)
-    const budgetItems = document.querySelectorAll('.budget-acc-item.collapsible');
-    budgetItems.forEach(item => {
-        item.addEventListener('click', () => {
-            const wasOpen = item.classList.contains('open');
-            budgetItems.forEach(b => b.classList.remove('open'));
-            if (!wasOpen) {
-                item.classList.add('open');
-            }
-        });
-    });
-
-    // 四大治理原則手風琴 (互斥單開)
-    const valueCards = document.querySelectorAll('.value-card.collapsible');
-    valueCards.forEach(card => {
-        card.addEventListener('click', () => {
-            const wasOpen = card.classList.contains('open');
-            valueCards.forEach(c => c.classList.remove('open'));
-            if (!wasOpen) {
-                card.classList.add('open');
-            }
-        });
-    });
-
-    // 共同承諾手風琴 (互斥單開)
-    const promiseItems = document.querySelectorAll('.promise-item.collapsible');
-    promiseItems.forEach(item => {
-        item.addEventListener('click', () => {
-            const wasOpen = item.classList.contains('open');
-            promiseItems.forEach(p => p.classList.remove('open'));
-            if (!wasOpen) {
-                item.classList.add('open');
-            }
+    // 預算解密、治理原則、共同承諾手風琴 (依個別容器分組互斥單開)
+    const accordionContainers = document.querySelectorAll('.budget-accordion-list');
+    accordionContainers.forEach(container => {
+        const items = container.querySelectorAll('.budget-acc-item.collapsible');
+        items.forEach(item => {
+            item.addEventListener('click', () => {
+                const wasOpen = item.classList.contains('open');
+                items.forEach(b => b.classList.remove('open'));
+                if (!wasOpen) {
+                    item.classList.add('open');
+                }
+            });
         });
     });
 
