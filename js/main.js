@@ -65,7 +65,7 @@ const POLICIES_DATA = [
         categoryName: "智慧治理與順暢交通",
         title: "智慧交通與號誌連鎖",
         subtitle: "海山路至學士路：動態綠波續進 ‧ 全向行人時相（人車徹底分流）",
-        image: "images/policy_04_safety_2.png",
+        image: "images/policy_04_traffic.png",
         budgetSource: "幹道動態綠波與道路會勘專案工程款",
         budgetSub: "（完全不用動到明德里 88 萬基層款）",
         budgetDesc: "本案屬於政府交通與工務單位之法定道路維護權責。由科技里長主動提出具體『動態綠波＋全向時相』工程計畫召開跨局處會勘，督促交通局交控中心優化連鎖與專案工程發包，零花費里公款！",
@@ -286,16 +286,16 @@ const POLICIES_DATA = [
         category: "democracy",
         categoryName: "人本交通與通學安全",
         title: "友善步道與通學安全",
-        subtitle: "樂利國小通學廊道 ‧ 長者安心平整步道（資料庫精準會勘）",
-        image: "images/policy_14_walkway.png",
+        subtitle: "樂利國小通學廊道 ‧ 長者安心防跌步道（資料庫精準會勘）",
+        image: "images/policy_04_safety_2.png",
         budgetSource: "市府人本交通與通學步道專案工程款",
         budgetSub: "（爭取市府專案工程款，零排擠里款）",
-        budgetDesc: "本案屬於新北市交通局與工務局「校園周邊暨行人安全改善專案」權責。由科技里長主動彙整里民人行危險點資料庫，召開跨局處會勘爭取市府專案款鋪設綠底標線與防滑路面，零花費里公款！",
-        highlight: "長輩散步防跌、學童安心上下學！建立人行危險點資料庫，爭取樂利國小周邊通學步道綠底標線、防滑鋪面與騎樓無障礙高低差改善。",
+        budgetDesc: "本案屬於新北市交通局與工務局「校園周邊暨行人安全改善專案」權責。由科技里長主動彙整里民人行危險點資料庫，召開跨局處會勘爭取市府專案款改善鋪面與盲區死角，零花費里公款！",
+        highlight: "長輩散步防跌、學童安心上下學！建立全里人行危險點資料庫，爭取樂利國小周邊通學廊道安全升級、路口盲區改善與騎樓無障礙順平。",
         icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 4v16M17 8l-4-4-4 4M7 20h10"></path><circle cx="12" cy="4" r="2"></circle></svg>`,
-        description: "明德里內長者散步、學童上下學的步行環境需要實質升級！我們運用 30 年數據管理思維，建立「全里步行危險熱點資料庫」，精準針對樂利國小通學路段、學府路巷弄及長輩常走步道，向市府交通局與工務局爭取專案工程，鋪設綠底防滑標線人行道、打通視線死角並改善騎樓高低差，打造全齡友善的人本步行空間。",
+        description: "明德里內長者散步、學童上下學的步行環境需要實質升級！我們運用 30 年數據管理思維，建立「全里步行危險熱點資料庫」，精準針對樂利國小通學路段、學府路巷弄及長輩常走步道，向市府交通局與工務局爭取專案改善，消除轉角視線盲區、修補破損與改善騎樓高低差，打造全齡友善的安心步行空間。",
         howToDo: [
-            "【樂利國小周邊通學步道專案升級】：會勘爭取通學廊道全線鋪設高辨識度綠底標線、抗滑防跌鋪面與標線型人行道，劃設學童行人優先專用動線。",
+            "【樂利國小周邊通學步道安全升級】：會勘爭取通學廊道標線清晰化、防跌抗滑鋪面維護與學童優先動線，確保上下學安全。",
             "【全里人行危險點大數據資料庫】：線上彙整里民通報之地不平、照明昏暗、視線死角與易積水路段，依急迫性排定會勘改善。",
             "【騎樓高低差與無障礙順平】：協調相關管委會與工務局，推動騎樓順平工程與防滑修繕，保障輪椅族、推嬰兒車家長與銀髮長輩平穩通行。",
             "【路口轉角清空與視線優化】：爭取重要巷口劃設紅黃線禁停或調整標線，消除轉彎視線盲區，杜絕人車爭道死角。"
@@ -493,8 +493,8 @@ function openDrawer(policyId) {
                     <span class="vision-badge">概念示意圖</span>
                 </div>
             `;
-        } else if (policy.id === 4) {
-            // 如果是計畫 04 (id 為 4)，渲染 Before/After 拖拽對比滑塊
+        } else if (policy.id === 14) {
+            // 如果是計畫 14 (id 為 14)，渲染 Before/After 拖拽對比滑塊
             drawerImgWrapper.style.display = 'block';
             drawerImgWrapper.innerHTML = `
                 <div class="before-after-slider">
@@ -502,7 +502,7 @@ function openDrawer(policyId) {
                         <img src="images/policy_04_safety_1.jpg" alt="現況：人行道標線磨損補丁（實地現況）">
                     </div>
                     <div class="slider-image-after" id="slider-image-after">
-                        <img src="images/policy_04_safety_2.png" alt="願景：防滑平整綠底人行道 - 概念示意圖">
+                        <img src="images/policy_04_safety_2.png" alt="願景：防滑平整友善人行步道 - 概念示意圖">
                     </div>
                     <input type="range" min="0" max="100" value="50" class="slider-range" id="slider-range" aria-label="Before/After 拖拽滑塊對比">
                     <div class="slider-line" id="slider-line"></div>
