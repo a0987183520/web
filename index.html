@@ -119,7 +119,7 @@
       ]
     }
     </script>
-    <link rel="stylesheet" href="css/style.css?v=5.29">
+    <link rel="stylesheet" href="css/style.css?v=5.30">
     <style>
     /* 調整主版面兩欄比例與間距，僅在桌機版生效以確保手機版正常響應式排版 */
     @media (min-width: 951px) {
@@ -333,62 +333,76 @@
             </div>
 
             <!-- 里政預算大解密：你不知道的事！明德里每年其實有近百萬（88萬元）建設專款 -->
-            <div class="budget-transparency-banner glass reveal">
+            <div class="budget-transparency-banner glass reveal" id="budget-banner">
                 <div class="transparency-header">
                     <div class="transparency-pill">
                         <span class="pill-icon">💡</span>
                         <span>里政預算大解密 ‧ 財源全面公開</span>
                     </div>
                     <h3 class="transparency-main-title">你不知道的事<br>明德里每年其實有近百萬建設專款</h3>
-                    <p class="transparency-subtitle">
-                        明德里突破 6,300 人，屬新北市指標大里<br>
-                        依 116 年新制，每年依法享有 88 萬元「里基層工作專款」<br>
-                        攜手 30 鄰基層夥伴，統籌全里年逾 180 萬元服務總量能<br>
-                        里內硬體建設靠市府專款，不排擠里辦公處日常事務費！
-                    </p>
-                </div>
-                
-                <div class="transparency-grid">
-                    <!-- Card 1: 88 萬基層建設專款 -->
-                    <div class="transparency-card">
-                        <div class="t-card-header">
-                            <span class="t-icon">🏛️</span>
-                            <span class="t-badge t-badge-green">里長自主建設專款</span>
-                        </div>
-                        <h4>每年 88 萬法定建設專款</h4>
-                        <p>
-                            依 116 年市府新制，明德里每年編列 88 萬元專款。<br>
-                            專款專用於巷道修繕、路燈監視器、水溝疏濬與數位服務。<br>
-                            科技里長嚴謹管理，每一分錢公開透明！
-                        </p>
+                    
+                    <!-- 第 1 層引導按鈕：預設顯眼露出，點擊解密第二與第三層 -->
+                    <div class="budget-toggle-wrapper">
+                        <button type="button" class="btn-budget-toggle" id="btn-budget-toggle" onclick="toggleBudgetBanner()">
+                            <span class="toggle-icon">💡</span>
+                            <span class="toggle-text">為什麼能做到？點擊看經費從哪來</span>
+                            <span class="toggle-arrow">▾</span>
+                        </button>
                     </div>
 
-                    <!-- Card 2: 90 萬鄰長公務協助費 -->
-                    <div class="transparency-card">
-                        <div class="t-card-header">
-                            <span class="t-icon">🤝</span>
-                            <span class="t-badge t-badge-gold">尊重 30 鄰基層夥伴</span>
-                        </div>
-                        <h4>每年 90 萬鄰長公務協助費</h4>
-                        <p>
-                            全里 30 鄰共 90 萬（每鄰 2,500 元/月），市府直撥鄰長。<br>
-                            此為鄰長辛勞勞務補貼：逐戶送公報、災防查報與弱勢訪視。<br>
-                            依法專款專發，絕不巧立名目挪用！
+                    <!-- 第 2 層：副標題與細節容器（預設收納折疊，點擊按鈕展開） -->
+                    <div class="budget-collapsible-content" id="budget-collapsible-content">
+                        <p class="transparency-subtitle">
+                            明德里突破 6,300 人，屬新北市指標大里<br>
+                            依 116 年新制，每年依法享有 88 萬元「里基層工作專款」<br>
+                            攜手 30 鄰基層夥伴，統籌全里年逾 180 萬元服務總量能<br>
+                            里內硬體建設靠市府專款，不排擠里辦公處日常事務費！
                         </p>
-                    </div>
+                        
+                        <!-- 第 3 層：三大底氣卡片網格 -->
+                        <div class="transparency-grid">
+                            <!-- Card 1: 88 萬基層建設專款 -->
+                            <div class="transparency-card">
+                                <div class="t-card-header">
+                                    <span class="t-icon">🏛️</span>
+                                    <span class="t-badge t-badge-green">里長自主建設專款</span>
+                                </div>
+                                <h4>每年 88 萬法定建設專款</h4>
+                                <p>
+                                    依 116 年市府新制，明德里每年編列 88 萬元專款。<br>
+                                    專款專用於巷道修繕、路燈監視器、水溝疏濬與數位服務。<br>
+                                    科技里長嚴謹管理，每一分錢公開透明！
+                                </p>
+                            </div>
 
-                    <!-- Card 3: 外部旗艦資源與陽光治理 -->
-                    <div class="transparency-card">
-                        <div class="t-card-header">
-                            <span class="t-icon">✨</span>
-                            <span class="t-badge t-badge-blue">年逾 208 萬基層量能</span>
+                            <!-- Card 2: 90 萬鄰長公務協助費 -->
+                            <div class="transparency-card">
+                                <div class="t-card-header">
+                                    <span class="t-icon">🤝</span>
+                                    <span class="t-badge t-badge-gold">尊重 30 鄰基層夥伴</span>
+                                </div>
+                                <h4>每年 90 萬鄰長公務協助費</h4>
+                                <p>
+                                    全里 30 鄰共 90 萬（每鄰 2,500 元/月），市府直撥鄰長。<br>
+                                    此為鄰長辛勞勞務補貼：逐戶送公報、災防查報與弱勢訪視。<br>
+                                    依法專款專發，絕不巧立名目挪用！
+                                </p>
+                            </div>
+
+                            <!-- Card 3: 外部旗艦資源與陽光治理 -->
+                            <div class="transparency-card">
+                                <div class="t-card-header">
+                                    <span class="t-icon">✨</span>
+                                    <span class="t-badge t-badge-blue">年逾 208 萬基層量能</span>
+                                </div>
+                                <h4>陽光治理 ‧ 爭取外部資源</h4>
+                                <p>
+                                    加計巡守隊自強活動 30 萬，全里基層三費逾 208 萬。<br>
+                                    重大政見更直接向交通局、文化局與衛福部爭取專案款。<br>
+                                    懂專案管理、懂爭取資源，全面升級明德里 2.0！
+                                </p>
+                            </div>
                         </div>
-                        <h4>陽光治理 ‧ 爭取外部資源</h4>
-                        <p>
-                            加計巡守隊自強活動 30 萬，全里基層三費逾 208 萬。<br>
-                            重大政見更直接向交通局、文化局與衛福部爭取專案款。<br>
-                            懂專案管理、懂爭取資源，全面升級明德里 2.0！
-                        </p>
                     </div>
                 </div>
             </div>
@@ -725,36 +739,64 @@
             </div>
             <div class="experience-grid">
                 <!-- Card 1 -->
-                <div class="experience-card glass reveal">
-                    <div class="experience-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect><rect x="9" y="9" width="6" height="6"></rect><line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line><line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line><line x1="20" y1="9" x2="23" y2="9"></line><line x1="20" y1="15" x2="23" y2="15"></line><line x1="1" y1="9" x2="4" y2="9"></line><line x1="1" y1="15" x2="4" y2="15"></line></svg>
+                <div class="experience-card glass collapsible reveal open">
+                    <div class="experience-card-header">
+                        <div class="experience-card-header-left">
+                            <div class="experience-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect><rect x="9" y="9" width="6" height="6"></rect><line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line><line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line><line x1="20" y1="9" x2="23" y2="9"></line><line x1="20" y1="15" x2="23" y2="15"></line><line x1="1" y1="9" x2="4" y2="9"></line><line x1="1" y1="15" x2="4" y2="15"></line></svg>
+                            </div>
+                            <h3>30年科技背景</h3>
+                        </div>
+                        <div class="experience-toggle-btn">+</div>
                     </div>
-                    <h3>30年科技背景</h3>
-                    <p>資深資訊工程師與數據管理背景。專精於流程系統化、數據化追蹤與智慧化轉型，將先進科技工具務實導入社區治理。</p>
+                    <div class="experience-card-body">
+                        <p>資深資訊工程師與數據管理背景。專精於流程系統化、數據化追蹤與智慧化轉型，將先進科技工具務實導入社區治理。</p>
+                    </div>
                 </div>
                 <!-- Card 2 -->
-                <div class="experience-card glass reveal">
-                    <div class="experience-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"></path><circle cx="6" cy="18" r="3"></circle><circle cx="18" cy="16" r="3"></circle></svg>
+                <div class="experience-card glass collapsible reveal">
+                    <div class="experience-card-header">
+                        <div class="experience-card-header-left">
+                            <div class="experience-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"></path><circle cx="6" cy="18" r="3"></circle><circle cx="18" cy="16" r="3"></circle></svg>
+                            </div>
+                            <h3>20年音樂產業</h3>
+                        </div>
+                        <div class="experience-toggle-btn">+</div>
                     </div>
-                    <h3>20年音樂產業</h3>
-                    <p>深耕音樂與文創產業 20 年，具備大型文藝活動策劃與跨界資源串接能力。未來將開創「草地音樂節」，用音符點綴社區生活。</p>
+                    <div class="experience-card-body">
+                        <p>深耕音樂與文創產業 20 年，具備大型文藝活動策劃與跨界資源串接能力。未來將開創「草地音樂節」，用音符點綴社區生活。</p>
+                    </div>
                 </div>
                 <!-- Card 3 -->
-                <div class="experience-card glass reveal">
-                    <div class="experience-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                <div class="experience-card glass collapsible reveal">
+                    <div class="experience-card-header">
+                        <div class="experience-card-header-left">
+                            <div class="experience-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                            </div>
+                            <h3>10年社區治理</h3>
+                        </div>
+                        <div class="experience-toggle-btn">+</div>
                     </div>
-                    <h3>10年社區治理</h3>
-                    <p>投入明德里地方公共事務與基層服務達 10 年，深切了解在地巷弄問題與居民心聲，善於協調溝通並積極爭取外部預算資源。</p>
+                    <div class="experience-card-body">
+                        <p>投入明德里地方公共事務與基層服務達 10 年，深切了解在地巷弄問題與居民心聲，善於協調溝通並積極爭取外部預算資源。</p>
+                    </div>
                 </div>
                 <!-- Card 4 -->
-                <div class="experience-card glass reveal">
-                    <div class="experience-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                <div class="experience-card glass collapsible reveal">
+                    <div class="experience-card-header">
+                        <div class="experience-card-header-left">
+                            <div class="experience-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                            </div>
+                            <h3>8年ＥＱ講師</h3>
+                        </div>
+                        <div class="experience-toggle-btn">+</div>
                     </div>
-                    <h3>8年ＥＱ講師</h3>
-                    <p>擁有 8 年專業情緒教育與溝通講師背景。深信社區的核心在於「人」，將推動全齡情緒課程，建立溫暖且和諧的鄰里關係。</p>
+                    <div class="experience-card-body">
+                        <p>擁有 8 年專業情緒教育與溝通講師背景。深信社區的核心在於「人」，將推動全齡情緒課程，建立溫暖且和諧的鄰里關係。</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1094,6 +1136,6 @@
         </div>
     </div>
 
-    <script src="js/main.js?v=5.29"></script>
+    <script src="js/main.js?v=5.30"></script>
 </body>
 </html>

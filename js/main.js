@@ -1839,7 +1839,31 @@ function initLineGuideModal() {
     } catch(e) {}
 }
 
-// Initialize Collapsible Accordions (Governance Principles & Promises with Mutex Single-Open Behavior)
+// 預算大解密漸進式揭露切換
+function toggleBudgetBanner() {
+    const btn = document.getElementById('btn-budget-toggle');
+    const content = document.getElementById('budget-collapsible-content');
+    if (!content) return;
+
+    const isActive = content.classList.contains('active');
+    if (isActive) {
+        content.classList.remove('active');
+        if (btn) {
+            btn.classList.remove('active');
+            const textSpan = btn.querySelector('.toggle-text');
+            if (textSpan) textSpan.textContent = '為什麼能做到？點擊看經費從哪來';
+        }
+    } else {
+        content.classList.add('active');
+        if (btn) {
+            btn.classList.add('active');
+            const textSpan = btn.querySelector('.toggle-text');
+            if (textSpan) textSpan.textContent = '收合預算解密 ▴';
+        }
+    }
+}
+
+// Initialize Collapsible Accordions (Governance Principles, Promises, Experience with Mutex Single-Open Behavior)
 function initCollapsibles() {
     // 四大治理原則手風琴 (互斥單開)
     const valueCards = document.querySelectorAll('.value-card.collapsible');
@@ -1861,6 +1885,18 @@ function initCollapsibles() {
             promiseItems.forEach(p => p.classList.remove('open'));
             if (!wasOpen) {
                 item.classList.add('open');
+            }
+        });
+    });
+
+    // 專業經歷手風琴 (互斥單開)
+    const expCards = document.querySelectorAll('.experience-card.collapsible');
+    expCards.forEach(card => {
+        card.addEventListener('click', () => {
+            const wasOpen = card.classList.contains('open');
+            expCards.forEach(c => c.classList.remove('open'));
+            if (!wasOpen) {
+                card.classList.add('open');
             }
         });
     });
