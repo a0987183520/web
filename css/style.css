@@ -4331,11 +4331,12 @@ footer {
    漸進式揭露 (Progressive Disclosure) 互動樣式
    ========================================================================== */
 
-/* 1. 預算、治理風格、共同承諾、有問必答大看板共通樣式 */
+/* 1. 預算、治理風格、共同承諾、有問必答、我的經歷大看板共通樣式 */
 .budget-transparency-banner,
 .governance-transparency-banner,
 .promises-transparency-banner,
-.qa-transparency-banner {
+.qa-transparency-banner,
+.experience-transparency-banner {
     margin-top: 3.5rem;
     padding: 3.5rem 2.8rem;
     border-radius: 28px;
@@ -4349,7 +4350,8 @@ footer {
 [data-theme="light"] .budget-transparency-banner,
 [data-theme="light"] .governance-transparency-banner,
 [data-theme="light"] .promises-transparency-banner,
-[data-theme="light"] .qa-transparency-banner {
+[data-theme="light"] .qa-transparency-banner,
+[data-theme="light"] .experience-transparency-banner {
     background: rgba(255, 253, 248, 0.98);
     border: 2px solid rgba(217, 119, 6, 0.5);
     box-shadow: 0 25px 60px -15px rgba(217, 119, 6, 0.2);
@@ -4358,7 +4360,8 @@ footer {
 .budget-toggle-wrapper,
 .governance-toggle-wrapper,
 .promises-toggle-wrapper,
-.qa-toggle-wrapper {
+.qa-toggle-wrapper,
+.experience-toggle-wrapper {
     display: flex;
     justify-content: center;
     margin: 1.8rem auto 0 auto;
@@ -4407,7 +4410,8 @@ footer {
 .budget-collapsible-content,
 .governance-collapsible-content,
 .promises-collapsible-content,
-.qa-collapsible-content {
+.qa-collapsible-content,
+.experience-collapsible-content {
     max-height: 0;
     opacity: 0;
     overflow: hidden;
@@ -4418,7 +4422,8 @@ footer {
 .budget-collapsible-content.active,
 .governance-collapsible-content.active,
 .promises-collapsible-content.active,
-.qa-collapsible-content.active {
+.qa-collapsible-content.active,
+.experience-collapsible-content.active {
     max-height: 5000px;
     opacity: 1;
     margin-top: 1.5rem;

@@ -1187,17 +1187,12 @@ function renderQACards() {
                 </button>
             </div>
             <div class="qa-response-box">
-                <div class="qa-response-header">
+                <div class="qa-response-header" style="cursor:pointer;" onclick="toggleQAResponseExpand('${item.id}')">
                     <div class="qa-response-avatar">昱</div>
-                    <span class="qa-response-name">陳新昱 官方具體解決方案</span>
+                    <span class="qa-response-name">陳新昱 官方具體解決方案 ▾</span>
                 </div>
                 <div class="qa-response-content" id="resp-${item.id}" style="display:none;">${escapeHTML(item.response)}</div>
-                <button class="btn-toggle-response-expand" onclick="toggleQAResponseExpand('${item.id}')" id="rbtn-${item.id}">
-                    <span>展開完整 SOP 解決路徑 ▼</span>
-                </button>
             </div>
-            
-            ${subAccordionHtml}
 
             <!-- 參與式里政互動列 (認同 +1 ＆ 補充附議) -->
             <div class="qa-interaction-bar">
@@ -1930,6 +1925,46 @@ function closeQADetails() {
 
     if (banner) {
         banner.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+}
+
+// 我的經歷漸進式揭露切換
+function openExperienceDetails() {
+    const toggleWrap = document.getElementById('experience-toggle-wrapper');
+    const content = document.getElementById('experience-collapsible-content');
+    if (toggleWrap) toggleWrap.style.display = 'none';
+    if (content) content.classList.add('active');
+}
+
+function closeExperienceDetails() {
+    const toggleWrap = document.getElementById('experience-toggle-wrapper');
+    const content = document.getElementById('experience-collapsible-content');
+    const banner = document.getElementById('experience-banner');
+
+    if (content) {
+        content.classList.remove('active');
+        const items = content.querySelectorAll('.budget-acc-item');
+        items.forEach(it => it.classList.remove('open'));
+    }
+    if (toggleWrap) toggleWrap.style.display = 'flex';
+
+    if (banner) {
+        banner.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+}
+
+// 我要提案 / 諮詢表單折疊切換
+function toggleQAForm() {
+    const formContent = document.getElementById('qa-form-collapsible-content');
+    const btn = document.getElementById('btn-qa-form-toggle');
+    if (!formContent) return;
+
+    if (formContent.style.display === 'none' || formContent.style.display === '') {
+        formContent.style.display = 'block';
+        if (btn) btn.innerHTML = '<span>📝 收合提案 / 諮詢表單 ▴</span>';
+    } else {
+        formContent.style.display = 'none';
+        if (btn) btn.innerHTML = '<span>📝 我要提案 / 諮詢里政 ▾</span>';
     }
 }
 
