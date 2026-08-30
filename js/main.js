@@ -887,35 +887,6 @@ function closeDrawer() {
     }
 }
 
-function observeRevealElements() {
-    const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-bottom, .reveal-top');
-    revealElements.forEach(el => el.classList.add('active'));
-}
-
-// Form Submission handling (Prevent actual action, show nice notice)
-const fbForm = document.getElementById('feedback-form');
-if (fbForm) {
-    fbForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        alert('感謝您的回饋！競選決策小組已收到您的意見，我們將認真評估並納入未來計畫的修正考量！');
-        fbForm.reset();
-    });
-}
-
-// Header Scroll State Toggle
-function initHeaderScroll() {
-    const header = document.querySelector('header');
-    if (!header) return;
-
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 10) {
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
-        }
-    }, { passive: true });
-}
-
 // ==========================================================================
 // Google Apps Script (GAS) 雲端試算表 API 串接端點
 // ==========================================================================
