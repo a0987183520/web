@@ -633,28 +633,10 @@ function renderPolicies() {
     POLICIES_DATA.forEach((policy, index) => {
         const card = document.createElement('div');
         
-        // Dynamically compute layout-aware reveal animation direction
-        const isMobile = window.innerWidth <= 768;
-        let animationClass = 'reveal-left';
-        if (isMobile) {
-            // Mobile single column: alternating left & right
-            animationClass = (index % 2 === 0) ? 'reveal-left' : 'reveal-right';
-        } else {
-            // Desktop 3-column grid layout
-            const col = index % 3;
-            if (col === 0) {
-                animationClass = 'reveal-left';
-            } else if (col === 1) {
-                animationClass = 'reveal-bottom';
-            } else {
-                animationClass = 'reveal-right';
-            }
-        }
-
         const isVoted = isPolicyInCooldown(policy.id);
         const count = getPolicyVoteCount(policy.id);
 
-        card.className = `policy-card glass ${animationClass}`;
+        card.className = 'policy-card glass';
         card.dataset.id = policy.id;
         card.dataset.index = index;
         card.innerHTML = `
@@ -843,41 +825,10 @@ function closeDrawer() {
     }
 }
 
-// Bi-directional Scroll Observer with Scroll Direction Awareness
-let revealObserver;
-let lastScrollY = window.scrollY;
-
 function observeRevealElements() {
-    // Collect all elements with reveal classes
     const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-bottom, .reveal-top');
-    
-    // Disconnect old observer if exists
-    if (revealObserver) {
-        revealObserver.disconnect();
-    }
-    
-    // Define options
-    const observerOptions = {
-        root: null,
-        threshold: 0.08, // Trigger when 8% is visible
-        rootMargin: "-10px 0px -10px 0px" // Buffer area for smooth triggering
-    };
-    
-    // Instantiate observer
-    revealObserver = new IntersectionObserver((entries) => {
-        const currentScrollY = window.scrollY;
-        const isScrollingUp = currentScrollY < lastScrollY;
-        lastScrollY = currentScrollY;
-
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('active');
-            } else {
-                // Dynamically remove active class to allow smooth re-trigger when scrolling back
-                entry.target.classList.remove('active');
-            }
-        });
-    }, observerOptions);
+    revealElements.forEach(el => el.classList.add('active'));
+}
     
     // Observe
     revealElements.forEach(el => revealObserver.observe(el));
