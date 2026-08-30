@@ -235,6 +235,7 @@ const POLICIES_DATA = [
         ],
         whyPossible: "候選人擁有 10 年社區大廈管委會主委與委員溝通調解實務，熟悉住宅規約與相鄰關係協調，並有競選團隊顧問律師提供專業法律見解後盾。",
         principles: "本服務定位為「私權糾紛之中立溝通輔導與法律常識諮詢」，里辦公處不具行政處罰或司法裁判權，重大糾紛仍須經由法定調解或司法途徑處理。"
+    },
     {
         id: 11,
         category: "culture",
@@ -828,10 +829,6 @@ function closeDrawer() {
 function observeRevealElements() {
     const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-bottom, .reveal-top');
     revealElements.forEach(el => el.classList.add('active'));
-}
-    
-    // Observe
-    revealElements.forEach(el => revealObserver.observe(el));
 }
 
 // Form Submission handling (Prevent actual action, show nice notice)
