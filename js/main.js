@@ -1176,7 +1176,7 @@ function renderQACards() {
             </div>
             <div class="qa-question-box">
                 <h4 class="qa-question-title">${escapeHTML(item.title)}</h4>
-                <p class="qa-question-text collapsed" id="qtext-${item.id}">${escapeHTML(item.question)}</p>
+                <p class="qa-question-text" id="qtext-${item.id}" style="display:none;">${escapeHTML(item.question)}</p>
                 <div class="qa-expanded-meta" id="qmeta-${item.id}" style="display:none;">
                     <span class="qa-category-pill">${escapeHTML(item.category)}</span>
                     <span class="qa-author-time">反映里民：${escapeHTML(item.author)} ‧ ${escapeHTML(item.date)}</span>
@@ -1189,9 +1189,8 @@ function renderQACards() {
             <div class="qa-response-box">
                 <div class="qa-response-header">
                     <div class="qa-response-avatar">昱</div>
-                    <span class="qa-response-name">陳新昱 官方具體解決路徑回覆</span>
+                    <span class="qa-response-name">陳新昱 官方具體解決方案</span>
                 </div>
-                <div class="qa-response-summary" id="rsum-${item.id}">${escapeHTML(shortResp)}</div>
                 <div class="qa-response-content" id="resp-${item.id}" style="display:none;">${escapeHTML(item.response)}</div>
                 <button class="btn-toggle-response-expand" onclick="toggleQAResponseExpand('${item.id}')" id="rbtn-${item.id}">
                     <span>展開完整 SOP 解決路徑 ▼</span>
@@ -1230,29 +1229,26 @@ function toggleQAExpand(cardId) {
     const btnEl = document.getElementById(`qbtn-${cardId}`);
     if (!textEl || !btnEl) return;
 
-    if (textEl.classList.contains('collapsed')) {
-        textEl.classList.remove('collapsed');
+    if (textEl.style.display === 'none') {
+        textEl.style.display = 'block';
         if (metaEl) metaEl.style.display = 'flex';
         btnEl.innerHTML = `<span>收合原文</span><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>`;
     } else {
-        textEl.classList.add('collapsed');
+        textEl.style.display = 'none';
         if (metaEl) metaEl.style.display = 'none';
         btnEl.innerHTML = `<span>展開完整原文</span><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>`;
     }
 }
 
 function toggleQAResponseExpand(cardId) {
-    const sumEl = document.getElementById(`rsum-${cardId}`);
     const fullEl = document.getElementById(`resp-${cardId}`);
     const btnEl = document.getElementById(`rbtn-${cardId}`);
     if (!fullEl || !btnEl) return;
 
     if (fullEl.style.display === 'none') {
-        if (sumEl) sumEl.style.display = 'none';
         fullEl.style.display = 'block';
         btnEl.innerHTML = `<span>收合解決路徑 ▲</span>`;
     } else {
-        if (sumEl) sumEl.style.display = 'block';
         fullEl.style.display = 'none';
         btnEl.innerHTML = `<span>展開完整 SOP 解決路徑 ▼</span>`;
     }
@@ -1906,6 +1902,29 @@ function closePromisesDetails() {
         content.classList.remove('active');
         const items = content.querySelectorAll('.budget-acc-item');
         items.forEach(it => it.classList.remove('open'));
+    }
+    if (toggleWrap) toggleWrap.style.display = 'flex';
+
+    if (banner) {
+        banner.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+}
+
+// 有問必答牆漸進式揭露切換
+function openQADetails() {
+    const toggleWrap = document.getElementById('qa-toggle-wrapper');
+    const content = document.getElementById('qa-collapsible-content');
+    if (toggleWrap) toggleWrap.style.display = 'none';
+    if (content) content.classList.add('active');
+}
+
+function closeQADetails() {
+    const toggleWrap = document.getElementById('qa-toggle-wrapper');
+    const content = document.getElementById('qa-collapsible-content');
+    const banner = document.getElementById('qa-banner');
+
+    if (content) {
+        content.classList.remove('active');
     }
     if (toggleWrap) toggleWrap.style.display = 'flex';
 
