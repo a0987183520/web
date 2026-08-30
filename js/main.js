@@ -380,6 +380,250 @@ function updateThemeToggleIcon() {
     }
 }
 
+// ==========================================================================
+// 參與式政見「我想要」互動投票系統 (Base Votes + 1-Hour Cooldown + UUID + Survey)
+// ==========================================================================
+const POLICY_BASE_VOTES = {
+    1: 68,  // 草地音樂節
+    2: 54,  // EQ 教育課程
+    3: 76,  // 無人機與 AI 未來體驗營
+    4: 92,  // 智慧交通與號誌連鎖
+    5: 85,  // 學童安全與行人友善
+    6: 71,  // 長者健康樂活
+    7: 63,  // 毛小孩寵物共融
+    8: 59,  // 社區綠美化
+    9: 48,  // 社區防災韌性
+    10: 67, // 里民數位溝通
+    11: 52, // 青年文創與志工
+    12: 46, // 節能低碳與智慧照明
+    13: 58, // 公有設施活化
+    14: 89  // 清廉透明參與式預算
+};
+
+const VOTE_COOLDOWN_MS = 60 * 60 * 1000; // 1 小時冷卻期
+let pendingVotePolicyId = null;
+
+// 取得或生成匿名裝置唯一識別碼 (Device UUID)
+function getVoterDeviceId() {
+    let deviceId = localStorage.getItem('md2_voter_device_uuid');
+    if (!deviceId) {
+        deviceId = 'dev_' + Math.random().toString(36).substring(2, 10) + Date.now().toString(36);
+        localStorage.setItem('md2_voter_device_uuid', deviceId);
+    }
+    return deviceId;
+}
+
+// 取得里民年齡性別資料
+function getVoterProfile() {
+    try {
+        const raw = localStorage.getItem('md2_voter_profile');
+        return raw ? JSON.parse(raw) : null;
+    } catch (e) {
+        return null;
+    }
+}
+
+// 儲存里民年齡性別資料
+function saveVoterProfile(age, gender) {
+    const profile = { age, gender, updatedAt: Date.now() };
+    localStorage.setItem('md2_voter_profile', JSON.stringify(profile));
+    return profile;
+}
+
+// 取得特定計畫支持票數 (初調基底 + 本地真實累積)
+function getPolicyVoteCount(policyId) {
+    const base = POLICY_BASE_VOTES[policyId] || 50;
+    const delta = parseInt(localStorage.getItem(`md2_policy_vote_delta_${policyId}`) || '0', 10);
+    return base + delta;
+}
+
+// 判斷特定計畫是否在 1 小時冷卻期內
+function isPolicyInCooldown(policyId) {
+    const lastTime = parseInt(localStorage.getItem(`md2_policy_voted_at_${policyId}`) || '0', 10);
+    return (Date.now() - lastTime) < VOTE_COOLDOWN_MS;
+}
+
+// 取得剩餘冷卻分鐘數
+function getPolicyCooldownRemainingMin(policyId) {
+    const lastTime = parseInt(localStorage.getItem(`md2_policy_voted_at_${policyId}`) || '0', 10);
+    const diff = Date.now() - lastTime;
+    if (diff >= VOTE_COOLDOWN_MS) return 0;
+    return Math.ceil((VOTE_COOLDOWN_MS - diff) / 60000);
+}
+
+// 點擊「我想要」按鈕處理流程
+function handleWantVoteClick(e, policyId) {
+    if (e) {
+        e.stopPropagation(); // 防止觸發卡片開啟抽屜事件
+    }
+
+    // 檢查 1 小時防刷冷卻期
+    if (isPolicyInCooldown(policyId)) {
+        const remMin = getPolicyCooldownRemainingMin(policyId);
+        showToast(`❤️ 您在 1 小時內已表達過支持（約 ${remMin} 分鐘後可再次打卡投票）`);
+        return;
+    }
+
+    const profile = getVoterProfile();
+    if (!profile || !profile.age || !profile.gender) {
+        // 尚未勾選年齡與性別 -> 彈出調查問卷 Modal
+        pendingVotePolicyId = policyId;
+        openVoteSurveyModal(policyId);
+    } else {
+        // 已有全域記憶身份 -> 直接秒投！
+        executePolicyVote(policyId, profile.age, profile.gender);
+    }
+}
+
+// 開啟問卷調查 Modal
+function openVoteSurveyModal(policyId) {
+    const modal = document.getElementById('vote-survey-modal');
+    if (!modal) return;
+    const policy = POLICIES_DATA.find(p => p.id === policyId);
+    const targetPolicyEl = document.getElementById('survey-target-policy');
+    if (targetPolicyEl) {
+        const pNum = policyId < 10 ? `0${policyId}` : policyId;
+        targetPolicyEl.textContent = `正在支持：【計畫 ${pNum}】${policy ? policy.title : ''}`;
+    }
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+// 關閉問卷調查 Modal
+function closeVoteSurveyModal() {
+    const modal = document.getElementById('vote-survey-modal');
+    if (!modal) return;
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+// 提交問卷並執行投票
+function submitVoteSurvey(e) {
+    e.preventDefault();
+    const ageEl = document.querySelector('input[name="survey-age"]:checked');
+    const genderEl = document.querySelector('input[name="survey-gender"]:checked');
+    if (!ageEl || !genderEl) {
+        alert('請選取您的年齡區間與性別，謝謝！');
+        return;
+    }
+
+    const age = ageEl.value;
+    const gender = genderEl.value;
+    saveVoterProfile(age, gender);
+    closeVoteSurveyModal();
+
+    if (pendingVotePolicyId) {
+        executePolicyVote(pendingVotePolicyId, age, gender);
+        pendingVotePolicyId = null;
+    }
+}
+
+// 執行投票邏輯、動畫與後台同步
+function executePolicyVote(policyId, age, gender) {
+    const now = Date.now();
+    localStorage.setItem(`md2_policy_voted_at_${policyId}`, now.toString());
+    const curDelta = parseInt(localStorage.getItem(`md2_policy_vote_delta_${policyId}`) || '0', 10) + 1;
+    localStorage.setItem(`md2_policy_vote_delta_${policyId}`, curDelta.toString());
+
+    const deviceId = getVoterDeviceId();
+    const policy = POLICIES_DATA.find(p => p.id === policyId);
+    const policyTitle = policy ? policy.title : `計畫 ${policyId}`;
+    const newCount = getPolicyVoteCount(policyId);
+
+    // 1. 更新卡片與抽屜 UI 狀態
+    updatePolicyVoteUI(policyId, newCount, true);
+
+    // 2. 觸發按鈕浮動 +1 微粒子特效
+    createVotePlusOneParticle(policyId);
+
+    // 3. 觸發全螢幕放大脈衝愛心微動畫
+    showVoteSuccessAnimation(policyId, policyTitle);
+
+    // 4. 同步拋送數據至 Google Apps Script 雲端試算表
+    if (GOOGLE_SCRIPT_URL) {
+        const ageLabelMap = {
+            'under-20': '20歲以下',
+            '20-40': '20-40歲',
+            '40-60': '40-60歲',
+            'over-60': '60歲以上'
+        };
+        const genderLabelMap = {
+            'male': '男性',
+            'female': '女性'
+        };
+        fetch(GOOGLE_SCRIPT_URL, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                action: 'policy_vote',
+                deviceId: deviceId,
+                policyId: `計畫 ${policyId < 10 ? '0' + policyId : policyId}`,
+                policyTitle: policyTitle,
+                ageGroup: ageLabelMap[age] || age,
+                gender: genderLabelMap[gender] || gender,
+                voteCount: newCount,
+                timestamp: new Date().toISOString()
+            })
+        }).catch(err => console.log('Policy vote sync error:', err));
+    }
+}
+
+// 更新所有「我想要」按鈕 UI 狀態
+function updatePolicyVoteUI(policyId, count, isVoted) {
+    const btns = document.querySelectorAll(`.btn-want-vote[data-policy-id="${policyId}"]`);
+    btns.forEach(btn => {
+        if (isVoted) {
+            btn.classList.add('voted');
+            const heart = btn.querySelector('.heart-icon');
+            const text = btn.querySelector('.want-text');
+            const counter = btn.querySelector('.vote-counter');
+            if (heart) heart.textContent = '❤️';
+            if (text) text.textContent = '已支持';
+            if (counter) counter.textContent = count;
+        } else {
+            btn.classList.remove('voted');
+            const heart = btn.querySelector('.heart-icon');
+            const text = btn.querySelector('.want-text');
+            const counter = btn.querySelector('.vote-counter');
+            if (heart) heart.textContent = '🤍';
+            if (text) text.textContent = '我想要';
+            if (counter) counter.textContent = count;
+        }
+    });
+}
+
+// 產生 +1 浮動粒子動畫
+function createVotePlusOneParticle(policyId) {
+    const btns = document.querySelectorAll(`.btn-want-vote[data-policy-id="${policyId}"]`);
+    btns.forEach(btn => {
+        const plusOne = document.createElement('span');
+        plusOne.className = 'vote-float-plus-one';
+        plusOne.textContent = '+1';
+        btn.appendChild(plusOne);
+        setTimeout(() => plusOne.remove(), 1000);
+    });
+}
+
+// 顯示脈衝愛心成功動畫 Overlay
+function showVoteSuccessAnimation(policyId, policyTitle) {
+    const overlay = document.getElementById('vote-success-animation-overlay');
+    const msgEl = document.getElementById('vote-success-policy-name');
+    if (!overlay) return;
+    if (msgEl) {
+        const pNum = policyId < 10 ? `0${policyId}` : policyId;
+        msgEl.textContent = `已將您的支持列入「計畫 ${pNum} ‧ ${policyTitle}」推動優先序！`;
+    }
+    overlay.style.display = 'flex';
+    const timer = setTimeout(() => {
+        overlay.style.display = 'none';
+    }, 2200);
+    overlay.onclick = () => {
+        clearTimeout(timer);
+        overlay.style.display = 'none';
+    };
+}
+
 // Generate Policy Cards
 function renderPolicies() {
     if (!policyGrid) return;
@@ -395,10 +639,7 @@ function renderPolicies() {
             // Mobile single column: alternating left & right
             animationClass = (index % 2 === 0) ? 'reveal-left' : 'reveal-right';
         } else {
-            // Desktop 3-column grid layout:
-            // Column 0 (Left): reveal-left
-            // Column 1 (Middle): reveal-bottom
-            // Column 2 (Right): reveal-right
+            // Desktop 3-column grid layout
             const col = index % 3;
             if (col === 0) {
                 animationClass = 'reveal-left';
@@ -409,6 +650,9 @@ function renderPolicies() {
             }
         }
 
+        const isVoted = isPolicyInCooldown(policy.id);
+        const count = getPolicyVoteCount(policy.id);
+
         card.className = `policy-card glass ${animationClass}`;
         card.dataset.id = policy.id;
         card.dataset.index = index;
@@ -416,7 +660,11 @@ function renderPolicies() {
             <div class="policy-card-header">
                 <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; margin-bottom: 0.4rem;">
                     <span class="policy-number">計畫 ${policy.id < 10 ? '0' + policy.id : policy.id}</span>
-                    <span class="badge-innovative-sm"><span class="pulse-dot"></span>首創</span>
+                    <button class="btn-want-vote ${isVoted ? 'voted' : ''}" data-policy-id="${policy.id}" onclick="handleWantVoteClick(event, ${policy.id})" title="表達您的支持（參與式預算民意調查）">
+                        <span class="heart-icon">${isVoted ? '❤️' : '🤍'}</span>
+                        <span class="want-text">${isVoted ? '已支持' : '我想要'}</span>
+                        <span class="vote-counter">${count}</span>
+                    </button>
                 </div>
                 <h3>${policy.title}</h3>
             </div>
@@ -456,8 +704,22 @@ function openDrawer(policyId) {
 
     // Populate drawer elements
     const formattedNum = policy.id < 10 ? `0${policy.id}` : policy.id;
+    const isVoted = isPolicyInCooldown(policy.id);
+    const count = getPolicyVoteCount(policy.id);
+
     const numEl = document.getElementById('drawer-number');
-    if (numEl) numEl.innerHTML = `計畫 ${formattedNum} <span class="badge-innovative-sm" style="margin-left: 0.5rem;"><span class="pulse-dot"></span>全里首創 ✕ 獨家推動</span>`;
+    if (numEl) {
+        numEl.innerHTML = `
+            <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+                <span>計畫 ${formattedNum}</span>
+                <button class="btn-want-vote btn-want-vote-drawer ${isVoted ? 'voted' : ''}" data-policy-id="${policy.id}" onclick="handleWantVoteClick(event, ${policy.id})" title="表達您的支持">
+                    <span class="heart-icon">${isVoted ? '❤️' : '🤍'}</span>
+                    <span class="want-text">${isVoted ? '已支持' : '我想要'}</span>
+                    <span class="vote-counter">${count}</span>
+                </button>
+            </div>
+        `;
+    }
     const titleEl = document.getElementById('drawer-title');
     if (titleEl) titleEl.textContent = policy.title;
     const descEl = document.getElementById('drawer-description');
@@ -1246,6 +1508,10 @@ window.addEventListener('click', (e) => {
     const modal = document.getElementById('support-modal');
     if (e.target === modal) {
         closeSupportModal();
+    }
+    const voteSurveyModal = document.getElementById('vote-survey-modal');
+    if (e.target === voteSurveyModal) {
+        closeVoteSurveyModal();
     }
 });
 
