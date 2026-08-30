@@ -4172,6 +4172,83 @@ footer {
     to { transform: scale(1); opacity: 1; }
 }
 
+/* LINE 內嵌瀏覽器外跳導引彈窗 */
+.hidden {
+    display: none !important;
+}
+
+.line-guide-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.78);
+    backdrop-filter: blur(10px);
+    z-index: 99999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+}
+
+.line-guide-card {
+    background: #0f1c16;
+    border: 2px solid #fbbf24;
+    border-radius: 24px;
+    padding: 2.2rem 2rem;
+    max-width: 440px;
+    width: 90%;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.85);
+}
+
+.line-guide-icon {
+    font-size: 3rem;
+    margin-bottom: 0.8rem;
+}
+
+.line-guide-title {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: #fbbf24;
+    margin-bottom: 1rem;
+}
+
+.line-guide-steps {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    text-align: left;
+    margin-bottom: 1.5rem;
+}
+
+.highlight-badge {
+    background: rgba(251, 191, 36, 0.2);
+    color: #fbbf24;
+    padding: 0.15rem 0.4rem;
+    border-radius: 6px;
+    font-weight: 700;
+}
+
+.highlight-text {
+    color: #10b981;
+    font-weight: 700;
+}
+
+.btn-guide-close {
+    width: 100%;
+    padding: 0.8rem;
+    background: linear-gradient(135deg, #10b981, #059669);
+    border: none;
+    border-radius: 12px;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+}
+
 
 
 

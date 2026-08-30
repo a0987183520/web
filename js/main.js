@@ -1820,6 +1820,7 @@ function initLineGuideModal() {
         if (ua.indexOf('line') > -1) {
             const lineModal = document.getElementById('lineGuideModal');
             if (lineModal) {
+                lineModal.style.display = 'flex';
                 lineModal.classList.remove('hidden');
             }
         }
@@ -1889,9 +1890,7 @@ initStatsDashboard();
 syncCloudData(); // 非同步雙軌即時拉取最新 Google 試算表 Q&A、附議與人氣數據
 initHashAnchorNavigation();
 initLineGuideModal();
-observeRevealElements();
 initSmartSnap();
-initHeaderScroll();
 
 // Smart Scroll Alignment
 function initSmartSnap() {

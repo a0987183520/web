@@ -119,7 +119,7 @@
       ]
     }
     </script>
-    <link rel="stylesheet" href="css/style.css?v=5.17">
+    <link rel="stylesheet" href="css/style.css?v=5.18">
     <style>
     /* 調整主版面兩欄比例與間距，僅在桌機版生效以確保手機版正常響應式排版 */
     @media (min-width: 951px) {
@@ -245,20 +245,6 @@
     }
     </style>
 <body>
-
-    <!-- LINE 內嵌瀏覽器跳出導引彈窗 (防呆圖文教學) -->
-    <div id="lineGuideModal" class="line-guide-modal hidden">
-        <div class="line-guide-card">
-            <div class="line-guide-icon">🌐</div>
-            <div class="line-guide-title">建議在瀏覽器中開啟</div>
-            <div class="line-guide-steps">
-                為了提供最完整流暢的互動體驗與政見瀏覽：<br><br>
-                <div class="step-item"><strong>1. 點擊右上角或右下角的</strong> <span class="highlight-badge">[ ⋮ ]</span> 或 <span class="highlight-badge">[ ⋯ ]</span></div>
-                <div class="step-item"><strong>2. 點選</strong> <span class="highlight-text">「在預設瀏覽器中開啟」</span> 或 <span class="highlight-text">「以 Safari 開啟」</span></div>
-            </div>
-            <button id="btn-close-line-guide" class="btn-guide-close" onclick="document.getElementById('lineGuideModal').classList.add('hidden')">我知道了，繼續瀏覽</button>
-        </div>
-    </div>
 
     <!-- Header Navigation -->
     <header>
@@ -1097,6 +1083,20 @@
         </div>
     </div>
 
-    <script src="js/main.js?v=5.17"></script>
+    <!-- LINE 內嵌瀏覽器跳出導引彈窗 (防呆圖文教學) -->
+    <div id="lineGuideModal" class="line-guide-modal hidden" style="display: none;">
+        <div class="line-guide-card">
+            <div class="line-guide-icon">🌐</div>
+            <div class="line-guide-title">建議在瀏覽器中開啟</div>
+            <div class="line-guide-steps">
+                為了提供最完整流暢的互動體驗與政見瀏覽：<br><br>
+                <div class="step-item"><strong>1. 點擊右上角或右下角的</strong> <span class="highlight-badge">[ ⋮ ]</span> 或 <span class="highlight-badge">[ ⋯ ]</span></div>
+                <div class="step-item"><strong>2. 點選</strong> <span class="highlight-text">「在預設瀏覽器中開啟」</span> 或 <span class="highlight-text">「以 Safari 開啟」</span></div>
+            </div>
+            <button id="btn-close-line-guide" class="btn-guide-close" onclick="document.getElementById('lineGuideModal').style.display='none'; document.getElementById('lineGuideModal').classList.add('hidden');">我知道了，繼續瀏覽</button>
+        </div>
+    </div>
+
+    <script src="js/main.js?v=5.18"></script>
 </body>
 </html>
