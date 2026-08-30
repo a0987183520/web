@@ -339,7 +339,18 @@ nav {
     z-index: -1;
 }
 
-
+.hero-tagline {
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent-primary);
+    margin-bottom: 1.8rem;
+    padding: 0.4rem 1.2rem;
+    border-radius: 30px;
+    background: var(--accent-primary-glow);
+    border: 1px solid rgba(251, 191, 36, 0.2);
+}
 
 .hero-title {
     font-size: 3.8rem;
@@ -367,7 +378,49 @@ nav {
     line-height: 1.6;
 }
 
+.hero-meta-skills {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.2rem;
+    margin-top: 0.8rem; /* 縮小垂直段距 */
+    font-size: 1.25rem; /* 字體放大至 1.25rem，與描述段落等大 */
+}
 
+.badge-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.5rem; /* 左右兩個徽章的間距 */
+}
+
+.skill-badge {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 0.6rem 1.4rem; /* 隨字體放大微調內邊距 */
+    border-radius: 24px; /* 隨比例微調圓角 */
+    font-weight: 500;
+    color: var(--text-primary);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: var(--transition-smooth);
+}
+
+.skill-badge:hover {
+    background: var(--accent-primary-glow);
+    border-color: rgba(251, 191, 36, 0.25);
+    color: var(--accent-primary);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(251, 191, 36, 0.08);
+}
+
+.skill-separator {
+    color: var(--text-muted);
+    font-weight: 300;
+    margin: 0 1.2rem; /* ✕ 的兩側留白 */
+    user-select: none;
+}
 
 .hero-image-area {
     display: flex;
@@ -566,7 +619,13 @@ nav {
 }
 
 /* Filter Controls */
-
+.filter-controls {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 3.5rem;
+    flex-wrap: wrap;
+}
 
 .filter-btn {
     background: var(--card-bg);
@@ -685,7 +744,9 @@ nav {
     flex-grow: 1;
 }
 
-
+.value-icon-inline {
+    display: none;
+}
 
 
 .policy-card:hover {
@@ -714,10 +775,22 @@ nav {
 }
 
 .policy-punchline,
-
+.policy-highlight {
+    color: #ffffff;
+    font-size: 1.22rem;
+    font-weight: 700;
+    margin-bottom: 1.4rem;
+    line-height: 1.55;
+    flex-grow: 1;
+    letter-spacing: 0.01em;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
 
 [data-theme="light"] .policy-punchline,
-
+[data-theme="light"] .policy-highlight {
+    color: #0f172a;
+    text-shadow: none;
+}
 
 .policy-card-footer {
     display: flex;
@@ -728,7 +801,11 @@ nav {
     margin-top: auto;
 }
 
-
+.policy-category {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--text-muted);
+}
 
 .learn-more-btn {
     font-size: 1.08rem;
@@ -1174,7 +1251,80 @@ nav {
     line-height: 1.65;
 }
 
+/* Contact Area / Campaign Info Placeholders */
+.contact-section {
+    padding: 90px 0;
+    background-color: var(--bg-secondary);
+    transition: background-color 0.4s ease;
+}
 
+.contact-container {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 4rem;
+}
+
+@media (max-width: 900px) {
+    .contact-container {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+}
+
+.contact-info h2 {
+    font-size: 2.2rem;
+    margin-bottom: 1.2rem;
+}
+
+.contact-info p {
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+    font-size: 1.05rem;
+}
+
+.contact-method {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    align-items: center;
+}
+
+.contact-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: var(--accent-primary-glow);
+    color: var(--accent-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact-icon svg {
+    width: 20px;
+    height: 20px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+}
+
+.contact-detail h4 {
+    font-size: 1.1rem;
+    margin-bottom: 0.2rem;
+    color: var(--accent-primary);
+    font-weight: 700;
+}
+
+.contact-detail p {
+    color: #ffffff;
+    font-size: 1.02rem;
+    margin-bottom: 0;
+}
+
+.feedback-form {
+    border-radius: 24px;
+    padding: 2.5rem;
+}
 
 .form-group {
     margin-bottom: 1.2rem;
@@ -1350,7 +1500,9 @@ footer {
     .value-card {
         padding: 2.2rem 1.8rem;
     }
-    
+    .feedback-form {
+        padding: 1.8rem;
+    }
     .policies-grid {
         gap: 2.8rem;
     }
@@ -1359,7 +1511,10 @@ footer {
         border-color: rgba(251, 191, 36, 0.55) !important;
         box-shadow: 0 14px 35px -8px rgba(0, 0, 0, 0.75);
     }
-    
+    .policy-highlight {
+        font-size: 1.06rem;
+        line-height: 1.65;
+    }
 }
 
 @media (max-width: 950px) {
@@ -1537,7 +1692,12 @@ footer {
 .reveal,
 .reveal-left,
 .reveal-right,
-
+.reveal-bottom,
+.reveal-top {
+    opacity: 1;
+    transform: none;
+    transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+}
 
 /* ==========================================================================
    首創標章 & 極簡單行頁尾 CC BY-ND 規範樣式
@@ -1565,7 +1725,19 @@ footer {
     backdrop-filter: blur(8px);
 }
 
-
+.badge-innovative-sm {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.2rem 0.65rem;
+    background: rgba(251, 191, 36, 0.12);
+    border: 1px solid rgba(251, 191, 36, 0.3);
+    border-radius: 20px;
+    color: #fbbf24;
+    font-size: 0.78rem;
+    font-weight: 600;
+    line-height: 1;
+}
 
 .pulse-dot {
     width: 7px;
@@ -1731,7 +1903,13 @@ footer {
 }
 
 /* Hero 互動按鈕群 */
-
+.hero-actions {
+    display: flex;
+    gap: 1.2rem;
+    margin-top: 2.2rem;
+    flex-wrap: wrap;
+    align-items: center;
+}
 
 .btn-hero-primary {
     padding: 0.85rem 1.8rem;
@@ -1752,9 +1930,27 @@ footer {
     box-shadow: 0 12px 25px -5px rgba(251, 191, 36, 0.6);
 }
 
+.btn-hero-support {
+    padding: 0.85rem 1.8rem;
+    background: rgba(16, 185, 129, 0.12);
+    border: 1.5px solid var(--accent-secondary);
+    color: var(--accent-secondary);
+    font-weight: 700;
+    border-radius: 30px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.95rem;
+    transition: var(--transition-smooth);
+}
 
-
-
+.btn-hero-support:hover {
+    background: var(--accent-secondary);
+    color: #ffffff;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px -5px var(--accent-secondary-glow);
+}
 
 /* ==========================================================================
    區塊 [F]：里民共治・有問必答牆 (Participatory Q&A Wall)
@@ -1972,7 +2168,13 @@ footer {
     animation: pulse-badge 2s infinite ease-in-out;
 }
 
-
+.qa-sub-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-top: 0.6rem;
+    flex-wrap: wrap;
+}
 
 .qa-category-pill {
     font-size: 0.88rem;
@@ -2844,10 +3046,25 @@ footer {
     }
 
     /* Hero 雙按鈕手機端自適應排列與防擠壓願景圖 */
-    
+    .hero-actions {
+        display: flex !important;
+        flex-direction: column !important;
+        width: 100% !important;
+        max-width: 360px !important;
+        margin: 1.2rem auto 0 auto !important;
+        gap: 0.7rem !important;
+        align-items: stretch !important;
+    }
 
     .btn-hero-primary,
-    
+    .btn-hero-support {
+        width: 100% !important;
+        box-sizing: border-box !important;
+        justify-content: center !important;
+        padding: 0.75rem 1.2rem !important;
+        font-size: 1rem !important;
+        text-align: center !important;
+    }
 
     .hero-image-card {
         margin-top: 0.8rem;
@@ -2859,7 +3076,10 @@ footer {
         padding: 0.45rem 1.2rem !important;
     }
 
-    
+    .badge-innovative-sm {
+        font-size: 0.88rem !important;
+        padding: 0.28rem 0.75rem !important;
+    }
 
     .innovative-badge-wrap {
         margin: 0.6rem 0 1rem 0 !important;
@@ -3333,7 +3553,11 @@ footer {
     color: #4b5563;
 }
 
-
+.policy-header-lead .highlight-action {
+    color: var(--accent-primary);
+    font-weight: 700;
+    text-shadow: 0 0 12px rgba(251, 191, 36, 0.25);
+}
 
 /* 預算解密全寬大看板 */
 .budget-transparency-banner {
