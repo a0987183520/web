@@ -1839,32 +1839,46 @@ function initLineGuideModal() {
     } catch(e) {}
 }
 
-// 預算大解密漸進式揭露切換
-function toggleBudgetBanner() {
-    const btn = document.getElementById('btn-budget-toggle');
+// 預算大解密漸進式揭露切換（第 1 層展開與底部收起）
+function openBudgetDetails() {
+    const toggleWrap = document.getElementById('budget-toggle-wrapper');
     const content = document.getElementById('budget-collapsible-content');
-    if (!content) return;
+    if (toggleWrap) toggleWrap.style.display = 'none';
+    if (content) content.classList.add('active');
+}
 
-    const isActive = content.classList.contains('active');
-    if (isActive) {
+function closeBudgetDetails() {
+    const toggleWrap = document.getElementById('budget-toggle-wrapper');
+    const content = document.getElementById('budget-collapsible-content');
+    const banner = document.getElementById('budget-banner');
+
+    if (content) {
         content.classList.remove('active');
-        if (btn) {
-            btn.classList.remove('active');
-            const textSpan = btn.querySelector('.toggle-text');
-            if (textSpan) textSpan.textContent = '為什麼能做到？點擊看經費從哪來';
-        }
-    } else {
-        content.classList.add('active');
-        if (btn) {
-            btn.classList.add('active');
-            const textSpan = btn.querySelector('.toggle-text');
-            if (textSpan) textSpan.textContent = '收合預算解密 ▴';
-        }
+        // 收合所有內層手風琴
+        const items = content.querySelectorAll('.budget-acc-item');
+        items.forEach(it => it.classList.remove('open'));
+    }
+    if (toggleWrap) toggleWrap.style.display = 'flex';
+
+    if (banner) {
+        banner.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     }
 }
 
-// Initialize Collapsible Accordions (Governance Principles, Promises, Experience with Mutex Single-Open Behavior)
+// Initialize Collapsible Accordions (Governance Principles, Promises, Experience, Budget with Mutex Single-Open Behavior)
 function initCollapsibles() {
+    // 預算大解密手風琴 (互斥單開)
+    const budgetItems = document.querySelectorAll('.budget-acc-item.collapsible');
+    budgetItems.forEach(item => {
+        item.addEventListener('click', () => {
+            const wasOpen = item.classList.contains('open');
+            budgetItems.forEach(b => b.classList.remove('open'));
+            if (!wasOpen) {
+                item.classList.add('open');
+            }
+        });
+    });
+
     // 四大治理原則手風琴 (互斥單開)
     const valueCards = document.querySelectorAll('.value-card.collapsible');
     valueCards.forEach(card => {
