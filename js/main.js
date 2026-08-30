@@ -479,10 +479,9 @@ function openVoteSurveyModal(policyId) {
     const modal = document.getElementById('vote-survey-modal');
     if (!modal) return;
     const policy = POLICIES_DATA.find(p => p.id === policyId);
-    const targetPolicyEl = document.getElementById('survey-target-policy');
-    if (targetPolicyEl) {
-        const pNum = policyId < 10 ? `0${policyId}` : policyId;
-        targetPolicyEl.textContent = `正在支持：【計畫 ${pNum}】${policy ? policy.title : ''}`;
+    const titleEl = document.getElementById('vote-survey-title');
+    if (titleEl) {
+        titleEl.textContent = `我想要【${policy ? policy.title : '這項計畫'}】`;
     }
     modal.classList.add('active');
     document.body.style.overflow = 'hidden';
