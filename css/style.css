@@ -1649,44 +1649,15 @@ footer {
     }
 }
 
-/* Bi-directional Cross-Slide Reveal Animations */
+/* Bi-directional Cross-Slide Reveal Animations (Default Visible) */
 .reveal,
 .reveal-left,
 .reveal-right,
 .reveal-bottom,
 .reveal-top {
-    opacity: 0;
-    will-change: transform, opacity;
-    transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.reveal {
-    transform: translate3d(0, 30px, 0);
-}
-
-.reveal-left {
-    transform: translate3d(-35px, 0, 0);
-}
-
-.reveal-right {
-    transform: translate3d(35px, 0, 0);
-}
-
-.reveal-bottom {
-    transform: translate3d(0, 35px, 0);
-}
-
-.reveal-top {
-    transform: translate3d(0, -35px, 0);
-}
-
-.reveal.active,
-.reveal-left.active,
-.reveal-right.active,
-.reveal-bottom.active,
-.reveal-top.active {
     opacity: 1;
-    transform: translate3d(0, 0, 0);
+    transform: none;
+    transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* ==========================================================================
