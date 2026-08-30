@@ -575,22 +575,23 @@ function executePolicyVote(policyId, age, gender) {
 function updatePolicyVoteUI(policyId, count, isVoted) {
     const btns = document.querySelectorAll(`.btn-want-vote[data-policy-id="${policyId}"]`);
     btns.forEach(btn => {
+        const heart = btn.querySelector('.heart-icon');
+        const finger = btn.querySelector('.finger-icon');
+        const text = btn.querySelector('.want-text');
+        const counter = btn.querySelector('.vote-counter');
+
         if (isVoted) {
             btn.classList.add('voted');
-            const heart = btn.querySelector('.heart-icon');
-            const text = btn.querySelector('.want-text');
-            const counter = btn.querySelector('.vote-counter');
             if (heart) heart.textContent = '❤️';
+            if (finger) finger.textContent = '✅';
             if (text) text.textContent = '已支持';
-            if (counter) counter.textContent = count;
+            if (counter) counter.textContent = `${count} 票`;
         } else {
             btn.classList.remove('voted');
-            const heart = btn.querySelector('.heart-icon');
-            const text = btn.querySelector('.want-text');
-            const counter = btn.querySelector('.vote-counter');
             if (heart) heart.textContent = '🤍';
+            if (finger) finger.textContent = '👆';
             if (text) text.textContent = '我想要';
-            if (counter) counter.textContent = count;
+            if (counter) counter.textContent = `${count} 票`;
         }
     });
 }
@@ -645,9 +646,14 @@ function renderPolicies() {
                 <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; margin-bottom: 0.4rem;">
                     <span class="policy-number">計畫 ${policy.id < 10 ? '0' + policy.id : policy.id}</span>
                     <button class="btn-want-vote ${isVoted ? 'voted' : ''}" data-policy-id="${policy.id}" onclick="handleWantVoteClick(event, ${policy.id})" title="表達您的支持（參與式預算民意調查）">
-                        <span class="heart-icon">${isVoted ? '❤️' : '🤍'}</span>
-                        <span class="want-text">${isVoted ? '已支持' : '我想要'}</span>
-                        <span class="vote-counter">${count}</span>
+                        <div class="vote-row-stats">
+                            <span class="heart-icon">${isVoted ? '❤️' : '🤍'}</span>
+                            <span class="vote-counter">${count} 票</span>
+                        </div>
+                        <div class="vote-row-action">
+                            <span class="finger-icon">${isVoted ? '✅' : '👆'}</span>
+                            <span class="want-text">${isVoted ? '已支持' : '我想要'}</span>
+                        </div>
                     </button>
                 </div>
                 <h3>${policy.title}</h3>
@@ -697,9 +703,14 @@ function openDrawer(policyId) {
             <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
                 <span>計畫 ${formattedNum}</span>
                 <button class="btn-want-vote btn-want-vote-drawer ${isVoted ? 'voted' : ''}" data-policy-id="${policy.id}" onclick="handleWantVoteClick(event, ${policy.id})" title="表達您的支持">
-                    <span class="heart-icon">${isVoted ? '❤️' : '🤍'}</span>
-                    <span class="want-text">${isVoted ? '已支持' : '我想要'}</span>
-                    <span class="vote-counter">${count}</span>
+                    <div class="vote-row-stats">
+                        <span class="heart-icon">${isVoted ? '❤️' : '🤍'}</span>
+                        <span class="vote-counter">${count} 票</span>
+                    </div>
+                    <div class="vote-row-action">
+                        <span class="finger-icon">${isVoted ? '✅' : '👆'}</span>
+                        <span class="want-text">${isVoted ? '已支持' : '我想要'}</span>
+                    </div>
                 </button>
             </div>
         `;
