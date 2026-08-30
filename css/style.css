@@ -792,14 +792,22 @@ nav {
     color: var(--accent-primary);
 }
 
+.policy-punchline,
 .policy-highlight {
-    color: var(--text-primary);
-    font-size: 1.08rem;
-    font-weight: 450;
-    margin-bottom: 1.8rem;
-    line-height: 1.68;
+    color: #ffffff;
+    font-size: 1.22rem;
+    font-weight: 700;
+    margin-bottom: 1.4rem;
+    line-height: 1.55;
     flex-grow: 1;
     letter-spacing: 0.01em;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+[data-theme="light"] .policy-punchline,
+[data-theme="light"] .policy-highlight {
+    color: #0f172a;
+    text-shadow: none;
 }
 
 .policy-card-footer {
