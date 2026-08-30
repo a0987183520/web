@@ -3,18 +3,18 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://a0987183520.github.io/web/</loc>
-    <lastmod>2026-08-29</lastmod>
+    <lastmod>2026-08-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
     <image:image>
       <image:loc>https://a0987183520.github.io/web/images/hero_vision.png</image:loc>
-      <image:title>新北市土城區明德里 科技里長 陳新昱｜明德里 2.0 十二大政見白皮書</image:title>
+      <image:title>新北市土城區明德里 科技里長 陳新昱｜明德里 2.0 十四大政見白皮書</image:title>
       <image:caption>新北市土城區明德里里長候選人陳新昱 科技經理人做里長</image:caption>
     </image:image>
   </url>
   <url>
     <loc>https://a0987183520.github.io/web/qa.html</loc>
-    <lastmod>2026-08-29</lastmod>
+    <lastmod>2026-08-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.95</priority>
   </url>
