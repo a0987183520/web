@@ -2268,6 +2268,7 @@ const HERO_TRAITS_DATA = {
         icon: '👴',
         subtitle: '',
         lead: '',
+        hideTopClose: true,
         sections: [
             {
                 title: '🌟 還沒上任就有政績（自行研發.已免費大量分享）：',
@@ -2297,7 +2298,7 @@ const HERO_TRAITS_DATA = {
                 }
             }
         ],
-        quote: '長輩照顧好，青年無後顧！'
+        quote: ''
     },
     local: {
         title: '熟地方',
@@ -2325,9 +2326,18 @@ function openHeroTraitModal(traitKey) {
     const badgeEl = document.getElementById('hero-trait-modal-badge');
     const titleEl = document.getElementById('hero-trait-modal-title');
     const bodyEl = document.getElementById('hero-trait-modal-body');
+    const closeBtn = modal.querySelector('.hero-trait-modal-close');
 
     if (iconEl) iconEl.textContent = data.icon;
     
+    if (closeBtn) {
+        if (data.hideTopClose) {
+            closeBtn.style.display = 'none';
+        } else {
+            closeBtn.style.display = 'flex';
+        }
+    }
+
     if (badgeEl) {
         if (data.badge && data.badge.trim() !== '') {
             badgeEl.textContent = data.badge;
@@ -2358,11 +2368,14 @@ function openHeroTraitModal(traitKey) {
                     itemsHtml = `
                         <div class="hero-trait-highlight-list">
                             ${sec.items.map(item => `
-                                <div class="hero-trait-highlight-item">
-                                    <span class="highlight-bullet">✔</span>
-                                    <div class="highlight-text-wrap">
-                                        <strong style="color: #f5f5f4;">${escapeHTML(item.label)}：</strong>${escapeHTML(item.text)}
+                                <div class="hero-trait-highlight-item" style="flex-direction: column; align-items: flex-start; gap: 0.2rem;">
+                                    <div class="highlight-item-label-row">
+                                        <span class="highlight-bullet">✔</span>
+                                        <span style="color: #f5f5f4;">${escapeHTML(item.label)}：</span>
                                         ${item.btnUrl ? `<a href="${item.btnUrl}" target="_blank" rel="noopener" class="trait-pill-btn">${escapeHTML(item.btnText)}</a>` : ''}
+                                    </div>
+                                    <div class="highlight-item-desc-row">
+                                        ${escapeHTML(item.text)}
                                     </div>
                                 </div>
                             `).join('')}
@@ -2386,7 +2399,7 @@ function openHeroTraitModal(traitKey) {
                 }
 
                 return `
-                    <div class="hero-trait-highlights" style="margin-bottom: 1rem;">
+                    <div class="hero-trait-highlights" style="margin-bottom: 1.1rem;">
                         <h4 class="hero-trait-section-title">${escapeHTML(sec.title)}</h4>
                         ${itemsHtml}
                         ${hookHtml}
@@ -2414,15 +2427,18 @@ function openHeroTraitModal(traitKey) {
 
         const subtitleHtml = data.subtitle ? `<div class="hero-trait-subtitle">${data.subtitle}</div>` : '';
         const leadHtml = data.lead ? `<p class="hero-trait-lead">${data.lead}</p>` : '';
+        const quoteHtml = data.quote ? `
+            <div class="hero-trait-quote">
+                <span class="quote-icon">💬</span>
+                <span class="quote-text">「${data.quote}」</span>
+            </div>
+        ` : '';
 
         bodyEl.innerHTML = `
             ${subtitleHtml}
             ${leadHtml}
             ${contentHtml}
-            <div class="hero-trait-quote">
-                <span class="quote-icon">💬</span>
-                <span class="quote-text">「${data.quote}」</span>
-            </div>
+            ${quoteHtml}
         `;
     }
 
