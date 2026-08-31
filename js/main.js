@@ -2222,7 +2222,7 @@ const HERO_TRAITS_DATA = {
         quote: '用音樂拉近鄰里距離，用生活美學點亮明德里。'
     },
     elder: {
-        title: '護長輩',
+        title: '顧長輩',
         badge: '健康拍照 ‧ 延緩失智 ‧ 100%安心延續',
         icon: '👴',
         subtitle: '銀髮樂齡照護 ‧ 既有長青課程與老人共餐 100% 安心延續加碼',

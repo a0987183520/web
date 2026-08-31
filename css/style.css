@@ -4897,41 +4897,56 @@ footer {
     50% { box-shadow: 0 4px 22px rgba(251, 191, 36, 0.35); border-color: rgba(251, 191, 36, 0.65); }
 }
 
-/* 1. Hero 標題互動特質膠囊按鈕 (手機端一眼即知可按) */
+/* 1. Hero 標題一行排 2 個對稱矩陣排版 */
+.title-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-bottom: 0.65rem;
+    width: 100%;
+    max-width: 540px;
+}
+
 .hero-trait-btn {
+    flex: 1 1 0;
+    max-width: 260px;
+    min-width: 0;
     background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.12);
     font-family: inherit;
-    font-size: inherit;
-    font-weight: inherit;
-    line-height: inherit;
+    font-size: 2.2rem;
+    font-weight: 800;
+    line-height: 1.2;
     color: inherit;
     cursor: pointer;
-    padding: 0.18em 0.45em 0.18em 0.35em;
+    padding: 0.45rem 0.6rem;
     border-radius: 20px;
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     position: relative;
     transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     vertical-align: middle;
     outline: none;
     -webkit-tap-highlight-color: transparent;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    margin: 0.15rem 0.2rem;
+    white-space: nowrap;
 }
 
 .hero-trait-btn .trait-arrow {
     font-size: 0.52em;
     color: var(--accent-primary);
-    margin-left: 0.22em;
+    margin-left: 0.25em;
     opacity: 0.9;
     transition: transform 0.3s ease, opacity 0.3s ease;
     vertical-align: middle;
     display: inline-block;
+    flex-shrink: 0;
 }
 
 .hero-trait-btn:hover {
-    transform: translateY(-3px) scale(1.05);
+    transform: translateY(-3px) scale(1.04);
     background: var(--accent-primary-glow);
     border-color: rgba(251, 191, 36, 0.45);
     box-shadow: 0 8px 25px -4px rgba(251, 191, 36, 0.35);
@@ -4959,7 +4974,7 @@ footer {
 
 .hero-slogan {
     display: inline-block;
-    margin-top: 0.5rem;
+    margin-top: 0.6rem;
 }
 
 /* 2. 政見抽屜（Drawer）底部直覺關閉操作列 */
@@ -5263,9 +5278,20 @@ footer {
 /* 行動端 RWD 響應式優化 */
 @media (max-width: 768px) {
     .hero-title {
-        font-size: 2.8rem;
+        font-size: 2.2rem;
     }
     
+    .title-row {
+        gap: 0.45rem;
+        margin-bottom: 0.45rem;
+    }
+
+    .hero-trait-btn {
+        font-size: 1.45rem;
+        padding: 0.35rem 0.4rem;
+        border-radius: 16px;
+    }
+
     .hero-trait-modal-card {
         padding: 1.6rem 1.4rem 1.4rem 1.4rem;
         border-radius: 22px;
