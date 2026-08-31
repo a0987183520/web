@@ -5024,9 +5024,95 @@ footer {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
 }
 
-[data-theme="light"] .btn-drawer-bottom-close:hover {
-    background: var(--accent-primary);
-    color: #ffffff;
+/* 2.5 政見抽屜（Drawer）開頭吸睛鉤子（Hook / 痛點大解密） */
+.drawer-hook-section {
+    background: linear-gradient(135deg, rgba(251, 191, 36, 0.08) 0%, rgba(16, 185, 129, 0.05) 100%);
+    border: 1px solid rgba(251, 191, 36, 0.3);
+    border-radius: 16px;
+    padding: 1.3rem 1.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 8px 25px -5px rgba(0, 0, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.drawer-hook-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(to bottom, #fbbf24, #10b981);
+    border-radius: 4px 0 0 4px;
+}
+
+.drawer-hook-header {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 0.9rem;
+}
+
+.drawer-hook-header .hook-icon {
+    font-size: 1.35rem;
+}
+
+.drawer-hook-header h3 {
+    margin: 0 !important;
+    font-size: 1.18rem !important;
+    font-weight: 800 !important;
+    color: var(--accent-primary) !important;
+    border: none !important;
+    padding: 0 !important;
+}
+
+.drawer-hook-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.hook-card {
+    background: rgba(0, 0, 0, 0.28);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 0.85rem 1rem;
+}
+
+.hook-card-title {
+    font-weight: 800;
+    color: #fbbf24;
+    font-size: 1.02rem;
+    margin-bottom: 0.3rem;
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+}
+
+.hook-card-text {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #e5e7eb;
+    margin: 0;
+}
+
+[data-theme="light"] .drawer-hook-section {
+    background: linear-gradient(135deg, rgba(217, 119, 6, 0.08) 0%, rgba(16, 185, 129, 0.05) 100%);
+    border-color: rgba(217, 119, 6, 0.25);
+}
+
+[data-theme="light"] .hook-card {
+    background: rgba(255, 255, 255, 0.85);
+    border-color: rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="light"] .hook-card-title {
+    color: #b45309;
+}
+
+[data-theme="light"] .hook-card-text {
+    color: #374151;
 }
 
 /* 3. Hero 6 大特質經歷詳情彈窗 (Hero Trait Modal) */
