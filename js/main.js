@@ -2160,3 +2160,165 @@ function initSmartSnap() {
     }, { passive: true });
 }
 
+// ==========================================
+// Hero 6 大特質與經歷詳情彈窗資料庫與互動邏輯
+// ==========================================
+const HERO_TRAITS_DATA = {
+    tech: {
+        title: '懂科技',
+        badge: '數據管理 ‧ 給里民安全感',
+        icon: '💻',
+        subtitle: '30 年資訊科技與專案管理實務',
+        lead: '里長懂科技，才能把繁瑣行政雜務交給科技自動處理，騰出雙手與時間，走入巷弄為里民解決問題！',
+        highlights: [
+            { label: '30年軟體工程背景', text: '具備深厚資訊系統架構與專案管理實務經驗，熟悉現代數位工具與數據分析。' },
+            { label: '智慧社區通報管理', text: '推動線上即時修繕進度追蹤與問題登錄系統，讓里民陳情不再石沉大海、進度完全透明。' },
+            { label: '樂齡防詐與數位教學', text: '開設長輩手機與防詐實用課程，協助長輩跨越數位鴻溝，守護里民財產安全。' }
+        ],
+        quote: '用科技省下行政雜務，用雙腳走入巷弄傾聽。'
+    },
+    eq: {
+        title: '懂ＥＱ',
+        badge: '同理溝通 ‧ 給里民幸福感',
+        icon: '🤝',
+        subtitle: '樂利國小 8 年故事爸爸/EQ爸爸 ‧ 臺灣芯福里情緒推廣講師',
+        lead: '里長最重要的不是官威，而是「同理心」與「傾聽」。以 8 年志工熱情，用溫暖化解對立，陪伴孩子與長者！',
+        highlights: [
+            { label: '8年校園與社區EQ志工', text: '長期於樂利國小擔任故事爸爸、EQ 爸爸，累積豐富跨世代溝通與情緒教育經驗。' },
+            { label: '專業同理傾聽溝通', text: '面對鄰里修繕糾紛或住戶意見分歧，以高度 EQ 與耐心協調，創造雙贏和諧。' },
+            { label: '跨世代溫暖心靈陪伴', text: '深入關懷弱勢家庭與獨居長者心靈需求，打造有溫度、有尊嚴的幸福明德里。' }
+        ],
+        quote: '以同理心傾聽鄰里心聲，用真誠服務溫暖每個家。'
+    },
+    management: {
+        title: '懂管理',
+        badge: '基層深耕 ‧ 財務透明公開',
+        icon: '🏛️',
+        subtitle: '10 年社區治理經驗 ‧ 專業經理人嚴謹把關',
+        lead: '把每一筆公務預算花在刀口上，堅持帳目公開透明，並主動跨局處向市府爭取外部配合款！',
+        highlights: [
+            { label: '10年地方公共事務深耕', text: '深諳社區管委會治理運作與各級政府公務行政體系，具備務實協調與執行力。' },
+            { label: '每年近百萬專款透明公開', text: '建立里政預算與基層經費公開透明機制，定期向里民報告經費流向與執行成果。' },
+            { label: '跨局處主動爭取外部資源', text: '積極對接市府局處與民意代表爭取專案補助，為明德里擴大公共建設量能。' }
+        ],
+        quote: '專業經理人治里，預算透明公開，建設落實到位。'
+    },
+    art: {
+        title: '懂藝術',
+        badge: '藝文策劃 ‧ 點綴社區生活',
+        icon: '🎵',
+        subtitle: '20 年音樂文創產業經驗 ‧ 大型藝文活動策劃',
+        lead: '社區不僅要安全便利，更要充滿生活美學與藝文活力。用音符與藝術點亮社區每個角落！',
+        highlights: [
+            { label: '20年音樂與文創產業深耕', text: '具備豐富音樂製作、大型藝文展演策劃與跨界文化資源整合實績。' },
+            { label: '開創「明德草地音樂節」', text: '結合在地公園與社區廣場，舉辦假日草地音樂會與文創市集，豐富里民休閒生活。' },
+            { label: '推動樂齡藝文與歌唱班', text: '開辦長輩歌唱班、藝文賞析與手作體驗，讓藝術融入長青日常。' }
+        ],
+        quote: '用音樂拉近鄰里距離，用生活美學點亮明德里。'
+    },
+    elder: {
+        title: '護長輩',
+        badge: '長青延續 ‧ 銀髮全方位照護',
+        icon: '👴',
+        subtitle: '敬老尊賢 ‧ 既有長青課程與共餐 100% 安心延續加碼',
+        lead: '長輩是明德里的寶！既有長青課程與老人共餐絕對安心延續且加碼升級，定期走訪問安，守護長者尊嚴與健康！',
+        highlights: [
+            { label: '既有長青課程100%安心延續', text: '現有長青銀髮課程、健康講座與老人共餐全面安心延續，並持續豐富活動內容。' },
+            { label: '導入樂齡健康與智慧防走失', text: '推廣長者血壓健康站、智慧防走失輔導與樂齡健康科技，讓家人更安心。' },
+            { label: '定期巷弄走訪問安獨居長輩', text: '建立志工關懷網絡，定期親自走訪探視行動不便與獨居長輩，給予及時溫暖照護。' }
+        ],
+        quote: '長輩安心照顧，青年無後顧之憂，打造全齡友善社區。'
+    },
+    local: {
+        title: '熟地方',
+        badge: '路平燈亮 ‧ 24小時快速回應',
+        icon: '🗺️',
+        subtitle: '深耕明德在地街廓 ‧ 巷弄死角全盤掌握',
+        lead: '長年扎根明德里，走遍每一條街廓與巷弄死角。建立 24 小時快速回應機制，路平燈亮水溝通！',
+        highlights: [
+            { label: '全面掌握在地交通與照明死角', text: '深知學府路二段、明德路等主要路段交通尖峰瓶頸與夜間照明盲點，排定會勘改善。' },
+            { label: '定期清淤防澇與路面平整', text: '主動清查排水溝清淤與人行道破損修補，防患於未然，保障長幼通行安全。' },
+            { label: '里民陳情有問必答快速回應', text: '建立線上與實體並進之溝通管道，里民陳情即時追蹤、定期回報，服務不打烊。' }
+        ],
+        quote: '腳踏實地走遍每條巷弄，第一時間守護鄰里日常。'
+    }
+};
+
+function openHeroTraitModal(traitKey) {
+    const data = HERO_TRAITS_DATA[traitKey];
+    if (!data) return;
+
+    const modal = document.getElementById('hero-trait-modal');
+    if (!modal) return;
+
+    const iconEl = document.getElementById('hero-trait-modal-icon');
+    const badgeEl = document.getElementById('hero-trait-modal-badge');
+    const titleEl = document.getElementById('hero-trait-modal-title');
+    const bodyEl = document.getElementById('hero-trait-modal-body');
+
+    if (iconEl) iconEl.textContent = data.icon;
+    if (badgeEl) badgeEl.textContent = data.badge;
+    if (titleEl) titleEl.textContent = data.title;
+
+    if (bodyEl) {
+        let highlightsHtml = '';
+        if (data.highlights && data.highlights.length > 0) {
+            highlightsHtml = `
+                <div class="hero-trait-highlights">
+                    <h4 class="hero-trait-section-title">🌟 核心實績與承諾</h4>
+                    <div class="hero-trait-highlight-list">
+                        ${data.highlights.map(h => `
+                            <div class="hero-trait-highlight-item">
+                                <span class="highlight-bullet">✔</span>
+                                <div class="highlight-text-wrap">
+                                    <strong>${h.label}：</strong>${h.text}
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+        }
+
+        bodyEl.innerHTML = `
+            <div class="hero-trait-subtitle">${data.subtitle}</div>
+            <p class="hero-trait-lead">${data.lead}</p>
+            ${highlightsHtml}
+            <div class="hero-trait-quote">
+                <span class="quote-icon">💬</span>
+                <span class="quote-text">「${data.quote}」</span>
+            </div>
+        `;
+    }
+
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeHeroTraitModal() {
+    const modal = document.getElementById('hero-trait-modal');
+    if (modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+}
+
+// 點擊背景遮罩關閉 Hero Trait Modal
+document.addEventListener('click', (e) => {
+    const modal = document.getElementById('hero-trait-modal');
+    if (modal && e.target === modal) {
+        closeHeroTraitModal();
+    }
+});
+
+// ESC 鍵關閉所有彈窗與抽屜
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' || e.key === 'Esc') {
+        closeHeroTraitModal();
+        closeDrawer();
+        if (typeof closeSupportModal === 'function') closeSupportModal();
+        if (typeof closeVoteSurveyModal === 'function') closeVoteSurveyModal();
+        if (typeof closeSubProposalModal === 'function') closeSubProposalModal();
+    }
+});
+

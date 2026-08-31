@@ -119,7 +119,7 @@
       ]
     }
     </script>
-    <link rel="stylesheet" href="css/style.css?v=7.11">
+    <link rel="stylesheet" href="css/style.css?v=7.12">
     <style>
     /* 調整主版面兩欄比例與間距，僅在桌機版生效以確保手機版正常響應式排版 */
     @media (min-width: 951px) {
@@ -289,16 +289,21 @@
             <div class="hero-content">
                 <h1 class="hero-title reveal">
                     <span class="title-row">
-                        <span class="title-verb">懂</span><span class="title-noun gradient-text">科技</span>
-                        <span class="title-verb">懂</span><span class="title-noun gradient-text">ＥＱ</span>
+                        <button type="button" class="hero-trait-btn" onclick="openHeroTraitModal('tech')" aria-label="點我查看懂科技經歷與理念"><span class="title-verb">懂</span><span class="title-noun gradient-text">科技</span></button>
+                        <button type="button" class="hero-trait-btn" onclick="openHeroTraitModal('eq')" aria-label="點我查看懂EQ經歷與理念"><span class="title-verb">懂</span><span class="title-noun gradient-text">ＥＱ</span></button>
                     </span>
                     <br>
                     <span class="title-row">
-                        <span class="title-verb">懂</span><span class="title-noun gradient-text">管理</span>
-                        <span class="title-verb">懂</span><span class="title-noun gradient-text">藝術</span>
+                        <button type="button" class="hero-trait-btn" onclick="openHeroTraitModal('management')" aria-label="點我查看懂管理經歷與理念"><span class="title-verb">懂</span><span class="title-noun gradient-text">管理</span></button>
+                        <button type="button" class="hero-trait-btn" onclick="openHeroTraitModal('art')" aria-label="點我查看懂藝術經歷與理念"><span class="title-verb">懂</span><span class="title-noun gradient-text">藝術</span></button>
                     </span>
                     <br>
-                    <span class="gradient-text">把生活做得更好</span>
+                    <span class="title-row">
+                        <button type="button" class="hero-trait-btn" onclick="openHeroTraitModal('elder')" aria-label="點我查看護長輩理念與承諾"><span class="title-verb">護</span><span class="title-noun gradient-text">長輩</span></button>
+                        <button type="button" class="hero-trait-btn" onclick="openHeroTraitModal('local')" aria-label="點我查看熟地方理念與承諾"><span class="title-verb">熟</span><span class="title-noun gradient-text">地方</span></button>
+                    </span>
+                    <br>
+                    <span class="gradient-text hero-slogan">把生活做得更好</span>
                 </h1>
                 <p class="hero-description reveal">
                      既有課程安心延續　多樣活動精彩加入<br>
@@ -1254,7 +1259,42 @@
                             </div>
                         </div>
                     </div>
+
+                    <!-- 底部直覺關閉操作列 (長輩滑到底部無需向上捲動即可一鍵關閉) -->
+                    <div class="drawer-bottom-actions">
+                        <button type="button" class="btn-drawer-bottom-close" onclick="closeDrawer()" aria-label="關閉詳情並返回政策列表">
+                            <span class="close-icon">✕</span>
+                            <span class="close-text">返回政策列表（關閉視窗）</span>
+                        </button>
+                    </div>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero 6 大特質與經歷詳情彈窗 Modal -->
+    <div class="hero-trait-modal-overlay" id="hero-trait-modal" role="dialog" aria-labelledby="hero-trait-modal-title" aria-modal="true">
+        <div class="hero-trait-modal-card glass">
+            <div class="hero-trait-modal-header">
+                <div class="hero-trait-header-left">
+                    <span class="hero-trait-icon" id="hero-trait-modal-icon">💻</span>
+                    <div>
+                        <span class="hero-trait-badge" id="hero-trait-modal-badge">數據管理 ‧ 給里民安全感</span>
+                        <h3 class="hero-trait-modal-title" id="hero-trait-modal-title">懂科技</h3>
+                    </div>
+                </div>
+                <button class="hero-trait-modal-close" onclick="closeHeroTraitModal()" aria-label="關閉視窗">&times;</button>
+            </div>
+            
+            <div class="hero-trait-modal-body" id="hero-trait-modal-body">
+                <!-- 動態注入內容 -->
+            </div>
+
+            <div class="hero-trait-modal-footer">
+                <button type="button" class="btn-hero-modal-close" onclick="closeHeroTraitModal()" aria-label="看完了，關閉視窗">
+                    <span class="close-icon">✕</span>
+                    <span class="close-text">看完了，關閉視窗</span>
+                </button>
             </div>
         </div>
     </div>
@@ -1312,6 +1352,6 @@
         </div>
     </div>
 
-    <script src="js/main.js?v=7.11"></script>
+    <script src="js/main.js?v=7.12"></script>
 </body>
 </html>
