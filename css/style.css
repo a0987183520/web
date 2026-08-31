@@ -5211,6 +5211,20 @@ footer {
     line-height: 1.2;
 }
 
+.hero-trait-modal-title.title-glow-emerald {
+    font-size: 1.65rem;
+    color: #34d399;
+    text-shadow: 0 0 20px rgba(52, 211, 153, 0.45), 0 0 40px rgba(16, 185, 129, 0.25);
+    letter-spacing: 0.5px;
+    line-height: 1.35;
+}
+
+@media (max-width: 768px) {
+    .hero-trait-modal-title.title-glow-emerald {
+        font-size: 1.32rem;
+    }
+}
+
 .hero-trait-modal-close {
     background: rgba(255, 255, 255, 0.06);
     border: 1px solid var(--card-border);

@@ -2262,11 +2262,12 @@ const HERO_TRAITS_DATA = {
         quote: '用音樂拉近鄰里距離，用生活美學點亮明德里。'
     },
     elder: {
-        title: '顧長輩',
-        badge: '健康拍照 ‧ 延緩失智 ‧ 100%安心延續',
+        title: '長輩照顧好，青年無後顧！',
+        titleClass: 'title-glow-emerald',
+        badge: '',
         icon: '👴',
-        subtitle: '銀髮樂齡照護 ‧ 既有長青課程與共餐 100% 安心延續加碼',
-        lead: '長輩照顧好，青年無後顧！',
+        subtitle: '',
+        lead: '',
         sections: [
             {
                 title: '🌟 還沒上任就有政績（自行研發.已免費大量分享）：',
@@ -2326,8 +2327,25 @@ function openHeroTraitModal(traitKey) {
     const bodyEl = document.getElementById('hero-trait-modal-body');
 
     if (iconEl) iconEl.textContent = data.icon;
-    if (badgeEl) badgeEl.textContent = data.badge;
-    if (titleEl) titleEl.textContent = data.title;
+    
+    if (badgeEl) {
+        if (data.badge && data.badge.trim() !== '') {
+            badgeEl.textContent = data.badge;
+            badgeEl.style.display = 'inline-block';
+        } else {
+            badgeEl.textContent = '';
+            badgeEl.style.display = 'none';
+        }
+    }
+
+    if (titleEl) {
+        titleEl.textContent = data.title;
+        if (data.titleClass) {
+            titleEl.className = 'hero-trait-modal-title ' + data.titleClass;
+        } else {
+            titleEl.className = 'hero-trait-modal-title';
+        }
+    }
 
     if (bodyEl) {
         let contentHtml = '';
@@ -2394,9 +2412,12 @@ function openHeroTraitModal(traitKey) {
             `;
         }
 
+        const subtitleHtml = data.subtitle ? `<div class="hero-trait-subtitle">${data.subtitle}</div>` : '';
+        const leadHtml = data.lead ? `<p class="hero-trait-lead">${data.lead}</p>` : '';
+
         bodyEl.innerHTML = `
-            <div class="hero-trait-subtitle">${data.subtitle}</div>
-            <p class="hero-trait-lead">${data.lead}</p>
+            ${subtitleHtml}
+            ${leadHtml}
             ${contentHtml}
             <div class="hero-trait-quote">
                 <span class="quote-icon">💬</span>
