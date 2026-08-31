@@ -2262,7 +2262,7 @@ const HERO_TRAITS_DATA = {
         quote: '用音樂拉近鄰里距離，用生活美學點亮明德里。'
     },
     elder: {
-        title: '長輩照顧好，青年無後顧！',
+        title: '長輩照顧好，青年無後顧',
         titleClass: 'title-glow-emerald',
         badge: '',
         icon: '👴',

@@ -5222,14 +5222,14 @@ footer {
 
 @media (max-width: 768px) {
     .hero-trait-modal-title.title-glow-emerald {
-        font-size: 1.35rem;
+        font-size: 1.45rem;
         white-space: nowrap;
     }
 }
 
 @media (max-width: 420px) {
     .hero-trait-modal-title.title-glow-emerald {
-        font-size: 1.18rem;
+        font-size: 1.28rem;
         white-space: nowrap;
     }
 }
