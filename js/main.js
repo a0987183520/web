@@ -2266,34 +2266,37 @@ const HERO_TRAITS_DATA = {
         badge: '健康拍照 ‧ 延緩失智 ‧ 100%安心延續',
         icon: '👴',
         subtitle: '銀髮樂齡照護 ‧ 既有長青課程與共餐 100% 安心延續加碼',
-        lead: '長輩是明德里的寶！既有課程全數保留再升級，守護長者尊嚴與健康。',
+        lead: '長輩照顧好，青年無後顧！',
         sections: [
             {
-                title: '🌟 還沒上任就有政績（自研免費分享）',
+                title: '🌟 還沒上任就有政績（自行研發.已免費大量分享）：',
                 items: [
-                    { label: '預防失智 App', text: '自研 1~50 數字尋寶遊戲，免費分享街坊', btnText: '🎮 點此試玩', btnUrl: 'https://pod0987183520.github.io/1to50' },
-                    { label: '隨手健康營', text: '隨手拍照輕鬆管血壓、提醒按時吃藥' },
-                    { label: '隨手 AI 體驗營', text: '隨手拍照重返年輕、趣味合成遊世界' }
+                    { label: '預防失智 App', text: '1~50 手腦訓練小遊戲', btnText: '🎮 點此試玩', btnUrl: 'https://pod0987183520.github.io/1to50' },
+                    { label: '隨手 AI 健康營', text: '隨手拍照輕鬆管理血壓、提醒按時吃藥' },
+                    { label: '隨手 AI 體驗營', text: '隨手拍照重返年輕、搞笑照片、比孫子還厲害' }
                 ]
             },
             {
-                title: '🌟 核心承諾',
+                title: '🌟 核心承諾：',
                 items: [
-                    { label: '長青課程再升級', text: '太鼓、太極、關節、韻律 100% 保留再添新意' },
-                    { label: '銀髮共餐更好玩', text: '融入趣味 AI 小遊戲，氣氛更歡樂' },
+                    { label: '長青課程再升級', text: '太鼓、太極、關節、韻律等課程保留再融入新創意' },
+                    { label: '銀髮共餐更好玩', text: '融入趣味 AI 互動小遊戲，認識更多人，氣氛更歡樂' },
                     { label: '世代融合交流', text: '帶領年輕兒孫走入長輩生活圈' }
                 ]
             },
             {
-                title: '🌟 把握衛福部 62.5 億獨老安居專案',
+                title: '💡 衛福部專案與重點關懷：',
                 hook: {
-                    question: '❓ 你知道嗎？家裡只有兩位長輩同住，依法也算重點關懷對象！',
-                    btnText: '👉 查看 計畫 07 詳細解方',
+                    questions: [
+                        '❓ 你知道嗎？衛福部有 62.5 億獨老安居專案',
+                        '❓ 你知道嗎？家裡只有兩位長輩同住，依法也算重點關懷對象！'
+                    ],
+                    btnText: '👉 查看 詳情（點擊立即展開計畫 07）',
                     action: 'policy_7'
                 }
             }
         ],
-        quote: '長輩安心照顧，青年無後顧之憂！'
+        quote: '長輩照顧好，青年無後顧！'
     },
     local: {
         title: '熟地方',
@@ -2351,10 +2354,13 @@ function openHeroTraitModal(traitKey) {
 
                 let hookHtml = '';
                 if (sec.hook) {
+                    const qHtml = sec.hook.questions 
+                        ? sec.hook.questions.map(q => `<div class="trait-hook-q" style="margin-bottom: 0.4rem;">${escapeHTML(q)}</div>`).join('')
+                        : `<div class="trait-hook-q">${escapeHTML(sec.hook.question || '')}</div>`;
                     hookHtml = `
                         <div class="trait-hook-box">
-                            <div class="trait-hook-q">${escapeHTML(sec.hook.question)}</div>
-                            <button type="button" class="trait-action-btn" onclick="closeHeroTraitModal(); openDrawer(7);">
+                            ${qHtml}
+                            <button type="button" class="trait-action-btn" style="margin-top: 0.4rem;" onclick="closeHeroTraitModal(); openDrawer(7);">
                                 ${escapeHTML(sec.hook.btnText)}
                             </button>
                         </div>
