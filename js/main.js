@@ -2265,14 +2265,35 @@ const HERO_TRAITS_DATA = {
         title: '顧長輩',
         badge: '健康拍照 ‧ 延緩失智 ‧ 100%安心延續',
         icon: '👴',
-        subtitle: '銀髮樂齡照護 ‧ 既有長青課程與老人共餐 100% 安心延續加碼',
-        lead: '長輩是明德里的寶！既有長青課程與老人共餐絕對安心延續且加碼升級，定期走訪問安，守護長者尊嚴與健康！',
-        highlights: [
-            { label: '長輩手機 AI 拍照健康紀錄與趣味生成', text: '手把手教長輩用手機拍照紀錄藥袋與健康數值，更能生成趣味藝術照片、重溫青春回憶！' },
-            { label: '延緩失智 1~50 遊戲與造句 App 免費分享', text: '親自設計手指與大腦反應訓練工具，協助社區長輩在歡樂遊戲中活化腦力、預防失智。' },
-            { label: '現有長青課程與敬老共餐 100% 安心延續', text: '長青銀髮課程、健康講座與老人共餐全面安心延續並加碼豐富內容；定期親訪獨居長者，無微不至。' }
+        subtitle: '銀髮樂齡照護 ‧ 既有長青課程與共餐 100% 安心延續加碼',
+        lead: '長輩是明德里的寶！既有課程全數保留再升級，守護長者尊嚴與健康。',
+        sections: [
+            {
+                title: '🌟 還沒上任就有政績（自研免費分享）',
+                items: [
+                    { label: '預防失智 App', text: '自研 1~50 數字尋寶遊戲，免費分享街坊', btnText: '🎮 點此試玩', btnUrl: 'https://pod0987183520.github.io/1to50' },
+                    { label: '隨手健康營', text: '隨手拍照輕鬆管血壓、提醒按時吃藥' },
+                    { label: '隨手 AI 體驗營', text: '隨手拍照重返年輕、趣味合成遊世界' }
+                ]
+            },
+            {
+                title: '🌟 核心承諾',
+                items: [
+                    { label: '長青課程再升級', text: '太鼓、太極、關節、韻律 100% 保留再添新意' },
+                    { label: '銀髮共餐更好玩', text: '融入趣味 AI 小遊戲，氣氛更歡樂' },
+                    { label: '世代融合交流', text: '帶領年輕兒孫走入長輩生活圈' }
+                ]
+            },
+            {
+                title: '🌟 把握衛福部 62.5 億獨老安居專案',
+                hook: {
+                    question: '❓ 你知道嗎？家裡只有兩位長輩同住，依法也算重點關懷對象！',
+                    btnText: '👉 查看 計畫 07 詳細解方',
+                    action: 'policy_7'
+                }
+            }
         ],
-        quote: '長輩安心照顧，青年無後顧之憂，打造全齡友善社區。'
+        quote: '長輩安心照顧，青年無後顧之憂！'
     },
     local: {
         title: '熟地方',
@@ -2306,9 +2327,51 @@ function openHeroTraitModal(traitKey) {
     if (titleEl) titleEl.textContent = data.title;
 
     if (bodyEl) {
-        let highlightsHtml = '';
-        if (data.highlights && data.highlights.length > 0) {
-            highlightsHtml = `
+        let contentHtml = '';
+
+        if (data.sections && data.sections.length > 0) {
+            // 結構化多區塊渲染（顧長輩等極致精簡版）
+            contentHtml = data.sections.map(sec => {
+                let itemsHtml = '';
+                if (sec.items && sec.items.length > 0) {
+                    itemsHtml = `
+                        <div class="hero-trait-highlight-list">
+                            ${sec.items.map(item => `
+                                <div class="hero-trait-highlight-item">
+                                    <span class="highlight-bullet">✔</span>
+                                    <div class="highlight-text-wrap">
+                                        <strong style="color: #f5f5f4;">${escapeHTML(item.label)}：</strong>${escapeHTML(item.text)}
+                                        ${item.btnUrl ? `<a href="${item.btnUrl}" target="_blank" rel="noopener" class="trait-pill-btn">${escapeHTML(item.btnText)}</a>` : ''}
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    `;
+                }
+
+                let hookHtml = '';
+                if (sec.hook) {
+                    hookHtml = `
+                        <div class="trait-hook-box">
+                            <div class="trait-hook-q">${escapeHTML(sec.hook.question)}</div>
+                            <button type="button" class="trait-action-btn" onclick="closeHeroTraitModal(); openDrawer(7);">
+                                ${escapeHTML(sec.hook.btnText)}
+                            </button>
+                        </div>
+                    `;
+                }
+
+                return `
+                    <div class="hero-trait-highlights" style="margin-bottom: 1rem;">
+                        <h4 class="hero-trait-section-title">${escapeHTML(sec.title)}</h4>
+                        ${itemsHtml}
+                        ${hookHtml}
+                    </div>
+                `;
+            }).join('');
+        } else if (data.highlights && data.highlights.length > 0) {
+            // 單一清單渲染
+            contentHtml = `
                 <div class="hero-trait-highlights">
                     <h4 class="hero-trait-section-title">🌟 核心實績與承諾</h4>
                     <div class="hero-trait-highlight-list">
@@ -2316,7 +2379,7 @@ function openHeroTraitModal(traitKey) {
                             <div class="hero-trait-highlight-item">
                                 <span class="highlight-bullet">✔</span>
                                 <div class="highlight-text-wrap">
-                                    <strong>${h.label}：</strong>${h.text}
+                                    <strong style="color: #f5f5f4;">${escapeHTML(h.label)}：</strong>${escapeHTML(h.text)}
                                 </div>
                             </div>
                         `).join('')}
@@ -2328,7 +2391,7 @@ function openHeroTraitModal(traitKey) {
         bodyEl.innerHTML = `
             <div class="hero-trait-subtitle">${data.subtitle}</div>
             <p class="hero-trait-lead">${data.lead}</p>
-            ${highlightsHtml}
+            ${contentHtml}
             <div class="hero-trait-quote">
                 <span class="quote-icon">💬</span>
                 <span class="quote-text">「${data.quote}」</span>
