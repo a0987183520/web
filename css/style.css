@@ -360,15 +360,15 @@ nav {
 }
 
 .hero-title .title-verb {
-    font-size: 0.55em; /* 隨響應式標題比例縮放，避免行動端失真 */
-    font-weight: 500; /* 改為中粗體 */
-    color: var(--text-primary); /* 改為白色 */
-    margin-right: 0.05em;
-    vertical-align: middle;
+    font-size: 1em; /* 與後方名詞 100% 等大 */
+    font-weight: 800; /* 粗體一致 */
+    color: var(--text-primary); /* 純淨亮白 */
+    margin-right: 0.02em;
+    vertical-align: baseline;
 }
 
 .hero-title .title-noun {
-    font-weight: 900; /* 極粗體 */
+    font-weight: 800; /* 粗體一致 */
 }
 
 .hero-description {
