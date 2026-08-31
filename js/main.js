@@ -2271,7 +2271,7 @@ const HERO_TRAITS_DATA = {
         hideTopClose: true,
         sections: [
             {
-                title: '🌟 還沒上任就有政績<br>（自行研發.已免費大量分享）：',
+                title: '🌟 還沒上任就有政績<br>自行研發 免費分享給鄰里',
                 items: [
                     { label: '預防失智 App', text: '1~50 手腦訓練小遊戲', btnText: '點此試玩', btnUrl: 'https://pod0987183520.github.io/1to50' },
                     { label: '隨手 AI 健康營', text: '隨手拍照輕鬆管理血壓、提醒按時吃藥' },
