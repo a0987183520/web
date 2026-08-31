@@ -4868,54 +4868,92 @@ footer {
    Hero 6 大特質互動按鈕、詳情彈窗與抽屜底部關閉按鈕樣式
    ======================================================== */
 
-/* 1. Hero 標題互動特質按鈕 */
+/* 0. Hero 頂部觸控提示導引膠囊 */
+.hero-guide-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: rgba(251, 191, 36, 0.12);
+    border: 1px solid rgba(251, 191, 36, 0.35);
+    border-radius: 30px;
+    padding: 0.45rem 1.2rem;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--accent-primary);
+    margin-bottom: 1.2rem;
+    box-shadow: 0 4px 15px rgba(251, 191, 36, 0.15);
+    letter-spacing: 0.02em;
+    animation: pulse-glow-badge 3s infinite ease-in-out;
+}
+
+[data-theme="light"] .hero-guide-badge {
+    background: rgba(217, 119, 6, 0.08);
+    border-color: rgba(217, 119, 6, 0.3);
+    color: var(--accent-primary);
+}
+
+@keyframes pulse-glow-badge {
+    0%, 100% { box-shadow: 0 4px 15px rgba(251, 191, 36, 0.15); border-color: rgba(251, 191, 36, 0.35); }
+    50% { box-shadow: 0 4px 22px rgba(251, 191, 36, 0.35); border-color: rgba(251, 191, 36, 0.65); }
+}
+
+/* 1. Hero 標題互動特質膠囊按鈕 (手機端一眼即知可按) */
 .hero-trait-btn {
-    background: transparent;
-    border: none;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     font-family: inherit;
     font-size: inherit;
     font-weight: inherit;
     line-height: inherit;
     color: inherit;
     cursor: pointer;
-    padding: 0.1em 0.25em;
-    border-radius: 12px;
+    padding: 0.18em 0.45em 0.18em 0.35em;
+    border-radius: 20px;
     display: inline-flex;
-    align-items: baseline;
+    align-items: center;
     position: relative;
-    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.3s ease, box-shadow 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     vertical-align: middle;
     outline: none;
     -webkit-tap-highlight-color: transparent;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    margin: 0.15rem 0.2rem;
+}
+
+.hero-trait-btn .trait-arrow {
+    font-size: 0.45em;
+    color: var(--accent-primary);
+    margin-left: 0.2em;
+    opacity: 0.85;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    vertical-align: middle;
 }
 
 .hero-trait-btn:hover {
-    transform: translateY(-3px) scale(1.04);
+    transform: translateY(-3px) scale(1.05);
     background: var(--accent-primary-glow);
-    box-shadow: 0 8px 20px -6px rgba(251, 191, 36, 0.25);
+    border-color: rgba(251, 191, 36, 0.45);
+    box-shadow: 0 8px 25px -4px rgba(251, 191, 36, 0.35);
+}
+
+.hero-trait-btn:hover .trait-arrow {
+    transform: translateY(2px);
+    opacity: 1;
 }
 
 .hero-trait-btn:active {
-    transform: translateY(0) scale(0.97);
+    transform: translateY(0) scale(0.96);
 }
 
-.hero-trait-btn::after {
-    content: '';
-    position: absolute;
-    bottom: -2px;
-    left: 15%;
-    width: 70%;
-    height: 2px;
-    background: var(--accent-primary);
-    opacity: 0;
-    transform: scaleX(0);
-    transition: transform 0.3s ease, opacity 0.3s ease;
-    border-radius: 2px;
+[data-theme="light"] .hero-trait-btn {
+    background: rgba(0, 0, 0, 0.03);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
 }
 
-.hero-trait-btn:hover::after {
-    opacity: 0.8;
-    transform: scaleX(1);
+[data-theme="light"] .hero-trait-btn:hover {
+    background: rgba(217, 119, 6, 0.1);
+    border-color: rgba(217, 119, 6, 0.4);
 }
 
 .hero-slogan {
