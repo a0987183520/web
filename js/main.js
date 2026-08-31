@@ -1088,71 +1088,24 @@ function getQAData() {
 let currentQAFilter = 'all';
 let currentQAKeyword = '';
 
-function formatQAResponseHtml(response, id) {
-    if (!response) return '';
-    const cleanResp = response.trim();
-    const paragraphs = cleanResp.split(/\r?\n+/).map(p => p.trim()).filter(p => p.length > 0);
-
-    // 若內容極精簡（單段且 120 字以內），直接完整呈現，不需二段按鈕
-    if (paragraphs.length <= 1 && cleanResp.length <= 120) {
-        return `<div class="qa-response-content">${escapeHTML(cleanResp)}</div>`;
-    }
-
-    // 多段落排版：第 1 段（或第 1 點）作為前言精華，其餘作為二段詳細內容
-    if (paragraphs.length > 1) {
-        const summaryText = paragraphs[0];
-        const detailText = paragraphs.slice(1).join('\n\n');
-        return `
-        <div class="qa-response-summary" id="resp-summary-${id}">
-            ${escapeHTML(summaryText)}
-        </div>
-        <div class="qa-response-detail" id="resp-detail-${id}" style="display: none;">
-            ${escapeHTML(detailText)}
-        </div>
-        <button type="button" class="btn-toggle-response-expand" onclick="toggleResponseDetail('${id}', event, true)" id="btn-resp-${id}">
-            <span class="resp-btn-text">查看完整官方具體解方 ▾</span>
-        </button>
-        `;
-    } else {
-        // 單段長文：前言截取精華，展開時切換為完整全文
-        const cutoff = 95;
-        const summaryText = cleanResp.substring(0, cutoff) + '...';
-        return `
-        <div class="qa-response-summary" id="resp-summary-${id}">
-            ${escapeHTML(summaryText)}
-        </div>
-        <div class="qa-response-detail" id="resp-detail-${id}" style="display: none;">
-            ${escapeHTML(cleanResp)}
-        </div>
-        <button type="button" class="btn-toggle-response-expand" onclick="toggleResponseDetail('${id}', event, false)" id="btn-resp-${id}">
-            <span class="resp-btn-text">查看完整官方具體解方 ▾</span>
-        </button>
-        `;
-    }
-}
-
-function toggleResponseDetail(cardId, event, isMultiParagraph) {
+function toggleResponseDetail(cardId, event) {
     if (event) event.stopPropagation();
-    const detailEl = document.getElementById(`resp-detail-${cardId}`);
-    const summaryEl = document.getElementById(`resp-summary-${cardId}`);
-    const btnEl = document.getElementById(`btn-resp-${cardId}`);
-    if (!detailEl || !btnEl) return;
+    const boxEl = document.getElementById(`resp-box-${cardId}`);
+    const contentEl = document.getElementById(`resp-content-${cardId}`);
+    const btnEl = document.getElementById(`sbtn-${cardId}`);
+    if (!contentEl || !btnEl || !boxEl) return;
 
-    const isOpen = detailEl.style.display !== 'none';
+    const isOpen = boxEl.classList.contains('open');
     if (isOpen) {
-        detailEl.style.display = 'none';
-        if (!isMultiParagraph && summaryEl) {
-            summaryEl.style.display = 'block';
-        }
-        const textSpan = btnEl.querySelector('.resp-btn-text');
-        if (textSpan) textSpan.textContent = '查看完整官方具體解方 ▾';
+        boxEl.classList.remove('open');
+        contentEl.style.display = 'none';
+        const textSpan = btnEl.querySelector('.pill-text');
+        if (textSpan) textSpan.textContent = '看解方 ▾';
     } else {
-        detailEl.style.display = 'block';
-        if (!isMultiParagraph && summaryEl) {
-            summaryEl.style.display = 'none';
-        }
-        const textSpan = btnEl.querySelector('.resp-btn-text');
-        if (textSpan) textSpan.textContent = '收起詳細方案 ▴';
+        boxEl.classList.add('open');
+        contentEl.style.display = 'block';
+        const textSpan = btnEl.querySelector('.pill-text');
+        if (textSpan) textSpan.textContent = '收起 ▴';
     }
 }
 
@@ -1248,12 +1201,21 @@ function renderQACards() {
                     <span class="qa-category-pill">${escapeHTML(item.category)}</span>
                     <span class="qa-author-time">反映里民：${escapeHTML(item.author)} ‧ ${escapeHTML(item.date)}</span>
                 </div>
-                <div class="qa-response-box">
-                    <div class="qa-response-header">
-                        <div class="qa-response-avatar">答</div>
-                        <span class="qa-response-name">陳新昱 官方具體解決方案</span>
+                <div class="qa-response-box" id="resp-box-${item.id}">
+                    <div class="qa-response-header" onclick="toggleResponseDetail('${item.id}', event)">
+                        <div class="qa-header-left">
+                            <span class="qa-a-prefix">答 ${qNum}：</span>
+                            <span class="qa-response-title-text">陳新昱 官方具體解決方案</span>
+                        </div>
+                        <div class="qa-header-right">
+                            <button type="button" class="btn-qa-solution-pill" id="sbtn-${item.id}">
+                                <span class="pill-text">看解方 ▾</span>
+                            </button>
+                        </div>
                     </div>
-                    ${formatQAResponseHtml(item.response, item.id)}
+                    <div class="qa-response-content" id="resp-content-${item.id}" style="display: none;">
+                        ${escapeHTML(item.response)}
+                    </div>
                 </div>
 
                 <!-- 參與式里政互動列 (認同 +1 ＆ 補充附議) -->
