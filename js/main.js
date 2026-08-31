@@ -2201,66 +2201,11 @@ function initSmartSnap() {
 }
 
 // ==========================================
-// Hero 6 大特質與經歷詳情彈窗資料庫與互動邏輯
-// ==========================================
+
 // ==========================================
 // Hero 6 大特質與經歷詳情彈窗資料庫與互動邏輯
 // ==========================================
 const HERO_TRAITS_DATA = {
-    tech: {
-        title: '懂科技',
-        badge: '軟體開發 ‧ 延緩失智 ‧ 科技關懷',
-        icon: '💻',
-        subtitle: '30 年軟體開發實務 ‧ 自行研發樂齡與學習 App 免費造福街坊',
-        lead: '選里長是讓里民面試我的經歷與能力！我用科技解決生活問題，不只自動化行政雜務，更直接化為照顧長輩與孩子的溫暖工具。',
-        highlights: [
-            { label: '30年專業軟體開發經歷', text: '具備深厚資工軟體架構實務，以數據治理取代黑箱作業，把行政雜務交給自動化，里長全力走入巷弄。' },
-            { label: '自發研發延緩失智 App 免費分享', text: '親自開發長輩「延緩失智 1~50 數字遊戲」App 與「開口造句」App，長期免費提供給街坊鄰居與長輩使用。' },
-            { label: '指導長輩手機 AI 健康與照片生成', text: '開辦生活教學：指導長輩用手機 AI 拍照輕鬆紀錄分析健康與藥袋，更能玩出有趣的老照片修復與藝術肖像生成！' },
-            { label: '指導學童手機 AI 錯題複習本', text: '教導社區小朋友用手機 AI 拍照整理專屬「錯題複習本」，精準補強觀念、培養自學能力。' }
-        ],
-        quote: '選里長是讓你們面試我的經歷與能力；我不拜託你們選我，我用成績讓你們感受熱忱！'
-    },
-    eq: {
-        title: '懂ＥＱ',
-        badge: '情緒教育 ‧ 補救教學 ‧ 故事陪伴',
-        icon: '🤝',
-        subtitle: '樂利國小 8年EQ講師 ‧ 6年英語補救教學 ‧ 4年故事爸爸',
-        lead: '還沒當里長就長期在校園與社區一線付出！里長最重要的不是官威，而是同理心與傾聽。以 8 年志工熱情陪伴孩子與長輩！',
-        highlights: [
-            { label: '8年樂利國小EQ講師 ‧ 7套專業證照', text: '取得 7 套完整情緒教育課程證照，連續 8 年不間斷每學期入班授課；擔任 2 年 EQ 志工組長帶領超過 50 人團隊，帶孩子覺察情緒、建立自信、遠離霸凌危機。' },
-            { label: '6年樂利國小英語補救教學老師', text: '連續 6 年每學期不間斷，耐心陪伴指導學習進度較緩慢的孩子，重拾對英語的興趣與學習自信。' },
-            { label: '4年樂利國小每週故事爸爸', text: '連續 4 年每週一講不間斷，用生動故事啟發孩子想像力與品格教育。' },
-            { label: '專業同理溝通，化解鄰里糾紛', text: '以高度 EQ 與耐心傾聽鄰里修繕與住戶歧見，用溫暖對話化解對立，創造幸福共好社區。' }
-        ],
-        quote: '以同理心傾聽鄰里心聲，用真誠服務溫暖每個家。'
-    },
-    management: {
-        title: '懂管理',
-        badge: '社區治理 ‧ 解決危機 ‧ 改革勝訴',
-        icon: '🏛️',
-        subtitle: '10年管委會委員 ＋ 2年主任委員 ‧ 還沒當里長就有真實政績！',
-        lead: '具備扎實大型社區治理實務，精通法規與預算管理。把每筆公務預算花在刀口上，堅持公開透明、主動爭取外部補助！',
-        highlights: [
-            { label: '403地震臨危受命 ‧ 搶通學府便道', text: '403地震震垮孔雀王朝二期與捷運學府間便道（多位視障人士與居民通勤要道），尋求多位民代里長無解。我深入研究各方法規、協調相關單位，順利化解便道下陷危機！' },
-            { label: '首創社區規約制裁濫訴 ‧ 成功求償律師費', text: '面對社區住戶十幾年數十起惡意訴訟，我擔任主委時制定創新社區規約（重複無理濫訴敗訴需賠償律師費），今年首創成功判例並順利向濫訴者求償律師費損害賠償！' },
-            { label: '10年社區管委會治理實戰經驗', text: '深諳財務監督、廠商發包與公共工程把關；建立明德里每年近百萬建設專款公開透明機制，杜絕黑箱。' }
-        ],
-        quote: '專業經理人治里，預算透明公開，建設落實到位。'
-    },
-    art: {
-        title: '懂藝術',
-        badge: '音樂文創 ‧ 免費多元體驗營 ‧ 參與式投票',
-        icon: '🎵',
-        subtitle: '20年流行音樂樂譜經歷 ‧ 開創豐富社區體驗營隊',
-        lead: '社區不僅要安全便利，更要充滿生活美學與藝文活力。自辦多種體驗營隊，未來擴大服務全里並推動參與式選課！',
-        highlights: [
-            { label: '20年流行音樂與樂團演出經歷', text: '組過樂團並具備多年現場演出與樂譜編著實戰經驗，未來將開創「明德草地音樂節」與週末藝術市集。' },
-            { label: '長期自辦豐富多元免費體驗營', text: '曾免費開設【直排輪】、【桌球】、【游泳】、【無人機】、【親子EQ】、【AI短劇】、【Scratch程式】、【生活科技】、【數學好好玩】與【自然好好玩】等體驗營！' },
-            { label: '推動「參與式體驗營民調投票」', text: '當選後將擴大至全明德里！透過線上投票由里民決定最想參加的體驗營，避免辦了沒人想去的窘境；爭取政府公案補助優先，若無補助則由里長親自開課或邀請斜槓志工開講，里民零負擔！' }
-        ],
-        quote: '用音樂拉近鄰里距離，用生活美學點亮明德里。'
-    },
     elder: {
         title: '長輩照顧好，青年無後顧',
         titleClass: 'title-glow-emerald',
@@ -2294,24 +2239,202 @@ const HERO_TRAITS_DATA = {
                         '❓ 你知道嗎？家裡只有兩位長輩同住，依法也算重點關懷對象！'
                     ],
                     btnText: '查看詳情',
-                    action: 'policy_7'
+                    drawerId: 7
+                }
+            }
+        ],
+        quote: ''
+    },
+    eq: {
+        title: '同理傾聽，溫暖化解鄰里對立',
+        titleClass: 'title-glow-emerald',
+        badge: '',
+        icon: '🤝',
+        subtitle: '',
+        lead: '',
+        hideTopClose: true,
+        sections: [
+            {
+                title: '🌟 還沒上任就有政績<br>校園志工 一線陪伴孩子與長輩',
+                items: [
+                    { label: '8年樂利EQ講師', text: '取得 7 套專業證照，2 年組長帶領 50 位志工入班授課' },
+                    { label: '6年英語補救教學', text: '耐心陪伴學習進度較慢的孩子，重拾自信與興趣' },
+                    { label: '4年每週故事爸爸', text: '每週一講不間斷，用生動故事啟發品格教育' }
+                ]
+            },
+            {
+                title: '🌟 核心承諾：',
+                items: [
+                    { label: '專業同理溝通', text: '耐心傾聽修繕與住戶歧見，用溫暖對話化解糾紛' },
+                    { label: '開辦親子EQ工作坊', text: '結合社區資源協助家長建立良好親子溝通' }
+                ]
+            },
+            {
+                title: '💡 痛點問題與重點關懷：',
+                hook: {
+                    questions: [
+                        '❓ 你知道嗎？鄰里糾紛有八成來自溝通誤會而非惡意！',
+                        '❓ 你知道嗎？情緒教育能有效預防校園與社區霸凌！'
+                    ],
+                    btnText: '查看詳情',
+                    drawerId: 8
                 }
             }
         ],
         quote: ''
     },
     local: {
-        title: '熟地方',
-        badge: '在地理政 ‧ 巷弄踏查 ‧ 24小時快速回應',
+        title: '深耕街廓，第一時間守護日常',
+        titleClass: 'title-glow-emerald',
+        badge: '',
         icon: '🗺️',
-        subtitle: '深耕明德在地街廓 ‧ 實戰解決地方危機與死角',
-        lead: '長年扎根明德里，走遍每一條街廓、暗巷死角與排水系統。建立 24 小時快速回應機制，路平燈亮水溝通！',
-        highlights: [
-            { label: '深耕明德里，實戰解決在地公共危機', text: '親身帶領協調解決 403 地震學府便道下陷危機，熟悉地方各級行政機關對接窗口。' },
-            { label: '全面掌握交通瓶頸與照明死角', text: '深入盤點學府路二段、明德路等主要路段交通尖峰瓶頸與夜間昏暗死角，排定會勘改善。' },
-            { label: '定期排水清淤與 24 小時有問必答', text: '主動清查水溝防汛防澇，建立里民陳情線上與實體快速回應追蹤機制，服務零距離。' }
+        subtitle: '',
+        lead: '',
+        hideTopClose: true,
+        sections: [
+            {
+                title: '🌟 還沒上任就有政績<br>踏查巷弄 實戰解決公共危機',
+                items: [
+                    { label: '搶通學府便道下陷', text: '403 地震便道崩塌，多方無解下協調搶通盲人通勤要道' },
+                    { label: '掌握交通照明死角', text: '深入盤點學府路二段與明德路昏暗死角，排定會勘改善' },
+                    { label: '定期排水清淤巡查', text: '主動清查水溝防汛防澇，防範暴雨積水' }
+                ]
+            },
+            {
+                title: '🌟 核心承諾：',
+                items: [
+                    { label: '24小時快速回應', text: '建立線上即時回報系統，路平燈亮水溝通' },
+                    { label: '全面消除通行障礙', text: '爭取學府便道長久固化與通學步道平整' }
+                ]
+            },
+            {
+                title: '💡 痛點問題與重點關懷：',
+                hook: {
+                    questions: [
+                        '❓ 你知道嗎？學府便道每天有數百位居民與視障朋友通勤！',
+                        '❓ 你知道嗎？及早清淤能預防暴雨造成的地下室倒灌！'
+                    ],
+                    btnText: '查看詳情',
+                    drawerId: 2
+                }
+            }
         ],
-        quote: '腳踏實地走遍每條巷弄，第一時間守護鄰里日常。'
+        quote: ''
+    },
+    tech: {
+        title: '科技省雜務，雙腳走入巷弄',
+        titleClass: 'title-glow-emerald',
+        badge: '',
+        icon: '💻',
+        subtitle: '',
+        lead: '',
+        hideTopClose: true,
+        sections: [
+            {
+                title: '🌟 還沒上任就有政績<br>30年實戰 自研 App 免費造福街坊',
+                items: [
+                    { label: '30年軟體開發架構', text: '專業資工背景，擅長自動化系統與數據治理' },
+                    { label: '自研樂齡 App 免費分享', text: '1~50 延緩失智與開口造句小遊戲', btnText: '點此試玩', btnUrl: 'https://pod0987183520.github.io/1to50' },
+                    { label: '指導學童 AI 錯題複習本', text: '教導小朋友用手機 AI 拍照整理錯題，精準補強自學力' }
+                ]
+            },
+            {
+                title: '🌟 核心承諾：',
+                items: [
+                    { label: '行政雜務全自動化', text: '用系統省下繁瑣文書，里長全力走入鄰里服務' },
+                    { label: '建立公開透明治理看板', text: '公款與工程進度線上即時查，杜絕黑箱' }
+                ]
+            },
+            {
+                title: '💡 痛點問題與重點關懷：',
+                hook: {
+                    questions: [
+                        '❓ 你知道嗎？傳統里政有六成時間浪費在重複公文行政上！',
+                        '❓ 你知道嗎？科技不是冰冷代碼，而是照顧長幼最溫暖的工具！'
+                    ],
+                    btnText: '查看詳情',
+                    drawerId: 6
+                }
+            }
+        ],
+        quote: ''
+    },
+    management: {
+        title: '公款刀口花，建設透明看得見',
+        titleClass: 'title-glow-emerald',
+        badge: '',
+        icon: '🏛️',
+        subtitle: '',
+        lead: '',
+        hideTopClose: true,
+        sections: [
+            {
+                title: '🌟 還沒上任就有政績<br>10年社區治理 首創防濫訴勝訴',
+                items: [
+                    { label: '10年管委會與2年主委', text: '精通法規財務與公共工程把關，每筆支出清清楚楚' },
+                    { label: '首創社區規約制裁濫訴', text: '面對十幾年惡意濫訴，修訂規約並成功求償律師費' },
+                    { label: '搶通 403 地震學府便道', text: '熟悉各級行政機關對接窗口，展現危機處理力' }
+                ]
+            },
+            {
+                title: '🌟 核心承諾：',
+                items: [
+                    { label: '每年88萬專款公開透明', text: '建立線上預算透明牆，里民一鍵監督每分錢' },
+                    { label: '主動爭取中央專案補助', text: '不只花事務費，更向市府爭取百萬級補助回饋明德里' }
+                ]
+            },
+            {
+                title: '💡 痛點問題與重點關懷：',
+                hook: {
+                    questions: [
+                        '❓ 你知道嗎？明德里每年其實有近百萬（88萬元）建設專款！',
+                        '❓ 你知道嗎？懂得爭取公案補助，里民各項活動完全零負擔！'
+                    ],
+                    btnText: '查看詳情',
+                    drawerId: 5
+                }
+            }
+        ],
+        quote: ''
+    },
+    art: {
+        title: '生活有美學，多元體驗零負擔',
+        titleClass: 'title-glow-emerald',
+        badge: '',
+        icon: '🎵',
+        subtitle: '',
+        lead: '',
+        hideTopClose: true,
+        sections: [
+            {
+                title: '🌟 還沒上任就有政績<br>20年音樂演出 免費開辦多元營隊',
+                items: [
+                    { label: '20年流行音樂與樂團經歷', text: '具備現場演出與樂譜編著實戰經驗' },
+                    { label: '長期自辦免費體驗營', text: '曾開辦直排輪、無人機、AI短劇、數學與自然好好玩等營隊' },
+                    { label: '開創斜槓志工教學', text: '匯聚在地專業人才，提供多元豐富學習資源' }
+                ]
+            },
+            {
+                title: '🌟 核心承諾：',
+                items: [
+                    { label: '參與式體驗營民調投票', text: '線上投票由里民決定想開辦的營隊，避免蚊子活動' },
+                    { label: '爭取公案補助全額免費', text: '若無補助則由里長親授或協槓志工開講，里民零支出' },
+                    { label: '舉辦明德草地音樂節', text: '打造社區專屬文創市集與親子音樂盛會' }
+                ]
+            },
+            {
+                title: '💡 痛點問題與重點關懷：',
+                hook: {
+                    questions: [
+                        '❓ 你知道嗎？政府有豐富的藝文與體育推廣補助可以申請！',
+                        '❓ 你知道嗎？透過民調投票開辦營隊，能讓每場活動都爆滿受歡迎！'
+                    ],
+                    btnText: '查看詳情',
+                    drawerId: 9
+                }
+            }
+        ],
+        quote: ''
     }
 };
 
@@ -2388,10 +2511,11 @@ function openHeroTraitModal(traitKey) {
                     const qHtml = sec.hook.questions 
                         ? sec.hook.questions.map(q => `<div class="trait-hook-q" style="margin-bottom: 0.4rem;">${escapeHTML(q)}</div>`).join('')
                         : `<div class="trait-hook-q">${escapeHTML(sec.hook.question || '')}</div>`;
+                    const targetDrawer = sec.hook.drawerId || 7;
                     hookHtml = `
                         <div class="trait-hook-box">
                             ${qHtml}
-                            <button type="button" class="trait-action-btn" style="margin-top: 0.4rem;" onclick="closeHeroTraitModal(); openDrawer(7);">
+                            <button type="button" class="trait-action-btn" style="margin-top: 0.4rem;" onclick="closeHeroTraitModal(); openDrawer(${targetDrawer});">
                                 ${escapeHTML(sec.hook.btnText)}
                             </button>
                         </div>
@@ -2474,4 +2598,3 @@ document.addEventListener('keydown', (e) => {
         if (typeof closeSubProposalModal === 'function') closeSubProposalModal();
     }
 });
-
