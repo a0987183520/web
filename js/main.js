@@ -24,14 +24,14 @@ const POLICIES_DATA = [
     {
         id: 1,
         title: "草地音樂節",
-        subtitle: "每年春天與秋天，放下3C野餐去",
+        subtitle: "每年春、秋兩季各辦 1 次，直接放進你的年度家庭行事曆",
         image: "images/policy_01_music.png",
         budgetSource: "文化局社造專案（5~20萬）✕ 區公所文康專款",
         budgetSub: "（完全不用動到明德里 88 萬基層款）",
         budgetDesc: "本活動依法向新北市文化局申請「社區營造點專案補助」（每案 5 至 20 萬元）及區公所文康研習專款，由藝文專款補助舞台音響與演出師資，完全不排擠里內既有的 88 萬基層工程款！",
-        highlight: "善用明德活動中心旁的公園草地，透過專業策展經驗整合街頭藝人資源，打造散步就能抵達的草地音樂節。",
+        highlight: "每年春、秋兩季定期各辦 1 次！善用明德活動中心旁的公園草地，整合街頭藝人資源，打造散步就能抵達的草地音樂節。",
         icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"></path><circle cx="6" cy="18" r="3"></circle><circle cx="18" cy="16" r="3"></circle></svg>`,
-        description: "我們希望善用明德市民活動中心旁的公園綠地，在春秋兩季的假日，規劃結合音樂、休閒與社區互動的草地音樂節。這不是耗資百萬的政客宣傳秀，而是串接在地資源、讓孩子奔跑、家長放鬆、長者同樂的常態性美學角落。",
+        description: "我們希望善用明德市民活動中心旁的公園綠地，在春秋兩季的假日固定舉辦（一年兩次）。這不是耗資百萬的政客宣傳秀，而是串接在地資源、讓孩子奔跑、家長放鬆、長者同樂的常態性美學角落。",
         howToDo: [
             "以春秋假日的小型試辦開始，再依居民對音量、交通與整潔的反饋逐步調整規模。",
             "結合候選人本人的流行音樂產業背景與街頭藝人與獨立樂手人脈，邀請優秀樂手、學校音樂社團與在地團體共同展演。",
@@ -44,12 +44,12 @@ const POLICIES_DATA = [
     {
         id: 2,
         title: "EQ 教育課程",
-        subtitle: "你跟孩子有代溝嗎？透過遊戲，重拾親子關係",
+        subtitle: "每季定期開辦 1 期共學工作坊，陪伴跨世代家庭和諧溝通",
         image: "images/policy_02_eq_1.png",
         budgetSource: "教育部家庭教育專案 ✕ 校里跨域合作",
         budgetSub: "（完全不用動到明德里 88 萬基層款）",
         budgetDesc: "結合候選人 8 年樂利國小 EQ 志工組長團隊師資，由樂利國小/家長會與里辦公處跨域合作，免費借用校園空間並聯合提報教育部/局家庭教育與 SEL 專案全額補助，零公帑為里民開辦高品質工作坊。",
-        highlight: "提供涵蓋孩子、家長與長者都能參與的情緒管理課程，陪伴大家了解情緒、覺察委屈、避免遷怒、遠離霸凌。",
+        highlight: "每季定期開辦 1 期共學工作坊！涵蓋孩子、家長與長者都能參與的情緒管理課程，陪伴大家了解情緒、覺察委屈、避免遷怒、遠離霸凌。",
         icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a5 5 0 1 0 10 0v-2H12z"></path><path d="M12 10a8 8 0 1 0 8 8v-8H12z"></path><circle cx="12" cy="12" r="10"></circle><path d="M8 14s1.5 2 4 2 4-2 4-2"></path><line x1="9" y1="9" x2="9.01" y2="9"></line><line x1="15" y1="9" x2="15.01" y2="9"></line></svg>`,
         description: "情緒管理、親子溝通與人際互動是人生的終身課題。我們希望以輕鬆、實用且系統化的 EQ 成長課程，在社區活動中心搭建情緒共學平台，增進家庭與鄰里的跨世代同理與和諧。",
         howToDo: [
@@ -64,12 +64,12 @@ const POLICIES_DATA = [
     {
         id: 3,
         title: "無人機與 AI 未來體驗營",
-        subtitle: "操作簡單不易壞，長輩小孩都能輕鬆上手",
+        subtitle: "每學期寒暑假定期開辦，長輩小孩都能輕鬆上手的科技啟蒙營",
         image: "images/policy_03_tech.png",
         budgetSource: "青年科普培育專案 ✕ 區公所文康專款",
         budgetSub: "（完全不用動到明德里 88 萬基層款）",
         budgetDesc: "候選人運用 30 年科技背景自帶微型安全設備與志工團隊，結合區公所文康研習專款及青年科普專案補助，讓里內孩子在最安全的室內防護網下免費體驗前瞻科技。",
-        highlight: "為里內家庭提供安全的無人機與 AI 體驗課。無人機是未來趨勢，大人、小孩到長輩都適合學習，全面提升手腦協調與科技視野。",
+        highlight: "每學期寒暑假定期開辦！為里內家庭提供安全的無人機與 AI 體驗課。無人機是未來趨勢，大人、小孩到長輩都適合學習，全面提升手腦協調與科技視野。",
         icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>`,
         description: "科技發展日新月異，我們不希望里內的孩子只能透過網路螢幕被動觀看。透過建立高安全性、有人引導的科技實作體驗，讓明德里的孩子在日常中就能啟發科學探索的興趣，掌握未來 AI 世代的必備工具。",
         howToDo: [
