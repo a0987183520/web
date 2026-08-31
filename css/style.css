@@ -2071,6 +2071,7 @@ footer {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
     transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
     text-align: left;
+    scroll-margin-top: 100px;
 }
 
 [data-theme="light"] .qa-card {

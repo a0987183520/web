@@ -1235,7 +1235,7 @@ function renderQACards() {
     }).join('');
 }
 
-// 單一互斥手風琴切換機制（開此題自動關閉其他題）
+// 單一互斥手風琴切換機制（開此題自動關閉其他題，並平滑錨定視窗焦點）
 function toggleQAItem(cardId) {
     const allCards = document.querySelectorAll('.collapsible-qa');
     const targetCard = document.getElementById(cardId);
@@ -1267,6 +1267,17 @@ function toggleQAItem(cardId) {
         if (targetTitleSpan && targetTitleSpan.dataset.full) {
             targetTitleSpan.textContent = targetTitleSpan.dataset.full;
         }
+
+        // 智慧視窗平滑追蹤錨定：收合舊題後重新計算精準視窗位置，平滑鎖定至當前題目標頭
+        setTimeout(() => {
+            const headerOffset = 90; // 預留頂部浮動導航列安全高度
+            const cardTop = targetCard.getBoundingClientRect().top;
+            const targetScrollTop = window.pageYOffset + cardTop - headerOffset;
+            window.scrollTo({
+                top: targetScrollTop,
+                behavior: 'smooth'
+            });
+        }, 30);
     }
 }
 
