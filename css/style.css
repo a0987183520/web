@@ -4915,12 +4915,12 @@ footer {
     background: rgba(255, 255, 255, 0.04);
     border: 1px solid rgba(255, 255, 255, 0.12);
     font-family: inherit;
-    font-size: 2.2rem;
+    font-size: 2.25rem;
     font-weight: 800;
     line-height: 1.2;
     color: inherit;
     cursor: pointer;
-    padding: 0.45rem 0.6rem;
+    padding: 0.48rem 0.6rem;
     border-radius: 20px;
     display: inline-flex;
     align-items: center;
@@ -4935,14 +4935,15 @@ footer {
 }
 
 .hero-trait-btn .trait-arrow {
-    font-size: 0.52em;
+    font-size: 0.9em;
     color: var(--accent-primary);
-    margin-left: 0.25em;
-    opacity: 0.9;
+    margin-left: 0.18em;
+    opacity: 0.95;
     transition: transform 0.3s ease, opacity 0.3s ease;
     vertical-align: middle;
     display: inline-block;
     flex-shrink: 0;
+    line-height: 1;
 }
 
 .hero-trait-btn:hover {
@@ -5479,9 +5480,14 @@ footer {
     }
 
     .hero-trait-btn {
-        font-size: 1.45rem;
-        padding: 0.35rem 0.4rem;
-        border-radius: 16px;
+        font-size: clamp(1.58rem, 5.2vw, 1.78rem);
+        padding: 0.42rem 0.45rem;
+        border-radius: 18px;
+    }
+
+    .hero-trait-btn .trait-arrow {
+        font-size: 0.92em;
+        margin-left: 0.15em;
     }
 
     .hero-trait-modal-card {
