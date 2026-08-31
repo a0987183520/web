@@ -1120,7 +1120,9 @@ function renderQACards() {
     }
 
     container.innerHTML = filtered.map((item, index) => {
-        const qNum = String(index + 1).padStart(2, '0');
+        // 提取各案真實唯一原始編號（如 qa-11 -> 問 11：）
+        const rawNum = item.id.replace(/\D/g, '') || String(index + 1);
+        const qNum = String(rawNum).padStart(2, '0');
 
         // Check user agree status from localStorage
         const isAgreed = localStorage.getItem(`md2_agreed_${item.id}`) === 'true';
@@ -1134,9 +1136,9 @@ function renderQACards() {
         let subAccordionHtml = '';
         if (approvedSubs.length > 0) {
             subAccordionHtml = `
-            <div class="qa-sub-accordion-wrapper" id="sub-wrapper-${item.id}">
+            <div class="qa-sub-accordion-wrapper" id="sub-wrapper-${item.id}" onclick="event.stopPropagation();">
                 <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.5rem;">
-                    <button type="button" class="qa-sub-toggle-pill" onclick="toggleSubAccordion('${item.id}')" id="sub-pill-${item.id}">
+                    <button type="button" class="qa-sub-toggle-pill" onclick="toggleSubAccordion('${item.id}', event)" id="sub-pill-${item.id}">
                         <span>📍 已彙整 ${approvedSubs.length} 則在地里民現況補充</span>
                         <span class="qa-sub-toggle-arrow">▼</span>
                     </button>
@@ -1161,80 +1163,85 @@ function renderQACards() {
         }
 
         return `
-        <div class="qa-card" id="${item.id}">
-            <div class="qa-question-box">
-                <h4 class="qa-question-title"><span class="qa-q-prefix">問 ${qNum}：</span>${escapeHTML(item.title)}</h4>
-                <p class="qa-question-text" id="qtext-${item.id}" style="display:none;">${escapeHTML(item.question)}</p>
-                <div class="qa-expanded-meta" id="qmeta-${item.id}" style="display:none;">
-                    <span class="qa-category-pill">${escapeHTML(item.category)}</span>
-                    <span class="qa-author-time">反映里民：${escapeHTML(item.author)} ‧ ${escapeHTML(item.date)}</span>
+        <div class="qa-card collapsible-qa" id="${item.id}">
+            <div class="qa-card-header" onclick="toggleQAItem('${item.id}')">
+                <div class="qa-header-left">
+                    <span class="qa-q-prefix">問 ${qNum}：</span>
+                    <span class="qa-title-text">${escapeHTML(item.title)}</span>
                 </div>
-                <button class="btn-toggle-expand" onclick="toggleQAExpand('${item.id}')" id="qbtn-${item.id}">
-                    <span>展開完整問題細節</span>
-                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                </button>
-            </div>
-            <div class="qa-response-box">
-                <div class="qa-response-header">
-                    <div class="qa-response-avatar">答</div>
-                    <span class="qa-response-name">陳新昱 官方具體解決方案</span>
+                <div class="qa-header-right">
+                    <button type="button" class="btn-qa-expand-pill" id="qbtn-${item.id}">
+                        <span class="pill-text">看全文 ▾</span>
+                    </button>
                 </div>
-                <div class="qa-response-content" id="resp-${item.id}">${escapeHTML(item.response)}</div>
             </div>
+            <div class="qa-card-body" id="qbody-${item.id}" style="display: none;">
+                <div class="qa-full-question-wrap">
+                    <p class="qa-full-question-text">${escapeHTML(item.question)}</p>
+                    <div class="qa-expanded-meta">
+                        <span class="qa-category-pill">${escapeHTML(item.category)}</span>
+                        <span class="qa-author-time">反映里民：${escapeHTML(item.author)} ‧ ${escapeHTML(item.date)}</span>
+                    </div>
+                </div>
+                <div class="qa-response-box">
+                    <div class="qa-response-header">
+                        <div class="qa-response-avatar">答</div>
+                        <span class="qa-response-name">陳新昱 官方具體解決方案</span>
+                    </div>
+                    <div class="qa-response-content" id="resp-${item.id}">${escapeHTML(item.response)}</div>
+                </div>
 
-            <!-- 參與式里政互動列 (認同 +1 ＆ 補充附議) -->
-            <div class="qa-interaction-bar">
-                <button class="btn-qa-agree ${isAgreed ? 'active' : ''}" onclick="handleAgreeVote('${item.id}', this)" id="agree-btn-${item.id}">
-                    <span class="agree-icon">👍</span>
-                    <span class="agree-text">${isAgreed ? '已認同' : '我也認同'}</span>
-                    <span class="agree-count" id="agree-count-${item.id}">${dynamicAgrees}</span>
-                </button>
-                <button class="btn-qa-sub" onclick="openSubProposalModal('${item.id}', '${escapeHTML(item.title).replace(/'/g, "\\'")}')">
-                    <span class="sub-icon">📝</span>
-                    <span class="sub-text">補充在地現況 (${dynamicSubs})</span>
-                </button>
+                <!-- 參與式里政互動列 (認同 +1 ＆ 補充附議) -->
+                <div class="qa-interaction-bar" onclick="event.stopPropagation();">
+                    <button class="btn-qa-agree ${isAgreed ? 'active' : ''}" onclick="handleAgreeVote('${item.id}', this, event)" id="agree-btn-${item.id}">
+                        <span class="agree-icon">👍</span>
+                        <span class="agree-text">${isAgreed ? '已認同' : '我也認同'}</span>
+                        <span class="agree-count" id="agree-count-${item.id}">${dynamicAgrees}</span>
+                    </button>
+                    <button class="btn-qa-sub" onclick="openSubProposalModal('${item.id}', '${escapeHTML(item.title).replace(/'/g, "\\'")}', event)">
+                        <span class="sub-icon">📝</span>
+                        <span class="sub-text">補充在地現況 (${dynamicSubs})</span>
+                    </button>
+                </div>
+                ${subAccordionHtml}
             </div>
-            ${subAccordionHtml}
         </div>
         `;
     }).join('');
 }
 
-function toggleSubAccordion(cardId) {
+// 單一互斥手風琴切換機制（開此題自動關閉其他題）
+function toggleQAItem(cardId) {
+    const allCards = document.querySelectorAll('.collapsible-qa');
+    const targetCard = document.getElementById(cardId);
+    if (!targetCard) return;
+
+    const targetBody = document.getElementById(`qbody-${cardId}`);
+    const isCurrentlyOpen = targetCard.classList.contains('open');
+
+    // 互斥收合其他所有卡片
+    allCards.forEach(card => {
+        card.classList.remove('open');
+        const body = card.querySelector('.qa-card-body');
+        if (body) body.style.display = 'none';
+        const pillText = card.querySelector('.btn-qa-expand-pill .pill-text');
+        if (pillText) pillText.textContent = '看全文 ▾';
+    });
+
+    // 若原先未開啟，則展開目標卡片
+    if (!isCurrentlyOpen) {
+        targetCard.classList.add('open');
+        if (targetBody) targetBody.style.display = 'block';
+        const targetBtnText = targetCard.querySelector('.btn-qa-expand-pill .pill-text');
+        if (targetBtnText) targetBtnText.textContent = '收起 ▴';
+    }
+}
+
+function toggleSubAccordion(cardId, event) {
+    if (event) event.stopPropagation();
     const wrapper = document.getElementById(`sub-wrapper-${cardId}`);
     if (wrapper) {
         wrapper.classList.toggle('open');
-    }
-}
-
-function toggleQAExpand(cardId) {
-    const textEl = document.getElementById(`qtext-${cardId}`);
-    const metaEl = document.getElementById(`qmeta-${cardId}`);
-    const btnEl = document.getElementById(`qbtn-${cardId}`);
-    if (!textEl || !btnEl) return;
-
-    if (textEl.style.display === 'none') {
-        textEl.style.display = 'block';
-        if (metaEl) metaEl.style.display = 'flex';
-        btnEl.innerHTML = `<span>收合原文</span><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>`;
-    } else {
-        textEl.style.display = 'none';
-        if (metaEl) metaEl.style.display = 'none';
-        btnEl.innerHTML = `<span>展開完整原文</span><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>`;
-    }
-}
-
-function toggleQAResponseExpand(cardId) {
-    const fullEl = document.getElementById(`resp-${cardId}`);
-    const btnEl = document.getElementById(`rbtn-${cardId}`);
-    if (!fullEl || !btnEl) return;
-
-    if (fullEl.style.display === 'none') {
-        fullEl.style.display = 'block';
-        btnEl.innerHTML = `<span>收合解決路徑 ▲</span>`;
-    } else {
-        fullEl.style.display = 'none';
-        btnEl.innerHTML = `<span>展開完整 SOP 解決路徑 ▼</span>`;
     }
 }
 
@@ -1353,7 +1360,8 @@ function initQAForm() {
 // ==========================================================================
 // 參與式里政互動：👍 我也認同 (+1) ＆ 📝 補充在地現況 (附議子單據)
 // ==========================================================================
-function handleAgreeVote(cardId, btnEl) {
+function handleAgreeVote(cardId, btnEl, event) {
+    if (event) event.stopPropagation();
     const agreeKey = `md2_agreed_${cardId}`;
     const countKey = `md2_agree_count_${cardId}`;
 
@@ -1394,17 +1402,13 @@ function handleAgreeVote(cardId, btnEl) {
             })
         }).catch(err => console.log('Vote agree sync error:', err));
     }
-
-    // Re-render Q&A cards to update hot badge if reached >= 10
-    setTimeout(() => {
-        renderQACards();
-    }, 400);
 }
 
 let currentSubParentId = null;
 let currentSubParentTitle = '';
 
-function openSubProposalModal(cardId, parentTitle) {
+function openSubProposalModal(cardId, parentTitle, event) {
+    if (event) event.stopPropagation();
     currentSubParentId = cardId;
     currentSubParentTitle = parentTitle;
 
