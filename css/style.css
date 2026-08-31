@@ -4456,7 +4456,7 @@ footer {
     display: flex;
     flex-direction: column;
     gap: 1.2rem;
-    max-width: 760px;
+    max-width: 580px;
     margin: 2.2rem auto 0 auto;
     text-align: left;
 }
