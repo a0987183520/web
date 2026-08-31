@@ -2271,9 +2271,9 @@ const HERO_TRAITS_DATA = {
         hideTopClose: true,
         sections: [
             {
-                title: '🌟 還沒上任就有政績（自行研發.已免費大量分享）：',
+                title: '🌟 還沒上任就有政績<br>（自行研發.已免費大量分享）：',
                 items: [
-                    { label: '預防失智 App', text: '1~50 手腦訓練小遊戲', btnText: '🎮 點此試玩', btnUrl: 'https://pod0987183520.github.io/1to50' },
+                    { label: '預防失智 App', text: '1~50 手腦訓練小遊戲', btnText: '點此試玩', btnUrl: 'https://pod0987183520.github.io/1to50' },
                     { label: '隨手 AI 健康營', text: '隨手拍照輕鬆管理血壓、提醒按時吃藥' },
                     { label: '隨手 AI 體驗營', text: '隨手拍照重返年輕、搞笑照片、比孫子還厲害' }
                 ]
@@ -2293,7 +2293,7 @@ const HERO_TRAITS_DATA = {
                         '❓ 你知道嗎？衛福部有 62.5 億獨老安居專案',
                         '❓ 你知道嗎？家裡只有兩位長輩同住，依法也算重點關懷對象！'
                     ],
-                    btnText: '👉 查看 詳情（點擊立即展開計畫 07）',
+                    btnText: '查看詳情',
                     action: 'policy_7'
                 }
             }
@@ -2398,9 +2398,11 @@ function openHeroTraitModal(traitKey) {
                     `;
                 }
 
+                const secTitleFormatted = escapeHTML(sec.title).replace(/&lt;br\s*\/?&gt;/gi, '<br>');
+
                 return `
                     <div class="hero-trait-highlights" style="margin-bottom: 1.1rem;">
-                        <h4 class="hero-trait-section-title">${escapeHTML(sec.title)}</h4>
+                        <h4 class="hero-trait-section-title">${secTitleFormatted}</h4>
                         ${itemsHtml}
                         ${hookHtml}
                     </div>
