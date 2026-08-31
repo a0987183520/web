@@ -1119,10 +1119,8 @@ function renderQACards() {
         return;
     }
 
-    container.innerHTML = filtered.map(item => {
-        // Extract ~25 chars summary for response preview
-        const cleanResp = item.response.replace(/\n/g, ' ');
-        const shortResp = cleanResp.length > 25 ? cleanResp.substring(0, 25) + '...' : cleanResp;
+    container.innerHTML = filtered.map((item, index) => {
+        const qNum = String(index + 1).padStart(2, '0');
 
         // Check user agree status from localStorage
         const isAgreed = localStorage.getItem(`md2_agreed_${item.id}`) === 'true';
@@ -1132,11 +1130,7 @@ function renderQACards() {
         const approvedSubs = getApprovedSubProposals(item.id);
         const dynamicSubs = Math.max(approvedSubs.length, parseInt(localStorage.getItem(`md2_sub_count_${item.id}`) || (item.subCount || 0), 10));
 
-        const hotBadge = dynamicAgrees >= 10 
-            ? `<span class="badge-hot-topic">🔥 全里高度關注 (${dynamicAgrees}人認同)</span>` 
-            : '';
-
-        // 方案 A ＋ 方案 C：折疊式在地補充氣泡 ＋ 直達獨立專頁
+        // 折疊式在地補充氣泡
         let subAccordionHtml = '';
         if (approvedSubs.length > 0) {
             subAccordionHtml = `
@@ -1168,30 +1162,24 @@ function renderQACards() {
 
         return `
         <div class="qa-card" id="${item.id}">
-            <div class="qa-card-meta">
-                <div class="qa-tag-group">
-                    <span class="qa-status-badge ${item.statusClass}">${escapeHTML(item.statusText)}</span>
-                    ${hotBadge}
-                </div>
-            </div>
             <div class="qa-question-box">
-                <h4 class="qa-question-title">${escapeHTML(item.title)}</h4>
+                <h4 class="qa-question-title"><span class="qa-q-prefix">問 ${qNum}：</span>${escapeHTML(item.title)}</h4>
                 <p class="qa-question-text" id="qtext-${item.id}" style="display:none;">${escapeHTML(item.question)}</p>
                 <div class="qa-expanded-meta" id="qmeta-${item.id}" style="display:none;">
                     <span class="qa-category-pill">${escapeHTML(item.category)}</span>
                     <span class="qa-author-time">反映里民：${escapeHTML(item.author)} ‧ ${escapeHTML(item.date)}</span>
                 </div>
                 <button class="btn-toggle-expand" onclick="toggleQAExpand('${item.id}')" id="qbtn-${item.id}">
-                    <span>展開完整原文</span>
+                    <span>展開完整問題細節</span>
                     <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
                 </button>
             </div>
             <div class="qa-response-box">
-                <div class="qa-response-header" style="cursor:pointer;" onclick="toggleQAResponseExpand('${item.id}')">
-                    <div class="qa-response-avatar">昱</div>
-                    <span class="qa-response-name">陳新昱 官方具體解決方案 ▾</span>
+                <div class="qa-response-header">
+                    <div class="qa-response-avatar">答</div>
+                    <span class="qa-response-name">陳新昱 官方具體解決方案</span>
                 </div>
-                <div class="qa-response-content" id="resp-${item.id}" style="display:none;">${escapeHTML(item.response)}</div>
+                <div class="qa-response-content" id="resp-${item.id}">${escapeHTML(item.response)}</div>
             </div>
 
             <!-- 參與式里政互動列 (認同 +1 ＆ 補充附議) -->
@@ -1206,6 +1194,7 @@ function renderQACards() {
                     <span class="sub-text">補充在地現況 (${dynamicSubs})</span>
                 </button>
             </div>
+            ${subAccordionHtml}
         </div>
         `;
     }).join('');
