@@ -1203,15 +1203,13 @@ function renderQACards() {
                 </div>
                 <div class="qa-response-box" id="resp-box-${item.id}">
                     <div class="qa-response-header" onclick="toggleResponseDetail('${item.id}', event)">
-                        <div class="qa-header-left">
+                        <div class="qa-response-title-group">
                             <span class="qa-a-prefix">答 ${qNum}：</span>
                             <span class="qa-response-title-text">陳新昱 官方具體解決方案</span>
                         </div>
-                        <div class="qa-header-right">
-                            <button type="button" class="btn-qa-solution-pill" id="sbtn-${item.id}">
-                                <span class="pill-text">看解方 ▾</span>
-                            </button>
-                        </div>
+                        <button type="button" class="btn-qa-solution-pill" id="sbtn-${item.id}">
+                            <span class="pill-text">看解方 ▾</span>
+                        </button>
                     </div>
                     <div class="qa-response-content" id="resp-content-${item.id}" style="display: none;">
                         ${escapeHTML(item.response)}
