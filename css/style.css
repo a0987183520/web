@@ -4921,12 +4921,13 @@ footer {
 }
 
 .hero-trait-btn .trait-arrow {
-    font-size: 0.45em;
+    font-size: 0.52em;
     color: var(--accent-primary);
-    margin-left: 0.2em;
-    opacity: 0.85;
+    margin-left: 0.22em;
+    opacity: 0.9;
     transition: transform 0.3s ease, opacity 0.3s ease;
     vertical-align: middle;
+    display: inline-block;
 }
 
 .hero-trait-btn:hover {
@@ -4937,7 +4938,7 @@ footer {
 }
 
 .hero-trait-btn:hover .trait-arrow {
-    transform: translateY(2px);
+    transform: translateY(-2px) scale(1.15);
     opacity: 1;
 }
 
