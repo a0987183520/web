@@ -4414,6 +4414,107 @@ footer {
     border-color: #fbbf24;
 }
 
+/* 有問必答牆 雙按鈕分流與內層 Tab 切換樣式 */
+.qa-dual-btn-group {
+    display: flex;
+    gap: 1.2rem;
+    justify-content: center;
+    align-items: center;
+    max-width: 620px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.btn-qa-view {
+    flex: 1;
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%) !important;
+    border: 1.5px solid rgba(56, 189, 248, 0.55) !important;
+    color: #38bdf8 !important;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.6), 0 0 15px rgba(56, 189, 248, 0.25) !important;
+    padding: 0.95rem 1.3rem !important;
+    font-size: 1.08rem !important;
+}
+
+.btn-qa-view:hover {
+    border-color: #38bdf8 !important;
+    color: #ffffff !important;
+    transform: translateY(-3px) scale(1.02) !important;
+    box-shadow: 0 16px 35px -5px rgba(0, 0, 0, 0.8), 0 0 25px rgba(56, 189, 248, 0.5) !important;
+}
+
+.btn-qa-write {
+    flex: 1;
+    background: linear-gradient(135deg, #d97706 0%, #b45309 50%, #78350f 100%) !important;
+    border: 1.5px solid rgba(251, 191, 36, 0.6) !important;
+    color: #ffffff !important;
+    box-shadow: 0 10px 25px -5px rgba(217, 119, 6, 0.4), 0 0 18px rgba(251, 191, 36, 0.3) !important;
+    padding: 0.95rem 1.3rem !important;
+    font-size: 1.08rem !important;
+}
+
+.btn-qa-write:hover {
+    border-color: #fbbf24 !important;
+    transform: translateY(-3px) scale(1.02) !important;
+    box-shadow: 0 16px 35px -5px rgba(217, 119, 6, 0.6), 0 0 25px rgba(251, 191, 36, 0.5) !important;
+}
+
+.qa-inner-tabs-wrap {
+    display: flex;
+    justify-content: center;
+    gap: 0.9rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1.2rem;
+}
+
+.qa-inner-tab-btn {
+    padding: 0.65rem 1.6rem;
+    border-radius: 30px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1.5px solid rgba(255, 255, 255, 0.15);
+    color: var(--text-secondary);
+    font-size: 1.05rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.qa-inner-tab-btn:hover {
+    color: var(--text-primary);
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.35);
+    transform: translateY(-1px);
+}
+
+.qa-inner-tab-btn.active {
+    background: rgba(251, 191, 36, 0.15);
+    border-color: #fbbf24;
+    color: #fbbf24;
+    box-shadow: 0 0 18px rgba(251, 191, 36, 0.3);
+}
+
+@media (max-width: 540px) {
+    .qa-dual-btn-group {
+        flex-direction: column;
+        width: 100%;
+        gap: 0.9rem;
+    }
+    .btn-qa-view, .btn-qa-write {
+        width: 100% !important;
+        padding: 0.95rem 1rem !important;
+        font-size: 1.12rem !important;
+    }
+    .qa-inner-tabs-wrap {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.6rem;
+    }
+    .qa-inner-tab-btn {
+        width: 100%;
+        text-align: center;
+        padding: 0.75rem 1rem;
+    }
+}
+
 .btn-budget-toggle .toggle-icon {
     font-size: 1.3rem;
     filter: drop-shadow(0 0 5px rgba(251, 191, 36, 0.8));

@@ -119,7 +119,7 @@
       ]
     }
     </script>
-    <link rel="stylesheet" href="css/style.css?v=7.02">
+    <link rel="stylesheet" href="css/style.css?v=7.03">
     <style>
     /* 調整主版面兩欄比例與間距，僅在桌機版生效以確保手機版正常響應式排版 */
     @media (min-width: 951px) {
@@ -687,82 +687,96 @@
                 <div class="transparency-header">
                     <h3 class="transparency-main-title">有問必答牆</h3>
                     
-                    <!-- 第 1 層：引導按鈕（預設顯眼露出，點擊後自身隱藏並展開第 2 層） -->
+                    <!-- 第 1 層：引導按鈕（桌機左右雙分流 / 手機上下堆疊） -->
                     <div class="qa-toggle-wrapper" id="qa-toggle-wrapper">
-                        <button type="button" class="btn-budget-toggle" id="btn-qa-open" onclick="openQADetails()">
-                            <span class="toggle-icon">💬</span>
-                            <span class="toggle-text">點我看解密 ▾</span>
-                        </button>
+                        <div class="qa-dual-btn-group">
+                            <button type="button" class="btn-budget-toggle btn-qa-view" id="btn-qa-view-wall" onclick="openQAViewWall()">
+                                <span class="toggle-icon">👀</span>
+                                <span class="toggle-text">看牆壁 ‧ 大家聊什麼 ▾</span>
+                            </button>
+                            <button type="button" class="btn-budget-toggle btn-qa-write" id="btn-qa-write-wall" onclick="openQAWriteWall()">
+                                <span class="toggle-icon">✍️</span>
+                                <span class="toggle-text">寫牆壁 ‧ 換我來發聲 ▾</span>
+                            </button>
+                        </div>
                     </div>
 
                     <!-- 第 2 & 3 層：展開內容容器（預設收納折疊） -->
                     <div class="qa-collapsible-content" id="qa-collapsible-content">
-                        <div class="qa-layout" style="margin-top: 2rem;">
-                            <!-- 上方：狀態篩選頁籤與 3 筆全寬精選問答卡片 -->
-                            <div class="qa-board-area">
-                                <div class="qa-tabs">
-                                    <button class="qa-tab-btn active" data-filter="all">全部提案 (11)</button>
-                                    <button class="qa-tab-btn" data-filter="policy">已納入政見 (6)</button>
-                                    <button class="qa-tab-btn" data-filter="inspect">重點會勘 (2)</button>
-                                    <button class="qa-tab-btn" data-filter="city">專案爭取 (2)</button>
-                                    <button class="qa-tab-btn" data-filter="law">法規解答 (1)</button>
+                        <!-- 內層頂部快速切換頁籤 -->
+                        <div class="qa-inner-tabs-wrap">
+                            <button type="button" class="qa-inner-tab-btn active" id="tab-btn-view" onclick="switchQAMode('view')">
+                                <span>👀 看大家在聊什麼</span>
+                            </button>
+                            <button type="button" class="qa-inner-tab-btn" id="tab-btn-write" onclick="switchQAMode('write')">
+                                <span>✍️ 換我來提案/諮詢</span>
+                            </button>
+                        </div>
+
+                        <div class="qa-layout" style="margin-top: 1.5rem;">
+                            <!-- 模式 1：看牆壁（問答看板） -->
+                            <div class="qa-view-pane" id="qa-view-pane">
+                                <div class="qa-board-area">
+                                    <div class="qa-tabs">
+                                        <button class="qa-tab-btn active" data-filter="all">全部提案 (11)</button>
+                                        <button class="qa-tab-btn" data-filter="policy">已納入政見 (6)</button>
+                                        <button class="qa-tab-btn" data-filter="inspect">重點會勘 (2)</button>
+                                        <button class="qa-tab-btn" data-filter="city">專案爭取 (2)</button>
+                                        <button class="qa-tab-btn" data-filter="law">法規解答 (1)</button>
+                                    </div>
+
+                                    <!-- 動態卡片清單 (由 JS 渲染精選 3 筆實色高對比卡片) -->
+                                    <div class="qa-cards-list" id="qa-cards-container">
+                                        <!-- Injected dynamically by main.js -->
+                                    </div>
                                 </div>
 
-                                <!-- 動態卡片清單 (由 JS 渲染精選 3 筆實色高對比卡片) -->
-                                <div class="qa-cards-list" id="qa-cards-container">
-                                    <!-- Injected dynamically by main.js -->
-                                </div>
-                            </div>
-
-                            <!-- 中間：打開專頁單一俐落按鈕 -->
-                            <div style="display:flex; justify-content:center; margin: 2rem auto;">
-                                <a href="qa.html" class="btn-hero-primary btn-qa-view-all" style="padding: 1rem 2.5rem; font-size: 1.15rem; font-weight: 700; border-radius: 50px;">
-                                    <span>查看全部問答 (共 11 案) ↗</span>
-                                </a>
-                            </div>
-
-                            <!-- 下方：可折疊之我要提案與諮詢表單 -->
-                            <div class="qa-form-collapsible-banner" id="qa-form-banner" style="margin-top: 1.5rem;">
-                                <div style="display:flex; justify-content:center;">
-                                    <button type="button" class="btn-budget-toggle" id="btn-qa-form-toggle" onclick="toggleQAForm()" style="background: rgba(251, 191, 36, 0.15); border: 1.5px dashed rgba(251, 191, 36, 0.6); color: var(--accent-primary);">
-                                        <span>📝 我要提案 / 諮詢里政 ▾</span>
+                                <!-- 中間：打開專頁單一俐落按鈕與引導換我寫按鈕 -->
+                                <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:1rem; margin: 2rem auto 0 auto;">
+                                    <a href="qa.html" class="btn-hero-primary btn-qa-view-all" style="padding: 0.9rem 2.2rem; font-size: 1.1rem; font-weight: 700; border-radius: 50px;">
+                                        <span>查看全部問答 (共 11 案) ↗</span>
+                                    </a>
+                                    <button type="button" class="btn-budget-toggle btn-qa-write" onclick="switchQAMode('write')" style="padding: 0.85rem 1.8rem; font-size: 1.05rem;">
+                                        <span>✍️ 我也有話想說 ‧ 換我寫 ▾</span>
                                     </button>
                                 </div>
-                                <div class="qa-form-collapsible-content" id="qa-form-collapsible-content" style="display:none; margin-top: 1.5rem;">
-                                    <div class="qa-form-card">
-                                        <div class="qa-form-header">
-                                            <h3>我要提案 / 諮詢里政</h3>
-                                            <p>【分級處理安心機制】一般市政建言、路燈水溝修繕走線上透明列管；若遇瓦斯異味、水管爆裂、即刻安危等緊急事件，請立即撥打緊急專線，第一時間直通專人處理！</p>
-                                        </div>
-                                        <form id="qa-submit-form">
-                                            <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:1.2rem;">
-                                                <div class="form-group">
-                                                    <label for="qa-user-name" style="font-size:0.95rem; font-weight:600; color:var(--text-primary);">您的稱呼 / 社區（選填）</label>
-                                                    <input type="text" id="qa-user-name" class="form-control" placeholder="例：陳先生／孔雀王朝" style="font-size:1rem; padding:0.8rem 1rem;">
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="qa-category" style="font-size:0.95rem; font-weight:600; color:var(--text-primary);">議題分類標籤</label>
-                                                    <select id="qa-category" class="form-control" style="background:var(--bg-primary); color:var(--text-primary); font-size:1rem; padding:0.8rem 1rem;">
-                                                        <option value="#巷弄安全與照明">#巷弄安全與照明</option>
-                                                        <option value="#環境衛生與整潔">#環境衛生與整潔</option>
-                                                        <option value="#跨世代共融與課程">#跨世代共融與課程</option>
-                                                        <option value="#交通號誌與停車">#交通號誌與停車</option>
-                                                        <option value="#社區法規與大樓共好">#社區法規與大樓共好</option>
-                                                        <option value="#其他生活建議">#其他生活建議</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="qa-contact" style="font-size:0.95rem; font-weight:600; color:var(--text-primary);">聯絡方式（選填，方便向您回報進度）</label>
-                                                <input type="text" id="qa-contact" class="form-control" placeholder="Email 或 手機號碼" style="font-size:1rem; padding:0.8rem 1rem;">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="qa-content" style="font-size:0.95rem; font-weight:600; color:var(--text-primary);">提案或問題詳情（必填）</label>
-                                                <textarea id="qa-content" class="form-control" rows="4" placeholder="請盡量具體描述地點或希望改善之情境..." required style="font-size:1rem; line-height:1.6; padding:0.9rem 1rem;"></textarea>
-                                            </div>
-                                            <button type="submit" class="submit-btn" style="width:100%; font-size:1.08rem; padding:0.95rem;">送出提案 ‧ 即時上牆受理</button>
-                                        </form>
+                            </div>
+
+                            <!-- 模式 2：寫牆壁（提案表單） -->
+                            <div class="qa-write-pane" id="qa-write-pane" style="display:none;">
+                                <div class="qa-form-card" style="max-width:680px; margin:0 auto;">
+                                    <div class="qa-form-header">
+                                        <h3>我要提案 / 諮詢里政</h3>
+                                        <p>【分級處理安心機制】一般市政建言、路燈水溝修繕走線上透明列管；若遇瓦斯異味、水管爆裂、即刻安危等緊急事件，請立即撥打緊急專線，第一時間直通專人處理！</p>
                                     </div>
+                                    <form id="qa-submit-form">
+                                        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:1.2rem;">
+                                            <div class="form-group">
+                                                <label for="qa-user-name" style="font-size:0.95rem; font-weight:600; color:var(--text-primary);">您的稱呼 / 社區（選填）</label>
+                                                <input type="text" id="qa-user-name" class="form-control" placeholder="例：陳先生／孔雀王朝" style="font-size:1rem; padding:0.8rem 1rem;">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="qa-category" style="font-size:0.95rem; font-weight:600; color:var(--text-primary);">議題分類標籤</label>
+                                                <select id="qa-category" class="form-control" style="background:var(--bg-primary); color:var(--text-primary); font-size:1rem; padding:0.8rem 1rem;">
+                                                    <option value="#巷弄安全與照明">#巷弄安全與照明</option>
+                                                    <option value="#環境衛生與整潔">#環境衛生與整潔</option>
+                                                    <option value="#跨世代共融與課程">#跨世代共融與課程</option>
+                                                    <option value="#交通號誌與停車">#交通號誌與停車</option>
+                                                    <option value="#社區法規與大樓共好">#社區法規與大樓共好</option>
+                                                    <option value="#其他生活建議">#其他生活建議</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="qa-contact" style="font-size:0.95rem; font-weight:600; color:var(--text-primary);">聯絡方式（選填，方便向您回報進度）</label>
+                                            <input type="text" id="qa-contact" class="form-control" placeholder="Email 或 手機號碼" style="font-size:1rem; padding:0.8rem 1rem;">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="qa-content" style="font-size:0.95rem; font-weight:600; color:var(--text-primary);">提案或問題詳情（必填）</label>
+                                            <textarea id="qa-content" class="form-control" rows="4" placeholder="請盡量具體描述地點或希望改善之情境..." required style="font-size:1rem; line-height:1.6; padding:0.9rem 1rem;"></textarea>
+                                        </div>
+                                        <button type="submit" class="submit-btn" style="width:100%; font-size:1.08rem; padding:0.95rem;">送出提案 ‧ 即時上牆受理</button>
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -1306,6 +1320,6 @@
         </div>
     </div>
 
-    <script src="js/main.js?v=7.02"></script>
+    <script src="js/main.js?v=7.03"></script>
 </body>
 </html>

@@ -1905,12 +1905,50 @@ function closePromisesDetails() {
     }
 }
 
-// 有問必答牆漸進式揭露切換
-function openQADetails() {
+// 有問必答牆雙分流切換（看牆壁 vs 寫牆壁）
+function openQAViewWall() {
     const toggleWrap = document.getElementById('qa-toggle-wrapper');
     const content = document.getElementById('qa-collapsible-content');
     if (toggleWrap) toggleWrap.style.display = 'none';
     if (content) content.classList.add('active');
+    switchQAMode('view');
+}
+
+function openQAWriteWall() {
+    const toggleWrap = document.getElementById('qa-toggle-wrapper');
+    const content = document.getElementById('qa-collapsible-content');
+    if (toggleWrap) toggleWrap.style.display = 'none';
+    if (content) content.classList.add('active');
+    switchQAMode('write');
+}
+
+function switchQAMode(mode) {
+    const viewPane = document.getElementById('qa-view-pane');
+    const writePane = document.getElementById('qa-write-pane');
+    const tabBtnView = document.getElementById('tab-btn-view');
+    const tabBtnWrite = document.getElementById('tab-btn-write');
+
+    if (mode === 'write') {
+        if (viewPane) viewPane.style.display = 'none';
+        if (writePane) writePane.style.display = 'block';
+        if (tabBtnView) tabBtnView.classList.remove('active');
+        if (tabBtnWrite) tabBtnWrite.classList.add('active');
+
+        // 平滑滾動至表單區塊並自動聚焦輸入框
+        const form = document.getElementById('qa-submit-form');
+        if (form) {
+            form.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            setTimeout(() => {
+                const input = document.getElementById('qa-user-name') || document.getElementById('qa-content');
+                if (input) input.focus();
+            }, 350);
+        }
+    } else {
+        if (viewPane) viewPane.style.display = 'block';
+        if (writePane) writePane.style.display = 'none';
+        if (tabBtnView) tabBtnView.classList.add('active');
+        if (tabBtnWrite) tabBtnWrite.classList.remove('active');
+    }
 }
 
 function closeQADetails() {
