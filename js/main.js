@@ -2246,7 +2246,7 @@ const HERO_TRAITS_DATA = {
         quote: ''
     },
     eq: {
-        title: '同理傾聽，溫暖化解鄰里對立',
+        title: '覺察情緒，化解鄰里對立',
         titleClass: 'title-glow-emerald',
         badge: '',
         icon: '🤝',
@@ -2255,11 +2255,11 @@ const HERO_TRAITS_DATA = {
         hideTopClose: true,
         sections: [
             {
-                title: '🌟 還沒上任就有政績<br>校園志工 一線陪伴孩子與長輩',
+                title: '🌟 還沒上任就有政績',
                 items: [
-                    { label: '8年樂利EQ講師', text: '取得 7 套專業證照，2 年組長帶領 50 位志工入班授課' },
-                    { label: '6年英語補救教學', text: '耐心陪伴學習進度較慢的孩子，重拾自信與興趣' },
-                    { label: '4年每週故事爸爸', text: '每週一講不間斷，用生動故事啟發品格教育' }
+                    { label: '8年的樂利國小EQ志工講師', text: '取得 7 套情緒教育證照，擔任EQ組長帶領 70 位志工入班授課' },
+                    { label: '6年的樂利英語補救教學講師', text: '耐心陪伴學習進度較慢的孩子，重拾英語的自信與興趣' },
+                    { label: '4年的樂利國小故事爸爸', text: '每週一講班，每週不間斷，用緊張有趣的故事，啟發孩子的想像力' }
                 ]
             },
             {
@@ -2277,7 +2277,7 @@ const HERO_TRAITS_DATA = {
                         '❓ 你知道嗎？情緒教育能有效預防校園與社區霸凌！'
                     ],
                     btnText: '查看詳情',
-                    drawerId: 8
+                    drawerId: 2
                 }
             }
         ],
