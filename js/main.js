@@ -2628,16 +2628,22 @@ function openHeroTraitModal(traitKey) {
 
                 let hookHtml = '';
                 if (sec.hook) {
-                    const qHtml = sec.hook.questions 
-                        ? sec.hook.questions.map(q => `<div class="trait-hook-q" style="margin-bottom: 0.4rem;">${escapeHTML(q)}</div>`).join('')
-                        : `<div class="trait-hook-q">${escapeHTML(sec.hook.question || '')}</div>`;
                     const targetDrawer = sec.hook.drawerId || 7;
+                    const btnHtml = `<button type="button" class="trait-pill-btn" style="margin-left: 0.45rem; vertical-align: middle; display: inline-flex;" onclick="closeHeroTraitModal(); openDrawer(${targetDrawer});">${escapeHTML(sec.hook.btnText)}</button>`;
+
+                    let qHtml = '';
+                    if (sec.hook.questions && sec.hook.questions.length > 0) {
+                        qHtml = sec.hook.questions.map((q, idx) => {
+                            const isLast = idx === sec.hook.questions.length - 1;
+                            return `<div class="trait-hook-q" style="margin-bottom: ${isLast ? '0' : '0.4rem'};">${escapeHTML(q)}${isLast ? btnHtml : ''}</div>`;
+                        }).join('');
+                    } else {
+                        qHtml = `<div class="trait-hook-q">${escapeHTML(sec.hook.question || '')}${btnHtml}</div>`;
+                    }
+
                     hookHtml = `
                         <div class="trait-hook-box">
                             ${qHtml}
-                            <button type="button" class="trait-action-btn" style="margin-top: 0.4rem;" onclick="closeHeroTraitModal(); openDrawer(${targetDrawer});">
-                                ${escapeHTML(sec.hook.btnText)}
-                            </button>
                         </div>
                     `;
                 }
