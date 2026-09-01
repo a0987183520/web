@@ -2406,26 +2406,18 @@ const HERO_TRAITS_DATA = {
             {
                 title: '🌟 還沒上任就有政績',
                 items: [
-                    { label: '搶通 403 地震重要便道', text: '403 地震捷運學府與孔雀王朝二期間便道下陷坍塌、各單位互推；經我深入研究找到權責單位配合施工搶通，守護盲人與通勤安全', btnText: '查看詳情', drawerId: 14 },
-                    { label: '首創規約遏止鄰里濫訴', text: '合理訴訟是基本人權，不合理濫訴就是霸凌！運用住宅法規守護安寧', btnText: '查看詳情', drawerId: 10 }
-                ]
-            },
-            {
-                title: '🌟 核心承諾：',
-                items: [
-                    { label: '24小時快速回應', text: '建立線上即時回報系統，路平燈亮水溝通' },
-                    { label: '全面消除通行障礙', text: '爭取學府便道長久固化與通學步道平整' }
+                    { label: '', text: '403 地震捷運學府與孔雀王朝二期間便道下陷坍塌、各單位互推；經我深入研究找到權責單位配合施工搶通，守護鄰里用路人與視障人士的安全', btnText: '查看詳情', drawerId: 14 },
+                    { label: '', text: '擔任主委期間建立「反濫訴防禦社區規約」，濫訴者需負擔被濫訴人的損害賠償及律師費並獲法院判決勝訴，解決社區住戶經常被濫訴的困擾', btnText: '查看詳情', drawerId: 10 }
                 ]
             },
             {
                 title: '💡 痛點問題與重點關懷：',
                 hook: {
                     questions: [
-                        '❓ 你知道嗎？你有遇過愛濫告的鄰居嗎？不合理的濫訴就是霸凌！',
-                        '❓ 你知道嗎？學府便道每天有數百位居民與視障朋友通勤！'
+                        '❓ 你們社區是否也有喜愛濫告的鄰居呢？合理的訴訟是人權，不合理的濫訴就需要有智慧的反制'
                     ],
                     btnText: '查看詳情',
-                    drawerId: 14
+                    drawerId: 10
                 }
             }
         ],
@@ -2603,9 +2595,11 @@ function openHeroTraitModal(traitKey) {
                         <div class="hero-trait-highlight-list">
                             ${sec.items.map(item => `
                                 <div class="hero-trait-highlight-item" style="flex-direction: column; align-items: flex-start; gap: 0.2rem;">
-                                    <div class="highlight-item-label-row">
-                                        <span class="highlight-bullet">✔</span>
-                                        <span style="color: #f5f5f4;">${escapeHTML(item.label)}：</span>
+                                    <div class="highlight-item-label-row" style="${!item.label ? 'width: 100%; justify-content: space-between;' : ''}">
+                                        <div style="display: inline-flex; align-items: center; gap: 0.4rem;">
+                                            <span class="highlight-bullet">✔</span>
+                                            ${item.label ? `<span style="color: #f5f5f4;">${escapeHTML(item.label)}：</span>` : ''}
+                                        </div>
                                         ${item.btnUrl ? `<a href="${item.btnUrl}" target="_blank" rel="noopener" class="trait-pill-btn">${escapeHTML(item.btnText)}</a>` : ''}
                                         ${item.drawerId ? `<button type="button" class="trait-pill-btn" onclick="closeHeroTraitModal(); openDrawer(${item.drawerId});">${escapeHTML(item.btnText || '查看詳情')}</button>` : ''}
                                     </div>
