@@ -1223,29 +1223,7 @@
                 
                 <!-- 右欄：政見與條文細節 -->
                 <div class="drawer-right-column">
-                    <!-- 1. Hook / Pain Point Breakdown (痛點大解密 / 你知道嗎？) -->
-                    <div class="drawer-section drawer-hook-section" id="drawer-hook-box">
-                        <div class="drawer-hook-header">
-                            <span class="hook-icon">💡</span>
-                            <h3>痛點大解密 ‧ 你知道嗎？</h3>
-                        </div>
-                        <div class="drawer-hook-content" id="drawer-hook-content">
-                            <!-- Injected dynamically by main.js -->
-                        </div>
-                    </div>
-
-                    <!-- 2. How to implement (我會怎麼做) -->
-                    <div class="drawer-section">
-                        <h3>
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
-                            我會怎麼做
-                        </h3>
-                        <ul class="drawer-list" id="drawer-howtodo-list">
-                            <!-- Injected dynamically by main.js -->
-                        </ul>
-                    </div>
-
-                    <!-- 3. Budget Source Section (經費來源與預算依據) -->
+                    <!-- 1. Budget Source Section (經費來源與預算依據 - 第一順位直球對決) -->
                     <div class="drawer-section drawer-budget-section" id="drawer-budget-box">
                         <h3 id="drawer-budget-title">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"></path><path d="M12 18V6"></path></svg>
@@ -1260,8 +1238,19 @@
                         <p id="drawer-budget-text">這裡會詳細載明具體的政府公務預算或專案出處...</p>
                     </div>
 
-                    <!-- 4. Capability / Advantages (我為什麼做得到) -->
-                    <div class="drawer-section">
+                    <!-- 2. How to implement (我會怎麼做) -->
+                    <div class="drawer-section" id="drawer-how-box">
+                        <h3>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
+                            我會怎麼做
+                        </h3>
+                        <ul class="drawer-list" id="drawer-howtodo-list">
+                            <!-- Injected dynamically by main.js -->
+                        </ul>
+                    </div>
+
+                    <!-- 3. Capability / Advantages (我為什麼做得到) -->
+                    <div class="drawer-section" id="drawer-capability-box">
                         <h3 id="drawer-capability-title">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                             我為什麼做得到
@@ -1269,24 +1258,14 @@
                         <p id="drawer-capability-text">這裡會詳細載明候選人的背景經歷與執行優勢...</p>
                     </div>
 
-                    <!-- 5. Principles & Constraints (執行原則與法規把關) -->
-                    <div class="drawer-section">
-                        <h3>
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
-                            執行原則與法規把關
-                        </h3>
-                        <p id="drawer-principles-text">這裡會載明相關的法規限制、風險控管底線與使用原則...</p>
-                        <div class="drawer-alert">
-                            <div class="drawer-alert-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <circle cx="12" cy="12" r="10"></circle>
-                                    <line x1="12" y1="16" x2="12" y2="12"></line>
-                                    <line x1="12" y1="8" x2="12.01" y2="8"></line>
-                                </svg>
-                            </div>
-                            <div class="drawer-alert-text">
-                                本政策細節均由「明德里 2.0 競選團隊」之律師、中選會諮詢人員與民政法規顧問把關，確保一切承諾具備可行性與法源依據。
-                            </div>
+                    <!-- 4. Hook / Pain Point Breakdown (痛點大解密 / 你知道嗎？) -->
+                    <div class="drawer-section drawer-hook-section" id="drawer-hook-box">
+                        <div class="drawer-hook-header">
+                            <span class="hook-icon">💡</span>
+                            <h3>痛點大解密 ‧ 你知道嗎？</h3>
+                        </div>
+                        <div class="drawer-hook-content" id="drawer-hook-content">
+                            <!-- Injected dynamically by main.js -->
                         </div>
                     </div>
 
@@ -1382,6 +1361,6 @@
         </div>
     </div>
 
-    <script src="js/main.js?v=8.17"></script>
+    <script src="js/main.js?v=8.18"></script>
 </body>
 </html>
