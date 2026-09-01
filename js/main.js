@@ -2374,10 +2374,10 @@ const HERO_TRAITS_DATA = {
         hideTopClose: true,
         sections: [
             {
-                title: '🌟 還沒上任就有政績<br>情緒智慧 8年EQ講師與勇抗霸凌',
+                title: '🌟 還沒上任就有政績',
                 items: [
                     { label: '8年樂利EQ志工+2屆EQ組長', text: '取得 7 套專業情緒教育證照，帶領 70 位志工入班陪伴學童' },
-                    { label: '學EQ不是教你吞委屈', text: '生氣可被理解，面對真正霸凌要有足夠智慧與勇氣！但絕對不是以暴制暴' }
+                    { label: '學EQ不是教你吞委屈', text: '生氣可被理解，表達方式才是重點，當面對霸凌時，更需足夠智慧與勇氣！但絕對不是以暴制暴', btnText: '查看詳情', drawerId: 10 }
                 ]
             },
             {
@@ -2615,6 +2615,7 @@ function openHeroTraitModal(traitKey) {
                                         <span class="highlight-bullet">✔</span>
                                         <span style="color: #f5f5f4;">${escapeHTML(item.label)}：</span>
                                         ${item.btnUrl ? `<a href="${item.btnUrl}" target="_blank" rel="noopener" class="trait-pill-btn">${escapeHTML(item.btnText)}</a>` : ''}
+                                        ${item.drawerId ? `<button type="button" class="trait-pill-btn" onclick="closeHeroTraitModal(); openDrawer(${item.drawerId});">${escapeHTML(item.btnText || '查看詳情')}</button>` : ''}
                                     </div>
                                     <div class="highlight-item-desc-row">
                                         ${escapeHTML(item.text)}
