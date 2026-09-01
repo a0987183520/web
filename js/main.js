@@ -2629,16 +2629,26 @@ function openHeroTraitModal(traitKey) {
                 let hookHtml = '';
                 if (sec.hook) {
                     const targetDrawer = sec.hook.drawerId || 7;
-                    const btnHtml = `<button type="button" class="trait-pill-btn" style="margin-left: 0.45rem; vertical-align: middle; display: inline-flex;" onclick="closeHeroTraitModal(); openDrawer(${targetDrawer});">${escapeHTML(sec.hook.btnText)}</button>`;
+                    const btnHtml = `<button type="button" class="trait-pill-btn" onclick="closeHeroTraitModal(); openDrawer(${targetDrawer});">${escapeHTML(sec.hook.btnText)}</button>`;
 
                     let qHtml = '';
                     if (sec.hook.questions && sec.hook.questions.length > 0) {
                         qHtml = sec.hook.questions.map((q, idx) => {
                             const isLast = idx === sec.hook.questions.length - 1;
-                            return `<div class="trait-hook-q" style="margin-bottom: ${isLast ? '0' : '0.4rem'};">${escapeHTML(q)}${isLast ? btnHtml : ''}</div>`;
+                            return `
+                                <div class="trait-hook-q" style="display: flex; align-items: center; flex-wrap: wrap; gap: 0.5rem; margin-bottom: ${isLast ? '0' : '0.5rem'};">
+                                    <span>${escapeHTML(q)}</span>
+                                    ${isLast ? btnHtml : ''}
+                                </div>
+                            `;
                         }).join('');
                     } else {
-                        qHtml = `<div class="trait-hook-q">${escapeHTML(sec.hook.question || '')}${btnHtml}</div>`;
+                        qHtml = `
+                            <div class="trait-hook-q" style="display: flex; align-items: center; flex-wrap: wrap; gap: 0.5rem;">
+                                <span>${escapeHTML(sec.hook.question || '')}</span>
+                                ${btnHtml}
+                            </div>
+                        `;
                     }
 
                     hookHtml = `
