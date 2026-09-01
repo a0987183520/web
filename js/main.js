@@ -2381,13 +2381,6 @@ const HERO_TRAITS_DATA = {
                 ]
             },
             {
-                title: '🌟 核心承諾：',
-                items: [
-                    { label: '引導說出深層委屈', text: '了解委屈才能化解鄰里糾紛，用同理心與專業溝通促進和睦' },
-                    { label: '開辦家庭EQ共學坊', text: '結合社區資源協助家長建立良好跨世代親子溝通' }
-                ]
-            },
-            {
                 title: '💡 痛點問題與重點關懷：',
                 hook: {
                     questions: [
