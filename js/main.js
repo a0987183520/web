@@ -2377,7 +2377,6 @@ const HERO_TRAITS_DATA = {
                 title: '🌟 還沒上任就有政績<br>情緒智慧 8年EQ講師與勇抗霸凌',
                 items: [
                     { label: '8年樂利EQ志工+2屆EQ組長', text: '取得 7 套專業情緒教育證照，帶領 70 位志工入班陪伴學童' },
-                    { label: '6年補救教學與4年故事爸爸志工', text: '耐心陪伴進度較慢的孩子，每週說故事啟發想像力' },
                     { label: '學EQ不是教你吞委屈', text: '生氣可被理解，面對真正霸凌要有足夠智慧與勇氣！但絕對不是以暴制暴' }
                 ]
             },
@@ -2514,19 +2513,20 @@ const HERO_TRAITS_DATA = {
         ],
         quote: ''
     },
-    art: {
-        title: '生活有美學，多元體驗零負擔',
+    service: {
+        title: '熱心公益，多年深耕志工陪伴成長',
         titleClass: 'title-glow-emerald',
         badge: '',
-        icon: '🎵',
+        icon: '💖',
         subtitle: '',
         lead: '',
         hideTopClose: true,
         sections: [
             {
-                title: '🌟 還沒上任就有政績<br>20年音樂演出 免費開辦多元營隊',
+                title: '🌟 還沒上任就有政績<br>十餘年校園與社區志工 陪伴孩子快樂成長',
                 items: [
-                    { label: '20年流行音樂與樂團經歷', text: '具備現場演出與樂譜編著實戰經驗' },
+                    { label: '6年樂利英語補救教學志工', text: '寓教於樂，點燃小孩學習英文的內驅力' },
+                    { label: '4年樂利故事爸爸志工', text: '每週一次，講述幽默有趣的歷史故事' },
                     { label: '長期自辦免費體驗營', text: '曾開辦直排輪、無人機、AI短劇、數學與自然好好玩等營隊' },
                     { label: '開創斜槓志工教學', text: '匯聚在地專業人才，提供多元豐富學習資源' }
                 ]
@@ -2554,6 +2554,8 @@ const HERO_TRAITS_DATA = {
         quote: ''
     }
 };
+
+HERO_TRAITS_DATA.art = HERO_TRAITS_DATA.service;
 
 function openHeroTraitModal(traitKey) {
     const data = HERO_TRAITS_DATA[traitKey];
