@@ -558,10 +558,13 @@ function executePolicyVote(policyId, age, gender) {
     // 1. 更新卡片與抽屜 UI 狀態
     updatePolicyVoteUI(policyId, newCount, true);
 
-    // 2. 觸發按鈕浮動 +1 微粒子特效
+    // 2. 即時更新下方「全里民意即時榜」長條圖與排行
+    renderPolicyRankings();
+
+    // 3. 觸發按鈕浮動 +1 微粒子特效
     createVotePlusOneParticle(policyId);
 
-    // 3. 觸發全螢幕放大脈衝愛心微動畫
+    // 4. 觸發全螢幕放大脈衝愛心微動畫
     showVoteSuccessAnimation(policyId, policyTitle);
 
     // 4. 同步拋送數據至 Google Apps Script 雲端試算表
@@ -648,6 +651,111 @@ function showVoteSuccessAnimation(policyId, policyTitle) {
         clearTimeout(timer);
         overlay.style.display = 'none';
     };
+}
+
+// ==========================================================================
+// 全里民意即時榜 (Top 5 + 看全部排行) 動態長條圖系統
+// ==========================================================================
+let isRankingExpanded = false;
+let hasRankingAnimated = false;
+
+function renderPolicyRankings() {
+    const container = document.getElementById('ranking-bars-container');
+    if (!container) return;
+
+    // 1. 取得所有 14 項政見及其當前票數
+    const rankingData = POLICIES_DATA.map(p => ({
+        id: p.id,
+        title: p.title,
+        votes: getPolicyVoteCount(p.id)
+    }));
+
+    // 2. 依照票數由高到低降冪排序
+    rankingData.sort((a, b) => b.votes - a.votes || a.id - b.id);
+
+    // 3. 找出最高票數作為百分比基準（最低保底 100 票）
+    const maxVotes = Math.max(...rankingData.map(d => d.votes), 100);
+
+    // 4. 動態生成長條 HTML
+    let html = '';
+    rankingData.forEach((item, index) => {
+        const rank = index + 1;
+        const isTop5 = rank <= 5;
+        const percent = Math.min(100, Math.max(12, Math.round((item.votes / maxVotes) * 100)));
+        const rankClass = rank === 1 ? 'rank-1' : rank === 2 ? 'rank-2' : rank === 3 ? 'rank-3' : '';
+        const itemExtraClass = isTop5 ? '' : `ranking-item-extra ${isRankingExpanded ? 'expanded' : ''}`;
+        const itemRankClass = rank === 1 ? 'rank-item-1' : '';
+
+        html += `
+            <div class="ranking-bar-item ${itemExtraClass} ${itemRankClass}" data-policy-id="${item.id}" onclick="openDrawer(${item.id})" title="點擊查看「計畫 ${item.id < 10 ? '0' + item.id : item.id} ‧ ${item.title}」詳細規劃與經費解密">
+                <div class="ranking-item-header">
+                    <div class="ranking-item-left">
+                        <span class="ranking-pos-badge ${rankClass}">#${rank}</span>
+                        <span class="ranking-item-title">計畫 ${item.id < 10 ? '0' + item.id : item.id} ‧ ${item.title}</span>
+                    </div>
+                    <div class="ranking-item-right">
+                        <span class="ranking-item-votes">${item.votes} 票</span>
+                        <span class="ranking-detail-hint">詳細 ▾</span>
+                    </div>
+                </div>
+                <div class="ranking-track">
+                    <div class="ranking-fill" data-percent="${percent}" style="width: ${hasRankingAnimated ? percent + '%' : '0%'};"></div>
+                </div>
+            </div>
+        `;
+    });
+
+    container.innerHTML = html;
+
+    // 如果已經進場過，直接觸發動畫寬度更新
+    if (hasRankingAnimated) {
+        requestAnimationFrame(() => {
+            const fills = container.querySelectorAll('.ranking-fill');
+            fills.forEach(fill => {
+                const p = fill.getAttribute('data-percent');
+                fill.style.width = `${p}%`;
+            });
+        });
+    }
+}
+
+// 切換「看全部排行」與「收合至前五大」
+function toggleRankingView() {
+    isRankingExpanded = !isRankingExpanded;
+    const extraItems = document.querySelectorAll('.ranking-item-extra');
+    const toggleText = document.getElementById('ranking-toggle-text');
+    const toggleBtn = document.getElementById('btn-ranking-toggle');
+
+    if (isRankingExpanded) {
+        extraItems.forEach(item => item.classList.add('expanded'));
+        if (toggleText) toggleText.textContent = '收合至前五大 ▴';
+        if (toggleBtn) toggleBtn.setAttribute('aria-expanded', 'true');
+    } else {
+        extraItems.forEach(item => item.classList.remove('expanded'));
+        if (toggleText) toggleText.textContent = '看全部排行 ▾';
+        if (toggleBtn) toggleBtn.setAttribute('aria-expanded', 'false');
+    }
+}
+
+// 監聽滾動進場動畫
+function initRankingAnimationObserver() {
+    const rankingSection = document.getElementById('policy-ranking-section');
+    if (!rankingSection) return;
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && !hasRankingAnimated) {
+                hasRankingAnimated = true;
+                const fills = rankingSection.querySelectorAll('.ranking-fill');
+                fills.forEach(fill => {
+                    const p = fill.getAttribute('data-percent');
+                    fill.style.width = `${p}%`;
+                });
+            }
+        });
+    }, { threshold: 0.15 });
+
+    observer.observe(rankingSection);
 }
 
 // Generate Policy Cards
@@ -2134,6 +2242,8 @@ function initHashAnchorNavigation() {
 
 // Initial Render and setup
 renderPolicies();
+renderPolicyRankings();
+initRankingAnimationObserver();
 renderQACards();
 initQATabs();
 initQAForm();

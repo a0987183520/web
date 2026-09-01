@@ -122,7 +122,7 @@
       ]
     }
     </script>
-    <link rel="stylesheet" href="css/style.css?v=8.00">
+    <link rel="stylesheet" href="css/style.css?v=8.01">
     <style>
     /* 調整主版面兩欄比例與間距，僅在桌機版生效以確保手機版正常響應式排版 */
     @media (min-width: 951px) {
@@ -334,6 +334,31 @@
             <!-- Policy Cards Grid -->
             <div class="policies-grid" id="policies-grid">
                 <!-- Injected dynamically by main.js -->
+            </div>
+
+            <!-- 全里民意即時榜 (Top 5 + 看全部排行) -->
+            <div class="policy-ranking-section glass reveal" id="policy-ranking-section">
+                <div class="ranking-header">
+                    <div class="ranking-badge"><span class="pulse-dot"></span> 全里民意即時榜</div>
+                    <h3 class="ranking-title">想開什麼體驗營？里民點選，我來做！</h3>
+                    <p class="ranking-subtitle">
+                        打破傳統里長黑箱活動，什麼課程活動，里民手機簡單投！<br>
+                        <span class="ranking-note">※ 多元財源專案獨立，票數僅反映期待序，所有活動按部就班推進，絕不互相排擠</span>
+                    </p>
+                </div>
+
+                <!-- 排行榜動態長條圖清單容器 -->
+                <div class="ranking-bars-container" id="ranking-bars-container">
+                    <!-- 由 main.js 動態注入 -->
+                </div>
+
+                <!-- 看全部排行 / 收合 按鈕 -->
+                <div class="ranking-action-wrap">
+                    <button type="button" class="btn-ranking-toggle" id="btn-ranking-toggle" onclick="toggleRankingView()">
+                        <span class="ranking-toggle-icon">📊</span>
+                        <span class="ranking-toggle-text" id="ranking-toggle-text">看全部排行 ▾</span>
+                    </button>
+                </div>
             </div>
 
             <!-- 政策發布宣告徽章 (置於卡片區下方作為客觀宣告) -->
@@ -1358,6 +1383,6 @@
         </div>
     </div>
 
-    <script src="js/main.js?v=8.00"></script>
+    <script src="js/main.js?v=8.01"></script>
 </body>
 </html>
