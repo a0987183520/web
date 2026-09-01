@@ -734,6 +734,13 @@ function toggleRankingView() {
         extraItems.forEach(item => item.classList.remove('expanded'));
         if (toggleText) toggleText.textContent = '看全部排行 ▾';
         if (toggleBtn) toggleBtn.setAttribute('aria-expanded', 'false');
+
+        // 收合後平滑滾動對焦回按鈕位置
+        setTimeout(() => {
+            if (toggleBtn) {
+                toggleBtn.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        }, 60);
     }
 }
 
