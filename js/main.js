@@ -682,16 +682,18 @@ function renderPolicyRankings() {
         const rank = index + 1;
         const isTop5 = rank <= 5;
         const percent = Math.min(100, Math.max(12, Math.round((item.votes / maxVotes) * 100)));
-        const rankClass = rank === 1 ? 'rank-1' : rank === 2 ? 'rank-2' : rank === 3 ? 'rank-3' : '';
+        const rankClass = rank === 1 ? 'rank-1' : rank === 2 ? 'rank-2' : rank === 3 ? 'rank-3' : 'rank-other';
         const itemExtraClass = isTop5 ? '' : `ranking-item-extra ${isRankingExpanded ? 'expanded' : ''}`;
         const itemRankClass = rank === 1 ? 'rank-item-1' : '';
+        const hotBadgeHtml = rank <= 3 ? '<span class="ranking-hot-tag"><span class="crown-icon">👑</span> 里民最關注</span>' : '';
 
         html += `
             <div class="ranking-bar-item ${itemExtraClass} ${itemRankClass}" data-policy-id="${item.id}" onclick="openDrawer(${item.id})" title="點擊查看「計畫 ${item.id < 10 ? '0' + item.id : item.id} ‧ ${item.title}」詳細規劃與經費解密">
                 <div class="ranking-item-header">
                     <div class="ranking-item-left">
-                        <span class="ranking-pos-badge ${rankClass}">#${rank}</span>
+                        <span class="ranking-pos-badge ${rankClass}">第${rank}名</span>
                         <span class="ranking-item-title">計畫 ${item.id < 10 ? '0' + item.id : item.id} ‧ ${item.title}</span>
+                        ${hotBadgeHtml}
                     </div>
                     <div class="ranking-item-right">
                         <span class="ranking-item-votes">${item.votes} 票</span>
