@@ -17,6 +17,11 @@ const POLICY_BASE_VOTES = {
     13: 68,  // 原 08 預防失智
     14: 72   // 原 11 幸福寵物
 };
+let liveCloudPolicyVotes = {};
+try {
+    const cachedVotes = localStorage.getItem('md2_cloud_policy_votes');
+    if (cachedVotes) liveCloudPolicyVotes = JSON.parse(cachedVotes);
+} catch (e) {}
 const VOTE_COOLDOWN_MS = 60 * 60 * 1000; // 1 小時防刷冷卻
 let pendingVotePolicyId = null;
 
@@ -439,8 +444,11 @@ function saveVoterProfile(age, gender) {
     return profile;
 }
 
-// 取得特定計畫支持票數 (初調基底 + 本地真實累積)
+// 取得特定計畫支持票數 (優先讀取 Google 試算表雲端同步總票數，次之讀取初調基底 + 本地真實累積)
 function getPolicyVoteCount(policyId) {
+    if (liveCloudPolicyVotes && liveCloudPolicyVotes[policyId] !== undefined) {
+        return Number(liveCloudPolicyVotes[policyId]);
+    }
     const base = POLICY_BASE_VOTES[policyId] || 50;
     const delta = parseInt(localStorage.getItem(`md2_policy_vote_delta_${policyId}`) || '0', 10);
     return base + delta;
@@ -535,10 +543,17 @@ function executePolicyVote(policyId, age, gender) {
     const curDelta = parseInt(localStorage.getItem(`md2_policy_vote_delta_${policyId}`) || '0', 10) + 1;
     localStorage.setItem(`md2_policy_vote_delta_${policyId}`, curDelta.toString());
 
+    // 立即累加即時記憶票數並寫入快取
+    const curTotal = getPolicyVoteCount(policyId);
+    const newCount = curTotal + 1;
+    liveCloudPolicyVotes[policyId] = newCount;
+    try {
+        localStorage.setItem('md2_cloud_policy_votes', JSON.stringify(liveCloudPolicyVotes));
+    } catch (e) {}
+
     const deviceId = getVoterDeviceId();
     const policy = POLICIES_DATA.find(p => p.id === policyId);
     const policyTitle = policy ? policy.title : `計畫 ${policyId}`;
-    const newCount = getPolicyVoteCount(policyId);
 
     // 1. 更新卡片與抽屜 UI 狀態
     updatePolicyVoteUI(policyId, newCount, true);
@@ -552,7 +567,7 @@ function executePolicyVote(policyId, age, gender) {
     // 4. 觸發全螢幕放大脈衝愛心微動畫
     showVoteSuccessAnimation(policyId, policyTitle);
 
-    // 4. 同步拋送數據至 Google Apps Script 雲端試算表
+    // 5. 同步拋送數據至 Google Apps Script 雲端試算表 (自動記錄並累加總票數)
     if (GOOGLE_SCRIPT_URL) {
         const ageLabelMap = {
             'under-20': '20歲以下',
@@ -1927,6 +1942,24 @@ function syncCloudData() {
                 try {
                     localStorage.setItem('md2_cloud_sub_proposals', JSON.stringify(data.subProposals));
                 } catch(e) {}
+            }
+
+            // 4. 同步 14 項政見最新雲端總票數 (跨裝置即時同步)
+            if (data.policyVotes && typeof data.policyVotes === 'object') {
+                liveCloudPolicyVotes = data.policyVotes;
+                try {
+                    localStorage.setItem('md2_cloud_policy_votes', JSON.stringify(data.policyVotes));
+                } catch(e) {}
+
+                // 更新所有政見卡片「我想要」按鈕票數
+                if (Array.isArray(POLICIES_DATA)) {
+                    POLICIES_DATA.forEach(p => {
+                        const isVoted = isPolicyInCooldown(p.id);
+                        updatePolicyVoteUI(p.id, getPolicyVoteCount(p.id), isVoted);
+                    });
+                }
+                // 重新計算並渲染「全里民意即時榜」
+                renderPolicyRankings();
             }
 
             // 即時平滑更新 Q&A 卡片清單 (含母案與附議子案)
