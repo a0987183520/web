@@ -218,24 +218,25 @@
       margin: 2px 4px;
     }
 
-    /* 資訊長條清單 (替代四方塊) */
+    /* 核心資訊長條看板 (解決內容被擠壓過窄與拉高拉直) */
     .quick-meta-list {
       display: flex;
       flex-direction: column;
       gap: 12px;
       margin-top: 24px;
-      text-align: left;
+      width: 100%;
     }
 
     .quick-meta-bar {
-      background: rgba(255, 255, 255, 0.9);
+      background: rgba(255, 255, 255, 0.94);
       border: 1.5px solid #d8e5dd;
       border-radius: 12px;
-      padding: 16px 24px;
+      padding: 16px 20px;
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      gap: 16px;
+      gap: 18px;
+      width: 100%;
+      box-sizing: border-box;
       transition: all 0.2s ease;
     }
 
@@ -248,33 +249,30 @@
     .meta-bar-left {
       display: flex;
       align-items: center;
-      gap: 12px;
-      min-width: 170px;
+      gap: 10px;
+      flex-shrink: 0;
+      width: 130px;
     }
 
     .meta-bar-icon {
-      font-size: 1.6rem;
+      font-size: 1.5rem;
       line-height: 1;
     }
 
     .meta-bar-title {
-      font-size: 1.3rem;
+      font-size: 1.25rem;
       font-weight: 800;
       color: var(--primary);
+      white-space: nowrap;
     }
 
     .meta-bar-desc {
-      font-size: 1.3rem;
-      color: #222222;
+      font-size: 1.25rem;
+      color: #1a1a1a;
       font-weight: 600;
-      text-align: right;
-    }
-
-    h2.hero-sub {
-      font-size: 1.7rem;
-      font-weight: 600;
-      color: var(--text-muted);
-      margin-bottom: 36px;
+      text-align: left;
+      flex: 1;
+      line-height: 1.5;
     }
 
     /* 單一主標題樣式（不硬加副標題，極簡俐落） */
@@ -490,13 +488,6 @@
     .delay-3 { transition-delay: 0.24s; }
     .delay-4 { transition-delay: 0.32s; }
 
-    /* 響應式手機端優化 (深度防破版與字級調校) */
-    @media (max-width: 768px) {
-      header.header-nav {
-        padding: 12px 16px;
-      }
-      .nav-brand {
-        font-size: 1.05rem;
     /* 底部列印按鈕樣式 */
     .print-footer-container {
       text-align: center;
@@ -531,8 +522,6 @@
       color: #777777;
       margin-top: 12px;
     }
-
-    /* 響應式手機端優化 (深度防破版與字級調校) */
     @media (max-width: 768px) {
       header.header-nav {
         padding: 10px 14px;
@@ -571,19 +560,22 @@
       .quick-meta-bar {
         flex-direction: column;
         align-items: flex-start;
-        gap: 4px;
-        padding: 12px 14px;
+        gap: 6px;
+        padding: 14px 16px;
       }
       .meta-bar-left {
+        width: 100%;
         min-width: auto;
       }
       .meta-bar-title {
-        font-size: 1.15rem;
+        font-size: 1.18rem;
       }
       .meta-bar-desc {
         text-align: left;
-        font-size: 1.15rem;
+        font-size: 1.2rem;
         color: #111111;
+        width: 100%;
+        line-height: 1.5;
         padding-left: 2px;
       }
       .section-title {
