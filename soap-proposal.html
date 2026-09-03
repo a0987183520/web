@@ -509,6 +509,7 @@
       display: inline-flex;
       align-items: center;
       gap: 10px;
+      white-space: nowrap;
     }
 
     .btn-print-large:hover {
@@ -637,12 +638,8 @@
         font-size: 1.05rem;
         padding: 12px 14px;
       }
-      .btn-print-large {
-        width: 100%;
-        max-width: 340px;
-        padding: 14px 20px;
-        font-size: 1.1rem;
-        justify-content: center;
+      .print-footer-container {
+        display: none !important;
       }
     }
 
@@ -835,11 +832,11 @@
       </div>
     </section>
 
-    <!-- 6. 底部列印操作區（供管委會 / 總幹事列印紙本公告或存為 PDF） -->
+    <!-- 6. 底部列印操作區（僅電腦版呈現，供管委會 / 總幹事列印紙本公告或存為 PDF） -->
     <div class="print-footer-container reveal-up">
       <button class="btn-print-large" onclick="window.print()">
         <span>🖨️</span>
-        <span>列印本提案企劃 / 儲存為 PDF 公告</span>
+        <span>列印 / 存為 PDF</span>
       </button>
       <div class="print-footer-hint">※ 支援 A4 直式列印，已針對社區公設公告欄優化排版</div>
     </div>
