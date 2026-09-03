@@ -21,11 +21,11 @@
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>孔雀王朝二期 115年中秋鄰里聯歡中庭烤肉 暨 全齡腦力挑戰賽 提案企劃</title>
+  <title>慶祝本社區重大成就 ‧ 中秋中庭烤肉 暨 趣味競賽 提案 ｜ 孔雀王朝二期管委會</title>
 
-  <!-- SEO 與社交標籤 (純社區公務提案，不掛鉤競選文宣) -->
-  <meta name="keywords" content="孔雀王朝, 孔雀王朝二期, 中秋烤肉晚會, 全齡腦力挑戰賽, 社區中秋節活動, 防失智APP, 社區向心力, 濫訴判賠10萬, 社區維權成果">
-  <meta name="description" content="孔雀王朝二期115年中秋鄰里聯歡中庭烤肉提案：住戶自備食材零大額公費負擔，結合全齡腦力活化APP趣味競賽與管委會法治維權重大成果宣布，凝聚社區向心力！">
+  <!-- SEO 與社交分享標籤 (純社區公務提案，不掛鉤競選文宣) -->
+  <meta name="keywords" content="孔雀王朝, 孔雀王朝二期, 中秋烤肉, 趣味競賽, 汽水啤酒大賽, 手眼協調APP, 社區重大成就, 濫訴判賠10萬, 管委會維權">
+  <meta name="description" content="慶祝本社區取得重大成就！孔雀王朝二期管委會敬邀住戶一起參與中秋烤肉與趣味競賽（汽水/啤酒大賽、1~50手眼協調APP挑戰賽），宣布維權勝訴成果，舉杯歡慶！">
   <meta name="robots" content="index, follow">
 
   <style>
@@ -36,6 +36,7 @@
       --accent-amber: #d97706;
       --accent-warm: #f59e0b;
       --accent-blue: #1d4ed8;
+      --accent-coral: #dc2626;
       --bg: #f8fafc;
       --card-bg: #ffffff;
       --text: #1e293b;
@@ -137,7 +138,7 @@
       color: #0f172a;
     }
 
-    /* 頁面主體容器 (寬度比照手工皂) */
+    /* 頁面主體容器 */
     .container {
       max-width: 980px;
       margin: 0 auto;
@@ -172,6 +173,14 @@
       padding: 56px 40px;
     }
 
+    .hero-badge-title {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--accent-gold);
+      margin-bottom: 8px;
+      letter-spacing: 0.5px;
+    }
+
     h1.main-title {
       font-size: 3.1rem;
       font-weight: 800;
@@ -180,12 +189,6 @@
       margin-bottom: 16px;
       letter-spacing: -0.5px;
       word-break: keep-all;
-    }
-
-    .word-verb {
-      color: #334155;
-      font-weight: 700;
-      margin: 0 4px;
     }
 
     .word-gold {
@@ -210,7 +213,7 @@
       font-size: 1.55rem;
       font-weight: 600;
       color: var(--text-muted);
-      margin-bottom: 30px;
+      margin-bottom: 24px;
       line-height: 1.5;
       display: flex;
       align-items: center;
@@ -219,16 +222,7 @@
       gap: 6px;
     }
 
-    .sub-phrase {
-      white-space: nowrap;
-    }
-
-    .sub-divider {
-      color: #94a3b8;
-      font-weight: 400;
-    }
-
-    /* 核心資訊長條看板 (比照手工皂 4 大長條欄) */
+    /* 核心資訊長條看板 */
     .quick-meta-list {
       display: flex;
       flex-direction: column;
@@ -283,16 +277,12 @@
       flex: 1;
     }
 
-    .meta-bar-desc.highlight {
-      color: var(--accent-gold);
-    }
-
     /* 大標題通用樣式 */
     .section-title {
       font-size: 2.1rem;
       font-weight: 800;
       color: var(--primary);
-      margin-bottom: 24px;
+      margin-bottom: 20px;
       display: flex;
       align-items: center;
       gap: 12px;
@@ -300,145 +290,193 @@
       padding-left: 16px;
     }
 
-    /* 痛點與創新解方對比 */
-    .compare-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
+    /* 提案緣起精神宣示框 */
+    .manifesto-box {
+      background: linear-gradient(135deg, #fefce8 0%, #fffbeb 100%);
+      border: 2px solid #fde047;
+      border-radius: 18px;
+      padding: 30px 36px;
       margin-top: 10px;
+      box-shadow: 0 4px 14px rgba(245, 158, 11, 0.06);
     }
 
-    .compare-box {
-      border-radius: 16px;
-      padding: 24px 26px;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .compare-box.old {
-      background: #fef2f2;
-      border: 1.5px solid #fecaca;
-    }
-
-    .compare-box.new {
-      background: #fefce8;
-      border: 1.5px solid #fde047;
-    }
-
-    .compare-tag {
-      font-size: 1.2rem;
+    .manifesto-lead {
+      font-size: 1.55rem;
       font-weight: 800;
+      color: #92400e;
+      margin-bottom: 12px;
+      line-height: 1.4;
     }
 
-    .compare-box.old .compare-tag { color: #dc2626; }
-    .compare-box.new .compare-tag { color: #b45309; }
-
-    .compare-text {
-      font-size: 1.25rem;
+    .manifesto-item {
+      font-size: 1.3rem;
+      font-weight: 600;
       color: #334155;
-      line-height: 1.6;
-    }
-
-    /* 亮點一：全齡 APP 競賽分組 */
-    .game-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 16px;
-      margin-top: 20px;
-    }
-
-    .game-card {
-      background: #f8fafc;
-      border: 1.5px solid #e2e8f0;
-      border-radius: 16px;
-      padding: 22px 24px;
+      line-height: 1.65;
       display: flex;
-      flex-direction: column;
-      gap: 8px;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 6px;
     }
 
-    .game-card-header {
+    /* 活動加碼亮點卡片 */
+    .game-card-large {
+      background: #f8fafc;
+      border: 2px solid #e2e8f0;
+      border-radius: 18px;
+      padding: 28px 32px;
+      margin-top: 18px;
+    }
+
+    .game-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      border-bottom: 1.5px solid #e2e8f0;
+      padding-bottom: 14px;
+      margin-bottom: 18px;
+      flex-wrap: wrap;
+      gap: 10px;
     }
 
-    .game-card-group {
-      font-size: 1.35rem;
+    .game-title {
+      font-size: 1.65rem;
       font-weight: 800;
       color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
 
-    .game-card-age {
+    .game-badge {
+      background: #fef3c7;
+      color: #b45309;
       font-size: 1.05rem;
-      font-weight: 700;
-      background: #e2e8f0;
-      color: #334155;
-      padding: 3px 12px;
+      font-weight: 800;
+      padding: 4px 14px;
       border-radius: 999px;
+      border: 1px solid #fcd34d;
     }
 
-    .game-card-award {
-      font-size: 1.15rem;
+    .rules-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .rule-item {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 14px 20px;
+      font-size: 1.25rem;
+      color: #1e293b;
+      line-height: 1.55;
+    }
+
+    .rule-tag {
+      font-weight: 800;
+      color: var(--accent-gold);
+      margin-right: 8px;
+    }
+
+    /* 分組網格 (3組 X 2性別 X 前3名 共18名) */
+    .group-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 14px;
+    }
+
+    .group-cell {
+      background: #ffffff;
+      border: 1.5px solid #cbd5e1;
+      border-radius: 14px;
+      padding: 16px;
+      text-align: center;
+    }
+
+    .group-name {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 6px;
+    }
+
+    .group-quota {
+      font-size: 1.05rem;
       color: var(--accent-gold);
       font-weight: 700;
-      background: #fff;
-      padding: 8px 12px;
-      border-radius: 10px;
+      background: #fffbeb;
+      padding: 4px 8px;
+      border-radius: 8px;
       border: 1px dashed #fcd34d;
-      margin-top: 4px;
     }
 
-    /* 亮點二：法治維權成果橫幅 */
+    /* 法治維權橫幅 */
     .milestone-banner {
       background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
       color: #ffffff;
       border-radius: 18px;
-      padding: 28px 32px;
+      padding: 32px 36px;
       margin-top: 18px;
       display: flex;
       align-items: center;
-      gap: 24px;
+      gap: 28px;
     }
 
     .milestone-badge-box {
       background: rgba(245, 158, 11, 0.2);
-      border: 1.5px solid #f59e0b;
-      border-radius: 16px;
-      padding: 16px 22px;
+      border: 2px solid #f59e0b;
+      border-radius: 18px;
+      padding: 20px 26px;
       text-align: center;
       flex-shrink: 0;
     }
 
     .milestone-num {
-      font-size: 2.3rem;
+      font-size: 2.5rem;
       font-weight: 900;
       color: #fbbf24;
       line-height: 1.1;
     }
 
     .milestone-sub {
-      font-size: 0.95rem;
+      font-size: 1.05rem;
       color: #fde68a;
       font-weight: 700;
       margin-top: 4px;
     }
 
     .milestone-content h4 {
-      font-size: 1.45rem;
+      font-size: 1.55rem;
       font-weight: 800;
       color: #ffffff;
       margin-bottom: 8px;
     }
 
     .milestone-content p {
-      font-size: 1.2rem;
+      font-size: 1.28rem;
       color: #cbd5e1;
-      line-height: 1.55;
+      line-height: 1.6;
     }
 
-    /* 流程一覽 (比照手工皂的簡潔大字排版) */
+    .toast-box {
+      margin-top: 14px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(251, 191, 36, 0.25);
+      border: 1px solid #fcd34d;
+      padding: 8px 16px;
+      border-radius: 10px;
+      font-size: 1.15rem;
+      color: #fef08a;
+      font-weight: 700;
+    }
+
+    /* 流程一覽 (完全對照時程) */
     .timeline-list {
       list-style: none;
       display: flex;
@@ -479,7 +517,7 @@
       padding: 8px 16px;
       border-radius: 10px;
       white-space: nowrap;
-      min-width: 125px;
+      min-width: 145px;
       text-align: center;
     }
 
@@ -496,16 +534,16 @@
       text-align: right;
     }
 
-    /* 責任分工表 */
+    /* 責任分配與準備事項表 */
     .checklist-table {
       width: 100%;
       border-collapse: collapse;
       margin-top: 10px;
-      font-size: 1.15rem;
+      font-size: 1.25rem;
     }
 
     .checklist-table th, .checklist-table td {
-      padding: 16px 20px;
+      padding: 18px 24px;
       border: 1px solid var(--border);
       text-align: left;
     }
@@ -514,23 +552,24 @@
       background: #f1f5f9;
       color: var(--primary);
       font-weight: 800;
-      font-size: 1.2rem;
+      font-size: 1.28rem;
     }
 
     .checklist-table tr:nth-child(even) {
       background: #f8fafc;
     }
 
-    .tag-free {
-      background: #dcfce7;
-      color: #15803d;
-      padding: 3px 10px;
-      border-radius: 999px;
-      font-size: 0.95rem;
+    .tag-duty {
+      font-weight: 800;
+      color: #0f172a;
+    }
+
+    .tag-highlight {
+      color: var(--accent-gold);
       font-weight: 800;
     }
 
-    /* 底部列印操作區 (比照手工皂) */
+    /* 底部列印操作區 */
     .print-footer-container {
       text-align: center;
       margin-top: 10px;
@@ -583,8 +622,6 @@
 
     .delay-1 { transition-delay: 0.08s; }
     .delay-2 { transition-delay: 0.16s; }
-    .delay-3 { transition-delay: 0.24s; }
-    .delay-4 { transition-delay: 0.32s; }
 
     /* RWD 手機版最適化 */
     @media (max-width: 768px) {
@@ -641,14 +678,31 @@
         margin-bottom: 18px;
         padding-left: 12px;
       }
-      .compare-grid, .game-grid {
+      .manifesto-box {
+        padding: 20px 16px;
+      }
+      .manifesto-lead {
+        font-size: 1.25rem;
+      }
+      .manifesto-item {
+        font-size: 1.1rem;
+      }
+      .group-grid {
         grid-template-columns: 1fr;
-        gap: 14px;
+        gap: 10px;
+      }
+      .game-card-large {
+        padding: 20px 16px;
+      }
+      .rule-item {
+        font-size: 1.1rem;
+        padding: 12px 14px;
       }
       .milestone-banner {
         flex-direction: column;
         text-align: center;
-        padding: 20px 16px;
+        padding: 22px 16px;
+        gap: 18px;
       }
       .timeline-item {
         flex-direction: column;
@@ -657,6 +711,10 @@
       }
       .timeline-desc {
         text-align: left;
+      }
+      .checklist-table th, .checklist-table td {
+        padding: 12px 14px;
+        font-size: 1.05rem;
       }
       .print-footer-container {
         display: none !important;
@@ -689,7 +747,7 @@
         <span>🥮</span>
         <span>孔雀王朝二期 ‧ 提案企劃</span>
       </div>
-      <div class="nav-brand-line2">115年中秋鄰里聯歡中庭烤肉</div>
+      <div class="nav-brand-line2">115年中秋鄰里聯歡中庭烤肉 暨 趣味競賽</div>
       <div class="series-nav-bar">
         <a href="soap-proposal.html" class="series-btn sibling">🌿 9/21 廢油手工皂</a>
         <span class="series-btn active">🥮 9/25 中秋聯歡晚會</span>
@@ -701,117 +759,138 @@
 
     <!-- 1. Hero 頂部主視覺 -->
     <section class="section-card hero-card reveal-up">
+      <div class="hero-badge-title">🎉 慶祝本社區取得重大成就</div>
       <h1 class="main-title">
-        <span class="word-verb">中秋</span>
-        <span class="word-gold">中庭聯歡烤肉</span><br>
-        <span class="word-verb">暨</span>
-        <span class="word-blue">全齡腦力挑戰賽</span>
+        管委會敬邀全體住戶<br>
+        <span class="word-gold">一起參與中秋烤肉</span>
+        <span class="word-blue">一起參與趣味競賽</span>
       </h1>
       <h2 class="hero-sub">
-        <span class="sub-phrase">住戶食材自理零公費負擔</span>
-        <span class="sub-divider">‧</span>
-        <span class="sub-phrase">跨世代遊戲暖場凝聚向心力</span>
+        <span>凝聚鄰里溫馨情誼</span>
+        <span style="color:#94a3b8;">‧</span>
+        <span>共同見證社區團結里程碑</span>
       </h2>
 
-      <!-- 核心資訊長條看板 (四大橫幅看板) -->
+      <!-- 核心資訊長條看板 -->
       <div class="quick-meta-list">
         <div class="quick-meta-bar reveal-up delay-1">
           <div class="meta-bar-left">
             <span class="meta-icon">📅</span>
             <span class="meta-bar-title">活動時段</span>
           </div>
-          <div class="meta-bar-desc">2026/09/25（五）中秋節當晚 18:00 - 21:30</div>
+          <div class="meta-bar-desc">2026/09/25（五）中秋節當晚 18:00 - 22:00</div>
         </div>
         <div class="quick-meta-bar reveal-up delay-2">
           <div class="meta-bar-left">
             <span class="meta-icon">📍</span>
             <span class="meta-bar-title">活動地點</span>
           </div>
-          <div class="meta-bar-desc">中庭花園廣場 ＆ 1樓交誼廳</div>
-        </div>
-        <div class="quick-meta-bar reveal-up delay-3">
-          <div class="meta-bar-left">
-            <span class="meta-icon">🪙</span>
-            <span class="meta-bar-title">活動預算</span>
-          </div>
-          <div class="meta-bar-desc highlight">管委會 0 元大額支出（食材住戶自理 / 零用金酌支小獎）</div>
-        </div>
-        <div class="quick-meta-bar reveal-up delay-4">
-          <div class="meta-bar-left">
-            <span class="meta-icon">🙋‍♂️</span>
-            <span class="meta-bar-title">提案住戶</span>
-          </div>
-          <div class="meta-bar-desc">陳新昱（前管委會主任委員 ‧ 義務技術與主持協助）</div>
+          <div class="meta-bar-desc">孔雀王朝二期 中庭花園廣場</div>
         </div>
       </div>
     </section>
 
-    <!-- 2. 提案緣起與核心改善 -->
+    <!-- 2. 提案緣起 -->
     <section class="section-card reveal-up">
-      <h3 class="section-title">提案緣起：為什麼今年需要這場暖場活動？</h3>
-      <div class="compare-grid">
-        <div class="compare-box old">
-          <div class="compare-tag">⚠️ 往年慣例痛點</div>
-          <div class="compare-text">
-            各家各自在中庭角落烤肉，時間錯開、各烤各的，缺乏交集與互動焦點，活動過後並未累積實質的鄰里向心力。
+      <h3 class="section-title">提案緣起</h3>
+      <div class="manifesto-box">
+        <div class="manifesto-lead">🌟 今年是我們孔雀二期的關鍵轉捩點，社區取得重大成就！</div>
+        <div class="manifesto-item">
+          <span>🤝</span>
+          <span>我們不再是自掃門前雪的社區</span>
+        </div>
+        <div class="manifesto-item">
+          <span>🏆</span>
+          <span>我們是團結、有向心力的優質社區</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. 活動加碼 1：汽水 或 啤酒 大賽 -->
+    <section class="section-card reveal-up">
+      <h3 class="section-title">活動加碼 1：汽水 或 啤酒 大賽</h3>
+      <div class="game-card-large">
+        <div class="game-header">
+          <div class="game-title">
+            <span>🍻</span>
+            <span>歡樂暢飲秒數賽</span>
+          </div>
+          <span class="game-badge">3組 × 2性別 × 前3名 ＝ 共取 18 名</span>
+        </div>
+
+        <div class="rules-list">
+          <div class="rule-item">
+            <span class="rule-tag">規則 1【分齡 ＋ 分性別比賽】：</span>
+            分為「10 歲以下組」、「11 ~ 79 歲組」、「80 歲以上長青組」，男女各分組競賽，各組均取前三名頒發獎勵！（未成年皆安排汽水，兼顧安全法規與歡樂樂趣）
+          </div>
+          <div class="rule-item">
+            <span class="rule-tag">規則 2【秒數爭霸】：</span>
+            看誰以最快速度喝完一瓶，精準計秒、分出勝負！
           </div>
         </div>
-        <div class="compare-box new">
-          <div class="compare-tag">✨ 今年創新亮點</div>
-          <div class="compare-text">
-            維持住戶自備食材零負擔傳統，中場 20:00 導入全齡 APP 趣味大賽與成果致詞，將分散的攤位串連起來，共聚一堂！
+
+        <div class="group-grid">
+          <div class="group-cell">
+            <div class="group-name">👶 兒少活力組（10歲以下）</div>
+            <div class="group-quota">男/女各前3名（共6名）‧ 汽水大賽</div>
+          </div>
+          <div class="group-cell">
+            <div class="group-name">🧑 青年壯年組（11 ~ 79歲）</div>
+            <div class="group-quota">男/女各前3名（共6名）‧ 汽水/啤酒賽</div>
+          </div>
+          <div class="group-cell">
+            <div class="group-name">👴 尊榮長青組（80歲以上）</div>
+            <div class="group-quota">男/女各前3名（共6名）‧ 汽水/健康飲</div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- 3. 亮點一：全齡腦力活化趣味挑戰賽 -->
+    <!-- 4. 活動加碼 2：1~50 手眼協調能力 App 遊戲挑戰賽 -->
     <section class="section-card reveal-up">
-      <h3 class="section-title">亮點一：全齡腦力活化趣味挑戰賽（APP 破冰）</h3>
-      <p style="font-size:1.35rem; color:#334155; line-height:1.6; margin-bottom:12px;">
-        提案人因關懷長輩預防失智，研發出極簡直覺的「數字反應挑戰 APP」。順序點擊數字 1 到 50，老少咸宜、秒上手，為社區長輩帶來滿滿的情緒價值與成就感。
-      </p>
+      <h3 class="section-title">活動加碼 2：1 ~ 50 手眼協調能力 App 挑戰賽</h3>
+      <div class="game-card-large">
+        <div class="game-header">
+          <div class="game-title">
+            <span>📱</span>
+            <span>腦力活化極速挑戰賽</span>
+          </div>
+          <span class="game-badge">3組 × 2性別 × 前3名 ＝ 共取 18 名</span>
+        </div>
 
-      <div class="game-grid">
-        <div class="game-card">
-          <div class="game-card-header">
-            <span class="game-card-group">兒少活力組</span>
-            <span class="game-card-age">20 歲以下</span>
+        <div class="rules-list">
+          <div class="rule-item">
+            <span class="rule-tag">規則 1【分齡 ＋ 分性別比賽】：</span>
+            同樣分為「10 歲以下組」、「11 ~ 79 歲組」、「80 歲以上長青組」，男女各組分開比拚，各組取前三名頒獎（共 18 名得獎者）。
           </div>
-          <div class="game-card-award">前三名：榮譽獎狀 + 趣味文具禮</div>
-        </div>
-        <div class="game-card">
-          <div class="game-card-header">
-            <span class="game-card-group">青年衝刺組</span>
-            <span class="game-card-age">20 ~ 40 歲</span>
+          <div class="rule-item">
+            <span class="rule-tag">規則 2【極速點擊秒數賽】：</span>
+            使用平板電腦順序點完數字 1 到 50，以最快完成秒數決定名次，刺激破表！
           </div>
-          <div class="game-card-award">前三名：榮譽獎狀 + 實用生活禮</div>
         </div>
-        <div class="game-card">
-          <div class="game-card-header">
-            <span class="game-card-group">壯年穩健組</span>
-            <span class="game-card-age">40 ~ 60 歲</span>
+
+        <div class="group-grid">
+          <div class="group-cell">
+            <div class="group-name">👶 兒少組（10歲以下）</div>
+            <div class="group-quota">男/女各前3名（共6名）‧ 獎狀+趣味禮</div>
           </div>
-          <div class="game-card-award">前三名：榮譽獎狀 + 健康好禮</div>
-        </div>
-        <div class="game-card">
-          <div class="game-card-header">
-            <span class="game-card-group">長青福氣組</span>
-            <span class="game-card-age">60 歲以上長輩</span>
+          <div class="group-cell">
+            <div class="group-name">🧑 壯青組（11 ~ 79歲）</div>
+            <div class="group-quota">男/女各前3名（共6名）‧ 獎狀+實用禮</div>
           </div>
-          <div class="game-card-award">前三名：榮譽獎狀 + 尊榮長青大獎</div>
+          <div class="group-cell">
+            <div class="group-name">👴 長青組（80歲以上）</div>
+            <div class="group-quota">男/女各前3名（共6名）‧ 獎狀+尊榮禮</div>
+          </div>
         </div>
-      </div>
-      <div style="font-size:1.05rem; color:var(--text-muted); margin-top:14px;">
-        ※ APP 技術與設備由陳新昱全額義務提供；獎狀與象徵性獎勵由管委會名義發給（動支幾百元零用金），合規安全。
       </div>
     </section>
 
-    <!-- 4. 亮點二：管委會法治維權重大成果宣布 -->
+    <!-- 5. 中場宣布社區法治維權重大成果 -->
     <section class="section-card reveal-up">
-      <h3 class="section-title">亮點二：中場宣布社區法治維權重大成果</h3>
+      <h3 class="section-title">中場宣布社區法治維權重大成果</h3>
       <p style="font-size:1.35rem; color:#334155; line-height:1.6;">
-        今年管委會為捍衛社區安寧與公共利益，堅持法治正義，成功爭取到司法確定判決：由濫訴者負擔賠償管委會 10 萬元律師費！
+        今年管委會為捍衛社區公共利益，堅持法治正義，成功爭取到司法確定判決：
       </p>
 
       <div class="milestone-banner">
@@ -820,15 +899,19 @@
           <div class="milestone-sub">司法判賠律師費</div>
         </div>
         <div class="milestone-content">
-          <h4>捍衛社區管理基金 ‧ 樹立公義典範</h4>
+          <h4>由濫訴者負擔賠償管委會 10 萬元律師費！</h4>
           <p>
-            藉由晚會中場主委 3 分鐘致詞，以管委會官方成果報告之理性口吻宣布，向所有住戶展現管委會真正替大家守住血汗管理費，大幅提升住戶對管委會的信賴！
+            這是全體住戶團結維權的歷史里程碑，成功守護社區管理費與居住安寧！
           </p>
+          <div class="toast-box">
+            <span>🥂</span>
+            <span>中場主委致詞完畢 ‧ 全場大家舉杯慶祝！</span>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- 5. 活動流程規劃 -->
+    <!-- 6. 當晚活動時程規劃 -->
     <section class="section-card reveal-up">
       <h3 class="section-title">當晚活動時程規劃</h3>
       <ul class="timeline-list">
@@ -837,83 +920,73 @@
             <span class="time-badge">18:00 - 20:00</span>
             <span class="timeline-title">闔家烤肉自由時段</span>
           </div>
-          <div class="timeline-desc">中庭開爐夜烤、鄰里自由互訪話家常</div>
+          <div class="timeline-desc">鄰里自由互訪、開爐夜烤話家常</div>
         </li>
         <li class="timeline-item">
           <div class="timeline-left">
-            <span class="time-badge">20:00 - 20:35</span>
-            <span class="timeline-title">中場焦點：全齡腦力挑戰賽</span>
+            <span class="time-badge">20:00 - 21:30</span>
+            <span class="timeline-title">中場焦點：兩大趣味競賽</span>
           </div>
-          <div class="timeline-desc">各攤聚集至交誼廳/舞台，分組趣味競賽</div>
+          <div class="timeline-desc">喝啤酒/汽水大賽 ＋ 手眼協調 1~50 挑戰賽</div>
         </li>
         <li class="timeline-item">
           <div class="timeline-left">
-            <span class="time-badge">20:35 - 20:45</span>
-            <span class="timeline-title">頒獎 ＆ 主委維權成果宣布</span>
+            <span class="time-badge">21:30 - 22:00</span>
+            <span class="timeline-title">頒獎 ＆ 主委宣布維權成果</span>
           </div>
-          <div class="timeline-desc">管委會頒發獎狀；主委致詞宣布勝訴成果</div>
+          <div class="timeline-desc">頒發各組前三名 ＆ 宣布勝訴判決，舉杯同慶！</div>
         </li>
         <li class="timeline-item">
           <div class="timeline-left">
-            <span class="time-badge">20:45 - 21:30</span>
+            <span class="time-badge">22:00</span>
             <span class="timeline-title">夜烤尾聲與場地復原</span>
           </div>
-          <div class="timeline-desc">爐火徹底熄滅、各戶垃圾分類打包復原</div>
+          <div class="timeline-desc">各戶垃圾分類打包復原，圓滿落幕</div>
         </li>
       </ul>
     </section>
 
-    <!-- 6. 權責分工與配合表 -->
+    <!-- 7. 責任分配與準備事項 -->
     <section class="section-card reveal-up">
-      <h3 class="section-title">管委會配合與責任分工</h3>
+      <h3 class="section-title">責任分配與準備事項</h3>
       <table class="checklist-table">
         <thead>
           <tr>
-            <th>項目</th>
-            <th>執行內容</th>
-            <th>權責 / 經費</th>
+            <th style="width:45%;">準備項目</th>
+            <th style="width:55%;">負責單位</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td><strong>場地出借</strong></td>
-            <td>開放中庭花園（烤肉）及 1F 交誼廳（賽事區）</td>
-            <td>管委會決議出借 <span class="tag-free">0 元</span></td>
-          </tr>
-          <tr>
             <td><strong>食材與用具</strong></td>
-            <td>各戶自理食材、烤肉架與餐具，垃圾自行打包</td>
-            <td>住戶自費自備 <span class="tag-free">0 元</span></td>
+            <td class="tag-duty">各戶自理（食材、烤具自行準備）</td>
           </tr>
           <tr>
-            <td><strong>科技賽事設備</strong></td>
-            <td>提供 1 到 50 腦力 APP、計時設備與現場主持</td>
-            <td>陳新昱 義務贊助 <span class="tag-free">0 元</span></td>
+            <td><strong>汽水與啤酒</strong></td>
+            <td class="tag-highlight">管委會準備</td>
+          </tr>
+          <tr>
+            <td><strong>1 ~ 50 App 遊戲與設備</strong></td>
+            <td class="tag-duty">陳新昱 準備（義務提供技術與主持）</td>
           </tr>
           <tr>
             <td><strong>競賽獎狀與小獎</strong></td>
-            <td>各組前三名榮譽獎狀 + 象徵性小禮（約數百元）</td>
-            <td>管委會零用金（管委會名義頒發）</td>
-          </tr>
-          <tr>
-            <td><strong>安全與清潔</strong></td>
-            <td>備妥滅火器 2 具、加強地面鋪墊保護、配置分類桶</td>
-            <td>總幹事 / 保全 / 陳新昱 協助</td>
+            <td class="tag-highlight">管委會準備</td>
           </tr>
         </tbody>
       </table>
     </section>
 
-    <!-- 7. 底部列印操作區（僅電腦版呈現，供管委會 / 總幹事列印紙本公告或存為 PDF） -->
+    <!-- 8. 底部列印操作區 -->
     <div class="print-footer-container reveal-up">
       <button class="btn-print-large" onclick="window.print()">
         <span>🖨️</span>
-        <span>列印 / 存為 PDF</span>
+        <span>列印 / 存為 PDF 提案書</span>
       </button>
       <div class="print-footer-hint">※ 支援 A4 直式列印，已針對社區公設公告欄優化排版</div>
     </div>
 
-    <!-- 8. 雙活動快速切換導覽列 (純社區事務，不與競選官網掛鉤) -->
+    <!-- 9. 雙活動快速切換導覽列 (純社區事務，不與競選官網掛鉤) -->
     <div class="series-nav-bar" style="display:flex; justify-content:center; gap:12px; margin-top:24px; flex-wrap:wrap;">
       <a href="soap-proposal.html" style="background:#ffffff; color:#334155; border:1.5px solid #cbd5e1; padding:10px 22px; border-radius:999px; font-size:1.05rem; font-weight:700; text-decoration:none; box-shadow: 0 2px 8px rgba(0,0,0,0.04); transition: all 0.2s ease;">🌿 9/21 廢油手工皂提案</a>
       <span style="background:#0f172a; color:#ffffff; padding:10px 22px; border-radius:999px; font-size:1.05rem; font-weight:700; box-shadow: 0 4px 12px rgba(15,23,42,0.18);">🥮 9/25 中秋聯歡晚會提案</span>
