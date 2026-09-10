@@ -208,8 +208,8 @@
     }
 
     .benefit-card {
-      background: var(--bg-card);
-      border: 1.5px solid var(--border-color);
+      background: rgba(245, 158, 11, 0.1);
+      border: 1.5px solid rgba(245, 158, 11, 0.5);
       border-radius: var(--radius-md);
       padding: 16px 18px;
       display: flex;
@@ -235,8 +235,8 @@
     }
 
     .benefit-card.highlight {
-      background: rgba(245, 158, 11, 0.1);
-      border-color: rgba(245, 158, 11, 0.55);
+      background: rgba(245, 158, 11, 0.12);
+      border-color: rgba(245, 158, 11, 0.6);
     }
 
     /* 卡片頂部標籤列：兩個獨立對稱膠囊框，字級尺寸完全一致 */
@@ -590,6 +590,21 @@
 
     .contest-card-option.checked .contest-name {
       color: #fde68a;
+    }
+
+    .contest-cash-note {
+      background: rgba(245, 158, 11, 0.12);
+      border: 1px dashed rgba(245, 158, 11, 0.5);
+      border-radius: var(--radius-sm);
+      padding: 12px 16px;
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: #fde68a;
+      margin-top: 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
     }
 
     /* 表單送出按鈕 (雙行結構：確認登記 ＋ 預約食材補助 500 元) */
@@ -969,7 +984,7 @@
           </div>
 
           <!-- 好康二 -->
-          <div class="benefit-card">
+          <div class="benefit-card highlight">
             <div class="benefit-header-row">
               <div class="benefit-header-tag">
                 <span class="tag-icon">🔥</span>
@@ -996,7 +1011,7 @@
           </div>
 
           <!-- 好康四 -->
-          <div class="benefit-card">
+          <div class="benefit-card highlight">
             <div class="benefit-header-row">
               <div class="benefit-header-tag">
                 <span class="tag-icon">⏰</span>
@@ -1006,12 +1021,13 @@
             </div>
             <h3 class="benefit-title">早鳥開烤前 20 名送木炭 1 包</h3>
             <div class="benefit-desc-text">
-              17:30 起下樓生火開烤即贈，鼓勵鄰里提早熱場開爐！
+              <div>17:30 起下樓生火開烤即贈</div>
+              <div>鼓勵鄰里提早熱場開爐！</div>
             </div>
           </div>
 
           <!-- 好康五 -->
-          <div class="benefit-card">
+          <div class="benefit-card highlight">
             <div class="benefit-header-row">
               <div class="benefit-header-tag">
                 <span class="tag-icon">🍺</span>
@@ -1027,7 +1043,7 @@
           </div>
 
           <!-- 好康六 -->
-          <div class="benefit-card">
+          <div class="benefit-card highlight">
             <div class="benefit-header-row">
               <div class="benefit-header-tag">
                 <span class="tag-icon">📱</span>
@@ -1144,36 +1160,53 @@
             </div>
             <div class="contest-check-list">
 
-              <div class="contest-card-option" onclick="toggleContestOption(this)" data-contest="啤酒大賽 ‧ 男子組">
+              <div class="contest-card-option" onclick="toggleContestOption(this)" data-contest="🍺 啤酒大賽 ‧ 男子組">
                 <div class="custom-checkbox-indicator">✓</div>
                 <div class="contest-info">
                   <div class="contest-name">🍺 啤酒大賽 ‧ 男子組</div>
-                  <div class="contest-rule-hint">秒數爭霸，前三名拿現金紅包</div>
                 </div>
               </div>
 
-              <div class="contest-card-option" onclick="toggleContestOption(this)" data-contest="啤酒大賽 ‧ 女子組">
+              <div class="contest-card-option" onclick="toggleContestOption(this)" data-contest="🍺 啤酒大賽 ‧ 女子組">
                 <div class="custom-checkbox-indicator">✓</div>
                 <div class="contest-info">
                   <div class="contest-name">🍺 啤酒大賽 ‧ 女子組</div>
-                  <div class="contest-rule-hint">巾幗不讓鬚眉，前三名拿現金紅包</div>
                 </div>
               </div>
 
-              <div class="contest-card-option" onclick="toggleContestOption(this)" data-contest="汽水大賽 ‧ 親子敬老組">
+              <div class="contest-card-option" onclick="toggleContestOption(this)" data-contest="🥤 汽水大賽 ‧ 親子 ‧ 敬老組">
                 <div class="custom-checkbox-indicator">✓</div>
                 <div class="contest-info">
                   <div class="contest-name">🥤 汽水大賽 ‧ 親子 ‧ 敬老組</div>
-                  <div class="contest-rule-hint">其中一位須為國小五年級（含）以下或 80 歲以上，安全趣味拿獎金！</div>
+                  <div class="contest-rule-hint">需一位為國小四年級（含）以下或 80 歲（含）以上</div>
                 </div>
               </div>
 
-              <div class="contest-card-option" onclick="toggleContestOption(this)" data-contest="1至50 APP小遊戲">
+              <div class="contest-card-option" onclick="toggleContestOption(this)" data-contest="📱 1至50 APP ‧ 男子組">
                 <div class="custom-checkbox-indicator">✓</div>
                 <div class="contest-info">
-                  <div class="contest-name">📱 1至50 APP小遊戲挑戰賽</div>
-                  <div class="contest-rule-hint">手眼協調數字極速點擊，分男子/女子/親子敬老組拿前三名現金！</div>
+                  <div class="contest-name">📱 1至50 APP ‧ 男子組</div>
                 </div>
+              </div>
+
+              <div class="contest-card-option" onclick="toggleContestOption(this)" data-contest="📱 1至50 APP ‧ 女子組">
+                <div class="custom-checkbox-indicator">✓</div>
+                <div class="contest-info">
+                  <div class="contest-name">📱 1至50 APP ‧ 女子組</div>
+                </div>
+              </div>
+
+              <div class="contest-card-option" onclick="toggleContestOption(this)" data-contest="📱 1至50 APP ‧ 親子 ‧ 敬老組">
+                <div class="custom-checkbox-indicator">✓</div>
+                <div class="contest-info">
+                  <div class="contest-name">📱 1至50 APP ‧ 親子 ‧ 敬老組</div>
+                  <div class="contest-rule-hint">需一位為國小四年級（含）以下或 80 歲（含）以上</div>
+                </div>
+              </div>
+
+              <!-- 賽事獎金統一說明條 -->
+              <div class="contest-cash-note">
+                <span>💡</span> 說明：各組前三名皆可拿現金紅包
               </div>
 
             </div>
@@ -1318,6 +1351,7 @@
               <th>樓層</th>
               <th>姓名</th>
               <th>出席人數</th>
+              <th>聚餐形式</th>
               <th>早鳥木炭資格</th>
               <th>報名賽事</th>
             </tr>
@@ -1523,7 +1557,8 @@
         building: selectedBuilding,
         floor: selectedFloor,
         name: nameVal,
-        attendees: attendeesWithDining,
+        attendees: selectedAttendees,
+        diningType: selectedDiningType,
         isEarlyBird: isEarlyBird ? "★ 早鳥木炭1包(限18:00前領)" : "無 (可爭取現場早鳥)",
         contests: selectedContests.length ? selectedContests.join("、") : "未報名"
       });
@@ -1725,18 +1760,20 @@
       tbody.innerHTML = "";
 
       if (records.length === 0) {
-        tbody.innerHTML = `<tr><td colspan="7" style="text-align:center; opacity:0.6;">目前尚無住戶登記紀錄</td></tr>`;
+        tbody.innerHTML = `<tr><td colspan="9" style="text-align:center; opacity:0.6;">目前尚無住戶登記紀錄</td></tr>`;
       } else {
         records.forEach((r, idx) => {
           const tr = document.createElement("tr");
           const isEarly = (idx < 20);
+          const pureAttendees = (r.attendees || "-").replace(/\s*\(.*?\)/, "");
           tr.innerHTML = `
             <td>${r.orderNo || (idx + 1)}</td>
             <td style="font-size:0.75rem; color:#94a3b8; white-space:nowrap;">${r.time || "-"}</td>
             <td><strong>${r.building}</strong></td>
             <td><strong>${r.floor}</strong></td>
             <td>${r.name || "-"}</td>
-            <td>${r.attendees || "-"}</td>
+            <td>${pureAttendees}</td>
+            <td style="color:#fde68a; font-weight:700; white-space:nowrap;">${r.diningType || "未填"}</td>
             <td style="color:${isEarly ? '#f59e0b' : '#94a3b8'}; white-space:nowrap;">${isEarly ? '★ 早鳥第' + (idx+1) + '名' : '無'}</td>
             <td>${(r.contests && r.contests.length) ? r.contests.join("<br>") : "未報賽事"}</td>
           `;
@@ -1757,11 +1794,12 @@
         alert("尚無登記資料可匯出！");
         return;
       }
-      let csvContent = "\uFEFF序號,登記時間,棟別,樓層,姓名,出席人數,早鳥木炭資格,報名賽事\n";
+      let csvContent = "\uFEFF序號,登記時間,棟別,樓層,姓名,出席人數,聚餐形式,早鳥木炭資格,報名賽事\n";
       records.forEach((r, idx) => {
         const isEarly = (idx < 20) ? "早鳥木炭1包(限18:00前領)" : "無";
         const contests = (r.contests || []).join(" / ");
-        csvContent += `"${r.orderNo || (idx+1)}","${r.time || ''}","${r.building}","${r.floor}","${r.name || ''}","${r.attendees || ''}","${isEarly}","${contests}"\n`;
+        const pureAttendees = (r.attendees || '').replace(/\s*\(.*?\)/, '');
+        csvContent += `"${r.orderNo || (idx+1)}","${r.time || ''}","${r.building}","${r.floor}","${r.name || ''}","${pureAttendees}","${r.diningType || ''}","${isEarly}","${contests}"\n`;
       });
 
       const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
