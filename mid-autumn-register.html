@@ -264,16 +264,28 @@
       align-items: center;
     }
 
-    .sub-tag-capsule {
-      font-size: 1.12rem;
+    .benefit-desc-text {
+      font-size: 1.15rem;
       font-weight: 700;
-      padding: 6px 14px;
-      border-radius: 999px;
-      background: rgba(245, 158, 11, 0.14);
+      color: #e2e8f0;
+      line-height: 1.45;
+      margin-top: 6px;
+    }
+
+    .benefit-action-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 10px;
+      align-items: center;
+    }
+
+    .benefit-plain-hint {
+      font-size: 1.15rem;
+      font-weight: 700;
       color: #fde68a;
-      border: 1px solid rgba(245, 158, 11, 0.35);
-      line-height: 1.4;
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
     }
 
     /* 搶先練習超連結按鈕 (醒目有動感，專屬膠囊按鍵) */
@@ -844,6 +856,9 @@
             <div class="benefit-icon-box">🥩</div>
             <div class="benefit-body">
               <h3 class="benefit-title">【好康一】每戶食材補助 500 元（註一）</h3>
+              <div class="benefit-desc-text" style="color: #cbd5e1; font-weight: 600;">
+                自備開烤食材、或外帶熟食便當披薩下樓聚餐皆可領！
+              </div>
             </div>
           </div>
 
@@ -876,8 +891,8 @@
             <div class="benefit-icon-box">🍺</div>
             <div class="benefit-body">
               <h3 class="benefit-title">【好康五】啤酒 / 汽水 ‧ 現金挑戰賽（共 9 名）</h3>
-              <div class="benefit-sub-tags">
-                <span class="sub-tag-capsule">男子組 ｜ 女子組 ｜ 親子家庭組，前三名拿現金！</span>
+              <div class="benefit-desc-text">
+                <span style="color: #fde68a;">男子組 ｜ 女子組 ｜ 親子家庭組</span> ‧ 各前三名拿現金！
               </div>
             </div>
           </div>
@@ -887,8 +902,11 @@
             <div class="benefit-icon-box">📱</div>
             <div class="benefit-body">
               <h3 class="benefit-title">【好康六】1~50 手機遊戲 ‧ 現金挑戰賽（共 9 名）</h3>
-              <div class="benefit-sub-tags">
-                <span class="sub-tag-capsule">大人小孩都會玩</span>
+              <div class="benefit-desc-text">
+                <span style="color: #fde68a;">男子組 ｜ 女子組 ｜ 親子家庭組</span> ‧ 各前三名拿現金！
+              </div>
+              <div class="benefit-action-row">
+                <span class="benefit-plain-hint">大人小孩都會玩</span>
                 <a href="https://pod0987183520.github.io/1to50" target="_blank" rel="noopener noreferrer" class="sub-tag-link-btn">
                   <span>🎮</span> 點我搶先練習 ➔
                 </a>
@@ -1032,11 +1050,12 @@
 
         </form>
 
-        <!-- 註釋卡片 (純粹大字三大備註) -->
+        <!-- 註釋卡片 (純粹大字核心備註) -->
         <div class="notes-card">
-          <p class="notes-item">註一：以「戶」為單位，需下樓參與烤肉/聚餐，並報名任一趣味遊戲。</p>
-          <p class="notes-item">註二：需於活動當晚 18:00 之前下樓領取，逾時將轉讓給現場候補住戶。</p>
-          <p class="notes-item">註三：限當晚 17:30 開始下樓烤肉者前 20 名現場領取。</p>
+          <p class="notes-item">註一：以「戶」為單位，下樓聚餐同樂（自烤、外帶熟食便當均可）並報名任一趣味遊戲；經管委會現場拍照留存開烤或聚餐合影後，即可領取 500 元補助金。</p>
+          <p class="notes-item">註二：提倡「烤肉架共用湊團」！鼓勵 2 至 3 戶鄰居共用烤架接力烤，管委會亦可協助現場配對，省錢熱絡又免收折麻煩。</p>
+          <p class="notes-item">註三：線上早鳥登記前 20 名送木炭 1 包，需於當晚 18:00 前下樓領取，逾時轉讓現場候補住戶。</p>
+          <p class="notes-item">註四：現場早鳥烤肉前 20 名送木炭 1 包，限當晚 17:30 開始下樓開烤者現場領取。</p>
         </div>
 
       </section>
