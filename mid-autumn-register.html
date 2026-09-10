@@ -1297,6 +1297,15 @@
             <input type="text" id="volunteerInput" class="text-input-field" placeholder="輸入報名志工人數" autocomplete="off">
           </div>
 
+          <!-- 8. 星空歡唱同樂 (自由報名) -->
+          <div class="form-group-item">
+            <div class="form-label" style="display: flex; flex-direction: column; align-items: flex-start; gap: 4px;">
+              <span>8. 星空歡唱同樂（自由報名）</span>
+              <span style="font-size: 1.05rem; font-weight: 700; color: #fde68a;">登台開唱領 100 元同樂紅包！每戶限 2 位，每人限 1 首（註五）</span>
+            </div>
+            <input type="text" id="karaokeInput" class="text-input-field" placeholder="請填寫：演唱者 ＆ 歌名（例：陳先生-月亮代表我的心；同戶第2位請逗號分開：陳太太-小城故事；不參加請留空）" autocomplete="off">
+          </div>
+
           <!-- 送出按鈕 (雙行結構：確認登記 ＋ 預約食材補助 500 元) -->
           <button type="submit" class="btn-submit-register">
             <div class="btn-submit-primary">
@@ -1332,7 +1341,13 @@
           <div class="note-row">
             <span class="note-pill">註四</span>
             <div class="note-text">
-              為鼓勵住戶與青年學子參與公共事務、服務社區長輩與幼小，特設立<span class="note-highlight">志工隊</span>（支援烤肉、食材分裝或趣味賽事），每位出勤志工發放 <span class="note-highlight">500 元誤餐津貼</span>。限國小四年級以上至 80 歲以下報名。
+              為鼓勵住戶與學子參與公共事務，特設<span class="note-highlight">志工隊</span>（支援烤肉、分裝或趣味賽事），每戶暫定 1 位發放 <span class="note-highlight">500 元誤餐費</span>（同戶多位報名歡迎共同出勤，津貼由其自行均分）。名額暫定 10 位並視出席規模滾動調整，依線上表單送出時間先報先錄取。限國小五年級（含）以上至 79 歲（含）以下報名。
+            </div>
+          </div>
+          <div class="note-row">
+            <span class="note-pill">註五</span>
+            <div class="note-text">
+              中秋星空歡唱同樂採「<span class="note-highlight">勇敢開唱領紅包</span>」機制（不辦評分競賽，人人有獎同樂！），凡登台演唱即發放 <span class="note-highlight">100 元同樂紅包</span>。每人限報 1 首、每戶最多報名 2 位（每人限領一次紅包）。全場名額上限 20 首，依線上表單送出時間依序錄取，歡迎自備伴奏歌名提早報名！
             </div>
           </div>
         </div>
@@ -1343,7 +1358,7 @@
     <!-- 頁尾宣告 -->
     <footer class="app-footer">
       <p style="font-size: 1.18rem; font-weight: 800; color: #cbd5e1;">孔雀王朝二期籌備組</p>
-      <p style="margin-top: 8px; font-size: 1.05rem; color: #94a3b8; cursor: pointer; user-select: none;" onclick="triggerAdminClick()">本系統僅供本社區住戶登記使用 <span style="font-size: 0.82rem; opacity: 0.5;">(v14.52)</span></p>
+      <p style="margin-top: 8px; font-size: 1.05rem; color: #94a3b8; cursor: pointer; user-select: none;" onclick="triggerAdminClick()">本系統僅供本社區住戶登記使用 <span style="font-size: 0.82rem; opacity: 0.5;">(v14.53)</span></p>
     </footer>
 
   </main>
@@ -1389,6 +1404,10 @@
         <div class="success-checklist-item" id="modalVolunteerSummary" style="display: none;">
           <span class="icon">✔</span>
           <div id="modalVolunteerText"><strong>服務志工登記：</strong>已登記出勤服務。</div>
+        </div>
+        <div class="success-checklist-item" id="modalKaraokeSummary" style="display: none;">
+          <span class="icon">✔</span>
+          <div id="modalKaraokeText"><strong>星空歡唱同樂：</strong>已登記開唱，現場開唱可領 100 元同樂紅包！</div>
         </div>
       </div>
 
@@ -1446,7 +1465,8 @@
               <th>出席人數</th>
               <th>聚餐形式</th>
               <th>服務志工</th>
-              <th>早鳥木炭資格</th>
+              <th>星空歡唱</th>
+              <th>早鳥資格</th>
               <th>報名賽事</th>
             </tr>
           </thead>
@@ -1617,6 +1637,10 @@
       let recordOrderNumber = allRecords.length + 1;
       let isEarlyBird = false;
 
+      // 讀取星空歡唱報名內容
+      const karaokeInputEl = document.getElementById("karaokeInput");
+      const karaokeVal = (karaokeInputEl && karaokeInputEl.value.trim()) ? karaokeInputEl.value.trim() : "不參加";
+
       if (existingIndex > -1) {
         const confirmUpdate = confirm("提示：【" + selectedBuilding + " " + selectedFloor + "】先前已登記過，是否更新本次出席名單與賽事資料？");
         if (!confirmUpdate) return;
@@ -1630,8 +1654,10 @@
           attendees: attendeesWithDining,
           diningType: selectedDiningType,
           volunteer: volunteerVal,
+          karaoke: karaokeVal,
           contests: selectedContests,
-          time: exactTime
+          time: exactTime,
+          isEarlyBird: isEarlyBird
         };
       } else {
         isEarlyBird = (recordOrderNumber <= 20);
@@ -1643,8 +1669,10 @@
           attendees: attendeesWithDining,
           diningType: selectedDiningType,
           volunteer: volunteerVal,
+          karaoke: karaokeVal,
           contests: selectedContests,
-          time: exactTime
+          time: exactTime,
+          isEarlyBird: isEarlyBird
         });
       }
 
@@ -1660,6 +1688,7 @@
         attendees: attendeesWithDining,
         diningType: selectedDiningType,
         volunteer: volunteerVal,
+        karaoke: karaokeVal,
         contests: selectedContests,
         time: exactTime,
         isEarlyBird: isEarlyBird
@@ -1677,7 +1706,8 @@
         attendees: selectedAttendees,
         diningType: selectedDiningType,
         volunteer: volunteerVal,
-        isEarlyBird: isEarlyBird ? "★ 早鳥木炭1包(限18:00前領)" : "無 (可爭取現場早鳥)",
+        karaoke: karaokeVal,
+        isEarlyBird: isEarlyBird ? "★ 早鳥好禮二選一(限18:00前領)" : "無",
         contests: selectedContests.length ? selectedContests.join("、") : "未報名"
       });
 
@@ -1767,6 +1797,19 @@
         if (vAlert) vAlert.style.display = "none";
       }
 
+      const karaokeSummaryEl = document.getElementById("modalKaraokeSummary");
+      if (karaokeSummaryEl) {
+        if (data.karaoke && data.karaoke !== "不參加") {
+          karaokeSummaryEl.style.display = "flex";
+          karaokeSummaryEl.innerHTML = `
+            <span class="icon">✔</span>
+            <div><strong>星空歡唱同樂：</strong>已登記「${data.karaoke}」，現場開唱即可領取 100 元同樂紅包！</div>
+          `;
+        } else {
+          karaokeSummaryEl.style.display = "none";
+        }
+      }
+
       document.getElementById("successModal").classList.add("active");
     }
 
@@ -1831,6 +1874,10 @@
           if (data.volunteer && data.volunteer !== "不參加") {
             const vInput = document.getElementById("volunteerInput");
             if (vInput) vInput.value = data.volunteer.replace(/\s*位$/, "");
+          }
+          if (data.karaoke && data.karaoke !== "不參加") {
+            const kInput = document.getElementById("karaokeInput");
+            if (kInput) kInput.value = data.karaoke;
           }
           if (data.contests && Array.isArray(data.contests)) {
             selectedContests = data.contests;
@@ -1913,6 +1960,7 @@
             <td>${pureAttendees}</td>
             <td style="color:#fde68a; font-weight:700; white-space:nowrap;">${r.diningType || "未填"}</td>
             <td style="color:${isVol ? '#34d399' : '#94a3b8'}; font-weight:700; white-space:nowrap;">${r.volunteer || "不參加"}</td>
+            <td style="color:#fcd34d; font-size:0.82rem;">${r.karaoke || "不參加"}</td>
             <td style="color:${isEarly ? '#f59e0b' : '#94a3b8'}; white-space:nowrap;">${isEarly ? '★ 早鳥第' + (idx+1) + '名' : '無'}</td>
             <td>${(r.contests && r.contests.length) ? r.contests.join("<br>") : "未報賽事"}</td>
           `;
@@ -1933,12 +1981,12 @@
         alert("尚無登記資料可匯出！");
         return;
       }
-      let csvContent = "\uFEFF序號,登記時間,棟別,樓層,姓名,出席人數,聚餐形式,服務志工,早鳥木炭資格,報名賽事\n";
+      let csvContent = "\uFEFF序號,登記時間,棟別,樓層,姓名,出席人數,聚餐形式,服務志工,星空歡唱,早鳥資格,報名賽事\n";
       records.forEach((r, idx) => {
-        const isEarly = (idx < 20) ? "早鳥木炭1包(限18:00前領)" : "無";
+        const isEarly = (idx < 20) ? "早鳥好禮二選一(限18:00前領)" : "無";
         const contests = (r.contests || []).join(" / ");
         const pureAttendees = (r.attendees || '').replace(/\s*\(.*?\)/, '');
-        csvContent += `"${r.orderNo || (idx+1)}","${r.time || ''}","${r.building}","${r.floor}","${r.name || ''}","${pureAttendees}","${r.diningType || ''}","${r.volunteer || '不參加'}","${isEarly}","${contests}"\n`;
+        csvContent += `"${r.orderNo || (idx+1)}","${r.time || ''}","${r.building}","${r.floor}","${r.name || ''}","${pureAttendees}","${r.diningType || ''}","${r.volunteer || '不參加'}","${r.karaoke || '不參加'}","${isEarly}","${contests}"\n`;
       });
 
       const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
