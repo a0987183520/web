@@ -992,8 +992,8 @@
             </div>
             <h3 class="benefit-title">每戶食材補助 500 元</h3>
             <div class="benefit-desc-text">
-              <div>需自備烤肉食材</div>
-              <div>或外帶熟食（便當、披薩等餐食）</div>
+              <div>需自備烤肉器材與食材</div>
+              <div>或外帶熟食（餅乾、披薩、便當等餐食）</div>
             </div>
           </div>
 
@@ -1020,7 +1020,6 @@
             <h3 class="benefit-title">早鳥登記前 20 名送好禮</h3>
             <div class="benefit-desc-text">
               <div>木炭 或 大瓶冷飲 二選一</div>
-              <div style="margin-top: 3px; font-size: 1.05rem; color: #94a3b8;">（開烤 / 熟食聚餐皆適用）</div>
             </div>
           </div>
 
@@ -1036,7 +1035,7 @@
             <h3 class="benefit-title">早鳥開烤前 20 名送木炭 1 包</h3>
             <div class="benefit-desc-text">
               <div>17:30 起下樓生火開烤即贈</div>
-              <div>鼓勵鄰里提早熱場開爐！</div>
+              <div>鼓勵社區住戶提早熱場開爐！</div>
             </div>
           </div>
 
@@ -1216,14 +1215,15 @@
                 </div>
               </div>
 
-              <!-- 賽事獎金統一說明條 -->
-              <div class="contest-cash-note">
-                <div style="display: flex; align-items: flex-start; gap: 8px;">
-                  <span style="line-height: 1.4;">💡</span>
-                  <div>
-                    <div>說明：各組前三名皆可拿現金紅包</div>
-                    <div style="margin-top: 4px; font-size: 1.05rem; color: #fde68a;">親子敬老：需一位為國小四年級（含）以下或 80 歲（含）以上</div>
-                  </div>
+              <!-- 賽事獎金與年齡資格統一說明條 (同大字級，雙行獨立燈泡) -->
+              <div class="contest-cash-note" style="display: flex; flex-direction: column; gap: 8px;">
+                <div style="display: flex; align-items: center; gap: 8px;">
+                  <span>💡</span>
+                  <span>說明：各組前三名皆可拿現金紅包</span>
+                </div>
+                <div style="display: flex; align-items: center; gap: 8px;">
+                  <span>💡</span>
+                  <span>親子敬老：需一位為國小四年級（含）以下或 80 歲（含）以上</span>
                 </div>
               </div>
 
@@ -1242,17 +1242,13 @@
             </div>
           </div>
 
-          <!-- 7. 社區服務志工登記（單選） -->
+          <!-- 7. 社區服務志工登記 (換行標題與手填人數輸入框) -->
           <div class="form-group-item">
-            <div class="form-label">
-              <span>7. 社區服務志工登記（誤餐費 500 元，註五）</span>
+            <div class="form-label" style="display: flex; flex-direction: column; align-items: flex-start; gap: 4px;">
+              <span>7. 社區服務志工登記</span>
+              <span style="font-size: 1.05rem; font-weight: 700; color: #fde68a;">誤餐費 500 元（註五）</span>
             </div>
-            <div class="pill-grid" id="volunteerGroup">
-              <div class="pill-btn active" data-val="不參加" onclick="selectVolunteer(this)">不參加</div>
-              <div class="pill-btn" data-val="報名 1 位" onclick="selectVolunteer(this)">報名 1 位</div>
-              <div class="pill-btn" data-val="報名 2 位" onclick="selectVolunteer(this)">報名 2 位</div>
-              <div class="pill-btn" data-val="3 位以上" onclick="selectVolunteer(this)">3 位以上</div>
-            </div>
+            <input type="text" id="volunteerInput" class="text-input-field" placeholder="請輸入報名人數，例：3（若不參加請留空或填 0）" autocomplete="off">
           </div>
 
           <!-- 送出按鈕 (雙行結構：確認登記 ＋ 預約食材補助 500 元) -->
@@ -1296,7 +1292,7 @@
           <div class="note-row">
             <span class="note-pill">註五</span>
             <div class="note-text">
-              為鼓勵住戶與青年學子參與公共事務、服務鄰里長幼，特設立「<span class="note-highlight">社區服務志工隊</span>」（支援公備開烤攤位、食材分裝與趣味賽事叫號計時），每位出勤志工發放 <span class="note-highlight">500 元誤餐費津貼</span>！為利工作調度與年齡人數掌握（建議國小四年級以上至 80 歲以下），完成登記後請務必加入【<span class="note-highlight">中秋志工 LINE 聯繫群組</span>】（連結即將公布），以便確認出席與任務排班。
+              為鼓勵住戶與青年學子參與公共事務、服務社區長輩與幼小，特設立<span class="note-highlight">志工隊</span>（支援烤肉、食材分裝或趣味賽事），每位出勤志工發放 <span class="note-highlight">500 元誤餐津貼</span>。限國小四年級以上至 80 歲以下報名。
             </div>
           </div>
         </div>
@@ -1307,7 +1303,7 @@
     <!-- 頁尾宣告 -->
     <footer class="app-footer">
       <p style="font-size: 1.18rem; font-weight: 800; color: #cbd5e1;">孔雀王朝二期籌備組</p>
-      <p style="margin-top: 8px; font-size: 1.05rem; color: #94a3b8; cursor: pointer; user-select: none;" onclick="triggerAdminClick()">本系統僅供本社區住戶登記使用 <span style="font-size: 0.82rem; opacity: 0.5;">(v14.49)</span></p>
+      <p style="margin-top: 8px; font-size: 1.05rem; color: #94a3b8; cursor: pointer; user-select: none;" onclick="triggerAdminClick()">本系統僅供本社區住戶登記使用 <span style="font-size: 0.82rem; opacity: 0.5;">(v14.50)</span></p>
     </footer>
 
   </main>
@@ -1537,6 +1533,18 @@
         return;
       }
 
+      // 讀取志工手填人數
+      const volunteerInput = document.getElementById("volunteerInput");
+      const volunteerRaw = (volunteerInput ? volunteerInput.value : "").trim();
+      let volunteerVal = "不參加";
+      if (volunteerRaw && volunteerRaw !== "0" && volunteerRaw !== "0位" && volunteerRaw !== "無" && volunteerRaw !== "否") {
+        if (/^\d+$/.test(volunteerRaw)) {
+          volunteerVal = volunteerRaw + " 位";
+        } else {
+          volunteerVal = volunteerRaw;
+        }
+      }
+
       // 精確到秒的時間戳記 (YYYY-MM-DD HH:mm:ss)
       const exactTime = getFormattedTimestamp();
 
@@ -1565,7 +1573,7 @@
           name: nameVal,
           attendees: attendeesWithDining,
           diningType: selectedDiningType,
-          volunteer: selectedVolunteer,
+          volunteer: volunteerVal,
           contests: selectedContests,
           time: exactTime
         };
@@ -1578,7 +1586,7 @@
           name: nameVal,
           attendees: attendeesWithDining,
           diningType: selectedDiningType,
-          volunteer: selectedVolunteer,
+          volunteer: volunteerVal,
           contests: selectedContests,
           time: exactTime
         });
@@ -1595,7 +1603,7 @@
         name: nameVal,
         attendees: attendeesWithDining,
         diningType: selectedDiningType,
-        volunteer: selectedVolunteer,
+        volunteer: volunteerVal,
         contests: selectedContests,
         time: exactTime,
         isEarlyBird: isEarlyBird
@@ -1612,7 +1620,7 @@
         name: nameVal,
         attendees: selectedAttendees,
         diningType: selectedDiningType,
-        volunteer: selectedVolunteer,
+        volunteer: volunteerVal,
         isEarlyBird: isEarlyBird ? "★ 早鳥木炭1包(限18:00前領)" : "無 (可爭取現場早鳥)",
         contests: selectedContests.length ? selectedContests.join("、") : "未報名"
       });
@@ -1760,9 +1768,9 @@
             const dBtn = document.querySelector(`#diningTypeGroup .pill-btn[data-val="${data.diningType}"]`);
             if (dBtn) selectDiningType(dBtn);
           }
-          if (data.volunteer) {
-            const vBtn = document.querySelector(`#volunteerGroup .pill-btn[data-val="${data.volunteer}"]`);
-            if (vBtn) selectVolunteer(vBtn);
+          if (data.volunteer && data.volunteer !== "不參加") {
+            const vInput = document.getElementById("volunteerInput");
+            if (vInput) vInput.value = data.volunteer.replace(/\s*位$/, "");
           }
           if (data.contests && Array.isArray(data.contests)) {
             selectedContests = data.contests;
