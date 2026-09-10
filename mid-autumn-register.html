@@ -1,0 +1,1536 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <!-- HTTP Anti-Cache Headers (避免快取，強制載入最新版本) -->
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+
+  <!-- LINE 內嵌瀏覽器極速逃脫機制 (自動附加 openExternalBrowser=1 跳轉系統預設瀏覽器) -->
+  <script>
+    (function() {
+      try {
+        var ua = (navigator.userAgent || '').toLowerCase();
+        if (ua.indexOf('line') > -1 && window.location.search.indexOf('openExternalBrowser=1') === -1) {
+          var sep = window.location.href.indexOf('?') > -1 ? '&' : '?';
+          window.location.href = window.location.href + sep + 'openExternalBrowser=1';
+        }
+      } catch(e) {}
+    })();
+  </script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>孔雀王朝二期 ‧ 中秋烤肉晚會極速線上報名 ｜ 管委會好康補助</title>
+
+  <meta name="description" content="孔雀王朝二期中秋中庭烤肉晚會線上報名系統！每戶食材補助500元、管委會備妥噴火槍、早鳥送木炭、啤酒汽水與1~50小遊戲現金挑戰賽，10秒免打字極速登記！">
+  <meta name="keywords" content="孔雀王朝二期, 中秋烤肉, 線上報名, 食材補助, 噴火槍, 啤酒大賽, 汽水大賽, 1至50APP">
+  <meta name="robots" content="noindex, nofollow">
+
+  <style>
+    :root {
+      --bg-dark: #090e1a;
+      --bg-card: rgba(22, 30, 49, 0.82);
+      --bg-card-hover: rgba(30, 41, 68, 0.95);
+      --border-color: rgba(245, 158, 11, 0.22);
+      --border-gold: #f59e0b;
+      --gold-gradient: linear-gradient(135deg, #fbbf24 0%, #f59e0b 50%, #d97706 100%);
+      --gold-glow: 0 0 24px rgba(245, 158, 11, 0.35);
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-gold: #fde68a;
+      --accent-blue: #38bdf8;
+      --accent-green: #34d399;
+      --accent-red: #f87171;
+      --radius-sm: 10px;
+      --radius-md: 16px;
+      --radius-lg: 24px;
+      --shadow-card: 0 12px 32px rgba(0, 0, 0, 0.45);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans TC", sans-serif;
+      background-color: var(--bg-dark);
+      background-image: 
+        radial-gradient(circle at 50% 0%, rgba(245, 158, 11, 0.15) 0%, transparent 60%),
+        radial-gradient(circle at 100% 100%, rgba(56, 189, 248, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 0% 50%, rgba(217, 119, 6, 0.06) 0%, transparent 40%);
+      color: var(--text-main);
+      line-height: 1.5;
+      padding-bottom: 60px;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* 頂部固定簡約品牌導航 */
+    header.top-nav {
+      position: sticky;
+      top: 0;
+      z-index: 99;
+      background: rgba(9, 14, 26, 0.92);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(245, 158, 11, 0.2);
+      padding: 12px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-title-group {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .nav-badge {
+      font-size: 0.76rem;
+      font-weight: 700;
+      color: #f59e0b;
+      letter-spacing: 0.8px;
+    }
+
+    .nav-main-title {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: #ffffff;
+      letter-spacing: 0.5px;
+    }
+
+    .nav-status-pill {
+      background: rgba(52, 211, 153, 0.15);
+      border: 1px solid rgba(52, 211, 153, 0.4);
+      color: var(--accent-green);
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 999px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .nav-status-pill::before {
+      content: "";
+      display: inline-block;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background-color: var(--accent-green);
+      box-shadow: 0 0 8px var(--accent-green);
+    }
+
+    /* 主容器 */
+    .app-container {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 16px;
+    }
+
+    /* ===================================================
+       第一屏：主視覺 Banner ＆ 六大好康焦點
+       =================================================== */
+    .hero-section {
+      text-align: center;
+      padding: 16px 8px 24px;
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(245, 158, 11, 0.12);
+      border: 1px solid rgba(245, 158, 11, 0.35);
+      color: #fde68a;
+      font-size: 0.88rem;
+      font-weight: 700;
+      padding: 6px 16px;
+      border-radius: 999px;
+      margin-bottom: 14px;
+    }
+
+    .hero-title {
+      font-size: 1.95rem;
+      font-weight: 900;
+      line-height: 1.25;
+      color: #ffffff;
+      margin-bottom: 10px;
+      letter-spacing: 0.5px;
+    }
+
+    .hero-title span.gold {
+      background: var(--gold-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: 1.02rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+      margin-bottom: 20px;
+    }
+
+    /* 六大好康卡片清單 */
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .benefit-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 16px 18px;
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      box-shadow: var(--shadow-card);
+      transition: all 0.25s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .benefit-card::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      background: var(--gold-gradient);
+      border-radius: 4px 0 0 4px;
+    }
+
+    .benefit-card.highlight {
+      background: rgba(245, 158, 11, 0.08);
+      border-color: rgba(245, 158, 11, 0.5);
+    }
+
+    .benefit-icon-box {
+      font-size: 1.7rem;
+      line-height: 1;
+      padding: 8px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.04);
+      flex-shrink: 0;
+    }
+
+    .benefit-body {
+      flex: 1;
+      text-align: left;
+    }
+
+    .benefit-header-line {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 4px;
+      flex-wrap: wrap;
+    }
+
+    .benefit-badge {
+      font-size: 0.8rem;
+      font-weight: 800;
+      color: #f59e0b;
+      letter-spacing: 0.5px;
+    }
+
+    .benefit-tag-pill {
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 6px;
+      background: rgba(245, 158, 11, 0.18);
+      color: #fde68a;
+      border: 1px solid rgba(245, 158, 11, 0.3);
+    }
+
+    .benefit-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: #ffffff;
+      line-height: 1.35;
+      margin-bottom: 4px;
+    }
+
+    .benefit-desc {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.45;
+    }
+
+    .benefit-sub-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 8px;
+    }
+
+    .sub-tag-capsule {
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.06);
+      color: #e2e8f0;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    /* 第一屏立即預約主按鈕 */
+    .hero-action-container {
+      margin-bottom: 36px;
+    }
+
+    .btn-main-hero {
+      width: 100%;
+      background: var(--gold-gradient);
+      color: #0f172a;
+      font-size: 1.28rem;
+      font-weight: 900;
+      padding: 16px 24px;
+      border-radius: var(--radius-md);
+      border: none;
+      box-shadow: 0 10px 28px rgba(245, 158, 11, 0.45);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      letter-spacing: 0.5px;
+      transition: all 0.2s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-main-hero:active {
+      transform: scale(0.98);
+      box-shadow: 0 4px 14px rgba(245, 158, 11, 0.3);
+    }
+
+    .btn-sub-note {
+      text-align: center;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-top: 8px;
+    }
+
+    /* ===================================================
+       第二屏：直覺報名點選器（表單區）
+       =================================================== */
+    .register-section {
+      background: var(--bg-card);
+      border: 1px solid rgba(245, 158, 11, 0.28);
+      border-radius: var(--radius-lg);
+      padding: 22px 18px;
+      box-shadow: var(--shadow-card);
+      margin-bottom: 24px;
+      scroll-margin-top: 80px;
+    }
+
+    .section-title-box {
+      margin-bottom: 20px;
+      text-align: center;
+      position: relative;
+    }
+
+    .section-title-badge {
+      font-size: 0.82rem;
+      font-weight: 800;
+      color: #f59e0b;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .section-title-main {
+      font-size: 1.45rem;
+      font-weight: 900;
+      color: #ffffff;
+      line-height: 1.3;
+    }
+
+    .section-title-desc {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    /* 表單區塊 */
+    .form-group-item {
+      margin-bottom: 22px;
+    }
+
+    .form-label {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 1.02rem;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 10px;
+    }
+
+    .form-label .badge-required {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: #f87171;
+      background: rgba(248, 113, 113, 0.15);
+      border: 1px solid rgba(248, 113, 113, 0.3);
+      padding: 2px 8px;
+      border-radius: 999px;
+    }
+
+    .form-label .badge-optional {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--accent-blue);
+      background: rgba(56, 189, 248, 0.15);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      padding: 2px 8px;
+      border-radius: 999px;
+    }
+
+    /* 膠囊按鈕群組 (單選) */
+    .pill-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .pill-grid.grid-dense {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+    }
+
+    .pill-btn {
+      padding: 10px 8px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: var(--radius-sm);
+      color: #e2e8f0;
+      font-size: 0.98rem;
+      font-weight: 700;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      user-select: none;
+    }
+
+    .pill-btn:active {
+      transform: scale(0.96);
+    }
+
+    .pill-btn.active {
+      background: var(--gold-gradient);
+      color: #0f172a;
+      font-weight: 900;
+      border-color: #f59e0b;
+      box-shadow: 0 0 14px rgba(245, 158, 11, 0.5);
+    }
+
+    /* 姓名輸入框 */
+    .text-input-field {
+      width: 100%;
+      background: rgba(15, 23, 42, 0.75);
+      border: 1px solid rgba(245, 158, 11, 0.3);
+      border-radius: var(--radius-sm);
+      padding: 14px 16px;
+      color: #ffffff;
+      font-size: 1.05rem;
+      font-weight: 600;
+      outline: none;
+      transition: border-color 0.2s ease;
+    }
+
+    .text-input-field:focus {
+      border-color: #f59e0b;
+      box-shadow: 0 0 12px rgba(245, 158, 11, 0.3);
+    }
+
+    .input-hint-text {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-top: 6px;
+      line-height: 1.35;
+    }
+
+    /* 賽事複選卡片 (Checkbox Card) */
+    .contest-check-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .contest-card-option {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: var(--radius-sm);
+      padding: 12px 14px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      cursor: pointer;
+      user-select: none;
+      transition: all 0.2s ease;
+    }
+
+    .contest-card-option:active {
+      transform: scale(0.98);
+    }
+
+    .contest-card-option.checked {
+      background: rgba(245, 158, 11, 0.14);
+      border-color: #f59e0b;
+      box-shadow: 0 0 12px rgba(245, 158, 11, 0.25);
+    }
+
+    .custom-checkbox-indicator {
+      width: 22px;
+      height: 22px;
+      border-radius: 6px;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      color: transparent;
+      transition: all 0.15s ease;
+      flex-shrink: 0;
+    }
+
+    .contest-card-option.checked .custom-checkbox-indicator {
+      background: #f59e0b;
+      border-color: #f59e0b;
+      color: #0f172a;
+      font-weight: 900;
+    }
+
+    .contest-info {
+      flex: 1;
+    }
+
+    .contest-name {
+      font-size: 1.02rem;
+      font-weight: 800;
+      color: #ffffff;
+      line-height: 1.3;
+    }
+
+    .contest-rule-hint {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    .contest-card-option.checked .contest-name {
+      color: #fde68a;
+    }
+
+    /* 表單送出按鈕 */
+    .btn-submit-register {
+      width: 100%;
+      background: var(--gold-gradient);
+      color: #0f172a;
+      font-size: 1.25rem;
+      font-weight: 900;
+      padding: 16px 20px;
+      border-radius: var(--radius-md);
+      border: none;
+      box-shadow: 0 10px 24px rgba(245, 158, 11, 0.4);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      letter-spacing: 0.5px;
+      margin-top: 10px;
+      transition: all 0.2s ease;
+    }
+
+    .btn-submit-register:active {
+      transform: scale(0.98);
+    }
+
+    /* 註釋宣告卡片 (三條核心註解) */
+    .notes-card {
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      margin-top: 24px;
+      text-align: left;
+    }
+
+    .notes-title {
+      font-size: 0.88rem;
+      font-weight: 800;
+      color: #f59e0b;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .notes-item {
+      font-size: 0.84rem;
+      color: #cbd5e1;
+      line-height: 1.5;
+      margin-bottom: 6px;
+    }
+
+    .notes-item:last-child {
+      margin-bottom: 0;
+    }
+
+    /* ===================================================
+       第三屏：報名成功即時確認卡 (預設隱藏，送出後浮現)
+       =================================================== */
+    .success-modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(9, 14, 26, 0.95);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      z-index: 9999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 18px;
+    }
+
+    .success-modal-overlay.active {
+      display: flex;
+      animation: fadeIn 0.25s ease-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.96); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .success-card {
+      width: 100%;
+      max-width: 480px;
+      background: #111827;
+      border: 2px solid #f59e0b;
+      border-radius: var(--radius-lg);
+      padding: 24px 20px;
+      text-align: center;
+      box-shadow: 0 20px 48px rgba(0, 0, 0, 0.8), var(--gold-glow);
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+
+    .success-icon-badge {
+      width: 68px;
+      height: 68px;
+      margin: 0 auto 14px;
+      border-radius: 50%;
+      background: rgba(52, 211, 153, 0.15);
+      border: 2px solid var(--accent-green);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.2rem;
+    }
+
+    .success-title {
+      font-size: 1.6rem;
+      font-weight: 900;
+      color: #ffffff;
+      margin-bottom: 4px;
+    }
+
+    .success-household-highlight {
+      font-size: 1.22rem;
+      font-weight: 800;
+      color: #fde68a;
+      background: rgba(245, 158, 11, 0.15);
+      border: 1px dashed rgba(245, 158, 11, 0.4);
+      padding: 10px 14px;
+      border-radius: var(--radius-sm);
+      margin: 12px 0 16px;
+      display: inline-block;
+      width: 100%;
+    }
+
+    /* 早鳥木炭資格獲取專屬通知方塊 */
+    .charcoal-award-box {
+      background: linear-gradient(135deg, rgba(245, 158, 11, 0.25) 0%, rgba(217, 119, 6, 0.15) 100%);
+      border: 1px solid #f59e0b;
+      border-radius: var(--radius-md);
+      padding: 12px 14px;
+      margin-bottom: 16px;
+      text-align: left;
+    }
+
+    .charcoal-award-title {
+      font-size: 0.98rem;
+      font-weight: 800;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 4px;
+    }
+
+    .charcoal-award-desc {
+      font-size: 0.84rem;
+      color: #fef3c7;
+      line-height: 1.45;
+    }
+
+    .success-checklist {
+      text-align: left;
+      background: rgba(255, 255, 255, 0.04);
+      border-radius: var(--radius-sm);
+      padding: 14px;
+      margin-bottom: 20px;
+    }
+
+    .success-checklist-item {
+      font-size: 0.86rem;
+      color: #cbd5e1;
+      line-height: 1.5;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .success-checklist-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .success-checklist-item span.icon {
+      color: #f59e0b;
+      font-weight: 800;
+    }
+
+    .success-action-btns {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .btn-share-line {
+      width: 100%;
+      background: #06c755;
+      color: #ffffff;
+      font-size: 1.08rem;
+      font-weight: 800;
+      padding: 14px 18px;
+      border-radius: var(--radius-md);
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      box-shadow: 0 6px 18px rgba(6, 199, 85, 0.35);
+    }
+
+    .btn-close-modal {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.08);
+      color: #cbd5e1;
+      font-size: 0.95rem;
+      font-weight: 700;
+      padding: 12px 18px;
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      cursor: pointer;
+    }
+
+    /* 頁尾版權與總幹事彩蛋管理 */
+    footer.app-footer {
+      text-align: center;
+      margin-top: 30px;
+      padding: 20px 16px;
+      color: var(--text-muted);
+      font-size: 0.8rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .admin-link-trigger {
+      cursor: pointer;
+      user-select: none;
+      display: inline-block;
+      padding: 4px 8px;
+    }
+
+    /* 管理員後台彈窗 (匯出名單) */
+    .admin-modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.88);
+      z-index: 10000;
+      display: none;
+      padding: 20px;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .admin-modal-overlay.active {
+      display: flex;
+    }
+
+    .admin-modal-box {
+      width: 100%;
+      max-width: 580px;
+      background: #1e293b;
+      border-radius: var(--radius-md);
+      padding: 20px;
+      max-height: 85vh;
+      display: flex;
+      flex-direction: column;
+      color: #fff;
+    }
+
+    .admin-modal-title {
+      font-size: 1.25rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+      color: #fde68a;
+    }
+
+    .admin-data-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.82rem;
+      overflow-y: auto;
+      margin-bottom: 16px;
+      flex: 1;
+    }
+
+    .admin-data-table th, .admin-data-table td {
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      padding: 8px;
+      text-align: left;
+    }
+
+    .admin-data-table th {
+      background: rgba(245, 158, 11, 0.2);
+      color: #fde68a;
+    }
+
+    .admin-actions {
+      display: flex;
+      gap: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 頂部固定簡約狀態列 -->
+  <header class="top-nav">
+    <div class="nav-title-group">
+      <span class="nav-badge">孔雀王朝二期管委會 ‧ 中秋晚會</span>
+      <span class="nav-main-title">線上極速報名系統</span>
+    </div>
+    <div class="nav-status-pill">
+      預約中
+    </div>
+  </header>
+
+  <main class="app-container">
+
+    <!-- ===================================================
+         第一屏：主視覺 Banner ＆ 六大好康排版
+         =================================================== -->
+    <section class="hero-section">
+      <div class="hero-tag">
+        <span>🌕</span> 歡慶中秋 ‧ 鄰里同樂開烤
+      </div>
+      <h1 class="hero-title">
+        中庭烤肉晚會<br><span class="gold">六大好康 ‧ 極速預約</span>
+      </h1>
+      <p class="hero-subtitle">
+        管委會備妥噴火槍 ＆ 補助食材費！10秒登記免打字，下樓舉杯大歡聚！
+      </p>
+
+      <!-- 六大好康卡片清單 -->
+      <div class="benefits-grid">
+
+        <!-- 好康一 -->
+        <div class="benefit-card highlight">
+          <div class="benefit-icon-box">🥩</div>
+          <div class="benefit-body">
+            <div class="benefit-header-line">
+              <span class="benefit-badge">【好康一】</span>
+              <span class="benefit-tag-pill">核心補貼</span>
+            </div>
+            <h3 class="benefit-title">每戶食材補助 500 元（註一）</h3>
+            <p class="benefit-desc">管委會直接補貼每戶買肉買菜開銷，下樓開烤更盡興！</p>
+          </div>
+        </div>
+
+        <!-- 好康二 -->
+        <div class="benefit-card">
+          <div class="benefit-icon-box">🔥</div>
+          <div class="benefit-body">
+            <div class="benefit-header-line">
+              <span class="benefit-badge">【好康二】</span>
+              <span class="benefit-tag-pill">公備支援</span>
+            </div>
+            <h3 class="benefit-title">管委會準備噴火槍</h3>
+            <p class="benefit-desc">專業高溫噴火設備與專人點火，免去手動搧風生灰的狼狽麻煩。</p>
+          </div>
+        </div>
+
+        <!-- 好康三 -->
+        <div class="benefit-card highlight">
+          <div class="benefit-icon-box">📦</div>
+          <div class="benefit-body">
+            <div class="benefit-header-line">
+              <span class="benefit-badge">【好康三】</span>
+              <span class="benefit-tag-pill">線上早鳥保障</span>
+            </div>
+            <h3 class="benefit-title">早鳥登記前 20 名送木炭 1 包（註二）</h3>
+            <p class="benefit-desc">線上搶先預約登記，保障保留名額！當晚下樓報到直接領取開烤。</p>
+          </div>
+        </div>
+
+        <!-- 好康四 -->
+        <div class="benefit-card">
+          <div class="benefit-icon-box">⏰</div>
+          <div class="benefit-body">
+            <div class="benefit-header-line">
+              <span class="benefit-badge">【好康四】</span>
+              <span class="benefit-tag-pill">現場早鳥激勵</span>
+            </div>
+            <h3 class="benefit-title">早鳥烤肉前 20 名送木炭 1 包（註三）</h3>
+            <p class="benefit-desc">鼓勵提早下樓！17:30 開始下樓烤肉者前 20 名現場領取，送完為止。</p>
+          </div>
+        </div>
+
+        <!-- 好康五 -->
+        <div class="benefit-card">
+          <div class="benefit-icon-box">🍺</div>
+          <div class="benefit-body">
+            <div class="benefit-header-line">
+              <span class="benefit-badge">【好康五】</span>
+              <span class="benefit-tag-pill">現金榮譽紅包</span>
+            </div>
+            <h3 class="benefit-title">啤酒 / 汽水 ‧ 現金挑戰賽（共 9 名）</h3>
+            <p class="benefit-desc">男子組 ｜ 女子組 ｜ 親子家庭組，前三名現場直接拿現金！</p>
+            <div class="benefit-sub-tags">
+              <span class="sub-tag-capsule">男子啤酒組</span>
+              <span class="sub-tag-capsule">女子啤酒組</span>
+              <span class="sub-tag-capsule">親子汽水組</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 好康六 -->
+        <div class="benefit-card">
+          <div class="benefit-icon-box">📱</div>
+          <div class="benefit-body">
+            <div class="benefit-header-line">
+              <span class="benefit-badge">【好康六】</span>
+              <span class="benefit-tag-pill">全年齡同樂</span>
+            </div>
+            <h3 class="benefit-title">1~50 手機遊戲 ‧ 現金挑戰賽（共 9 名）</h3>
+            <p class="benefit-desc">大人小孩都會玩！前三名拿現金，活動前會開放讓住戶事先手機練習！</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- 立即預約核心按鈕 (點擊滑動至第二屏) -->
+      <div class="hero-action-container">
+        <button type="button" class="btn-main-hero" onclick="scrollToRegisterForm()">
+          <span>📝</span> 立即預約（10秒快速登記）
+        </button>
+        <p class="btn-sub-note">※ 免打字點選完成 ‧ 每戶補助 500 元食材金</p>
+      </div>
+    </section>
+
+    <!-- ===================================================
+         第二屏：報名點選器（棟別、樓層、姓名、人數、賽事）
+         =================================================== -->
+    <section class="register-section" id="registerFormCard">
+      <div class="section-title-box">
+        <div class="section-title-badge">STEP 1 / 2 ‧ 登記基本資料</div>
+        <h2 class="section-title-main">填寫預約資料</h2>
+        <p class="section-title-desc">點選您的棟別、樓層與姓名，即可領取中秋好康！</p>
+      </div>
+
+      <form id="bookingForm" onsubmit="handleFormSubmit(event)">
+
+        <!-- 1. 棟別單選 (全區11棟) -->
+        <div class="form-group-item">
+          <div class="form-label">
+            <span>1. 選擇棟別</span>
+            <span class="badge-required">必選</span>
+          </div>
+          <div class="pill-grid" id="buildingGroup">
+            <div class="pill-btn" data-val="A棟" onclick="selectBuilding(this)">A棟</div>
+            <div class="pill-btn" data-val="B棟" onclick="selectBuilding(this)">B棟</div>
+            <div class="pill-btn" data-val="C棟" onclick="selectBuilding(this)">C棟</div>
+            <div class="pill-btn" data-val="D棟" onclick="selectBuilding(this)">D棟</div>
+            <div class="pill-btn" data-val="D1棟" onclick="selectBuilding(this)">D1棟</div>
+            <div class="pill-btn" data-val="E棟" onclick="selectBuilding(this)">E棟</div>
+            <div class="pill-btn" data-val="F棟" onclick="selectBuilding(this)">F棟</div>
+            <div class="pill-btn" data-val="G棟" onclick="selectBuilding(this)">G棟</div>
+            <div class="pill-btn" data-val="H棟" onclick="selectBuilding(this)">H棟</div>
+            <div class="pill-btn" data-val="I棟" onclick="selectBuilding(this)">I棟</div>
+            <div class="pill-btn" data-val="J棟" onclick="selectBuilding(this)">J棟</div>
+          </div>
+        </div>
+
+        <!-- 2. 樓層單選 (2F 至 12F) -->
+        <div class="form-group-item">
+          <div class="form-label">
+            <span>2. 選擇樓層</span>
+            <span class="badge-required">必選</span>
+          </div>
+          <div class="pill-grid grid-dense" id="floorGroup">
+            <div class="pill-btn" data-val="2F" onclick="selectFloor(this)">2F</div>
+            <div class="pill-btn" data-val="3F" onclick="selectFloor(this)">3F</div>
+            <div class="pill-btn" data-val="4F" onclick="selectFloor(this)">4F</div>
+            <div class="pill-btn" data-val="5F" onclick="selectFloor(this)">5F</div>
+            <div class="pill-btn" data-val="6F" onclick="selectFloor(this)">6F</div>
+            <div class="pill-btn" data-val="7F" onclick="selectFloor(this)">7F</div>
+            <div class="pill-btn" data-val="8F" onclick="selectFloor(this)">8F</div>
+            <div class="pill-btn" data-val="9F" onclick="selectFloor(this)">9F</div>
+            <div class="pill-btn" data-val="10F" onclick="selectFloor(this)">10F</div>
+            <div class="pill-btn" data-val="11F" onclick="selectFloor(this)">11F</div>
+            <div class="pill-btn" data-val="12F" onclick="selectFloor(this)">12F</div>
+          </div>
+        </div>
+
+        <!-- 3. 姓名輸入框 -->
+        <div class="form-group-item">
+          <div class="form-label">
+            <span>3. 姓名 / 稱呼</span>
+            <span class="badge-required">必填</span>
+          </div>
+          <input type="text" id="residentNameInput" class="text-input-field" placeholder="請輸入稱呼（例：陳先生、林大明）" required autocomplete="off">
+          <p class="input-hint-text">※ 當晚大會服務台領取 500 元食材補助簽收與參賽叫號之用，避免錯報冒領。</p>
+        </div>
+
+        <!-- 4. 出席人數單選 -->
+        <div class="form-group-item">
+          <div class="form-label">
+            <span>4. 出席總人數</span>
+            <span class="badge-required">必選</span>
+          </div>
+          <div class="pill-grid" id="attendeesGroup">
+            <div class="pill-btn active" data-val="1~2位" onclick="selectAttendees(this)">1~2 位</div>
+            <div class="pill-btn" data-val="3~4位" onclick="selectAttendees(this)">3~4 位</div>
+            <div class="pill-btn" data-val="5位以上" onclick="selectAttendees(this)">5 位以上</div>
+          </div>
+        </div>
+
+        <!-- 5. 趣味賽事複選 -->
+        <div class="form-group-item">
+          <div class="form-label">
+            <span>5. 趣味賽事預約挑戰（可複選）</span>
+            <span class="badge-optional">自由參加</span>
+          </div>
+          <div class="contest-check-list">
+
+            <!-- 啤酒男子組 -->
+            <div class="contest-card-option" onclick="toggleContestOption(this)" data-contest="啤酒大賽 ‧ 男子組">
+              <div class="custom-checkbox-indicator">✓</div>
+              <div class="contest-info">
+                <div class="contest-name">🍺 啤酒大賽 ‧ 男子組</div>
+                <div class="contest-rule-hint">秒數爭霸，前三名拿現金紅包！</div>
+              </div>
+            </div>
+
+            <!-- 啤酒女子組 -->
+            <div class="contest-card-option" onclick="toggleContestOption(this)" data-contest="啤酒大賽 ‧ 女子組">
+              <div class="custom-checkbox-indicator">✓</div>
+              <div class="contest-info">
+                <div class="contest-name">🍺 啤酒大賽 ‧ 女子組</div>
+                <div class="contest-rule-hint">巾幗不讓鬚眉，前三名拿現金紅包！</div>
+              </div>
+            </div>
+
+            <!-- 汽水親子組 -->
+            <div class="contest-card-option" onclick="toggleContestOption(this)" data-contest="汽水大賽 ‧ 親子組">
+              <div class="custom-checkbox-indicator">✓</div>
+              <div class="contest-info">
+                <div class="contest-name">🥤 汽水大賽 ‧ 親子組</div>
+                <div class="contest-rule-hint">其中一位須為 10 歲以下或 80 歲以上，安全趣味拿獎金！</div>
+              </div>
+            </div>
+
+            <!-- 1至50 APP小遊戲 -->
+            <div class="contest-card-option" onclick="toggleContestOption(this)" data-contest="1至50 APP小遊戲">
+              <div class="custom-checkbox-indicator">✓</div>
+              <div class="contest-info">
+                <div class="contest-name">📱 1至50 APP小遊戲挑戰賽</div>
+                <div class="contest-rule-hint">手眼協調數字極速點擊，大人小孩都能挑戰前三名！</div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- 送出按鈕 -->
+        <button type="submit" class="btn-submit-register">
+          <span>✨</span> 確認登記 ‧ 預約食材補助 500 元
+        </button>
+
+      </form>
+
+      <!-- 註釋卡片 (嚴謹載明三大註解) -->
+      <div class="notes-card">
+        <div class="notes-title">
+          <span>📌</span> 領取補助與物資重要備註
+        </div>
+        <p class="notes-item">【註一】：以「戶」為單位，需下樓參與中庭聚餐開烤並報名參與任一趣味遊戲，即可於現場大會服務台簽領 500 元食材補助金。</p>
+        <p class="notes-item">【註二】：線上早鳥登記贈送之木炭（限額前 20 名），需於活動當晚 18:00 之前下樓領取；逾時名額將轉讓給現場候補開烤住戶。</p>
+        <p class="notes-item">【註三】：早鳥烤肉贈送之木炭，限當晚 17:30 開始下樓烤肉者前 20 名現場領取，送完為止。</p>
+      </div>
+
+    </section>
+
+    <!-- 頁尾宣告 -->
+    <footer class="app-footer">
+      <p>孔雀王朝二期管理委員會 ‧ 115年中秋慶典籌備組</p>
+      <p style="margin-top: 4px;">本系統專供本社區住戶中秋聯歡登記使用</p>
+      <p style="margin-top: 10px; opacity: 0.5;">
+        <span class="admin-link-trigger" onclick="triggerAdminClick()">管理核銷後台</span>
+      </p>
+    </footer>
+
+  </main>
+
+  <!-- ===================================================
+       第三屏：報名成功即時確認彈窗卡 (原地切換，免換頁)
+       =================================================== -->
+  <div class="success-modal-overlay" id="successModal">
+    <div class="success-card">
+      <div class="success-icon-badge">🎉</div>
+      <h2 class="success-title">預約登記成功！</h2>
+      <p style="color: #94a3b8; font-size: 0.92rem;">恭喜您已順利完成中秋晚會出席登記</p>
+
+      <!-- 戶別高亮 -->
+      <div class="success-household-highlight" id="modalHouseholdText">
+        A棟 6樓 陳先生 ｜ 3~4位
+      </div>
+
+      <!-- 早鳥木炭資格通知 (若在前 20 戶即時呈現) -->
+      <div class="charcoal-award-box" id="charcoalAwardNotification">
+        <div class="charcoal-award-title">
+          <span>🎁</span> 恭喜取得【好康三：早鳥木炭 1 包】保留資格！
+        </div>
+        <p class="charcoal-award-desc">
+          您是線上登記前 20 名早鳥！請於活動當晚 18:00 之前至中庭服務台簽名領取，逾時名額將釋出給現場開烤鄰居。
+        </p>
+      </div>
+
+      <!-- 成功叮嚀清單 -->
+      <div class="success-checklist">
+        <div class="success-checklist-item">
+          <span class="icon">✔</span>
+          <div><strong>食材補助 500 元：</strong>活動當晚請至服務台簽名領取。</div>
+        </div>
+        <div class="success-checklist-item">
+          <span class="icon">✔</span>
+          <div><strong>公備噴火槍支援：</strong>管委會現場備妥高溫噴火槍，協助輕鬆引火。</div>
+        </div>
+        <div class="success-checklist-item" id="modalContestSummary">
+          <span class="icon">✔</span>
+          <div><strong>已報名趣味賽事：</strong>啤酒大賽、1~50 APP小遊戲。</div>
+        </div>
+      </div>
+
+      <!-- 動作按鈕 -->
+      <div class="success-action-btns">
+        <button type="button" class="btn-share-line" onclick="copyShareText()">
+          <span>📲</span> 通知隔壁鄰居一起下樓烤肉！
+        </button>
+        <button type="button" class="btn-close-modal" onclick="closeSuccessModal()">
+          完成 ＆ 返回首頁
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 管理員後台彈窗 (彩蛋點擊5次觸發，方便總幹事現場列印/核銷名單) -->
+  <div class="admin-modal-overlay" id="adminModal">
+    <div class="admin-modal-box">
+      <h3 class="admin-modal-title">📊 社區已登記名冊（管委會現場核銷）</h3>
+      <div style="overflow-y: auto; max-height: 400px; width: 100%;">
+        <table class="admin-data-table" id="adminTable">
+          <thead>
+            <tr>
+              <th>序號</th>
+              <th>戶別</th>
+              <th>姓名</th>
+              <th>人數</th>
+              <th>早鳥木炭</th>
+              <th>報名賽事</th>
+            </tr>
+          </thead>
+          <tbody id="adminTableBody">
+            <!-- 動態插入 -->
+          </tbody>
+        </table>
+      </div>
+      <div class="admin-actions">
+        <button type="button" class="btn-main-hero" style="font-size: 0.95rem; padding: 10px;" onclick="exportCSV()">
+          匯出 CSV / Excel
+        </button>
+        <button type="button" class="btn-close-modal" style="font-size: 0.95rem; padding: 10px;" onclick="closeAdminModal()">
+          關閉
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript 核心邏輯 -->
+  <script>
+    // 狀態變數
+    let selectedBuilding = "";
+    let selectedFloor = "";
+    let selectedAttendees = "1~2位";
+    let selectedContests = [];
+    let adminClickCount = 0;
+
+    const STORAGE_KEY_RECORDS = "peacock2_mid_autumn_records_v1";
+    const STORAGE_KEY_MY_REG = "peacock2_my_registration_v1";
+
+    // 初始化載入
+    window.addEventListener("DOMContentLoaded", () => {
+      checkExistingRegistration();
+    });
+
+    // 平滑滾動至報名表單
+    function scrollToRegisterForm() {
+      const el = document.getElementById("registerFormCard");
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }
+
+    // 選擇棟別 (單選)
+    function selectBuilding(btn) {
+      document.querySelectorAll("#buildingGroup .pill-btn").forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      selectedBuilding = btn.getAttribute("data-val");
+    }
+
+    // 選擇樓層 (單選)
+    function selectFloor(btn) {
+      document.querySelectorAll("#floorGroup .pill-btn").forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      selectedFloor = btn.getAttribute("data-val");
+    }
+
+    // 選擇人數 (單選)
+    function selectAttendees(btn) {
+      document.querySelectorAll("#attendeesGroup .pill-btn").forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      selectedAttendees = btn.getAttribute("data-val");
+    }
+
+    // 趣味競賽切換 (複選)
+    function toggleContestOption(card) {
+      card.classList.toggle("checked");
+      const contestName = card.getAttribute("data-contest");
+      if (card.classList.contains("checked")) {
+        if (!selectedContests.includes(contestName)) {
+          selectedContests.push(contestName);
+        }
+      } else {
+        selectedContests = selectedContests.filter(c => c !== contestName);
+      }
+    }
+
+    // 表單送出處理
+    function handleFormSubmit(event) {
+      event.preventDefault();
+
+      if (!selectedBuilding) {
+        alert("請點選您的「棟別」（例如：A棟、B棟）！");
+        const bGroup = document.getElementById("buildingGroup");
+        bGroup.scrollIntoView({ behavior: "smooth", block: "center" });
+        return;
+      }
+
+      if (!selectedFloor) {
+        alert("請點選您的「樓層」（例如：5F、8F）！");
+        const fGroup = document.getElementById("floorGroup");
+        fGroup.scrollIntoView({ behavior: "smooth", block: "center" });
+        return;
+      }
+
+      const nameInput = document.getElementById("residentNameInput");
+      const nameVal = (nameInput.value || "").trim();
+      if (!nameVal) {
+        alert("請輸入您的「姓名或稱呼」（例如：陳先生、林小姐）！");
+        nameInput.focus();
+        return;
+      }
+
+      // 讀取既有紀錄
+      let allRecords = getStoredRecords();
+
+      // 判斷是否同戶已登記
+      const householdKey = selectedBuilding + "_" + selectedFloor;
+      const existingIndex = allRecords.findIndex(r => (r.building + "_" + r.floor) === householdKey);
+
+      let recordOrderNumber = allRecords.length + 1;
+      let isEarlyBird = false;
+
+      if (existingIndex > -1) {
+        const confirmUpdate = confirm("提示：【" + selectedBuilding + " " + selectedFloor + "】先前已登記過，是否更新本次出席名單與賽事資料？");
+        if (!confirmUpdate) return;
+        recordOrderNumber = allRecords[existingIndex].orderNo;
+        isEarlyBird = (recordOrderNumber <= 20);
+        allRecords[existingIndex] = {
+          orderNo: recordOrderNumber,
+          building: selectedBuilding,
+          floor: selectedFloor,
+          name: nameVal,
+          attendees: selectedAttendees,
+          contests: selectedContests,
+          time: new Date().toLocaleString()
+        };
+      } else {
+        isEarlyBird = (recordOrderNumber <= 20);
+        allRecords.push({
+          orderNo: recordOrderNumber,
+          building: selectedBuilding,
+          floor: selectedFloor,
+          name: nameVal,
+          attendees: selectedAttendees,
+          contests: selectedContests,
+          time: new Date().toLocaleString()
+        });
+      }
+
+      // 存入 localStorage
+      saveStoredRecords(allRecords);
+
+      // 記住我個人的最新登記
+      const myRegData = {
+        orderNo: recordOrderNumber,
+        building: selectedBuilding,
+        floor: selectedFloor,
+        name: nameVal,
+        attendees: selectedAttendees,
+        contests: selectedContests,
+        isEarlyBird: isEarlyBird
+      };
+      localStorage.setItem(STORAGE_KEY_MY_REG, JSON.stringify(myRegData));
+
+      // 觸發展示第三屏成功確認卡
+      showSuccessModal(myRegData);
+    }
+
+    // 顯示成功確認卡片
+    function showSuccessModal(data) {
+      document.getElementById("modalHouseholdText").innerText = 
+        data.building + " " + data.floor + " " + data.name + " ｜ " + data.attendees;
+
+      const awardBox = document.getElementById("charcoalAwardNotification");
+      if (data.isEarlyBird) {
+        awardBox.style.display = "block";
+        awardBox.innerHTML = `
+          <div class="charcoal-award-title">
+            <span>🎁</span> 恭喜取得【好康三：早鳥木炭 1 包】保留資格！
+          </div>
+          <p class="charcoal-award-desc">
+            您是第 <strong>${data.orderNo}</strong> 位線上早鳥！請於活動當晚 18:00 之前至中庭服務台簽名領取，逾時名額將釋出給現場開烤鄰居。
+          </p>
+        `;
+      } else {
+        awardBox.style.display = "block";
+        awardBox.innerHTML = `
+          <div class="charcoal-award-title" style="color: #93c5fd;">
+            <span>💡</span> 食材補助 500 元預約已鎖定！
+          </div>
+          <p class="charcoal-award-desc">
+            線上木炭 20 包早鳥名額已滿，但活動當日 17:30 提早下樓烤肉，仍可現場爭取【好康四：早鳥烤肉木炭前 20 名】！
+          </p>
+        `;
+      }
+
+      const contestSummaryEl = document.getElementById("modalContestSummary");
+      if (data.contests && data.contests.length > 0) {
+        contestSummaryEl.style.display = "flex";
+        contestSummaryEl.innerHTML = `
+          <span class="icon">✔</span>
+          <div><strong>已報名趣味賽事：</strong>${data.contests.join("、")}</div>
+        `;
+      } else {
+        contestSummaryEl.style.display = "flex";
+        contestSummaryEl.innerHTML = `
+          <span class="icon">✔</span>
+          <div><strong>未報名個人趣味賽：</strong>當晚亦可現場向大會直接報名！</div>
+        `;
+      }
+
+      document.getElementById("successModal").classList.add("active");
+    }
+
+    // 關閉成功確認卡
+    function closeSuccessModal() {
+      document.getElementById("successModal").classList.remove("active");
+    }
+
+    // 一鍵複製 LINE 轉發分享文案
+    function copyShareText() {
+      const shareText = `🌕【孔雀王朝二期 ‧ 中秋中庭烤肉晚會】線上預約開跑囉！\n` +
+        `管委會每戶補助 500 元食材金、公備噴火槍免生火，早鳥登記還送無煙木炭一包！還有啤酒汽水大賽與手機遊戲拿現金紅包！\n` +
+        `隔壁鄰居快一起來登記參加吧！👉 ${window.location.href.split('?')[0]}`;
+
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(shareText).then(() => {
+          alert("已複製宣傳文字！請直接到 LINE 貼上傳送給隔壁鄰居好友！😊");
+        }).catch(() => {
+          fallbackCopyText(shareText);
+        });
+      } else {
+        fallbackCopyText(shareText);
+      }
+    }
+
+    function fallbackCopyText(text) {
+      const ta = document.createElement("textarea");
+      ta.value = text;
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand("copy");
+      document.body.removeChild(ta);
+      alert("已複製宣傳文字！請直接到 LINE 貼上傳送給隔壁鄰居好友！😊");
+    }
+
+    // 檢查先前是否已登記過
+    function checkExistingRegistration() {
+      const raw = localStorage.getItem(STORAGE_KEY_MY_REG);
+      if (raw) {
+        try {
+          const data = JSON.parse(raw);
+          // 回填表單以利修改
+          if (data.building) {
+            const bBtn = document.querySelector(`#buildingGroup .pill-btn[data-val="${data.building}"]`);
+            if (bBtn) selectBuilding(bBtn);
+          }
+          if (data.floor) {
+            const fBtn = document.querySelector(`#floorGroup .pill-btn[data-val="${data.floor}"]`);
+            if (fBtn) selectFloor(fBtn);
+          }
+          if (data.name) {
+            document.getElementById("residentNameInput").value = data.name;
+          }
+          if (data.attendees) {
+            const aBtn = document.querySelector(`#attendeesGroup .pill-btn[data-val="${data.attendees}"]`);
+            if (aBtn) selectAttendees(aBtn);
+          }
+          if (data.contests && Array.isArray(data.contests)) {
+            selectedContests = data.contests;
+            document.querySelectorAll(".contest-card-option").forEach(card => {
+              if (selectedContests.includes(card.getAttribute("data-contest"))) {
+                card.classList.add("checked");
+              }
+            });
+          }
+        } catch(e) {}
+      }
+    }
+
+    // 本地存取輔助
+    function getStoredRecords() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY_RECORDS);
+        return raw ? JSON.parse(raw) : [];
+      } catch(e) {
+        return [];
+      }
+    }
+
+    function saveStoredRecords(records) {
+      try {
+        localStorage.setItem(STORAGE_KEY_RECORDS, JSON.stringify(records));
+      } catch(e) {}
+    }
+
+    // 後台管理觸發 (連續點擊5次版權列)
+    function triggerAdminClick() {
+      adminClickCount++;
+      if (adminClickCount >= 5) {
+        adminClickCount = 0;
+        openAdminModal();
+      }
+    }
+
+    function openAdminModal() {
+      const records = getStoredRecords();
+      const tbody = document.getElementById("adminTableBody");
+      tbody.innerHTML = "";
+
+      if (records.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="6" style="text-align:center; opacity:0.6;">目前尚無住戶登記紀錄</td></tr>`;
+      } else {
+        records.forEach((r, idx) => {
+          const tr = document.createElement("tr");
+          const isEarly = (idx < 20);
+          tr.innerHTML = `
+            <td>${r.orderNo || (idx + 1)}</td>
+            <td><strong>${r.building} ${r.floor}</strong></td>
+            <td>${r.name || "-"}</td>
+            <td>${r.attendees || "-"}</td>
+            <td style="color:${isEarly ? '#f59e0b' : '#94a3b8'};">${isEarly ? '★ 早鳥第' + (idx+1) + '名' : '無'}</td>
+            <td>${(r.contests && r.contests.length) ? r.contests.join("<br>") : "未報賽事"}</td>
+          `;
+          tbody.appendChild(tr);
+        });
+      }
+      document.getElementById("adminModal").classList.add("active");
+    }
+
+    function closeAdminModal() {
+      document.getElementById("adminModal").classList.remove("active");
+    }
+
+    // 匯出 CSV 檔 (供管委會於 Excel 開啟列印簽收)
+    function exportCSV() {
+      const records = getStoredRecords();
+      if (records.length === 0) {
+        alert("尚無登記資料可匯出！");
+        return;
+      }
+      let csvContent = "\uFEFF序號,棟別,樓層,姓名,出席人數,早鳥木炭資格,報名賽事,登記時間\n";
+      records.forEach((r, idx) => {
+        const isEarly = (idx < 20) ? "早鳥木炭1包(限18:00前領)" : "無";
+        const contests = (r.contests || []).join(" / ");
+        csvContent += `"${r.orderNo || (idx+1)}","${r.building}","${r.floor}","${r.name || ''}","${r.attendees || ''}","${isEarly}","${contests}","${r.time || ''}"\n`;
+      });
+
+      const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.setAttribute("href", url);
+      link.setAttribute("download", `孔雀王朝二期_中秋烤肉報名名冊_${new Date().toISOString().slice(0,10)}.csv`);
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+  </script>
+</body>
+</html>
