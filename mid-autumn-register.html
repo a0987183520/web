@@ -620,41 +620,41 @@
       box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
     }
 
-    /* 表單送出按鈕 (雙行結構：確認登記 ＋ 預約食材補助 500 元) */
+    /* 表單送出按鈕 (微縮精緻化：確認登記 ＋ 預約食材補助 500 元) */
     .btn-submit-register {
       width: 100%;
       background: var(--gold-gradient);
       color: #0f172a;
-      padding: 14px 20px;
+      padding: 10px 18px;
       border-radius: var(--radius-md);
       border: none;
-      box-shadow: 0 10px 24px rgba(245, 158, 11, 0.45);
+      box-shadow: 0 8px 20px rgba(245, 158, 11, 0.4);
       cursor: pointer;
       display: flex !important;
       flex-direction: column !important;
       align-items: center !important;
       justify-content: center !important;
-      margin-top: 16px;
+      margin-top: 14px;
       transition: all 0.2s ease;
     }
 
     .btn-submit-primary {
-      font-size: 1.45rem;
+      font-size: 1.25rem;
       font-weight: 900;
       line-height: 1.25;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
-      letter-spacing: 0.8px;
+      gap: 6px;
+      letter-spacing: 0.6px;
     }
 
     .btn-submit-subtitle {
-      font-size: 1.05rem;
+      font-size: 0.92rem;
       font-weight: 800;
       color: #1e293b;
-      margin-top: 4px;
-      letter-spacing: 0.5px;
+      margin-top: 2px;
+      letter-spacing: 0.4px;
       display: block;
     }
 
@@ -842,6 +842,68 @@
       font-weight: 800;
     }
 
+    /* LINE 活動群組加入專屬卡 */
+    .modal-line-box {
+      background: rgba(6, 199, 85, 0.1);
+      border: 1.5px solid #06c755;
+      border-radius: var(--radius-md);
+      padding: 14px 16px;
+      margin-bottom: 18px;
+      text-align: left;
+    }
+
+    .modal-line-title {
+      font-size: 1.02rem;
+      font-weight: 800;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 6px;
+    }
+
+    .modal-line-desc {
+      font-size: 0.86rem;
+      color: #cbd5e1;
+      line-height: 1.5;
+      margin-bottom: 8px;
+    }
+
+    .modal-line-volunteer-alert {
+      font-size: 0.86rem;
+      font-weight: 700;
+      color: #fde68a;
+      background: rgba(245, 158, 11, 0.18);
+      border-left: 3px solid #f59e0b;
+      padding: 8px 10px;
+      border-radius: 4px;
+      margin-bottom: 10px;
+      line-height: 1.45;
+    }
+
+    .btn-join-line-group {
+      width: 100%;
+      background: #06c755;
+      color: #ffffff;
+      font-size: 1.05rem;
+      font-weight: 800;
+      padding: 11px 16px;
+      border-radius: var(--radius-md);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      box-shadow: 0 4px 14px rgba(6, 199, 85, 0.35);
+      transition: all 0.2s ease;
+      box-sizing: border-box;
+    }
+
+    .btn-join-line-group:hover, .btn-join-line-group:active {
+      background: #05b04c;
+      transform: translateY(-1px);
+    }
+
     .success-action-btns {
       display: flex;
       flex-direction: column;
@@ -993,7 +1055,7 @@
             <h3 class="benefit-title">每戶食材補助 500 元</h3>
             <div class="benefit-desc-text">
               <div>需自備烤肉器材與食材</div>
-              <div>或外帶熟食（餅乾、披薩、便當等餐食）</div>
+              <div>或自帶零食、披薩、泡麵等熟食</div>
             </div>
           </div>
 
@@ -1242,13 +1304,13 @@
             </div>
           </div>
 
-          <!-- 7. 社區服務志工登記 (換行標題與手填人數輸入框) -->
+          <!-- 7. 報名志工服務 (換行標題與手填人數輸入框) -->
           <div class="form-group-item">
             <div class="form-label" style="display: flex; flex-direction: column; align-items: flex-start; gap: 4px;">
-              <span>7. 社區服務志工登記</span>
+              <span>7. 報名志工服務</span>
               <span style="font-size: 1.05rem; font-weight: 700; color: #fde68a;">誤餐費 500 元（註五）</span>
             </div>
-            <input type="text" id="volunteerInput" class="text-input-field" placeholder="請輸入報名人數，例：3（若不參加請留空或填 0）" autocomplete="off">
+            <input type="text" id="volunteerInput" class="text-input-field" placeholder="輸入報名志工人數" autocomplete="off">
           </div>
 
           <!-- 送出按鈕 (雙行結構：確認登記 ＋ 預約食材補助 500 元) -->
@@ -1268,7 +1330,7 @@
           <div class="note-row">
             <span class="note-pill">註一</span>
             <div class="note-text">
-              以「戶」為單位，下樓聚餐同樂（不論「我要烤肉」或「自帶熟食：如披薩、便當、麥當勞等熟食零食飲料」均可）並報名任一趣味賽事，即可簽領 <span class="note-highlight">500 元食材補助金</span>。
+              如披薩、便當、泡麵、麥當勞等熟食、零食、飲料均可，並報名任一趣味競賽與拍照，即可領 <span class="note-highlight">500 元食材補助金</span>。
             </div>
           </div>
           <div class="note-row">
@@ -1303,7 +1365,7 @@
     <!-- 頁尾宣告 -->
     <footer class="app-footer">
       <p style="font-size: 1.18rem; font-weight: 800; color: #cbd5e1;">孔雀王朝二期籌備組</p>
-      <p style="margin-top: 8px; font-size: 1.05rem; color: #94a3b8; cursor: pointer; user-select: none;" onclick="triggerAdminClick()">本系統僅供本社區住戶登記使用 <span style="font-size: 0.82rem; opacity: 0.5;">(v14.50)</span></p>
+      <p style="margin-top: 8px; font-size: 1.05rem; color: #94a3b8; cursor: pointer; user-select: none;" onclick="triggerAdminClick()">本系統僅供本社區住戶登記使用 <span style="font-size: 0.82rem; opacity: 0.5;">(v14.51)</span></p>
     </footer>
 
   </main>
@@ -1350,6 +1412,22 @@
           <span class="icon">✔</span>
           <div id="modalVolunteerText"><strong>服務志工登記：</strong>已登記出勤服務。</div>
         </div>
+      </div>
+
+      <!-- LINE 活動群組加入專屬卡 (一般聚餐 ＋ 志工任務協調) -->
+      <div class="modal-line-box">
+        <div class="modal-line-title">
+          <span>💬</span> 加入【中秋晚會 ‧ 烤肉聚餐＆志工協調 LINE 群組】
+        </div>
+        <div class="modal-line-desc">
+          方便掌握活動當晚開烤進度、桌椅食材調度與各項烤肉聚餐即時通知！
+        </div>
+        <div class="modal-line-volunteer-alert" id="modalLineVolunteerAlert" style="display: none;">
+          ⚠️【志工重要通知】：有登記志工服務之熱心住戶，請務必點擊加入本群組，以便後續出勤任務與責任分配！
+        </div>
+        <a href="https://line.me/R/ti/g/K7eeVcm52n" target="_blank" rel="noopener noreferrer" class="btn-join-line-group">
+          <span>🟢</span> 點我一鍵加入 LINE 群組
+        </a>
       </div>
 
       <!-- 動作按鈕 -->
@@ -1701,10 +1779,14 @@
         volunteerSummaryEl.style.display = "flex";
         volunteerSummaryEl.innerHTML = `
           <span class="icon">✔</span>
-          <div><strong>服務志工登記：</strong>已登記 ${data.volunteer}，享有每人 500 元誤餐費津貼！請留意加入志工 LINE 聯繫群組。</div>
+          <div><strong>服務志工登記：</strong>已登記 ${data.volunteer}，享有每人 500 元誤餐費津貼！請務必加入下方 LINE 群組協調責任分配。</div>
         `;
+        const vAlert = document.getElementById("modalLineVolunteerAlert");
+        if (vAlert) vAlert.style.display = "block";
       } else {
         volunteerSummaryEl.style.display = "none";
+        const vAlert = document.getElementById("modalLineVolunteerAlert");
+        if (vAlert) vAlert.style.display = "none";
       }
 
       document.getElementById("successModal").classList.add("active");
