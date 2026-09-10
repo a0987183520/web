@@ -1291,7 +1291,7 @@
           <!-- 7. 報名志工服務 (換行標題與手填人數輸入框) -->
           <div class="form-group-item">
             <div class="form-label" style="display: flex; flex-direction: column; align-items: flex-start; gap: 4px;">
-              <span>7. 報名志工服務</span>
+              <span>7. 報名志工服務（自由報名）</span>
               <span style="font-size: 1.05rem; font-weight: 700; color: #fde68a;">誤餐費 500 元（註四）</span>
             </div>
             <input type="text" id="volunteerInput" class="text-input-field" placeholder="輸入報名志工人數" autocomplete="off">
@@ -1301,7 +1301,10 @@
           <div class="form-group-item">
             <div class="form-label" style="display: flex; flex-direction: column; align-items: flex-start; gap: 4px;">
               <span>8. 星空歡唱同樂（自由報名）</span>
-              <span style="font-size: 1.05rem; font-weight: 700; color: #fde68a;">登台開唱領 100 元同樂紅包！每戶限 2 位，每人限 1 首（註五）</span>
+              <div style="font-size: 1.05rem; font-weight: 700; color: #fde68a; line-height: 1.45;">
+                <div>登台開唱領 100 元同樂紅包</div>
+                <div style="margin-top: 2px;">每戶限兩位，每人限一首（註五）</div>
+              </div>
             </div>
             <input type="text" id="karaokeInput" class="text-input-field" placeholder="請填寫：演唱者 ＆ 歌名（例：陳先生-月亮代表我的心；同戶第2位請逗號分開：陳太太-小城故事；不參加請留空）" autocomplete="off">
           </div>
@@ -1323,31 +1326,31 @@
           <div class="note-row">
             <span class="note-pill">註一</span>
             <div class="note-text">
-              如披薩、便當、泡麵、麥當勞等熟食、零食、飲料均可，並報名任一趣味競賽與拍照，即可領 <span class="note-highlight">500 元食材補助金</span>。
+              烤肉或自備熟食（披薩、便當、泡麵、零食等熟食均可），與食材拍照並且報名任一趣味競賽，即可領取 <span class="note-highlight">500 元的食材補助金</span>。
             </div>
           </div>
           <div class="note-row">
             <span class="note-pill">註二</span>
             <div class="note-text">
-              提倡「<span class="note-highlight">烤肉架共用湊團</span>」！鼓勵 2 至 3 戶鄰居共用烤架接力烤，省錢熱絡又免收折麻煩。
+              提倡「<span class="note-highlight">烤肉架共用湊團</span>」！鼓勵 2 至 3 戶鄰居共用烤肉架一起烤，節省器材又可活絡鄰居感情。
             </div>
           </div>
           <div class="note-row">
             <span class="note-pill">註三</span>
             <div class="note-text">
-              線上早鳥登記前 20 名送<span class="note-highlight">早鳥好禮（開烤送木炭 1 包 或 熟食送大瓶冷飲 1 瓶二選一）</span>，需於活動當晚 18:00 前下樓領取，逾時轉讓現場候補住戶。
+              需於活動當晚 18:00 前下樓領取，逾時轉讓給現場住戶。
             </div>
           </div>
           <div class="note-row">
             <span class="note-pill">註四</span>
             <div class="note-text">
-              為鼓勵住戶與學子參與公共事務，特設<span class="note-highlight">志工隊</span>（支援烤肉、分裝或趣味賽事），每戶暫定 1 位發放 <span class="note-highlight">500 元誤餐費</span>（同戶多位報名歡迎共同出勤，津貼由其自行均分）。名額暫定 10 位並視出席規模滾動調整，依線上表單送出時間先報先錄取。限國小五年級（含）以上至 79 歲（含）以下報名。
+              為鼓勵住戶與學子參與公共事務，特設<span class="note-highlight">志工隊</span>（支援烤肉、分裝、趣味賽事），名額暫定 10 位，視出席規模滾動調整，依線上表單送出時間先報先錄取。（限國小五年級含以上至 79 歲含以下報名）
             </div>
           </div>
           <div class="note-row">
             <span class="note-pill">註五</span>
             <div class="note-text">
-              中秋星空歡唱同樂採「<span class="note-highlight">勇敢開唱領紅包</span>」機制（不辦評分競賽，人人有獎同樂！），凡登台演唱即發放 <span class="note-highlight">100 元同樂紅包</span>。每人限報 1 首、每戶最多報名 2 位（每人限領一次紅包）。全場名額上限 20 首，依線上表單送出時間依序錄取，歡迎自備伴奏歌名提早報名！
+              每人限領一次紅包。全場名額上限 20 首，依線上表單送出時間依序錄取。
             </div>
           </div>
         </div>
@@ -1358,7 +1361,7 @@
     <!-- 頁尾宣告 -->
     <footer class="app-footer">
       <p style="font-size: 1.18rem; font-weight: 800; color: #cbd5e1;">孔雀王朝二期籌備組</p>
-      <p style="margin-top: 8px; font-size: 1.05rem; color: #94a3b8; cursor: pointer; user-select: none;" onclick="triggerAdminClick()">本系統僅供本社區住戶登記使用 <span style="font-size: 0.82rem; opacity: 0.5;">(v14.53)</span></p>
+      <p style="margin-top: 8px; font-size: 1.05rem; color: #94a3b8; cursor: pointer; user-select: none;" onclick="triggerAdminClick()">本系統僅供本社區住戶登記使用 <span style="font-size: 0.82rem; opacity: 0.5;">(v14.54)</span></p>
     </footer>
 
   </main>
