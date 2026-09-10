@@ -122,22 +122,24 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      background: rgba(255, 255, 255, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.25);
-      color: #ffffff;
-      padding: 10px 18px;
+      background: linear-gradient(135deg, rgba(245, 158, 11, 0.22) 0%, rgba(217, 119, 6, 0.32) 100%);
+      border: 1.5px solid #f59e0b;
+      color: #fde68a;
+      padding: 10px 20px;
       border-radius: 999px;
-      font-size: 1.15rem;
+      font-size: 1.18rem;
       font-weight: 800;
       cursor: pointer;
       white-space: nowrap;
       flex-shrink: 0;
+      box-shadow: 0 4px 14px rgba(245, 158, 11, 0.28);
       transition: all 0.2s ease;
     }
 
     .btn-back-to-step1:active {
       transform: scale(0.95);
-      background: rgba(245, 158, 11, 0.2);
+      background: rgba(245, 158, 11, 0.45);
+      box-shadow: 0 2px 6px rgba(245, 158, 11, 0.2);
     }
 
     .step2-title-main {
@@ -164,22 +166,34 @@
       padding: 12px 6px 20px;
     }
 
-    .hero-celebrate-banner {
-      display: inline-flex;
+    /* 無框純粹大氣慶祝標題 (icon 放大、歡慶氛圍拉滿) */
+    .hero-celebrate-title {
+      display: flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
-      background: linear-gradient(135deg, rgba(245, 158, 11, 0.22) 0%, rgba(217, 119, 6, 0.28) 100%);
-      border: 1.5px solid rgba(245, 158, 11, 0.6);
-      color: #fde68a;
-      font-size: 1.32rem;
+      gap: 10px;
+      margin-bottom: 22px;
+      padding: 6px 0;
+    }
+
+    .celebrate-icon {
+      font-size: 2.2rem;
+      line-height: 1;
+      filter: drop-shadow(0 0 10px rgba(245, 158, 11, 0.6));
+      animation: pulseCelebrate 2s infinite ease-in-out;
+    }
+
+    @keyframes pulseCelebrate {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.12); }
+    }
+
+    .celebrate-text {
+      font-size: 1.48rem;
       font-weight: 900;
-      padding: 12px 22px;
-      border-radius: var(--radius-md);
-      margin-bottom: 20px;
-      box-shadow: 0 4px 18px rgba(245, 158, 11, 0.25);
-      width: 100%;
-      letter-spacing: 0.5px;
+      color: #fde68a;
+      letter-spacing: 0.6px;
+      text-shadow: 0 2px 14px rgba(245, 158, 11, 0.45);
     }
 
     /* 六大好康卡片清單 (大字醒目) */
@@ -245,19 +259,50 @@
     .benefit-sub-tags {
       display: flex;
       flex-wrap: wrap;
-      gap: 6px;
-      margin-top: 8px;
+      gap: 8px;
+      margin-top: 10px;
+      align-items: center;
     }
 
     .sub-tag-capsule {
       font-size: 1.12rem;
       font-weight: 700;
-      padding: 5px 12px;
+      padding: 6px 14px;
       border-radius: 999px;
       background: rgba(245, 158, 11, 0.14);
       color: #fde68a;
       border: 1px solid rgba(245, 158, 11, 0.35);
       line-height: 1.4;
+      display: inline-block;
+    }
+
+    /* 搶先練習超連結按鈕 (醒目有動感，專屬膠囊按鍵) */
+    .sub-tag-link-btn {
+      font-size: 1.12rem;
+      font-weight: 800;
+      padding: 6px 16px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%);
+      color: #ffffff;
+      border: 1px solid #38bdf8;
+      line-height: 1.4;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      text-decoration: none;
+      box-shadow: 0 4px 12px rgba(14, 165, 233, 0.4);
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+
+    .sub-tag-link-btn:hover {
+      background: linear-gradient(135deg, #38bdf8 0%, #0284c7 100%);
+      box-shadow: 0 6px 16px rgba(14, 165, 233, 0.6);
+      transform: translateY(-1px);
+    }
+
+    .sub-tag-link-btn:active {
+      transform: scale(0.96);
     }
 
     /* 第一屏立即預約主按鈕 */
@@ -785,8 +830,10 @@
          =================================================== -->
     <div class="screen-view active" id="screenStep1">
       <section class="hero-section">
-        <div class="hero-celebrate-banner">
-          <span>🎉</span> 慶祝本社區取得重大成就
+        <div class="hero-celebrate-title">
+          <span class="celebrate-icon">🎉</span>
+          <span class="celebrate-text">慶祝本社區取得重大成就</span>
+          <span class="celebrate-icon">🎊</span>
         </div>
 
         <!-- 六大好康卡片清單 (大字、純粹醒目) -->
@@ -841,7 +888,10 @@
             <div class="benefit-body">
               <h3 class="benefit-title">【好康六】1~50 手機遊戲 ‧ 現金挑戰賽（共 9 名）</h3>
               <div class="benefit-sub-tags">
-                <span class="sub-tag-capsule">大人小孩都會玩，會開放讓住戶先練習</span>
+                <span class="sub-tag-capsule">大人小孩都會玩</span>
+                <a href="https://pod0987183520.github.io/1to50" target="_blank" rel="noopener noreferrer" class="sub-tag-link-btn">
+                  <span>🎮</span> 點我搶先練習 ➔
+                </a>
               </div>
             </div>
           </div>
