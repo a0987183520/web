@@ -69,61 +69,80 @@
       overflow-x: hidden;
     }
 
-    /* 頂部固定簡約品牌導航 */
+    /* 頂部固定簡約品牌導航 (雙行居中大氣) */
     header.top-nav {
       position: sticky;
       top: 0;
       z-index: 99;
-      background: rgba(9, 14, 26, 0.92);
+      background: rgba(9, 14, 26, 0.94);
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
-      border-bottom: 1px solid rgba(245, 158, 11, 0.2);
+      border-bottom: 1px solid rgba(245, 158, 11, 0.25);
       padding: 12px 16px;
       display: flex;
-      justify-content: space-between;
+      flex-direction: column;
       align-items: center;
+      justify-content: center;
+      text-align: center;
     }
 
     .nav-title-group {
       display: flex;
       flex-direction: column;
+      align-items: center;
+      gap: 2px;
     }
 
     .nav-badge {
-      font-size: 0.76rem;
+      font-size: 0.8rem;
       font-weight: 700;
       color: #f59e0b;
       letter-spacing: 0.8px;
     }
 
     .nav-main-title {
-      font-size: 1.05rem;
-      font-weight: 800;
+      font-size: 1.15rem;
+      font-weight: 900;
       color: #ffffff;
       letter-spacing: 0.5px;
     }
 
-    .nav-status-pill {
-      background: rgba(52, 211, 153, 0.15);
-      border: 1px solid rgba(52, 211, 153, 0.4);
-      color: var(--accent-green);
-      font-size: 0.78rem;
-      font-weight: 700;
-      padding: 4px 10px;
-      border-radius: 999px;
-      display: flex;
-      align-items: center;
-      gap: 5px;
+    /* 分屏分步切換容器 (Step 1 與 Step 2) */
+    .screen-view {
+      display: none;
+      opacity: 0;
+      transition: opacity 0.25s ease;
     }
 
-    .nav-status-pill::before {
-      content: "";
-      display: inline-block;
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background-color: var(--accent-green);
-      box-shadow: 0 0 8px var(--accent-green);
+    .screen-view.active {
+      display: block;
+      opacity: 1;
+      animation: fadeInScreen 0.25s ease-out;
+    }
+
+    @keyframes fadeInScreen {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .btn-back-to-step1 {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      color: #cbd5e1;
+      padding: 8px 16px;
+      border-radius: 999px;
+      font-size: 0.88rem;
+      font-weight: 700;
+      cursor: pointer;
+      margin-bottom: 16px;
+      transition: all 0.2s ease;
+    }
+
+    .btn-back-to-step1:active {
+      transform: scale(0.96);
     }
 
     /* 主容器 */
@@ -853,258 +872,223 @@
   <main class="app-container">
 
     <!-- ===================================================
-         第一屏：主視覺 Banner ＆ 六大好康排版
+         第一屏 (Step 1)：六大好康排版 ＆ 立即預約
          =================================================== -->
-    <section class="hero-section">
-      <div class="hero-tag">
-        <span>🌕</span> 歡慶中秋 ‧ 鄰里同樂開烤
-      </div>
-      <h1 class="hero-title">
-        中庭烤肉晚會<br><span class="gold">六大好康 ‧ 極速預約</span>
-      </h1>
-      <p class="hero-subtitle">
-        管委會備妥噴火槍 ＆ 補助食材費！10秒登記免打字，下樓舉杯大歡聚！
-      </p>
-
-      <!-- 六大好康卡片清單 -->
-      <div class="benefits-grid">
-
-        <!-- 好康一 -->
-        <div class="benefit-card highlight">
-          <div class="benefit-icon-box">🥩</div>
-          <div class="benefit-body">
-            <div class="benefit-header-line">
-              <span class="benefit-badge">【好康一】</span>
-              <span class="benefit-tag-pill">核心補貼</span>
-            </div>
-            <h3 class="benefit-title">每戶食材補助 500 元（註一）</h3>
-            <p class="benefit-desc">管委會直接補貼每戶買肉買菜開銷，下樓開烤更盡興！</p>
-          </div>
+    <div class="screen-view active" id="screenStep1">
+      <section class="hero-section">
+        <div class="hero-tag">
+          <span>🎉</span> 慶祝本社區取得重大成就
         </div>
+        <h1 class="hero-title">
+          <span class="gold">六大好康 ‧ 極速預約</span>
+        </h1>
 
-        <!-- 好康二 -->
-        <div class="benefit-card">
-          <div class="benefit-icon-box">🔥</div>
-          <div class="benefit-body">
-            <div class="benefit-header-line">
-              <span class="benefit-badge">【好康二】</span>
-              <span class="benefit-tag-pill">公備支援</span>
-            </div>
-            <h3 class="benefit-title">管委會準備噴火槍</h3>
-            <p class="benefit-desc">專業高溫噴火設備與專人點火，免去手動搧風生灰的狼狽麻煩。</p>
-          </div>
-        </div>
+        <!-- 六大好康卡片清單 (大字、純粹醒目) -->
+        <div class="benefits-grid">
 
-        <!-- 好康三 -->
-        <div class="benefit-card highlight">
-          <div class="benefit-icon-box">📦</div>
-          <div class="benefit-body">
-            <div class="benefit-header-line">
-              <span class="benefit-badge">【好康三】</span>
-              <span class="benefit-tag-pill">線上早鳥保障</span>
-            </div>
-            <h3 class="benefit-title">早鳥登記前 20 名送木炭 1 包（註二）</h3>
-            <p class="benefit-desc">線上搶先預約登記，保障保留名額！當晚下樓報到直接領取開烤。</p>
-          </div>
-        </div>
-
-        <!-- 好康四 -->
-        <div class="benefit-card">
-          <div class="benefit-icon-box">⏰</div>
-          <div class="benefit-body">
-            <div class="benefit-header-line">
-              <span class="benefit-badge">【好康四】</span>
-              <span class="benefit-tag-pill">現場早鳥激勵</span>
-            </div>
-            <h3 class="benefit-title">早鳥烤肉前 20 名送木炭 1 包（註三）</h3>
-            <p class="benefit-desc">鼓勵提早下樓！17:30 開始下樓烤肉者前 20 名現場領取，送完為止。</p>
-          </div>
-        </div>
-
-        <!-- 好康五 -->
-        <div class="benefit-card">
-          <div class="benefit-icon-box">🍺</div>
-          <div class="benefit-body">
-            <div class="benefit-header-line">
-              <span class="benefit-badge">【好康五】</span>
-              <span class="benefit-tag-pill">現金榮譽紅包</span>
-            </div>
-            <h3 class="benefit-title">啤酒 / 汽水 ‧ 現金挑戰賽（共 9 名）</h3>
-            <p class="benefit-desc">男子組 ｜ 女子組 ｜ 親子家庭組，前三名現場直接拿現金！</p>
-            <div class="benefit-sub-tags">
-              <span class="sub-tag-capsule">男子啤酒組</span>
-              <span class="sub-tag-capsule">女子啤酒組</span>
-              <span class="sub-tag-capsule">親子汽水組</span>
+          <!-- 好康一 -->
+          <div class="benefit-card highlight">
+            <div class="benefit-icon-box">🥩</div>
+            <div class="benefit-body">
+              <h3 class="benefit-title">【好康一】每戶食材補助 500 元（註一）</h3>
             </div>
           </div>
-        </div>
 
-        <!-- 好康六 -->
-        <div class="benefit-card">
-          <div class="benefit-icon-box">📱</div>
-          <div class="benefit-body">
-            <div class="benefit-header-line">
-              <span class="benefit-badge">【好康六】</span>
-              <span class="benefit-tag-pill">全年齡同樂</span>
+          <!-- 好康二 -->
+          <div class="benefit-card">
+            <div class="benefit-icon-box">🔥</div>
+            <div class="benefit-body">
+              <h3 class="benefit-title">【好康二】管委會準備噴火槍</h3>
             </div>
-            <h3 class="benefit-title">1~50 手機遊戲 ‧ 現金挑戰賽（共 9 名）</h3>
-            <p class="benefit-desc">大人小孩都會玩！前三名拿現金，活動前會開放讓住戶事先手機練習！</p>
           </div>
+
+          <!-- 好康三 -->
+          <div class="benefit-card highlight">
+            <div class="benefit-icon-box">📦</div>
+            <div class="benefit-body">
+              <h3 class="benefit-title">【好康三】早鳥登記前 20 名送木炭 1 包（註二）</h3>
+            </div>
+          </div>
+
+          <!-- 好康四 -->
+          <div class="benefit-card">
+            <div class="benefit-icon-box">⏰</div>
+            <div class="benefit-body">
+              <h3 class="benefit-title">【好康四】早鳥烤肉前 20 名送木炭 1 包（註三）</h3>
+            </div>
+          </div>
+
+          <!-- 好康五 -->
+          <div class="benefit-card">
+            <div class="benefit-icon-box">🍺</div>
+            <div class="benefit-body">
+              <h3 class="benefit-title">【好康五】啤酒 / 汽水 ‧ 現金挑戰賽（共 9 名）</h3>
+              <div class="benefit-sub-tags" style="margin-top: 6px;">
+                <span class="sub-tag-capsule" style="font-size:0.88rem; color:#fde68a;">男子組 ｜ 女子組 ｜ 親子家庭組，前三名拿現金！</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 好康六 -->
+          <div class="benefit-card">
+            <div class="benefit-icon-box">📱</div>
+            <div class="benefit-body">
+              <h3 class="benefit-title">【好康六】1~50 手機遊戲 ‧ 現金挑戰賽（共 9 名）</h3>
+              <div class="benefit-sub-tags" style="margin-top: 6px;">
+                <span class="sub-tag-capsule" style="font-size:0.88rem; color:#fde68a;">大人小孩都會玩，會開放讓住戶先練習</span>
+              </div>
+            </div>
+          </div>
+
         </div>
 
-      </div>
-
-      <!-- 立即預約核心按鈕 (點擊滑動至第二屏) -->
-      <div class="hero-action-container">
-        <button type="button" class="btn-main-hero" onclick="scrollToRegisterForm()">
-          <span>📝</span> 立即預約（10秒快速登記）
-        </button>
-        <p class="btn-sub-note">※ 免打字點選完成 ‧ 每戶補助 500 元食材金</p>
-      </div>
-    </section>
+        <!-- 立即預約按鈕 (點擊換頁至第二屏) -->
+        <div class="hero-action-container">
+          <button type="button" class="btn-main-hero" onclick="goToStep2()">
+            <span>📝</span> 立即預約（10秒快速登記）
+          </button>
+        </div>
+      </section>
+    </div>
 
     <!-- ===================================================
-         第二屏：報名點選器（棟別、樓層、姓名、人數、賽事）
+         第二屏 (Step 2)：填寫預約資料 (獨立畫面換頁切換)
          =================================================== -->
-    <section class="register-section" id="registerFormCard">
-      <div class="section-title-box">
-        <div class="section-title-badge">STEP 1 / 2 ‧ 登記基本資料</div>
-        <h2 class="section-title-main">填寫預約資料</h2>
-        <p class="section-title-desc">點選您的棟別、樓層與姓名，即可領取中秋好康！</p>
-      </div>
+    <div class="screen-view" id="screenStep2">
+      
+      <!-- 返回按鈕 -->
+      <button type="button" class="btn-back-to-step1" onclick="goToStep1()">
+        <span>←</span> 返回好康清單
+      </button>
 
-      <form id="bookingForm" onsubmit="handleFormSubmit(event)">
-
-        <!-- 1. 棟別單選 (全區11棟) -->
-        <div class="form-group-item">
-          <div class="form-label">
-            <span>1. 選擇棟別</span>
-            <span class="badge-required">必選</span>
-          </div>
-          <div class="pill-grid" id="buildingGroup">
-            <div class="pill-btn" data-val="A棟" onclick="selectBuilding(this)">A棟</div>
-            <div class="pill-btn" data-val="B棟" onclick="selectBuilding(this)">B棟</div>
-            <div class="pill-btn" data-val="C棟" onclick="selectBuilding(this)">C棟</div>
-            <div class="pill-btn" data-val="D棟" onclick="selectBuilding(this)">D棟</div>
-            <div class="pill-btn" data-val="D1棟" onclick="selectBuilding(this)">D1棟</div>
-            <div class="pill-btn" data-val="E棟" onclick="selectBuilding(this)">E棟</div>
-            <div class="pill-btn" data-val="F棟" onclick="selectBuilding(this)">F棟</div>
-            <div class="pill-btn" data-val="G棟" onclick="selectBuilding(this)">G棟</div>
-            <div class="pill-btn" data-val="H棟" onclick="selectBuilding(this)">H棟</div>
-            <div class="pill-btn" data-val="I棟" onclick="selectBuilding(this)">I棟</div>
-            <div class="pill-btn" data-val="J棟" onclick="selectBuilding(this)">J棟</div>
-          </div>
+      <section class="register-section" id="registerFormCard">
+        <div class="section-title-box">
+          <h2 class="section-title-main">填寫預約資料</h2>
         </div>
 
-        <!-- 2. 樓層單選 (2F 至 12F) -->
-        <div class="form-group-item">
-          <div class="form-label">
-            <span>2. 選擇樓層</span>
-            <span class="badge-required">必選</span>
-          </div>
-          <div class="pill-grid grid-dense" id="floorGroup">
-            <div class="pill-btn" data-val="2F" onclick="selectFloor(this)">2F</div>
-            <div class="pill-btn" data-val="3F" onclick="selectFloor(this)">3F</div>
-            <div class="pill-btn" data-val="4F" onclick="selectFloor(this)">4F</div>
-            <div class="pill-btn" data-val="5F" onclick="selectFloor(this)">5F</div>
-            <div class="pill-btn" data-val="6F" onclick="selectFloor(this)">6F</div>
-            <div class="pill-btn" data-val="7F" onclick="selectFloor(this)">7F</div>
-            <div class="pill-btn" data-val="8F" onclick="selectFloor(this)">8F</div>
-            <div class="pill-btn" data-val="9F" onclick="selectFloor(this)">9F</div>
-            <div class="pill-btn" data-val="10F" onclick="selectFloor(this)">10F</div>
-            <div class="pill-btn" data-val="11F" onclick="selectFloor(this)">11F</div>
-            <div class="pill-btn" data-val="12F" onclick="selectFloor(this)">12F</div>
-          </div>
-        </div>
+        <form id="bookingForm" onsubmit="handleFormSubmit(event)">
 
-        <!-- 3. 姓名輸入框 -->
-        <div class="form-group-item">
-          <div class="form-label">
-            <span>3. 姓名 / 稱呼</span>
-            <span class="badge-required">必填</span>
-          </div>
-          <input type="text" id="residentNameInput" class="text-input-field" placeholder="請輸入稱呼（例：陳先生、林大明）" required autocomplete="off">
-          <p class="input-hint-text">※ 當晚大會服務台領取 500 元食材補助簽收與參賽叫號之用，避免錯報冒領。</p>
-        </div>
-
-        <!-- 4. 出席人數單選 -->
-        <div class="form-group-item">
-          <div class="form-label">
-            <span>4. 出席總人數</span>
-            <span class="badge-required">必選</span>
-          </div>
-          <div class="pill-grid" id="attendeesGroup">
-            <div class="pill-btn active" data-val="1~2位" onclick="selectAttendees(this)">1~2 位</div>
-            <div class="pill-btn" data-val="3~4位" onclick="selectAttendees(this)">3~4 位</div>
-            <div class="pill-btn" data-val="5位以上" onclick="selectAttendees(this)">5 位以上</div>
-          </div>
-        </div>
-
-        <!-- 5. 趣味賽事複選 -->
-        <div class="form-group-item">
-          <div class="form-label">
-            <span>5. 趣味賽事預約挑戰（可複選）</span>
-            <span class="badge-optional">自由參加</span>
-          </div>
-          <div class="contest-check-list">
-
-            <!-- 啤酒男子組 -->
-            <div class="contest-card-option" onclick="toggleContestOption(this)" data-contest="啤酒大賽 ‧ 男子組">
-              <div class="custom-checkbox-indicator">✓</div>
-              <div class="contest-info">
-                <div class="contest-name">🍺 啤酒大賽 ‧ 男子組</div>
-                <div class="contest-rule-hint">秒數爭霸，前三名拿現金紅包！</div>
-              </div>
+          <!-- 1. 棟別單選 (全區11棟) -->
+          <div class="form-group-item">
+            <div class="form-label">
+              <span>1. 選擇棟別</span>
             </div>
-
-            <!-- 啤酒女子組 -->
-            <div class="contest-card-option" onclick="toggleContestOption(this)" data-contest="啤酒大賽 ‧ 女子組">
-              <div class="custom-checkbox-indicator">✓</div>
-              <div class="contest-info">
-                <div class="contest-name">🍺 啤酒大賽 ‧ 女子組</div>
-                <div class="contest-rule-hint">巾幗不讓鬚眉，前三名拿現金紅包！</div>
-              </div>
+            <div class="pill-grid" id="buildingGroup">
+              <div class="pill-btn" data-val="A棟" onclick="selectBuilding(this)">A棟</div>
+              <div class="pill-btn" data-val="B棟" onclick="selectBuilding(this)">B棟</div>
+              <div class="pill-btn" data-val="C棟" onclick="selectBuilding(this)">C棟</div>
+              <div class="pill-btn" data-val="D棟" onclick="selectBuilding(this)">D棟</div>
+              <div class="pill-btn" data-val="D1棟" onclick="selectBuilding(this)">D1棟</div>
+              <div class="pill-btn" data-val="E棟" onclick="selectBuilding(this)">E棟</div>
+              <div class="pill-btn" data-val="F棟" onclick="selectBuilding(this)">F棟</div>
+              <div class="pill-btn" data-val="G棟" onclick="selectBuilding(this)">G棟</div>
+              <div class="pill-btn" data-val="H棟" onclick="selectBuilding(this)">H棟</div>
+              <div class="pill-btn" data-val="I棟" onclick="selectBuilding(this)">I棟</div>
+              <div class="pill-btn" data-val="J棟" onclick="selectBuilding(this)">J棟</div>
             </div>
-
-            <!-- 汽水親子組 -->
-            <div class="contest-card-option" onclick="toggleContestOption(this)" data-contest="汽水大賽 ‧ 親子組">
-              <div class="custom-checkbox-indicator">✓</div>
-              <div class="contest-info">
-                <div class="contest-name">🥤 汽水大賽 ‧ 親子組</div>
-                <div class="contest-rule-hint">其中一位須為 10 歲以下或 80 歲以上，安全趣味拿獎金！</div>
-              </div>
-            </div>
-
-            <!-- 1至50 APP小遊戲 -->
-            <div class="contest-card-option" onclick="toggleContestOption(this)" data-contest="1至50 APP小遊戲">
-              <div class="custom-checkbox-indicator">✓</div>
-              <div class="contest-info">
-                <div class="contest-name">📱 1至50 APP小遊戲挑戰賽</div>
-                <div class="contest-rule-hint">手眼協調數字極速點擊，大人小孩都能挑戰前三名！</div>
-              </div>
-            </div>
-
           </div>
+
+          <!-- 2. 樓層單選 (2F 至 12F) -->
+          <div class="form-group-item">
+            <div class="form-label">
+              <span>2. 選擇樓層</span>
+            </div>
+            <div class="pill-grid grid-dense" id="floorGroup">
+              <div class="pill-btn" data-val="2F" onclick="selectFloor(this)">2F</div>
+              <div class="pill-btn" data-val="3F" onclick="selectFloor(this)">3F</div>
+              <div class="pill-btn" data-val="4F" onclick="selectFloor(this)">4F</div>
+              <div class="pill-btn" data-val="5F" onclick="selectFloor(this)">5F</div>
+              <div class="pill-btn" data-val="6F" onclick="selectFloor(this)">6F</div>
+              <div class="pill-btn" data-val="7F" onclick="selectFloor(this)">7F</div>
+              <div class="pill-btn" data-val="8F" onclick="selectFloor(this)">8F</div>
+              <div class="pill-btn" data-val="9F" onclick="selectFloor(this)">9F</div>
+              <div class="pill-btn" data-val="10F" onclick="selectFloor(this)">10F</div>
+              <div class="pill-btn" data-val="11F" onclick="selectFloor(this)">11F</div>
+              <div class="pill-btn" data-val="12F" onclick="selectFloor(this)">12F</div>
+            </div>
+          </div>
+
+          <!-- 3. 姓名輸入框 -->
+          <div class="form-group-item">
+            <div class="form-label">
+              <span>3. 姓名</span>
+            </div>
+            <input type="text" id="residentNameInput" class="text-input-field" placeholder="請輸入稱呼（例：陳先生、林大明）" required autocomplete="off">
+          </div>
+
+          <!-- 4. 出席人數單選 -->
+          <div class="form-group-item">
+            <div class="form-label">
+              <span>4. 出席人數</span>
+            </div>
+            <div class="pill-grid" id="attendeesGroup">
+              <div class="pill-btn active" data-val="1~2位" onclick="selectAttendees(this)">1~2 位</div>
+              <div class="pill-btn" data-val="3~4位" onclick="selectAttendees(this)">3~4 位</div>
+              <div class="pill-btn" data-val="5位以上" onclick="selectAttendees(this)">5 位以上</div>
+            </div>
+          </div>
+
+          <!-- 5. 趣味賽事複選 -->
+          <div class="form-group-item">
+            <div class="form-label">
+              <span>5. 趣味賽事預約挑戰（可複選）</span>
+            </div>
+            <div class="contest-check-list">
+
+              <div class="contest-card-option" onclick="toggleContestOption(this)" data-contest="啤酒大賽 ‧ 男子組">
+                <div class="custom-checkbox-indicator">✓</div>
+                <div class="contest-info">
+                  <div class="contest-name">🍺 啤酒大賽 ‧ 男子組</div>
+                  <div class="contest-rule-hint">秒數爭霸，前三名拿現金紅包！</div>
+                </div>
+              </div>
+
+              <div class="contest-card-option" onclick="toggleContestOption(this)" data-contest="啤酒大賽 ‧ 女子組">
+                <div class="custom-checkbox-indicator">✓</div>
+                <div class="contest-info">
+                  <div class="contest-name">🍺 啤酒大賽 ‧ 女子組</div>
+                  <div class="contest-rule-hint">巾幗不讓鬚眉，前三名拿現金紅包！</div>
+                </div>
+              </div>
+
+              <div class="contest-card-option" onclick="toggleContestOption(this)" data-contest="汽水大賽 ‧ 親子組">
+                <div class="custom-checkbox-indicator">✓</div>
+                <div class="contest-info">
+                  <div class="contest-name">🥤 汽水大賽 ‧ 親子組</div>
+                  <div class="contest-rule-hint">其中一位須為 10 歲以下或 80 歲以上，安全趣味拿獎金！</div>
+                </div>
+              </div>
+
+              <div class="contest-card-option" onclick="toggleContestOption(this)" data-contest="1至50 APP小遊戲">
+                <div class="custom-checkbox-indicator">✓</div>
+                <div class="contest-info">
+                  <div class="contest-name">📱 1至50 APP小遊戲挑戰賽</div>
+                  <div class="contest-rule-hint">手眼協調數字極速點擊，大人小孩都能挑戰前三名！</div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- 送出按鈕 -->
+          <button type="submit" class="btn-submit-register">
+            <span>✨</span> 確認登記 ‧ 預約食材補助 500 元
+          </button>
+
+        </form>
+
+        <!-- 註釋卡片 (嚴謹載明三大註解) -->
+        <div class="notes-card">
+          <div class="notes-title">
+            <span>📌</span> 領取補助與物資重要備註
+          </div>
+          <p class="notes-item">【註一】：以「戶」為單位，需下樓參與中庭聚餐開烤並報名參與任一趣味遊戲，即可於現場大會服務台簽領 500 元食材補助金。</p>
+          <p class="notes-item">【註二】：線上早鳥登記贈送之木炭（限額前 20 名），需於活動當晚 18:00 之前下樓領取；逾時名額將轉讓給現場候補開烤住戶。</p>
+          <p class="notes-item">【註三】：早鳥烤肉贈送之木炭，限當晚 17:30 開始下樓烤肉者前 20 名現場領取，送完為止。</p>
         </div>
 
-        <!-- 送出按鈕 -->
-        <button type="submit" class="btn-submit-register">
-          <span>✨</span> 確認登記 ‧ 預約食材補助 500 元
-        </button>
-
-      </form>
-
-      <!-- 註釋卡片 (嚴謹載明三大註解) -->
-      <div class="notes-card">
-        <div class="notes-title">
-          <span>📌</span> 領取補助與物資重要備註
-        </div>
-        <p class="notes-item">【註一】：以「戶」為單位，需下樓參與中庭聚餐開烤並報名參與任一趣味遊戲，即可於現場大會服務台簽領 500 元食材補助金。</p>
-        <p class="notes-item">【註二】：線上早鳥登記贈送之木炭（限額前 20 名），需於活動當晚 18:00 之前下樓領取；逾時名額將轉讓給現場候補開烤住戶。</p>
-        <p class="notes-item">【註三】：早鳥烤肉贈送之木炭，限當晚 17:30 開始下樓烤肉者前 20 名現場領取，送完為止。</p>
-      </div>
-
-    </section>
+      </section>
+    </div>
 
     <!-- 頁尾宣告 -->
     <footer class="app-footer">
@@ -1247,12 +1231,18 @@
       checkExistingRegistration();
     });
 
-    // 平滑滾動至報名表單
-    function scrollToRegisterForm() {
-      const el = document.getElementById("registerFormCard");
-      if (el) {
-        el.scrollIntoView({ behavior: "smooth", block: "start" });
-      }
+    // 換頁切換至第二屏 (填寫資料)
+    function goToStep2() {
+      document.getElementById("screenStep1").classList.remove("active");
+      document.getElementById("screenStep2").classList.add("active");
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    // 換頁切換返回第一屏 (好康清單)
+    function goToStep1() {
+      document.getElementById("screenStep2").classList.remove("active");
+      document.getElementById("screenStep1").classList.add("active");
+      window.scrollTo({ top: 0, behavior: "smooth" });
     }
 
     // 選擇棟別 (單選)
@@ -1461,6 +1451,7 @@
     // 關閉成功確認卡
     function closeSuccessModal() {
       document.getElementById("successModal").classList.remove("active");
+      goToStep1();
     }
 
     // 一鍵複製 LINE 轉發分享文案
