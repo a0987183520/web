@@ -1188,11 +1188,12 @@
           <thead>
             <tr>
               <th>序號</th>
-              <th>報名時間</th>
-              <th>戶別</th>
+              <th>登記時間</th>
+              <th>棟別</th>
+              <th>樓層</th>
               <th>姓名</th>
-              <th>人數</th>
-              <th>早鳥木炭</th>
+              <th>出席人數</th>
+              <th>早鳥木炭資格</th>
               <th>報名賽事</th>
             </tr>
           </thead>
@@ -1583,7 +1584,8 @@
           tr.innerHTML = `
             <td>${r.orderNo || (idx + 1)}</td>
             <td style="font-size:0.75rem; color:#94a3b8; white-space:nowrap;">${r.time || "-"}</td>
-            <td><strong>${r.building} ${r.floor}</strong></td>
+            <td><strong>${r.building}</strong></td>
+            <td><strong>${r.floor}</strong></td>
             <td>${r.name || "-"}</td>
             <td>${r.attendees || "-"}</td>
             <td style="color:${isEarly ? '#f59e0b' : '#94a3b8'}; white-space:nowrap;">${isEarly ? '★ 早鳥第' + (idx+1) + '名' : '無'}</td>
@@ -1606,7 +1608,7 @@
         alert("尚無登記資料可匯出！");
         return;
       }
-      let csvContent = "\uFEFF序號,登記時間(精確到秒),棟別,樓層,姓名,出席人數,早鳥木炭資格,報名賽事\n";
+      let csvContent = "\uFEFF序號,登記時間,棟別,樓層,姓名,出席人數,早鳥木炭資格,報名賽事\n";
       records.forEach((r, idx) => {
         const isEarly = (idx < 20) ? "早鳥木炭1包(限18:00前領)" : "無";
         const contests = (r.contests || []).join(" / ");
