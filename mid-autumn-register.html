@@ -239,7 +239,14 @@
       border-color: rgba(245, 158, 11, 0.55);
     }
 
-    /* 圖示與好康標籤在同一行，高雅精緻並釋放 100% 水平空間 */
+    /* 卡片頂部標籤列：圖示標籤 ＋ 外部純文字備註（無多餘框中框，通透大器） */
+    .benefit-header-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 4px;
+    }
+
     .benefit-header-tag {
       display: inline-flex;
       align-items: center;
@@ -248,7 +255,6 @@
       border: 1px solid rgba(245, 158, 11, 0.4);
       padding: 4px 10px;
       border-radius: 8px;
-      margin-bottom: 3px;
     }
 
     .benefit-header-tag .tag-icon {
@@ -263,16 +269,13 @@
       letter-spacing: 0.5px;
     }
 
-    .benefit-header-tag .tag-extra-badge {
-      font-size: 0.95rem;
+    /* 框框外面的獨立純文字備註（無任何外框，杜絕框中框，通透清爽） */
+    .tag-outside-note {
+      font-size: 1.08rem;
       font-weight: 800;
-      background: rgba(245, 158, 11, 0.28);
-      color: #ffffff;
-      padding: 2px 8px;
-      border-radius: 6px;
-      border: 1px solid rgba(245, 158, 11, 0.5);
-      margin-left: 2px;
-      letter-spacing: 0.3px;
+      color: #fde68a;
+      letter-spacing: 0.5px;
+      text-shadow: 0 0 8px rgba(245, 158, 11, 0.4);
     }
 
     .benefit-title {
@@ -955,10 +958,12 @@
 
           <!-- 好康一 -->
           <div class="benefit-card highlight">
-            <div class="benefit-header-tag">
-              <span class="tag-icon">🥩</span>
-              <span class="tag-label">【好康一】</span>
-              <span class="tag-extra-badge">註一</span>
+            <div class="benefit-header-row">
+              <div class="benefit-header-tag">
+                <span class="tag-icon">🥩</span>
+                <span class="tag-label">【好康一】</span>
+              </div>
+              <span class="tag-outside-note">註一</span>
             </div>
             <h3 class="benefit-title">每戶食材補助 500 元</h3>
             <div class="benefit-desc-text">
@@ -968,32 +973,39 @@
 
           <!-- 好康二 -->
           <div class="benefit-card">
-            <div class="benefit-header-tag">
-              <span class="tag-icon">🔥</span>
-              <span class="tag-label">【好康二】</span>
+            <div class="benefit-header-row">
+              <div class="benefit-header-tag">
+                <span class="tag-icon">🔥</span>
+                <span class="tag-label">【好康二】</span>
+              </div>
             </div>
             <h3 class="benefit-title">管委會準備噴火槍</h3>
           </div>
 
           <!-- 好康三 -->
           <div class="benefit-card highlight">
-            <div class="benefit-header-tag">
-              <span class="tag-icon">🎁</span>
-              <span class="tag-label">【好康三】</span>
-              <span class="tag-extra-badge">註三</span>
+            <div class="benefit-header-row">
+              <div class="benefit-header-tag">
+                <span class="tag-icon">🎁</span>
+                <span class="tag-label">【好康三】</span>
+              </div>
+              <span class="tag-outside-note">註三</span>
             </div>
             <h3 class="benefit-title">早鳥登記前 20 名送好禮</h3>
             <div class="benefit-desc-text">
-              木炭 或 大瓶冷飲 二選一（開烤/熟食聚餐皆適用）
+              <div>木炭 或 大瓶冷飲 二選一</div>
+              <div style="margin-top: 3px; font-size: 1.05rem; color: #94a3b8;">（開烤 / 熟食聚餐皆適用）</div>
             </div>
           </div>
 
           <!-- 好康四 -->
           <div class="benefit-card">
-            <div class="benefit-header-tag">
-              <span class="tag-icon">⏰</span>
-              <span class="tag-label">【好康四】</span>
-              <span class="tag-extra-badge">註四</span>
+            <div class="benefit-header-row">
+              <div class="benefit-header-tag">
+                <span class="tag-icon">⏰</span>
+                <span class="tag-label">【好康四】</span>
+              </div>
+              <span class="tag-outside-note">註四</span>
             </div>
             <h3 class="benefit-title">早鳥開烤前 20 名送木炭 1 包</h3>
             <div class="benefit-desc-text">
@@ -1003,27 +1015,33 @@
 
           <!-- 好康五 -->
           <div class="benefit-card">
-            <div class="benefit-header-tag">
-              <span class="tag-icon">🍺</span>
-              <span class="tag-label">【好康五】</span>
-              <span class="tag-extra-badge">共 9 名</span>
+            <div class="benefit-header-row">
+              <div class="benefit-header-tag">
+                <span class="tag-icon">🍺</span>
+                <span class="tag-label">【好康五】</span>
+              </div>
+              <span class="tag-outside-note">共 9 名</span>
             </div>
             <h3 class="benefit-title">啤酒 / 汽水 ‧ 現金挑戰賽</h3>
             <div class="benefit-desc-text">
-              <span class="group-names-glow">男子組 ｜ 女子組 ｜ 親子 ‧ 敬老組</span> ‧ <span class="cash-prize-glow">各前三名拿現金！</span>
+              <div class="group-names-glow">男子組 ｜ 女子組 ｜ 親子 ‧ 敬老組</div>
+              <div class="cash-prize-glow" style="margin-top: 4px; margin-left: 0;">各前三名拿現金！</div>
             </div>
           </div>
 
           <!-- 好康六 -->
           <div class="benefit-card">
-            <div class="benefit-header-tag">
-              <span class="tag-icon">📱</span>
-              <span class="tag-label">【好康六】</span>
-              <span class="tag-extra-badge">共 9 名</span>
+            <div class="benefit-header-row">
+              <div class="benefit-header-tag">
+                <span class="tag-icon">📱</span>
+                <span class="tag-label">【好康六】</span>
+              </div>
+              <span class="tag-outside-note">共 9 名</span>
             </div>
             <h3 class="benefit-title">1~50 手機遊戲 ‧ 現金挑戰賽</h3>
             <div class="benefit-desc-text">
-              <span class="group-names-glow">男子組 ｜ 女子組 ｜ 親子 ‧ 敬老組</span> ‧ <span class="cash-prize-glow">各前三名拿現金！</span>
+              <div class="group-names-glow">男子組 ｜ 女子組 ｜ 親子 ‧ 敬老組</div>
+              <div class="cash-prize-glow" style="margin-top: 4px; margin-left: 0;">各前三名拿現金！</div>
             </div>
             <div class="benefit-action-row">
               <span class="benefit-plain-hint">大人小孩都會玩</span>
@@ -1167,6 +1185,18 @@
             </div>
           </div>
 
+          <!-- 6. 預計聚餐形式（單選） -->
+          <div class="form-group-item">
+            <div class="form-label">
+              <span>6. 預計聚餐形式（單選）</span>
+            </div>
+            <div class="pill-grid" id="diningTypeGroup">
+              <div class="pill-btn active" data-val="現場開烤" onclick="selectDiningType(this)">🥩 現場開烤</div>
+              <div class="pill-btn" data-val="熟食外帶" onclick="selectDiningType(this)">🍕 熟食外帶</div>
+              <div class="pill-btn" data-val="尚未決定" onclick="selectDiningType(this)">🤔 尚未決定</div>
+            </div>
+          </div>
+
           <!-- 送出按鈕 (雙行結構：確認登記 ＋ 預約食材補助 500 元) -->
           <button type="submit" class="btn-submit-register">
             <div class="btn-submit-primary">
@@ -1213,7 +1243,7 @@
     <!-- 頁尾宣告 -->
     <footer class="app-footer">
       <p style="font-size: 1.18rem; font-weight: 800; color: #cbd5e1;">孔雀王朝二期籌備組</p>
-      <p style="margin-top: 8px; font-size: 1.05rem; color: #94a3b8; cursor: pointer; user-select: none;" onclick="triggerAdminClick()">本系統僅供本社區住戶登記使用 <span style="font-size: 0.82rem; opacity: 0.5;">(v14.44)</span></p>
+      <p style="margin-top: 8px; font-size: 1.05rem; color: #94a3b8; cursor: pointer; user-select: none;" onclick="triggerAdminClick()">本系統僅供本社區住戶登記使用 <span style="font-size: 0.82rem; opacity: 0.5;">(v14.45)</span></p>
     </footer>
 
   </main>
@@ -1320,6 +1350,7 @@
     let selectedBuilding = "";
     let selectedFloor = "";
     let selectedAttendees = "1~2位";
+    let selectedDiningType = "現場開烤";
     let selectedContests = [];
     let adminClickCount = 0;
 
@@ -1383,6 +1414,13 @@
       selectedAttendees = btn.getAttribute("data-val");
     }
 
+    // 選擇預計聚餐形式 (單選)
+    function selectDiningType(btn) {
+      document.querySelectorAll("#diningTypeGroup .pill-btn").forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      selectedDiningType = btn.getAttribute("data-val");
+    }
+
     // 趣味競賽切換 (複選)
     function toggleContestOption(card) {
       card.classList.toggle("checked");
@@ -1425,6 +1463,9 @@
       // 精確到秒的時間戳記 (YYYY-MM-DD HH:mm:ss)
       const exactTime = getFormattedTimestamp();
 
+      // 合併出席人數與用餐形式
+      const attendeesWithDining = selectedAttendees + " (" + selectedDiningType + ")";
+
       // 讀取既有紀錄
       let allRecords = getStoredRecords();
 
@@ -1445,7 +1486,8 @@
           building: selectedBuilding,
           floor: selectedFloor,
           name: nameVal,
-          attendees: selectedAttendees,
+          attendees: attendeesWithDining,
+          diningType: selectedDiningType,
           contests: selectedContests,
           time: exactTime
         };
@@ -1456,7 +1498,8 @@
           building: selectedBuilding,
           floor: selectedFloor,
           name: nameVal,
-          attendees: selectedAttendees,
+          attendees: attendeesWithDining,
+          diningType: selectedDiningType,
           contests: selectedContests,
           time: exactTime
         });
@@ -1471,7 +1514,8 @@
         building: selectedBuilding,
         floor: selectedFloor,
         name: nameVal,
-        attendees: selectedAttendees,
+        attendees: attendeesWithDining,
+        diningType: selectedDiningType,
         contests: selectedContests,
         time: exactTime,
         isEarlyBird: isEarlyBird
@@ -1486,7 +1530,7 @@
         building: selectedBuilding,
         floor: selectedFloor,
         name: nameVal,
-        attendees: selectedAttendees,
+        attendees: attendeesWithDining,
         isEarlyBird: isEarlyBird ? "★ 早鳥木炭1包(限18:00前領)" : "無 (可爭取現場早鳥)",
         contests: selectedContests.length ? selectedContests.join("、") : "未報名"
       });
