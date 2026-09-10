@@ -1173,11 +1173,22 @@
   <div class="admin-modal-overlay" id="adminModal">
     <div class="admin-modal-box">
       <h3 class="admin-modal-title">📊 社區已登記名冊（管委會現場核銷）</h3>
-      <div style="overflow-y: auto; max-height: 400px; width: 100%;">
+      
+      <!-- Google Sheets Web App 串接設定 -->
+      <div style="background: rgba(0,0,0,0.3); border: 1px solid rgba(245,158,11,0.3); border-radius: 8px; padding: 10px; margin-bottom: 12px; text-align: left;">
+        <div style="font-size: 0.82rem; font-weight: 700; color: #fde68a; margin-bottom: 4px;">☁️ Google Sheets 雲端資料庫串接 (GAS Web App URL)</div>
+        <div style="display: flex; gap: 6px;">
+          <input type="text" id="gasUrlInput" style="flex: 1; background: #0f172a; border: 1px solid rgba(255,255,255,0.2); border-radius: 6px; padding: 6px 10px; color: #fff; font-size: 0.8rem;" placeholder="請貼上 Google Apps Script 部署網址 (https://script.google.com/macros/s/.../exec)">
+          <button type="button" onclick="saveGasUrlSetting()" style="background: #f59e0b; color: #000; font-weight: 800; border: none; border-radius: 6px; padding: 6px 12px; font-size: 0.8rem; cursor: pointer;">儲存</button>
+        </div>
+      </div>
+
+      <div style="overflow-y: auto; max-height: 360px; width: 100%;">
         <table class="admin-data-table" id="adminTable">
           <thead>
             <tr>
               <th>序號</th>
+              <th>報名時間</th>
               <th>戶別</th>
               <th>姓名</th>
               <th>人數</th>
@@ -1190,7 +1201,7 @@
           </tbody>
         </table>
       </div>
-      <div class="admin-actions">
+      <div class="admin-actions" style="margin-top: 12px;">
         <button type="button" class="btn-main-hero" style="font-size: 0.95rem; padding: 10px;" onclick="exportCSV()">
           匯出 CSV / Excel
         </button>
@@ -1212,6 +1223,23 @@
 
     const STORAGE_KEY_RECORDS = "peacock2_mid_autumn_records_v1";
     const STORAGE_KEY_MY_REG = "peacock2_my_registration_v1";
+    const STORAGE_KEY_GAS_URL = "peacock2_gas_api_url_v1";
+    const DEFAULT_GOOGLE_SCRIPT_URL = "";
+
+    function getGasApiUrl() {
+      return localStorage.getItem(STORAGE_KEY_GAS_URL) || DEFAULT_GOOGLE_SCRIPT_URL;
+    }
+
+    function getFormattedTimestamp() {
+      const now = new Date();
+      const YYYY = now.getFullYear();
+      const MM = String(now.getMonth() + 1).padStart(2, '0');
+      const DD = String(now.getDate()).padStart(2, '0');
+      const HH = String(now.getHours()).padStart(2, '0');
+      const mm = String(now.getMinutes()).padStart(2, '0');
+      const ss = String(now.getSeconds()).padStart(2, '0');
+      return `${YYYY}-${MM}-${DD} ${HH}:${mm}:${ss}`;
+    }
 
     // 初始化載入
     window.addEventListener("DOMContentLoaded", () => {
@@ -1286,6 +1314,9 @@
         return;
       }
 
+      // 精確到秒的時間戳記 (YYYY-MM-DD HH:mm:ss)
+      const exactTime = getFormattedTimestamp();
+
       // 讀取既有紀錄
       let allRecords = getStoredRecords();
 
@@ -1308,7 +1339,7 @@
           name: nameVal,
           attendees: selectedAttendees,
           contests: selectedContests,
-          time: new Date().toLocaleString()
+          time: exactTime
         };
       } else {
         isEarlyBird = (recordOrderNumber <= 20);
@@ -1319,11 +1350,11 @@
           name: nameVal,
           attendees: selectedAttendees,
           contests: selectedContests,
-          time: new Date().toLocaleString()
+          time: exactTime
         });
       }
 
-      // 存入 localStorage
+      // 存入本地 localStorage
       saveStoredRecords(allRecords);
 
       // 記住我個人的最新登記
@@ -1334,12 +1365,49 @@
         name: nameVal,
         attendees: selectedAttendees,
         contests: selectedContests,
+        time: exactTime,
         isEarlyBird: isEarlyBird
       };
       localStorage.setItem(STORAGE_KEY_MY_REG, JSON.stringify(myRegData));
 
+      // 同步非同步推送到 Google Sheets 雲端資料庫
+      syncToGoogleSheets({
+        action: "register",
+        orderNo: recordOrderNumber,
+        timestamp: exactTime,
+        building: selectedBuilding,
+        floor: selectedFloor,
+        name: nameVal,
+        attendees: selectedAttendees,
+        isEarlyBird: isEarlyBird ? "★ 早鳥木炭1包(限18:00前領)" : "無 (可爭取現場早鳥)",
+        contests: selectedContests.length ? selectedContests.join("、") : "未報名"
+      });
+
       // 觸發展示第三屏成功確認卡
       showSuccessModal(myRegData);
+    }
+
+    // 非同步推送至 Google Sheets (零阻礙住戶體驗)
+    function syncToGoogleSheets(payload) {
+      const gasUrl = getGasApiUrl();
+      if (!gasUrl) {
+        console.log("Google Sheets API URL 尚未配置，資料已先保存於本機資料庫。");
+        return;
+      }
+      try {
+        fetch(gasUrl, {
+          method: "POST",
+          mode: "no-cors",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload)
+        }).then(() => {
+          console.log("Google Sheets 雲端同步完成！時間戳記：" + payload.timestamp);
+        }).catch(err => {
+          console.warn("Google Sheets 連線異常：", err);
+        });
+      } catch(e) {
+        console.warn("Google Sheets fetch 失敗：", e);
+      }
     }
 
     // 顯示成功確認卡片
@@ -1355,7 +1423,8 @@
             <span>🎁</span> 恭喜取得【好康三：早鳥木炭 1 包】保留資格！
           </div>
           <p class="charcoal-award-desc">
-            您是第 <strong>${data.orderNo}</strong> 位線上早鳥！請於活動當晚 18:00 之前至中庭服務台簽名領取，逾時名額將釋出給現場開烤鄰居。
+            您是第 <strong>${data.orderNo}</strong> 位線上早鳥！登記時間：<code>${data.time}</code>。<br>
+            請於活動當晚 18:00 之前至中庭服務台簽名領取，逾時名額將釋出給現場開烤鄰居。
           </p>
         `;
       } else {
@@ -1365,7 +1434,7 @@
             <span>💡</span> 食材補助 500 元預約已鎖定！
           </div>
           <p class="charcoal-award-desc">
-            線上木炭 20 包早鳥名額已滿，但活動當日 17:30 提早下樓烤肉，仍可現場爭取【好康四：早鳥烤肉木炭前 20 名】！
+            線上木炭 20 包早鳥名額已滿（登記時間：<code>${data.time}</code>），但活動當日 17:30 提早下樓烤肉，仍可現場爭取【好康四：早鳥烤肉木炭前 20 名】！
           </p>
         `;
       }
@@ -1426,7 +1495,6 @@
       if (raw) {
         try {
           const data = JSON.parse(raw);
-          // 回填表單以利修改
           if (data.building) {
             const bBtn = document.querySelector(`#buildingGroup .pill-btn[data-val="${data.building}"]`);
             if (bBtn) selectBuilding(bBtn);
@@ -1470,6 +1538,23 @@
       } catch(e) {}
     }
 
+    // 儲存 Google Apps Script Web App URL
+    function saveGasUrlSetting() {
+      const urlInput = document.getElementById("gasUrlInput");
+      const url = (urlInput.value || "").trim();
+      if (!url) {
+        localStorage.removeItem(STORAGE_KEY_GAS_URL);
+        alert("已清除 Google Sheets 串接網址！資料將保存在本機。");
+        return;
+      }
+      if (!url.startsWith("https://script.google.com/")) {
+        alert("請輸入正確的 Google Apps Script 網址 (開頭為 https://script.google.com/)！");
+        return;
+      }
+      localStorage.setItem(STORAGE_KEY_GAS_URL, url);
+      alert("✅ Google Sheets 雲端資料庫串接網址儲存成功！後續每筆登記將自動同步至您的雲端試算表。");
+    }
+
     // 後台管理觸發 (連續點擊5次版權列)
     function triggerAdminClick() {
       adminClickCount++;
@@ -1480,22 +1565,28 @@
     }
 
     function openAdminModal() {
+      const gasInput = document.getElementById("gasUrlInput");
+      if (gasInput) {
+        gasInput.value = getGasApiUrl();
+      }
+
       const records = getStoredRecords();
       const tbody = document.getElementById("adminTableBody");
       tbody.innerHTML = "";
 
       if (records.length === 0) {
-        tbody.innerHTML = `<tr><td colspan="6" style="text-align:center; opacity:0.6;">目前尚無住戶登記紀錄</td></tr>`;
+        tbody.innerHTML = `<tr><td colspan="7" style="text-align:center; opacity:0.6;">目前尚無住戶登記紀錄</td></tr>`;
       } else {
         records.forEach((r, idx) => {
           const tr = document.createElement("tr");
           const isEarly = (idx < 20);
           tr.innerHTML = `
             <td>${r.orderNo || (idx + 1)}</td>
+            <td style="font-size:0.75rem; color:#94a3b8; white-space:nowrap;">${r.time || "-"}</td>
             <td><strong>${r.building} ${r.floor}</strong></td>
             <td>${r.name || "-"}</td>
             <td>${r.attendees || "-"}</td>
-            <td style="color:${isEarly ? '#f59e0b' : '#94a3b8'};">${isEarly ? '★ 早鳥第' + (idx+1) + '名' : '無'}</td>
+            <td style="color:${isEarly ? '#f59e0b' : '#94a3b8'}; white-space:nowrap;">${isEarly ? '★ 早鳥第' + (idx+1) + '名' : '無'}</td>
             <td>${(r.contests && r.contests.length) ? r.contests.join("<br>") : "未報賽事"}</td>
           `;
           tbody.appendChild(tr);
@@ -1515,11 +1606,11 @@
         alert("尚無登記資料可匯出！");
         return;
       }
-      let csvContent = "\uFEFF序號,棟別,樓層,姓名,出席人數,早鳥木炭資格,報名賽事,登記時間\n";
+      let csvContent = "\uFEFF序號,登記時間(精確到秒),棟別,樓層,姓名,出席人數,早鳥木炭資格,報名賽事\n";
       records.forEach((r, idx) => {
         const isEarly = (idx < 20) ? "早鳥木炭1包(限18:00前領)" : "無";
         const contests = (r.contests || []).join(" / ");
-        csvContent += `"${r.orderNo || (idx+1)}","${r.building}","${r.floor}","${r.name || ''}","${r.attendees || ''}","${isEarly}","${contests}","${r.time || ''}"\n`;
+        csvContent += `"${r.orderNo || (idx+1)}","${r.time || ''}","${r.building}","${r.floor}","${r.name || ''}","${r.attendees || ''}","${isEarly}","${contests}"\n`;
       });
 
       const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
