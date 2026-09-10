@@ -166,21 +166,23 @@
       padding: 12px 6px 20px;
     }
 
-    /* 無框純粹大氣慶祝標題 (icon 放大、歡慶氛圍拉滿) */
+    /* 無框純粹大氣慶祝標題 (icon 微縮居中平衡、文字防斷行) */
     .hero-celebrate-title {
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 10px;
+      gap: 6px;
       margin-bottom: 22px;
       padding: 6px 0;
+      white-space: nowrap;
     }
 
     .celebrate-icon {
-      font-size: 2.2rem;
+      font-size: 1.38rem;
       line-height: 1;
-      filter: drop-shadow(0 0 10px rgba(245, 158, 11, 0.6));
+      filter: drop-shadow(0 0 8px rgba(245, 158, 11, 0.6));
       animation: pulseCelebrate 2s infinite ease-in-out;
+      flex-shrink: 0;
     }
 
     @keyframes pulseCelebrate {
@@ -189,11 +191,12 @@
     }
 
     .celebrate-text {
-      font-size: 1.48rem;
+      font-size: 1.26rem;
       font-weight: 900;
       color: #fde68a;
-      letter-spacing: 0.6px;
-      text-shadow: 0 2px 14px rgba(245, 158, 11, 0.45);
+      letter-spacing: 0.5px;
+      text-shadow: 0 2px 12px rgba(245, 158, 11, 0.45);
+      white-space: nowrap;
     }
 
     /* 六大好康卡片清單 (大字醒目) */
@@ -243,21 +246,33 @@
       gap: 6px;
       background: rgba(245, 158, 11, 0.15);
       border: 1px solid rgba(245, 158, 11, 0.4);
-      padding: 3px 10px;
+      padding: 4px 10px;
       border-radius: 8px;
-      margin-bottom: 2px;
+      margin-bottom: 3px;
     }
 
     .benefit-header-tag .tag-icon {
-      font-size: 1.25rem;
+      font-size: 1.26rem;
       line-height: 1;
     }
 
     .benefit-header-tag .tag-label {
-      font-size: 1.05rem;
+      font-size: 1.18rem;
       font-weight: 800;
       color: #fde68a;
       letter-spacing: 0.5px;
+    }
+
+    .benefit-header-tag .tag-extra-badge {
+      font-size: 0.95rem;
+      font-weight: 800;
+      background: rgba(245, 158, 11, 0.28);
+      color: #ffffff;
+      padding: 2px 8px;
+      border-radius: 6px;
+      border: 1px solid rgba(245, 158, 11, 0.5);
+      margin-left: 2px;
+      letter-spacing: 0.3px;
     }
 
     .benefit-title {
@@ -943,10 +958,11 @@
             <div class="benefit-header-tag">
               <span class="tag-icon">🥩</span>
               <span class="tag-label">【好康一】</span>
+              <span class="tag-extra-badge">註一</span>
             </div>
             <h3 class="benefit-title">每戶食材補助 500 元</h3>
             <div class="benefit-desc-text">
-              自備開烤食材、或外帶熟食便當披薩下樓聚餐皆可領（註一）
+              自備開烤食材、或外帶熟食便當披薩下樓聚餐皆可領
             </div>
           </div>
 
@@ -964,10 +980,11 @@
             <div class="benefit-header-tag">
               <span class="tag-icon">🎁</span>
               <span class="tag-label">【好康三】</span>
+              <span class="tag-extra-badge">註三</span>
             </div>
-            <h3 class="benefit-title">早鳥登記前 20 名送好禮（木炭或大瓶冷飲二選一，註三）</h3>
+            <h3 class="benefit-title">早鳥登記前 20 名送好禮</h3>
             <div class="benefit-desc-text">
-              自備開烤送木炭 1 包，熟食聚餐送清涼大瓶冷飲 1 瓶！
+              木炭 或 大瓶冷飲 二選一（開烤/熟食聚餐皆適用）
             </div>
           </div>
 
@@ -976,8 +993,9 @@
             <div class="benefit-header-tag">
               <span class="tag-icon">⏰</span>
               <span class="tag-label">【好康四】</span>
+              <span class="tag-extra-badge">註四</span>
             </div>
-            <h3 class="benefit-title">早鳥開烤前 20 名送木炭 1 包（註四）</h3>
+            <h3 class="benefit-title">早鳥開烤前 20 名送木炭 1 包</h3>
             <div class="benefit-desc-text">
               17:30 起下樓生火開烤即贈，鼓勵鄰里提早熱場開爐！
             </div>
@@ -988,10 +1006,11 @@
             <div class="benefit-header-tag">
               <span class="tag-icon">🍺</span>
               <span class="tag-label">【好康五】</span>
+              <span class="tag-extra-badge">共 9 名</span>
             </div>
-            <h3 class="benefit-title">啤酒 / 汽水 ‧ 現金挑戰賽（共 9 名）</h3>
+            <h3 class="benefit-title">啤酒 / 汽水 ‧ 現金挑戰賽</h3>
             <div class="benefit-desc-text">
-              <span class="group-names-glow">男子組 ｜ 女子組 ｜ 親子 ‧ 敬老家庭組</span> ‧ <span class="cash-prize-glow">各前三名拿現金！</span>
+              <span class="group-names-glow">男子組 ｜ 女子組 ｜ 親子 ‧ 敬老組</span> ‧ <span class="cash-prize-glow">各前三名拿現金！</span>
             </div>
           </div>
 
@@ -1000,10 +1019,11 @@
             <div class="benefit-header-tag">
               <span class="tag-icon">📱</span>
               <span class="tag-label">【好康六】</span>
+              <span class="tag-extra-badge">共 9 名</span>
             </div>
-            <h3 class="benefit-title">1~50 手機遊戲 ‧ 現金挑戰賽（共 9 名）</h3>
+            <h3 class="benefit-title">1~50 手機遊戲 ‧ 現金挑戰賽</h3>
             <div class="benefit-desc-text">
-              <span class="group-names-glow">男子組 ｜ 女子組 ｜ 親子 ‧ 敬老家庭組</span> ‧ <span class="cash-prize-glow">各前三名拿現金！</span>
+              <span class="group-names-glow">男子組 ｜ 女子組 ｜ 親子 ‧ 敬老組</span> ‧ <span class="cash-prize-glow">各前三名拿現金！</span>
             </div>
             <div class="benefit-action-row">
               <span class="benefit-plain-hint">大人小孩都會玩</span>
@@ -1131,7 +1151,7 @@
               <div class="contest-card-option" onclick="toggleContestOption(this)" data-contest="汽水大賽 ‧ 親子敬老組">
                 <div class="custom-checkbox-indicator">✓</div>
                 <div class="contest-info">
-                  <div class="contest-name">🥤 汽水大賽 ‧ 親子 ‧ 敬老家庭組</div>
+                  <div class="contest-name">🥤 汽水大賽 ‧ 親子 ‧ 敬老組</div>
                   <div class="contest-rule-hint">其中一位須為 10 歲以下或 80 歲以上，安全趣味拿獎金！</div>
                 </div>
               </div>
@@ -1193,7 +1213,7 @@
     <!-- 頁尾宣告 -->
     <footer class="app-footer">
       <p style="font-size: 1.18rem; font-weight: 800; color: #cbd5e1;">孔雀王朝二期籌備組</p>
-      <p style="margin-top: 8px; font-size: 1.05rem; color: #94a3b8; cursor: pointer; user-select: none;" onclick="triggerAdminClick()">本系統僅供本社區住戶登記使用 <span style="font-size: 0.82rem; opacity: 0.5;">(v14.42)</span></p>
+      <p style="margin-top: 8px; font-size: 1.05rem; color: #94a3b8; cursor: pointer; user-select: none;" onclick="triggerAdminClick()">本系統僅供本社區住戶登記使用 <span style="font-size: 0.82rem; opacity: 0.5;">(v14.44)</span></p>
     </footer>
 
   </main>
