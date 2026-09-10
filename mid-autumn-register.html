@@ -208,14 +208,16 @@
       background: var(--bg-card);
       border: 1.5px solid var(--border-color);
       border-radius: var(--radius-md);
-      padding: 18px 18px;
+      padding: 16px 18px;
       display: flex;
-      align-items: center;
-      gap: 16px;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 6px;
       box-shadow: var(--shadow-card);
       transition: all 0.25s ease;
       position: relative;
       overflow: hidden;
+      text-align: left;
     }
 
     .benefit-card::before {
@@ -234,42 +236,47 @@
       border-color: rgba(245, 158, 11, 0.55);
     }
 
-    .benefit-icon-box {
-      font-size: 2.1rem;
-      line-height: 1;
-      padding: 10px;
-      border-radius: 14px;
-      background: rgba(255, 255, 255, 0.05);
-      flex-shrink: 0;
+    /* 圖示與好康標籤在同一行，高雅精緻並釋放 100% 水平空間 */
+    .benefit-header-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(245, 158, 11, 0.15);
+      border: 1px solid rgba(245, 158, 11, 0.4);
+      padding: 3px 10px;
+      border-radius: 8px;
+      margin-bottom: 2px;
     }
 
-    .benefit-body {
-      flex: 1;
-      text-align: left;
+    .benefit-header-tag .tag-icon {
+      font-size: 1.25rem;
+      line-height: 1;
+    }
+
+    .benefit-header-tag .tag-label {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: #fde68a;
+      letter-spacing: 0.5px;
     }
 
     .benefit-title {
-      font-size: 1.28rem;
+      font-size: 1.32rem;
       font-weight: 900;
       color: #ffffff;
-      line-height: 1.4;
+      line-height: 1.35;
       letter-spacing: 0.3px;
-    }
-
-    .benefit-sub-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 10px;
-      align-items: center;
+      margin: 2px 0 0 0;
+      width: 100%;
     }
 
     .benefit-desc-text {
       font-size: 1.15rem;
       font-weight: 700;
-      color: #e2e8f0;
+      color: #cbd5e1;
       line-height: 1.45;
-      margin-top: 6px;
+      margin-top: 4px;
+      width: 100%;
     }
 
     .group-names-glow {
@@ -333,36 +340,52 @@
       transform: scale(0.96);
     }
 
-    /* 第一屏立即預約主按鈕 */
+    /* 第一屏立即預約主按鈕 (微縮小巧 ＋ 精緻雙行) */
     .hero-action-container {
-      margin-top: 10px;
-      margin-bottom: 30px;
+      margin-top: 14px;
+      margin-bottom: 28px;
     }
 
     .btn-main-hero {
       width: 100%;
       background: var(--gold-gradient);
       color: #0f172a;
-      font-size: 1.45rem;
-      font-weight: 900;
-      padding: 18px 24px;
+      padding: 12px 20px;
       border-radius: var(--radius-md);
       border: none;
-      box-shadow: 0 10px 28px rgba(245, 158, 11, 0.45);
+      box-shadow: 0 8px 22px rgba(245, 158, 11, 0.4);
       cursor: pointer;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 10px;
-      letter-spacing: 0.8px;
       transition: all 0.2s ease;
       position: relative;
       overflow: hidden;
     }
 
+    .btn-hero-primary {
+      font-size: 1.35rem;
+      font-weight: 900;
+      line-height: 1.25;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      letter-spacing: 0.5px;
+    }
+
+    .btn-hero-subtitle {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #1e293b;
+      margin-top: 2px;
+      letter-spacing: 0.3px;
+    }
+
     .btn-main-hero:active {
       transform: scale(0.98);
-      box-shadow: 0 4px 14px rgba(245, 158, 11, 0.3);
+      box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
     }
 
     /* ===================================================
@@ -894,78 +917,89 @@
           <span class="celebrate-icon">🎊</span>
         </div>
 
-        <!-- 六大好康卡片清單 (大字、純粹醒目) -->
+        <!-- 六大好康卡片清單 (大字、純粹醒目、寬度100%零折行) -->
         <div class="benefits-grid">
 
           <!-- 好康一 -->
           <div class="benefit-card highlight">
-            <div class="benefit-icon-box">🥩</div>
-            <div class="benefit-body">
-              <h3 class="benefit-title">【好康一】每戶食材補助 500 元（註一）</h3>
-              <div class="benefit-desc-text" style="color: #cbd5e1; font-weight: 600;">
-                自備開烤食材、或外帶熟食便當披薩下樓聚餐皆可領！
-              </div>
+            <div class="benefit-header-tag">
+              <span class="tag-icon">🥩</span>
+              <span class="tag-label">【好康一】</span>
+            </div>
+            <h3 class="benefit-title">每戶食材補助 500 元</h3>
+            <div class="benefit-desc-text">
+              自備開烤食材、或外帶熟食便當披薩下樓聚餐皆可領（註一）
             </div>
           </div>
 
           <!-- 好康二 -->
           <div class="benefit-card">
-            <div class="benefit-icon-box">🔥</div>
-            <div class="benefit-body">
-              <h3 class="benefit-title">【好康二】管委會準備噴火槍</h3>
+            <div class="benefit-header-tag">
+              <span class="tag-icon">🔥</span>
+              <span class="tag-label">【好康二】</span>
             </div>
+            <h3 class="benefit-title">管委會準備噴火槍</h3>
           </div>
 
           <!-- 好康三 -->
           <div class="benefit-card highlight">
-            <div class="benefit-icon-box">📦</div>
-            <div class="benefit-body">
-              <h3 class="benefit-title">【好康三】早鳥登記前 20 名送木炭 1 包（註二）</h3>
+            <div class="benefit-header-tag">
+              <span class="tag-icon">📦</span>
+              <span class="tag-label">【好康三】</span>
             </div>
+            <h3 class="benefit-title">早鳥登記前 20 名送木炭 1 包（註二）</h3>
           </div>
 
           <!-- 好康四 -->
           <div class="benefit-card">
-            <div class="benefit-icon-box">⏰</div>
-            <div class="benefit-body">
-              <h3 class="benefit-title">【好康四】早鳥烤肉前 20 名送木炭 1 包（註三）</h3>
+            <div class="benefit-header-tag">
+              <span class="tag-icon">⏰</span>
+              <span class="tag-label">【好康四】</span>
             </div>
+            <h3 class="benefit-title">早鳥烤肉前 20 名送木炭 1 包（註三）</h3>
           </div>
 
           <!-- 好康五 -->
           <div class="benefit-card">
-            <div class="benefit-icon-box">🍺</div>
-            <div class="benefit-body">
-              <h3 class="benefit-title">【好康五】啤酒 / 汽水 ‧ 現金挑戰賽（共 9 名）</h3>
-              <div class="benefit-desc-text">
-                <span class="group-names-glow">男子組 ｜ 女子組 ｜ 親子 ‧ 敬老家庭組</span> ‧ <span class="cash-prize-glow">各前三名拿現金！</span>
-              </div>
+            <div class="benefit-header-tag">
+              <span class="tag-icon">🍺</span>
+              <span class="tag-label">【好康五】</span>
+            </div>
+            <h3 class="benefit-title">啤酒 / 汽水 ‧ 現金挑戰賽（共 9 名）</h3>
+            <div class="benefit-desc-text">
+              <span class="group-names-glow">男子組 ｜ 女子組 ｜ 親子 ‧ 敬老家庭組</span> ‧ <span class="cash-prize-glow">各前三名拿現金！</span>
             </div>
           </div>
 
           <!-- 好康六 -->
           <div class="benefit-card">
-            <div class="benefit-icon-box">📱</div>
-            <div class="benefit-body">
-              <h3 class="benefit-title">【好康六】1~50 手機遊戲 ‧ 現金挑戰賽（共 9 名）</h3>
-              <div class="benefit-desc-text">
-                <span class="group-names-glow">男子組 ｜ 女子組 ｜ 親子 ‧ 敬老家庭組</span> ‧ <span class="cash-prize-glow">各前三名拿現金！</span>
-              </div>
-              <div class="benefit-action-row">
-                <span class="benefit-plain-hint">大人小孩都會玩</span>
-                <a href="https://pod0987183520.github.io/1to50" target="_blank" rel="noopener noreferrer" class="sub-tag-link-btn">
-                  <span>🎮</span> 點我搶先練習 ➔
-                </a>
-              </div>
+            <div class="benefit-header-tag">
+              <span class="tag-icon">📱</span>
+              <span class="tag-label">【好康六】</span>
+            </div>
+            <h3 class="benefit-title">1~50 手機遊戲 ‧ 現金挑戰賽（共 9 名）</h3>
+            <div class="benefit-desc-text">
+              <span class="group-names-glow">男子組 ｜ 女子組 ｜ 親子 ‧ 敬老家庭組</span> ‧ <span class="cash-prize-glow">各前三名拿現金！</span>
+            </div>
+            <div class="benefit-action-row">
+              <span class="benefit-plain-hint">大人小孩都會玩</span>
+              <a href="https://pod0987183520.github.io/1to50" target="_blank" rel="noopener noreferrer" class="sub-tag-link-btn">
+                <span>🎮</span> 點我搶先練習 ➔
+              </a>
             </div>
           </div>
 
         </div>
 
-        <!-- 立即預約按鈕 (點擊換頁至第二屏) -->
+        <!-- 立即預約按鈕 (微縮小巧 ＋ 精緻雙行換頁至第二屏) -->
         <div class="hero-action-container">
           <button type="button" class="btn-main-hero" onclick="goToStep2()">
-            <span>📝</span> 立即預約（10秒快速登記）
+            <div class="btn-hero-primary">
+              <span>📝</span> 立即預約
+            </div>
+            <div class="btn-hero-subtitle">
+              10秒快速登記
+            </div>
           </button>
         </div>
       </section>
