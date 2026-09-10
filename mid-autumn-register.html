@@ -350,22 +350,23 @@
       width: 100%;
       background: var(--gold-gradient);
       color: #0f172a;
-      padding: 12px 20px;
+      padding: 14px 20px;
       border-radius: var(--radius-md);
       border: none;
       box-shadow: 0 8px 22px rgba(245, 158, 11, 0.4);
       cursor: pointer;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      justify-content: center !important;
       transition: all 0.2s ease;
       position: relative;
       overflow: hidden;
+      text-decoration: none;
     }
 
     .btn-hero-primary {
-      font-size: 1.35rem;
+      font-size: 1.42rem;
       font-weight: 900;
       line-height: 1.25;
       display: flex;
@@ -376,11 +377,12 @@
     }
 
     .btn-hero-subtitle {
-      font-size: 0.95rem;
-      font-weight: 700;
+      font-size: 1.02rem;
+      font-weight: 800;
       color: #1e293b;
-      margin-top: 2px;
-      letter-spacing: 0.3px;
+      margin-top: 4px;
+      letter-spacing: 0.4px;
+      display: block;
     }
 
     .btn-main-hero:active {
@@ -398,7 +400,6 @@
       padding: 22px 18px;
       box-shadow: var(--shadow-card);
       margin-bottom: 24px;
-    }
       scroll-margin-top: 80px;
     }
 
@@ -576,25 +577,42 @@
       color: #fde68a;
     }
 
-    /* 表單送出按鈕 */
+    /* 表單送出按鈕 (雙行結構：確認登記 ＋ 預約食材補助 500 元) */
     .btn-submit-register {
       width: 100%;
       background: var(--gold-gradient);
       color: #0f172a;
-      font-size: 1.4rem;
-      font-weight: 900;
-      padding: 18px 20px;
+      padding: 14px 20px;
       border-radius: var(--radius-md);
       border: none;
       box-shadow: 0 10px 24px rgba(245, 158, 11, 0.45);
       cursor: pointer;
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      justify-content: center !important;
+      margin-top: 16px;
+      transition: all 0.2s ease;
+    }
+
+    .btn-submit-primary {
+      font-size: 1.45rem;
+      font-weight: 900;
+      line-height: 1.25;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 10px;
+      gap: 8px;
       letter-spacing: 0.8px;
-      margin-top: 16px;
-      transition: all 0.2s ease;
+    }
+
+    .btn-submit-subtitle {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: #1e293b;
+      margin-top: 4px;
+      letter-spacing: 0.5px;
+      display: block;
     }
 
     .btn-submit-register:active {
@@ -944,10 +962,13 @@
           <!-- 好康三 -->
           <div class="benefit-card highlight">
             <div class="benefit-header-tag">
-              <span class="tag-icon">📦</span>
+              <span class="tag-icon">🎁</span>
               <span class="tag-label">【好康三】</span>
             </div>
-            <h3 class="benefit-title">早鳥登記前 20 名送木炭 1 包（註二）</h3>
+            <h3 class="benefit-title">早鳥登記前 20 名送好禮（木炭或大瓶冷飲二選一，註三）</h3>
+            <div class="benefit-desc-text">
+              自備開烤送木炭 1 包，熟食聚餐送清涼大瓶冷飲 1 瓶！
+            </div>
           </div>
 
           <!-- 好康四 -->
@@ -956,7 +977,10 @@
               <span class="tag-icon">⏰</span>
               <span class="tag-label">【好康四】</span>
             </div>
-            <h3 class="benefit-title">早鳥烤肉前 20 名送木炭 1 包（註三）</h3>
+            <h3 class="benefit-title">早鳥開烤前 20 名送木炭 1 包（註四）</h3>
+            <div class="benefit-desc-text">
+              17:30 起下樓生火開烤即贈，鼓勵鄰里提早熱場開爐！
+            </div>
           </div>
 
           <!-- 好康五 -->
@@ -1123,9 +1147,14 @@
             </div>
           </div>
 
-          <!-- 送出按鈕 -->
+          <!-- 送出按鈕 (雙行結構：確認登記 ＋ 預約食材補助 500 元) -->
           <button type="submit" class="btn-submit-register">
-            <span>✨</span> 確認登記 ‧ 預約食材補助 500 元
+            <div class="btn-submit-primary">
+              <span>✨</span> 確認登記
+            </div>
+            <div class="btn-submit-subtitle">
+              預約食材補助 500 元
+            </div>
           </button>
 
         </form>
@@ -1147,13 +1176,13 @@
           <div class="note-row">
             <span class="note-pill">註三</span>
             <div class="note-text">
-              線上早鳥登記前 20 名送<span class="note-highlight">木炭 1 包</span>，需於活動當晚 18:00 前下樓領取，逾時轉讓現場候補住戶。
+              線上早鳥登記前 20 名送<span class="note-highlight">早鳥好禮（開烤送木炭 1 包 或 熟食送大瓶冷飲 1 瓶二選一）</span>，需於活動當晚 18:00 前下樓領取，逾時轉讓現場候補住戶。
             </div>
           </div>
           <div class="note-row">
             <span class="note-pill">註四</span>
             <div class="note-text">
-              現場早鳥烤肉前 20 名送<span class="note-highlight">木炭 1 包</span>，限當晚 17:30 開始下樓開烤者現場領取。
+              現場早鳥開烤前 20 名送<span class="note-highlight">木炭 1 包</span>，限當晚 17:30 開始下樓開火生火者現場領取。
             </div>
           </div>
         </div>
@@ -1164,7 +1193,7 @@
     <!-- 頁尾宣告 -->
     <footer class="app-footer">
       <p style="font-size: 1.18rem; font-weight: 800; color: #cbd5e1;">孔雀王朝二期籌備組</p>
-      <p style="margin-top: 8px; font-size: 1.05rem; color: #94a3b8; cursor: pointer; user-select: none;" onclick="triggerAdminClick()">本系統僅供本社區住戶登記使用</p>
+      <p style="margin-top: 8px; font-size: 1.05rem; color: #94a3b8; cursor: pointer; user-select: none;" onclick="triggerAdminClick()">本系統僅供本社區住戶登記使用 <span style="font-size: 0.82rem; opacity: 0.5;">(v14.42)</span></p>
     </footer>
 
   </main>
@@ -1183,13 +1212,13 @@
         A棟 6樓 陳先生 ｜ 3~4位
       </div>
 
-      <!-- 早鳥木炭資格通知 (若在前 20 戶即時呈現) -->
+      <!-- 早鳥好禮資格通知 (若在前 20 戶即時呈現) -->
       <div class="charcoal-award-box" id="charcoalAwardNotification">
         <div class="charcoal-award-title">
-          <span>🎁</span> 恭喜取得【好康三：早鳥木炭 1 包】保留資格！
+          <span>🎁</span> 恭喜取得【好康三：早鳥好禮（木炭或大瓶冷飲二選一）】保留資格！
         </div>
         <p class="charcoal-award-desc">
-          您是線上登記前 20 名早鳥！請於活動當晚 18:00 之前至中庭服務台簽名領取，逾時名額將釋出給現場開烤鄰居。
+          您是線上登記前 20 名早鳥！請於活動當晚 18:00 之前至中庭服務台簽名領取（開烤可選木炭 1 包，熟食聚餐可選清涼大瓶冷飲 1 瓶），逾時名額將釋出給現場開烤鄰居。
         </p>
       </div>
 
