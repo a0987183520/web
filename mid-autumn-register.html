@@ -682,7 +682,7 @@
       box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
     }
 
-    /* 表單送出按鈕 (微縮精緻化：確認登記 ＋ 預約食材補助 500 元) */
+    /* 表單送出按鈕 (微縮精緻化：確認登記 ＋ 預約食材補助 300 元) */
     .btn-submit-register {
       width: 100%;
       background: var(--gold-gradient);
@@ -878,69 +878,6 @@
       width: 100%;
     }
 
-    /* 早鳥木炭資格獲取專屬通知方塊 (放大字級，符合前頁好康三大氣排版) */
-    .charcoal-award-box {
-      background: linear-gradient(135deg, rgba(245, 158, 11, 0.25) 0%, rgba(217, 119, 6, 0.15) 100%);
-      border: 1.5px solid #f59e0b;
-      border-radius: var(--radius-md);
-      padding: 14px 16px;
-      margin-bottom: 16px;
-      text-align: left;
-    }
-
-    .charcoal-award-title {
-      font-size: 1.25rem;
-      font-weight: 900;
-      color: #ffffff;
-      line-height: 1.35;
-      margin-bottom: 8px;
-    }
-
-    .charcoal-award-title .award-top-row {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      color: #fde68a;
-    }
-
-    .charcoal-award-subtitle {
-      display: block;
-      font-size: 1.28rem;
-      font-weight: 900;
-      color: #ffffff;
-      margin-top: 4px;
-      letter-spacing: 0.3px;
-    }
-
-    .charcoal-award-desc {
-      font-size: 1.08rem;
-      color: #fef3c7;
-      line-height: 1.55;
-    }
-
-    .charcoal-award-desc .award-time-row {
-      font-size: 1.05rem;
-      color: #cbd5e1;
-      margin-bottom: 6px;
-    }
-
-    .charcoal-award-desc .award-time-row code {
-      color: #38bdf8;
-      font-family: inherit;
-      font-weight: 800;
-      font-size: 1.08rem;
-      background: rgba(56, 189, 248, 0.12);
-      padding: 2px 6px;
-      border-radius: 4px;
-    }
-
-    .charcoal-award-desc .award-rule-row {
-      font-size: 1.12rem;
-      font-weight: 800;
-      color: #fde68a;
-      line-height: 1.5;
-    }
-
     .success-checklist {
       text-align: left;
       background: rgba(255, 255, 255, 0.04);
@@ -1131,33 +1068,6 @@
       padding: 2px 6px;
       border-radius: 4px;
       font-size: 1.05rem;
-    }
-
-    /* 每日修改上限柔性提示橫幅 (防惡作劇與洗版，友善導流LINE) */
-    .daily-limit-banner {
-      background: linear-gradient(135deg, rgba(245, 158, 11, 0.18) 0%, rgba(30, 41, 68, 0.55) 100%);
-      border: 1.5px solid #f59e0b;
-      border-radius: var(--radius-md);
-      padding: 14px 16px;
-      margin-bottom: 18px;
-      text-align: left;
-      animation: fadeIn 0.3s ease-out;
-    }
-
-    .daily-limit-banner .banner-title {
-      font-size: 1.15rem;
-      font-weight: 800;
-      color: #fde68a;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      margin-bottom: 6px;
-    }
-
-    .daily-limit-banner .banner-desc {
-      font-size: 1.02rem;
-      color: #e2e8f0;
-      line-height: 1.55;
     }
 
     /* 頁尾版權與總幹事彩蛋管理 */
@@ -1711,7 +1621,6 @@
               <th>聚餐形式</th>
               <th>服務志工</th>
               <th>星空歡唱</th>
-              <th>早鳥資格</th>
               <th>報名賽事</th>
               <th>審核備註</th>
             </tr>
@@ -1746,8 +1655,6 @@
     const STORAGE_KEY_MY_REG = "peacock2_my_registration_v1";
     const STORAGE_KEY_GAS_URL = "peacock2_gas_api_url_v1";
     const STORAGE_KEY_DEVICE_ID = "peacock2_device_id_v1";
-    const STORAGE_KEY_DAILY_UPDATE_COUNT = "peacock2_daily_update_count_v1";
-    const MAX_DAILY_UPDATES = 2;
     const DEFAULT_GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwclivZ2_ZqYwLM0drcgQZxFB3Tt5keCLBOC26eimhxx3NMbXzMngfQ8sFAjfdv0s-p/exec";
 
     // 取得或自動建立本機載具識別碼 (保證各載具唯一)
@@ -1758,35 +1665,6 @@
         localStorage.setItem(STORAGE_KEY_DEVICE_ID, devId);
       }
       return devId;
-    }
-
-    // 取得今日已修改次數 (跨日自動歸零)
-    function getDailyUpdateCount() {
-      const todayStr = new Date().toISOString().slice(0, 10);
-      try {
-        const raw = localStorage.getItem(STORAGE_KEY_DAILY_UPDATE_COUNT);
-        if (raw) {
-          const parsed = JSON.parse(raw);
-          if (parsed.date === todayStr) {
-            return parsed.count || 0;
-          }
-        }
-      } catch(e) {}
-      return 0;
-    }
-
-    // 遞增今日修改次數
-    function incrementDailyUpdateCount() {
-      const todayStr = new Date().toISOString().slice(0, 10);
-      const currentCount = getDailyUpdateCount();
-      const nextCount = currentCount + 1;
-      try {
-        localStorage.setItem(STORAGE_KEY_DAILY_UPDATE_COUNT, JSON.stringify({
-          date: todayStr,
-          count: nextCount
-        }));
-      } catch(e) {}
-      return nextCount;
     }
 
     function getGasApiUrl() {
@@ -1976,7 +1854,6 @@
       const existingIndex = allRecords.findIndex(r => (r.building + "_" + r.floor) === householdKey);
 
       let recordOrderNumber = allRecords.length + 1;
-      let isEarlyBird = false;
 
       // 讀取星空歡唱報名內容
       const karaokeInputEl = document.getElementById("karaokeInput");
@@ -1986,7 +1863,6 @@
 
       if (existingIndex > -1) {
         recordOrderNumber = allRecords[existingIndex].orderNo;
-        isEarlyBird = (recordOrderNumber <= 20);
 
         // 若本戶先前已有時間記錄，嚴格繼承該戶最初登記時間
         if (allRecords[existingIndex].firstRegisteredTime || allRecords[existingIndex].time) {
@@ -2013,11 +1889,9 @@
           time: firstRegisteredTime, // 鎖定保留初次時間！
           updateTime: exactTime,
           firstRegisteredTime: firstRegisteredTime,
-          isEarlyBird: isEarlyBird,
           auditNote: auditNoteVal
         };
       } else {
-        isEarlyBird = (recordOrderNumber <= 20);
         allRecords.push({
           orderNo: recordOrderNumber,
           deviceId: devId,
@@ -2032,7 +1906,6 @@
           time: firstRegisteredTime,
           updateTime: exactTime,
           firstRegisteredTime: firstRegisteredTime,
-          isEarlyBird: isEarlyBird,
           auditNote: auditNoteVal
         });
       }
@@ -2055,12 +1928,11 @@
         time: firstRegisteredTime, // 供第三畫面呈現首筆時間
         updateTime: exactTime,
         firstRegisteredTime: firstRegisteredTime,
-        isEarlyBird: isEarlyBird,
         auditNote: auditNoteVal
       };
       localStorage.setItem(STORAGE_KEY_MY_REG, JSON.stringify(myRegData));
 
-      // 同步非同步推送到 Google Sheets 雲端資料庫 (維持純淨12欄結構，不傳送無意義deviceId)
+      // 同步非同步推送到 Google Sheets 雲端資料庫 (維持純淨12欄結構)
       syncToGoogleSheets({
         action: "register",
         orderNo: recordOrderNumber,
@@ -2073,7 +1945,7 @@
         diningType: selectedDiningType,
         volunteer: volunteerVal,
         karaoke: karaokeVal,
-        isEarlyBird: isEarlyBird ? "★ 早鳥好禮二選一(限18:00前領)" : "無",
+        isEarlyBird: "無",
         contests: selectedContests.length ? selectedContests.join("、") : "未報名",
         auditNote: auditNoteVal
       });
@@ -2325,11 +2197,10 @@
       tbody.innerHTML = "";
 
       if (records.length === 0) {
-        tbody.innerHTML = `<tr><td colspan="10" style="text-align:center; opacity:0.6;">目前尚無住戶登記紀錄</td></tr>`;
+        tbody.innerHTML = `<tr><td colspan="9" style="text-align:center; opacity:0.6;">目前尚無住戶登記紀錄</td></tr>`;
       } else {
         records.forEach((r, idx) => {
           const tr = document.createElement("tr");
-          const isEarly = (idx < 20);
           const pureAttendees = (r.attendees || "-").replace(/\s*\(.*?\)/, "");
           const isVol = (r.volunteer && r.volunteer !== "不參加");
           tr.innerHTML = `
@@ -2342,7 +2213,6 @@
             <td style="color:#fde68a; font-weight:700; white-space:nowrap;">${r.diningType || "未填"}</td>
             <td style="color:${isVol ? '#34d399' : '#94a3b8'}; font-weight:700; white-space:nowrap;">${r.volunteer || "不參加"}</td>
             <td style="color:#fcd34d; font-size:0.82rem;">${r.karaoke || "不參加"}</td>
-            <td style="color:${isEarly ? '#f59e0b' : '#94a3b8'}; white-space:nowrap;">${isEarly ? '★ 早鳥第' + (idx+1) + '名' : '無'}</td>
             <td>${(r.contests && r.contests.length) ? r.contests.join("<br>") : "未報賽事"}</td>
             <td style="font-size:0.75rem; color:#94a3b8; white-space:nowrap;">${r.auditNote || "正常登記"}</td>
           `;
@@ -2363,13 +2233,12 @@
         alert("尚無登記資料可匯出！");
         return;
       }
-      let csvContent = "\uFEFF序號,登記時間,棟別,樓層,姓名,出席人數,聚餐形式,服務志工,星空歡唱,早鳥資格,報名賽事,審核備註\n";
+      let csvContent = "\uFEFF序號,登記時間,棟別,樓層,姓名,出席人數,聚餐形式,服務志工,星空歡唱,報名賽事,審核備註\n";
       records.forEach((r, idx) => {
-        const isEarly = (idx < 20) ? "早鳥好禮二選一(限18:00前領)" : "無";
         const contests = (r.contests || []).join(" / ");
         const pureAttendees = (r.attendees || '').replace(/\s*\(.*?\)/, '');
         const auditNote = r.auditNote || '正常登記';
-        csvContent += `"${r.orderNo || (idx+1)}","${r.time || ''}","${r.building}","${r.floor}","${r.name || ''}","${pureAttendees}","${r.diningType || ''}","${r.volunteer || '不參加'}","${r.karaoke || '不參加'}","${isEarly}","${contests}","${auditNote}"\n`;
+        csvContent += `"${r.orderNo || (idx+1)}","${r.time || ''}","${r.building}","${r.floor}","${r.name || ''}","${pureAttendees}","${r.diningType || ''}","${r.volunteer || '不參加'}","${r.karaoke || '不參加'}","${contests}","${auditNote}"\n`;
       });
 
       const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
