@@ -260,7 +260,7 @@
       font-weight: 900;
     }
 
-    /* 核心資訊長條看板 (解決內容被擠壓過窄與拉高拉直) */
+    /* 核心資訊長條看板 (放大字級，左右橫向單行佈局) */
     .quick-meta-list {
       display: flex;
       flex-direction: column;
@@ -270,13 +270,15 @@
     }
 
     .quick-meta-bar {
-      background: rgba(255, 255, 255, 0.94);
+      background: rgba(255, 255, 255, 0.96);
       border: 1.5px solid #d8e5dd;
-      border-radius: 12px;
-      padding: 16px 20px;
+      border-radius: 14px;
+      padding: 16px 22px;
       display: flex;
+      flex-direction: row;
       align-items: center;
-      gap: 18px;
+      justify-content: flex-start;
+      gap: 16px;
       width: 100%;
       box-sizing: border-box;
       transition: all 0.2s ease;
@@ -293,28 +295,29 @@
       align-items: center;
       gap: 10px;
       flex-shrink: 0;
-      width: 130px;
+      width: 150px;
+      min-width: 150px;
     }
 
     .meta-bar-icon {
-      font-size: 1.5rem;
+      font-size: 1.65rem;
       line-height: 1;
     }
 
     .meta-bar-title {
-      font-size: 1.25rem;
-      font-weight: 800;
+      font-size: 1.35rem;
+      font-weight: 900;
       color: var(--primary);
       white-space: nowrap;
     }
 
     .meta-bar-desc {
-      font-size: 1.25rem;
-      color: #1a1a1a;
-      font-weight: 600;
+      font-size: 1.35rem;
+      color: #111827;
+      font-weight: 700;
       text-align: left;
       flex: 1;
-      line-height: 1.5;
+      line-height: 1.4;
     }
 
     /* 單一主標題樣式（不硬加副標題，極簡俐落） */
@@ -404,22 +407,23 @@
       line-height: 1.4;
     }
 
-    /* 流程一覽（純標題時間，無贅字） */
+    /* 流程一覽（緊湊單行排版，高度縮小 50%） */
     .timeline-list {
       list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 16px;
+      gap: 10px;
     }
 
     .timeline-item {
       background: #fbfcfc;
       border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 20px 24px;
+      border-radius: 10px;
+      padding: 12px 18px;
       display: flex;
       align-items: center;
       justify-content: space-between;
+      gap: 12px;
       transition: all 0.2s ease;
     }
 
@@ -432,29 +436,31 @@
     .timeline-left {
       display: flex;
       align-items: center;
-      gap: 16px;
+      gap: 12px;
+      flex: 1;
     }
 
     .time-badge {
       background: var(--primary);
       color: #ffffff;
-      font-size: 1.15rem;
-      font-weight: 700;
-      padding: 6px 14px;
-      border-radius: 8px;
+      font-size: 1.05rem;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: 6px;
       white-space: nowrap;
     }
 
     .timeline-title {
-      font-size: 1.35rem;
-      font-weight: 700;
-      color: #212529;
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: #1f2937;
     }
 
     .timeline-duration {
-      font-size: 1.1rem;
-      color: var(--text-muted);
-      font-weight: 600;
+      font-size: 1.05rem;
+      color: #64748b;
+      font-weight: 700;
+      white-space: nowrap;
     }
 
     /* 報名與互助說明 */
@@ -643,25 +649,34 @@
         gap: 4px;
       }
       .quick-meta-bar {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 6px;
-        padding: 14px 16px;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 10px;
+        padding: 14px 14px;
       }
       .meta-bar-left {
-        width: 100%;
-        min-width: auto;
+        width: 125px;
+        min-width: 125px;
+        flex-shrink: 0;
+        gap: 6px;
+      }
+      .meta-bar-icon {
+        font-size: 1.45rem;
       }
       .meta-bar-title {
-        font-size: 1.18rem;
+        font-size: 1.25rem;
+        font-weight: 900;
       }
       .meta-bar-desc {
         text-align: left;
-        font-size: 1.2rem;
-        color: #111111;
-        width: 100%;
-        line-height: 1.5;
-        padding-left: 2px;
+        font-size: 1.22rem;
+        font-weight: 700;
+        color: #111827;
+        width: auto;
+        flex: 1;
+        line-height: 1.35;
+        padding-left: 0;
       }
       .section-title {
         font-size: 1.55rem;
@@ -689,26 +704,47 @@
         font-size: 1.2rem;
       }
       .timeline-item {
-        flex-direction: column;
-        align-items: flex-start;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
         gap: 8px;
-        padding: 16px 16px;
+        padding: 10px 12px;
       }
       .timeline-left {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 6px;
+        flex-direction: row;
+        align-items: center;
+        gap: 8px;
+        flex: 1;
+        min-width: 0;
       }
       .time-badge {
-        font-size: 1rem;
-        padding: 4px 10px;
+        font-size: 0.95rem;
+        padding: 3px 8px;
+        flex-shrink: 0;
       }
       .timeline-title {
-        font-size: 1.25rem;
+        font-size: 1.12rem;
+        font-weight: 800;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
       }
       .timeline-duration {
         font-size: 0.95rem;
-        align-self: flex-end;
+        font-weight: 700;
+        color: #64748b;
+        flex-shrink: 0;
+        align-self: center;
+      }
+      .step2-header-row {
+        gap: 10px;
+      }
+      .btn-back-to-step1 {
+        font-size: 1rem;
+        padding: 6px 14px;
+      }
+      .step2-title-main {
+        font-size: 1.45rem;
       }
       .enroll-box {
         padding: 20px 16px;
@@ -1124,6 +1160,43 @@
       color: #0369a1;
       font-weight: 700;
     }
+
+    /* Step 2: 獨立換頁樣式 (中秋同款) */
+    .step2-header-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 22px;
+    }
+
+    .btn-back-to-step1 {
+      background: rgba(27, 67, 50, 0.08);
+      border: 1.5px solid var(--primary);
+      color: var(--primary);
+      font-size: 1.15rem;
+      font-weight: 800;
+      padding: 10px 22px;
+      border-radius: 999px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+      text-decoration: none;
+    }
+
+    .btn-back-to-step1:hover {
+      background: var(--primary);
+      color: #ffffff;
+      transform: translateX(-2px);
+    }
+
+    .step2-title-main {
+      font-size: 1.85rem;
+      font-weight: 900;
+      color: var(--primary);
+      margin: 0;
+    }
   </style>
 </head>
 <body>
@@ -1158,312 +1231,343 @@
 
   <main class="container">
 
-    <!-- 1. Hero 頂部主視覺（三層式吸睛架構） -->
-    <section class="section-card hero-card reveal-up">
-      <!-- 醒目問題痛點 -->
-      <div class="hero-question-pill">⚠️ 炸物廢油會堵塞水管，怎麼辦？</div>
+    <!-- ===================================================
+         第一屏 (Step 1)：活動介紹完整頁面 (大氣俐落)
+         =================================================== -->
+    <div class="screen-view" id="screenStep1">
 
-      <!-- 直接給解方與誘因 -->
-      <div class="hero-solution-title">🌿 免費教你把廢油變肥皂！</div>
+      <!-- 1. Hero 頂部主視覺（三層式吸睛架構） -->
+      <section class="section-card hero-card reveal-up">
+        <!-- 醒目問題痛點 -->
+        <div class="hero-question-pill">⚠️ 炸物廢油會堵塞水管，怎麼辦？</div>
 
-      <!-- 核心精神對稱大標題 -->
-      <h1 class="main-title">
-        <span class="word-verb">化</span>
-        <span class="word-danger">食安危機</span>
-        <span class="word-verb">為</span>
-        <span class="word-green">綠色轉機</span>
-      </h1>
+        <!-- 直接給解方與誘因 -->
+        <div class="hero-solution-title">🌿 免費教你把廢油變肥皂！</div>
 
-      <!-- 核心資訊長條清單 -->
-      <div class="quick-meta-list">
-        <div class="quick-meta-bar reveal-left delay-1">
-          <div class="meta-bar-left">
-            <span class="meta-bar-icon">👥</span>
-            <span class="meta-bar-title">參與對象</span>
+        <!-- 核心精神對稱大標題 -->
+        <h1 class="main-title">
+          <span class="word-verb">化</span>
+          <span class="word-danger">食安危機</span>
+          <span class="word-verb">為</span>
+          <span class="word-green">綠色轉機</span>
+        </h1>
+
+        <!-- 核心資訊長條清單 (左右橫向單行不換行，字級放大) -->
+        <div class="quick-meta-list">
+          <div class="quick-meta-bar reveal-left delay-1">
+            <div class="meta-bar-left">
+              <span class="meta-bar-icon">👥</span>
+              <span class="meta-bar-title">參與對象</span>
+            </div>
+            <div class="meta-bar-desc">本社區全體住戶</div>
           </div>
-          <div class="meta-bar-desc">本社區全體住戶</div>
-        </div>
 
-        <div class="quick-meta-bar reveal-left delay-2">
-          <div class="meta-bar-left">
-            <span class="meta-bar-icon">🎯</span>
-            <span class="meta-bar-title">預估人數</span>
+          <div class="quick-meta-bar reveal-left delay-2">
+            <div class="meta-bar-left">
+              <span class="meta-bar-icon">🎯</span>
+              <span class="meta-bar-title">預估人數</span>
+            </div>
+            <div class="meta-bar-desc">10人以上才開課</div>
           </div>
-          <div class="meta-bar-desc">10人以上才開課</div>
-        </div>
 
-        <div class="quick-meta-bar reveal-left delay-3">
-          <div class="meta-bar-left">
-            <span class="meta-bar-icon">🍳</span>
-            <span class="meta-bar-title">住戶自備</span>
+          <div class="quick-meta-bar reveal-left delay-3">
+            <div class="meta-bar-left">
+              <span class="meta-bar-icon">🍳</span>
+              <span class="meta-bar-title">住戶自備</span>
+            </div>
+            <div class="meta-bar-desc">廚房炸物廢油</div>
           </div>
-          <div class="meta-bar-desc">廚房炸物廢油或過期油</div>
-        </div>
 
-        <div class="quick-meta-bar reveal-left delay-4">
-          <div class="meta-bar-left">
-            <span class="meta-bar-icon">📅</span>
-            <span class="meta-bar-title">活動時段</span>
+          <div class="quick-meta-bar reveal-left delay-4">
+            <div class="meta-bar-left">
+              <span class="meta-bar-icon">📅</span>
+              <span class="meta-bar-title">活動時段</span>
+            </div>
+            <div class="meta-bar-desc">09/21(一)下午2點～4點</div>
           </div>
-          <div class="meta-bar-desc">09/21(一)下午2點～4點</div>
-        </div>
 
-        <div class="quick-meta-bar reveal-left delay-1">
-          <div class="meta-bar-left">
-            <span class="meta-bar-icon">📍</span>
-            <span class="meta-bar-title">活動地點</span>
+          <div class="quick-meta-bar reveal-left delay-1">
+            <div class="meta-bar-left">
+              <span class="meta-bar-icon">📍</span>
+              <span class="meta-bar-title">活動地點</span>
+            </div>
+            <div class="meta-bar-desc">1 樓會議室</div>
           </div>
-          <div class="meta-bar-desc">1 樓會議室</div>
-        </div>
 
-        <div class="quick-meta-bar reveal-left delay-2">
-          <div class="meta-bar-left">
-            <span class="meta-bar-icon">👩‍🏫</span>
-            <span class="meta-bar-title">公益師資</span>
+          <div class="quick-meta-bar reveal-left delay-2">
+            <div class="meta-bar-left">
+              <span class="meta-bar-icon">👩‍🏫</span>
+              <span class="meta-bar-title">公益師資</span>
+            </div>
+            <div class="meta-bar-desc">王珈洛 理事長</div>
           </div>
-          <div class="meta-bar-desc">王珈洛 理事長</div>
+
+          <div class="help-bubble" style="margin-top: 10px; text-align: left;">
+            📌 <strong>注意事項備註</strong>：家中若無炸油或過期油亦歡迎報名，現場可協調多備油之住戶，人人都能體驗。
+          </div>
+
+          <!-- 第一個 <立即報名> 按鈕 (點擊切換至 Step 2 獨立填寫頁) -->
+          <div style="text-align: center; margin-top: 26px;">
+            <button type="button" class="btn-register-cta" onclick="goToStep2()">
+              <span>📝</span> 立即報名
+            </button>
+          </div>
         </div>
+      </section>
 
-        <div class="help-bubble" style="margin-top: 10px; text-align: left;">
-          📌 <strong>注意事項備註</strong>：家中若無炸油或過期油亦歡迎報名，現場可協調多備油之住戶，人人都能體驗。
-        </div>
+      <!-- 2. 活動兩大重點（文字精簡） -->
+      <section class="section-card reveal-up">
+        <div class="section-title">活動兩大重點</div>
 
-        <!-- 第一個 <立即報名> 按鈕 -->
-        <div style="text-align: center; margin-top: 26px;">
-          <a href="#registerSection" class="btn-register-cta" onclick="scrollToRegister(event)">
-            <span>📝</span> 立即報名
-          </a>
-        </div>
-      </div>
-    </section>
+        <div class="feature-grid">
+          <!-- 重點一：免費 -->
+          <div class="feature-box reveal-left delay-1">
+            <div>
+              <div class="feature-tag">公益贊助</div>
+              <div class="feature-main">全程完全免費</div>
+              <div class="feature-desc">
+                師資、器材與耗材由中華綠生活手工皂協會全額贊助，免收任何費用，僅需自備家中廢油。
+              </div>
+            </div>
+          </div>
 
-    <!-- 2. 活動兩大重點（文字精簡） -->
-    <section class="section-card reveal-up">
-      <div class="section-title">活動兩大重點</div>
-
-      <div class="feature-grid">
-        <!-- 重點一：免費 -->
-        <div class="feature-box reveal-left delay-1">
-          <div>
-            <div class="feature-tag">公益贊助</div>
-            <div class="feature-main">全程完全免費</div>
-            <div class="feature-desc">
-              師資、器材與耗材由中華綠生活手工皂協會全額贊助，免收任何費用，僅需自備家中廢油。
+          <!-- 重點二：廢油變肥皂 -->
+          <div class="feature-box reveal-right delay-2">
+            <div>
+              <div class="feature-tag">資源循環</div>
+              <div class="feature-main">廚房廢油變黃金</div>
+              <div class="feature-desc">
+                廢炸油、過期油化身天然去污家事皂，守護管線不卡油垢，每人可親手帶回 300g 環保皂。
+              </div>
             </div>
           </div>
         </div>
+      </section>
 
-        <!-- 重點二：廢油變肥皂 -->
-        <div class="feature-box reveal-right delay-2">
-          <div>
-            <div class="feature-tag">資源循環</div>
-            <div class="feature-main">廚房廢油變黃金</div>
-            <div class="feature-desc">
-              廢炸油、過期油化身天然去污家事皂，守護管線不卡油垢，每人可親手帶回 300g 環保皂。
+      <!-- 3. 活動流程（緊湊單行排版，時間與時長同在一行，高度減半） -->
+      <section class="section-card reveal-up">
+        <div class="section-title">活動流程（共 120 分鐘）</div>
+
+        <ul class="timeline-list">
+          <li class="timeline-item reveal-left delay-1">
+            <div class="timeline-left">
+              <span class="time-badge">13:40 – 14:00</span>
+              <span class="timeline-title">場地佈置與住戶報到</span>
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 3. 活動流程（文字精簡） -->
-    <section class="section-card reveal-up">
-      <div class="section-title">活動流程（共 120 分鐘）</div>
-
-      <ul class="timeline-list">
-        <li class="timeline-item reveal-left delay-1">
-          <div class="timeline-left">
-            <span class="time-badge">13:40 – 14:00</span>
-            <span class="timeline-title">場地佈置與住戶報到</span>
-          </div>
-          <span class="timeline-duration">20 分鐘</span>
-        </li>
-        <li class="timeline-item reveal-right delay-2">
-          <div class="timeline-left">
-            <span class="time-badge">14:00 – 14:20</span>
-            <span class="timeline-title">食安解密與廢油再生觀念</span>
-          </div>
-          <span class="timeline-duration">20 分鐘</span>
-        </li>
-        <li class="timeline-item reveal-left delay-3">
-          <div class="timeline-left">
-            <span class="time-badge">14:20 – 15:40</span>
-            <span class="timeline-title">動手實作：環保家事皂</span>
-          </div>
-          <span class="timeline-duration">80 分鐘</span>
-        </li>
-        <li class="timeline-item reveal-right delay-4">
-          <div class="timeline-left">
-            <span class="time-badge">15:40 – 16:00</span>
-            <span class="timeline-title">成品合影與場地迅速復原</span>
-          </div>
-          <span class="timeline-duration">20 分鐘</span>
-        </li>
-      </ul>
-    </section>
-
-    <!-- 4. 活動注意事項（文字精簡，手機大字友善） -->
-    <section class="section-card notice-card reveal-up">
-      <div class="section-title">活動注意事項</div>
-
-      <div class="notice-box reveal-pop delay-1">
-        <ul class="notice-list">
-          <li class="notice-item">
-            <span class="notice-icon">💡</span>
-            <div class="notice-content">
-              <strong>【自備油品】</strong>
-              <span>廚房炸油或過期食用油 300ml～500ml（動物油、植物油皆可；炸過回鍋油最佳）。</span>
-            </div>
+            <span class="timeline-duration">20 分鐘</span>
           </li>
-          <li class="notice-item">
-            <span class="notice-icon">🤝</span>
-            <div class="notice-content">
-              <strong>【無油參加】</strong>
-              <span>家中無廢油亦歡迎報名，現場將協調多備油鄰居支援共享，人人都能體驗。</span>
+          <li class="timeline-item reveal-right delay-2">
+            <div class="timeline-left">
+              <span class="time-badge">14:00 – 14:20</span>
+              <span class="timeline-title">食安解密與廢油再生觀念</span>
             </div>
+            <span class="timeline-duration">20 分鐘</span>
           </li>
-          <li class="notice-item">
-            <span class="notice-icon">📦</span>
-            <div class="notice-content">
-              <strong>【攜帶容器】</strong>
-              <span>建議自備乾淨牛奶紙盒或小型保鮮盒（約 350ml），盛裝皂漿帶回家保溫熟成。</span>
+          <li class="timeline-item reveal-left delay-3">
+            <div class="timeline-left">
+              <span class="time-badge">14:20 – 15:40</span>
+              <span class="timeline-title">動手實作：環保家事皂</span>
             </div>
+            <span class="timeline-duration">80 分鐘</span>
           </li>
-          <li class="notice-item">
-            <span class="notice-icon">👕</span>
-            <div class="notice-content">
-              <strong>【穿著建議】</strong>
-              <span>現場由協會提供安全護具手套，建議穿著輕便、不怕沾染的深色衣物出席。</span>
+          <li class="timeline-item reveal-right delay-4">
+            <div class="timeline-left">
+              <span class="time-badge">15:40 – 16:00</span>
+              <span class="timeline-title">成品合影與場地迅速復原</span>
             </div>
+            <span class="timeline-duration">20 分鐘</span>
           </li>
         </ul>
-      </div>
+      </section>
 
-      <!-- 第二個 <立即報名> 按鈕 -->
-      <div style="text-align: center; margin-top: 28px;">
-        <a href="#registerSection" class="btn-register-cta" onclick="scrollToRegister(event)">
-          <span>📝</span> 立即報名
-        </a>
-      </div>
-    </section>
+      <!-- 4. 活動注意事項（文字精簡，手機大字友善） -->
+      <section class="section-card notice-card reveal-up">
+        <div class="section-title">活動注意事項</div>
 
-    <!-- 5. 線上預約報名表單 (中秋晚會同款精緻排版) -->
-    <section class="section-card register-card reveal-up" id="registerSection">
-      <div class="section-title">📝 線上預約報名</div>
-
-      <!-- 已登記識別橫幅 -->
-      <div class="reg-status-banner" id="soapExistingRegBanner" style="display: none;">
-        <span>💡 偵測到本手機已於 <span id="bannerFirstTime"></span> 完成登記，可直接修改並更新資料！</span>
-      </div>
-
-      <form id="soapBookingForm" onsubmit="handleSoapSubmit(event)">
-
-        <!-- 1. 選擇棟別 -->
-        <div class="form-group-item">
-          <div class="form-label">
-            <span>1. 選擇棟別</span>
-          </div>
-          <div class="pill-grid" id="soapBuildingGroup">
-            <div class="pill-btn" data-val="A棟" onclick="selectSoapBuilding(this)">A棟</div>
-            <div class="pill-btn" data-val="B棟" onclick="selectSoapBuilding(this)">B棟</div>
-            <div class="pill-btn" data-val="C棟" onclick="selectSoapBuilding(this)">C棟</div>
-            <div class="pill-btn" data-val="D棟" onclick="selectSoapBuilding(this)">D棟</div>
-            <div class="pill-btn" data-val="D1棟" onclick="selectSoapBuilding(this)">D1棟</div>
-            <div class="pill-btn" data-val="E棟" onclick="selectSoapBuilding(this)">E棟</div>
-            <div class="pill-btn" data-val="F棟" onclick="selectSoapBuilding(this)">F棟</div>
-            <div class="pill-btn" data-val="G棟" onclick="selectSoapBuilding(this)">G棟</div>
-            <div class="pill-btn" data-val="H棟" onclick="selectSoapBuilding(this)">H棟</div>
-            <div class="pill-btn" data-val="I棟" onclick="selectSoapBuilding(this)">I棟</div>
-            <div class="pill-btn" data-val="J棟" onclick="selectSoapBuilding(this)">J棟</div>
-          </div>
+        <div class="notice-box reveal-pop delay-1">
+          <ul class="notice-list">
+            <li class="notice-item">
+              <span class="notice-icon">💡</span>
+              <div class="notice-content">
+                <strong>【自備油品】</strong>
+                <span>廚房炸油或過期食用油 300ml～500ml（動物油、植物油皆可；炸過回鍋油最佳）。</span>
+              </div>
+            </li>
+            <li class="notice-item">
+              <span class="notice-icon">🤝</span>
+              <div class="notice-content">
+                <strong>【無油參加】</strong>
+                <span>家中無廢油亦歡迎報名，現場將協調多備油鄰居支援共享，人人都能體驗。</span>
+              </div>
+            </li>
+            <li class="notice-item">
+              <span class="notice-icon">📦</span>
+              <div class="notice-content">
+                <strong>【攜帶容器】</strong>
+                <span>建議自備乾淨牛奶紙盒或小型保鮮盒（約 350ml），盛裝皂漿帶回家保溫熟成。</span>
+              </div>
+            </li>
+            <li class="notice-item">
+              <span class="notice-icon">👕</span>
+              <div class="notice-content">
+                <strong>【穿著建議】</strong>
+                <span>現場由協會提供安全護具手套，建議穿著輕便、不怕沾染的深色衣物出席。</span>
+              </div>
+            </li>
+          </ul>
         </div>
 
-        <!-- 2. 選擇樓層 -->
-        <div class="form-group-item">
-          <div class="form-label">
-            <span>2. 選擇樓層</span>
-          </div>
-          <div class="pill-grid grid-dense" id="soapFloorGroup">
-            <div class="pill-btn" data-val="2F" onclick="selectSoapFloor(this)">2F</div>
-            <div class="pill-btn" data-val="3F" onclick="selectSoapFloor(this)">3F</div>
-            <div class="pill-btn" data-val="4F" onclick="selectSoapFloor(this)">4F</div>
-            <div class="pill-btn" data-val="5F" onclick="selectSoapFloor(this)">5F</div>
-            <div class="pill-btn" data-val="6F" onclick="selectSoapFloor(this)">6F</div>
-            <div class="pill-btn" data-val="7F" onclick="selectSoapFloor(this)">7F</div>
-            <div class="pill-btn" data-val="8F" onclick="selectSoapFloor(this)">8F</div>
-            <div class="pill-btn" data-val="9F" onclick="selectSoapFloor(this)">9F</div>
-            <div class="pill-btn" data-val="10F" onclick="selectSoapFloor(this)">10F</div>
-            <div class="pill-btn" data-val="11F" onclick="selectSoapFloor(this)">11F</div>
-            <div class="pill-btn" data-val="12F" onclick="selectSoapFloor(this)">12F</div>
-          </div>
+        <!-- 第二個 <立即報名> 按鈕 (點擊切換至 Step 2 獨立填寫頁) -->
+        <div style="text-align: center; margin-top: 28px;">
+          <button type="button" class="btn-register-cta" onclick="goToStep2()">
+            <span>📝</span> 立即報名
+          </button>
         </div>
+      </section>
 
-        <!-- 3. 住戶姓名 -->
-        <div class="form-group-item">
-          <div class="form-label">
-            <span>3. 住戶姓名</span>
-          </div>
-          <input type="text" id="soapResidentName" class="text-input-field" placeholder="請輸入姓名或稱呼（例：陳先生）" required autocomplete="off">
-        </div>
-
-        <!-- 4. 自備油品狀況 -->
-        <div class="form-group-item">
-          <div class="form-label">
-            <span>4. 自備油品狀況</span>
-          </div>
-          <div class="pill-grid" style="grid-template-columns: 1fr 1fr;" id="soapOilGroup">
-            <div class="pill-btn active" data-val="自備廚房廢油/過期油" onclick="selectSoapOil(this)">🍳 我會自備廢油</div>
-            <div class="pill-btn" data-val="家中無油需現場支援" onclick="selectSoapOil(this)">🤝 家中無油（現場支援）</div>
-          </div>
-        </div>
-
-        <!-- 5. 出席人數 -->
-        <div class="form-group-item">
-          <div class="form-label">
-            <span>5. 出席人數</span>
-          </div>
-          <div class="pill-grid" id="soapAttendeesGroup">
-            <div class="pill-btn active" data-val="1位" onclick="selectSoapAttendees(this)">1 位</div>
-            <div class="pill-btn" data-val="2位" onclick="selectSoapAttendees(this)">2 位</div>
-            <div class="pill-btn" data-val="3位以上" onclick="selectSoapAttendees(this)">3 位以上</div>
-          </div>
-        </div>
-
-        <!-- 送出按鈕 -->
-        <button type="submit" class="btn-submit-register" id="btnSubmitSoap">
-          <span>✨</span> <span id="btnSubmitSoapText">確認報名 ‧ 免費參加</span>
+      <!-- 5. 底部列印操作區（僅電腦版呈現，供社區公告列印紙本或存為 PDF） -->
+      <div class="print-footer-container reveal-up">
+        <button class="btn-print-large" onclick="window.print()">
+          <span>🖨️</span>
+          <span>列印 / 存為 PDF</span>
         </button>
-
-      </form>
-    </section>
-
-    <!-- 6. 底部列印操作區（僅電腦版呈現，供社區公告列印紙本或存為 PDF） -->
-    <div class="print-footer-container reveal-up">
-      <button class="btn-print-large" onclick="window.print()">
-        <span>🖨️</span>
-        <span>列印 / 存為 PDF</span>
-      </button>
-      <div class="print-footer-hint">※ 支援 A4 直式列印，已針對社區公設公告欄優化排版</div>
-    </div>
-
-    <!-- 7. 雙活動快速切換導覽列 -->
-    <div class="series-nav-bar" style="display:flex; justify-content:center; gap:12px; margin-top:24px; flex-wrap:wrap;">
-      <span style="background:#1b4332; color:#ffffff; padding:10px 22px; border-radius:999px; font-size:1.05rem; font-weight:700; box-shadow: 0 4px 12px rgba(27,67,50,0.18);">🌿 9/21 廢油手工皂</span>
-      <a href="mid-autumn-register.html" style="background:#ffffff; color:#334155; border:1.5px solid #cbd5e1; padding:10px 22px; border-radius:999px; font-size:1.05rem; font-weight:700; text-decoration:none; box-shadow: 0 2px 8px rgba(0,0,0,0.04); transition: all 0.2s ease;">🥮 9/25 中秋節聯歡晚會</a>
-    </div>
-
-    <!-- 8. 底端列 (孔雀王朝二期 ✕ 中華綠生活手工皂協會) -->
-    <footer style="text-align: center; padding: 32px 10px 16px; margin-top: 24px; border-top: 1.5px solid var(--border);">
-      <p style="font-size: 1.35rem; font-weight: 900; color: var(--primary); letter-spacing: 0.5px; margin-bottom: 6px;">
-        🏛️ 孔雀王朝二期
-      </p>
-      <p style="font-size: 1.15rem; font-weight: 700; color: #374151;">
-        🌿 中華綠生活手工皂協會
-      </p>
-      <div style="margin-top: 14px; font-size: 0.85rem; color: #94a3b8;">
-        網站開發：陳新昱 ｜ 問題回報：<a href="javascript:void(0)" onclick="openSiteReportModal('【孔雀王朝手工皂活動】')" style="color: var(--primary); text-decoration: underline;">請點我</a>
+        <div class="print-footer-hint">※ 支援 A4 直式列印，已針對社區公設公告欄優化排版</div>
       </div>
-    </footer>
+
+      <!-- 6. 雙活動快速切換導覽列 -->
+      <div class="series-nav-bar" style="display:flex; justify-content:center; gap:12px; margin-top:24px; flex-wrap:wrap;">
+        <span style="background:#1b4332; color:#ffffff; padding:10px 22px; border-radius:999px; font-size:1.05rem; font-weight:700; box-shadow: 0 4px 12px rgba(27,67,50,0.18);">🌿 9/21 廢油手工皂</span>
+        <a href="mid-autumn-register.html" style="background:#ffffff; color:#334155; border:1.5px solid #cbd5e1; padding:10px 22px; border-radius:999px; font-size:1.05rem; font-weight:700; text-decoration:none; box-shadow: 0 2px 8px rgba(0,0,0,0.04); transition: all 0.2s ease;">🥮 9/25 中秋節聯歡晚會</a>
+      </div>
+
+      <!-- 7. 底端列 (孔雀王朝二期 ✕ 中華綠生活手工皂協會) -->
+      <footer style="text-align: center; padding: 32px 10px 16px; margin-top: 24px; border-top: 1.5px solid var(--border);">
+        <p style="font-size: 1.35rem; font-weight: 900; color: var(--primary); letter-spacing: 0.5px; margin-bottom: 6px;">
+          🏛️ 孔雀王朝二期
+        </p>
+        <p style="font-size: 1.15rem; font-weight: 700; color: #374151;">
+          🌿 中華綠生活手工皂協會
+        </p>
+        <div style="margin-top: 14px; font-size: 0.85rem; color: #94a3b8;">
+          網站開發：陳新昱 ｜ 問題回報：<a href="javascript:void(0)" onclick="openSiteReportModal('【孔雀王朝手工皂活動】')" style="color: var(--primary); text-decoration: underline;">請點我</a>
+        </div>
+      </footer>
+
+    </div><!-- End #screenStep1 -->
+
+
+    <!-- ===================================================
+         第二屏 (Step 2)：獨立填寫報名資料頁面 (換頁呈現)
+         =================================================== -->
+    <div class="screen-view" id="screenStep2" style="display: none;">
+
+      <!-- 返回按鈕與標題列 -->
+      <div class="step2-header-row">
+        <button type="button" class="btn-back-to-step1" onclick="goToStep1()">
+          ← 返回活動介紹
+        </button>
+        <h2 class="step2-title-main">填寫報名資料</h2>
+      </div>
+
+      <section class="section-card register-card" id="registerSection">
+
+        <!-- 已登記識別橫幅 -->
+        <div class="reg-status-banner" id="soapExistingRegBanner" style="display: none;">
+          <span>💡 偵測到本手機已於 <span id="bannerFirstTime"></span> 完成登記，可直接修改並更新資料！</span>
+        </div>
+
+        <form id="soapBookingForm" onsubmit="handleSoapSubmit(event)">
+
+          <!-- 1. 選擇棟別 -->
+          <div class="form-group-item">
+            <div class="form-label">
+              <span>1. 選擇棟別</span>
+            </div>
+            <div class="pill-grid" id="soapBuildingGroup">
+              <div class="pill-btn" data-val="A棟" onclick="selectSoapBuilding(this)">A棟</div>
+              <div class="pill-btn" data-val="B棟" onclick="selectSoapBuilding(this)">B棟</div>
+              <div class="pill-btn" data-val="C棟" onclick="selectSoapBuilding(this)">C棟</div>
+              <div class="pill-btn" data-val="D棟" onclick="selectSoapBuilding(this)">D棟</div>
+              <div class="pill-btn" data-val="D1棟" onclick="selectSoapBuilding(this)">D1棟</div>
+              <div class="pill-btn" data-val="E棟" onclick="selectSoapBuilding(this)">E棟</div>
+              <div class="pill-btn" data-val="F棟" onclick="selectSoapBuilding(this)">F棟</div>
+              <div class="pill-btn" data-val="G棟" onclick="selectSoapBuilding(this)">G棟</div>
+              <div class="pill-btn" data-val="H棟" onclick="selectSoapBuilding(this)">H棟</div>
+              <div class="pill-btn" data-val="I棟" onclick="selectSoapBuilding(this)">I棟</div>
+              <div class="pill-btn" data-val="J棟" onclick="selectSoapBuilding(this)">J棟</div>
+            </div>
+          </div>
+
+          <!-- 2. 選擇樓層 -->
+          <div class="form-group-item">
+            <div class="form-label">
+              <span>2. 選擇樓層</span>
+            </div>
+            <div class="pill-grid grid-dense" id="soapFloorGroup">
+              <div class="pill-btn" data-val="2F" onclick="selectSoapFloor(this)">2F</div>
+              <div class="pill-btn" data-val="3F" onclick="selectSoapFloor(this)">3F</div>
+              <div class="pill-btn" data-val="4F" onclick="selectSoapFloor(this)">4F</div>
+              <div class="pill-btn" data-val="5F" onclick="selectSoapFloor(this)">5F</div>
+              <div class="pill-btn" data-val="6F" onclick="selectSoapFloor(this)">6F</div>
+              <div class="pill-btn" data-val="7F" onclick="selectSoapFloor(this)">7F</div>
+              <div class="pill-btn" data-val="8F" onclick="selectSoapFloor(this)">8F</div>
+              <div class="pill-btn" data-val="9F" onclick="selectSoapFloor(this)">9F</div>
+              <div class="pill-btn" data-val="10F" onclick="selectSoapFloor(this)">10F</div>
+              <div class="pill-btn" data-val="11F" onclick="selectSoapFloor(this)">11F</div>
+              <div class="pill-btn" data-val="12F" onclick="selectSoapFloor(this)">12F</div>
+            </div>
+          </div>
+
+          <!-- 3. 住戶姓名 -->
+          <div class="form-group-item">
+            <div class="form-label">
+              <span>3. 住戶姓名</span>
+            </div>
+            <input type="text" id="soapResidentName" class="text-input-field" placeholder="請輸入姓名或稱呼（例：陳先生）" required autocomplete="off">
+          </div>
+
+          <!-- 4. 自備油品狀況 -->
+          <div class="form-group-item">
+            <div class="form-label">
+              <span>4. 自備油品狀況</span>
+            </div>
+            <div class="pill-grid" style="grid-template-columns: 1fr 1fr;" id="soapOilGroup">
+              <div class="pill-btn active" data-val="自備廚房廢油/過期油" onclick="selectSoapOil(this)">🍳 我會自備廢油</div>
+              <div class="pill-btn" data-val="家中無油需現場支援" onclick="selectSoapOil(this)">🤝 家中無油（現場支援）</div>
+            </div>
+          </div>
+
+          <!-- 5. 出席人數 -->
+          <div class="form-group-item">
+            <div class="form-label">
+              <span>5. 出席人數</span>
+            </div>
+            <div class="pill-grid" id="soapAttendeesGroup">
+              <div class="pill-btn active" data-val="1位" onclick="selectSoapAttendees(this)">1 位</div>
+              <div class="pill-btn" data-val="2位" onclick="selectSoapAttendees(this)">2 位</div>
+              <div class="pill-btn" data-val="3位以上" onclick="selectSoapAttendees(this)">3 位以上</div>
+            </div>
+          </div>
+
+          <!-- 送出按鈕 -->
+          <button type="submit" class="btn-submit-register" id="btnSubmitSoap">
+            <span>✨</span> <span id="btnSubmitSoapText">確認報名 ‧ 免費參加</span>
+          </button>
+
+        </form>
+      </section>
+
+      <!-- Step 2 底端列 -->
+      <footer style="text-align: center; padding: 24px 10px 16px; margin-top: 20px; border-top: 1.5px solid var(--border);">
+        <p style="font-size: 1.25rem; font-weight: 900; color: var(--primary); letter-spacing: 0.5px; margin-bottom: 4px;">
+          🏛️ 孔雀王朝二期
+        </p>
+        <p style="font-size: 1.05rem; font-weight: 700; color: #374151;">
+          🌿 中華綠生活手工皂協會
+        </p>
+      </footer>
+
+    </div><!-- End #screenStep2 -->
 
   </main>
 
@@ -1520,17 +1624,29 @@
       revealObserver.observe(el);
     });
 
-    // 平滑滾動至報名表單
-    function scrollToRegister(e) {
-      if (e) e.preventDefault();
-      const target = document.getElementById('registerSection');
-      if (target) {
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    // 換頁切換機制 (Step 1 介紹頁 ⇄ Step 2 獨立填寫頁)
+    function goToStep2() {
+      const s1 = document.getElementById('screenStep1');
+      const s2 = document.getElementById('screenStep2');
+      if (s1 && s2) {
+        s1.style.display = 'none';
+        s2.style.display = 'block';
+        window.scrollTo({ top: 0, behavior: 'smooth' });
         // 微聚焦於姓名輸入框
         setTimeout(() => {
           const nameInput = document.getElementById('soapResidentName');
           if (nameInput && !nameInput.value) nameInput.focus();
-        }, 500);
+        }, 300);
+      }
+    }
+
+    function goToStep1() {
+      const s1 = document.getElementById('screenStep1');
+      const s2 = document.getElementById('screenStep2');
+      if (s1 && s2) {
+        s2.style.display = 'none';
+        s1.style.display = 'block';
+        window.scrollTo({ top: 0, behavior: 'smooth' });
       }
     }
 
@@ -1670,7 +1786,7 @@
         localStorage.setItem(SOAP_STORAGE_KEY, JSON.stringify(payload));
       } catch (err) {}
 
-      // 非同步傳送至 Google Apps Script (若有配置或使用中秋預設後端)
+      // 非同步傳送至 Google Apps Script
       const GAS_URL = "https://script.google.com/macros/s/AKfycbwclivZ2_ZqYwLM0drcgQZxFB3Tt5keCLBOC26eimhxx3NMbXzMngfQ8sFAjfdv0s-p/exec";
       try {
         fetch(GAS_URL, {
@@ -1708,6 +1824,7 @@
     function closeSoapSuccessModal() {
       const modal = document.getElementById('soapSuccessModal');
       if (modal) modal.classList.remove('active');
+      goToStep1();
     }
 
     // 頁面初始化
