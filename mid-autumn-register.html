@@ -1330,10 +1330,9 @@
                 <span class="tag-label">【好康四】</span>
               </div>
             </div>
-            <h3 class="benefit-title">星空歡唱 ＆ 志工同樂</h3>
+            <h3 class="benefit-title">卡拉OK歡唱</h3>
             <div class="benefit-desc-text">
-              <div>登台開唱領 100 元紅包（註五）</div>
-              <div style="margin-top: 2px;">志工出勤享有 500 元誤餐費（註四）</div>
+              <div>登台開唱即領 100 元同樂紅包（註五）</div>
             </div>
           </div>
 
@@ -1363,32 +1362,6 @@
         </div>
 
         <form id="bookingForm" onsubmit="handleFormSubmit(event)">
-
-          <!-- 偵測到您已完成出席登記溫馨提示橫幅 (若本手機已登記過，由 JS 自動點亮) -->
-          <div class="existing-reg-banner" id="existingRegBanner" style="display: none;">
-            <div class="banner-title">
-              <span>💡</span> 偵測到您已完成出席登記！
-            </div>
-            <div class="banner-desc">
-              首次登記時間：<code id="bannerFirstTime"></code><br>
-              若需調整人數、聚餐形式或比賽登記，<br>
-              可直接修改並送出，<br>
-              系統將為您保留首次登入時間。
-            </div>
-          </div>
-
-          <!-- 每日修改次數達上限提示橫幅 (若當日修改達2次則由 JS 自動點亮) -->
-          <div class="daily-limit-banner" id="dailyLimitBanner" style="display: none;">
-            <div class="banner-title">
-              <span>⚠️</span> 今日修改次數已達上限（2次）
-            </div>
-            <div class="banner-desc">
-              為維護系統穩定與統計作業，同一設備每日最多修改 2 次。<br>
-              若您仍有緊急出席人數或賽事變更需求，歡迎直接加入
-              <a href="https://line.me/R/ti/g/K7eeVcm52n" target="_blank" rel="noopener noreferrer" style="color: #38bdf8; font-weight: 800; text-decoration: underline;">孔雀二期 LINE 群組</a>
-              留言告知大會，工作人員將即時為您手動登記調整！
-            </div>
-          </div>
 
           <!-- 1. 棟別單選 (全區11棟) -->
           <div class="form-group-item">
@@ -1558,6 +1531,14 @@
               預約食材補助 300 元
             </div>
           </button>
+
+          <!-- 送出按鈕下方已登記時間簡明提醒 (若曾登記過自動點亮，刪除多餘操作文字) -->
+          <div class="existing-reg-banner" id="existingRegBanner" style="display: none; margin-top: 14px; padding: 12px 16px; background: rgba(245, 158, 11, 0.12); border: 1.5px solid rgba(245, 158, 11, 0.45); border-radius: 12px; text-align: center;">
+            <div style="font-size: 1.08rem; font-weight: 800; color: #fde68a; display: flex; align-items: center; justify-content: center; gap: 8px;">
+              <span>💡</span>
+              <span>本設備已完成出席登記（首次登記時間：<code id="bannerFirstTime" style="color: #38bdf8; font-family: inherit; font-weight: 800;"></code>）</span>
+            </div>
+          </div>
 
         </form>
 
@@ -1970,7 +1951,7 @@
       // 合併出席人數與用餐形式
       const attendeesWithDining = selectedAttendees + " (" + selectedDiningType + ")";
 
-      // 載具辨識與首筆時間鎖定 (提醒不封鎖，保留首筆時間與早鳥資格)
+      // 載具辨識與首筆時間鎖定 (保留首筆時間)
       const devId = getOrCreateDeviceId();
       let firstRegisteredTime = exactTime;
       let isDeviceUpdate = false;
@@ -1985,14 +1966,6 @@
             isDeviceUpdate = true;
           }
         } catch(e) {}
-      }
-
-      // 檢查是否達到同設備每日修改上限 (2次)
-      if (isDeviceUpdate && getDailyUpdateCount() >= MAX_DAILY_UPDATES) {
-        alert("提示：您今日的資料修改次數已達上限（2次）！\n若仍需緊急變動名冊，歡迎直接至「孔雀二期 LINE 群組」留言告知大會，工作人員將即時為您手動調整！😊");
-        const limitBanner = document.getElementById("dailyLimitBanner");
-        if (limitBanner) limitBanner.style.display = "block";
-        return;
       }
 
       // 讀取既有全部紀錄
@@ -2105,19 +2078,10 @@
         auditNote: auditNoteVal
       });
 
-      // 友善非阻斷提示：若為修改資料，遞增計數並提示已保留原時間
+      // 友善提示：若為修改資料，保留首次時間提示
       if (isDeviceUpdate) {
-        const newCount = incrementDailyUpdateCount();
-        if (newCount >= MAX_DAILY_UPDATES) {
-          const limitBanner = document.getElementById("dailyLimitBanner");
-          if (limitBanner) limitBanner.style.display = "block";
-          const btnPrimary = document.getElementById("btnSubmitPrimaryText");
-          const btnSubtitle = document.getElementById("btnSubmitSubtitleText");
-          if (btnPrimary) btnPrimary.innerHTML = `<span>⚠️</span> 今日修改已達上限（2次）`;
-          if (btnSubtitle) btnSubtitle.innerHTML = `緊急變更請至 LINE 群組告知大會`;
-        }
         const formattedFirstTime = formatChineseDateTime(firstRegisteredTime);
-        alert(`已為您更新登記資料（今日修改 ${newCount}/2 次）！\n系統已自動為您保留首次登入時間（${formattedFirstTime}）。😊`);
+        alert(`已為您更新登記資料！\n系統已自動為您保留首次登入時間（${formattedFirstTime}）。😊`);
       }
 
       // 觸發展示第三屏成功確認卡
@@ -2257,23 +2221,14 @@
             bannerEl.style.display = "block";
           }
 
-          // 檢查今日修改次數並切換送出按鈕狀態
-          const dailyCount = getDailyUpdateCount();
+          // 切換送出按鈕為修改狀態
           const btnPrimary = document.getElementById("btnSubmitPrimaryText");
           const btnSubtitle = document.getElementById("btnSubmitSubtitleText");
 
-          if (dailyCount >= MAX_DAILY_UPDATES) {
-            const limitBanner = document.getElementById("dailyLimitBanner");
-            if (limitBanner) limitBanner.style.display = "block";
-            if (btnPrimary) btnPrimary.innerHTML = `<span>⚠️</span> 今日修改已達上限（2次）`;
-            if (btnSubtitle) btnSubtitle.innerHTML = `緊急變更請至 LINE 群組告知大會`;
-          } else {
-            if (btnPrimary) btnPrimary.innerHTML = `<span>✨</span> 確認修改資料登記`;
-            if (btnSubtitle && firstTime) {
-              const formattedTime = formatChineseDateTime(firstTime);
-              const countText = dailyCount > 0 ? ` ‧ 今日已改${dailyCount}/2次` : "";
-              btnSubtitle.innerHTML = `<div>我將為您保留首次登入時間</div><div style="font-size: 0.96rem; color: #1e293b; margin-top: 2px; font-weight: 800;">${formattedTime}${countText}</div>`;
-            }
+          if (btnPrimary) btnPrimary.innerHTML = `<span>✨</span> 確認修改資料登記`;
+          if (btnSubtitle && firstTime) {
+            const formattedTime = formatChineseDateTime(firstTime);
+            btnSubtitle.innerHTML = `<div>我將為您保留首次登入時間</div><div style="font-size: 0.96rem; color: #1e293b; margin-top: 2px; font-weight: 800;">${formattedTime}</div>`;
           }
 
           if (data.building) {
