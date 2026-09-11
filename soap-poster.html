@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>孔雀王朝二期 環保公益手工皂工作坊 ‧ 電梯公告海報</title>
+  <style>
+    /* ===================================================
+       A4 電梯公告海報專屬樣式 (白底高對比 ‧ 大字清晰 ‧ A4 一頁列印版)
+       =================================================== */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+      background: #f1f5f9;
+      color: #0f172a;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 24px 12px;
+    }
+
+    /* 頂部操作按鈕 (僅螢幕瀏覽時顯示，列印時自動隱藏) */
+    .screen-toolbar {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 16px;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .btn-action {
+      background: linear-gradient(135deg, #1b4332 0%, #2d6a4f 100%);
+      color: #ffffff;
+      font-weight: 800;
+      font-size: 1rem;
+      padding: 9px 22px;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 14px rgba(27, 67, 50, 0.35);
+      transition: all 0.2s ease;
+      text-decoration: none;
+    }
+
+    .btn-action:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(27, 67, 50, 0.5);
+    }
+
+    .btn-secondary {
+      background: #ffffff;
+      color: #1b4332;
+      border: 1.5px solid #a3b899;
+      font-size: 0.95rem;
+      font-weight: 700;
+      padding: 8px 16px;
+      border-radius: 999px;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+    }
+
+    .btn-secondary:hover {
+      background: #f0fdf4;
+      border-color: #2d6a4f;
+    }
+
+    /* ===================================================
+       標準 A4 容器 (210mm × 297mm) - 白底高對比電梯海報
+       =================================================== */
+    .a4-sheet {
+      width: 210mm;
+      height: 297mm;
+      max-width: 210mm;
+      max-height: 297mm;
+      background: #ffffff;
+      border: none;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
+      padding: 7mm 12mm 0 12mm;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* 頂部自然綠色裝飾線條 */
+    .a4-sheet::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 6px;
+      background: linear-gradient(90deg, #1b4332, #2d6a4f, #52b788, #2d6a4f, #1b4332);
+    }
+
+    /* 1. 頂部標頭與活動資訊 */
+    .poster-header {
+      text-align: center;
+      margin-bottom: 1.5mm;
+    }
+
+    .community-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #f0fdf4;
+      border: 2px solid #2d6a4f;
+      padding: 3px 18px;
+      border-radius: 999px;
+      font-size: 13pt;
+      font-weight: 900;
+      color: #1b4332;
+      letter-spacing: 0.8px;
+      margin-bottom: 2mm;
+    }
+
+    .problem-pill {
+      display: inline-block;
+      background: #fef2f2;
+      border: 1.5px solid #ef4444;
+      color: #b91c1c;
+      font-size: 13.5pt;
+      font-weight: 900;
+      padding: 2px 16px;
+      border-radius: 999px;
+      margin-bottom: 1.5mm;
+    }
+
+    .main-title {
+      font-size: 27pt;
+      font-weight: 900;
+      line-height: 1.2;
+      color: #1b4332;
+      letter-spacing: 1.5px;
+      margin-bottom: 1.5mm;
+    }
+
+    .sub-spirit {
+      font-size: 15pt;
+      font-weight: 900;
+      color: #2b2d42;
+      margin-bottom: 2.5mm;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .spirit-danger {
+      color: #dc2626;
+      background: #ffe4e6;
+      padding: 1px 10px;
+      border-radius: 6px;
+    }
+
+    .spirit-green {
+      color: #15803d;
+      background: #dcfce7;
+      padding: 1px 10px;
+      border-radius: 6px;
+    }
+
+    /* 核心資訊看板 */
+    .event-meta-bar {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      background: #f8fafc;
+      border: 1.5px solid #cbd5e1;
+      border-radius: 10px;
+      padding: 6px 14px;
+      font-size: 14pt;
+      font-weight: 800;
+      color: #1e293b;
+      margin-bottom: 2.5mm;
+      text-align: center;
+    }
+
+    .event-meta-bar .meta-line {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .event-meta-bar .highlight {
+      color: #1b4332;
+      font-weight: 900;
+    }
+
+    .deadline-highlight {
+      color: #b45309;
+      font-weight: 900;
+      background: #fef3c7;
+      padding: 1px 8px;
+      border-radius: 6px;
+    }
+
+    /* 2. 活動兩大重點卡片 (大字並排) */
+    .highlights-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3mm;
+      margin-bottom: 2.5mm;
+    }
+
+    .highlight-box {
+      background: #ffffff;
+      border: 1.5px solid #cbd5e1;
+      border-radius: 12px;
+      padding: 8px 14px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+    }
+
+    .highlight-box.featured {
+      background: #f0fdf4;
+      border: 2px solid #2d6a4f;
+      box-shadow: 0 3px 10px rgba(45, 106, 79, 0.12);
+    }
+
+    .h-tag {
+      display: inline-block;
+      background: #2d6a4f;
+      color: #ffffff;
+      font-size: 10.5pt;
+      font-weight: 800;
+      padding: 1px 8px;
+      border-radius: 4px;
+      width: fit-content;
+      margin-bottom: 3px;
+    }
+
+    .h-title {
+      font-size: 17pt;
+      font-weight: 900;
+      color: #0f172a;
+      line-height: 1.25;
+      letter-spacing: 0.2px;
+    }
+
+    .h-title span.cash {
+      color: #15803d;
+      font-size: 19pt;
+      font-weight: 900;
+    }
+
+    .h-desc {
+      font-size: 12.5pt;
+      font-weight: 700;
+      color: #334155;
+      line-height: 1.35;
+      margin-top: 3px;
+    }
+
+    /* 3. 緊湊流程一覽 (四步驟單行橫向卡片) */
+    .timeline-container {
+      background: #f8fafc;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 6px 14px;
+      margin-bottom: 3mm;
+    }
+
+    .timeline-header {
+      font-size: 13pt;
+      font-weight: 900;
+      color: #1b4332;
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .timeline-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4px 10px;
+    }
+
+    .timeline-row {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11.5pt;
+      font-weight: 700;
+      color: #1e293b;
+      background: #ffffff;
+      padding: 3px 8px;
+      border-radius: 6px;
+      border: 1px solid #e2e8f0;
+    }
+
+    .t-badge {
+      background: #2d6a4f;
+      color: #ffffff;
+      font-size: 10pt;
+      font-weight: 800;
+      padding: 1px 6px;
+      border-radius: 4px;
+      white-space: nowrap;
+    }
+
+    .t-title {
+      flex: 1;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      font-weight: 800;
+    }
+
+    .t-min {
+      color: #64748b;
+      font-size: 10pt;
+      white-space: nowrap;
+    }
+
+    /* 4. 底部超高轉化 QR Code 專區 */
+    .cta-qr-section {
+      background: #f0fdf4;
+      border: 2px solid #2d6a4f;
+      border-radius: 12px;
+      padding: 8px 18px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      box-shadow: 0 3px 10px rgba(45, 106, 79, 0.12);
+    }
+
+    .qr-frame {
+      width: 42mm;
+      height: 42mm;
+      background: #ffffff;
+      border: 1.5px solid #a3b899;
+      padding: 3px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+    }
+
+    .qr-frame img {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    .cta-content {
+      flex: 1;
+      text-align: left;
+    }
+
+    .cta-headline {
+      font-size: 17pt;
+      font-weight: 900;
+      color: #0f172a;
+      line-height: 1.35;
+    }
+
+    .cta-line-1 {
+      font-size: 16pt;
+      color: #0f172a;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .cta-line-or {
+      font-size: 13pt;
+      font-weight: 900;
+      color: #2d6a4f;
+      margin: 2px 0;
+      padding-left: 32px;
+    }
+
+    .cta-line-2 {
+      font-size: 16.5pt;
+      color: #1e293b;
+      font-weight: 900;
+      padding-left: 2px;
+    }
+
+    .cta-line-1 span.green {
+      color: #15803d;
+      font-weight: 900;
+    }
+
+    /* 5. 底部純空白專用區 (精確 50mm 高度，供管委會蓋章簽核) */
+    .bottom-blank-reserve {
+      width: 100%;
+      height: 48mm;
+      min-height: 48mm;
+      max-height: 48mm;
+      background: transparent;
+    }
+
+    /* ===================================================
+       列印與 PDF 輸出專用樣式 (@media print)
+       =================================================== */
+    @media print {
+      @page {
+        size: A4 portrait;
+        margin: 0;
+      }
+
+      html, body {
+        width: 210mm !important;
+        height: 297mm !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        background: #ffffff !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+
+      .screen-toolbar {
+        display: none !important;
+      }
+
+      .a4-sheet {
+        width: 210mm !important;
+        height: 297mm !important;
+        max-width: 210mm !important;
+        max-height: 297mm !important;
+        border: none !important;
+        box-shadow: none !important;
+        padding: 7mm 12mm 0 12mm !important;
+        page-break-inside: avoid !important;
+        page-break-after: avoid !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 螢幕瀏覽控制列 (列印時自動隱藏) -->
+  <div class="screen-toolbar">
+    <button class="btn-action" onclick="window.print()">
+      <span>🖨️</span> 一鍵列印 / 另存 A4 PDF 海報
+    </button>
+    <a href="soap-proposal.html" class="btn-secondary" target="_blank">
+      <span>📱</span> 前往線上報名系統
+    </a>
+    <a href="mid-autumn-poster.html" class="btn-secondary" target="_blank">
+      <span>🥮</span> 檢視中秋晚會海報
+    </a>
+  </div>
+
+  <!-- A4 電梯海報標準紙張主體 -->
+  <div class="a4-sheet">
+
+    <!-- 1. 頂部標題與大會資訊 -->
+    <header class="poster-header">
+      <div class="community-badge">
+        <span>🏛️</span> 孔雀王朝第二期 ✕ 中華綠生活手工皂協會
+      </div>
+      <div style="margin-bottom: 1.5mm;">
+        <span class="problem-pill">⚠️ 炸物廢油會堵塞水管，怎麼辦？</span>
+      </div>
+      <h1 class="main-title">
+        🌿 免費教你把廢油變肥皂 🧼
+      </h1>
+      <div class="sub-spirit">
+        <span>化</span>
+        <span class="spirit-danger">食安危機</span>
+        <span>為</span>
+        <span class="spirit-green">綠色轉機</span>
+      </div>
+
+      <!-- 核心資訊看板 -->
+      <div class="event-meta-bar">
+        <div class="meta-line">
+          <span>📅</span> 時間：<span class="highlight">09 月 21 日（一）下午 2:00 – 4:00</span>
+          <span>｜</span>
+          <span>📍</span> 地點：<span class="highlight">1 樓會議室</span>
+        </div>
+        <div class="meta-line">
+          <span>👥</span> 對象：<span class="highlight">全體住戶</span>
+          <span>｜</span>
+          <span>🍳</span> 自備：<span class="highlight">廚房炸物廢油</span>（無油亦可參加支援）
+          <span>｜</span>
+          <span>👩‍🏫</span> 師資：<span class="highlight">王珈洛 理事長</span>
+        </div>
+        <div class="meta-line" style="font-size: 13pt; margin-top: 2px;">
+          <span>⏰</span> <span class="deadline-highlight">請於 9/16(三)中午前完成登記，以利統計人數備妥器材！</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- 2. 活動兩大重點 -->
+    <section class="highlights-container">
+      <!-- 重點 1 -->
+      <div class="highlight-box featured">
+        <div class="h-tag">公益贊助</div>
+        <div class="h-title">全程完全<span class="cash">免費</span></div>
+        <div class="h-desc">
+          師資、器材耗材全額贊助，每人親手帶回 300g 環保家事皂！
+        </div>
+      </div>
+
+      <!-- 重點 2 -->
+      <div class="highlight-box">
+        <div class="h-tag">資源循環</div>
+        <div class="h-title">廚房廢油變<span class="cash">黃金</span></div>
+        <div class="h-desc">
+          化廢炸油為天然去污皂，徹底解決管線油垢，守護水管暢通。
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. 活動流程一覽 -->
+    <section class="timeline-container">
+      <div class="timeline-header">
+        <span>⏱️</span> 活動流程（共 120 分鐘）
+      </div>
+      <div class="timeline-grid">
+        <div class="timeline-row">
+          <span class="t-badge">13:40–14:00</span>
+          <span class="t-title">場地佈置與住戶報到</span>
+          <span class="t-min">20分</span>
+        </div>
+        <div class="timeline-row">
+          <span class="t-badge">14:00–14:20</span>
+          <span class="t-title">食安解密與廢油再生觀念</span>
+          <span class="t-min">20分</span>
+        </div>
+        <div class="timeline-row">
+          <span class="t-badge">14:20–15:40</span>
+          <span class="t-title">動手實作：環保家事皂</span>
+          <span class="t-min">80分</span>
+        </div>
+        <div class="timeline-row">
+          <span class="t-badge">15:40–16:00</span>
+          <span class="t-title">成品合影與場地迅速復原</span>
+          <span class="t-min">20分</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. 底部超高轉化 QR Code 專區 -->
+    <section class="cta-qr-section">
+      <div class="qr-frame">
+        <img src="./images/qr-soap-proposal.png" alt="手工皂報名 QR Code" onerror="this.src='./qr-soap-proposal.png'">
+      </div>
+      <div class="cta-content">
+        <div class="cta-headline">
+          <div class="cta-line-1">📱 拿出手機掃碼 ➔ <span class="green">10 秒線上預約報名</span></div>
+          <div class="cta-line-or">或</div>
+          <div class="cta-line-2">🏢 於一樓警衛室登記即可</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. 底部純空白專用區 (精確 48mm 高度，供管委會自由蓋章簽核) -->
+    <div class="bottom-blank-reserve"></div>
+
+  </div>
+
+  <!-- 螢幕瀏覽底部控制列 (列印時自動隱藏) -->
+  <div class="screen-toolbar" style="margin-top: 16px;">
+    <button class="btn-action" onclick="window.print()">
+      <span>🖨️</span> 一鍵列印 / 存為 A4 PDF 海報
+    </button>
+    <a href="soap-poster.pdf" class="btn-secondary" download="孔雀二期廢油手工皂活動電梯海報.pdf">
+      <span>📥</span> 下載高解析 PDF 檔案
+    </a>
+    <a href="soap-proposal.html" class="btn-secondary">
+      <span>📱</span> 前往線上報名系統
+    </a>
+  </div>
+
+</body>
+</html>
