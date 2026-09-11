@@ -1359,7 +1359,7 @@ function renderQACards() {
                     <div class="qa-response-header" onclick="toggleResponseDetail('${item.id}', event)">
                         <div class="qa-response-title-group">
                             <span class="qa-a-prefix">答 ${qNum}：</span>
-                            <span class="qa-response-title-text">陳星譽 官方具體解決方案</span>
+                            <span class="qa-response-title-text">陳新昱 官方具體解決方案</span>
                         </div>
                         <button type="button" class="btn-qa-solution-pill" id="sbtn-${item.id}">
                             <span class="pill-text">看解方 ▾</span>
@@ -1740,8 +1740,8 @@ function selectSupportOption(optionNum) {
         if (consentBox) consentBox.classList.remove('show');
     } else if (optionNum === 4) {
         if (customInputBox) customInputBox.classList.add('show');
-        if (inputLabel) inputLabel.textContent = '請輸入全名與社區（例：孔雀王朝：陳星譽）：';
-        if (nameInput) nameInput.placeholder = '例：孔雀王朝：陳星譽';
+        if (inputLabel) inputLabel.textContent = '請輸入全名與社區（例：孔雀王朝：陳新昱）：';
+        if (nameInput) nameInput.placeholder = '例：孔雀王朝：陳新昱';
         if (consentBox) consentBox.classList.add('show');
     }
 }
@@ -1771,7 +1771,7 @@ function handleSupportSubmit(e) {
             alert('請勾選同意公開具名條款，以符合個資法規自主意願');
             return;
         }
-        supporterName = nameInput && nameInput.value.trim() ? nameInput.value.trim() + '（具名力挺）' : '陳星譽 支持者（具名力挺）';
+        supporterName = nameInput && nameInput.value.trim() ? nameInput.value.trim() + '（具名力挺）' : '陳新昱 支持者（具名力挺）';
     }
 
     // Save timestamp & increment likes
@@ -1811,7 +1811,7 @@ function handleSupportSubmit(e) {
     }
 
     closeSupportModal();
-    showToast('讚聲成功！感謝您為科技里長陳星譽加油！');
+    showToast('讚聲成功！感謝您為科技里長陳新昱加油！');
 }
 
 // Toast helper
