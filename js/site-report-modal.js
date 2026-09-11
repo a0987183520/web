@@ -440,7 +440,7 @@
             }).catch(() => {});
 
             statusBox.className = 'site-report-status-box success';
-            statusBox.innerHTML = '🎉 <strong>感謝您的寶貴回報！</strong><br>資料已成功送達陳新昱信箱 (a0987183520@gmail.com)，我們將盡快查閱並改善！';
+            statusBox.innerHTML = '🎉 <strong>感謝您的寶貴回報！</strong><br>資料已成功送達陳星譽信箱 (a0987183520@gmail.com)，我們將盡快查閱並改善！';
             statusBox.style.display = 'block';
             form.style.display = 'none';
 
