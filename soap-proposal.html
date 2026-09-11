@@ -848,6 +848,282 @@
     .btn-guide-close:hover {
       transform: scale(1.02);
     }
+
+    /* 立即報名引導按鈕 (亮眼膠囊，帶微陰影與點擊回饋) */
+    .btn-register-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: linear-gradient(135deg, #1b4332 0%, #2d6a4f 100%);
+      color: #ffffff !important;
+      font-size: 1.45rem;
+      font-weight: 800;
+      padding: 16px 42px;
+      border-radius: 999px;
+      text-decoration: none;
+      box-shadow: 0 8px 24px rgba(27, 67, 50, 0.3);
+      border: 2px solid rgba(255, 255, 255, 0.4);
+      transition: all 0.25s ease;
+      cursor: pointer;
+    }
+
+    .btn-register-cta:hover {
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 0 12px 28px rgba(27, 67, 50, 0.42);
+      background: linear-gradient(135deg, #2d6a4f 0%, #1b4332 100%);
+    }
+
+    /* 頂部主標題三層式視覺 */
+    .hero-question-pill {
+      display: inline-block;
+      background: #fee2e2;
+      color: #dc2626;
+      border: 1.5px solid #f87171;
+      font-size: 1.25rem;
+      font-weight: 800;
+      padding: 6px 20px;
+      border-radius: 999px;
+      margin-bottom: 14px;
+      box-shadow: 0 2px 8px rgba(220, 38, 38, 0.12);
+    }
+
+    .hero-solution-title {
+      font-size: clamp(1.8rem, 4.5vw, 2.5rem);
+      font-weight: 900;
+      color: #1b4332;
+      margin-bottom: 12px;
+      letter-spacing: -0.5px;
+    }
+
+    /* 報名表單卡片樣式 (中秋晚會同款精緻排版) */
+    .register-card {
+      background: #ffffff;
+      border: 2.5px solid #2d6a4f;
+      border-radius: var(--radius);
+      padding: 38px 32px;
+      box-shadow: 0 16px 40px rgba(27, 67, 50, 0.12);
+      text-align: left;
+    }
+
+    .form-group-item {
+      margin-bottom: 22px;
+    }
+
+    .form-label {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .pill-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(78px, 1fr));
+      gap: 10px;
+    }
+
+    .grid-dense {
+      grid-template-columns: repeat(auto-fill, minmax(66px, 1fr));
+    }
+
+    .pill-btn {
+      background: #f1f5f3;
+      border: 1.5px solid #d1ded6;
+      color: #334155;
+      font-size: 1.15rem;
+      font-weight: 700;
+      padding: 10px 6px;
+      border-radius: 12px;
+      text-align: center;
+      cursor: pointer;
+      user-select: none;
+      transition: all 0.2s ease;
+    }
+
+    .pill-btn:hover {
+      border-color: #2d6a4f;
+      background: #e8f3ed;
+    }
+
+    .pill-btn.active {
+      background: #1b4332;
+      border-color: #1b4332;
+      color: #ffffff;
+      box-shadow: 0 4px 12px rgba(27, 67, 50, 0.28);
+      font-weight: 800;
+      transform: scale(1.02);
+    }
+
+    .text-input-field {
+      width: 100%;
+      background: #ffffff;
+      border: 2px solid #cbd5e1;
+      color: #1e293b;
+      font-size: 1.2rem;
+      font-weight: 600;
+      padding: 14px 18px;
+      border-radius: 12px;
+      outline: none;
+      box-sizing: border-box;
+      transition: all 0.2s ease;
+    }
+
+    .text-input-field:focus {
+      border-color: #2d6a4f;
+      box-shadow: 0 0 0 4px rgba(45, 106, 79, 0.15);
+    }
+
+    .btn-submit-register {
+      width: 100%;
+      background: linear-gradient(135deg, #1b4332 0%, #2b9348 100%);
+      color: #ffffff;
+      border: none;
+      border-radius: 14px;
+      padding: 18px 24px;
+      font-size: 1.35rem;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 8px 24px rgba(27, 67, 50, 0.28);
+      transition: all 0.25s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .btn-submit-register:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(27, 67, 50, 0.38);
+    }
+
+    /* 報名成功彈窗 overlay (中秋晚會同款) */
+    .success-modal-overlay {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(8, 28, 21, 0.92);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      z-index: 99999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 18px;
+      box-sizing: border-box;
+    }
+
+    .success-modal-overlay.active {
+      display: flex;
+      animation: fadeIn 0.25s ease-out;
+    }
+
+    .success-card {
+      width: 100%;
+      max-width: 480px;
+      background: #ffffff;
+      border: 3px solid #2b9348;
+      border-radius: 24px;
+      padding: 28px 24px;
+      text-align: center;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
+      max-height: 92vh;
+      overflow-y: auto;
+    }
+
+    .success-icon-badge {
+      font-size: 3.2rem;
+      margin-bottom: 8px;
+      line-height: 1;
+    }
+
+    .success-title {
+      font-size: 1.85rem;
+      font-weight: 900;
+      color: #1b4332;
+      margin-bottom: 12px;
+    }
+
+    .success-household-highlight {
+      background: #e8f5e9;
+      border: 1.5px solid #a5d6a7;
+      color: #1b5e20;
+      font-size: 1.25rem;
+      font-weight: 800;
+      padding: 12px 16px;
+      border-radius: 12px;
+      margin-bottom: 18px;
+      line-height: 1.5;
+    }
+
+    .modal-line-box {
+      background: #f0fdf4;
+      border: 2px dashed #86efac;
+      border-radius: 16px;
+      padding: 18px 16px;
+      margin-bottom: 20px;
+    }
+
+    .modal-line-title {
+      font-size: 1.22rem;
+      font-weight: 900;
+      color: #166534;
+      margin-bottom: 6px;
+    }
+
+    .modal-line-desc {
+      font-size: 1.02rem;
+      color: #374151;
+      margin-bottom: 12px;
+      line-height: 1.5;
+    }
+
+    .btn-join-line-group {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: #06c755;
+      color: #ffffff !important;
+      text-decoration: none;
+      font-size: 1.15rem;
+      font-weight: 800;
+      padding: 12px 20px;
+      border-radius: 999px;
+      box-shadow: 0 4px 14px rgba(6, 199, 85, 0.35);
+      transition: transform 0.2s ease;
+    }
+
+    .btn-join-line-group:hover {
+      transform: scale(1.02);
+    }
+
+    .btn-close-modal {
+      background: #f1f5f9;
+      border: 1px solid #cbd5e1;
+      color: #475569;
+      font-size: 1.05rem;
+      font-weight: 700;
+      padding: 10px 24px;
+      border-radius: 999px;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    /* 載具已登記溫馨提示橫幅 */
+    .reg-status-banner {
+      background: #e0f2fe;
+      border: 1.5px solid #38bdf8;
+      border-radius: 12px;
+      padding: 12px 16px;
+      margin-bottom: 18px;
+      font-size: 1.05rem;
+      color: #0369a1;
+      font-weight: 700;
+    }
   </style>
 </head>
 <body>
@@ -882,30 +1158,30 @@
 
   <main class="container">
 
-    <!-- 1. Hero 頂部主視覺（標題斷詞區隔色彩） -->
+    <!-- 1. Hero 頂部主視覺（三層式吸睛架構） -->
     <section class="section-card hero-card reveal-up">
-      <!-- 精準顏色區隔：化 [食安危機] 為 [綠色轉機] -->
+      <!-- 醒目問題痛點 -->
+      <div class="hero-question-pill">⚠️ 炸物廢油會堵塞水管，怎麼辦？</div>
+
+      <!-- 直接給解方與誘因 -->
+      <div class="hero-solution-title">🌿 免費教你把廢油變肥皂！</div>
+
+      <!-- 核心精神對稱大標題 -->
       <h1 class="main-title">
         <span class="word-verb">化</span>
         <span class="word-danger">食安危機</span>
         <span class="word-verb">為</span>
         <span class="word-green">綠色轉機</span>
       </h1>
-      <!-- 次標題：兩段成詞對稱排版，手機絕不破版腰斬 -->
-      <h2 class="hero-sub">
-        <span class="sub-phrase">將廢棄炸油與過期食用油</span>
-        <span class="sub-divider">‧</span>
-        <span class="sub-phrase">化為天然環保家事皂</span>
-      </h2>
 
-      <!-- 核心資訊長條清單（整合參與資訊與活動時段） -->
+      <!-- 核心資訊長條清單 -->
       <div class="quick-meta-list">
         <div class="quick-meta-bar reveal-left delay-1">
           <div class="meta-bar-left">
             <span class="meta-bar-icon">👥</span>
             <span class="meta-bar-title">參與對象</span>
           </div>
-          <div class="meta-bar-desc">孔雀王朝二期全體住戶</div>
+          <div class="meta-bar-desc">本社區全體住戶</div>
         </div>
 
         <div class="quick-meta-bar reveal-left delay-2">
@@ -913,7 +1189,7 @@
             <span class="meta-bar-icon">🎯</span>
             <span class="meta-bar-title">預估人數</span>
           </div>
-          <div class="meta-bar-desc">10 至 20 人</div>
+          <div class="meta-bar-desc">10人以上才開課</div>
         </div>
 
         <div class="quick-meta-bar reveal-left delay-3">
@@ -921,7 +1197,7 @@
             <span class="meta-bar-icon">🍳</span>
             <span class="meta-bar-title">住戶自備</span>
           </div>
-          <div class="meta-bar-desc">家中廚房廢炸物油或過期油（炸過廢油、過期食用油皆可）</div>
+          <div class="meta-bar-desc">廚房炸物廢油或過期油</div>
         </div>
 
         <div class="quick-meta-bar reveal-left delay-4">
@@ -929,13 +1205,13 @@
             <span class="meta-bar-icon">📅</span>
             <span class="meta-bar-title">活動時段</span>
           </div>
-          <div class="meta-bar-desc">2026/09/21（一）下午 14:00 – 16:00</div>
+          <div class="meta-bar-desc">09/21(一)下午2點～4點</div>
         </div>
 
         <div class="quick-meta-bar reveal-left delay-1">
           <div class="meta-bar-left">
             <span class="meta-bar-icon">📍</span>
-            <span class="meta-bar-title">借用地點</span>
+            <span class="meta-bar-title">活動地點</span>
           </div>
           <div class="meta-bar-desc">1 樓會議室</div>
         </div>
@@ -945,45 +1221,52 @@
             <span class="meta-bar-icon">👩‍🏫</span>
             <span class="meta-bar-title">公益師資</span>
           </div>
-          <div class="meta-bar-desc">中華綠生活手工皂協會<br>王珈洛 理事長 親授</div>
+          <div class="meta-bar-desc">王珈洛 理事長</div>
         </div>
 
-        <div class="help-bubble" style="margin-top: 8px; text-align: left;">
-          📌 <strong>注意事項備註</strong>：住戶家中若無炸油或過期油亦歡迎報名，現場可協調多備油之住戶或協會支援，人人皆能完整參與手作體驗。
+        <div class="help-bubble" style="margin-top: 10px; text-align: left;">
+          📌 <strong>注意事項備註</strong>：家中若無炸油或過期油亦歡迎報名，現場可協調多備油之住戶，人人都能體驗。
+        </div>
+
+        <!-- 第一個 <立即報名> 按鈕 -->
+        <div style="text-align: center; margin-top: 26px;">
+          <a href="#registerSection" class="btn-register-cta" onclick="scrollToRegister(event)">
+            <span>📝</span> 立即報名
+          </a>
         </div>
       </div>
     </section>
 
-    <!-- 2. 活動兩大重點（左右交錯彈入） -->
+    <!-- 2. 活動兩大重點（文字精簡） -->
     <section class="section-card reveal-up">
       <div class="section-title">活動兩大重點</div>
 
       <div class="feature-grid">
-        <!-- 重點一：免費 (左彈入) -->
+        <!-- 重點一：免費 -->
         <div class="feature-box reveal-left delay-1">
           <div>
             <div class="feature-tag">公益贊助</div>
             <div class="feature-main">全程完全免費</div>
             <div class="feature-desc">
-              全套師資、器具與材料皆由中華綠生活手工皂協會無償贊助，住戶免交報名費與材料費（只需自行攜帶廚房廢油）。
+              師資、器材與耗材由中華綠生活手工皂協會全額贊助，免收任何費用，僅需自備家中廢油。
             </div>
           </div>
         </div>
 
-        <!-- 重點二：廢油回收再生 (右彈入) -->
+        <!-- 重點二：廢油變肥皂 -->
         <div class="feature-box reveal-right delay-2">
           <div>
             <div class="feature-tag">資源循環</div>
             <div class="feature-main">廚房廢油變黃金</div>
             <div class="feature-desc">
-              將家中過期油、炸物油轉化為天然清潔家事皂，守護社區排水管線不卡油垢，每人可親手帶回 300g 天然家事皂。
+              廢炸油、過期油化身天然去污家事皂，守護管線不卡油垢，每人可親手帶回 300g 環保皂。
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- 3. 活動流程（交錯彈入） -->
+    <!-- 3. 活動流程（文字精簡） -->
     <section class="section-card reveal-up">
       <div class="section-title">活動流程（共 120 分鐘）</div>
 
@@ -1005,7 +1288,7 @@
         <li class="timeline-item reveal-left delay-3">
           <div class="timeline-left">
             <span class="time-badge">14:20 – 15:40</span>
-            <span class="timeline-title">環保家事皂動手實作</span>
+            <span class="timeline-title">動手實作：環保家事皂</span>
           </div>
           <span class="timeline-duration">80 分鐘</span>
         </li>
@@ -1019,7 +1302,7 @@
       </ul>
     </section>
 
-    <!-- 4. 活動注意事項（手機友善，清晰大字條列） -->
+    <!-- 4. 活動注意事項（文字精簡，手機大字友善） -->
     <section class="section-card notice-card reveal-up">
       <div class="section-title">活動注意事項</div>
 
@@ -1028,36 +1311,133 @@
           <li class="notice-item">
             <span class="notice-icon">💡</span>
             <div class="notice-content">
-              <strong>【自備油品說明】</strong>
-              <span>歡迎自備家中烹調或炸物後之廢食用油、過期食用油（動物油、植物油皆可；炸過回鍋油更佳），攜帶約 300ml 至 500ml 即可。</span>
+              <strong>【自備油品】</strong>
+              <span>廚房炸油或過期食用油 300ml～500ml（動物油、植物油皆可；炸過回鍋油最佳）。</span>
             </div>
           </li>
           <li class="notice-item">
             <span class="notice-icon">🤝</span>
             <div class="notice-content">
-              <strong>【無油亦可參加】</strong>
-              <span>家中若剛好沒有廢油，依然非常歡迎報名參加！現場將由協會與多備油之鄰居熱心支援共享，人人都能完整參與體驗並帶回成品。</span>
+              <strong>【無油參加】</strong>
+              <span>家中無廢油亦歡迎報名，現場將協調多備油鄰居支援共享，人人都能體驗。</span>
             </div>
           </li>
           <li class="notice-item">
             <span class="notice-icon">📦</span>
             <div class="notice-content">
-              <strong>【自備容器攜回】</strong>
-              <span>建議自備乾淨牛奶紙盒、利樂包或小型保鮮盒（容量約 350ml 以上），方便將剛攪拌成型的手工皂漿完整帶回家中保溫熟成。</span>
+              <strong>【攜帶容器】</strong>
+              <span>建議自備乾淨牛奶紙盒或小型保鮮盒（約 350ml），盛裝皂漿帶回家保溫熟成。</span>
             </div>
           </li>
           <li class="notice-item">
             <span class="notice-icon">👕</span>
             <div class="notice-content">
-              <strong>【穿著防護建議】</strong>
-              <span>現場由協會提供基礎安全護具與手套，建議穿著輕便、不怕沾染的深色衣物出席，享受安心愉快的環保手作時光。</span>
+              <strong>【穿著建議】</strong>
+              <span>現場由協會提供安全護具手套，建議穿著輕便、不怕沾染的深色衣物出席。</span>
             </div>
           </li>
         </ul>
       </div>
+
+      <!-- 第二個 <立即報名> 按鈕 -->
+      <div style="text-align: center; margin-top: 28px;">
+        <a href="#registerSection" class="btn-register-cta" onclick="scrollToRegister(event)">
+          <span>📝</span> 立即報名
+        </a>
+      </div>
     </section>
 
-    <!-- 5. 底部列印操作區（僅電腦版呈現，供社區公告列印紙本或存為 PDF） -->
+    <!-- 5. 線上預約報名表單 (中秋晚會同款精緻排版) -->
+    <section class="section-card register-card reveal-up" id="registerSection">
+      <div class="section-title">📝 線上預約報名</div>
+
+      <!-- 已登記識別橫幅 -->
+      <div class="reg-status-banner" id="soapExistingRegBanner" style="display: none;">
+        <span>💡 偵測到本手機已於 <span id="bannerFirstTime"></span> 完成登記，可直接修改並更新資料！</span>
+      </div>
+
+      <form id="soapBookingForm" onsubmit="handleSoapSubmit(event)">
+
+        <!-- 1. 選擇棟別 -->
+        <div class="form-group-item">
+          <div class="form-label">
+            <span>1. 選擇棟別</span>
+          </div>
+          <div class="pill-grid" id="soapBuildingGroup">
+            <div class="pill-btn" data-val="A棟" onclick="selectSoapBuilding(this)">A棟</div>
+            <div class="pill-btn" data-val="B棟" onclick="selectSoapBuilding(this)">B棟</div>
+            <div class="pill-btn" data-val="C棟" onclick="selectSoapBuilding(this)">C棟</div>
+            <div class="pill-btn" data-val="D棟" onclick="selectSoapBuilding(this)">D棟</div>
+            <div class="pill-btn" data-val="D1棟" onclick="selectSoapBuilding(this)">D1棟</div>
+            <div class="pill-btn" data-val="E棟" onclick="selectSoapBuilding(this)">E棟</div>
+            <div class="pill-btn" data-val="F棟" onclick="selectSoapBuilding(this)">F棟</div>
+            <div class="pill-btn" data-val="G棟" onclick="selectSoapBuilding(this)">G棟</div>
+            <div class="pill-btn" data-val="H棟" onclick="selectSoapBuilding(this)">H棟</div>
+            <div class="pill-btn" data-val="I棟" onclick="selectSoapBuilding(this)">I棟</div>
+            <div class="pill-btn" data-val="J棟" onclick="selectSoapBuilding(this)">J棟</div>
+          </div>
+        </div>
+
+        <!-- 2. 選擇樓層 -->
+        <div class="form-group-item">
+          <div class="form-label">
+            <span>2. 選擇樓層</span>
+          </div>
+          <div class="pill-grid grid-dense" id="soapFloorGroup">
+            <div class="pill-btn" data-val="2F" onclick="selectSoapFloor(this)">2F</div>
+            <div class="pill-btn" data-val="3F" onclick="selectSoapFloor(this)">3F</div>
+            <div class="pill-btn" data-val="4F" onclick="selectSoapFloor(this)">4F</div>
+            <div class="pill-btn" data-val="5F" onclick="selectSoapFloor(this)">5F</div>
+            <div class="pill-btn" data-val="6F" onclick="selectSoapFloor(this)">6F</div>
+            <div class="pill-btn" data-val="7F" onclick="selectSoapFloor(this)">7F</div>
+            <div class="pill-btn" data-val="8F" onclick="selectSoapFloor(this)">8F</div>
+            <div class="pill-btn" data-val="9F" onclick="selectSoapFloor(this)">9F</div>
+            <div class="pill-btn" data-val="10F" onclick="selectSoapFloor(this)">10F</div>
+            <div class="pill-btn" data-val="11F" onclick="selectSoapFloor(this)">11F</div>
+            <div class="pill-btn" data-val="12F" onclick="selectSoapFloor(this)">12F</div>
+          </div>
+        </div>
+
+        <!-- 3. 住戶姓名 -->
+        <div class="form-group-item">
+          <div class="form-label">
+            <span>3. 住戶姓名</span>
+          </div>
+          <input type="text" id="soapResidentName" class="text-input-field" placeholder="請輸入姓名或稱呼（例：陳先生）" required autocomplete="off">
+        </div>
+
+        <!-- 4. 自備油品狀況 -->
+        <div class="form-group-item">
+          <div class="form-label">
+            <span>4. 自備油品狀況</span>
+          </div>
+          <div class="pill-grid" style="grid-template-columns: 1fr 1fr;" id="soapOilGroup">
+            <div class="pill-btn active" data-val="自備廚房廢油/過期油" onclick="selectSoapOil(this)">🍳 我會自備廢油</div>
+            <div class="pill-btn" data-val="家中無油需現場支援" onclick="selectSoapOil(this)">🤝 家中無油（現場支援）</div>
+          </div>
+        </div>
+
+        <!-- 5. 出席人數 -->
+        <div class="form-group-item">
+          <div class="form-label">
+            <span>5. 出席人數</span>
+          </div>
+          <div class="pill-grid" id="soapAttendeesGroup">
+            <div class="pill-btn active" data-val="1位" onclick="selectSoapAttendees(this)">1 位</div>
+            <div class="pill-btn" data-val="2位" onclick="selectSoapAttendees(this)">2 位</div>
+            <div class="pill-btn" data-val="3位以上" onclick="selectSoapAttendees(this)">3 位以上</div>
+          </div>
+        </div>
+
+        <!-- 送出按鈕 -->
+        <button type="submit" class="btn-submit-register" id="btnSubmitSoap">
+          <span>✨</span> <span id="btnSubmitSoapText">確認報名 ‧ 免費參加</span>
+        </button>
+
+      </form>
+    </section>
+
+    <!-- 6. 底部列印操作區（僅電腦版呈現，供社區公告列印紙本或存為 PDF） -->
     <div class="print-footer-container reveal-up">
       <button class="btn-print-large" onclick="window.print()">
         <span>🖨️</span>
@@ -1066,18 +1446,57 @@
       <div class="print-footer-hint">※ 支援 A4 直式列印，已針對社區公設公告欄優化排版</div>
     </div>
 
-    <!-- 6. 雙活動快速切換導覽列 -->
+    <!-- 7. 雙活動快速切換導覽列 -->
     <div class="series-nav-bar" style="display:flex; justify-content:center; gap:12px; margin-top:24px; flex-wrap:wrap;">
       <span style="background:#1b4332; color:#ffffff; padding:10px 22px; border-radius:999px; font-size:1.05rem; font-weight:700; box-shadow: 0 4px 12px rgba(27,67,50,0.18);">🌿 9/21 廢油手工皂</span>
       <a href="mid-autumn-register.html" style="background:#ffffff; color:#334155; border:1.5px solid #cbd5e1; padding:10px 22px; border-radius:999px; font-size:1.05rem; font-weight:700; text-decoration:none; box-shadow: 0 2px 8px rgba(0,0,0,0.04); transition: all 0.2s ease;">🥮 9/25 中秋節聯歡晚會</a>
     </div>
 
-    <!-- 統一頁尾資訊列 -->
-    <div class="site-dev-footer" style="text-align:center; font-size:0.85rem; color:#64748b; padding: 1.5rem 0 0.5rem; margin-top: 1.8rem; border-top: 1px solid #e2e8f0;">
-      網站開發：陳新昱 (網站問題回報：<a href="javascript:void(0)" onclick="openSiteReportModal('【孔雀王朝手工皂活動】')" style="color:#1b4332; text-decoration:underline; cursor:pointer;">請點我</a>)
-    </div>
+    <!-- 8. 底端列 (孔雀王朝二期 ✕ 中華綠生活手工皂協會) -->
+    <footer style="text-align: center; padding: 32px 10px 16px; margin-top: 24px; border-top: 1.5px solid var(--border);">
+      <p style="font-size: 1.35rem; font-weight: 900; color: var(--primary); letter-spacing: 0.5px; margin-bottom: 6px;">
+        🏛️ 孔雀王朝二期
+      </p>
+      <p style="font-size: 1.15rem; font-weight: 700; color: #374151;">
+        🌿 中華綠生活手工皂協會
+      </p>
+      <div style="margin-top: 14px; font-size: 0.85rem; color: #94a3b8;">
+        網站開發：陳新昱 ｜ 問題回報：<a href="javascript:void(0)" onclick="openSiteReportModal('【孔雀王朝手工皂活動】')" style="color: var(--primary); text-decoration: underline;">請點我</a>
+      </div>
+    </footer>
 
   </main>
+
+  <!-- 報名成功確認彈窗 (含孔雀二期 LINE 交流群組引導) -->
+  <div class="success-modal-overlay" id="soapSuccessModal">
+    <div class="success-card">
+      <div class="success-icon-badge">🎉</div>
+      <h2 class="success-title">預約報名成功！</h2>
+
+      <div class="success-household-highlight" id="modalSoapHouseholdText">
+        A棟 6樓 陳先生 ｜ 1位 (自備油品)
+      </div>
+
+      <p style="font-size: 1.05rem; color: #4b5563; margin-bottom: 18px; line-height: 1.5;">
+        感謝您的熱情參與！請於 <strong>09/21(一) 下午 13:40</strong> 前往 <strong>1 樓會議室</strong> 報到入座。
+      </p>
+
+      <!-- LINE 群組加入引導 (共用孔雀二期中秋群組，免重複建群) -->
+      <div class="modal-line-box">
+        <div class="modal-line-title">💬 歡迎加入孔雀二期 LINE 交流群</div>
+        <div class="modal-line-desc">
+          最新活動通知、備用油品協調與天然肥皂脫模晾皂小撇步，都在社區群組即時交流！
+        </div>
+        <a href="https://line.me/R/ti/g/K7eeVcm52n" target="_blank" rel="noopener noreferrer" class="btn-join-line-group">
+          <span>📲</span> 點我加入孔雀二期 LINE 群組
+        </a>
+      </div>
+
+      <button type="button" class="btn-close-modal" onclick="closeSoapSuccessModal()">
+        我知道了，關閉視窗
+      </button>
+    </div>
+  </div>
 
   <script>
     // 雙向滾動彈入動畫 (無論向下滑動或向上滑動進入可視範圍皆彈出)
@@ -1092,18 +1511,211 @@
         if (entry.isIntersecting) {
           entry.target.classList.add('revealed');
         } else {
-          // 離開可見區域時移除類別，使雙向滑動均具備重新彈入效果
           entry.target.classList.remove('revealed');
         }
       });
     }, observerOptions);
 
-    // 註冊所有帶動畫類別之元素
     document.querySelectorAll('.reveal-up, .reveal-left, .reveal-right, .reveal-pop').forEach(el => {
       revealObserver.observe(el);
     });
 
-    // LINE 內嵌瀏覽器導引彈窗檢查 (若仍在 LINE 內嵌環境中未觸發自動跳轉)
+    // 平滑滾動至報名表單
+    function scrollToRegister(e) {
+      if (e) e.preventDefault();
+      const target = document.getElementById('registerSection');
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        // 微聚焦於姓名輸入框
+        setTimeout(() => {
+          const nameInput = document.getElementById('soapResidentName');
+          if (nameInput && !nameInput.value) nameInput.focus();
+        }, 500);
+      }
+    }
+
+    // 表單狀態管理
+    let selectedSoapBuilding = "";
+    let selectedSoapFloor = "";
+    let selectedSoapOil = "自備廚房廢油/過期油";
+    let selectedSoapAttendees = "1位";
+
+    function selectSoapBuilding(btn) {
+      document.querySelectorAll('#soapBuildingGroup .pill-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      selectedSoapBuilding = btn.getAttribute('data-val');
+    }
+
+    function selectSoapFloor(btn) {
+      document.querySelectorAll('#soapFloorGroup .pill-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      selectedSoapFloor = btn.getAttribute('data-val');
+    }
+
+    function selectSoapOil(btn) {
+      document.querySelectorAll('#soapOilGroup .pill-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      selectedSoapOil = btn.getAttribute('data-val');
+    }
+
+    function selectSoapAttendees(btn) {
+      document.querySelectorAll('#soapAttendeesGroup .pill-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      selectedSoapAttendees = btn.getAttribute('data-val');
+    }
+
+    // 本地快取識別與回填
+    const SOAP_STORAGE_KEY = 'soap_workshop_register_data';
+    function initSoapRegistrationCheck() {
+      try {
+        const savedData = localStorage.getItem(SOAP_STORAGE_KEY);
+        if (savedData) {
+          const reg = JSON.parse(savedData);
+          if (reg.building) {
+            const bBtn = Array.from(document.querySelectorAll('#soapBuildingGroup .pill-btn')).find(b => b.getAttribute('data-val') === reg.building);
+            if (bBtn) selectSoapBuilding(bBtn);
+          }
+          if (reg.floor) {
+            const fBtn = Array.from(document.querySelectorAll('#soapFloorGroup .pill-btn')).find(b => b.getAttribute('data-val') === reg.floor);
+            if (fBtn) selectSoapFloor(fBtn);
+          }
+          if (reg.name) {
+            document.getElementById('soapResidentName').value = reg.name;
+          }
+          if (reg.oilStatus) {
+            const oBtn = Array.from(document.querySelectorAll('#soapOilGroup .pill-btn')).find(b => b.getAttribute('data-val') === reg.oilStatus);
+            if (oBtn) selectSoapOil(oBtn);
+          }
+          if (reg.attendees) {
+            const aBtn = Array.from(document.querySelectorAll('#soapAttendeesGroup .pill-btn')).find(b => b.getAttribute('data-val') === reg.attendees);
+            if (aBtn) selectSoapAttendees(aBtn);
+          }
+          if (reg.firstTimestamp) {
+            const banner = document.getElementById('soapExistingRegBanner');
+            const timeSpan = document.getElementById('bannerFirstTime');
+            if (banner && timeSpan) {
+              timeSpan.textContent = reg.firstTimestamp;
+              banner.style.display = 'block';
+            }
+            const submitBtnText = document.getElementById('btnSubmitSoapText');
+            if (submitBtnText) submitBtnText.textContent = '確認修改登記資料（保留原時間）';
+          }
+        }
+      } catch (err) {}
+    }
+
+    // 格式化當前時間戳記
+    function getNowFormatted() {
+      const now = new Date();
+      const pad = (n) => String(n).padStart(2, '0');
+      return `${now.getFullYear()}-${pad(now.getMonth() + 1)}-${pad(now.getDate())} ${pad(now.getHours())}:${pad(now.getMinutes())}:${pad(now.getSeconds())}`;
+    }
+
+    // 表單提交處理
+    async function handleSoapSubmit(e) {
+      e.preventDefault();
+
+      if (!selectedSoapBuilding) {
+        alert("請選擇您的棟別（例如：A棟）！");
+        const grp = document.getElementById('soapBuildingGroup');
+        if (grp) grp.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        return;
+      }
+
+      if (!selectedSoapFloor) {
+        alert("請選擇您的樓層（例如：6F）！");
+        const grp = document.getElementById('soapFloorGroup');
+        if (grp) grp.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        return;
+      }
+
+      const name = document.getElementById('soapResidentName').value.trim();
+      if (!name) {
+        alert("請輸入姓名或稱呼（例：陳先生）！");
+        document.getElementById('soapResidentName').focus();
+        return;
+      }
+
+      const submitBtn = document.getElementById('btnSubmitSoap');
+      const submitText = document.getElementById('btnSubmitSoapText');
+      const originalText = submitText.textContent;
+      submitBtn.disabled = true;
+      submitText.textContent = '登記中，請稍候...';
+
+      let firstTimestamp = getNowFormatted();
+      let auditNote = "正常登記";
+      try {
+        const existing = localStorage.getItem(SOAP_STORAGE_KEY);
+        if (existing) {
+          const parsed = JSON.parse(existing);
+          if (parsed.firstTimestamp) {
+            firstTimestamp = parsed.firstTimestamp;
+            auditNote = "本人修改資料";
+          }
+        }
+      } catch (err) {}
+
+      const payload = {
+        building: selectedSoapBuilding,
+        floor: selectedSoapFloor,
+        name: name,
+        oilStatus: selectedSoapOil,
+        attendees: selectedSoapAttendees,
+        auditNote: auditNote,
+        timestamp: firstTimestamp
+      };
+
+      // 儲存至本地快取
+      try {
+        localStorage.setItem(SOAP_STORAGE_KEY, JSON.stringify(payload));
+      } catch (err) {}
+
+      // 非同步傳送至 Google Apps Script (若有配置或使用中秋預設後端)
+      const GAS_URL = "https://script.google.com/macros/s/AKfycbwclivZ2_ZqYwLM0drcgQZxFB3Tt5keCLBOC26eimhxx3NMbXzMngfQ8sFAjfdv0s-p/exec";
+      try {
+        fetch(GAS_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        }).catch(e => console.log("Google Sheets sync dispatched:", e));
+      } catch (err) {}
+
+      // 更新彈窗文字並顯示
+      const modalText = document.getElementById('modalSoapHouseholdText');
+      if (modalText) {
+        modalText.textContent = `${selectedSoapBuilding} ${selectedSoapFloor} ${name} ｜ ${selectedSoapAttendees} (${selectedSoapOil.indexOf('自備') > -1 ? '自備廢油' : '現場支援'})`;
+      }
+
+      submitBtn.disabled = false;
+      submitText.textContent = '確認修改登記資料（保留原時間）';
+
+      const banner = document.getElementById('soapExistingRegBanner');
+      const timeSpan = document.getElementById('bannerFirstTime');
+      if (banner && timeSpan) {
+        timeSpan.textContent = firstTimestamp;
+        banner.style.display = 'block';
+      }
+
+      openSoapSuccessModal();
+    }
+
+    function openSoapSuccessModal() {
+      const modal = document.getElementById('soapSuccessModal');
+      if (modal) modal.classList.add('active');
+    }
+
+    function closeSoapSuccessModal() {
+      const modal = document.getElementById('soapSuccessModal');
+      if (modal) modal.classList.remove('active');
+    }
+
+    // 頁面初始化
+    document.addEventListener('DOMContentLoaded', () => {
+      initSoapRegistrationCheck();
+    });
+
+    // LINE 內嵌瀏覽器導引彈窗檢查
     (function() {
       try {
         var ua = (navigator.userAgent || '').toLowerCase();
