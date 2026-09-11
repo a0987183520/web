@@ -6,7 +6,7 @@
   <title>孔雀王朝二期 115年中秋聯歡晚會 ‧ 電梯公告海報</title>
   <style>
     /* ===================================================
-       A4 電梯公告海報專屬樣式 (極致吸睛 ‧ 高轉化掃碼 DM ‧ 白底大字列印版)
+       A4 電梯公告海報專屬樣式 (極致吸睛 ‧ 高轉化掃碼 DM ‧ 加邊框大字無留白版)
        =================================================== */
     * {
       box-sizing: border-box;
@@ -78,7 +78,7 @@
     }
 
     /* ===================================================
-       標準 A4 容器 (210mm × 297mm) - 白底高對比電梯海報 (無外框版)
+       標準 A4 容器 (210mm × 297mm) - 白底雙重金紅典雅邊框 ‧ 大字無底白
        =================================================== */
     .a4-sheet {
       width: 210mm;
@@ -86,9 +86,11 @@
       max-width: 210mm;
       max-height: 297mm;
       background: #ffffff;
-      border: none;
+      border: 3.5mm solid #b45309;
+      outline: 1.2mm solid #f59e0b;
+      outline-offset: -2.5mm;
       box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
-      padding: 8mm 12mm 0 12mm;
+      padding: 7mm 10mm 7mm 10mm;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -110,45 +112,46 @@
     /* 1. 頂部慶祝標頭與活動資訊 */
     .poster-header {
       text-align: center;
-      margin-bottom: 1.5mm;
+      margin-bottom: 2mm;
     }
 
     .community-badge {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
+      gap: 10px;
       background: #fffbeb;
       border: 2px solid #f59e0b;
-      padding: 3px 18px;
+      padding: 4px 22px;
       border-radius: 999px;
-      font-size: 13.5pt;
+      font-size: 14.5pt;
       font-weight: 900;
       color: #b45309;
       letter-spacing: 0.8px;
-      margin-bottom: 1.5mm;
+      margin-bottom: 2mm;
     }
 
     .main-title {
-      font-size: 28pt;
+      font-size: 32pt;
       font-weight: 900;
-      line-height: 1.2;
+      line-height: 1.18;
       color: #991b1b;
-      letter-spacing: 2px;
-      margin-bottom: 1.5mm;
+      letter-spacing: 2.5px;
+      margin-bottom: 2.5mm;
+      text-shadow: 0 2px 4px rgba(153, 27, 27, 0.12);
     }
 
     .event-meta-bar {
       display: flex;
       flex-direction: column;
-      gap: 5px;
+      gap: 6px;
       background: #f8fafc;
-      border: 1.5px solid #e2e8f0;
-      border-radius: 10px;
-      padding: 7px 16px;
-      font-size: 15pt;
+      border: 2px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 9px 18px;
+      font-size: 16pt;
       font-weight: 800;
       color: #1e293b;
-      margin-bottom: 2.5mm;
+      margin-bottom: 3.5mm;
       text-align: center;
     }
 
@@ -156,7 +159,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 8px;
+      gap: 10px;
     }
 
     .event-meta-bar .highlight {
@@ -164,37 +167,37 @@
       font-weight: 900;
     }
 
-    /* 2. 六大福利好康網格卡片 (緊湊不縱向拉伸版) */
+    /* 2. 四大福利好康網格卡片 (大字高對比，滿版展開) */
     .benefits-container {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 3mm;
-      margin-bottom: 3mm;
+      gap: 3.5mm;
+      margin-bottom: 3.5mm;
     }
 
     .benefit-box {
       background: #ffffff;
-      border: 1.5px solid #cbd5e1;
-      border-radius: 12px;
-      padding: 6px 14px;
+      border: 2px solid #cbd5e1;
+      border-radius: 14px;
+      padding: 10px 16px;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.04);
     }
 
     .benefit-box.featured {
       background: #fffbeb;
-      border: 2px solid #f59e0b;
-      box-shadow: 0 3px 10px rgba(245, 158, 11, 0.12);
+      border: 2.5px solid #f59e0b;
+      box-shadow: 0 4px 12px rgba(245, 158, 11, 0.15);
     }
 
     .b-title {
-      font-size: 17pt;
+      font-size: 18.5pt;
       font-weight: 900;
       color: #0f172a;
       line-height: 1.25;
-      letter-spacing: 0.2px;
+      letter-spacing: 0.3px;
     }
 
     .b-title.nowrap {
@@ -203,42 +206,133 @@
 
     .b-title span.cash {
       color: #dc2626;
-      font-size: 19pt;
+      font-size: 21pt;
       font-weight: 900;
     }
 
     .b-desc {
-      font-size: 13pt;
+      font-size: 14pt;
       font-weight: 700;
       color: #334155;
-      line-height: 1.35;
-      margin-top: 2px;
+      line-height: 1.4;
+      margin-top: 4px;
     }
 
-    /* 3. 底部 QR Code 專區 (放大清晰版) */
-    .cta-qr-section {
-      background: #f8fafc;
-      border: 2px solid #d97706;
-      border-radius: 12px;
-      padding: 8px 18px;
+    /* 3. 核心規範：領取食材補助金 溫馨互動四部曲 (使用者特別交代重點) */
+    .rule-highlight-box {
+      background: linear-gradient(135deg, #fefce8 0%, #fffbeb 100%);
+      border: 2.5px solid #f59e0b;
+      border-radius: 14px;
+      padding: 10px 16px;
+      margin-bottom: 3.5mm;
+      box-shadow: 0 4px 14px rgba(245, 158, 11, 0.14);
+    }
+
+    .rule-header-row {
       display: flex;
       align-items: center;
-      gap: 20px;
-      box-shadow: 0 3px 10px rgba(217, 119, 6, 0.1);
+      justify-content: space-between;
+      margin-bottom: 6px;
+    }
+
+    .rule-main-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 15.5pt;
+      font-weight: 900;
+      color: #92400e;
+    }
+
+    .rule-sub-tag {
+      font-size: 12.5pt;
+      font-weight: 800;
+      color: #b45309;
+      background: #fde68a;
+      padding: 2px 10px;
+      border-radius: 6px;
+    }
+
+    .rule-steps-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 6px;
+      margin-top: 6px;
+    }
+
+    .rule-step-card {
+      background: #ffffff;
+      border: 1.5px solid #fcd34d;
+      border-radius: 10px;
+      padding: 6px 8px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .step-badge {
+      font-size: 11pt;
+      font-weight: 900;
+      color: #ffffff;
+      background: #d97706;
+      padding: 1px 8px;
+      border-radius: 999px;
+      margin-bottom: 3px;
+    }
+
+    .step-action {
+      font-size: 12.5pt;
+      font-weight: 900;
+      color: #0f172a;
+      line-height: 1.25;
+    }
+
+    .step-detail {
+      font-size: 10pt;
+      font-weight: 700;
+      color: #475569;
+      margin-top: 2px;
+      line-height: 1.25;
+    }
+
+    .rule-footer-note {
+      margin-top: 6px;
+      font-size: 11.5pt;
+      font-weight: 800;
+      color: #b45309;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+
+    /* 4. 底部超高轉化 QR Code 專區 (字大、圖大、通透) */
+    .cta-qr-section {
+      background: #f8fafc;
+      border: 2.5px solid #d97706;
+      border-radius: 14px;
+      padding: 10px 18px;
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      box-shadow: 0 4px 14px rgba(217, 119, 6, 0.12);
     }
 
     .qr-frame {
-      width: 42mm;
-      height: 42mm;
+      width: 48mm;
+      height: 48mm;
       background: #ffffff;
-      border: 1.5px solid #cbd5e1;
-      padding: 3px;
-      border-radius: 8px;
+      border: 2px solid #cbd5e1;
+      padding: 4px;
+      border-radius: 10px;
       display: flex;
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
     }
 
     .qr-frame img {
@@ -247,44 +341,35 @@
       display: block;
     }
 
-    /* 4. 底部純空白專用區 (精確 5 公分 / 50mm 高度，無任何文字或框線) */
-    .bottom-blank-reserve {
-      width: 100%;
-      height: 50mm;
-      min-height: 50mm;
-      max-height: 50mm;
-      background: transparent;
-    }
-
     .cta-content {
       flex: 1;
       text-align: left;
     }
 
     .cta-headline {
-      font-size: 17pt;
+      font-size: 18.5pt;
       font-weight: 900;
       color: #0f172a;
       line-height: 1.35;
     }
 
     .cta-line-1 {
-      font-size: 15.5pt;
+      font-size: 17pt;
       color: #0f172a;
       font-weight: 900;
       white-space: nowrap;
     }
 
     .cta-line-or {
-      font-size: 13.5pt;
+      font-size: 14pt;
       font-weight: 900;
       color: #ea580c;
-      margin: 3px 0;
-      padding-left: 32px;
+      margin: 4px 0;
+      padding-left: 36px;
     }
 
     .cta-line-2 {
-      font-size: 17pt;
+      font-size: 18.5pt;
       color: #1e293b;
       font-weight: 900;
       padding-left: 2px;
@@ -323,9 +408,11 @@
         height: 297mm !important;
         max-width: 210mm !important;
         max-height: 297mm !important;
-        border: none !important;
+        border: 3.5mm solid #b45309 !important;
+        outline: 1.2mm solid #f59e0b !important;
+        outline-offset: -2.5mm !important;
         box-shadow: none !important;
-        padding: 8mm 12mm 0 12mm !important;
+        padding: 7mm 10mm 7mm 10mm !important;
         page-break-inside: avoid !important;
         page-break-after: avoid !important;
       }
@@ -347,88 +434,115 @@
     </a>
   </div>
 
-  <!-- A4 電梯海報標準紙張主體 -->
+  <!-- A4 電梯海報標準紙張主體 (雙層典雅邊框 ‧ 大字無留白版) -->
   <div class="a4-sheet">
 
     <!-- 1. 頂部標題與大會資訊 -->
     <header class="poster-header">
       <div class="community-badge">
-        <span>🏛️</span> 孔雀王朝第二期管委會 ‧ 慶祝本社區取得重大成就
+        <span>🏛️</span> 孔雀王朝第二期管委會 ‧ 慶祝本社區取得重大成就 <span>🎉</span>
       </div>
       <h1 class="main-title">
         🥮 115 年中秋聯歡晚會 🥩
       </h1>
       <div class="event-meta-bar">
         <div class="meta-line">
-          <span>📅</span> 時間：<span class="highlight">9 月 25 日（五）18:00 – 22:00</span>
+          <span>📅</span> 活動時間：<span class="highlight">9 月 25 日（五）16:00 – 19:00</span>（下午 4 點至 7 點）
         </div>
         <div class="meta-line">
-          <span>📍</span> 地點：<span class="highlight">一樓中庭廣場</span>（遇雨挑高大廳照常舉行）
+          <span>📍</span> 活動地點：<span class="highlight">一樓中庭花園廣場</span>（遇雨挑高大廳照常舉行）
         </div>
       </div>
     </header>
 
-    <!-- 2. 六大福利好康清單 -->
+    <!-- 2. 四大福利好康清單 (大字醒目、移除早鳥與瓦斯槍) -->
     <main class="benefits-container">
 
       <!-- 好康 1 -->
       <div class="benefit-box featured">
-        <div class="b-title nowrap">🥩 每戶食材補助 <span class="cash">500 元</span></div>
+        <div class="b-title nowrap">🥩 每戶食材補助 <span class="cash">300 元</span></div>
         <div class="b-desc">
-          自備烤肉 或 自帶零食、披薩、炸雞、熟食
+          自備烤肉 或 自帶披薩、炸雞、熟食便當均可
         </div>
       </div>
 
       <!-- 好康 2 -->
       <div class="benefit-box">
-        <div class="b-title nowrap">🔥 公備瓦斯槍 現場支援</div>
-      </div>
-
-      <!-- 好康 3 -->
-      <div class="benefit-box featured">
-        <div class="b-title nowrap">🎁 早鳥登記 送好禮二選一</div>
-      </div>
-
-      <!-- 好康 4 -->
-      <div class="benefit-box">
         <div class="b-title nowrap">🍺 趣味賽事 領<span class="cash">現金紅包</span></div>
         <div class="b-desc">
-          啤酒大賽 ‧ 汽水大賽<br>
-          1 ~ 50 手眼協調 APP 挑戰賽
+          啤酒大賽 ‧ 汽水大賽 ‧ 1~50 APP挑戰賽<br>
+          各組前三名獲優勝紅包 ＆ 參賽同樂獎
         </div>
       </div>
 
-      <!-- 好康 5 -->
+      <!-- 好康 3 -->
       <div class="benefit-box">
         <div class="b-title nowrap">🎤 星空歡唱 領 <span class="cash">100 元</span></div>
+        <div class="b-desc">
+          住戶自由登台歡唱同樂，即領歡唱紅包
+        </div>
       </div>
 
-      <!-- 好康 6：志工加碼 -->
+      <!-- 好康 4：志工服務 -->
       <div class="benefit-box featured">
-        <div class="b-title">🙋‍♂️ 歡迎住戶或學生<br>報名志工服務</div>
+        <div class="b-title nowrap">🙋‍♂️ 歡迎住戶/學生 報名志工</div>
         <div class="b-desc">
-          擔任志工給予 <span class="cash">500 元</span> 誤餐費
+          支援現場服務，每位享有 <span class="cash">500 元</span> 誤餐費
         </div>
       </div>
 
     </main>
 
-    <!-- 3. 底部超高轉化 QR Code 專區 -->
+    <!-- 3. 領取食材補助金 溫馨互動四部曲 (使用者特別交代重點) -->
+    <section class="rule-highlight-box">
+      <div class="rule-header-row">
+        <div class="rule-main-tag">
+          <span>🤝</span> 領取 300 元食材補助 ‧ 歡聚互動四部曲
+        </div>
+        <div class="rule-sub-tag">提倡鄰里互訪交流 ‧ 凝聚真摯情誼</div>
+      </div>
+
+      <div class="rule-steps-grid">
+        <div class="rule-step-card">
+          <div class="step-badge">第 1 步</div>
+          <div class="step-action">自備熟食 / 開烤</div>
+          <div class="step-detail">自備烤肉器材或帶披薩便當熟食</div>
+        </div>
+        <div class="rule-step-card">
+          <div class="step-badge">第 2 步</div>
+          <div class="step-action">參加趣味團康</div>
+          <div class="step-detail">報名啤酒/汽水或手機1~50賽事</div>
+        </div>
+        <div class="rule-step-card">
+          <div class="step-badge">第 3 步</div>
+          <div class="step-action">現場拍照合影</div>
+          <div class="step-detail">與鄰居親友及食材開心合照留念</div>
+        </div>
+        <div class="rule-step-card">
+          <div class="step-badge">第 4 步</div>
+          <div class="step-action">簽名領取 300 元</div>
+          <div class="step-detail">至大會服務處簽名領取食材補助金</div>
+        </div>
+      </div>
+
+      <div class="rule-footer-note">
+        <span>💡</span> 溫馨提醒：本活動重在鄰里情感交流與歡樂同樂，請大家務必下樓走動互動，共享溫馨中秋！
+      </div>
+    </section>
+
+    <!-- 4. 底部超高轉化 QR Code 專區 (字大、圖大、通透) -->
     <section class="cta-qr-section">
       <div class="qr-frame">
         <img src="./images/qr-mid-autumn-register.png" alt="中秋報名系統 QR Code" onerror="this.src='./qr-mid-autumn-register.png'">
       </div>
       <div class="cta-content">
         <div class="cta-headline">
-          <div class="cta-line-1">📱 掃碼看活動詳情 ➔ <span class="gold">10 秒搶先報名卡位</span></div>
+          <div class="cta-line-1">📱 手機掃碼看詳情 ➔ <span class="gold">10 秒預約食材補助 300 元</span></div>
           <div class="cta-line-or">或</div>
-          <div class="cta-line-2">🏢 於一樓警衛室登記即可</div>
+          <div class="cta-line-2">🏢 直接於一樓警衛室登記即可</div>
         </div>
       </div>
     </section>
-
-    <!-- 4. 底部純空白專用區 (精確 5 公分 / 50mm 高度，供管委會自由蓋章簽核) -->
-    <div class="bottom-blank-reserve"></div>
 
   </div>
 
