@@ -6,7 +6,7 @@
   <title>孔雀王朝二期 115年中秋聯歡晚會 ‧ 電梯公告海報</title>
   <style>
     /* ===================================================
-       A4 電梯公告海報專屬樣式 (大圖示現代視覺重構 ‧ 雙行動動線 ‧ 完美單頁)
+       A4 電梯公告海報專屬樣式 (大圖徽 ‧ 多行結構化排版 ‧ 空間飽滿版)
        =================================================== */
     * {
       box-sizing: border-box;
@@ -79,7 +79,7 @@
     }
 
     /* ===================================================
-       標準 A4 容器 (210mm × 297mm) - 經典金橘細線邊框 ‧ 極致視覺呼吸感
+       標準 A4 容器 (210mm × 297mm) - 典雅金橘外框 ‧ 垂直滿版呼吸
        =================================================== */
     .a4-sheet {
       width: 210mm;
@@ -91,7 +91,7 @@
       outline: 0.8mm solid #f59e0b;
       outline-offset: -1.8mm;
       box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
-      padding: 7mm 10mm 7mm 10mm;
+      padding: 7.5mm 10.5mm 7.5mm 10.5mm;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -99,7 +99,7 @@
       overflow: hidden;
     }
 
-    /* 頂部裝飾線 */
+    /* 頂部裝飾線條 */
     .a4-sheet::before {
       content: "";
       position: absolute;
@@ -111,7 +111,7 @@
     }
 
     /* ===================================================
-       第 1 區塊：頂部榮耀 Header ＆ 活動資訊
+       第 1 區塊：頂部榮耀 Header ＆ 活動時間地點
        =================================================== */
     .poster-header {
       text-align: center;
@@ -124,9 +124,9 @@
       gap: 8px;
       background: #fffbeb;
       border: 1.5px solid #f59e0b;
-      padding: 3px 20px;
+      padding: 3px 22px;
       border-radius: 999px;
-      font-size: 13pt;
+      font-size: 13.5pt;
       font-weight: 900;
       color: #b45309;
       letter-spacing: 0.8px;
@@ -138,7 +138,7 @@
       font-weight: 900;
       line-height: 1.15;
       color: #991b1b;
-      letter-spacing: 2px;
+      letter-spacing: 2.5px;
       margin-bottom: 2.5mm;
       text-shadow: 0 2px 4px rgba(153, 27, 27, 0.1);
     }
@@ -147,7 +147,7 @@
       background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
       border: 1.5px solid #cbd5e1;
       border-radius: 12px;
-      padding: 7px 16px;
+      padding: 7.5px 16px;
       display: flex;
       flex-direction: column;
       gap: 4px;
@@ -159,7 +159,7 @@
       justify-content: center;
       align-items: center;
       gap: 8px;
-      font-size: 15pt;
+      font-size: 15.5pt;
       font-weight: 800;
       color: #1e293b;
       line-height: 1.25;
@@ -171,12 +171,12 @@
     }
 
     /* ===================================================
-       第 2 區塊：四大福利好康 (大圖示現代卡片 ‧ 2 × 2 完美對稱)
+       第 2 區塊：四大福利好康 (54px 大圖徽 ‧ 多行結構對齊 ‧ 2 × 2)
        =================================================== */
     .benefits-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 3.5mm;
+      gap: 3.8mm;
       margin: 2mm 0;
     }
 
@@ -184,10 +184,10 @@
       background: #ffffff;
       border: 1.5px solid #cbd5e1;
       border-radius: 14px;
-      padding: 10px 14px;
+      padding: 12px 14px;
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 14px;
       box-shadow: 0 3px 8px rgba(0, 0, 0, 0.03);
       position: relative;
     }
@@ -198,17 +198,17 @@
       box-shadow: 0 4px 14px rgba(245, 158, 11, 0.12);
     }
 
-    /* 48px 超大立體圖徽底座 (大幅增加圖像張力，縮小純文字厚重感) */
+    /* 54px 超大立體圖徽底座 (拉滿圖像張力，飽滿大器) */
     .icon-badge-box {
-      width: 48px;
-      height: 48px;
-      border-radius: 12px;
+      width: 54px;
+      height: 54px;
+      border-radius: 14px;
       background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
       border: 1.5px solid #f59e0b;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 28px;
+      font-size: 31px;
       line-height: 1;
       flex-shrink: 0;
       box-shadow: 0 3px 8px rgba(217, 119, 6, 0.18);
@@ -228,35 +228,59 @@
     }
 
     .b-card-title {
-      font-size: 17.5pt;
+      font-size: 18pt;
       font-weight: 900;
       color: #0f172a;
-      line-height: 1.25;
+      line-height: 1.22;
       letter-spacing: 0.2px;
+      margin-bottom: 3px;
     }
 
     .b-card-title span.cash {
       color: #dc2626;
-      font-size: 19.5pt;
+      font-size: 20.5pt;
       font-weight: 900;
     }
 
-    .b-card-desc {
+    /* 結構化分行排版 (消除未預期折行，字字清晰) */
+    .b-card-lines {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .b-desc-line {
+      font-size: 13.5pt;
+      font-weight: 700;
+      color: #334155;
+      line-height: 1.32;
+      white-space: nowrap;
+    }
+
+    .b-desc-line.sub-hint {
       font-size: 12.5pt;
       font-weight: 700;
-      color: #475569;
-      line-height: 1.35;
-      margin-top: 3px;
+      color: #64748b;
+    }
+
+    .b-desc-line.highlight-red {
+      color: #dc2626;
+      font-weight: 800;
+    }
+
+    .b-desc-line.highlight-blue {
+      color: #0284c7;
+      font-weight: 800;
     }
 
     /* ===================================================
-       第 3 區塊：食材補助領取條件 (精簡洗鍊 ‧ 兩大行動方塊)
+       第 3 區塊：食材補助領取條件 (精練雙行動 ‧ 飽滿大字)
        =================================================== */
     .rule-action-section {
       background: linear-gradient(135deg, #fefce8 0%, #fffbeb 100%);
       border: 2px solid #f59e0b;
-      border-radius: 12px;
-      padding: 9px 14px;
+      border-radius: 13px;
+      padding: 9.5px 15px;
       box-shadow: 0 4px 12px rgba(245, 158, 11, 0.12);
     }
 
@@ -268,7 +292,7 @@
     }
 
     .rule-main-heading {
-      font-size: 14.5pt;
+      font-size: 15.5pt;
       font-weight: 900;
       color: #92400e;
       display: flex;
@@ -277,7 +301,7 @@
     }
 
     .rule-tagline {
-      font-size: 11.5pt;
+      font-size: 12pt;
       font-weight: 800;
       color: #b45309;
       background: #fde68a;
@@ -285,19 +309,18 @@
       border-radius: 6px;
     }
 
-    /* 雙行動對稱卡片網格 (各佔 50%，寬度充足舒適) */
+    /* 雙行動對稱卡片 (大字化，空間充實) */
     .action-steps-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 8px;
-      margin-bottom: 6px;
+      gap: 10px;
     }
 
     .action-step-card {
       background: #ffffff;
       border: 1.5px solid #fcd34d;
       border-radius: 10px;
-      padding: 6px 12px;
+      padding: 8px 14px;
       display: flex;
       align-items: center;
       gap: 10px;
@@ -305,11 +328,11 @@
     }
 
     .step-badge-num {
-      width: 24px;
-      height: 24px;
+      width: 26px;
+      height: 26px;
       background: #d97706;
       color: #ffffff;
-      font-size: 12pt;
+      font-size: 13pt;
       font-weight: 900;
       border-radius: 50%;
       display: flex;
@@ -319,27 +342,16 @@
     }
 
     .step-main-text {
-      font-size: 13.5pt;
+      font-size: 14.5pt;
       font-weight: 900;
       color: #0f172a;
       line-height: 1.25;
     }
 
     .step-highlight-tag {
-      font-size: 11pt;
+      font-size: 12pt;
       font-weight: 800;
       color: #ea580c;
-    }
-
-    .rule-sub-note {
-      text-align: center;
-      font-size: 11pt;
-      font-weight: 800;
-      color: #b45309;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 4px;
     }
 
     /* ===================================================
@@ -349,10 +361,10 @@
       background: #f8fafc;
       border: 2px solid #d97706;
       border-radius: 12px;
-      padding: 8px 16px;
+      padding: 8px 18px;
       display: flex;
       align-items: center;
-      gap: 18px;
+      gap: 20px;
       box-shadow: 0 4px 12px rgba(217, 119, 6, 0.1);
     }
 
@@ -385,7 +397,7 @@
     }
 
     .cta-main-line {
-      font-size: 16.5pt;
+      font-size: 17pt;
       font-weight: 900;
       color: #0f172a;
       line-height: 1.35;
@@ -393,7 +405,7 @@
     }
 
     .cta-or-divider {
-      font-size: 13pt;
+      font-size: 13.5pt;
       font-weight: 900;
       color: #ea580c;
       margin: 3px 0;
@@ -401,7 +413,7 @@
     }
 
     .cta-sub-line {
-      font-size: 16.5pt;
+      font-size: 17pt;
       font-weight: 900;
       color: #1e293b;
       white-space: nowrap;
@@ -439,7 +451,7 @@
         outline: 0.8mm solid #f59e0b !important;
         outline-offset: -1.8mm !important;
         box-shadow: none !important;
-        padding: 7mm 10mm 7mm 10mm !important;
+        padding: 7.5mm 10.5mm 7.5mm 10.5mm !important;
         page-break-inside: avoid !important;
         page-break-after: avoid !important;
       }
@@ -461,7 +473,7 @@
     </a>
   </div>
 
-  <!-- A4 電梯海報標準紙張主體 (大圖示現代視覺 ‧ 雙行動動線 ‧ 完美單頁) -->
+  <!-- A4 電梯海報標準紙張主體 (結構化分行大字 ‧ 空間飽滿版) -->
   <div class="a4-sheet">
 
     <!-- 1. 頂部榮耀 Header ＆ 活動時間地點 -->
@@ -482,7 +494,7 @@
       </div>
     </header>
 
-    <!-- 2. 四大福利好康 (大圖徽現代卡片 ‧ 2 × 2 完美對稱) -->
+    <!-- 2. 四大福利好康 (54px 大圖徽 ‧ 多行結構對齊 ‧ 2 × 2) -->
     <main class="benefits-grid">
 
       <!-- 好康 1 -->
@@ -492,8 +504,10 @@
           <div class="b-card-title">
             每戶食材補助 <span class="cash">300 元</span>
           </div>
-          <div class="b-card-desc">
-            自備開烤或帶熟食（披薩、炸雞、便當均可），鄰里共餐同歡！
+          <div class="b-card-lines">
+            <div class="b-desc-line">自備烤肉 或 自帶熟食</div>
+            <div class="b-desc-line sub-hint">（披薩、炸雞、便當、泡麵均可）</div>
+            <div class="b-desc-line highlight-red">鄰里共餐同歡！</div>
           </div>
         </div>
       </div>
@@ -505,8 +519,10 @@
           <div class="b-card-title">
             趣味團康 領 <span class="cash">100 元</span>
           </div>
-          <div class="b-card-desc">
-            啤酒/汽水大賽 ＆ 1~50 手機挑戰賽，各組前三名再領紅包！
+          <div class="b-card-lines">
+            <div class="b-desc-line">啤酒 / 汽水大賽</div>
+            <div class="b-desc-line">＆ 1~50 手機挑戰賽</div>
+            <div class="b-desc-line highlight-red">各組前三名再領紅包！</div>
           </div>
         </div>
       </div>
@@ -518,8 +534,9 @@
           <div class="b-card-title">
             大聲公卡拉OK歡唱
           </div>
-          <div class="b-card-desc">
-            開唱即領 100 元紅包，每戶暫定 1 人
+          <div class="b-card-lines">
+            <div class="b-desc-line highlight-red">登台開唱即領 100 元紅包</div>
+            <div class="b-desc-line sub-hint">每戶暫定 1 人同樂</div>
           </div>
         </div>
       </div>
@@ -531,15 +548,16 @@
           <div class="b-card-title">
             歡迎住戶學生 報名志工
           </div>
-          <div class="b-card-desc">
-            支援現場服務，補貼誤餐費 500 元
+          <div class="b-card-lines">
+            <div class="b-desc-line">熱心支援現場服務</div>
+            <div class="b-desc-line highlight-blue">大會補貼誤餐費 500 元</div>
           </div>
         </div>
       </div>
 
     </main>
 
-    <!-- 3. 食材補助領取條件 (精準兩大行動 ‧ 簡練有力) -->
+    <!-- 3. 食材補助領取條件 (精練雙行動 ‧ 刪減底線文字) -->
     <section class="rule-action-section">
       <div class="rule-title-bar">
         <div class="rule-main-heading">
@@ -561,10 +579,6 @@
             參加趣味團康 <span class="step-highlight-tag">（歡樂合影）</span>
           </div>
         </div>
-      </div>
-
-      <div class="rule-sub-note">
-        <span>💡</span> 完成拍照合影後，請至大會服務處簽名現領 300 元食材補助金！
       </div>
     </section>
 
