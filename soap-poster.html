@@ -463,7 +463,8 @@
         print-color-adjust: exact !important;
       }
 
-      .screen-toolbar {
+      .screen-toolbar,
+      .poster-screen-footer {
         display: none !important;
       }
 
@@ -644,5 +645,19 @@
     </a>
   </div>
 
+  <!-- 底端列 (仿照手工皂報名頁大氣大字版 ✕ 實體分隔線 ✕ 列印隱藏) -->
+  <footer class="poster-screen-footer" style="text-align: center; padding: 24px 10px 24px; margin-top: 20px; border-top: 1.5px solid #e2e8f0; width: 100%; max-width: 210mm; margin-left: auto; margin-right: auto;">
+    <p style="font-size: 1.35rem; font-weight: 900; color: #1b4332; letter-spacing: 0.5px; margin-bottom: 8px;">
+      🏛️ 孔雀王朝二期
+    </p>
+    <p style="font-size: 1.15rem; font-weight: 700; color: #374151; margin-bottom: 8px;">
+      🌿 中華綠生活手工皂協會
+    </p>
+    <div style="margin-top: 8px; font-size: 1.15rem; font-weight: 700; color: #4b5563;">
+      網站開發：陳新昱 ｜ 網站問題回報：<a href="javascript:void(0)" onclick="openSiteReportModal('【孔雀王朝手工皂DM】')" style="color: #2d6a4f; text-decoration: underline; cursor: pointer;">請點我</a>
+    </div>
+  </footer>
+
+  <script src="js/site-report-modal.js?v=1.00"></script>
 </body>
 </html>
