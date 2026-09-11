@@ -1374,7 +1374,7 @@
               首次登記時間：<code id="bannerFirstTime"></code><br>
               若需調整人數、聚餐形式或比賽登記，<br>
               可直接修改並送出，<br>
-              系統將為您保留第一次的登記時間。
+              系統將為您保留首次登入時間。
             </div>
           </div>
 
@@ -1602,7 +1602,7 @@
     <!-- 頁尾宣告 -->
     <footer class="app-footer">
       <p style="font-size: 1.18rem; font-weight: 800; color: #cbd5e1;">孔雀王朝二期籌備組</p>
-      <p style="margin-top: 8px; font-size: 1.05rem; color: #94a3b8; cursor: pointer; user-select: none;" onclick="triggerAdminClick()">本系統僅供本社區住戶登記使用 <span style="font-size: 0.82rem; opacity: 0.5;">(v14.62)</span></p>
+      <p style="margin-top: 8px; font-size: 1.05rem; color: #94a3b8; cursor: pointer; user-select: none;" onclick="triggerAdminClick()">本系統僅供本社區住戶登記使用 <span style="font-size: 0.82rem; opacity: 0.5;">(v14.63)</span></p>
     </footer>
 
   </main>
@@ -1790,8 +1790,25 @@
       return localStorage.getItem(STORAGE_KEY_GAS_URL) || DEFAULT_GOOGLE_SCRIPT_URL;
     }
 
-    // 將 YYYY-MM-DD HH:mm:ss 轉換為中文格式「幾月幾日幾時幾分幾秒」
+    // 將 YYYY-MM-DD HH:mm:ss 轉換為中文簡約格式「M月D日 H時m分」（省略年與秒，精簡生活化）
     function formatChineseDateTime(timeStr) {
+      if (!timeStr) return "";
+      try {
+        const parts = timeStr.trim().split(" ");
+        const dateParts = parts[0].split("-");
+        const timeParts = parts[1] ? parts[1].split(":") : ["00", "00", "00"];
+        const month = parseInt(dateParts[1], 10);
+        const day = parseInt(dateParts[2], 10);
+        const hour = parseInt(timeParts[0], 10);
+        const min = parseInt(timeParts[1], 10);
+        return `${month}月${day}日 ${hour}時${min}分`;
+      } catch(e) {
+        return timeStr;
+      }
+    }
+
+    // 完整格式（含年月日與分秒，供管理端備查）
+    function formatChineseDateTimeFull(timeStr) {
       if (!timeStr) return "";
       try {
         const parts = timeStr.trim().split(" ");
@@ -2078,7 +2095,7 @@
           if (btnSubtitle) btnSubtitle.innerHTML = `緊急變更請至 LINE 群組告知大會`;
         }
         const formattedFirstTime = formatChineseDateTime(firstRegisteredTime);
-        alert(`已為您更新登記資料（今日修改 ${newCount}/2 次）！\n系統已自動為您保留初次登記時間（${formattedFirstTime}）。😊`);
+        alert(`已為您更新登記資料（今日修改 ${newCount}/2 次）！\n系統已自動為您保留首次登入時間（${formattedFirstTime}）。😊`);
       }
 
       // 觸發展示第三屏成功確認卡
@@ -2248,7 +2265,7 @@
             if (btnSubtitle && firstTime) {
               const formattedTime = formatChineseDateTime(firstTime);
               const countText = dailyCount > 0 ? ` ‧ 今日已改${dailyCount}/2次` : "";
-              btnSubtitle.innerHTML = `<div>我將為您保留初次登記時間</div><div style="font-size: 0.96rem; color: #1e293b; margin-top: 2px; font-weight: 800;">${formattedTime}${countText}</div>`;
+              btnSubtitle.innerHTML = `<div>我將為您保留首次登入時間</div><div style="font-size: 0.96rem; color: #1e293b; margin-top: 2px; font-weight: 800;">${formattedTime}${countText}</div>`;
             }
           }
 
