@@ -412,6 +412,68 @@
       scroll-margin-top: 80px;
     }
 
+    /* 已登記溫馨提示橫幅 (與標題字級一致 1.25rem，清晰通透) */
+    .existing-reg-banner {
+      background: rgba(245, 158, 11, 0.12);
+      border: 1.5px solid rgba(245, 158, 11, 0.5);
+      border-radius: var(--radius-sm);
+      padding: 14px 16px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+    }
+
+    .existing-reg-banner .banner-title {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: #fde68a;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+
+    .existing-reg-banner .banner-desc {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #cbd5e1;
+      line-height: 1.6;
+    }
+
+    .existing-reg-banner .banner-desc code {
+      font-family: inherit;
+      color: #38bdf8;
+      font-weight: 800;
+      background: rgba(56, 189, 248, 0.12);
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    .daily-limit-banner {
+      background: rgba(239, 68, 68, 0.12);
+      border: 1.5px solid rgba(239, 68, 68, 0.5);
+      border-radius: var(--radius-sm);
+      padding: 14px 16px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+    }
+
+    .daily-limit-banner .banner-title {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: #fca5a5;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+
+    .daily-limit-banner .banner-desc {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #cbd5e1;
+      line-height: 1.6;
+    }
+
     .section-title-box {
       margin-bottom: 20px;
       text-align: center;
@@ -1303,14 +1365,16 @@
 
         <form id="bookingForm" onsubmit="handleFormSubmit(event)">
 
-          <!-- 本載具已登記溫馨提示橫幅 (若本手機已登記過，由 JS 自動點亮) -->
+          <!-- 偵測到您已完成出席登記溫馨提示橫幅 (若本手機已登記過，由 JS 自動點亮) -->
           <div class="existing-reg-banner" id="existingRegBanner" style="display: none;">
             <div class="banner-title">
-              <span>💡</span> 偵測到本載具已完成出席登記！
+              <span>💡</span> 偵測到您已完成出席登記！
             </div>
             <div class="banner-desc">
               首次登記時間：<code id="bannerFirstTime"></code><br>
-              若需調整人數、聚餐形式或賽事，可直接修改內容並送出。系統將為您<strong>保留初次登記時間</strong>，保障後續大會排單審核順位！
+              若需調整人數、聚餐形式或比賽登記，<br>
+              可直接修改並送出，<br>
+              系統將為您保留第一次的登記時間。
             </div>
           </div>
 
@@ -1538,7 +1602,7 @@
     <!-- 頁尾宣告 -->
     <footer class="app-footer">
       <p style="font-size: 1.18rem; font-weight: 800; color: #cbd5e1;">孔雀王朝二期籌備組</p>
-      <p style="margin-top: 8px; font-size: 1.05rem; color: #94a3b8; cursor: pointer; user-select: none;" onclick="triggerAdminClick()">本系統僅供本社區住戶登記使用 <span style="font-size: 0.82rem; opacity: 0.5;">(v14.61)</span></p>
+      <p style="margin-top: 8px; font-size: 1.05rem; color: #94a3b8; cursor: pointer; user-select: none;" onclick="triggerAdminClick()">本系統僅供本社區住戶登記使用 <span style="font-size: 0.82rem; opacity: 0.5;">(v14.62)</span></p>
     </footer>
 
   </main>
