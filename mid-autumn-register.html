@@ -967,12 +967,13 @@
     }
 
     .btn-share-line {
-      width: 100%;
+      width: min(340px, 92%);
+      margin: 0 auto;
       background: #06c755;
       color: #ffffff;
-      font-size: 1.08rem;
+      font-size: 1.05rem;
       font-weight: 800;
-      padding: 14px 18px;
+      padding: 11px 16px;
       border-radius: var(--radius-md);
       border: none;
       cursor: pointer;
@@ -980,16 +981,23 @@
       align-items: center;
       justify-content: center;
       gap: 8px;
-      box-shadow: 0 6px 18px rgba(6, 199, 85, 0.35);
+      box-shadow: 0 4px 14px rgba(6, 199, 85, 0.35);
+      transition: all 0.2s ease;
+    }
+
+    .btn-share-line:hover, .btn-share-line:active {
+      background: #05b04c;
+      transform: translateY(-1px);
     }
 
     .btn-close-modal {
-      width: 100%;
+      width: min(340px, 92%);
+      margin: 0 auto;
       background: rgba(255, 255, 255, 0.08);
       color: #cbd5e1;
       font-size: 0.95rem;
       font-weight: 700;
-      padding: 12px 18px;
+      padding: 10px 16px;
       border-radius: var(--radius-md);
       border: 1px solid rgba(255, 255, 255, 0.15);
       cursor: pointer;
@@ -1413,7 +1421,7 @@
     <!-- 頁尾宣告 -->
     <footer class="app-footer">
       <p style="font-size: 1.18rem; font-weight: 800; color: #cbd5e1;">孔雀王朝二期籌備組</p>
-      <p style="margin-top: 8px; font-size: 1.05rem; color: #94a3b8; cursor: pointer; user-select: none;" onclick="triggerAdminClick()">本系統僅供本社區住戶登記使用 <span style="font-size: 0.82rem; opacity: 0.5;">(v14.57)</span></p>
+      <p style="margin-top: 8px; font-size: 1.05rem; color: #94a3b8; cursor: pointer; user-select: none;" onclick="triggerAdminClick()">本系統僅供本社區住戶登記使用 <span style="font-size: 0.82rem; opacity: 0.5;">(v14.58)</span></p>
     </footer>
 
   </main>
@@ -1483,7 +1491,7 @@
       <!-- 動作按鈕 -->
       <div class="success-action-btns">
         <button type="button" class="btn-share-line" onclick="copyShareText()">
-          <span>📲</span> 通知隔壁鄰居一起下樓烤肉！
+          <span>📲</span> 通知鄰居一起下樓烤肉聚餐
         </button>
         <button type="button" class="btn-close-modal" onclick="closeSuccessModal()">
           完成 ＆ 返回首頁
@@ -1876,13 +1884,24 @@
 
     // 一鍵複製 LINE 轉發分享文案
     function copyShareText() {
-      const shareText = `🌕【孔雀王朝二期 ‧ 中秋中庭烤肉晚會】線上預約開跑囉！\n` +
-        `管委會每戶補助 500 元食材金、公備噴火槍免生火，早鳥登記還送無煙木炭一包！還有啤酒汽水大賽與手機遊戲拿現金紅包！\n` +
-        `隔壁鄰居快一起來登記參加吧！👉 ${window.location.href.split('?')[0]}`;
+      const shareUrl = window.location.href.split('?')[0];
+      const shareText = 
+`孔雀王朝二期
+中秋烤肉聚餐晚會
+線上預約開跑囉
+每戶補助500元的食材金
+備有噴火槍，生火免煩惱
+早鳥登記送木炭／或大瓶飲料一罐
+還有啤酒／汽水大賽
+手機APP 1到50 手機簡易遊戲挑戰賽
+星空歡唱同樂
+所有活動都有參加獎100元，前三名還有紅包可以領取哦
+請趕快一起來登記哦
+👉 ${shareUrl}`;
 
       if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(shareText).then(() => {
-          alert("已複製宣傳文字！請直接到 LINE 貼上傳送給隔壁鄰居好友！😊");
+          alert("已複製宣傳文字！請直接到 LINE 貼上傳送給鄰居好友！😊");
         }).catch(() => {
           fallbackCopyText(shareText);
         });
@@ -1898,7 +1917,7 @@
       ta.select();
       document.execCommand("copy");
       document.body.removeChild(ta);
-      alert("已複製宣傳文字！請直接到 LINE 貼上傳送給隔壁鄰居好友！😊");
+      alert("已複製宣傳文字！請直接到 LINE 貼上傳送給鄰居好友！😊");
     }
 
     // 檢查先前是否已登記過
