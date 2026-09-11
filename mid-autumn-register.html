@@ -1606,7 +1606,7 @@
     <!-- 頁尾宣告 -->
     <footer class="app-footer">
       <p style="font-size: 1.18rem; font-weight: 800; color: #cbd5e1;">孔雀王朝二期籌備組</p>
-      <p style="margin-top: 8px; font-size: 1.05rem; color: #94a3b8; cursor: pointer; user-select: none;" onclick="triggerAdminClick()">本系統僅供本社區住戶登記使用 <span style="font-size: 0.82rem; opacity: 0.5;">(v14.64)</span></p>
+      <p style="margin-top: 8px; font-size: 1.05rem; color: #94a3b8; cursor: pointer; user-select: none;" onclick="triggerAdminClick()">本系統僅供本社區住戶登記使用 <span style="font-size: 0.82rem; opacity: 0.5;">(v14.65)</span></p>
     </footer>
 
   </main>
@@ -1624,42 +1624,34 @@
         A棟 6樓 陳先生 ｜ 3~4位 (開烤)
       </div>
 
-      <!-- 登記內容確認清單 (依填表順序統一排列，重要資訊清晰呈現) -->
+      <!-- 登記內容確認清單 (移除重複的戶別與聚餐，保留核心補助、賽事、志工與歡唱) -->
       <div class="success-checklist">
         <div class="success-checklist-item">
           <span class="icon">✔</span>
-          <div id="modalSummaryHousehold"><strong>戶別姓名：</strong><span>A棟 6樓 陳先生</span></div>
-        </div>
-        <div class="success-checklist-item">
-          <span class="icon">✔</span>
-          <div id="modalSummaryDining"><strong>出席聚餐：</strong><span>3~4位 (我要烤肉)</span></div>
-        </div>
-        <div class="success-checklist-item">
-          <span class="icon">✔</span>
-          <div><strong>食材補助：</strong><span>烤肉或自備熟食，與食材拍照並報名任一趣味賽事，即可領取 500 元補助金（註一）。</span></div>
+          <div><strong>食材補助：</strong><span>烤肉或自備熟食，與食材拍照並報名任一趣味賽事，即可領取 500 元補助金（詳見下方註一）。</span></div>
         </div>
         <div class="success-checklist-item" id="modalContestSummary">
           <span class="icon">✔</span>
-          <div id="modalContestText"><strong>趣味競賽：</strong>尚未報名（當晚亦可現場報名）</div>
+          <div id="modalContestText"><strong>趣味競賽：</strong>尚未報名（當晚亦可現場向大會直接報名參加拿紅包！）</div>
         </div>
         <div class="success-checklist-item" id="modalVolunteerSummary" style="display: none;">
           <span class="icon">✔</span>
-          <div id="modalVolunteerText"><strong>志工服務：</strong>已登記 1 位（享有 500 元誤餐費，註四）</div>
+          <div id="modalVolunteerText"><strong>志工服務：</strong>已登記 1 位（享有 500 元誤餐費津貼，詳見下方註四）</div>
         </div>
         <div class="success-checklist-item" id="modalKaraokeSummary" style="display: none;">
           <span class="icon">✔</span>
-          <div id="modalKaraokeText"><strong>星空歡唱：</strong>已登記開唱（登台領 100 元同樂紅包，註五）</div>
+          <div id="modalKaraokeText"><strong>星空歡唱：</strong>已登記開唱（現場開唱領 100 元同樂紅包，詳見下方註五）</div>
         </div>
       </div>
 
-      <!-- LINE 活動群組加入專屬卡 (集中公告早鳥好禮、志工錄取、歡唱順序) -->
+      <!-- LINE 活動群組加入專屬卡 -->
       <div class="modal-line-box">
         <div class="modal-line-title">
-          <div class="modal-line-header-row"><span>💬</span> 請加入</div>
-          <span class="line-group-name-single-line">孔雀王朝二期中秋烤肉群組</span>
+          <div class="modal-line-header-row"><span>💬</span> 歡迎住戶加入</div>
+          <span class="line-group-name-single-line">孔雀王朝二期中秋烤肉 LINE 群組</span>
         </div>
         <div class="modal-line-desc">
-          線上早鳥好禮、志工名單、星空歌唱順序，將於 LINE 群組公告。
+          線上早鳥好禮、志工名單、星空唱歌順序，將在 LINE 群組中公告。若有任何問題，也歡迎在 LINE 群組中詢問！
         </div>
         <div class="modal-line-volunteer-alert" id="modalLineVolunteerAlert" style="display: none;">
           <span style="font-size: 1.25rem; flex-shrink: 0;">🔺</span>
@@ -1668,6 +1660,40 @@
         <a href="https://line.me/R/ti/g/K7eeVcm52n" target="_blank" rel="noopener noreferrer" class="btn-join-line-group">
           <span>🟢</span> 一鍵加入到 LINE 群組
         </a>
+      </div>
+
+      <!-- 彈窗底部註釋卡片 (方便住戶即時查閱註一、註四、註五等規則) -->
+      <div class="notes-card" style="margin-top: 16px; margin-bottom: 20px;">
+        <div class="note-row">
+          <span class="note-pill">註一</span>
+          <div class="note-text">
+            <span class="note-hl-gold">烤肉或自備熟食</span>（<span class="note-hl-blue">披薩、便當、泡麵、零食</span>等熟食均可），<span class="note-hl-gold">與食材拍照</span>並且<span class="note-hl-green">報名任一趣味競賽</span>，即可領取 <span class="note-hl-red">500 元的食材補助金</span>。
+          </div>
+        </div>
+        <div class="note-row">
+          <span class="note-pill">註二</span>
+          <div class="note-text">
+            提倡「<span class="note-hl-gold">烤肉架共用湊團</span>」！鼓勵 <span class="note-hl-blue">2 至 3 戶鄰居共用</span>烤肉架一起烤，節省器材又可<span class="note-hl-green">活絡鄰居感情</span>。
+          </div>
+        </div>
+        <div class="note-row">
+          <span class="note-pill">註三</span>
+          <div class="note-text">
+            需於<span class="note-hl-gold">活動當晚 18:00 前</span>下樓<span class="note-hl-blue">簽名領取</span>，<span class="note-hl-red">逾時轉讓給現場住戶</span>。
+          </div>
+        </div>
+        <div class="note-row">
+          <span class="note-pill">註四</span>
+          <div class="note-text">
+            為鼓勵住戶與學子參與公共事務，特設<span class="note-hl-green">志工隊</span>（支援烤肉、分裝、趣味賽事）。<span class="note-hl-gold">每戶暫以 1 位為原則</span>（享有 <span class="note-hl-red">500 元誤餐費</span>），若同戶有多位家人熱情想服務，請於「<span class="note-hl-blue">孔雀二期 LINE 群組</span>」登記備選名額。<span class="note-hl-gold">全場名額暫定 10 位</span>，<span class="note-hl-blue">依線上表單送出時間先報先錄取</span>。（限<span class="note-hl-gold">國小五年級含以上至 79 歲含以下</span>報名）
+          </div>
+        </div>
+        <div class="note-row">
+          <span class="note-pill">註五</span>
+          <div class="note-text">
+            <span class="note-hl-red">每人限領一次紅包</span>。<span class="note-hl-gold">全場上限 20 首</span>，<span class="note-hl-gold">每戶暫以 1 首為原則</span>。同戶若有多位想開唱，請至「<span class="note-hl-blue">孔雀二期 LINE 群組</span>」登記備選名額，<span class="note-hl-green">若名額未滿依序優先遞補</span>。
+          </div>
+        </div>
       </div>
 
       <!-- 動作按鈕 -->
@@ -2128,20 +2154,10 @@
 
     // 顯示成功確認卡片 (集中有序呈現已登記內容，資訊清晰好找)
     function showSuccessModal(data) {
-      // 1. 戶別姓名 (棟別、樓層、稱呼)
+      // 1. 戶別姓名與出席人數高亮標籤 (哪一棟哪一樓、姓名、人數形式)
       const hHighlight = document.getElementById("modalHouseholdText");
       if (hHighlight) {
         hHighlight.innerText = `${data.building} ${data.floor} ${data.name} ｜ ${data.attendees}`;
-      }
-      const sHousehold = document.getElementById("modalSummaryHousehold");
-      if (sHousehold) {
-        sHousehold.innerHTML = `<strong>戶別姓名：</strong><span>${data.building} ${data.floor} ${data.name}</span>`;
-      }
-
-      // 2. 聚餐形式與出席人數
-      const sDining = document.getElementById("modalSummaryDining");
-      if (sDining) {
-        sDining.innerHTML = `<strong>出席聚餐：</strong><span>${data.attendees}</span>`;
       }
 
       // 3. 趣味競賽報名項目
@@ -2197,17 +2213,17 @@
     function copyShareText() {
       const shareUrl = window.location.href.split('?')[0];
       const shareText = 
-`孔雀王朝二期
-中秋烤肉聚餐晚會
+`孔雀王朝二期中秋烤肉聚餐晚會
 線上預約開跑囉
-每戶補助500元的食材金
-備有噴火槍，生火免煩惱
-早鳥登記送木炭／或大瓶飲料一罐
+每戶補助500元食材金
+烤肉或自備熟食都可以
+社區備有噴火槍，生火免煩惱
+早鳥登記送木炭或大瓶飲料一瓶
 還有啤酒／汽水大賽
-手機APP 1到50 手機簡易遊戲挑戰賽
+手機APP 1到50 手機簡易挑戰賽
 星空歡唱同樂
 所有活動都有參加獎100元，前三名還有紅包可以領取哦
-請趕快一起來登記哦
+趕快過來一鍵登記哦
 👉 ${shareUrl}`;
 
       if (navigator.clipboard && navigator.clipboard.writeText) {
