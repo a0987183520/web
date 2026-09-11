@@ -6,7 +6,7 @@
   <title>孔雀王朝二期 環保公益手工皂工作坊 ‧ 電梯公告海報 DM</title>
   <style>
     /* ===================================================
-       A4 電梯公告海報 DM 專屬樣式 (仿報名網頁乾淨格式 ‧ 大字高對比 ‧ 白底列印版)
+       A4 電梯公告海報 DM 專屬樣式 (超大字級 ‧ 緊湊少留白 ‧ 白底高對比列印版)
        =================================================== */
     * {
       box-sizing: border-box;
@@ -23,14 +23,14 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 24px 12px;
+      padding: 20px 10px;
     }
 
     /* 頂部操作工具列 (列印時隱藏) */
     .screen-toolbar {
       display: flex;
       gap: 12px;
-      margin-bottom: 16px;
+      margin-bottom: 14px;
       align-items: center;
       flex-wrap: wrap;
       justify-content: center;
@@ -40,8 +40,8 @@
       background: linear-gradient(135deg, #1b4332 0%, #2d6a4f 100%);
       color: #ffffff;
       font-weight: 800;
-      font-size: 1rem;
-      padding: 9px 22px;
+      font-size: 1.05rem;
+      padding: 9px 24px;
       border-radius: 999px;
       border: none;
       cursor: pointer;
@@ -62,9 +62,9 @@
       background: #ffffff;
       color: #1b4332;
       border: 1.5px solid #a3b899;
-      font-size: 0.95rem;
+      font-size: 1rem;
       font-weight: 700;
-      padding: 8px 16px;
+      padding: 8px 18px;
       border-radius: 999px;
       cursor: pointer;
       text-decoration: none;
@@ -80,7 +80,7 @@
     }
 
     /* ===================================================
-       標準 A4 容器 (210mm × 297mm) - 依圖 2 乾淨格式重新編排
+       標準 A4 容器 (210mm × 297mm) - 超大字級 ✕ 極簡留白
        =================================================== */
     .a4-sheet {
       width: 210mm;
@@ -90,7 +90,7 @@
       background: #ffffff;
       border: none;
       box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
-      padding: 8mm 12mm 8mm 12mm;
+      padding: 6mm 10mm 6mm 10mm;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -98,7 +98,7 @@
       overflow: hidden;
     }
 
-    /* 頂部優雅綠意裝飾邊條 */
+    /* 頂部裝飾邊條 */
     .a4-sheet::before {
       content: "";
       position: absolute;
@@ -109,9 +109,13 @@
       background: linear-gradient(90deg, #1b4332, #2d6a4f, #52b788, #2d6a4f, #1b4332);
     }
 
-    /* 1. 頂部標題區 (對齊圖 2 格式) */
+    /* 1. 頂部標題區 (大氣磅礡 ‧ 參考簡報與提案大標) */
     .poster-header {
       text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5mm;
     }
 
     .community-badge {
@@ -119,35 +123,33 @@
       align-items: center;
       gap: 8px;
       background: #f0fdf4;
-      border: 1.8px solid #2d6a4f;
-      padding: 2.5px 18px;
+      border: 2px solid #2d6a4f;
+      padding: 2px 20px;
       border-radius: 999px;
-      font-size: 12pt;
+      font-size: 13.5pt;
       font-weight: 900;
       color: #1b4332;
       letter-spacing: 0.8px;
-      margin-bottom: 2mm;
     }
 
     .problem-pill {
       display: inline-block;
       background: #fff1f2;
-      border: 1.5px solid #fecdd3;
+      border: 2px solid #fecdd3;
       color: #e11d48;
-      font-size: 12.5pt;
-      font-weight: 800;
-      padding: 2px 18px;
+      font-size: 14pt;
+      font-weight: 900;
+      padding: 2px 22px;
       border-radius: 999px;
-      margin-bottom: 2mm;
+      box-shadow: 0 2px 6px rgba(225, 29, 72, 0.08);
     }
 
     .main-title {
-      font-size: 26pt;
+      font-size: 29pt;
       font-weight: 900;
-      line-height: 1.2;
+      line-height: 1.15;
       color: #1b4332;
       letter-spacing: 1.2px;
-      margin-bottom: 1.5mm;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -155,178 +157,175 @@
     }
 
     .sub-spirit {
-      font-size: 14pt;
+      font-size: 18pt;
       font-weight: 900;
       color: #1e293b;
-      margin-bottom: 2mm;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
+      gap: 10px;
+      line-height: 1.2;
     }
 
     .spirit-danger {
       color: #dc2626;
       background: #ffe4e6;
-      padding: 1px 10px;
-      border-radius: 6px;
+      padding: 2px 14px;
+      border-radius: 8px;
     }
 
     .spirit-green {
       color: #15803d;
       background: #dcfce7;
-      padding: 1px 10px;
-      border-radius: 6px;
+      padding: 2px 14px;
+      border-radius: 8px;
     }
 
-    /* 2. 仿圖 2 核心資訊清單 (獨立 6 大長條看板，徹底杜絕亂碼換行) */
+    /* 2. 核心資訊清單 (仿照圖 2 格式 ✕ 字體全盤放大至 16.5pt) */
     .quick-meta-list {
       display: flex;
       flex-direction: column;
-      gap: 2.2mm;
+      gap: 2mm;
       width: 100%;
-      margin-bottom: 2.5mm;
     }
 
     .quick-meta-bar {
       background: #ffffff;
-      border: 1.5px solid #cbd5e1;
-      border-radius: 9px;
-      padding: 4.5px 14px;
+      border: 2px solid #cbd5e1;
+      border-radius: 10px;
+      padding: 4.5px 16px;
       display: flex;
       flex-direction: row;
       align-items: center;
       justify-content: flex-start;
-      gap: 14px;
+      gap: 16px;
       width: 100%;
       box-sizing: border-box;
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
     }
 
     .meta-bar-left {
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 10px;
       flex-shrink: 0;
-      width: 130px;
-      min-width: 130px;
+      width: 145px;
+      min-width: 145px;
     }
 
     .meta-bar-icon {
-      font-size: 14.5pt;
+      font-size: 17pt;
       line-height: 1;
     }
 
     .meta-bar-title {
-      font-size: 12.5pt;
+      font-size: 16pt;
       font-weight: 900;
       color: #1b4332;
       white-space: nowrap;
     }
 
     .meta-bar-desc {
-      font-size: 13pt;
+      font-size: 16.5pt;
       color: #0f172a;
-      font-weight: 800;
+      font-weight: 900;
       text-align: left;
       flex: 1;
       white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
     }
 
     /* 報名截止黃金提醒看板 */
     .deadline-bubble {
       background: #fffbeb;
-      border: 1.8px solid #fde68a;
-      border-radius: 9px;
-      padding: 5px 14px;
-      font-size: 11.5pt;
+      border: 2px solid #fde68a;
+      border-radius: 10px;
+      padding: 6px 16px;
+      font-size: 14.5pt;
       font-weight: 900;
       color: #92400e;
       display: flex;
       align-items: center;
-      gap: 8px;
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+      gap: 10px;
+      box-shadow: 0 2px 6px rgba(245, 158, 11, 0.08);
+      line-height: 1.35;
     }
 
     .deadline-highlight {
       color: #b45309;
       background: #fef3c7;
-      padding: 1px 6px;
-      border-radius: 4px;
+      padding: 1px 8px;
+      border-radius: 6px;
+      font-size: 15pt;
     }
 
-    /* 3. 活動兩大重點 (雙欄簡約卡片) */
+    /* 3. 活動兩大重點 (字體升級至 18pt/13.5pt ✕ 醒目搶眼) */
     .highlights-container {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 3mm;
-      margin-bottom: 2.5mm;
     }
 
     .highlight-box {
       background: #ffffff;
-      border: 1.5px solid #cbd5e1;
-      border-radius: 10px;
-      padding: 7px 14px;
+      border: 2px solid #cbd5e1;
+      border-radius: 12px;
+      padding: 8px 16px;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
     }
 
     .highlight-box.featured {
       background: #f0fdf4;
-      border: 2px solid #2d6a4f;
-      box-shadow: 0 3px 10px rgba(45, 106, 79, 0.1);
+      border: 2.2px solid #2d6a4f;
+      box-shadow: 0 3px 10px rgba(45, 106, 79, 0.12);
     }
 
     .h-tag {
       display: inline-block;
       background: #2d6a4f;
       color: #ffffff;
-      font-size: 9.5pt;
-      font-weight: 800;
-      padding: 1px 7px;
-      border-radius: 4px;
+      font-size: 11pt;
+      font-weight: 900;
+      padding: 1px 9px;
+      border-radius: 5px;
       width: fit-content;
       margin-bottom: 2px;
     }
 
     .h-title {
-      font-size: 15pt;
+      font-size: 18.5pt;
       font-weight: 900;
       color: #0f172a;
-      line-height: 1.25;
-      letter-spacing: 0.2px;
+      line-height: 1.2;
+      letter-spacing: 0.3px;
     }
 
     .h-title span.green-cash {
       color: #15803d;
-      font-size: 17pt;
+      font-size: 20pt;
       font-weight: 900;
     }
 
     .h-desc {
-      font-size: 11pt;
-      font-weight: 700;
+      font-size: 13pt;
+      font-weight: 800;
       color: #334155;
       line-height: 1.35;
       margin-top: 3px;
     }
 
-    /* 4. 緊湊流程一覽 (四步驟 2x2 網格) */
+    /* 4. 活動流程一覽 (四步驟 2x2 網格 ✕ 移除分鐘數以放大文字) */
     .timeline-container {
       background: #f8fafc;
-      border: 1.5px solid #e2e8f0;
-      border-radius: 10px;
-      padding: 6px 12px;
-      margin-bottom: 3mm;
+      border: 1.8px solid #cbd5e1;
+      border-radius: 12px;
+      padding: 6px 14px;
     }
 
     .timeline-header {
-      font-size: 12pt;
+      font-size: 14pt;
       font-weight: 900;
       color: #1b4332;
       margin-bottom: 4px;
@@ -338,29 +337,29 @@
     .timeline-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 4px 8px;
+      gap: 4px 10px;
     }
 
     .timeline-row {
       display: flex;
       align-items: center;
-      gap: 6px;
-      font-size: 10.5pt;
-      font-weight: 700;
+      gap: 8px;
+      font-size: 13pt;
+      font-weight: 800;
       color: #1e293b;
       background: #ffffff;
-      padding: 3px 8px;
-      border-radius: 6px;
-      border: 1px solid #e2e8f0;
+      padding: 4px 10px;
+      border-radius: 8px;
+      border: 1.5px solid #e2e8f0;
     }
 
     .t-badge {
       background: #2d6a4f;
       color: #ffffff;
-      font-size: 9.5pt;
-      font-weight: 800;
-      padding: 1px 5px;
-      border-radius: 4px;
+      font-size: 11.5pt;
+      font-weight: 900;
+      padding: 2px 7px;
+      border-radius: 5px;
       white-space: nowrap;
     }
 
@@ -369,39 +368,33 @@
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
-      font-weight: 800;
+      font-weight: 900;
     }
 
-    .t-min {
-      color: #64748b;
-      font-size: 9.5pt;
-      white-space: nowrap;
-    }
-
-    /* 5. 底部超高轉化 QR Code 專區 ＆ 管委會用印區 */
+    /* 5. 底部超大字 QR Code 報名專區 (移除用印框與多餘底線，大字填滿) */
     .cta-qr-section {
       background: #f0fdf4;
-      border: 2px solid #2d6a4f;
-      border-radius: 12px;
-      padding: 7px 14px;
+      border: 2.2px solid #2d6a4f;
+      border-radius: 14px;
+      padding: 8px 18px;
       display: flex;
       align-items: center;
-      gap: 16px;
-      box-shadow: 0 3px 10px rgba(45, 106, 79, 0.12);
+      gap: 18px;
+      box-shadow: 0 4px 12px rgba(45, 106, 79, 0.14);
     }
 
     .qr-frame {
-      width: 38mm;
-      height: 38mm;
+      width: 40mm;
+      height: 40mm;
       background: #ffffff;
-      border: 1.5px solid #a3b899;
-      padding: 2.5px;
-      border-radius: 8px;
+      border: 1.8px solid #a3b899;
+      padding: 3px;
+      border-radius: 10px;
       display: flex;
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
     }
 
     .qr-frame img {
@@ -413,28 +406,17 @@
     .cta-content {
       flex: 1;
       text-align: left;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
     }
 
     .cta-line-1 {
-      font-size: 15pt;
+      font-size: 18pt;
       color: #0f172a;
       font-weight: 900;
       white-space: nowrap;
-    }
-
-    .cta-line-or {
-      font-size: 11.5pt;
-      font-weight: 900;
-      color: #2d6a4f;
-      margin: 2px 0;
-      padding-left: 28px;
-    }
-
-    .cta-line-2 {
-      font-size: 14.5pt;
-      color: #1e293b;
-      font-weight: 900;
-      padding-left: 2px;
+      line-height: 1.25;
     }
 
     .cta-line-1 span.green {
@@ -442,34 +424,24 @@
       font-weight: 900;
     }
 
-    .committee-stamp-box {
-      border: 1.5px dashed #64748b;
-      border-radius: 8px;
-      width: 26mm;
-      height: 34mm;
+    .cta-line-2 {
+      font-size: 16.5pt;
+      color: #1e293b;
+      font-weight: 900;
+      line-height: 1.25;
       display: flex;
-      flex-direction: column;
       align-items: center;
-      justify-content: center;
-      text-align: center;
-      color: #64748b;
-      font-size: 9.5pt;
-      font-weight: 800;
-      line-height: 1.35;
-      background: rgba(255, 255, 255, 0.85);
-      flex-shrink: 0;
+      gap: 8px;
+      flex-wrap: wrap;
     }
 
-    /* 6. 海報最底端版權署名列 */
-    .poster-footer-line {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding-top: 2.5mm;
-      border-top: 1px solid #e2e8f0;
-      font-size: 10.5pt;
-      font-weight: 700;
-      color: #475569;
+    .cta-or-badge {
+      font-size: 13.5pt;
+      font-weight: 900;
+      background: #2d6a4f;
+      color: #ffffff;
+      padding: 1px 8px;
+      border-radius: 6px;
     }
 
     /* ===================================================
@@ -502,7 +474,7 @@
         max-height: 297mm !important;
         border: none !important;
         box-shadow: none !important;
-        padding: 8mm 12mm 8mm 12mm !important;
+        padding: 6mm 10mm 6mm 10mm !important;
         page-break-inside: avoid !important;
         page-break-after: avoid !important;
       }
@@ -514,11 +486,8 @@
   <!-- 螢幕瀏覽控制列 (列印時自動隱藏) -->
   <div class="screen-toolbar">
     <button class="btn-action" onclick="window.print()">
-      <span>🖨️</span> 一鍵列印 / 另存 A4 PDF 海報
+      <span>🖨️</span> 一鍵列印 / 存為 A4 PDF 海報
     </button>
-    <a href="soap-poster.pdf" class="btn-secondary" download="孔雀二期廢油手工皂活動電梯海報.pdf">
-      <span>📥</span> 下載現成 PDF 檔案
-    </a>
     <a href="soap-proposal.html" class="btn-secondary" target="_blank">
       <span>📱</span> 前往線上報名系統
     </a>
@@ -527,7 +496,7 @@
   <!-- A4 電梯海報標準紙張主體 -->
   <div class="a4-sheet">
 
-    <!-- 1. 頂部標題區 (對齊圖 2 格式) -->
+    <!-- 1. 頂部標題區 (大氣醒目 ‧ 對齊提案大標) -->
     <header class="poster-header">
       <div class="community-badge">
         <span>🏛️</span> 孔雀王朝第二期 ✕ 中華綠生活手工皂協會
@@ -546,7 +515,7 @@
       </div>
     </header>
 
-    <!-- 2. 仿圖 2 核心資訊清單 (6 大獨立長條看板，徹底杜絕亂碼換行) -->
+    <!-- 2. 核心資訊看板 (仿照圖 2 格式 ✕ 超大字級 16.5pt) -->
     <section class="quick-meta-list">
       <div class="quick-meta-bar">
         <div class="meta-bar-left">
@@ -596,14 +565,14 @@
         <div class="meta-bar-desc">10人以上才開課</div>
       </div>
 
-      <!-- 報名截止提醒看板 (同圖 2) -->
+      <!-- 報名截止提醒看板 (超大字級 14.5pt) -->
       <div class="deadline-bubble">
         <span>⏰</span>
         <div><strong>報名提醒</strong>：希望大家能在 <strong class="deadline-highlight">9/16(三)中午前報名</strong>，以便統計人數、準備足夠的製作器材與原料。</div>
       </div>
     </section>
 
-    <!-- 3. 活動兩大重點 (雙欄醒目卡片) -->
+    <!-- 3. 活動兩大重點 (超大字級 18.5pt / 13pt) -->
     <section class="highlights-container">
       <!-- 重點 1 -->
       <div class="highlight-box featured">
@@ -624,7 +593,7 @@
       </div>
     </section>
 
-    <!-- 4. 活動流程一覽 (四步驟 2x2 網格) -->
+    <!-- 4. 活動流程一覽 (四步驟 2x2 網格 ✕ 13pt 大字 ✕ 去除分鐘數) -->
     <section class="timeline-container">
       <div class="timeline-header">
         <span>⏱️</span> 活動流程（共 120 分鐘）
@@ -633,57 +602,43 @@
         <div class="timeline-row">
           <span class="t-badge">13:40–14:00</span>
           <span class="t-title">場地佈置與住戶報到</span>
-          <span class="t-min">20分</span>
         </div>
         <div class="timeline-row">
           <span class="t-badge">14:00–14:20</span>
           <span class="t-title">食安解密與廢油再生觀念</span>
-          <span class="t-min">20分</span>
         </div>
         <div class="timeline-row">
           <span class="t-badge">14:20–15:40</span>
           <span class="t-title">動手實作：環保家事皂</span>
-          <span class="t-min">80分</span>
         </div>
         <div class="timeline-row">
           <span class="t-badge">15:40–16:00</span>
           <span class="t-title">成品合影與場地迅速復原</span>
-          <span class="t-min">20分</span>
         </div>
       </div>
     </section>
 
-    <!-- 5. 底部 QR Code 專區 ＆ 管委會用印處 -->
+    <!-- 5. 底部 QR Code 報名專區 (超大字級 18pt ✕ 醒目清晰) -->
     <section class="cta-qr-section">
       <div class="qr-frame">
         <img src="./images/qr-soap-proposal.png" alt="手工皂報名 QR Code" onerror="this.src='./qr-soap-proposal.png'">
       </div>
       <div class="cta-content">
         <div class="cta-line-1">📱 拿出手機掃碼 ➔ <span class="green">10 秒線上預約報名</span></div>
-        <div class="cta-line-or">或</div>
-        <div class="cta-line-2">🏢 於一樓警衛室登記（家中無油現場支援）</div>
-      </div>
-      <div class="committee-stamp-box">
-        <span>🏛️<br>管委會<br>審核用印</span>
+        <div class="cta-line-2">
+          <span class="cta-or-badge">或</span>
+          <span>至警衛室登記即可（家中無油現場支援）</span>
+        </div>
       </div>
     </section>
-
-    <!-- 6. 海報最底端署名列 -->
-    <footer class="poster-footer-line">
-      <span>孔雀王朝第二期管理委員會</span>
-      <span>中華綠生活手工皂協會 共同主辦</span>
-    </footer>
 
   </div>
 
   <!-- 螢幕瀏覽底部控制列 (列印時自動隱藏) -->
-  <div class="screen-toolbar" style="margin-top: 16px;">
+  <div class="screen-toolbar" style="margin-top: 14px;">
     <button class="btn-action" onclick="window.print()">
       <span>🖨️</span> 一鍵列印 / 存為 A4 PDF 海報
     </button>
-    <a href="soap-poster.pdf" class="btn-secondary" download="孔雀二期廢油手工皂活動電梯海報.pdf">
-      <span>📥</span> 下載現成 PDF 檔案
-    </a>
     <a href="soap-proposal.html" class="btn-secondary">
       <span>📱</span> 前往線上報名系統
     </a>
