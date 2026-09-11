@@ -1015,15 +1015,19 @@
     }
 
     .modal-line-volunteer-alert {
-      font-size: 1.02rem;
-      font-weight: 700;
-      color: #fde68a;
-      background: rgba(245, 158, 11, 0.18);
-      border-left: 3px solid #f59e0b;
-      padding: 8px 10px;
-      border-radius: 4px;
-      margin-bottom: 12px;
-      line-height: 1.45;
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: #fca5a5;
+      background: rgba(239, 68, 68, 0.16);
+      border: 1.5px solid #ef4444;
+      border-left: 5px solid #ef4444;
+      padding: 10px 12px;
+      border-radius: var(--radius-sm);
+      margin-bottom: 14px;
+      line-height: 1.55;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
     }
 
     .btn-join-line-group {
@@ -1602,7 +1606,7 @@
     <!-- 頁尾宣告 -->
     <footer class="app-footer">
       <p style="font-size: 1.18rem; font-weight: 800; color: #cbd5e1;">孔雀王朝二期籌備組</p>
-      <p style="margin-top: 8px; font-size: 1.05rem; color: #94a3b8; cursor: pointer; user-select: none;" onclick="triggerAdminClick()">本系統僅供本社區住戶登記使用 <span style="font-size: 0.82rem; opacity: 0.5;">(v14.63)</span></p>
+      <p style="margin-top: 8px; font-size: 1.05rem; color: #94a3b8; cursor: pointer; user-select: none;" onclick="triggerAdminClick()">本系統僅供本社區住戶登記使用 <span style="font-size: 0.82rem; opacity: 0.5;">(v14.64)</span></p>
     </footer>
 
   </main>
@@ -1620,49 +1624,46 @@
         A棟 6樓 陳先生 ｜ 3~4位 (開烤)
       </div>
 
-      <!-- 好康三：早鳥好禮登記時戳確認 (後端審核，前端不妄下承諾杜絕誤報) -->
-      <div class="charcoal-award-box" id="charcoalAwardNotification">
-        <div class="charcoal-award-title">
-          <div class="award-top-row"><span>🎁</span> 【好康三：線上早鳥好禮】</div>
-          <span class="charcoal-award-subtitle">木炭或大瓶冷飲（前 20 戶登記資格）</span>
-        </div>
-        <div class="charcoal-award-desc">
-          <div class="award-time-row">登記時間：<code id="modalCharcoalTime"></code></div>
-          <div class="award-rule-row">系統已鎖定送出時間！大會將依全社區送出時間排序，前 20 名早鳥戶請於活動當晚 18:00 前至中庭簽名領取。</div>
-        </div>
-      </div>
-
-      <!-- 成功叮嚀清單 (移入備註一500元規則、移除噴火槍、字級放大與戶別同大) -->
+      <!-- 登記內容確認清單 (依填表順序統一排列，重要資訊清晰呈現) -->
       <div class="success-checklist">
         <div class="success-checklist-item">
           <span class="icon">✔</span>
-          <div><strong>食材補助 500 元：</strong>烤肉或自備熟食，與食材拍照並且報名任一趣味競賽，即可領取 500 元食材補助金。</div>
+          <div id="modalSummaryHousehold"><strong>戶別姓名：</strong><span>A棟 6樓 陳先生</span></div>
+        </div>
+        <div class="success-checklist-item">
+          <span class="icon">✔</span>
+          <div id="modalSummaryDining"><strong>出席聚餐：</strong><span>3~4位 (我要烤肉)</span></div>
+        </div>
+        <div class="success-checklist-item">
+          <span class="icon">✔</span>
+          <div><strong>食材補助：</strong><span>烤肉或自備熟食，與食材拍照並報名任一趣味賽事，即可領取 500 元補助金（註一）。</span></div>
         </div>
         <div class="success-checklist-item" id="modalContestSummary">
           <span class="icon">✔</span>
-          <div><strong>已報名趣味賽事：</strong>啤酒大賽、1~50 APP小遊戲。</div>
+          <div id="modalContestText"><strong>趣味競賽：</strong>尚未報名（當晚亦可現場報名）</div>
         </div>
         <div class="success-checklist-item" id="modalVolunteerSummary" style="display: none;">
           <span class="icon">✔</span>
-          <div id="modalVolunteerText"><strong>服務志工登記：</strong>已登記出勤服務。</div>
+          <div id="modalVolunteerText"><strong>志工服務：</strong>已登記 1 位（享有 500 元誤餐費，註四）</div>
         </div>
         <div class="success-checklist-item" id="modalKaraokeSummary" style="display: none;">
           <span class="icon">✔</span>
-          <div id="modalKaraokeText"><strong>星空歡唱同樂：</strong>已登記開唱，現場開唱可領 100 元同樂紅包！</div>
+          <div id="modalKaraokeText"><strong>星空歡唱：</strong>已登記開唱（登台領 100 元同樂紅包，註五）</div>
         </div>
       </div>
 
-      <!-- LINE 活動群組加入專屬卡 -->
+      <!-- LINE 活動群組加入專屬卡 (集中公告早鳥好禮、志工錄取、歡唱順序) -->
       <div class="modal-line-box">
         <div class="modal-line-title">
           <div class="modal-line-header-row"><span>💬</span> 請加入</div>
           <span class="line-group-name-single-line">孔雀王朝二期中秋烤肉群組</span>
         </div>
         <div class="modal-line-desc">
-          方便聯絡與宣布烤肉注意事項
+          線上早鳥好禮、志工名單、星空歌唱順序，將於 LINE 群組公告。
         </div>
         <div class="modal-line-volunteer-alert" id="modalLineVolunteerAlert" style="display: none;">
-          ⚠️【志工重要通知】：有登記志工服務之熱心住戶，請務必點擊加入本群組，以便後續出勤任務與責任分配！
+          <span style="font-size: 1.25rem; flex-shrink: 0;">🔺</span>
+          <div>【志工重要通知】：請務必點擊加入下方 LINE 群組，以便後續出勤任務分配與集合時間！</div>
         </div>
         <a href="https://line.me/R/ti/g/K7eeVcm52n" target="_blank" rel="noopener noreferrer" class="btn-join-line-group">
           <span>🟢</span> 一鍵加入到 LINE 群組
@@ -2125,63 +2126,59 @@
       }
     }
 
-    // 顯示成功確認卡片 (後端排序審核，前端不隨意承諾早鳥避免誤報爭議)
+    // 顯示成功確認卡片 (集中有序呈現已登記內容，資訊清晰好找)
     function showSuccessModal(data) {
-      document.getElementById("modalHouseholdText").innerText = 
-        data.building + " " + data.floor + " " + data.name + " ｜ " + data.attendees;
-
-      const awardBox = document.getElementById("charcoalAwardNotification");
-      const displayTime = formatChineseDateTime(data.time) || data.time;
-      awardBox.style.display = "block";
-      awardBox.innerHTML = `
-        <div class="charcoal-award-title">
-          <div class="award-top-row"><span>🎁</span> 【好康三：線上早鳥好禮】</div>
-          <span class="charcoal-award-subtitle">木炭或大瓶冷飲（前 20 戶登記資格）</span>
-        </div>
-        <div class="charcoal-award-desc">
-          <div class="award-time-row">登記時間：<code>${displayTime}</code></div>
-          <div class="award-rule-row">系統已鎖定送出時間！大會將依全社區送出時間統一排序，早鳥資格名單請依大會審核公告為準，前 20 名早鳥戶請於活動當晚 18:00 前至中庭簽名領取。</div>
-        </div>
-      `;
-
-      const contestSummaryEl = document.getElementById("modalContestSummary");
-      if (data.contests && data.contests.length > 0) {
-        contestSummaryEl.style.display = "flex";
-        contestSummaryEl.innerHTML = `
-          <span class="icon">✔</span>
-          <div><strong>已報名趣味賽事：</strong>${data.contests.join("、")}</div>
-        `;
-      } else {
-        contestSummaryEl.style.display = "flex";
-        contestSummaryEl.innerHTML = `
-          <span class="icon">✔</span>
-          <div><strong>趣味競賽：</strong>尚未報名（當晚亦可現場向大會直接報名參加拿紅包！）</div>
-        `;
+      // 1. 戶別姓名 (棟別、樓層、稱呼)
+      const hHighlight = document.getElementById("modalHouseholdText");
+      if (hHighlight) {
+        hHighlight.innerText = `${data.building} ${data.floor} ${data.name} ｜ ${data.attendees}`;
+      }
+      const sHousehold = document.getElementById("modalSummaryHousehold");
+      if (sHousehold) {
+        sHousehold.innerHTML = `<strong>戶別姓名：</strong><span>${data.building} ${data.floor} ${data.name}</span>`;
       }
 
+      // 2. 聚餐形式與出席人數
+      const sDining = document.getElementById("modalSummaryDining");
+      if (sDining) {
+        sDining.innerHTML = `<strong>出席聚餐：</strong><span>${data.attendees}</span>`;
+      }
+
+      // 3. 趣味競賽報名項目
+      const contestSummaryEl = document.getElementById("modalContestSummary");
+      const contestTextEl = document.getElementById("modalContestText");
+      if (contestSummaryEl && contestTextEl) {
+        if (data.contests && data.contests.length > 0) {
+          contestSummaryEl.style.display = "flex";
+          contestTextEl.innerHTML = `<strong>趣味競賽：</strong><span>${data.contests.join("、")}</span>`;
+        } else {
+          contestSummaryEl.style.display = "flex";
+          contestTextEl.innerHTML = `<strong>趣味競賽：</strong><span>尚未報名（當晚亦可現場報名）</span>`;
+        }
+      }
+
+      // 4. 服務志工人數
       const volunteerSummaryEl = document.getElementById("modalVolunteerSummary");
+      const volunteerTextEl = document.getElementById("modalVolunteerText");
+      const vAlert = document.getElementById("modalLineVolunteerAlert");
       if (data.volunteer && data.volunteer !== "不參加") {
-        volunteerSummaryEl.style.display = "flex";
-        volunteerSummaryEl.innerHTML = `
-          <span class="icon">✔</span>
-          <div><strong>服務志工登記：</strong>已登記 ${data.volunteer}，享有每人 500 元誤餐費津貼！請務必加入下方 LINE 群組協調責任分配。</div>
-        `;
-        const vAlert = document.getElementById("modalLineVolunteerAlert");
-        if (vAlert) vAlert.style.display = "block";
+        if (volunteerSummaryEl) volunteerSummaryEl.style.display = "flex";
+        if (volunteerTextEl) {
+          volunteerTextEl.innerHTML = `<strong>志工服務：</strong><span>已登記 ${data.volunteer}（享有 500 元誤餐費，註四）</span>`;
+        }
+        if (vAlert) vAlert.style.display = "flex";
       } else {
-        volunteerSummaryEl.style.display = "none";
-        const vAlert = document.getElementById("modalLineVolunteerAlert");
+        if (volunteerSummaryEl) volunteerSummaryEl.style.display = "none";
         if (vAlert) vAlert.style.display = "none";
       }
 
+      // 5. 星空歡唱
       const karaokeSummaryEl = document.getElementById("modalKaraokeSummary");
-      if (karaokeSummaryEl) {
+      const karaokeTextEl = document.getElementById("modalKaraokeText");
+      if (karaokeSummaryEl && karaokeTextEl) {
         if (data.karaoke && data.karaoke !== "不參加") {
           karaokeSummaryEl.style.display = "flex";
-          karaokeSummaryEl.innerHTML = `
-            <span class="icon">✔</span>
-            <div><strong>星空歡唱同樂：</strong>已登記「${data.karaoke}」，現場開唱即可領取 100 元同樂紅包！</div>
-          `;
+          karaokeTextEl.innerHTML = `<strong>星空歡唱：</strong><span>已登記「${data.karaoke}」（登台領 100 元紅包，註五）</span>`;
         } else {
           karaokeSummaryEl.style.display = "none";
         }
