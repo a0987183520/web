@@ -1040,6 +1040,33 @@
       font-size: 1.05rem;
     }
 
+    /* 每日修改上限柔性提示橫幅 (防惡作劇與洗版，友善導流LINE) */
+    .daily-limit-banner {
+      background: linear-gradient(135deg, rgba(245, 158, 11, 0.18) 0%, rgba(30, 41, 68, 0.55) 100%);
+      border: 1.5px solid #f59e0b;
+      border-radius: var(--radius-md);
+      padding: 14px 16px;
+      margin-bottom: 18px;
+      text-align: left;
+      animation: fadeIn 0.3s ease-out;
+    }
+
+    .daily-limit-banner .banner-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: #fde68a;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 6px;
+    }
+
+    .daily-limit-banner .banner-desc {
+      font-size: 1.02rem;
+      color: #e2e8f0;
+      line-height: 1.55;
+    }
+
     /* 頁尾版權與總幹事彩蛋管理 */
     footer.app-footer {
       text-align: center;
@@ -1260,6 +1287,19 @@
             </div>
           </div>
 
+          <!-- 每日修改次數達上限提示橫幅 (若當日修改達2次則由 JS 自動點亮) -->
+          <div class="daily-limit-banner" id="dailyLimitBanner" style="display: none;">
+            <div class="banner-title">
+              <span>⚠️</span> 今日修改次數已達上限（2次）
+            </div>
+            <div class="banner-desc">
+              為維護系統穩定與統計作業，同一設備每日最多修改 2 次。<br>
+              若您仍有緊急出席人數或賽事變更需求，歡迎直接加入
+              <a href="https://line.me/R/ti/g/K7eeVcm52n" target="_blank" rel="noopener noreferrer" style="color: #38bdf8; font-weight: 800; text-decoration: underline;">孔雀二期 LINE 群組</a>
+              留言告知大會，工作人員將即時為您手動登記調整！
+            </div>
+          </div>
+
           <!-- 1. 棟別單選 (全區11棟) -->
           <div class="form-group-item">
             <div class="form-label">
@@ -1471,7 +1511,7 @@
     <!-- 頁尾宣告 -->
     <footer class="app-footer">
       <p style="font-size: 1.18rem; font-weight: 800; color: #cbd5e1;">孔雀王朝二期籌備組</p>
-      <p style="margin-top: 8px; font-size: 1.05rem; color: #94a3b8; cursor: pointer; user-select: none;" onclick="triggerAdminClick()">本系統僅供本社區住戶登記使用 <span style="font-size: 0.82rem; opacity: 0.5;">(v14.59)</span></p>
+      <p style="margin-top: 8px; font-size: 1.05rem; color: #94a3b8; cursor: pointer; user-select: none;" onclick="triggerAdminClick()">本系統僅供本社區住戶登記使用 <span style="font-size: 0.82rem; opacity: 0.5;">(v14.60)</span></p>
     </footer>
 
   </main>
@@ -1612,6 +1652,8 @@
     const STORAGE_KEY_MY_REG = "peacock2_my_registration_v1";
     const STORAGE_KEY_GAS_URL = "peacock2_gas_api_url_v1";
     const STORAGE_KEY_DEVICE_ID = "peacock2_device_id_v1";
+    const STORAGE_KEY_DAILY_UPDATE_COUNT = "peacock2_daily_update_count_v1";
+    const MAX_DAILY_UPDATES = 2;
     const DEFAULT_GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwclivZ2_ZqYwLM0drcgQZxFB3Tt5keCLBOC26eimhxx3NMbXzMngfQ8sFAjfdv0s-p/exec";
 
     // 取得或自動建立本機載具識別碼 (保證各載具唯一)
@@ -1622,6 +1664,35 @@
         localStorage.setItem(STORAGE_KEY_DEVICE_ID, devId);
       }
       return devId;
+    }
+
+    // 取得今日已修改次數 (跨日自動歸零)
+    function getDailyUpdateCount() {
+      const todayStr = new Date().toISOString().slice(0, 10);
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY_DAILY_UPDATE_COUNT);
+        if (raw) {
+          const parsed = JSON.parse(raw);
+          if (parsed.date === todayStr) {
+            return parsed.count || 0;
+          }
+        }
+      } catch(e) {}
+      return 0;
+    }
+
+    // 遞增今日修改次數
+    function incrementDailyUpdateCount() {
+      const todayStr = new Date().toISOString().slice(0, 10);
+      const currentCount = getDailyUpdateCount();
+      const nextCount = currentCount + 1;
+      try {
+        localStorage.setItem(STORAGE_KEY_DAILY_UPDATE_COUNT, JSON.stringify({
+          date: todayStr,
+          count: nextCount
+        }));
+      } catch(e) {}
+      return nextCount;
     }
 
     function getGasApiUrl() {
@@ -1767,6 +1838,14 @@
         } catch(e) {}
       }
 
+      // 檢查是否達到同設備每日修改上限 (2次)
+      if (isDeviceUpdate && getDailyUpdateCount() >= MAX_DAILY_UPDATES) {
+        alert("提示：您今日的資料修改次數已達上限（2次）！\n若仍需緊急變動名冊，歡迎直接至「孔雀二期 LINE 群組」留言告知大會，工作人員將即時為您手動調整！😊");
+        const limitBanner = document.getElementById("dailyLimitBanner");
+        if (limitBanner) limitBanner.style.display = "block";
+        return;
+      }
+
       // 讀取既有全部紀錄
       let allRecords = getStoredRecords();
 
@@ -1859,13 +1938,12 @@
       };
       localStorage.setItem(STORAGE_KEY_MY_REG, JSON.stringify(myRegData));
 
-      // 同步非同步推送到 Google Sheets 雲端資料庫 (支援12欄結構)
+      // 同步非同步推送到 Google Sheets 雲端資料庫 (維持純淨12欄結構，不傳送無意義deviceId)
       syncToGoogleSheets({
         action: "register",
         orderNo: recordOrderNumber,
         timestamp: firstRegisteredTime, // 鎖定並傳遞首次登記時間！
         updateTime: exactTime,
-        deviceId: devId,
         building: selectedBuilding,
         floor: selectedFloor,
         name: nameVal,
@@ -1878,9 +1956,18 @@
         auditNote: auditNoteVal
       });
 
-      // 友善非阻斷提示：若為修改資料，主動提示已為其保留原時間與早鳥
+      // 友善非阻斷提示：若為修改資料，遞增計數並提示已保留原時間
       if (isDeviceUpdate) {
-        alert(`已為您更新登記資料！\n系統已自動為您保留第一次登記時間（${firstRegisteredTime}）與原早鳥資格。😊`);
+        const newCount = incrementDailyUpdateCount();
+        if (newCount >= MAX_DAILY_UPDATES) {
+          const limitBanner = document.getElementById("dailyLimitBanner");
+          if (limitBanner) limitBanner.style.display = "block";
+          const btnPrimary = document.getElementById("btnSubmitPrimaryText");
+          const btnSubtitle = document.getElementById("btnSubmitSubtitleText");
+          if (btnPrimary) btnPrimary.innerHTML = `<span>⚠️</span> 今日修改已達上限（2次）`;
+          if (btnSubtitle) btnSubtitle.innerHTML = `緊急變更請至 LINE 群組告知大會`;
+        }
+        alert(`已為您更新登記資料（今日修改 ${newCount}/2 次）！\n系統已自動為您保留第一次登記時間（${firstRegisteredTime}）與原早鳥資格。😊`);
       }
 
       // 觸發展示第三屏成功確認卡
@@ -2047,12 +2134,22 @@
             bannerEl.style.display = "block";
           }
 
-          // 動態修改送出按鈕為主標「確認修改登記資料」、副標「保留初次時間與早鳥資格」
+          // 檢查今日修改次數並切換送出按鈕狀態
+          const dailyCount = getDailyUpdateCount();
           const btnPrimary = document.getElementById("btnSubmitPrimaryText");
           const btnSubtitle = document.getElementById("btnSubmitSubtitleText");
-          if (btnPrimary) btnPrimary.innerHTML = `<span>✨</span> 確認修改登記資料`;
-          if (btnSubtitle && firstTime) {
-            btnSubtitle.innerHTML = `保留初次時間（${firstTime}）與早鳥資格`;
+
+          if (dailyCount >= MAX_DAILY_UPDATES) {
+            const limitBanner = document.getElementById("dailyLimitBanner");
+            if (limitBanner) limitBanner.style.display = "block";
+            if (btnPrimary) btnPrimary.innerHTML = `<span>⚠️</span> 今日修改已達上限（2次）`;
+            if (btnSubtitle) btnSubtitle.innerHTML = `緊急變更請至 LINE 群組告知大會`;
+          } else {
+            if (btnPrimary) btnPrimary.innerHTML = `<span>✨</span> 確認修改登記資料`;
+            if (btnSubtitle && firstTime) {
+              const countText = dailyCount > 0 ? ` (今日已改${dailyCount}/2次)` : "";
+              btnSubtitle.innerHTML = `保留初次時間（${firstTime}）與早鳥資格${countText}`;
+            }
           }
 
           if (data.building) {
