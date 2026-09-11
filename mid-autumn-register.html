@@ -1003,6 +1003,43 @@
       cursor: pointer;
     }
 
+    /* 本載具已登記溫馨提示橫幅 (秒級識別，提醒不封鎖) */
+    .existing-reg-banner {
+      background: linear-gradient(135deg, rgba(56, 189, 248, 0.16) 0%, rgba(30, 41, 68, 0.5) 100%);
+      border: 1.5px solid #38bdf8;
+      border-radius: var(--radius-md);
+      padding: 12px 16px;
+      margin-bottom: 18px;
+      text-align: left;
+      animation: fadeIn 0.3s ease-out;
+    }
+
+    .existing-reg-banner .banner-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: #38bdf8;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 6px;
+    }
+
+    .existing-reg-banner .banner-desc {
+      font-size: 1.02rem;
+      color: #e2e8f0;
+      line-height: 1.55;
+    }
+
+    .existing-reg-banner .banner-desc code {
+      color: #fde68a;
+      font-family: inherit;
+      font-weight: 800;
+      background: rgba(245, 158, 11, 0.2);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 1.05rem;
+    }
+
     /* 頁尾版權與總幹事彩蛋管理 */
     footer.app-footer {
       text-align: center;
@@ -1212,6 +1249,17 @@
 
         <form id="bookingForm" onsubmit="handleFormSubmit(event)">
 
+          <!-- 本載具已登記溫馨提示橫幅 (若本手機已登記過，由 JS 自動點亮) -->
+          <div class="existing-reg-banner" id="existingRegBanner" style="display: none;">
+            <div class="banner-title">
+              <span>💡</span> 偵測到本載具已完成出席登記！
+            </div>
+            <div class="banner-desc">
+              首次登記時間：<code id="bannerFirstTime"></code><br>
+              若需調整人數、聚餐形式或賽事，可直接修改內容並送出。系統將為您<strong>保留第一次登記時間與早鳥資格</strong>！
+            </div>
+          </div>
+
           <!-- 1. 棟別單選 (全區11棟) -->
           <div class="form-group-item">
             <div class="form-label">
@@ -1353,8 +1401,9 @@
             <div class="form-label" style="display: flex; flex-direction: column; align-items: flex-start; gap: 4px;">
               <span>7. 報名志工服務（自由報名）</span>
               <span style="font-size: 1.05rem; font-weight: 700; color: #fde68a;">誤餐費 500 元（註四）</span>
+              <span style="font-size: 0.95rem; font-weight: 600; color: #cbd5e1; line-height: 1.45;">每戶暫以 1 位為原則。同戶若有多位家人熱情想出勤服務，請至「孔雀二期 LINE 群組」登記備選名額，名額釋出優先遞補！</span>
             </div>
-            <input type="text" id="volunteerInput" class="text-input-field" placeholder="輸入報名志工人數" autocomplete="off">
+            <input type="text" id="volunteerInput" class="text-input-field" placeholder="輸入報名志工人數（同戶多位請至 LINE 群組備選）" autocomplete="off">
           </div>
 
           <!-- 8. 星空歡唱同樂 (自由報名) -->
@@ -1363,18 +1412,19 @@
               <span>8. 星空歡唱同樂（自由報名）</span>
               <div style="font-size: 1.05rem; font-weight: 700; color: #fde68a; line-height: 1.45;">
                 <div>登台開唱領 100 元同樂紅包</div>
-                <div style="margin-top: 2px;">每戶暫定一個名額（註五）</div>
+                <div style="margin-top: 2px;">每戶暫以 1 首為原則（註五）</div>
               </div>
+              <span style="font-size: 0.95rem; font-weight: 600; color: #cbd5e1; line-height: 1.45;">同戶若有多位家人熱情想開唱，請至「孔雀二期 LINE 群組」登記備選名額，名額釋出優先遞補！</span>
             </div>
-            <input type="text" id="karaokeInput" class="text-input-field" placeholder="請填寫：演唱者 ＆ 歌名（例：陳先生-月亮代表我的心；同戶第2位請逗號分開：陳太太-小城故事；不參加請留空）" autocomplete="off">
+            <input type="text" id="karaokeInput" class="text-input-field" placeholder="請填寫：演唱者 ＆ 歌名（例：陳先生-月亮代表我的心；同戶多位請至 LINE 群組備選；不參加請留空）" autocomplete="off">
           </div>
 
           <!-- 送出按鈕 (雙行結構：確認登記 ＋ 預約食材補助 500 元) -->
-          <button type="submit" class="btn-submit-register">
-            <div class="btn-submit-primary">
+          <button type="submit" class="btn-submit-register" id="btnSubmitRegister">
+            <div class="btn-submit-primary" id="btnSubmitPrimaryText">
               <span>✨</span> 確認登記
             </div>
-            <div class="btn-submit-subtitle">
+            <div class="btn-submit-subtitle" id="btnSubmitSubtitleText">
               預約食材補助 500 元
             </div>
           </button>
@@ -1404,13 +1454,13 @@
           <div class="note-row">
             <span class="note-pill">註四</span>
             <div class="note-text">
-              為鼓勵住戶與學子參與公共事務，特設<span class="note-highlight">志工隊</span>（支援烤肉、分裝、趣味賽事），名額暫定 10 位，視出席規模滾動調整，依線上表單送出時間先報先錄取。（限國小五年級含以上至 79 歲含以下報名）
+              為鼓勵住戶與學子參與公共事務，特設<span class="note-highlight">志工隊</span>（支援烤肉、分裝、趣味賽事）。每戶暫以 1 位為原則（享有 500 元誤餐費），若同戶有多位家人熱情想服務，請於「孔雀二期 LINE 群組」登記備選名額。全場名額暫定 10 位，依線上表單送出時間先報先錄取。（限國小五年級含以上至 79 歲含以下報名）
             </div>
           </div>
           <div class="note-row">
             <span class="note-pill">註五</span>
             <div class="note-text">
-              每人限領一次紅包。全場上限 20 首，每戶暫定 1 位，若名額未滿開放同戶第 2 位，依線上表單送出時間依序錄取。
+              每人限領一次紅包。全場上限 20 首，每戶暫以 1 首為原則。同戶若有多位想開唱，請至「孔雀二期 LINE 群組」登記備選名額，若名額未滿依序優先遞補。
             </div>
           </div>
         </div>
@@ -1421,7 +1471,7 @@
     <!-- 頁尾宣告 -->
     <footer class="app-footer">
       <p style="font-size: 1.18rem; font-weight: 800; color: #cbd5e1;">孔雀王朝二期籌備組</p>
-      <p style="margin-top: 8px; font-size: 1.05rem; color: #94a3b8; cursor: pointer; user-select: none;" onclick="triggerAdminClick()">本系統僅供本社區住戶登記使用 <span style="font-size: 0.82rem; opacity: 0.5;">(v14.58)</span></p>
+      <p style="margin-top: 8px; font-size: 1.05rem; color: #94a3b8; cursor: pointer; user-select: none;" onclick="triggerAdminClick()">本系統僅供本社區住戶登記使用 <span style="font-size: 0.82rem; opacity: 0.5;">(v14.59)</span></p>
     </footer>
 
   </main>
@@ -1529,6 +1579,7 @@
               <th>星空歡唱</th>
               <th>早鳥資格</th>
               <th>報名賽事</th>
+              <th>審核備註</th>
             </tr>
           </thead>
           <tbody id="adminTableBody">
@@ -1560,7 +1611,18 @@
     const STORAGE_KEY_RECORDS = "peacock2_mid_autumn_records_v1";
     const STORAGE_KEY_MY_REG = "peacock2_my_registration_v1";
     const STORAGE_KEY_GAS_URL = "peacock2_gas_api_url_v1";
+    const STORAGE_KEY_DEVICE_ID = "peacock2_device_id_v1";
     const DEFAULT_GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwclivZ2_ZqYwLM0drcgQZxFB3Tt5keCLBOC26eimhxx3NMbXzMngfQ8sFAjfdv0s-p/exec";
+
+    // 取得或自動建立本機載具識別碼 (保證各載具唯一)
+    function getOrCreateDeviceId() {
+      let devId = localStorage.getItem(STORAGE_KEY_DEVICE_ID);
+      if (!devId) {
+        devId = "DEV_" + Date.now().toString(36) + "_" + Math.random().toString(36).substring(2, 8);
+        localStorage.setItem(STORAGE_KEY_DEVICE_ID, devId);
+      }
+      return devId;
+    }
 
     function getGasApiUrl() {
       return localStorage.getItem(STORAGE_KEY_GAS_URL) || DEFAULT_GOOGLE_SCRIPT_URL;
@@ -1688,7 +1750,24 @@
       // 合併出席人數與用餐形式
       const attendeesWithDining = selectedAttendees + " (" + selectedDiningType + ")";
 
-      // 讀取既有紀錄
+      // 載具辨識與首筆時間鎖定 (提醒不封鎖，保留首筆時間與早鳥資格)
+      const devId = getOrCreateDeviceId();
+      let firstRegisteredTime = exactTime;
+      let isDeviceUpdate = false;
+
+      // 讀取本載具歷史登記資料
+      const rawMyReg = localStorage.getItem(STORAGE_KEY_MY_REG);
+      if (rawMyReg) {
+        try {
+          const parsed = JSON.parse(rawMyReg);
+          if (parsed && (parsed.firstRegisteredTime || parsed.time)) {
+            firstRegisteredTime = parsed.firstRegisteredTime || parsed.time;
+            isDeviceUpdate = true;
+          }
+        } catch(e) {}
+      }
+
+      // 讀取既有全部紀錄
       let allRecords = getStoredRecords();
 
       // 判斷是否同戶已登記
@@ -1702,13 +1781,26 @@
       const karaokeInputEl = document.getElementById("karaokeInput");
       const karaokeVal = (karaokeInputEl && karaokeInputEl.value.trim()) ? karaokeInputEl.value.trim() : "不參加";
 
+      let auditNoteVal = "正常登記";
+
       if (existingIndex > -1) {
-        const confirmUpdate = confirm("提示：【" + selectedBuilding + " " + selectedFloor + "】先前已登記過，是否更新本次出席名單與賽事資料？");
-        if (!confirmUpdate) return;
         recordOrderNumber = allRecords[existingIndex].orderNo;
         isEarlyBird = (recordOrderNumber <= 20);
+
+        // 若本戶先前已有時間記錄，嚴格繼承該戶最初登記時間
+        if (allRecords[existingIndex].firstRegisteredTime || allRecords[existingIndex].time) {
+          firstRegisteredTime = allRecords[existingIndex].firstRegisteredTime || allRecords[existingIndex].time;
+        }
+
+        if (isDeviceUpdate) {
+          auditNoteVal = `本人修改資料 (初次:${firstRegisteredTime}, 更新:${exactTime})`;
+        } else {
+          auditNoteVal = `同戶多位報名 (首筆時間:${firstRegisteredTime}, 本筆:${exactTime})`;
+        }
+
         allRecords[existingIndex] = {
           orderNo: recordOrderNumber,
+          deviceId: devId,
           building: selectedBuilding,
           floor: selectedFloor,
           name: nameVal,
@@ -1717,13 +1809,17 @@
           volunteer: volunteerVal,
           karaoke: karaokeVal,
           contests: selectedContests,
-          time: exactTime,
-          isEarlyBird: isEarlyBird
+          time: firstRegisteredTime, // 鎖定保留初次時間！
+          updateTime: exactTime,
+          firstRegisteredTime: firstRegisteredTime,
+          isEarlyBird: isEarlyBird,
+          auditNote: auditNoteVal
         };
       } else {
         isEarlyBird = (recordOrderNumber <= 20);
         allRecords.push({
           orderNo: recordOrderNumber,
+          deviceId: devId,
           building: selectedBuilding,
           floor: selectedFloor,
           name: nameVal,
@@ -1732,17 +1828,21 @@
           volunteer: volunteerVal,
           karaoke: karaokeVal,
           contests: selectedContests,
-          time: exactTime,
-          isEarlyBird: isEarlyBird
+          time: firstRegisteredTime,
+          updateTime: exactTime,
+          firstRegisteredTime: firstRegisteredTime,
+          isEarlyBird: isEarlyBird,
+          auditNote: auditNoteVal
         });
       }
 
       // 存入本地 localStorage
       saveStoredRecords(allRecords);
 
-      // 記住我個人的最新登記
+      // 記住我個人的最新登記 (鎖定初次登記時間)
       const myRegData = {
         orderNo: recordOrderNumber,
+        deviceId: devId,
         building: selectedBuilding,
         floor: selectedFloor,
         name: nameVal,
@@ -1751,16 +1851,21 @@
         volunteer: volunteerVal,
         karaoke: karaokeVal,
         contests: selectedContests,
-        time: exactTime,
-        isEarlyBird: isEarlyBird
+        time: firstRegisteredTime, // 供第三畫面呈現首筆時間
+        updateTime: exactTime,
+        firstRegisteredTime: firstRegisteredTime,
+        isEarlyBird: isEarlyBird,
+        auditNote: auditNoteVal
       };
       localStorage.setItem(STORAGE_KEY_MY_REG, JSON.stringify(myRegData));
 
-      // 同步非同步推送到 Google Sheets 雲端資料庫
+      // 同步非同步推送到 Google Sheets 雲端資料庫 (支援12欄結構)
       syncToGoogleSheets({
         action: "register",
         orderNo: recordOrderNumber,
-        timestamp: exactTime,
+        timestamp: firstRegisteredTime, // 鎖定並傳遞首次登記時間！
+        updateTime: exactTime,
+        deviceId: devId,
         building: selectedBuilding,
         floor: selectedFloor,
         name: nameVal,
@@ -1769,8 +1874,14 @@
         volunteer: volunteerVal,
         karaoke: karaokeVal,
         isEarlyBird: isEarlyBird ? "★ 早鳥好禮二選一(限18:00前領)" : "無",
-        contests: selectedContests.length ? selectedContests.join("、") : "未報名"
+        contests: selectedContests.length ? selectedContests.join("、") : "未報名",
+        auditNote: auditNoteVal
       });
+
+      // 友善非阻斷提示：若為修改資料，主動提示已為其保留原時間與早鳥
+      if (isDeviceUpdate) {
+        alert(`已為您更新登記資料！\n系統已自動為您保留第一次登記時間（${firstRegisteredTime}）與原早鳥資格。😊`);
+      }
 
       // 觸發展示第三屏成功確認卡
       showSuccessModal(myRegData);
@@ -1920,12 +2031,30 @@
       alert("已複製宣傳文字！請直接到 LINE 貼上傳送給鄰居好友！😊");
     }
 
-    // 檢查先前是否已登記過
+    // 檢查先前是否已登記過 (載具秒級識別，動態點亮提示橫幅與修改模式)
     function checkExistingRegistration() {
       const raw = localStorage.getItem(STORAGE_KEY_MY_REG);
       if (raw) {
         try {
           const data = JSON.parse(raw);
+          const firstTime = data.firstRegisteredTime || data.time;
+
+          // 點亮表單頂部已登記提示橫幅
+          const bannerEl = document.getElementById("existingRegBanner");
+          const bannerTimeEl = document.getElementById("bannerFirstTime");
+          if (bannerEl && bannerTimeEl && firstTime) {
+            bannerTimeEl.innerText = firstTime;
+            bannerEl.style.display = "block";
+          }
+
+          // 動態修改送出按鈕為主標「確認修改登記資料」、副標「保留初次時間與早鳥資格」
+          const btnPrimary = document.getElementById("btnSubmitPrimaryText");
+          const btnSubtitle = document.getElementById("btnSubmitSubtitleText");
+          if (btnPrimary) btnPrimary.innerHTML = `<span>✨</span> 確認修改登記資料`;
+          if (btnSubtitle && firstTime) {
+            btnSubtitle.innerHTML = `保留初次時間（${firstTime}）與早鳥資格`;
+          }
+
           if (data.building) {
             const bBtn = document.querySelector(`#buildingGroup .pill-btn[data-val="${data.building}"]`);
             if (bBtn) selectBuilding(bBtn);
@@ -1938,7 +2067,9 @@
             document.getElementById("residentNameInput").value = data.name;
           }
           if (data.attendees) {
-            const aBtn = document.querySelector(`#attendeesGroup .pill-btn[data-val="${data.attendees}"]`);
+            const cleanAttendees = data.attendees.split(" ")[0];
+            const aBtn = document.querySelector(`#attendeesGroup .pill-btn[data-val="${cleanAttendees}"]`) ||
+                         document.querySelector(`#attendeesGroup .pill-btn[data-val="${data.attendees}"]`);
             if (aBtn) selectAttendees(aBtn);
           }
           if (data.diningType) {
@@ -2037,6 +2168,7 @@
             <td style="color:#fcd34d; font-size:0.82rem;">${r.karaoke || "不參加"}</td>
             <td style="color:${isEarly ? '#f59e0b' : '#94a3b8'}; white-space:nowrap;">${isEarly ? '★ 早鳥第' + (idx+1) + '名' : '無'}</td>
             <td>${(r.contests && r.contests.length) ? r.contests.join("<br>") : "未報賽事"}</td>
+            <td style="font-size:0.75rem; color:#94a3b8; white-space:nowrap;">${r.auditNote || "正常登記"}</td>
           `;
           tbody.appendChild(tr);
         });
@@ -2048,19 +2180,20 @@
       document.getElementById("adminModal").classList.remove("active");
     }
 
-    // 匯出 CSV 檔 (供管委會於 Excel 開啟列印簽收)
+    // 匯出 CSV 檔 (供管委會於 Excel 開啟列印簽收，含審核備註)
     function exportCSV() {
       const records = getStoredRecords();
       if (records.length === 0) {
         alert("尚無登記資料可匯出！");
         return;
       }
-      let csvContent = "\uFEFF序號,登記時間,棟別,樓層,姓名,出席人數,聚餐形式,服務志工,星空歡唱,早鳥資格,報名賽事\n";
+      let csvContent = "\uFEFF序號,登記時間,棟別,樓層,姓名,出席人數,聚餐形式,服務志工,星空歡唱,早鳥資格,報名賽事,審核備註\n";
       records.forEach((r, idx) => {
         const isEarly = (idx < 20) ? "早鳥好禮二選一(限18:00前領)" : "無";
         const contests = (r.contests || []).join(" / ");
         const pureAttendees = (r.attendees || '').replace(/\s*\(.*?\)/, '');
-        csvContent += `"${r.orderNo || (idx+1)}","${r.time || ''}","${r.building}","${r.floor}","${r.name || ''}","${pureAttendees}","${r.diningType || ''}","${r.volunteer || '不參加'}","${r.karaoke || '不參加'}","${isEarly}","${contests}"\n`;
+        const auditNote = r.auditNote || '正常登記';
+        csvContent += `"${r.orderNo || (idx+1)}","${r.time || ''}","${r.building}","${r.floor}","${r.name || ''}","${pureAttendees}","${r.diningType || ''}","${r.volunteer || '不參加'}","${r.karaoke || '不參加'}","${isEarly}","${contests}","${auditNote}"\n`;
       });
 
       const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
