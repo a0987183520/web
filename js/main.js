@@ -2735,3 +2735,27 @@ document.addEventListener('keydown', (e) => {
         if (typeof closeSubProposalModal === 'function') closeSubProposalModal();
     }
 });
+
+// 切換展開/收合首頁「新昱的應徵信」
+function toggleHeroLetter() {
+    const panel = document.getElementById('hero-letter-panel');
+    const btn = document.getElementById('btn-read-letter');
+    const arrow = document.getElementById('letter-btn-arrow');
+    const text = document.getElementById('letter-btn-text');
+    if (!panel) return;
+
+    const isHidden = panel.style.display === 'none';
+    if (isHidden) {
+        panel.style.display = 'block';
+        if (btn) btn.setAttribute('aria-expanded', 'true');
+        if (arrow) arrow.textContent = '▴';
+        if (text) text.textContent = '收合新昱的應徵信';
+        panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    } else {
+        panel.style.display = 'none';
+        if (btn) btn.setAttribute('aria-expanded', 'false');
+        if (arrow) arrow.textContent = '▾';
+        if (text) text.textContent = '點選閱讀新昱的應徵信';
+    }
+}
+
