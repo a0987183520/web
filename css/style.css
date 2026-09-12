@@ -574,21 +574,24 @@ nav {
 }
 
 .letter-salutation {
-    font-size: 1.15rem;
+    font-size: 1.35rem;
     font-weight: 800;
     color: var(--accent-primary, #fbbf24);
-    margin-bottom: 0.8rem;
+    margin-bottom: 0.85rem;
+    letter-spacing: 0.02em;
 }
 
 .letter-body p {
-    font-size: 0.98rem;
-    line-height: 1.75;
+    font-size: 1.22rem;
+    font-weight: 500;
+    line-height: 1.72;
     color: var(--text-primary);
-    margin-bottom: 0.8rem;
+    margin-bottom: 0.9rem;
+    letter-spacing: 0.015em;
 }
 
 .letter-body-p2 {
-    margin-bottom: 0.35rem !important; /* 緊縮第二段間距，緊接結尾呼籲與簽名 */
+    margin-bottom: 0.45rem !important; /* 緊縮第二段間距，緊接結尾呼籲與簽名 */
 }
 
 /* 底部精緻緊湊排版區：左側兩行呼籲與收起按鈕緊密相依，右側簽名圖右上角自然上提跨入第二段結尾空白處 */
@@ -597,7 +600,7 @@ nav {
     align-items: center;
     justify-content: space-between;
     gap: 1.2rem;
-    margin-top: -0.4rem;
+    margin-top: -0.2rem;
     position: relative;
 }
 
@@ -609,10 +612,11 @@ nav {
 }
 
 .letter-closing-msg {
-    font-size: 1.05rem;
-    font-weight: 700;
+    font-size: 1.25rem;
+    font-weight: 800;
     color: #38bdf8;
-    line-height: 1.6;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
 }
 
 .letter-collapse-inline-wrap {
@@ -699,6 +703,16 @@ nav {
         gap: 0.8rem;
         margin-top: 0.3rem;
     }
+    .letter-salutation {
+        font-size: 1.22rem;
+    }
+    .letter-body p {
+        font-size: 1.12rem;
+        line-height: 1.68;
+    }
+    .letter-closing-msg {
+        font-size: 1.15rem;
+    }
     .letter-signature-wrap {
         align-self: flex-end;
     }
@@ -729,6 +743,13 @@ nav {
 @media (max-width: 440px) {
     .hero-slogan-lines .slogan-line {
         font-size: 0.98rem;
+    }
+    .letter-body p {
+        font-size: 1.05rem;
+        line-height: 1.65;
+    }
+    .letter-closing-msg {
+        font-size: 1.08rem;
     }
 }
 
