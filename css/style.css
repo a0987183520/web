@@ -440,18 +440,20 @@ nav {
     flex-shrink: 0;
 }
 
-/* 三行行動金句 ✕ 跨三行高規格雙行行動按鈕 */
+/* 三行行動金句 ✕ 跨三行高規格雙行行動按鈕（全模組左右置中、加大呼吸感間距） */
 .hero-action-slogan-wrap {
     width: 100%;
-    max-width: 580px;
-    margin: 0.3rem 0 1.3rem;
+    max-width: 620px;
+    margin: 0.6rem auto 1.3rem;
+    display: flex;
+    justify-content: center;
 }
 
 .hero-slogan-cta-group {
     display: flex;
     align-items: center;
-    justify-content: flex-start;
-    gap: 1.4rem;
+    justify-content: center;
+    gap: 2.2rem;
     width: 100%;
 }
 
@@ -459,10 +461,10 @@ nav {
     display: flex;
     flex-direction: column;
     gap: 0.35rem;
-    text-align: left;
+    text-align: center;
 }
 
-/* 三行字體完全等大 (1.28rem 粗體 800)，消除忽大忽小問題 */
+/* 三行字體完全等大 (1.28rem 粗體 800)，消除忽大忽小問題，逐行置中對齊 */
 .hero-slogan-lines .slogan-line {
     font-size: 1.28rem;
     font-weight: 800;
@@ -470,6 +472,7 @@ nav {
     color: var(--text-primary);
     letter-spacing: 0.02em;
     display: block;
+    text-align: center;
 }
 
 .hero-slogan-lines .highlight-slogan-line {
@@ -489,7 +492,7 @@ nav {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 0.75rem 1.4rem;
+    padding: 0.8rem 1.45rem;
     background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
     color: #0f172a;
     border: none;
@@ -512,6 +515,7 @@ nav {
     line-height: 1.25;
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 0.35rem;
 }
 
@@ -519,18 +523,23 @@ nav {
     font-size: 1.22rem;
     font-weight: 900;
     line-height: 1.25;
-    margin-top: 0.15rem;
+    margin-top: 0.2rem;
     display: flex;
     align-items: center;
-    gap: 0.25rem;
+    justify-content: center;
+    gap: 0.35rem;
 }
 
 .btn-read-letter-card .letter-btn-icon {
     font-size: 1.15rem;
+    display: inline-block;
+    vertical-align: middle;
 }
 
 .btn-read-letter-card .letter-btn-arrow {
     font-size: 1.15rem;
+    display: inline-block;
+    vertical-align: middle;
     transition: transform 0.25s ease;
 }
 
@@ -563,14 +572,14 @@ nav {
     margin-bottom: 0.8rem;
 }
 
-/* 底部左右並排區：左側結尾呼籲，右側抬頭與簽名上移並排（刪除分隔線） */
+/* 底部左右並排區：左側結尾呼籲與右側親筆簽名「垂直居中（center）」對齊，徹底消除左側沈底與上方空白 */
 .letter-footer-row {
     display: flex;
-    align-items: flex-end;
+    align-items: center;
     justify-content: space-between;
     gap: 1.2rem;
-    margin-top: 0.8rem;
-    padding-top: 0.4rem;
+    margin-top: 1rem;
+    padding-top: 0.6rem;
     border-top: none;
 }
 
@@ -583,11 +592,15 @@ nav {
 
 .letter-signature-wrap {
     flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .letter-signature-img {
-    max-width: 170px;
+    max-width: 175px;
     height: auto;
+    display: block;
     filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.4));
 }
 

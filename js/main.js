@@ -2741,24 +2741,23 @@ function toggleHeroLetter() {
     const panel = document.getElementById('hero-letter-panel');
     const btn = document.getElementById('btn-read-letter');
     const arrow = document.getElementById('letter-btn-arrow');
-    const text = document.getElementById('letter-btn-text');
+    const action = document.getElementById('letter-btn-action');
     if (!panel) return;
 
     const isHidden = panel.style.display === 'none';
     if (isHidden) {
         panel.style.display = 'block';
         if (btn) btn.setAttribute('aria-expanded', 'true');
+        if (action) action.textContent = '收起';
         if (arrow) arrow.textContent = '▴';
-        if (text) text.textContent = '收起信件';
         panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     } else {
         panel.style.display = 'none';
-        if (btn) {
-            btn.setAttribute('aria-expanded', 'false');
-            btn.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }
+        if (btn) btn.setAttribute('aria-expanded', 'false');
+        if (action) action.textContent = '點選';
         if (arrow) arrow.textContent = '▾';
-        if (text) text.textContent = '看應徵信';
+        // 平滑滾動至頁面頂部（Hero 完整呈現），徹底解決收起後第一行「我想向各位里民」被頂部導航列截斷遮蔽的問題
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 }
 
