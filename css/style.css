@@ -361,65 +361,117 @@ nav {
 
 .hero-subhead {
     display: block;
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--text-secondary);
-    letter-spacing: 0.05em;
+    font-size: 2.6rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    letter-spacing: 0.02em;
     margin-bottom: 0.4rem;
+    line-height: 1.25;
 }
 
 .hero-mainhead {
     display: block;
-    font-size: 2.8rem;
+    font-size: 2.85rem;
     font-weight: 900;
     line-height: 1.25;
     letter-spacing: -0.01em;
 }
 
-.hero-credentials-card {
+.hero-credentials-wrap {
     width: 100%;
     max-width: 580px;
-    padding: 1.25rem 1.6rem;
-    margin: 1.2rem 0 1.25rem;
-    border-radius: 20px;
-    border: 1px solid rgba(251, 191, 36, 0.25);
-    background: rgba(15, 23, 42, 0.65);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    margin: 1.5rem 0 1.6rem;
     text-align: left;
-    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
 }
 
-.hero-credential-lead {
-    font-size: 1.15rem;
+.hero-lead-parent {
+    font-size: 1.25rem;
     font-weight: 700;
-    color: var(--accent-primary, #fbbf24);
-    margin-bottom: 0.5rem;
-    line-height: 1.5;
+    color: var(--text-primary);
+    margin-bottom: 1.1rem;
+    line-height: 1.6;
 }
 
-.hero-credential-sub {
-    font-size: 1rem;
-    font-weight: 500;
-    color: var(--text-primary);
-    line-height: 1.6;
+/* "故事爸爸" 與 "EQ 爸爸" 八字加大並加光暈 */
+.glow-tag {
+    display: inline-block;
+    font-size: 1.45rem;
+    font-weight: 900;
+    padding: 0 0.2rem;
+    letter-spacing: 0.02em;
+    vertical-align: baseline;
+}
+
+.glow-tag.story-dad {
+    color: #fbbf24;
+    text-shadow: 0 0 14px rgba(251, 191, 36, 0.85), 0 0 28px rgba(251, 191, 36, 0.45);
+}
+
+.glow-tag.eq-dad {
+    color: #38bdf8;
+    text-shadow: 0 0 14px rgba(56, 189, 248, 0.85), 0 0 28px rgba(56, 189, 248, 0.45);
+}
+
+/* 4項重要資歷：文字加大、去標點、去外框、微光重點 bullet */
+.hero-credentials-list {
+    list-style: none;
+    padding: 0;
     margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.hero-credentials-list li {
+    font-size: 1.22rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    line-height: 1.5;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    letter-spacing: 0.02em;
+}
+
+.cred-bullet {
+    color: #fbbf24;
+    font-size: 1rem;
+    text-shadow: 0 0 8px rgba(251, 191, 36, 0.8);
+    flex-shrink: 0;
+}
+
+/* 三行行動金句 */
+.hero-action-slogan-wrap {
+    width: 100%;
+    max-width: 580px;
+    margin-bottom: 1.6rem;
 }
 
 .hero-action-slogan {
-    font-size: 1.12rem;
+    font-size: 1.18rem;
     font-weight: 700;
-    color: var(--accent-cyan, #38bdf8);
-    margin: 0.5rem 0 1.5rem;
-    line-height: 1.6;
-    text-align: center;
+    line-height: 1.85;
+    color: var(--text-secondary);
+    text-align: left;
+    margin: 0;
+}
+
+.hero-action-slogan span {
+    display: inline-block;
+}
+
+.highlight-slogan-line {
+    color: #38bdf8 !important;
+    font-size: 1.28rem;
+    font-weight: 800;
+    text-shadow: 0 0 14px rgba(56, 189, 248, 0.45);
 }
 
 .hero-letter-cta-wrap {
     margin-bottom: 1.25rem;
     width: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
 }
 
 .btn-read-letter {
@@ -477,56 +529,90 @@ nav {
     margin-bottom: 0.8rem;
 }
 
-.letter-highlight {
+/* 底部左右並排區：左側結尾呼籲，右側抬頭與簽名上移並排 */
+.letter-footer-row {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 1.2rem;
+    margin-top: 1.2rem;
+    padding-top: 1rem;
+    border-top: 1px dashed rgba(255, 255, 255, 0.15);
+}
+
+.letter-closing-msg {
+    font-size: 1.05rem;
     font-weight: 700;
-    color: #38bdf8 !important;
-    border-left: 3px solid #38bdf8;
-    padding-left: 0.8rem;
-    margin-top: 1rem !important;
+    color: #38bdf8;
+    line-height: 1.6;
 }
 
 .letter-signature-wrap {
-    display: flex;
-    justify-content: flex-end;
-    margin-top: 0.5rem;
+    flex-shrink: 0;
 }
 
 .letter-signature-img {
-    max-width: 180px;
+    max-width: 170px;
     height: auto;
     filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.4));
 }
 
-.hero-handwritten-badge {
-    position: absolute;
-    bottom: -15px;
-    right: -15px;
-    z-index: 5;
-    pointer-events: none;
-    max-width: 280px;
-    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.6));
+/* 應徵信底部收起按鈕 */
+.letter-collapse-action {
+    display: flex;
+    justify-content: center;
+    margin-top: 1.2rem;
+    padding-top: 0.8rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.hero-quote-sticker-img {
-    width: 100%;
-    height: auto;
-    display: block;
+.btn-collapse-letter {
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--text-secondary);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 9999px;
+    padding: 0.5rem 1.4rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.btn-collapse-letter:hover {
+    background: rgba(245, 158, 11, 0.15);
+    color: var(--accent-primary, #fbbf24);
+    border-color: rgba(245, 158, 11, 0.4);
 }
 
 @media (max-width: 768px) {
+    .hero-subhead {
+        font-size: 1.85rem;
+    }
     .hero-mainhead {
         font-size: 2.1rem;
     }
-    .hero-subhead {
-        font-size: 1.2rem;
+    .hero-lead-parent {
+        font-size: 1.15rem;
     }
-    .hero-handwritten-badge {
-        bottom: -10px;
-        right: -5px;
-        max-width: 210px;
+    .glow-tag {
+        font-size: 1.3rem;
     }
-    .hero-credentials-card {
-        padding: 1.1rem;
+    .hero-credentials-list li {
+        font-size: 1.1rem;
+    }
+    .hero-letter-cta-wrap {
+        justify-content: center;
+    }
+    .hero-action-slogan {
+        text-align: center;
+    }
+    .letter-footer-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.8rem;
+    }
+    .letter-signature-wrap {
+        align-self: flex-end;
     }
 }
 

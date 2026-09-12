@@ -2753,7 +2753,10 @@ function toggleHeroLetter() {
         panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     } else {
         panel.style.display = 'none';
-        if (btn) btn.setAttribute('aria-expanded', 'false');
+        if (btn) {
+            btn.setAttribute('aria-expanded', 'false');
+            btn.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
         if (arrow) arrow.textContent = '▾';
         if (text) text.textContent = '點選閱讀新昱的應徵信';
     }
