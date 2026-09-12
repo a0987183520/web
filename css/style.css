@@ -339,19 +339,6 @@ nav {
     z-index: -1;
 }
 
-.hero-tagline {
-    font-size: 0.9rem;
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--accent-primary);
-    margin-bottom: 1.8rem;
-    padding: 0.4rem 1.2rem;
-    border-radius: 30px;
-    background: var(--accent-primary-glow);
-    border: 1px solid rgba(251, 191, 36, 0.2);
-}
-
 .hero-title {
     font-size: 3.2rem;
     font-weight: 800;
@@ -2497,55 +2484,7 @@ footer {
     letter-spacing: 0.03em;
 }
 
-/* Hero 互動按鈕群 */
-.hero-actions {
-    display: flex;
-    gap: 1.2rem;
-    margin-top: 2.2rem;
-    flex-wrap: wrap;
-    align-items: center;
-}
 
-.btn-hero-primary {
-    padding: 0.85rem 1.8rem;
-    background: linear-gradient(135deg, var(--accent-primary) 0%, #d97706 100%);
-    color: #060b09;
-    font-weight: 700;
-    border-radius: 30px;
-    text-decoration: none;
-    box-shadow: 0 8px 20px -5px rgba(251, 191, 36, 0.4);
-    transition: var(--transition-smooth);
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.btn-hero-primary:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 12px 25px -5px rgba(251, 191, 36, 0.6);
-}
-
-.btn-hero-support {
-    padding: 0.85rem 1.8rem;
-    background: rgba(16, 185, 129, 0.12);
-    border: 1.5px solid var(--accent-secondary);
-    color: var(--accent-secondary);
-    font-weight: 700;
-    border-radius: 30px;
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-size: 0.95rem;
-    transition: var(--transition-smooth);
-}
-
-.btn-hero-support:hover {
-    background: var(--accent-secondary);
-    color: #ffffff;
-    transform: translateY(-3px);
-    box-shadow: 0 10px 25px -5px var(--accent-secondary-glow);
-}
 
 /* ==========================================================================
    區塊 [F]：里民共治・有問必答牆 (Participatory Q&A Wall)
@@ -3701,27 +3640,6 @@ footer {
         font-size: 1.05rem !important;
         line-height: 1.68 !important;
         text-align: left !important;
-    }
-
-    /* Hero 雙按鈕手機端自適應排列與防擠壓願景圖 */
-    .hero-actions {
-        display: flex !important;
-        flex-direction: column !important;
-        width: 100% !important;
-        max-width: 360px !important;
-        margin: 1.2rem auto 0 auto !important;
-        gap: 0.7rem !important;
-        align-items: stretch !important;
-    }
-
-    .btn-hero-primary,
-    .btn-hero-support {
-        width: 100% !important;
-        box-sizing: border-box !important;
-        justify-content: center !important;
-        padding: 0.75rem 1.2rem !important;
-        font-size: 1rem !important;
-        text-align: center !important;
     }
 
     .hero-image-card {
@@ -5492,87 +5410,6 @@ footer {
     50% { box-shadow: 0 4px 22px rgba(251, 191, 36, 0.35); border-color: rgba(251, 191, 36, 0.65); }
 }
 
-/* 1. Hero 標題一行排 2 個對稱矩陣排版 */
-.title-row {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.75rem;
-    margin-bottom: 0.65rem;
-    width: 100%;
-    max-width: 540px;
-}
-
-.hero-trait-btn {
-    flex: 1 1 0;
-    max-width: 260px;
-    min-width: 0;
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    font-family: inherit;
-    font-size: 2.25rem;
-    font-weight: 800;
-    line-height: 1.2;
-    color: inherit;
-    cursor: pointer;
-    padding: 0.48rem 0.6rem;
-    border-radius: 20px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    vertical-align: middle;
-    outline: none;
-    -webkit-tap-highlight-color: transparent;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    white-space: nowrap;
-}
-
-.hero-trait-btn .trait-arrow {
-    font-size: 0.9em;
-    color: var(--accent-primary);
-    margin-left: 0.18em;
-    opacity: 0.95;
-    transition: transform 0.3s ease, opacity 0.3s ease;
-    vertical-align: middle;
-    display: inline-block;
-    flex-shrink: 0;
-    line-height: 1;
-}
-
-.hero-trait-btn:hover {
-    transform: translateY(-3px) scale(1.04);
-    background: var(--accent-primary-glow);
-    border-color: rgba(251, 191, 36, 0.45);
-    box-shadow: 0 8px 25px -4px rgba(251, 191, 36, 0.35);
-}
-
-.hero-trait-btn:hover .trait-arrow {
-    transform: translateY(-2px) scale(1.15);
-    opacity: 1;
-}
-
-.hero-trait-btn:active {
-    transform: translateY(0) scale(0.96);
-}
-
-[data-theme="light"] .hero-trait-btn {
-    background: rgba(0, 0, 0, 0.03);
-    border: 1px solid rgba(0, 0, 0, 0.08);
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
-}
-
-[data-theme="light"] .hero-trait-btn:hover {
-    background: rgba(217, 119, 6, 0.1);
-    border-color: rgba(217, 119, 6, 0.4);
-}
-
-.hero-slogan {
-    display: inline-block;
-    margin-top: 0.6rem;
-}
-
 /* 2. 政見抽屜（Drawer）底部直覺關閉操作列 */
 .drawer-bottom-actions {
     margin-top: 3rem;
@@ -6069,22 +5906,6 @@ footer {
         font-size: 2.2rem;
     }
     
-    .title-row {
-        gap: 0.45rem;
-        margin-bottom: 0.45rem;
-    }
-
-    .hero-trait-btn {
-        font-size: clamp(1.58rem, 5.2vw, 1.78rem);
-        padding: 0.42rem 0.45rem;
-        border-radius: 18px;
-    }
-
-    .hero-trait-btn .trait-arrow {
-        font-size: 0.92em;
-        margin-left: 0.15em;
-    }
-
     .hero-trait-modal-card {
         padding: 1.6rem 1.4rem 1.4rem 1.4rem;
         border-radius: 22px;
