@@ -2749,7 +2749,7 @@ function toggleHeroLetter() {
         panel.style.display = 'block';
         if (btn) btn.setAttribute('aria-expanded', 'true');
         if (arrow) arrow.textContent = '▴';
-        if (text) text.textContent = '收合新昱的應徵信';
+        if (text) text.textContent = '收起應徵信';
         panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     } else {
         panel.style.display = 'none';
@@ -2758,7 +2758,7 @@ function toggleHeroLetter() {
             btn.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }
         if (arrow) arrow.textContent = '▾';
-        if (text) text.textContent = '點選閱讀新昱的應徵信';
+        if (text) text.textContent = '點選看應徵信';
     }
 }
 
