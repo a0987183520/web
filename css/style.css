@@ -487,6 +487,7 @@ nav {
     letter-spacing: 0.02em;
     display: block;
     text-align: center;
+    white-space: nowrap;
 }
 
 .hero-slogan-lines .highlight-slogan-line {
@@ -703,7 +704,7 @@ nav {
     }
 }
 
-@media (max-width: 540px) {
+@media (max-width: 580px) {
     .hero-action-anchor-box {
         flex-direction: column;
         align-items: center;
@@ -717,10 +718,17 @@ nav {
     }
     .hero-slogan-lines .slogan-line {
         text-align: center;
+        font-size: 1.1rem;
     }
     .btn-read-letter-card {
         width: 100%;
         max-width: 280px;
+    }
+}
+
+@media (max-width: 440px) {
+    .hero-slogan-lines .slogan-line {
+        font-size: 0.98rem;
     }
 }
 
