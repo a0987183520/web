@@ -412,13 +412,15 @@ nav {
     text-shadow: 0 0 14px rgba(56, 189, 248, 0.85), 0 0 28px rgba(56, 189, 248, 0.45);
 }
 
-/* 4項重要資歷 ✕ 右側空白處嵌入應徵信大按鈕（橫向平衡並列） */
-.hero-credentials-cta-row {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1.8rem;
+/* 4項重要資歷：四項12字完全等長，整齊置中方陣，微光重點 bullet */
+.hero-credentials-wrap {
     width: 100%;
+    max-width: 580px;
+    margin: 0.6rem auto 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
 }
 
 .hero-credentials-list {
@@ -427,8 +429,8 @@ nav {
     margin: 0;
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
     gap: 0.6rem;
-    flex: 1;
 }
 
 .hero-credentials-list li {
@@ -450,7 +452,49 @@ nav {
     flex-shrink: 0;
 }
 
-.hero-credentials-btn-wrap {
+/* 底部旗艦行動卡片底座（金句 ✕ 雙行大按鈕一體化，極致穩固） */
+.hero-action-anchor-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.8rem;
+    width: 100%;
+    max-width: 580px;
+    margin: 0.9rem auto 1.4rem;
+    padding: 1.1rem 1.6rem;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 22px;
+    box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    text-align: left;
+}
+
+.hero-slogan-lines {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    text-align: left;
+}
+
+/* 三行字體完全等大 (1.25rem 粗體 800)，左側靠齊金句排版 */
+.hero-slogan-lines .slogan-line {
+    font-size: 1.25rem;
+    font-weight: 800;
+    line-height: 1.45;
+    color: var(--text-primary);
+    letter-spacing: 0.02em;
+    display: block;
+    text-align: left;
+}
+
+.hero-slogan-lines .highlight-slogan-line {
+    color: #38bdf8 !important;
+    text-shadow: 0 0 14px rgba(56, 189, 248, 0.45);
+}
+
+.hero-cta-btn-wrap {
     display: flex;
     align-items: center;
     flex-shrink: 0;
@@ -511,38 +555,6 @@ nav {
     display: inline-block;
     vertical-align: middle;
     transition: transform 0.25s ease;
-}
-
-/* 三行行動金句（移至資歷下方，獨立居中舒展，呼吸感充裕） */
-.hero-action-slogan-wrap {
-    width: 100%;
-    max-width: 620px;
-    margin: 0.9rem auto 1.3rem;
-    display: flex;
-    justify-content: center;
-}
-
-.hero-slogan-lines {
-    display: flex;
-    flex-direction: column;
-    gap: 0.4rem;
-    text-align: center;
-}
-
-/* 三行字體完全等大 (1.28rem 粗體 800)，逐行置中對齊 */
-.hero-slogan-lines .slogan-line {
-    font-size: 1.28rem;
-    font-weight: 800;
-    line-height: 1.45;
-    color: var(--text-primary);
-    letter-spacing: 0.02em;
-    display: block;
-    text-align: center;
-}
-
-.hero-slogan-lines .highlight-slogan-line {
-    color: #38bdf8 !important;
-    text-shadow: 0 0 14px rgba(56, 189, 248, 0.45);
 }
 
 .hero-letter-panel {
@@ -655,8 +667,9 @@ nav {
     .hero-credentials-list li {
         font-size: 1.1rem;
     }
-    .hero-credentials-cta-row {
+    .hero-action-anchor-box {
         gap: 1.2rem;
+        padding: 1rem 1.3rem;
     }
     .hero-slogan-lines .slogan-line {
         font-size: 1.15rem;
@@ -683,10 +696,18 @@ nav {
 }
 
 @media (max-width: 540px) {
-    .hero-credentials-cta-row {
+    .hero-action-anchor-box {
         flex-direction: column;
-        align-items: flex-start;
-        gap: 1.1rem;
+        align-items: center;
+        text-align: center;
+        gap: 1rem;
+        padding: 1.1rem 1.2rem;
+    }
+    .hero-slogan-lines {
+        text-align: center;
+    }
+    .hero-slogan-lines .slogan-line {
+        text-align: center;
     }
     .btn-read-letter-card {
         width: 100%;
