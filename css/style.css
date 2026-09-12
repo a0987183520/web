@@ -669,53 +669,124 @@ nav {
         font-size: 1.85rem;
     }
     .hero-mainhead {
-        font-size: 2.1rem;
+        font-size: 2.15rem;
     }
     .hero-lead-parent {
-        font-size: 1.15rem;
+        font-size: 1.35rem;
+        font-weight: 700;
+        text-align: center;
+        line-height: 1.6;
+        margin-bottom: 0.85rem;
     }
     .glow-tag {
-        font-size: 1.3rem;
+        font-size: 1.45rem;
+        font-weight: 900;
+    }
+    .hero-credentials-wrap {
+        width: 100%;
+        max-width: 520px;
+        margin: 0.6rem auto 1.2rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .hero-credentials-list {
+        align-items: flex-start;
+        gap: 0.5rem;
     }
     .hero-credentials-list li {
-        font-size: 1.1rem;
+        font-size: 1.3rem;
+        font-weight: 600;
+        line-height: 1.5;
+        white-space: normal;
     }
     .hero-action-anchor-box {
         gap: 1.2rem;
         padding: 0;
-        margin: 0.4rem auto 1.1rem;
+        margin: 0.5rem auto 1.1rem;
     }
     .hero-slogan-lines .slogan-line {
-        font-size: 1.15rem;
+        font-size: 1.32rem;
+        font-weight: 800;
+        line-height: 1.5;
     }
     .btn-read-letter-card {
-        padding: 0.65rem 1.1rem;
-        border-radius: 16px;
+        padding: 0.75rem 1.45rem;
+        border-radius: 18px;
     }
     .btn-line-top {
-        font-size: 1.05rem;
-    }
-    .btn-line-bottom {
-        font-size: 1.12rem;
-    }
-    .letter-footer-compact {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.8rem;
-        margin-top: 0.3rem;
-    }
-    .letter-salutation {
         font-size: 1.22rem;
     }
+    .btn-line-bottom {
+        font-size: 1.32rem;
+    }
+    .hero-letter-panel {
+        padding: 1.5rem 1.25rem;
+        max-width: 100%;
+    }
+    .letter-salutation {
+        font-size: 1.4rem;
+        font-weight: 800;
+        margin-bottom: 0.85rem;
+    }
     .letter-body p {
-        font-size: 1.12rem;
-        line-height: 1.68;
+        font-size: 1.35rem;
+        font-weight: 500;
+        line-height: 1.75;
+        margin-bottom: 0.85rem;
+    }
+    .letter-body-p2 {
+        margin-bottom: 0.5rem !important;
+    }
+    .letter-footer-compact {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 0.75rem;
+        margin-top: 0.35rem;
+        position: relative;
+        width: 100%;
+    }
+    .letter-footer-left {
+        flex: 1 1 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.55rem;
     }
     .letter-closing-msg {
-        font-size: 1.15rem;
+        font-size: 1.32rem;
+        font-weight: 800;
+        color: #38bdf8;
+        line-height: 1.45;
+        text-align: left;
+    }
+    .letter-collapse-inline-wrap {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        width: 100%;
+        margin-top: 0.2rem;
+    }
+    .btn-collapse-letter {
+        padding: 0.55rem 1.4rem;
+        font-size: 1.22rem;
+        font-weight: 900;
+        border-radius: 9999px;
     }
     .letter-signature-wrap {
-        align-self: flex-end;
+        flex: 0 0 auto;
+        display: flex;
+        align-items: flex-end;
+        justify-content: flex-end;
+    }
+    .letter-signature-img {
+        max-width: 155px;
+        width: 33vw;
+        height: auto;
+        display: block;
     }
 }
 
@@ -724,33 +795,68 @@ nav {
         flex-direction: column;
         align-items: center;
         text-align: center;
-        gap: 1rem;
+        gap: 1.1rem;
         padding: 0;
-        margin: 0.4rem auto 1rem;
+        margin: 0.5rem auto 1.1rem;
     }
     .hero-slogan-lines {
         text-align: center;
     }
     .hero-slogan-lines .slogan-line {
         text-align: center;
-        font-size: 1.1rem;
+        font-size: 1.3rem;
     }
     .btn-read-letter-card {
         width: 100%;
-        max-width: 280px;
+        max-width: 300px;
     }
 }
 
 @media (max-width: 440px) {
+    .hero-subhead {
+        font-size: 1.65rem;
+    }
+    .hero-mainhead {
+        font-size: 1.95rem;
+    }
+    .hero-lead-parent {
+        font-size: 1.32rem;
+        line-height: 1.55;
+    }
+    .glow-tag {
+        font-size: 1.42rem;
+    }
+    .hero-credentials-list li {
+        font-size: 1.25rem;
+    }
     .hero-slogan-lines .slogan-line {
-        font-size: 0.98rem;
+        font-size: 1.22rem;
+        letter-spacing: 0.01em;
+    }
+    .btn-line-top {
+        font-size: 1.18rem;
+    }
+    .btn-line-bottom {
+        font-size: 1.28rem;
+    }
+    .letter-salutation {
+        font-size: 1.35rem;
     }
     .letter-body p {
-        font-size: 1.05rem;
-        line-height: 1.65;
+        font-size: 1.28rem;
+        line-height: 1.72;
     }
     .letter-closing-msg {
-        font-size: 1.08rem;
+        font-size: 1.24rem;
+        line-height: 1.4;
+    }
+    .btn-collapse-letter {
+        padding: 0.5rem 1.25rem;
+        font-size: 1.18rem;
+    }
+    .letter-signature-img {
+        max-width: 135px;
+        width: 32vw;
     }
 }
 
@@ -1914,16 +2020,25 @@ footer {
 
 @media (max-width: 950px) {
     .hero-container {
-        grid-template-columns: 1fr;
-        gap: 3rem;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 2rem !important;
         text-align: center;
+    }
+    .hero-image-area {
+        order: -1;
+        width: 100%;
+        max-width: 480px;
+        margin: 0 auto 0.5rem;
     }
     .hero-content {
+        order: 1;
         align-items: center;
         text-align: center;
+        width: 100%;
     }
     .hero-title {
-        font-size: 3rem;
+        font-size: 2.8rem;
     }
     .hero-description {
         margin-bottom: 2.2rem;
