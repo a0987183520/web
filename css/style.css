@@ -3832,10 +3832,10 @@ footer {
 }
 
 .qa-flow-q {
-    font-size: 1.75rem !important;
-    font-weight: 900 !important;
+    font-size: 1.52rem !important;
+    font-weight: 800 !important;
     color: #ffffff;
-    line-height: 1.38;
+    line-height: 1.4;
     margin: 0;
     letter-spacing: 0.02em;
     text-shadow: 0 2px 14px rgba(0, 0, 0, 0.7);
@@ -3934,17 +3934,19 @@ footer {
         gap: 0.95rem;
     }
     .qa-flow-q {
-        font-size: 1.55rem !important;
-        font-weight: 900 !important;
-        line-height: 1.38;
+        font-size: clamp(1.22rem, 3.8vw, 1.42rem) !important;
+        font-weight: 800 !important;
+        line-height: 1.35;
+        letter-spacing: -0.015em;
+        white-space: nowrap;
         text-shadow: 0 2px 12px rgba(0, 0, 0, 0.75);
     }
     .insight-glow-icon,
     .insight-glow-title {
-        font-size: 1.45rem !important;
+        font-size: 1.38rem !important;
     }
     .insight-text-line {
-        font-size: 1.35rem !important;
+        font-size: 1.32rem !important;
         line-height: 1.62;
     }
     .break-mobile {
