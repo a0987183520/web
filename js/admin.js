@@ -3,8 +3,8 @@
  * 密碼驗證、Google 試算表雙向同步、剪貼簿複製與 SOP 範本
  */
 
-const ADMIN_PASSWORD = 'b0937522399';
-const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzJVXWjcRGzSDMWBsO6aHQR-UbX5BOM6pcKpNpKVYMYVwj8ceWV6Pu9X7UP6ldlPrTn/exec';
+// 對接核心二：02_明德里2.0_里民共治有問必答資料庫 API
+const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw3hCHGHygdyeHN0fR8kuh6j1Q2ss5GdsxB7VFhVzZKh3Ginm1Q2L2bJH6SwkDxv8jS/exec';
 
 // 預設 10 案備援資料庫
 const INITIAL_ADMIN_DATA = [
@@ -199,7 +199,7 @@ function fetchGoogleSheetProposals(showToastOnComplete = false, onComplete = nul
         return;
     }
 
-    fetch(GOOGLE_SCRIPT_URL)
+    fetch(GOOGLE_SCRIPT_URL + '?admin=true')
         .then(res => res.json())
         .then(data => {
             if (data && data.status === 'success') {

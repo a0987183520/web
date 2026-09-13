@@ -596,8 +596,8 @@ function executePolicyVote(policyId, age, gender) {
     // 4. 觸發全螢幕放大脈衝愛心微動畫
     showVoteSuccessAnimation(policyId, policyTitle);
 
-    // 5. 同步拋送數據至 Google Apps Script 雲端試算表 (自動記錄並累加總票數)
-    if (GOOGLE_SCRIPT_URL) {
+    // 5. 同步拋送數據至 Google Apps Script 雲端試算表 (核心一：十五大政見民調庫)
+    if (typeof GAS_POLICY_URL !== 'undefined' && GAS_POLICY_URL) {
         const ageLabelMap = {
             'under-20': '20歲以下',
             '20-40': '20-40歲',
@@ -608,7 +608,7 @@ function executePolicyVote(policyId, age, gender) {
             'male': '男性',
             'female': '女性'
         };
-        fetch(GOOGLE_SCRIPT_URL, {
+        fetch(GAS_POLICY_URL, {
             method: 'POST',
             mode: 'no-cors',
             headers: { 'Content-Type': 'application/json' },
@@ -1091,9 +1091,17 @@ function initHeaderScroll() {
 }
 
 // ==========================================================================
-// Google Apps Script (GAS) 雲端試算表 API 串接端點
+// Google Apps Script (GAS) 雲端試算表 API 串接端點（三大核心微服務架構）
 // ==========================================================================
-const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzJVXWjcRGzSDMWBsO6aHQR-UbX5BOM6pcKpNpKVYMYVwj8ceWV6Pu9X7UP6ldlPrTn/exec';
+// 核心一：十五大政見民調庫（總票數、民意即時榜、年齡性別投票紀錄）
+const GAS_POLICY_URL = 'https://script.google.com/macros/s/AKfycbzoeRpmzNZW-_MJQKEl6cdzrnPbuItI1xfAU1gxQ9P31YNoZaiwMOCLekFd-k8iWmdR/exec';
+// 核心二：里民共治有問必答資料庫（母提案 Master、附議 Detail、認同數）
+const GAS_QA_URL = 'https://script.google.com/macros/s/AKfycbw3hCHGHygdyeHN0fR8kuh6j1Q2ss5GdsxB7VFhVzZKh3Ginm1Q2L2bJH6SwkDxv8jS/exec';
+// 核心三：全里讚聲與官網流量庫（訪客計數、4選1讚聲名冊、跑馬燈輪播）
+const GAS_STATS_URL = 'https://script.google.com/macros/s/AKfycbygcDG8u2JYMxq5Ro_W6_slTEqjQ4QhlQ1Pn8-zAXPM4ht-pMzy36ljb_PsNX9WDYaE/exec';
+
+// 向下相容預設端點
+const GOOGLE_SCRIPT_URL = GAS_QA_URL;
 
 // ==========================================================================
 // 里民共治・有問必答牆 (Participatory Q&A Data & Handlers)
@@ -1545,11 +1553,11 @@ function initQAForm() {
             localStorage.setItem('md2_user_qa_proposals', JSON.stringify(userCards));
         } catch(e) {}
 
-        // 2. 同步傳送至 Google 試算表 (GAS 雲端資料庫)
-        if (GOOGLE_SCRIPT_URL) {
+        // 2. 同步傳送至 Google 試算表 (核心二：里民共治有問必答庫)
+        if (typeof GAS_QA_URL !== 'undefined' && GAS_QA_URL) {
             const contactInput = document.getElementById('qa-contact');
             const contactVal = contactInput ? contactInput.value.trim() : '';
-            fetch(GOOGLE_SCRIPT_URL, {
+            fetch(GAS_QA_URL, {
                 method: 'POST',
                 mode: 'no-cors',
                 headers: { 'Content-Type': 'application/json' },
@@ -1560,7 +1568,7 @@ function initQAForm() {
                     contact: contactVal,
                     content: content
                 })
-            }).catch(err => console.log('Google Sheets sync error:', err));
+            }).catch(err => console.log('GAS_QA submit proposal error:', err));
         }
 
         form.reset();
@@ -1607,9 +1615,9 @@ function handleAgreeVote(cardId, btnEl, event) {
     // Trigger toast
     showToast(`👍 感謝認同！此案民意熱度已累積至 ${curCount} 票！`);
 
-    // Sync to Google Sheets (Proposals_Master AgreeCount + 1)
-    if (GOOGLE_SCRIPT_URL) {
-        fetch(GOOGLE_SCRIPT_URL, {
+    // Sync to Google Sheets (核心二：提案Master 認同數 +1)
+    if (typeof GAS_QA_URL !== 'undefined' && GAS_QA_URL) {
+        fetch(GAS_QA_URL, {
             method: 'POST',
             mode: 'no-cors',
             headers: { 'Content-Type': 'application/json' },
@@ -1670,9 +1678,9 @@ function handleSubProposalSubmit(e) {
     let curSubCount = parseInt(localStorage.getItem(subCountKey) || '1', 10) + 1;
     localStorage.setItem(subCountKey, curSubCount.toString());
 
-    // Sync to Google Sheets (Proposals_Detail)
-    if (GOOGLE_SCRIPT_URL) {
-        fetch(GOOGLE_SCRIPT_URL, {
+    // Sync to Google Sheets (核心二：附議Detail 寫入)
+    if (typeof GAS_QA_URL !== 'undefined' && GAS_QA_URL) {
+        fetch(GAS_QA_URL, {
             method: 'POST',
             mode: 'no-cors',
             headers: { 'Content-Type': 'application/json' },
@@ -1799,9 +1807,9 @@ function handleSupportSubmit(e) {
     const curLikes = parseInt(localStorage.getItem('md2_likes_count') || '342', 10) + 1;
     localStorage.setItem('md2_likes_count', curLikes.toString());
 
-    // 同步傳送至 Google 試算表 (GAS 雲端資料庫)
-    if (GOOGLE_SCRIPT_URL) {
-        fetch(GOOGLE_SCRIPT_URL, {
+    // 同步傳送至 Google 試算表 (核心三：全里讚聲與官網流量庫)
+    if (typeof GAS_STATS_URL !== 'undefined' && GAS_STATS_URL) {
+        fetch(GAS_STATS_URL, {
             method: 'POST',
             mode: 'no-cors',
             headers: { 'Content-Type': 'application/json' },
@@ -1811,7 +1819,7 @@ function handleSupportSubmit(e) {
                 displayName: supporterName || '熱心里民',
                 consent: (currentSupportOption === 4)
             })
-        }).catch(err => console.log('Google Sheets sync error:', err));
+        }).catch(err => console.log('GAS_STATS sync error:', err));
     }
 
     // Update UI numbers
@@ -1860,135 +1868,159 @@ function escapeHTML(str) {
 }
 
 // ==========================================================================
-// Google 試算表雙向即時雲端同步 (Live Cloud Sync for Stats & QA Data)
+// Google 試算表三大核心即時雲端同步 (Live Cloud Sync for Stats, QA & Policies)
 // ==========================================================================
 function syncCloudData() {
-    if (!GOOGLE_SCRIPT_URL) return;
+    // 1. 同步核心三：全里讚聲與官網流量庫 (GAS_STATS_URL)
+    if (typeof GAS_STATS_URL !== 'undefined' && GAS_STATS_URL) {
+        fetch(GAS_STATS_URL)
+            .then(res => res.json())
+            .then(data => {
+                if (!data || data.status !== 'success') return;
+                if (data.views) {
+                    localStorage.setItem('md2_views_count', data.views.toString());
+                    const viewsEl = document.getElementById('stat-views-count');
+                    if (viewsEl) viewsEl.textContent = Number(data.views).toLocaleString();
+                }
+                if (data.likes) {
+                    localStorage.setItem('md2_likes_count', data.likes.toString());
+                    const likesEl = document.getElementById('stat-likes-count');
+                    if (likesEl) likesEl.textContent = Number(data.likes).toLocaleString();
+                }
+                if (Array.isArray(data.recentSupporters) && data.recentSupporters.length > 0) {
+                    const track = document.getElementById('supporters-ticker-track');
+                    if (track) {
+                        track.innerHTML = '';
+                        data.recentSupporters.forEach(name => {
+                            const span = document.createElement('span');
+                            span.className = 'ticker-item';
+                            span.textContent = `${name} 👍`;
+                            track.appendChild(span);
+                        });
+                    }
+                }
+            })
+            .catch(err => console.log('GAS_STATS fetch error:', err));
+    }
 
-    fetch(GOOGLE_SCRIPT_URL)
-        .then(res => res.json())
-        .then(data => {
-            if (!data || data.status !== 'success') return;
+    // 2. 同步核心二：里民共治有問必答資料庫 (GAS_QA_URL)
+    if (typeof GAS_QA_URL !== 'undefined' && GAS_QA_URL) {
+        fetch(GAS_QA_URL)
+            .then(res => res.json())
+            .then(data => {
+                if (!data || data.status !== 'success') return;
 
-            // 1. 同步即時造訪與讚聲人氣數據
-            if (data.views) {
-                localStorage.setItem('md2_views_count', data.views.toString());
-                const viewsEl = document.getElementById('stat-views-count');
-                if (viewsEl) viewsEl.textContent = Number(data.views).toLocaleString();
-            }
-            if (data.likes) {
-                localStorage.setItem('md2_likes_count', data.likes.toString());
-                const likesEl = document.getElementById('stat-likes-count');
-                if (likesEl) likesEl.textContent = Number(data.likes).toLocaleString();
-            }
-
-            // 2. 同步 Google 試算表最新審核公開之有問必答題目與官方回覆 (100% 以 Google Sheet 為唯一真實來源)
-            if (Array.isArray(data.proposals) && data.proposals.length > 0) {
-                const approved = data.proposals.filter(p => p.status === '已審核公開' || p.status === 'approved' || !p.status);
-                if (approved.length > 0) {
-                    const formatted = approved.map(item => {
-                        const category = item.category || '#其他生活建議';
-                        
-                        // 自動依議題分類關鍵字推導類型
-                        let type = 'policy';
-                        if (category.includes('會勘') || category.includes('環境') || category.includes('衛生') || category.includes('清淤')) {
-                            type = 'inspect';
-                        } else if (category.includes('交通') || category.includes('停車') || category.includes('號誌')) {
-                            type = 'city';
-                        } else if (category.includes('法規') || category.includes('大樓') || category.includes('補助') || category.includes('管委會')) {
-                            type = 'law';
-                        }
-
-                        let statusText = '已納入競選政見白皮書';
-                        let statusClass = 'status-policy';
-                        if (type === 'inspect') {
-                            statusText = '列為當選後優先重點會勘';
-                            statusClass = 'status-inspect';
-                        } else if (type === 'city') {
-                            statusText = '市府權責・列為當選專案爭取';
-                            statusClass = 'status-city';
-                        } else if (type === 'law') {
-                            statusText = '法規說明與行政程序解答';
-                            statusClass = 'status-law';
-                        }
-
-                        // 標題由提問內容自身推導，絕不借用舊題標題，100% 對齊試算表提問原文
-                        let title = item.title;
-                        if (!title && item.question) {
-                            const qClean = item.question.trim().replace(/^問[：:]\s*|^【[^】]+】\s*/, '');
-                            const firstLine = qClean.split('\n')[0].trim();
-                            title = firstLine.length > 38 ? firstLine.substring(0, 38) + '...' : firstLine;
-                        }
-
-                        // 日期格式清理
-                        let dateStr = '2026-08-27';
-                        if (item.date) {
-                            if (item.date.includes('GMT') || item.date.includes('T')) {
-                                const parsedDate = new Date(item.date);
-                                if (!isNaN(parsedDate.getTime())) {
-                                    dateStr = `${parsedDate.getFullYear()}-${String(parsedDate.getMonth() + 1).padStart(2, '0')}-${String(parsedDate.getDate()).padStart(2, '0')}`;
-                                }
-                            } else {
-                                dateStr = item.date.split(' ')[0];
+                if (Array.isArray(data.proposals) && data.proposals.length > 0) {
+                    const approved = data.proposals.filter(p => p.status === '已審核公開' || p.status === 'approved' || !p.status);
+                    if (approved.length > 0) {
+                        const formatted = approved.map(item => {
+                            const category = item.category || '#其他生活建議';
+                            
+                            let type = 'policy';
+                            if (category.includes('會勘') || category.includes('環境') || category.includes('衛生') || category.includes('清淤')) {
+                                type = 'inspect';
+                            } else if (category.includes('交通') || category.includes('停車') || category.includes('號誌')) {
+                                type = 'city';
+                            } else if (category.includes('法規') || category.includes('大樓') || category.includes('補助') || category.includes('管委會')) {
+                                type = 'law';
                             }
-                        }
 
-                        return {
-                            id: item.id,
-                            category: category,
-                            type: type,
-                            statusText: statusText,
-                            statusClass: statusClass,
-                            agreeCount: Number(item.agreeCount || 0),
-                            subCount: Number(item.subCount || 0),
-                            author: item.author || '明德里熱心里民',
-                            date: dateStr,
-                            title: title || '里民生活建議與提案',
-                            question: item.question,
-                            response: item.response
-                        };
-                    });
+                            let statusText = '已納入競選政見白皮書';
+                            let statusClass = 'status-policy';
+                            if (type === 'inspect') {
+                                statusText = '列為當選後優先重點會勘';
+                                statusClass = 'status-inspect';
+                            } else if (type === 'city') {
+                                statusText = '市府權責・列為當選專案爭取';
+                                statusClass = 'status-city';
+                            } else if (type === 'law') {
+                                statusText = '法規說明與行政程序解答';
+                                statusClass = 'status-law';
+                            }
 
-                    liveCloudQAData = formatted;
+                            let title = item.title;
+                            if (!title && item.question) {
+                                const qClean = item.question.trim().replace(/^問[：:]\s*|^【[^】]+】\s*/, '');
+                                const firstLine = qClean.split('\n')[0].trim();
+                                title = firstLine.length > 38 ? firstLine.substring(0, 38) + '...' : firstLine;
+                            }
+
+                            let dateStr = '2026-08-27';
+                            if (item.date) {
+                                if (item.date.includes('GMT') || item.date.includes('T')) {
+                                    const parsedDate = new Date(item.date);
+                                    if (!isNaN(parsedDate.getTime())) {
+                                        dateStr = `${parsedDate.getFullYear()}-${String(parsedDate.getMonth() + 1).padStart(2, '0')}-${String(parsedDate.getDate()).padStart(2, '0')}`;
+                                    }
+                                } else {
+                                    dateStr = item.date.split(' ')[0];
+                                }
+                            }
+
+                            return {
+                                id: item.id,
+                                category: category,
+                                type: type,
+                                statusText: statusText,
+                                statusClass: statusClass,
+                                agreeCount: Number(item.agreeCount || 0),
+                                subCount: Number(item.subCount || 0),
+                                author: item.author || '明德里熱心里民',
+                                date: dateStr,
+                                title: title || '里民生活建議與提案',
+                                question: item.question,
+                                response: item.response
+                            };
+                        });
+
+                        liveCloudQAData = formatted;
+                        try {
+                            localStorage.setItem('md2_cloud_qa_data', JSON.stringify(formatted));
+                        } catch(e) {}
+                    }
+                }
+
+                if (Array.isArray(data.subProposals) && data.subProposals.length > 0) {
+                    liveCloudSubProposals = data.subProposals;
                     try {
-                        localStorage.setItem('md2_cloud_qa_data', JSON.stringify(formatted));
+                        localStorage.setItem('md2_cloud_sub_proposals', JSON.stringify(data.subProposals));
                     } catch(e) {}
                 }
-            }
 
-            // 3. 同步 Google 試算表最新審核採納之附議明細
-            if (Array.isArray(data.subProposals) && data.subProposals.length > 0) {
-                liveCloudSubProposals = data.subProposals;
-                try {
-                    localStorage.setItem('md2_cloud_sub_proposals', JSON.stringify(data.subProposals));
-                } catch(e) {}
-            }
+                renderQACards();
+            })
+            .catch(err => console.log('GAS_QA fetch error:', err));
+    }
 
-            // 4. 同步 14 項政見最新雲端總票數 (跨裝置即時同步)
-            if (data.policyVotes && typeof data.policyVotes === 'object') {
-                liveCloudPolicyVotes = data.policyVotes;
-                try {
-                    localStorage.setItem('md2_cloud_policy_votes', JSON.stringify(data.policyVotes));
-                } catch(e) {}
-
-                // 更新所有政見卡片「我想要」按鈕票數
-                if (Array.isArray(POLICIES_DATA)) {
-                    POLICIES_DATA.forEach(p => {
-                        const isVoted = isPolicyInCooldown(p.id);
-                        updatePolicyVoteUI(p.id, getPolicyVoteCount(p.id), isVoted);
+    // 3. 同步核心一：十五大政見民調庫 (GAS_POLICY_URL)
+    if (typeof GAS_POLICY_URL !== 'undefined' && GAS_POLICY_URL) {
+        fetch(GAS_POLICY_URL)
+            .then(res => res.json())
+            .then(data => {
+                if (!data || data.status !== 'success') return;
+                if (Array.isArray(data.policies) && data.policies.length > 0) {
+                    const votesMap = {};
+                    data.policies.forEach(p => {
+                        votesMap[p.id] = Number(p.votes || p.base || 0);
                     });
-                }
-                // 重新計算並渲染「全里民意即時榜」
-                renderPolicyRankings();
-            }
+                    liveCloudPolicyVotes = votesMap;
+                    try {
+                        localStorage.setItem('md2_cloud_policy_votes', JSON.stringify(votesMap));
+                    } catch(e) {}
 
-            // 即時平滑更新 Q&A 卡片清單 (含母案與附議子案)
-            renderQACards();
-        })
-        .catch(err => {
-            console.log('Live cloud sync fallback:', err);
-        });
+                    if (Array.isArray(POLICIES_DATA)) {
+                        POLICIES_DATA.forEach(p => {
+                            const isVoted = isPolicyInCooldown(p.id);
+                            updatePolicyVoteUI(p.id, getPolicyVoteCount(p.id), isVoted);
+                        });
+                    }
+                    renderPolicyRankings();
+                }
+            })
+            .catch(err => console.log('GAS_POLICY fetch error:', err));
+    }
 }
+
 
 // ==========================================================================
 // 人氣數據指標儀表板 (Stats Count-Up & Dynamic Metric Bars)
