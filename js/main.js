@@ -52,8 +52,8 @@ const POLICIES_DATA = [
     },
     {
         id: 2,
-        title: "數位里政與參與式治理",
-        subtitle: "你的意見就是我的政見",
+        title: "里民共治 ‧ 你用手機也能作主",
+        subtitle: "你的意見就是我的政見！合併直播/錄影，邀你共同參與",
         image: "images/policy_05_guide.png",
         budgetSource: "明德里 88 萬基層工作經費 ✕ 科技經理人自研維運",
         budgetSub: "（使用每年 88 萬基層款，零額外自費）",
