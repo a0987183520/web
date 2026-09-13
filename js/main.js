@@ -29,134 +29,48 @@ let pendingVotePolicyId = null;
 const POLICIES_DATA = [
     {
         id: 1,
-        category: "governance",
-        categoryName: "健康樂齡與活力共融",
-        title: "銀髮共餐 ＋ 全民灶咖",
-        subtitle: "餐前趣味動腦尋寶，鄰里一人一菜跨世代同樂！",
-        image: "images/policy_13_dining.png?v=20260830_2",
-        budgetSource: "社會局銀髮共餐專案 ＋ 志願服務專款",
-        budgetSub: "（法定專款專用，零額外自費）",
-        budgetDesc: "食材費由社會局專款專用全額核銷；動腦教材與志工四大保障（保險、學習時數、便當與交通誤餐補助）由文教專案支應，完全不排擠里內 88 萬修繕款！",
-        highlight: "打破吃飯看電視的傳統模式！餐前引進大螢幕與趣味手腦尋寶遊戲，結合「全民灶咖一人一菜」青銀共煮共聚，打造溫暖跨世代共餐！",
-        icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>`,
+        title: "民歌Live草地音樂節",
+        subtitle: "街頭藝人吉他彈唱互動，每年春、秋相約草地同樂！",
+        image: "images/policy_01_music.png",
+        budgetSource: "文化局社造專案（5~20萬）＋ 區公所文康專款",
+        budgetSub: "（完全不用動到明德里 88 萬基層款）",
+        budgetDesc: "向新北市文化局申請「社區營造點專案補助」（每案 5 至 20 萬元）及區公所文康專款全額補助舞台音響與演出師資，完全不排擠里內既有修繕預算！",
+        highlight: "現場吉他彈唱互動、散步就能抵達！每年春、秋兩季定期各辦 1 次，善用市民活動中心旁公園草地，串聯街頭民歌手、獨立樂手與學生社團，打造有歌聲、有笑聲的草地音樂生活節。",
+        icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"></path><circle cx="6" cy="18" r="3"></circle><circle cx="18" cy="16" r="3"></circle></svg>`,
         hooks: [
-            { question: "傳統老人共餐常常「大家坐著看電視、吃完便當就解散」，少了互動？", answer: "餐前引進「1 至 50 數字尋寶」與大螢幕互動挑戰，告別枯燥甩手操，長輩邊吃邊動腦、打卡換獎狀！" },
-            { question: "共餐難道只能是老人家領便當？年輕鄰里也能一起參與嗎？", answer: "開辦「全民灶咖 ‧ 一人一菜」週末共享廚房，讓鄰里大顯廚藝、青銀共桌話家常，增進鄰里真感情！" }
+            { question: "假日想帶長輩小孩散步放鬆，為什麼非得塞車跑去大安森林公園？", answer: "善用市民活動中心旁現成公園綠地，每年春、秋兩季各辦 1 次，散步下樓就能享受草地野餐、街頭民歌手現場吉他彈唱互動！" },
+            { question: "傳統政見辦活動，是不是又要花里民上百萬基層工程款？", answer: "完全不用！我們向新北市文化局申請社造專款全額補助，完全不排擠里內既有修繕預算！" }
         ],
         howToDo: [
-            "【餐前動腦與大螢幕遊戲】：引進趣味手腦尋寶與大螢幕觸控健腦遊戲，長輩邊笑邊動腦，告別枯燥甩手操與看電視。",
-            "【全民灶咖一人一菜共聚】：開辦社區共享灶咖，歡迎年輕家庭與長輩「一人出一道拿手好菜（Potluck）」，拉近鄰里人情味。",
-            "【青年志工四大法定保障】：依《志願服務法》提供意外險、服務時數與便當補助，制度化吸引青年學子熱情陪伴。"
+            "【春秋兩季定期開辦】：固定於每年春、秋兩季假日試辦，散步下樓就能享受草地野餐與民歌現場彈唱互動。",
+            "【街頭民歌手與獨立樂團】：結合流行音樂圈人脈，邀請優秀街頭藝人、民歌手及在地學生社團共同登台展演。",
+            "【嚴格防噪與草地保護】：落實場地合規申請、嚴格管控音量時段與垃圾清運，並備妥完整雨天備案。"
         ],
-        whyPossible: "候選人具備 30 年軟體研發經驗自製無廣告 App，並具 8 年志工管理實務，能以最低成本為社區打造歡樂有尊嚴的共餐據點。"
+        whyPossible: "候選人擁有 20 年流行音樂產業背景，熟悉演出企劃與人脈資源，不需花大錢依賴公關外包即可高效打造優質音樂饗宴。"
     },
     {
         id: 2,
         title: "里民共治 ‧ 你用手機也能作主",
-        subtitle: "你的意見就是我的政見！合併直播/錄影，邀你共同參與",
+        subtitle: "你的意見就是我的政見！你來點、我來辦，邀你用手機共同參與",
         image: "images/policy_05_guide.png",
         budgetSource: "明德里 88 萬基層工作經費 ＋ 科技經理人自研維運",
         budgetSub: "（使用每年 88 萬基層款，零額外自費）",
         budgetDesc: "本系統由候選人發揮軟體架構長才親自開發維運，零外包建置費；每年 88 萬基層工程款依里民在線報修熱點公開排定修繕順序，告別黑箱排隊！",
-        highlight: "修哪裡、怎麼修，里民說了算！建立 24 小時數位里政窗口與會勘透明機制，開辦「主動式福利篩檢與代辦諮詢」，把津貼補助與修繕服務一次辦到位。",
+        highlight: "「你來點，我來辦！」修哪裡、辦什麼活動，里民手機說了算！建立 24 小時數位里政窗口與會勘透明機制，開辦「主動式福利篩檢與代辦諮詢」，把津貼補助與修繕服務一次辦到位。",
         icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>`,
         hooks: [
             { question: "明德里每年近百萬基層工程款，到底修了哪裡、花去哪了？", answer: "建立公開透明修繕地圖，依多數里民在線報修與票選迫切性排定優先序，告別黑箱排隊，每一分錢清清楚楚！" },
             { question: "想申請育兒津貼、身障或長照補助，每次都被繁瑣公文搞得頭昏腦脹？", answer: "里辦公處建立「主動式福利導航窗口」，提供一站式代辦諮詢與電子授權指引，免跑國稅局、一次辦到位！" }
         ],
         howToDo: [
-            "【88 萬修繕順序由民意決定】：建立線上即時報修地圖，依多數里民迫切需求公開排定路面、水溝與路燈修繕順序。",
-            "【會勘公開與 24H 數位客服】：會勘前 5 天公告議題、會勘後 3 天公開結果，並整合 24 小時線上 AI 指引。",
-            "【主動式社福津貼導航】：主動協助身障生活補助（約 4,049 元）、育兒津貼與長照資源代辦送件，免跑冤枉路。"
+            "【88 萬修繕公開排程】：修哪裡、怎麼修，里民手機在線報修投票，里辦公處定期公開進度與市府會勘紀錄，每一分錢清清楚楚。",
+            "【你來點、我來辦實名提案】：想開什麼課程、辦什麼社區活動，里民手機線上點播票選，里長主動落實執行，告別一人黑箱說了算！",
+            "【主動式社福津貼導航】：引進數位查驗工具，協助里民秒查身障補助（約 4,049 元）、育兒津貼與長照資源，單一窗口專人代辦。"
         ],
         whyPossible: "候選人具備 10 年社區治理與 30 年軟體工程背景，能親自打造並維運數位民意系統，省下數十萬公帑外包費。"
     },
     {
         id: 3,
-        title: "草地音樂節",
-        subtitle: "每年春、秋兩季各辦 1 次，直接放進你的年度家庭行事曆",
-        image: "images/policy_01_music.png",
-        budgetSource: "文化局社造專案（5~20萬）＋ 區公所文康專款",
-        budgetSub: "（完全不用動到明德里 88 萬基層款）",
-        budgetDesc: "向新北市文化局申請「社區營造點專案補助」（每案 5 至 20 萬元）及區公所文康專款全額補助舞台音響與演出師資，完全不排擠里內既有修繕預算！",
-        highlight: "每年春、秋兩季定期各辦 1 次！善用明德活動中心旁的公園草地，整合街頭藝人資源，打造散步就能抵達的草地音樂節。",
-        icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"></path><circle cx="6" cy="18" r="3"></circle><circle cx="18" cy="16" r="3"></circle></svg>`,
-        hooks: [
-            { question: "假日想帶長輩小孩散步放鬆，為什麼非得塞車跑去大安森林公園？", answer: "善用市民活動中心旁現成公園綠地，每年春、秋兩季各辦 1 次，散步下樓就能享受草地野餐、在地街頭藝人與流行音樂演出！" },
-            { question: "傳統政見辦活動，是不是又要花里民上百萬基層工程款？", answer: "完全不用！我們向新北市文化局申請社造專款全額補助，完全不排擠里內既有修繕預算！" }
-        ],
-        howToDo: [
-            "【春秋兩季定期開辦】：固定於每年春、秋兩季假日試辦，散步下樓就能享受草地野餐與流行音樂演出。",
-            "【串聯獨立樂手與學生社團】：結合流行音樂人脈，邀請優秀獨立樂手、街頭藝人及在地學校音樂社團共同登台展演。",
-            "【嚴格防噪與草地保護】：落實場地合規申請、嚴格管控音量時段與垃圾清運，並備妥完整雨天備案。"
-        ],
-        whyPossible: "候選人擁有 20 年流行音樂產業背景，熟悉演出企劃與人脈資源，不需花大錢依賴公關外包即可高效打造優質音樂饗宴。"
-    },
-    {
-        id: 4,
-        title: "傳統課程潮流升級計畫",
-        subtitle: "當長輩太鼓與流行樂團、舞團共演時",
-        image: "images/policy_06_upgrade.png",
-        budgetSource: "明德里基層工作經費 ＋ 流行音樂師資協作",
-        budgetSub: "（使用每年近百萬基層款，零額外自費）",
-        budgetDesc: "善用市民活動中心既有場地，由里基層款支應基礎維護，並結合候選人音樂圈師資人脈協同教學，發揮最大效益。",
-        highlight: "既有課程（如太鼓班、舞蹈班）安心延續，並注入現代流行音樂與節奏元素，邀請年輕樂手與家人加入合練，舉辦跨世代公演。",
-        icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>`,
-        hooks: [
-            { question: "長輩參加太鼓班、舞蹈班很有活力，但年輕兒孫卻很少來看表演？", answer: "保留既有課程的前提下，注入流行音樂改編節奏，舉辦跨世代公演，讓兒孫主動搶著幫阿公阿嬤拍照錄影、全家同樂！" },
-            { question: "升級會不會強迫改動長輩習慣的傳統曲目或換掉原有教練？", answer: "堅持「自願加入與增量創新」原則，100% 尊重既有社團教練與練習時段，完全零額外自費！" }
-        ],
-        howToDo: [
-            "【經典課程安心延續】：100% 保留長輩喜愛的太鼓班、舞蹈班與原有教練練習時段。",
-            "【流行音樂潮流共演】：在長輩自願前提下融入流行音樂改編節奏，舉辦跨世代同台樂活公演。",
-            "【成果專區留下精彩回憶】：幫長輩建立成果線上影音專區，讓兒孫搶著幫阿公阿嬤拍照錄影留念。"
-        ],
-        whyPossible: "候選人具備 20 年流行音樂產業背景，熟悉曲風改編與演出企劃，能邀請優秀導師協同教學，煥發傳統社團新活力。"
-    },
-    {
-        id: 5,
-        title: "智慧交通與號誌連鎖",
-        subtitle: "解決海山、學府、學士、金城路口的塞車",
-        image: "images/policy_04_traffic.png",
-        budgetSource: "幹道動態綠波與道路會勘專案工程款",
-        budgetSub: "（完全不用動到明德里 88 萬基層款）",
-        budgetDesc: "由科技里長主動提出具體『動態綠波＋全向時相』工程計畫召開跨局處會勘，督促交通局交控中心優化連鎖與專案工程發包，零花費里公款！",
-        highlight: "交通打結，我能解決！發揮 30 年資工數據專長，向交通局爭取明德路二段動態綠波與學府路口全向行人時相，人車徹底分流改善回堵。",
-        icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"></polygon><line x1="9" y1="3" x2="9" y2="18"></line><line x1="15" y1="6" x2="15" y2="21"></line></svg>`,
-        hooks: [
-            { question: "明德路轉學府路（新北高工口），轉彎車總是被過馬路行人卡死、回堵成一團？", answer: "爭取尖峰時段採用「全向行人專用時相」，行人專屬綠燈安心過、車輛綠燈順暢轉，人車徹底分流，根本解決轉彎回堵！" },
-            { question: "海山路、學府路、學士路、金城路四個路口，紅綠燈老是打架一路塞？", answer: "30 年資工數據專長，向交通局交控中心精準調閱秒數，爭取「全廊道動態智慧綠波」，串聯號誌連鎖，消除紅綠燈打架！" }
-        ],
-        howToDo: [
-            "【學府路口人車徹底分流】：爭取尖峰時段設置「全向行人專用時相」，行人專屬綠燈安心過、車輛綠燈順暢轉，消除轉彎回堵。",
-            "【明德路二段動態智慧綠波】：串聯海山路至金城路四節點號誌，爭取幹道動態綠波續進，消除連鎖塞車。",
-            "【數據化精準提案會勘】：運用車流尖峰數據模型，促成交控中心即時微調各路口秒數配比。"
-        ],
-        whyPossible: "候選人擁有 30 年資訊工程與數據分析背景，能精準解讀車流流量與號誌週期邏輯，用專業數據直接與市府交通局交控中心對話會勘。"
-    },
-    {
-        id: 6,
-        title: "無人機與 AI 未來體驗營",
-        subtitle: "每學期寒暑假定期開辦，長輩小孩都能輕鬆上手的科技啟蒙營",
-        image: "images/policy_03_tech.png",
-        budgetSource: "青年科普培育專案 ＋ 區公所文康專款",
-        budgetSub: "（完全不用動到明德里 88 萬基層款）",
-        budgetDesc: "候選人運用 30 年科技背景自帶微型安全設備與志工團隊，對接青年科普專案補助，讓里內孩子在最安全的室內防護網下免費體驗前瞻科技。",
-        highlight: "每學期寒暑假定期開辦！為里內家庭提供安全的無人機與 AI 體驗課。無人機是未來趨勢，大人、小孩到長輩都適合學習，全面提升手腦協調與科技視野。",
-        icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>`,
-        hooks: [
-            { question: "AI 與無人機時代來臨，孩子只能在手機螢幕上看別人玩？", answer: "30 年資工背景親自把關，引進 50g 以下微型安全無人機與防護網，每學期寒暑假定期開辦，讓孩子與長輩親手操控、啟發前瞻科技視野！" },
-            { question: "體驗前瞻科技課程，家長需要花大錢報名校外昂貴夏令營嗎？", answer: "里長自備專業設備與志工師資，對接青年科普專案補助，免費提供給全體明德里民！" }
-        ],
-        howToDo: [
-            "【室內微型安全飛行營】：每學期寒暑假舉辦，設置保護網與微型機專屬操作區，一對一安全員引導飛行體驗。",
-            "【學童手機 AI 錯題本工作坊】：指導學童運用手機 AI 拍照整理專屬錯題複習本，拆解學業目標、培養自主學習力。",
-            "【長青 AI 照片生成與修復】：手把手教長輩用手機玩出趣味老照片修復與藝術頭像生成，拉近跨世代科技距離。"
-        ],
-        whyPossible: "候選人具備 30 年軟體工程與科技管理背景，熟諳無人機教學與 AI 應用，能凝聚社區科技青年志工，以極低成本打造高安全性的實作環境。"
-    },
-    {
-        id: 7,
         category: "democracy",
         categoryName: "人本交通與通學安全",
         title: "防滑走廊 ＋ 友善步道 ＋ 通學安全",
@@ -179,53 +93,53 @@ const POLICIES_DATA = [
         whyPossible: "候選人具備實戰協調經驗，曾於 403 地震後深入研究並成功找到權責機關配合施工搶通重要便道；長期擔任校園志工與 10 年管委會實務，深諳公門運作。"
     },
     {
-        id: 8,
-        category: "governance",
-        categoryName: "專業治理與精準服務",
-        title: "鄰里和諧與權益溝通諮詢",
-        subtitle: "知法律、熟法規、懂調解的EQ里長",
-        image: "images/policy_10_harmony.png",
-        budgetSource: "顧問律師與調解志工團隊公益支援",
-        budgetSub: "（專業法治後盾，完全零公帑花費）",
-        budgetDesc: "由競選團隊顧問律師群與具備 10 年管委會實務之專業志工提供公益諮詢服務，完全零公帑支出，以專業法理為鄰里和睦把關。",
-        highlight: "引進法律與社區調解志工，提供鄰里噪音、騎樓占用、管道漏水與社區規約之理性溝建諮詢窗口。",
-        icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path></svg>`,
+        id: 4,
+        category: "democracy",
+        categoryName: "人本交通與智慧安防",
+        title: "智慧交通號誌 ＋ 零死角安全網",
+        subtitle: "車流智慧連鎖告別塞車，路口死角監控守護行車與暗巷安全！",
+        image: "images/policy_04_traffic.png",
+        budgetSource: "幹道動態綠波 ＋ 智慧安防專案工程款",
+        budgetSub: "（爭取市府專案工程款，零排擠里款）",
+        budgetDesc: "發揮 30 年資工數據專長，向市府交通局與警察局爭取動態綠波、路口微型安防監控專案款，徹底杜絕死角，零花費里款！",
+        highlight: "車流順暢、暗巷有光、行車有保障！發揮 30 年數據專長，爭取明德路二段動態綠波；建構全里路口與暗巷微型安防監控，告別「要調才知壞掉」的推拖弊端，搭配巡守隊科技智慧聯防！",
+        icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"></polygon><line x1="9" y1="3" x2="9" y2="18"></line><line x1="15" y1="6" x2="15" y2="21"></line></svg>`,
         hooks: [
-            { question: "樓上深夜噪音、管線漏水求償無門，找里長只能「和稀泥」或勸你忍耐？", answer: "10 年管委會主委實務 ＋ 首創制裁濫訴勝訴求償律師費實績，具備專業住宅法規調解力，以法理情守護居住權益！" },
-            { question: "遇到惡鄰居濫訴或管委會糾紛，請律師動輒數萬元花不起？", answer: "競選團隊顧問律師與法規志工提供公益諮詢，協助釐清相鄰關係與官方標準檢測途徑，避免走冤枉路！" }
+            { question: "海山路、學府路、學士路、金城路四個路口，紅綠燈老是打架一路塞？", answer: "30 年資工數據專長，向交通局交控中心精準調閱秒數，爭取「全廊道動態智慧綠波」，串聯號誌連鎖，消除紅綠燈打架！" },
+            { question: "巷弄暗角行車擦撞糾紛，要調監視器往往發現「剛好壞掉」求助無門？", answer: "建立里內路口監控定期巡檢通報制度，消除暗巷死角，鏡頭清清楚楚，並與巡守隊智慧聯防升級！" }
         ],
         howToDo: [
-            "【社區規約與權益免費諮詢】：定期設立諮詢時間，協助居民與管委會釐清公寓大廈管理條例與相鄰關係規範。",
-            "【中立第三方溝通平台】：針對噪音、漏水與車位爭議，提供第三方中立溝通建議，化解情緒對立。",
-            "【法治防禦規約經驗推廣】：分享主委任內推動防濫訴規約並獲法院勝訴確定之實績，守護熱心幹部與善良住戶。"
+            "【全廊道動態智慧綠波】：串聯海山路至金城路四節點號誌，爭取尖峰動態綠波續進，並推動學府路口全向行人專用時相。",
+            "【全里暗巷路口監控與定期巡檢】：優先針對狹窄轉彎與人流稀少暗巷補足微型監控，建立定期檢修機制，杜絕關鍵時刻鏡頭故障弊端。",
+            "【巡守隊智慧科技聯防】：天眼安防提供即時死角情報，規劃巡守隊重點巡邏動線，由「被動盲巡」升級為「主動科技聯防」。"
         ],
-        whyPossible: "候選人擁有 10 年社區大廈管委會主委實務，曾推動法治防禦規約獲法院判決勝訴，並有競選團隊顧問律師提供強大法務後盾。"
+        whyPossible: "候選人擁有 30 年資訊工程與數據分析背景，能精準解讀車流流量與號誌週期邏輯，用專業數據直接與市府交通局交控中心對話會勘。"
     },
     {
-        id: 9,
+        id: 5,
         category: "education",
         categoryName: "生活美學與未來教育",
-        title: "斜槓導師徵才計畫",
-        subtitle: "發掘鄰里才藝展演舞台",
-        image: "images/policy_12_mentor.png",
-        budgetSource: "青年創育與社區互助人才培力專案",
-        budgetSub: "（使用市民活動中心免租金場地，零額外自費）",
-        budgetDesc: "提供市民活動中心免租金場地，對接青年創育與社區互助補助，以極低成本為社區搭建斜槓展演舞台，形成良性人才生態！",
-        highlight: "招募里內故事媽媽、EQ爸爸、手工皂、AI剪輯師、獨立樂手與熱舞導師，在活動中心開辦多元工作坊。",
-        icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>`,
+        title: "無人機與 AI 未來體驗營",
+        subtitle: "每學期寒暑假定期開辦，長輩小孩都能輕鬆上手的科技啟蒙營",
+        image: "images/policy_03_tech.png",
+        budgetSource: "青年科普培育專案 ＋ 區公所文康專款",
+        budgetSub: "（完全不用動到明德里 88 萬基層款）",
+        budgetDesc: "候選人運用 30 年科技背景自帶微型安全設備與志工團隊，對接青年科普專案補助，讓里內孩子在最安全的室內防護網下免費體驗前瞻科技。",
+        highlight: "每學期寒暑假定期開辦！為里內家庭提供安全的無人機與 AI 體驗課。無人機是未來趨勢，大人、小孩到長輩都適合學習，全面提升手腦協調與科技視野。",
+        icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>`,
         hooks: [
-            { question: "里內很多身懷絕技的達人（故事媽媽、EQ志工、手工皂、AI剪輯、樂手），卻找不到舞台？", answer: "建立「明德斜槓導師資料庫」，提供市民活動中心免租金場地，讓鄰里才藝在社區發光發熱！" },
-            { question: "開辦才藝工作坊會不會變成昂貴的商業推銷？", answer: "堅持公益共享與材料費透明原則，結合社造補助，為里民提供平價甚至免費的多元成長課程！" }
+            { question: "AI 與無人機時代來臨，孩子只能在手機螢幕上看別人玩？", answer: "30 年資工背景親自把關，引進 50g 以下微型安全無人機與防護網，每學期寒暑假定期開辦，讓孩子與長輩親手操控、啟發前瞻科技視野！" },
+            { question: "體驗前瞻科技課程，家長需要花大錢報名校外昂貴夏令營嗎？", answer: "里長自備專業設備與志工師資，對接青年科普專案補助，免費提供給全體明德里民！" }
         ],
         howToDo: [
-            "【建立社區斜槓人才庫】：公開徵求具備才藝與教學熱情的里民報名（故事媽媽、EQ爸爸、手工皂、AI剪輯、樂手等），建立師資庫。",
-            "【活動中心免租金場地支持】：提供活動中心免租金場地，協助開辦小班制手作、AI 影片創用或音樂工作坊。",
-            "【社區成果發表舞台】：結合社區節慶或草地音樂節，為斜槓導師與學員舉辦成果發表展演。"
+            "【室內微型安全飛行營】：每學期寒暑假舉辦，設置保護網與微型機專屬操作區，一對一安全員引導飛行體驗。",
+            "【學童手機 AI 錯題本工作坊】：指導學童運用手機 AI 拍照整理專屬錯題複習本，拆解學業目標、培養自主學習力。",
+            "【長青 AI 照片生成與修復】：手把手教長輩用手機玩出趣味老照片修復與藝術頭像生成，拉近跨世代科技距離。"
         ],
-        whyPossible: "候選人擁有 20 年流行音樂產業經紀與 8 年 EQ 志工培訓背景，擅長挖掘人才天賦、規劃課程與展演舞台，能吸引豐富的斜槓導師加入。"
+        whyPossible: "候選人具備 30 年軟體工程與科技管理背景，熟諳無人機教學與 AI 應用，能凝聚社區科技青年志工，以極低成本打造高安全性的實作環境。"
     },
     {
-        id: 10,
+        id: 6,
         category: "governance",
         categoryName: "專業治理與精準服務",
         title: "AI健康管家與獨老守護",
@@ -248,51 +162,7 @@ const POLICIES_DATA = [
         whyPossible: "候選人具備 30 年資工背景與 10 年社區治理實務，深諳政府社福與衛政申請法規，能把國家級資源轉化為長輩的居家守護網。"
     },
     {
-        id: 11,
-        title: "EQ 教育課程",
-        subtitle: "每季定期開辦 1 期共學工作坊，陪伴跨世代家庭和諧溝通",
-        image: "images/policy_02_eq_1.png",
-        budgetSource: "教育部家庭教育專案 ＋ 校里跨域合作",
-        budgetSub: "（完全不用動到明德里 88 萬基層款）",
-        budgetDesc: "結合候選人 8 年樂利國小 EQ 志工組長團隊師資，免費借用校園空間並聯合提報教育部家庭教育專案全額補助，零公帑為里民開辦高品質工作坊。",
-        highlight: "每季定期開辦 1 期共學工作坊！涵蓋孩子、家長與長者都能參與的情緒管理課程，陪伴大家了解情緒、覺察委屈、避免遷怒、遠離霸凌。",
-        icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a5 5 0 1 0 10 0v-2H12z"></path><path d="M12 10a8 8 0 1 0 8 8v-8H12z"></path><circle cx="12" cy="12" r="10"></circle><path d="M8 14s1.5 2 4 2 4-2 4-2"></path><line x1="9" y1="9" x2="9.01" y2="9"></line><line x1="15" y1="9" x2="15.01" y2="9"></line></svg>`,
-        hooks: [
-            { question: "遇到孩子情緒暴走、長輩委屈遷怒，只能在家裡互相受氣？", answer: "8 年樂利國小 EQ 志工組長帶領團隊經驗，把經過 7 套專業證照驗證的情緒課程引進明德里，每季定期開辦 1 期，引導學童覺察情緒、建立自信、遠離霸凌！" },
-            { question: "去外面上專業心理成長或親子溝通課，動輒數千甚至上萬元？", answer: "結合樂利國小場地與教育部家庭教育專案全額補助，由志工團隊公益授課，里民 100% 免費共學！" }
-        ],
-        howToDo: [
-            "【兒童與親子情緒共學班】：每季開辦 1 期，透過遊戲與繪本引導孩子認識情緒、管理生氣與學習人際溝通合作。",
-            "【家長與三明治世代支持坊】：分享正向管教、自我覺察與溝通實務，協助父母化解教養焦慮與家庭摩擦。",
-            "【長者樂齡同理茶會】：開辦長青情緒調適與同理傾聽互動茶會，促進跨世代同理與鄰里和睦。"
-        ],
-        whyPossible: "候選人擔任樂利國小 EQ 志工組長多年，具備 8 年講師資歷與 7 套專業證照，帶領過 50 餘名志工團隊，擁有完整師資與教材開發經驗。"
-    },
-    {
-        id: 12,
-        category: "culture",
-        categoryName: "空間活化與美學生活",
-        title: "全齡多元活動中心",
-        subtitle: "空間活化共學角",
-        image: "images/policy_09_lounge.png",
-        budgetSource: "市民活動中心活化專案 ＋ 明德里基層款",
-        budgetSub: "（公有空間活化，零額外自費）",
-        budgetDesc: "運用明德市民活動中心既有公有設施，以活動中心專案活化補助及每年里基層款支應，零額外負擔落實全齡共享。",
-        highlight: "遵循增量不取代原則，開放活動中心夜間與假日空間成立全齡共學角，讓青年與長者獲得溫馨交流空間。",
-        icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>`,
-        hooks: [
-            { question: "活動中心白天熱鬧，晚上與假日卻常常鐵捲門拉下、一片漆黑？", answer: "遵循「增量不取代」原則，完全不影響長輩白天共餐，開放平日夜間與假日為「全齡共學角」，提供溫馨明亮的公共空間！" },
-            { question: "年輕里民下班想找個安靜看書、做專案或桌遊交流的地方，只能花錢去咖啡廳？", answer: "活動中心提供明亮溫馨的閱讀自習角落與青年志工輪值，里民免費共享優質公共資產！" }
-        ],
-        howToDo: [
-            "【夜間與假日全齡共學角】：遵循「增量不取代」原則，完全不影響白天共餐，開放平日夜間與假日為桌遊、閱讀自修與文化交流角。",
-            "【優化內部設施與安靜角】：維護活動中心內部燈光與座椅設施，打造溫馨安靜的自主學習與共修角落。",
-            "【青年志工輪值維護清潔】：招募社區青年志工輪值服務，維持公共設施安全與現場清潔管理。"
-        ],
-        whyPossible: "候選人具備 10 年社區大廈管委會經驗，深諳公共空間規約管理與里民需求協調，能以最小花費落實友善空間活化。"
-    },
-    {
-        id: 13,
+        id: 7,
         category: "governance",
         categoryName: "專業治理與長照支持",
         title: "AI 預防失智 App 體驗營",
@@ -315,30 +185,97 @@ const POLICIES_DATA = [
         whyPossible: "候選人具備 8 年 EQ 講師與 30 年科技管理背景，深知長照家庭心理痛點與法規流程，能引入適合社區的健能遊戲與支持體系。"
     },
     {
-        id: 14,
-        category: "culture",
-        categoryName: "空間活化與美學生活",
-        title: "幸福寵物空間",
-        subtitle: "優化綠地寵物友善",
-        image: "images/policy_11_pet.png",
-        budgetSource: "明德里基層工作經費 ＋ 動保處推廣專案",
-        budgetSub: "（使用每年近百萬基層款，經濟實惠）",
-        budgetDesc: "便攜袋補充站與清潔箱採購由每年「里基層工作經費」支應（每座僅數百至千餘元），並結合動保宣導品與民間志工共同維護，經濟實惠又乾淨。",
-        highlight: "於明德公園周邊爭取規劃寵物撿便袋補充站與繫留設施，兼顧公園乾淨衛生與毛小孩活動權益。",
-        icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="22"></line></svg>`,
+        id: 8,
+        category: "governance",
+        categoryName: "健康樂齡與活力共融",
+        title: "銀髮共餐 ＋ 全民灶咖",
+        subtitle: "餐前趣味動腦尋寶，鄰里一人一菜跨世代同樂！",
+        image: "images/policy_13_dining.png?v=20260830_2",
+        budgetSource: "社會局銀髮共餐專案 ＋ 志願服務專款",
+        budgetSub: "（法定專款專用，零額外自費）",
+        budgetDesc: "食材費由社會局專款專用全額核銷；動腦教材與志工四大保障（保險、學習時數、便當與交通誤餐補助）由文教專案支應，完全不排擠里內 88 萬修繕款！",
+        highlight: "打破吃飯看電視的傳統模式！餐前引進大螢幕與趣味手腦尋寶遊戲，結合「全民灶咖一人一菜」青銀共煮共聚，打造溫暖跨世代共餐！",
+        icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>`,
         hooks: [
-            { question: "帶毛小孩去公園散步，忘記帶便袋或找不到地方洗手牽繩很尷尬？", answer: "在公園適當角落爭取設置「寵物便攜袋補充站」與友善牽繩繫留區，方便飼主隨手維護環境乾淨！" },
-            { question: "寵物設施會不會引起不養寵物長輩與家長的反彈？", answer: "倡導負責任飼主文化與志工定期維護草地，兼顧公共衛生與毛小孩活動權益，創造雙贏！" }
+            { question: "傳統老人共餐常常「大家坐著看電視、吃完便當就解散」，少了互動？", answer: "餐前引進「1 至 50 數字尋寶」與大螢幕互動挑戰，告別枯燥甩手操，長輩邊吃邊動腦、打卡換獎狀！" },
+            { question: "共餐難道只能是老人家領便當？年輕鄰里也能一起參與嗎？", answer: "開辦「全民灶咖 ‧ 一人一菜」週末共享廚房，讓鄰里大顯廚藝、青銀共桌話家常，增進鄰里真感情！" }
         ],
         howToDo: [
-            "【設置便攜袋補充站與清潔箱】：爭取於公園適當地點設置撿便袋補充站與清掃工具箱，方便飼主隨手維護環境乾淨。",
-            "【友善牽繩繫留角落】：規劃友善牽繩繫留角落，讓飼主在休憩時能安心固定牽繩。",
-            "【毛小孩健康與衛教講座】：邀請獸醫師與訓練師分享教養與衛教常識，兼顧公共衛生與動物福利。"
+            "【餐前動腦與大螢幕遊戲】：引進趣味手腦尋寶與大螢幕觸控健腦遊戲，長輩邊笑邊動腦，告別枯燥甩手操與看電視。",
+            "【全民灶咖一人一菜共聚】：開辦社區共享灶咖，歡迎年輕家庭與長輩「一人出一道拿手好菜（Potluck）」，拉近鄰里人情味。",
+            "【青年志工四大法定保障】：依《志願服務法》提供意外險、服務時數與便當補助，制度化吸引青年學子熱情陪伴。"
         ],
-        whyPossible: "候選人具備 10 年社區規約管理與空間協調經驗，能尊重非養寵物里民對環境衛生的訴求，建立雙贏管理機制。"
+        whyPossible: "候選人具備 30 年軟體研發經驗自製無廣告 App，並具 8 年志工管理實務，能以最低成本為社區打造歡樂有尊嚴的共餐據點。"
     },
     {
-        id: 15,
+        id: 9,
+        category: "governance",
+        categoryName: "專業治理與精準服務",
+        title: "鄰里和諧與權益溝通諮詢",
+        subtitle: "知法律、熟法規、懂調解的EQ里長",
+        image: "images/policy_10_harmony.png",
+        budgetSource: "顧問律師與調解志工團隊公益支援",
+        budgetSub: "（專業法治後盾，完全零公帑花費）",
+        budgetDesc: "由競選團隊顧問律師群與具備 10 年管委會實務之專業志工提供公益諮詢服務，完全零公帑支出，以專業法理為鄰里和睦把關。",
+        highlight: "引進法律與社區調解志工，提供鄰里噪音、騎樓占用、管道漏水與社區規約之理性溝通諮詢窗口。",
+        icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path></svg>`,
+        hooks: [
+            { question: "樓上深夜噪音、管線漏水求償無門，找里長只能「和稀泥」或勸你忍耐？", answer: "10 年管委會主委實務 ＋ 首創制裁濫訴勝訴求償律師費實績，具備專業住宅法規調解力，以法理情守護居住權益！" },
+            { question: "遇到惡鄰居濫訴或管委會糾紛，請律師動輒數萬元花不起？", answer: "競選團隊顧問律師與法規志工提供公益諮詢，協助釐清相鄰關係與官方標準檢測途徑，避免走冤枉路！" }
+        ],
+        howToDo: [
+            "【社區規約與權益免費諮詢】：定期設立諮詢時間，協助居民與管委會釐清公寓大廈管理條例與相鄰關係規範。",
+            "【中立第三方溝通平台】：針對噪音、漏水與車位爭議，提供第三方中立溝通建議，化解情緒對立。",
+            "【法治防禦規約經驗推廣】：分享主委任內推動防濫訴規約並獲法院勝訴確定之實績，守護熱心幹部與善良住戶。"
+        ],
+        whyPossible: "候選人擁有 10 年社區大廈管委會主委實務，曾推動法治防禦規約獲法院判決勝訴，並有競選團隊顧問律師提供強大法務後盾。"
+    },
+    {
+        id: 10,
+        category: "education",
+        categoryName: "生活美學與未來教育",
+        title: "斜槓導師徵才計畫",
+        subtitle: "發掘鄰里才藝展演舞台",
+        image: "images/policy_12_mentor.png",
+        budgetSource: "青年創育與社區互助人才培力專案",
+        budgetSub: "（使用市民活動中心免租金場地，零額外自費）",
+        budgetDesc: "提供市民活動中心免租金場地，對接青年創育與社區互助補助，以極低成本為社區搭建斜槓展演舞台，形成良性人才生態！",
+        highlight: "招募里內故事媽媽、EQ爸爸、手工皂、AI剪輯師、獨立樂手與熱舞導師，在活動中心開辦多元工作坊。",
+        icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>`,
+        hooks: [
+            { question: "里內很多身懷絕技的達人（故事媽媽、EQ志工、手工皂、AI剪輯、樂手），卻找不到舞台？", answer: "建立「明德斜槓導師資料庫」，提供市民活動中心免租金場地，讓鄰里才藝在社區發光發熱！" },
+            { question: "開辦才藝工作坊會不會變成昂貴的商業推銷？", answer: "堅持公益共享與材料費透明原則，結合社造補助，為里民提供平價甚至免費的多元成長課程！" }
+        ],
+        howToDo: [
+            "【建立社區斜槓人才庫】：公開徵求具備才藝與教學熱情的里民報名（故事媽媽、EQ爸爸、手工皂、AI剪輯、樂手等），建立師資庫。",
+            "【活動中心免租金場地支持】：提供活動中心免租金場地，協助開辦小班制手作、AI 影片創用或音樂工作坊。",
+            "【社區成果發表舞台】：結合社區節慶或草地音樂節，為斜槓導師與學員舉辦成果發表展演。"
+        ],
+        whyPossible: "候選人擁有 20 年流行音樂產業經紀與 8 年 EQ 志工培訓背景，擅長挖掘人才天賦、規劃課程與展演舞台，能吸引豐富的斜槓導師加入。"
+    },
+    {
+        id: 11,
+        title: "傳統課程潮流升級計畫",
+        subtitle: "當長輩太鼓與流行樂團、舞團共演時",
+        image: "images/policy_06_upgrade.png",
+        budgetSource: "明德里基層工作經費 ＋ 流行音樂師資協作",
+        budgetSub: "（使用每年近百萬基層款，零額外自費）",
+        budgetDesc: "善用市民活動中心既有場地，由里基層款支應基礎維護，並結合候選人音樂圈師資人脈協同教學，發揮最大效益。",
+        highlight: "既有課程（如太鼓班、舞蹈班）安心延續，並注入現代流行音樂與節奏元素，邀請年輕樂手與家人加入合練，舉辦跨世代公演。",
+        icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>`,
+        hooks: [
+            { question: "長輩參加太鼓班、舞蹈班很有活力，但年輕兒孫卻很少來看表演？", answer: "保留既有課程的前提下，注入流行音樂改編節奏，舉辦跨世代公演，讓兒孫主動搶著幫阿公阿嬤拍照錄影、全家同樂！" },
+            { question: "升級會不會強迫改動長輩習慣的傳統曲目或換掉原有教練？", answer: "堅持「自願加入與增量創新」原則，100% 尊重既有社團教練與練習時段，完全零額外自費！" }
+        ],
+        howToDo: [
+            "【經典課程安心延續】：100% 保留長輩喜愛的太鼓班、舞蹈班與原有教練練習時段。",
+            "【流行音樂潮流共演】：在長輩自願前提下融入流行音樂改編節奏，舉辦跨世代同台樂活公演。",
+            "【成果專區留下精彩回憶】：幫長輩建立成果線上影音專區，讓兒孫搶著幫阿公阿嬤拍照錄影留念。"
+        ],
+        whyPossible: "候選人具備 20 年流行音樂產業背景，熟悉曲風改編與演出企劃，能邀請優秀導師協同教學，煥發傳統社團新活力。"
+    },
+    {
+        id: 12,
         category: "environment",
         categoryName: "綠色永續與環境治理",
         title: "食用廢油變黃金 ‧ 環保綠生活",
@@ -360,6 +297,73 @@ const POLICIES_DATA = [
             "【實體好禮直接換】：里民亦可憑回收廢油直接兌換已熟成之「明德里環保家事皂」，洗碗去油不傷手，省下日常清潔劑開銷。"
         ],
         whyPossible: "候選人具備企業專案管理長才，擅長爭取市府低碳專款，並具備手工皂協會專業公益師資人脈，能以零負擔模式落實社區綠色循環。"
+    },
+    {
+        id: 13,
+        category: "culture",
+        categoryName: "空間活化與美學生活",
+        title: "全齡多元活動中心",
+        subtitle: "空間活化共學角",
+        image: "images/policy_09_lounge.png",
+        budgetSource: "市民活動中心活化專案 ＋ 明德里基層款",
+        budgetSub: "（公有空間活化，零額外自費）",
+        budgetDesc: "運用明德市民活動中心既有公有設施，以活動中心專案活化補助及每年里基層款支應，零額外負擔落實全齡共享。",
+        highlight: "遵循增量不取代原則，開放活動中心夜間與假日空間成立全齡共學角，讓青年與長者獲得溫馨交流空間。",
+        icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>`,
+        hooks: [
+            { question: "活動中心白天熱鬧，晚上與假日卻常常鐵捲門拉下、一片漆黑？", answer: "遵循「增量不取代」原則，完全不影響長輩白天共餐，開放平日夜間與假日為「全齡共學角」，提供溫馨明亮的公共空間！" },
+            { question: "年輕里民下班想找個安靜看書、做專案或桌遊交流的地方，只能花錢去咖啡廳？", answer: "活動中心提供明亮溫馨的閱讀自習角落與青年志工輪值，里民免費共享優質公共資產！" }
+        ],
+        howToDo: [
+            "【夜間與假日全齡共學角】：遵循「增量不取代」原則，完全不影響白天共餐，開放平日夜間與假日為桌遊、閱讀自修與文化交流角。",
+            "【優化內部設施與安靜角】：維護活動中心內部燈光與座椅設施，打造溫馨安靜的自主學習與共修角落。",
+            "【青年志工輪值維護清潔】：招募社區青年志工輪值服務，維持公共設施安全與現場清潔管理。"
+        ],
+        whyPossible: "候選人具備 10 年社區大廈管委會經驗，深諳公共空間規約管理與里民需求協調，能以最小花費落實友善空間活化。"
+    },
+    {
+        id: 14,
+        title: "EQ 教育課程",
+        subtitle: "每季定期開辦 1 期共學工作坊，陪伴跨世代家庭和諧溝通",
+        image: "images/policy_02_eq_1.png",
+        budgetSource: "教育部家庭教育專案 ＋ 校里跨域合作",
+        budgetSub: "（完全不用動到明德里 88 萬基層款）",
+        budgetDesc: "結合候選人 8 年樂利國小 EQ 志工組長團隊師資，免費借用校園空間並聯合提報教育部家庭教育專案全額補助，零公帑為里民開辦高品質工作坊。",
+        highlight: "每季定期開辦 1 期共學工作坊！涵蓋孩子、家長與長者都能參與的情緒管理課程，陪伴大家了解情緒、覺察委屈、避免遷怒、遠離霸凌。",
+        icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a5 5 0 1 0 10 0v-2H12z"></path><path d="M12 10a8 8 0 1 0 8 8v-8H12z"></path><circle cx="12" cy="12" r="10"></circle><path d="M8 14s1.5 2 4 2 4-2 4-2"></path><line x1="9" y1="9" x2="9.01" y2="9"></line><line x1="15" y1="9" x2="15.01" y2="9"></line></svg>`,
+        hooks: [
+            { question: "遇到孩子情緒暴走、長輩委屈遷怒，只能在家裡互相受氣？", answer: "8 年樂利國小 EQ 志工組長帶領團隊經驗，把經過 7 套專業證照驗證的情緒課程引進明德里，每季定期開辦 1 期，引導學童覺察情緒、建立自信、遠離霸凌！" },
+            { question: "去外面上專業心理成長或親子溝通課，動輒數千甚至上萬元？", answer: "結合樂利國小場地與教育部家庭教育專案全額補助，由志工團隊公益授課，里民 100% 免費共學！" }
+        ],
+        howToDo: [
+            "【兒童與親子情緒共學班】：每季開辦 1 期，透過遊戲與繪本引導孩子認識情緒、管理生氣與學習人際溝通合作。",
+            "【家長與三明治世代支持坊】：分享正向管教、自我覺察與溝通實務，協助父母化解教養焦慮與家庭摩擦。",
+            "【長者樂齡同理茶會】：開辦長青情緒調適與同理傾聽互動茶會，促進跨世代同理與鄰里和睦。"
+        ],
+        whyPossible: "候選人擔任樂利國小 EQ 志工組長多年，具備 8 年講師資歷與 7 套專業證照，帶領過 50 餘名志工團隊，擁有完整師資與教材開發經驗。"
+    },
+    {
+        id: 15,
+        category: "culture",
+        categoryName: "空間活化與美學生活",
+        title: "幸福寵物空間",
+        subtitle: "優化綠地寵物友善",
+        image: "images/policy_11_pet.png",
+        budgetSource: "明德里基層工作經費 ＋ 動保處推廣專案",
+        budgetSub: "（使用每年近百萬基層款，經濟實惠）",
+        budgetDesc: "便攜袋補充站與清潔箱採購由每年「里基層工作經費」支應（每座僅數百至千餘元），並結合動保宣導品與民間志工共同維護，經濟實惠又乾淨。",
+        highlight: "於明德公園周邊爭取規劃寵物撿便袋補充站與繫留設施，兼顧公園乾淨衛生與毛小孩活動權益。",
+        icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="22"></line></svg>`,
+        hooks: [
+            { question: "帶毛小孩去公園散步，忘記帶便袋或找不到地方洗手牽繩很尷尬？", answer: "在公園適當角落爭取設置「寵物便攜袋補充站」與友善牽繩繫留區，方便飼主隨手維護環境乾淨！" },
+            { question: "寵物設施會不會引起不養寵物長輩與家長的反彈？", answer: "倡導負責任飼主文化與志工定期維護草地，兼顧公共衛生與毛小孩活動權益，創造雙贏！" }
+        ],
+        howToDo: [
+            "【設置便攜袋補充站與清潔箱】：爭取於公園適當地點設置撿便袋補充站與清掃工具箱，方便飼主隨手維護環境乾淨。",
+            "【友善牽繩繫留角落】：規劃友善牽繩繫留角落，讓飼主在休憩時能安心固定牽繩。",
+            "【毛小孩健康與衛教講座】：邀請獸醫師與訓練師分享教養與衛教常識，兼顧公共衛生與動物福利。"
+        ],
+        whyPossible: "候選人具備 10 年社區規約管理與空間協調經驗，能尊重非養寵物里民對環境衛生的訴求，建立雙贏管理機制。"
     }
 ];
 
@@ -804,18 +808,18 @@ function renderPolicies() {
         const count = getPolicyVoteCount(policy.id);
 
         let imageHtml = '';
-        if (policy.id === 7) {
+        if (policy.id === 3) {
             imageHtml = `
-                <div class="before-after-slider card-slider-7" onclick="event.stopPropagation()">
+                <div class="before-after-slider card-slider-3" onclick="event.stopPropagation()">
                     <div class="slider-image-before">
                         <img src="images/policy_04_safety_1.jpg" alt="現況：人行道標線磨損補丁（實地現況）">
                     </div>
-                    <div class="slider-image-after" id="card-slider-image-after-7">
+                    <div class="slider-image-after" id="card-slider-image-after-3">
                         <img src="images/policy_04_safety_2.png" alt="願景：防滑平整友善人行步道 - 概念示意圖">
                     </div>
-                    <input type="range" min="0" max="100" value="50" class="slider-range" id="card-slider-range-7" aria-label="Before/After 拖拽滑塊對比" onclick="event.stopPropagation()">
-                    <div class="slider-line" id="card-slider-line-7"></div>
-                    <div class="slider-button" id="card-slider-button-7"></div>
+                    <input type="range" min="0" max="100" value="50" class="slider-range" id="card-slider-range-3" aria-label="Before/After 拖拽滑塊對比" onclick="event.stopPropagation()">
+                    <div class="slider-line" id="card-slider-line-3"></div>
+                    <div class="slider-button" id="card-slider-button-3"></div>
                     <span class="slider-label slider-label-before">改建願景</span>
                     <span class="slider-label slider-label-after">現況實景</span>
                     <span class="vision-badge">概念示意圖</span>
@@ -871,12 +875,12 @@ function renderPolicies() {
         card.addEventListener('click', () => openDrawer(policy.id));
         policyGrid.appendChild(card);
 
-        // 如果是計畫 14，初始化卡片上的滑塊事件
-        if (policy.id === 7) {
-            const cardRange = card.querySelector('#card-slider-range-7');
-            const cardAfterImage = card.querySelector('#card-slider-image-after-7');
-            const cardLine = card.querySelector('#card-slider-line-7');
-            const cardButton = card.querySelector('#card-slider-button-7');
+        // 如果是計畫 03，初始化卡片上的滑塊事件
+        if (policy.id === 3) {
+            const cardRange = card.querySelector('#card-slider-range-3');
+            const cardAfterImage = card.querySelector('#card-slider-image-after-3');
+            const cardLine = card.querySelector('#card-slider-line-3');
+            const cardButton = card.querySelector('#card-slider-button-3');
 
             if (cardRange && cardAfterImage && cardLine && cardButton) {
                 const updateCardSlider = (e) => {
@@ -965,8 +969,8 @@ function openDrawer(policyId) {
     // Populate drawer image
     const drawerImgWrapper = document.getElementById('drawer-image-wrapper');
     if (drawerImgWrapper) {
-        // 如果是計畫 02 (id 為 2)，渲染三張圖
-        if (policy.id === 11) {
+        // 如果是計畫 14 (EQ教育)，渲染三張圖
+        if (policy.id === 14) {
             drawerImgWrapper.style.display = 'block';
             drawerImgWrapper.innerHTML = `
                 <div style="position: relative; margin-bottom: 1.5rem; border-radius: 12px; overflow: hidden; border: 1px solid var(--card-border);">
@@ -982,8 +986,8 @@ function openDrawer(policyId) {
                     <span class="vision-badge">概念示意圖</span>
                 </div>
             `;
-        } else if (policy.id === 7) {
-            // 如果是計畫 14 (id 為 14)，渲染 Before/After 拖拽對比滑塊
+        } else if (policy.id === 3) {
+            // 如果是計畫 03 (友善步道)，渲染 Before/After 拖拽對比滑塊
             drawerImgWrapper.style.display = 'block';
             drawerImgWrapper.innerHTML = `
                 <div class="before-after-slider">
