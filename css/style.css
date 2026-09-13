@@ -1105,7 +1105,7 @@ nav {
 }
 
 .policy-card-header {
-    padding: 2.2rem 2.2rem 1.2rem 2.2rem;
+    padding: 1.6rem 1.25rem 1rem 1.25rem;
     display: flex;
     flex-direction: column;
     border-bottom: 1px solid var(--card-border);
@@ -1164,7 +1164,7 @@ nav {
 }
 
 .policy-card-body {
-    padding: 1.6rem 2.2rem 2.2rem 2.2rem;
+    padding: 1.3rem 1.25rem 1.6rem 1.25rem;
     display: flex;
     flex-direction: column;
     flex-grow: 1;
@@ -1191,8 +1191,13 @@ nav {
 }
 
 .policy-card h3 {
-    font-size: 1.45rem;
+    font-size: clamp(1.15rem, 1.32vw, 1.35rem);
     margin-bottom: 0;
+    line-height: 1.35;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    letter-spacing: -0.01em;
     transition: var(--transition-smooth);
 }
 
@@ -1203,13 +1208,19 @@ nav {
 .policy-punchline,
 .policy-highlight {
     color: #ffffff;
-    font-size: 1.22rem;
-    font-weight: 700;
-    margin-bottom: 1.4rem;
-    line-height: 1.55;
+    font-size: 1.12rem;
+    font-weight: 600;
+    margin-bottom: 1.2rem;
+    line-height: 1.45;
     flex-grow: 1;
     letter-spacing: 0.01em;
     text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-height: 2.9em;
 }
 
 [data-theme="light"] .policy-punchline,
@@ -1759,27 +1770,33 @@ footer {
         box-shadow: 0 14px 35px -8px rgba(0, 0, 0, 0.75);
     }
     .policy-card-header {
-        padding: 1.8rem 1.6rem 1.2rem 1.6rem;
+        padding: 1.4rem 1.15rem 0.95rem 1.15rem;
     }
     .policy-card-body {
-        padding: 1.4rem 1.6rem 1.8rem 1.6rem;
+        padding: 1.15rem 1.15rem 1.5rem 1.15rem;
     }
     .policy-number {
-        font-size: 1.35rem !important;
+        font-size: 1.25rem !important;
         font-weight: 900 !important;
         letter-spacing: 0.04em;
     }
     .policy-card h3 {
-        font-size: 1.48rem !important;
+        font-size: clamp(1.15rem, 4.4vw, 1.32rem) !important;
         font-weight: 800 !important;
-        line-height: 1.4;
+        line-height: 1.35;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        letter-spacing: -0.02em;
     }
     .policy-punchline,
     .policy-highlight {
-        font-size: 1.35rem !important;
-        font-weight: 700 !important;
-        line-height: 1.6;
-        margin-bottom: 1.2rem;
+        font-size: 1.15rem !important;
+        font-weight: 600 !important;
+        line-height: 1.45;
+        margin-bottom: 1.1rem;
+        min-height: 2.9em;
+        -webkit-line-clamp: 2;
     }
     .learn-more-btn {
         font-size: 1.32rem !important;
