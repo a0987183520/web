@@ -3866,8 +3866,11 @@ footer {
 }
 
 .insight-glow-icon {
-    font-size: 1.45rem;
+    font-size: 1.36rem;
     line-height: 1;
+    display: inline-block;
+    vertical-align: -0.08em;
+    margin-right: 0.25rem;
 }
 
 .insight-glow-title {
@@ -3947,7 +3950,11 @@ footer {
         text-align: center !important;
         text-shadow: 0 2px 12px rgba(0, 0, 0, 0.75);
     }
-    .insight-glow-icon,
+    .insight-glow-icon {
+        font-size: 1.35rem !important;
+        vertical-align: -0.08em;
+        margin-right: 0.2rem;
+    }
     .insight-glow-title {
         font-size: 1.38rem !important;
     }
