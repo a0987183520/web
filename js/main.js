@@ -51,20 +51,19 @@ const POLICIES_DATA = [
         title: "里民共治 ‧ 你用手機也能作主",
         subtitle: "你的意見就是我的政見！你來點、我來辦，告別里長黑箱治理",
         image: "images/policy_05_guide.png",
-        budgetSource: "科技經理人自研維運（完全不用動到明德里 88 萬基層款）",
+        budgetSource: "我自研維運「里民作主」App，不花任何公費",
         budgetSub: "<span class=\"hl-keyword\">完全不用動到</span>明德里 88 萬基層款",
-        budgetDesc: "本系統由候選人發揮 30 年軟體架構長才親自開發「里民作主」App，不花任何公帑建置維運；每年 88 萬基層工程款依里民在線報修熱點公開排定修繕順序，告別黑箱排隊！",
-        highlight: "「繳那麼多稅金，卻感受不到里長服務？活動老是辦在上班時間或沒興趣？」由你做主 App 上線！手機隨時看熱門活動、24 小時在線報名，多數成案熱門先辦；每年 88 萬修繕在線報修透明排程，告別一人黑箱！",
+        budgetDesc: "",
+        highlight: "「繳那麼多稅金，平時感受不到里長服務？活動老是辦在上班時間或沒興趣？」你來點、我來辦！手機隨時查看活動排行榜，24 小時隨時可報名，多數成案、熱門先辦，票選名額全公開，告別黑箱與蚊子活動！",
         icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>`,
         hooks: [
             { question: "我每年繳了那麼多的稅金，<span class=\"hl-keyword\">為什麼平時感覺不到里長的服務？</span>", answer: "" },
-            { question: "活動老是辦在上班時間，要不然就是<span class=\"hl-keyword\">沒興趣的課程</span>？", answer: "" }
+            { question: "活動老是辦在上班時間，要不然就是<span class=\"hl-keyword\">沒興趣的課程？</span>", answer: "" }
         ],
         howToDo: [
-            "【你來點、我來辦】：想開什麼活動，由你做主！手機隨時查看熱門活動，<span class=\"hl-keyword\">24 小時在線報名</span>；多數成案、熱門先辦，票選名額全公開，<span class=\"hl-keyword\">告別黑箱與蚊子活動</span>！",
-            "【88 萬修繕公開排程】：修哪裡、怎麼修，里民手機拍照在線報修與投票，里辦公處定期公開進度與市府會勘紀錄，每一分錢清清楚楚。"
+            "【你來點、我來辦】：想要什麼活動，由你做主！手機隨時查看活動排行榜，<span class=\"hl-keyword\">24 小時隨時可報名</span>，多數成案，熱門先辦，票選名額全公開，<span class=\"hl-keyword\">告別黑箱與蚊子活動！</span>"
         ],
-        whyPossible: "【你點得出，我就辦得出！】候選人具備 <span class=\"hl-keyword\">10 年社區治理</span>與 <span class=\"hl-keyword\">30 年軟體工程背景</span>，曾親自舉辦直排輪、桌球、學生與長輩無人機、手機 AI 短劇、長輩拍照管血壓、AI 家教與錯題本等<span class=\"hl-keyword\">十餘種熱門體驗營</span>，活動實務經驗豐富，能親自打造專屬 App 落實民意！"
+        whyPossible: "【你點得出，我就辦得出！】我曾舉辦過直排輪、桌球、學生與長輩無人機、手機 AI 短劇、長輩血壓AI管理、AI 家教與AI錯題本...等<span class=\"hl-keyword\">十餘種熱門體驗營的經驗</span>，<span class=\"hl-keyword\">我知道哪裡有經費，我會寫企劃案</span>，因此我做得到！"
     },
     {
         id: 3,
