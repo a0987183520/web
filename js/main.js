@@ -32,8 +32,8 @@ const POLICIES_DATA = [
         title: "民歌Live草地音樂節",
         subtitle: "邀請歌手吉他彈唱互動，春秋兩季相約活動中心草地野餐，用音樂找回與鄰居的連結",
         image: "images/policy_01_music.png",
-        budgetSource: "新北市文化局社造專案（5~20萬）",
-        budgetSub: "完全不用動到明德里 88 萬基層款",
+        budgetSource: "文化局社造專案（5~20萬）",
+        budgetSub: "<span class=\"hl-keyword\">完全不用動到</span>明德里 88 萬基層款",
         budgetDesc: "",
         highlight: "現場吉他彈唱互動、散步就能抵達！每年春、秋兩季定期各辦 1 次，善用市民活動中心旁公園草地，串聯街頭民歌手、獨立樂手與學生社團，打造有歌聲、有笑聲的草地音樂生活節。",
         icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"></path><circle cx="6" cy="18" r="3"></circle><circle cx="18" cy="16" r="3"></circle></svg>`,
@@ -963,11 +963,14 @@ function openDrawer(policyId) {
 
     // Populate drawer budget section
     const budgetBadgeEl = document.getElementById('drawer-budget-badge');
-    if (budgetBadgeEl) budgetBadgeEl.textContent = policy.budgetSource || '明德里基層工作經費';
+    if (budgetBadgeEl) budgetBadgeEl.innerHTML = policy.budgetSource || '明德里基層工作經費';
     const budgetSubEl = document.getElementById('drawer-budget-sub');
     if (budgetSubEl) {
-        const rawSub = policy.budgetSub || '';
-        budgetSubEl.textContent = rawSub.replace(/[（）()]/g, '').trim();
+        let rawSub = policy.budgetSub || '';
+        if (!rawSub.includes('<')) {
+            rawSub = rawSub.replace(/^[（(]/, '').replace(/[）)]$/, '').trim();
+        }
+        budgetSubEl.innerHTML = rawSub;
     }
     const budgetTextEl = document.getElementById('drawer-budget-text');
     if (budgetTextEl) {

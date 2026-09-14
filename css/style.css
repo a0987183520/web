@@ -4291,47 +4291,45 @@ footer {
 }
 
 .drawer-budget-badge-wrap {
-    margin-bottom: 0.75rem;
-    margin-top: 0.35rem;
+    margin-bottom: 0.35rem;
+    margin-top: 0.15rem;
 }
 
 .drawer-budget-title-row {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 0.45rem;
+    gap: 0.35rem;
 }
 
 .drawer-budget-badge {
     display: inline-block;
     background: transparent;
-    color: #f8fafc;
-    font-size: 1.25rem;
-    font-weight: 900;
+    color: var(--text-primary);
+    font-size: 1.15rem;
+    font-weight: 500;
     padding: 0;
     border-radius: 0;
     box-shadow: none;
-    letter-spacing: 0.02em;
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.25);
-    line-height: 1.4;
+    letter-spacing: 0.01em;
+    line-height: 1.72;
 }
 
 [data-theme="light"] .drawer-budget-badge {
-    color: #0f172a;
+    color: var(--text-primary);
     text-shadow: none;
 }
 
 .drawer-budget-sub {
-    font-size: 1.2rem;
-    font-weight: 900;
-    color: #34d399;
-    text-shadow: 0 0 14px rgba(52, 211, 153, 0.4);
+    font-size: 1.15rem;
+    font-weight: 500;
+    color: var(--text-primary);
     letter-spacing: 0.01em;
-    line-height: 1.4;
+    line-height: 1.72;
 }
 
 [data-theme="light"] .drawer-budget-sub {
-    color: #059669;
+    color: var(--text-primary);
     text-shadow: none;
 }
 
@@ -5978,19 +5976,20 @@ footer {
         gap: 0.45rem;
     }
     .drawer-budget-badge {
-        font-size: 1.25rem !important;
-        font-weight: 900 !important;
-        color: #f8fafc !important;
+        font-size: 1.18rem !important;
+        font-weight: 500 !important;
+        color: var(--text-primary) !important;
         padding: 0 !important;
         background: transparent !important;
         box-shadow: none !important;
-        line-height: 1.4 !important;
+        line-height: 1.72 !important;
     }
     .drawer-budget-sub {
-        font-size: 1.2rem !important;
-        font-weight: 900 !important;
+        font-size: 1.18rem !important;
+        font-weight: 500 !important;
+        color: var(--text-primary) !important;
         display: block !important;
-        line-height: 1.4 !important;
+        line-height: 1.72 !important;
     }
     .drawer-content-p,
     .drawer-section p,
