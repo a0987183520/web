@@ -1471,10 +1471,11 @@ nav {
 }
 
 /* 兩欄式佈局樣式（預設單欄以相容手機版） */
+/* 兩欄式佈局樣式（預設單欄以相容手機版） */
 .drawer-two-columns {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1.2rem;
 }
 
 .drawer-left-column, .drawer-right-column {
@@ -1492,7 +1493,7 @@ nav {
     .drawer-two-columns {
         flex-direction: row;
         align-items: flex-start;
-        gap: 3.5rem;
+        gap: 2.4rem;
     }
     
     /* 左側大圖佔 48%，右側文字佔 52% */
@@ -1508,12 +1509,12 @@ nav {
 }
 
 .drawer-header {
-    padding: 1.4rem 2rem;
+    padding: 0.95rem 1.8rem;
     border-bottom: 1px solid var(--card-border);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 1rem;
+    gap: 1.2rem;
     position: sticky;
     top: 0;
     background: var(--drawer-bg);
@@ -1522,18 +1523,52 @@ nav {
     -webkit-backdrop-filter: blur(12px);
 }
 
-.drawer-title-group .drawer-number {
+.drawer-header-main {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    min-width: 0;
+}
+
+.drawer-badge-title-group {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    flex-wrap: wrap;
+}
+
+.drawer-policy-badge {
+    background: rgba(251, 191, 36, 0.16);
+    border: 1.5px solid rgba(251, 191, 36, 0.45);
+    color: var(--accent-primary);
     font-size: 1.05rem;
     font-weight: 800;
-    color: var(--accent-primary);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    margin-bottom: 0.4rem;
+    padding: 0.32rem 0.85rem;
+    border-radius: 8px;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+    box-shadow: 0 2px 10px rgba(251, 191, 36, 0.15);
+    flex-shrink: 0;
 }
 
 .drawer-title {
-    font-size: 1.55rem;
+    font-size: 1.45rem;
     font-weight: 800;
+    color: var(--text-primary);
+    line-height: 1.3;
+    margin: 0;
+}
+
+.drawer-header-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-shrink: 0;
+}
+
+.drawer-vote-slot {
+    display: flex;
+    align-items: center;
 }
 
 .drawer-close {
@@ -1541,17 +1576,17 @@ nav {
     border: 1px solid rgba(255, 255, 255, 0.28);
     color: #ffffff;
     cursor: pointer;
-    padding: 0.55rem 1.15rem;
+    padding: 0.42rem 0.92rem;
     border-radius: 30px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 0.5rem;
-    font-size: 0.95rem;
+    gap: 0.4rem;
+    font-size: 0.86rem;
     font-weight: 700;
     flex-shrink: 0;
     white-space: nowrap;
-    box-shadow: 0 4px 16px rgba(16, 185, 129, 0.42);
+    box-shadow: 0 3px 12px rgba(16, 185, 129, 0.35);
     transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -1559,7 +1594,7 @@ nav {
     background: linear-gradient(135deg, #34d399 0%, #10b981 100%);
     color: #ffffff;
     transform: translateY(-2px);
-    box-shadow: 0 6px 22px rgba(16, 185, 129, 0.65);
+    box-shadow: 0 5px 18px rgba(16, 185, 129, 0.55);
 }
 
 .drawer-close:active {
@@ -1567,8 +1602,8 @@ nav {
 }
 
 .drawer-close svg {
-    width: 18px;
-    height: 18px;
+    width: 15px;
+    height: 15px;
     stroke: #ffffff;
     stroke-width: 2.5;
     fill: none;
@@ -1578,11 +1613,11 @@ nav {
 [data-theme="light"] .drawer-close {
     background: linear-gradient(135deg, #059669 0%, #047857 100%);
     color: #ffffff;
-    box-shadow: 0 4px 15px rgba(5, 150, 105, 0.35);
+    box-shadow: 0 3px 12px rgba(5, 150, 105, 0.3);
 }
 
 .drawer-body {
-    padding: 2.2rem 2rem;
+    padding: 1.1rem 1.8rem 2rem 1.8rem;
     overflow-y: auto;
     flex-grow: 1;
 }
@@ -4167,10 +4202,10 @@ footer {
 .drawer-budget-section {
     background: rgba(251, 191, 36, 0.08);
     border: 1.5px solid rgba(251, 191, 36, 0.35);
-    border-radius: 18px;
-    padding: 1.6rem 1.8rem;
-    margin-bottom: 2rem;
-    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+    border-radius: 16px;
+    padding: 1.2rem 1.4rem;
+    margin-bottom: 1.3rem;
+    box-shadow: 0 8px 20px -5px rgba(0, 0, 0, 0.25);
 }
 
 [data-theme="light"] .drawer-budget-section {
@@ -5287,21 +5322,21 @@ footer {
 
 .btn-drawer-bottom-close {
     width: 100%;
-    max-width: 380px;
-    padding: 0.85rem 1.8rem;
+    max-width: 320px;
+    padding: 0.65rem 1.4rem;
     background: linear-gradient(135deg, #10b981 0%, #059669 100%);
     border: 1px solid rgba(255, 255, 255, 0.28);
     border-radius: 30px;
     color: #ffffff;
-    font-size: 1.05rem;
+    font-size: 0.95rem;
     font-weight: 700;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 0.6rem;
+    gap: 0.5rem;
     cursor: pointer;
     transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    box-shadow: 0 4px 18px rgba(16, 185, 129, 0.42);
+    box-shadow: 0 4px 16px rgba(16, 185, 129, 0.38);
 }
 
 .btn-drawer-bottom-close:hover {
@@ -5810,22 +5845,45 @@ footer {
 
     /* 抽屜頂部標頭與返回按鈕手機端適配 */
     .drawer-header {
-        padding: 1.1rem 1rem;
-        gap: 0.6rem;
+        padding: 0.85rem 1rem;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.65rem;
     }
-    .drawer-title-group .drawer-number {
+    .drawer-header-main {
+        width: 100%;
+    }
+    .drawer-badge-title-group {
+        width: 100%;
+        gap: 0.5rem;
+        align-items: center;
+    }
+    .drawer-policy-badge {
         font-size: 0.95rem;
+        padding: 0.25rem 0.65rem;
     }
     .drawer-title {
         font-size: 1.25rem;
+        word-break: break-word;
+    }
+    .drawer-header-actions {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 0.5rem;
+    }
+    .drawer-vote-slot .btn-want-vote {
+        padding: 0.4rem 0.75rem;
+        font-size: 0.9rem;
     }
     .drawer-close {
-        padding: 0.45rem 0.85rem;
-        font-size: 0.88rem;
-        gap: 0.35rem;
+        padding: 0.38rem 0.8rem;
+        font-size: 0.82rem;
+        gap: 0.3rem;
     }
     .drawer-close svg {
-        width: 16px;
-        height: 16px;
+        width: 14px;
+        height: 14px;
     }
 }

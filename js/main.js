@@ -914,22 +914,22 @@ function openDrawer(policyId) {
     const isVoted = isPolicyInCooldown(policy.id);
     const count = getPolicyVoteCount(policy.id);
 
-    const numEl = document.getElementById('drawer-number');
-    if (numEl) {
-        numEl.innerHTML = `
-            <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
-                <span>政見 ${formattedNum}</span>
-                <button class="btn-want-vote btn-want-vote-drawer ${isVoted ? 'voted' : ''}" data-policy-id="${policy.id}" onclick="handleWantVoteClick(event, ${policy.id})" title="表達您的支持">
-                    <div class="vote-row-stats">
-                        <span class="heart-icon">${isVoted ? '❤️' : '🤍'}</span>
-                        <span class="vote-counter">${count} 票</span>
-                    </div>
-                    <div class="vote-row-action">
-                        <span class="finger-icon">${isVoted ? '✅' : '👆'}</span>
-                        <span class="want-text">${isVoted ? '已支持' : '我想要'}</span>
-                    </div>
-                </button>
-            </div>
+    const badgeEl = document.getElementById('drawer-policy-badge');
+    if (badgeEl) badgeEl.textContent = `政見 ${formattedNum}`;
+
+    const voteSlot = document.getElementById('drawer-vote-slot');
+    if (voteSlot) {
+        voteSlot.innerHTML = `
+            <button class="btn-want-vote btn-want-vote-drawer ${isVoted ? 'voted' : ''}" data-policy-id="${policy.id}" onclick="handleWantVoteClick(event, ${policy.id})" title="表達您的支持（參與式預算民意調查）">
+                <div class="vote-row-stats">
+                    <span class="heart-icon">${isVoted ? '❤️' : '🤍'}</span>
+                    <span class="vote-counter">${count} 票</span>
+                </div>
+                <div class="vote-row-action">
+                    <span class="finger-icon">${isVoted ? '✅' : '👆'}</span>
+                    <span class="want-text">${isVoted ? '已支持' : '我想要'}</span>
+                </div>
+            </button>
         `;
     }
     const titleEl = document.getElementById('drawer-title');
