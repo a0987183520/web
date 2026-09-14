@@ -33,7 +33,7 @@ const POLICIES_DATA = [
         subtitle: "邀請歌手吉他彈唱互動，春秋兩季相約活動中心草地野餐，用音樂找回與鄰居的連結",
         image: "images/policy_01_music.png",
         budgetSource: "文化局社造專案（5~20萬）",
-        budgetSub: "<span class=\"hl-keyword\">完全不用動到</span>明德里 88 萬基層款",
+        budgetSub: "<span class=\"hl-keyword\">完全不會用到</span>明德里 88 萬基層款",
         budgetDesc: "",
         highlight: "現場吉他彈唱互動、散步就能抵達！每年春、秋兩季定期各辦 1 次，善用市民活動中心旁公園草地，串聯街頭民歌手、獨立樂手與學生社團，打造有歌聲、有笑聲的草地音樂生活節。",
         icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"></path><circle cx="6" cy="18" r="3"></circle><circle cx="18" cy="16" r="3"></circle></svg>`,
@@ -51,19 +51,19 @@ const POLICIES_DATA = [
         title: "里民共治 ‧ 你用手機也能作主",
         subtitle: "你的意見就是我的政見！你來點、我來辦，告別里長黑箱治理",
         image: "images/policy_05_guide.png",
-        budgetSource: "我自研維運「里民作主」App，不花任何公費",
-        budgetSub: "<span class=\"hl-keyword\">完全不用動到</span>明德里 88 萬基層款",
+        budgetSource: "我自己開發「里民作主」App，不花公費",
+        budgetSub: "<span class=\"hl-keyword\">完全不會用到</span>明德里 88 萬基層款",
         budgetDesc: "",
-        highlight: "「繳那麼多稅金，平時感受不到里長服務？活動老是辦在上班時間或沒興趣？」你來點、我來辦！手機隨時查看活動排行榜，24 小時隨時可報名，多數成案、熱門先辦，票選名額全公開，告別黑箱與蚊子活動！",
+        highlight: "「繳那麼多稅金，平時感受不到里長服務？活動老是辦在上班時間或沒興趣？」想要什麼活動、你做主！隨時查看熱門排行，24 小時隨時可報名，多數成案熱門先辦，告別一言堂的黑箱蚊子活動！",
         icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>`,
         hooks: [
-            { question: "我每年繳了那麼多的稅金，<span class=\"hl-keyword\">為什麼平時感覺不到里長的服務？</span>", answer: "" },
-            { question: "活動老是辦在上班時間，要不然就是<span class=\"hl-keyword\">沒興趣的課程？</span>", answer: "" }
+            { question: "我每年繳了那麼多的稅金，為什麼平時感覺不到里長的服務？", answer: "" },
+            { question: "活動老是辦在<span class=\"hl-keyword\">上班時間</span>，要不然就是<span class=\"hl-keyword\">沒興趣的課程</span>？", answer: "" }
         ],
         howToDo: [
-            "【你來點、我來辦】：想要什麼活動，由你做主！手機隨時查看活動排行榜，<span class=\"hl-keyword\">24 小時隨時可報名</span>，多數成案，熱門先辦，票選名額全公開，<span class=\"hl-keyword\">告別黑箱與蚊子活動！</span>"
+            "<span class=\"hl-keyword\">想要什麼活動、你做主</span>，隨時可查看熱門排行，24 小時隨時可報名，多數成案，熱門先辦，告別一言堂的黑箱蚊子活動！"
         ],
-        whyPossible: "【你點得出，我就辦得出！】我曾舉辦過直排輪、桌球、學生與長輩無人機、手機 AI 短劇、長輩血壓AI管理、AI 家教與AI錯題本...等<span class=\"hl-keyword\">十餘種熱門體驗營的經驗</span>，<span class=\"hl-keyword\">我知道哪裡有經費，我會寫企劃案</span>，因此我做得到！"
+        whyPossible: "<span class=\"hl-keyword\">你點得出，我就辦得出</span>，我曾舉辦過［直排輪入門、桌球入門、學生與長輩無人機入門、EQ親子營、手機 AI 短劇、長輩血壓AI管理、AI 家教、AI錯題本與AI程式開發］...等<span class=\"hl-keyword\">十餘種熱門體驗營的經驗</span>，<span class=\"hl-keyword\">我知道哪裡有經費，我會寫企劃案</span>，因此我做得到！"
     },
     {
         id: 3,
@@ -119,7 +119,7 @@ const POLICIES_DATA = [
         subtitle: "每學期寒暑假定期開辦，長輩小孩都能輕鬆上手的科技啟蒙營",
         image: "images/policy_03_tech.png",
         budgetSource: "青年科普培育專案 ＋ 區公所文康專款",
-        budgetSub: "（完全不用動到明德里 88 萬基層款）",
+        budgetSub: "（完全不會用到明德里 88 萬基層款）",
         budgetDesc: "候選人運用 30 年科技背景自帶微型安全設備與志工團隊，對接青年科普專案補助，讓里內孩子在最安全的室內防護網下免費體驗前瞻科技。",
         highlight: "每學期寒暑假定期開辦！為里內家庭提供安全的無人機與 AI 體驗課。無人機是未來趨勢，大人、小孩到長輩都適合學習，全面提升手腦協調與科技視野。",
         icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>`,
@@ -142,7 +142,7 @@ const POLICIES_DATA = [
         subtitle: "一顆麵包與一次血壓，解決子女的擔心",
         image: "images/policy_07_health.png",
         budgetSource: "國家 62.5 億獨老安居專案 ＋ 長照 2.0",
-        budgetSub: "（完全不用動到明德里近百萬基層款）",
+        budgetSub: "（完全不會用到明德里近百萬基層款）",
         budgetDesc: "直接對接中央「擴大獨老在宅安居計畫」及長照專款，協助長者申請公費「緊急救援防跌系統」，由中央與市府全額或高額補助！",
         highlight: "開設實用 AI 健康工作坊，對接衛福部 62.5 億獨老安危專案，導入主動式福利媒合、物資智慧適配與居家緊急防跌，讓三明治世代安心工作。",
         icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>`,
@@ -165,7 +165,7 @@ const POLICIES_DATA = [
         subtitle: "AI 活化大腦刺激",
         image: "images/policy_08_brain.png",
         budgetSource: "失智友善社區專案 ＋ 長者健康促進補助",
-        budgetSub: "（完全不用動到明德里近百萬基層款）",
+        budgetSub: "（完全不會用到明德里近百萬基層款）",
         budgetDesc: "結合失智友善社區專案及長者健康促進補助，引進臨床驗證的健腦 App 與教具，由專案補助支應，完全不佔用里內修繕費用。",
         highlight: "引進臨床 AI 腦力健能遊戲延緩退化，主動協助阿茲海默與失智長輩對接身障生活補助與長照 2.0 喘息資源，做三明治世代最堅實的後盾。",
         icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 4.44-2.04z"></path><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-4.44-2.04z"></path></svg>`,
@@ -323,7 +323,7 @@ const POLICIES_DATA = [
         subtitle: "每季定期開辦 1 期共學工作坊，陪伴跨世代家庭和諧溝通",
         image: "images/policy_02_eq_1.png",
         budgetSource: "教育部家庭教育專案 ＋ 校里跨域合作",
-        budgetSub: "（完全不用動到明德里 88 萬基層款）",
+        budgetSub: "（完全不會用到明德里 88 萬基層款）",
         budgetDesc: "結合候選人 8 年樂利國小 EQ 志工組長團隊師資，免費借用校園空間並聯合提報教育部家庭教育專案全額補助，零公帑為里民開辦高品質工作坊。",
         highlight: "每季定期開辦 1 期共學工作坊！涵蓋孩子、家長與長者都能參與的情緒管理課程，陪伴大家了解情緒、覺察委屈、避免遷怒、遠離霸凌。",
         icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a5 5 0 1 0 10 0v-2H12z"></path><path d="M12 10a8 8 0 1 0 8 8v-8H12z"></path><circle cx="12" cy="12" r="10"></circle><path d="M8 14s1.5 2 4 2 4-2 4-2"></path><line x1="9" y1="9" x2="9.01" y2="9"></line><line x1="15" y1="9" x2="15.01" y2="9"></line></svg>`,
@@ -2566,7 +2566,7 @@ function fallbackCopyUrl(text, cb) {
 // 註冊 Service Worker 支援離線快取與 PWA 安裝
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
-        navigator.serviceWorker.register('sw.js?v=21.04')
+        navigator.serviceWorker.register('sw.js?v=21.05')
             .catch(() => {});
     });
 }
