@@ -50,7 +50,7 @@ const POLICIES_DATA = [
         id: 2,
         title: "里民手機共治 ＋ 社區平行微活動",
         subtitle: "首創「社區平行微活動」善用每個社區的公設，下樓就能參加，活動瞬間加倍，你來點、我來辦",
-        image: "images/policy_05_guide.png",
+        image: "images/policy_02_clubhouse_stem.jpg",
         sectionOrder: "innovation-first",
         budgetSource: "我自己開發「里民作主」App",
         budgetSub: "<span class=\"hl-keyword\">完全不會用到</span>明德里 88 萬基層款",
@@ -72,7 +72,7 @@ const POLICIES_DATA = [
         categoryName: "人本交通與通學安全",
         title: "防滑走廊 ＋ 友善步道 ＋ 通學安全",
         subtitle: "明德里為捷運通勤與校園通學必經動線，部分騎樓防滑係數不足，爭取市府全額整平！",
-        image: "images/policy_04_safety_2.png",
+        image: "images/policy_04_safety_2_wide.png",
         budgetSource: "工務局騎樓整平計畫 ＋ 人本交通專案款",
         budgetSub: "<span class=\"hl-keyword\">完全不會用到</span>明德里 88 萬基層款",
         budgetDesc: "主動彙整里民人行危險點資料庫，召開跨局會勘爭取市府專案款改善鋪面",
@@ -808,10 +808,10 @@ function renderPolicies() {
             imageHtml = `
                 <div class="before-after-slider card-slider-3" onclick="event.stopPropagation()">
                     <div class="slider-image-before">
-                        <img src="images/policy_04_safety_1.jpg" alt="現況：人行道標線磨損補丁（實地現況）">
+                        <img src="images/policy_04_safety_1_wide.jpg" alt="現況：人行道標線磨損補丁（實地現況）">
                     </div>
                     <div class="slider-image-after" id="card-slider-image-after-3">
-                        <img src="images/policy_04_safety_2.png" alt="願景：防滑平整友善人行步道 - 概念示意圖">
+                        <img src="images/policy_04_safety_2_wide.png" alt="願景：防滑平整友善人行步道 - 概念示意圖">
                     </div>
                     <input type="range" min="0" max="100" value="50" class="slider-range" id="card-slider-range-3" aria-label="Before/After 拖拽滑塊對比" onclick="event.stopPropagation()">
                     <div class="slider-line" id="card-slider-line-3"></div>
@@ -1028,10 +1028,10 @@ function openDrawer(policyId) {
             drawerImgWrapper.innerHTML = `
                 <div class="before-after-slider">
                     <div class="slider-image-before">
-                        <img src="images/policy_04_safety_1.jpg" alt="現況：人行道標線磨損補丁（實地現況）">
+                        <img src="images/policy_04_safety_1_wide.jpg" alt="現況：人行道標線磨損補丁（實地現況）">
                     </div>
                     <div class="slider-image-after" id="slider-image-after">
-                        <img src="images/policy_04_safety_2.png" alt="願景：防滑平整友善人行步道 - 概念示意圖">
+                        <img src="images/policy_04_safety_2_wide.png" alt="願景：防滑平整友善人行步道 - 概念示意圖">
                     </div>
                     <input type="range" min="0" max="100" value="50" class="slider-range" id="slider-range" aria-label="Before/After 拖拽滑塊對比">
                     <div class="slider-line" id="slider-line"></div>
@@ -2586,7 +2586,7 @@ function fallbackCopyUrl(text, cb) {
 // 註冊 Service Worker 支援離線快取與 PWA 安裝
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
-        navigator.serviceWorker.register('sw.js?v=22.00')
+        navigator.serviceWorker.register('sw.js?v=22.01')
             .catch(() => {});
     });
 }

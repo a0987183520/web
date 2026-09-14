@@ -2092,23 +2092,30 @@ footer {
 }
 .slider-label {
     position: absolute;
-    bottom: 18px;
-    padding: 6px 12px;
-    background: rgba(0,0,0,0.7);
+    top: 16px;
+    bottom: auto;
+    padding: 6px 14px;
+    background: rgba(15, 23, 42, 0.82);
     color: #fff;
-    font-size: 0.78rem;
-    font-weight: 500;
-    border-radius: 6px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    border-radius: 8px;
     z-index: 4;
     pointer-events: none;
-    backdrop-filter: blur(6px);
-    border: 1px solid rgba(255,255,255,0.12);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255,255,255,0.22);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45);
 }
 .slider-label-before {
-    left: 18px;
+    left: 16px;
+    color: #34d399;
+    border-color: rgba(52, 211, 153, 0.45);
 }
 .slider-label-after {
-    right: 18px;
+    right: 16px;
+    color: #fbbf24;
+    border-color: rgba(251, 191, 36, 0.45);
 }
 
 @media (max-width: 768px) {
@@ -2142,18 +2149,28 @@ footer {
 }
 
 .policy-card-image-wrapper .slider-label {
-    bottom: 12px;
+    top: 10px;
+    bottom: auto;
     padding: 4px 10px;
     font-size: 0.74rem;
     font-weight: 700;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
 }
 
 .policy-card-image-wrapper .slider-label-before {
-    left: 12px;
+    left: 10px;
+    color: #34d399;
+    border-color: rgba(52, 211, 153, 0.45);
 }
 
 .policy-card-image-wrapper .slider-label-after {
-    right: 12px;
+    right: 10px;
+    color: #fbbf24;
+    border-color: rgba(251, 191, 36, 0.45);
+}
+
+.policy-card-image-wrapper .before-after-slider .vision-badge {
+    display: none !important;
 }
 
 /* Bi-directional Cross-Slide Reveal Animations (Default Visible) */
