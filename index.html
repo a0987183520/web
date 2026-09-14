@@ -130,7 +130,7 @@
       ]
     }
     </script>
-    <link rel="stylesheet" href="css/style.css?v=20.00">
+    <link rel="stylesheet" href="css/style.css?v=20.03">
     <style>
     /* 調整主版面兩欄比例與間距，僅在桌機版生效以確保手機版正常響應式排版 */
     @media (min-width: 951px) {
@@ -1252,8 +1252,8 @@
                 <div class="check-badge">✓</div>
             </div>
             <div class="vote-success-title">感謝支持！民意已送出</div>
-            <div class="vote-success-msg" id="vote-success-policy-name">已將您的支持列入「計畫 01」推動優先序</div>
-            <div class="vote-success-sub">您的預算您決定 ‧ 1 小時後可再次為此計畫打卡力挺</div>
+            <div class="vote-success-msg" id="vote-success-policy-name">已將您的支持列入「政見 01」推動優先序</div>
+            <div class="vote-success-sub">您的預算您決定 ‧ 1 小時後可再次為此政見打卡力挺</div>
         </div>
     </div>
 
@@ -1341,14 +1341,15 @@
     <div class="drawer" id="drawer" role="dialog" aria-labelledby="drawer-title" aria-modal="true">
         <div class="drawer-header">
             <div class="drawer-title-group">
-                <div class="drawer-number" id="drawer-number">計畫 01</div>
+                <div class="drawer-number" id="drawer-number">政見 01</div>
                 <h2 class="drawer-title" id="drawer-title">政策名稱</h2>
             </div>
-            <button class="drawer-close" id="drawer-close" aria-label="關閉詳情">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <line x1="18" y1="6" x2="6" y2="18"></line>
-                    <line x1="6" y1="6" x2="18" y2="18"></line>
+            <button class="drawer-close" id="drawer-close" aria-label="返回上一頁" onclick="closeDrawer()">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="19" y1="12" x2="5" y2="12"></line>
+                    <polyline points="12 19 5 12 12 5"></polyline>
                 </svg>
+                <span class="drawer-close-text">返回上一頁</span>
             </button>
         </div>
         <div class="drawer-body">
@@ -1409,9 +1410,12 @@
 
                     <!-- 底部直覺關閉操作列 (長輩滑到底部無需向上捲動即可一鍵關閉) -->
                     <div class="drawer-bottom-actions">
-                        <button type="button" class="btn-drawer-bottom-close" onclick="closeDrawer()" aria-label="關閉詳情並返回政策列表">
-                            <span class="close-icon">✕</span>
-                            <span class="close-text">返回政策列表（關閉視窗）</span>
+                        <button type="button" class="btn-drawer-bottom-close" onclick="closeDrawer()" aria-label="返回上一頁">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="19" y1="12" x2="5" y2="12"></line>
+                                <polyline points="12 19 5 12 12 5"></polyline>
+                            </svg>
+                            <span class="close-text">返回上一頁</span>
                         </button>
                     </div>
                 </div>
@@ -1473,7 +1477,7 @@
         </div>
     </div>
 
-    <script src="js/main.js?v=20.02"></script>
+    <script src="js/main.js?v=20.03"></script>
     <script src="js/site-report-modal.js?v=1.00"></script>
 </body>
 </html>

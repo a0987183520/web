@@ -582,7 +582,7 @@ function executePolicyVote(policyId, age, gender) {
 
     const deviceId = getVoterDeviceId();
     const policy = POLICIES_DATA.find(p => p.id === policyId);
-    const policyTitle = policy ? policy.title : `計畫 ${policyId}`;
+    const policyTitle = policy ? policy.title : `政見 ${policyId}`;
 
     // 1. 更新卡片與抽屜 UI 狀態
     updatePolicyVoteUI(policyId, newCount, true);
@@ -615,7 +615,7 @@ function executePolicyVote(policyId, age, gender) {
             body: JSON.stringify({
                 action: 'policy_vote',
                 deviceId: deviceId,
-                policyId: `計畫 ${policyId < 10 ? '0' + policyId : policyId}`,
+                policyId: `政見 ${policyId < 10 ? '0' + policyId : policyId}`,
                 policyTitle: policyTitle,
                 ageGroup: ageLabelMap[age] || age,
                 gender: genderLabelMap[gender] || gender,
@@ -670,7 +670,7 @@ function showVoteSuccessAnimation(policyId, policyTitle) {
     if (!overlay) return;
     if (msgEl) {
         const pNum = policyId < 10 ? `0${policyId}` : policyId;
-        msgEl.textContent = `已將您的支持列入「計畫 ${pNum} ‧ ${policyTitle}」推動優先序！`;
+        msgEl.textContent = `已將您的支持列入「政見 ${pNum} ‧ ${policyTitle}」推動優先序！`;
     }
     overlay.style.display = 'flex';
     const timer = setTimeout(() => {
@@ -717,11 +717,11 @@ function renderPolicyRankings() {
         const hotBadgeHtml = rank <= 3 ? '<span class="ranking-hot-tag"><span class="crown-icon">👑</span> 里民最關注</span>' : '';
 
         html += `
-            <div class="ranking-bar-item ${itemExtraClass} ${itemRankClass}" data-policy-id="${item.id}" onclick="openDrawer(${item.id})" title="點擊查看「計畫 ${item.id < 10 ? '0' + item.id : item.id} ‧ ${item.title}」詳細規劃與經費解密">
+            <div class="ranking-bar-item ${itemExtraClass} ${itemRankClass}" data-policy-id="${item.id}" onclick="openDrawer(${item.id})" title="點擊查看「政見 ${item.id < 10 ? '0' + item.id : item.id} ‧ ${item.title}」詳細規劃與經費解密">
                 <div class="ranking-item-header">
                     <div class="ranking-item-left">
                         <span class="ranking-pos-badge ${rankClass}">第${rank}名</span>
-                        <span class="ranking-item-title">計畫 ${item.id < 10 ? '0' + item.id : item.id} ‧ ${item.title}</span>
+                        <span class="ranking-item-title">政見 ${item.id < 10 ? '0' + item.id : item.id} ‧ ${item.title}</span>
                         ${hotBadgeHtml}
                     </div>
                     <div class="ranking-item-right">
@@ -842,7 +842,7 @@ function renderPolicies() {
         card.innerHTML = `
             <div class="policy-card-header">
                 <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; margin-bottom: 0.4rem;">
-                    <span class="policy-number">計畫 ${policy.id < 10 ? '0' + policy.id : policy.id}</span>
+                    <span class="policy-number">政見 ${policy.id < 10 ? '0' + policy.id : policy.id}</span>
                     <button class="btn-want-vote ${isVoted ? 'voted' : ''}" data-policy-id="${policy.id}" onclick="handleWantVoteClick(event, ${policy.id})" title="表達您的支持（參與式預算民意調查）">
                         <div class="vote-row-stats">
                             <span class="heart-icon">${isVoted ? '❤️' : '🤍'}</span>
@@ -918,7 +918,7 @@ function openDrawer(policyId) {
     if (numEl) {
         numEl.innerHTML = `
             <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
-                <span>計畫 ${formattedNum}</span>
+                <span>政見 ${formattedNum}</span>
                 <button class="btn-want-vote btn-want-vote-drawer ${isVoted ? 'voted' : ''}" data-policy-id="${policy.id}" onclick="handleWantVoteClick(event, ${policy.id})" title="表達您的支持">
                     <div class="vote-row-stats">
                         <span class="heart-icon">${isVoted ? '❤️' : '🤍'}</span>
