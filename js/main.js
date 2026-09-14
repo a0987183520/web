@@ -61,7 +61,8 @@ const POLICIES_DATA = [
             { question: "活動老是辦在<span class=\"hl-keyword\">上班時間</span>，要不然就是<span class=\"hl-keyword\">沒興趣的課程</span>？", answer: "" }
         ],
         howToDo: [
-            "<span class=\"hl-keyword\">想要什麼活動、你做主</span>，隨時可查看熱門排行，24 小時隨時可報名，多數成案，熱門先辦，告別一言堂的黑箱蚊子活動！"
+            "<span class=\"hl-keyword\">想要什麼活動、你做主</span>，隨時可查看熱門排行，24 小時隨時可報名，多數成案，熱門先辦，告別一言堂的黑箱蚊子活動！",
+            "<span class=\"hl-keyword\">活動分流</span>：晚上與假日開放不同族群使用，不影響長輩們的使用時間。"
         ],
         whyPossible: "<span class=\"hl-keyword\">你點得出，我就辦得出</span>，我曾舉辦過直排輪入門、桌球入門、學生與長輩無人機入門、EQ親子營、手機 AI 短劇製作、長輩血壓AI管理、AI 家教、AI錯題本與AI程式開發...等<span class=\"hl-keyword\">十餘種熱門體驗營的經驗</span>，<span class=\"hl-keyword\">我知道哪裡有經費，我會寫企劃案</span>，因此我做得到！"
     },
@@ -2566,7 +2567,7 @@ function fallbackCopyUrl(text, cb) {
 // 註冊 Service Worker 支援離線快取與 PWA 安裝
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
-        navigator.serviceWorker.register('sw.js?v=21.06')
+        navigator.serviceWorker.register('sw.js?v=21.07')
             .catch(() => {});
     });
 }
