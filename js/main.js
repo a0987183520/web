@@ -2436,3 +2436,143 @@ function toggleHeroLetter() {
     }
 }
 
+// ==========================================================================
+// 8. PWA 桌面 App 安裝與「複製網址」快捷機制
+// ==========================================================================
+
+// PWA 狀態檢查與安裝按鈕自適應隱藏 (已安裝或由獨立 App 模式開啟時自動隱藏)
+function updatePWAInstallVisibility() {
+    const isPWA = (window.matchMedia && (
+                    window.matchMedia('(display-mode: standalone)').matches ||
+                    window.matchMedia('(display-mode: fullscreen)').matches ||
+                    window.matchMedia('(display-mode: minimal-ui)').matches
+                )) ||
+                window.navigator.standalone === true ||
+                window.location.search.indexOf('source=pwa') !== -1 ||
+                (document.referrer && document.referrer.indexOf('android-app://') === 0) ||
+                localStorage.getItem('md2_pwa_installed') === 'true';
+
+    const btnInstall = document.getElementById('btn-footer-install');
+    if (isPWA) {
+        document.documentElement.classList.add('is-pwa-standalone');
+        if (btnInstall) btnInstall.style.display = 'none';
+    }
+}
+
+// 捕獲瀏覽器原生 beforeinstallprompt 事件
+window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault();
+    window.deferredPrompt = e;
+    if (!window.matchMedia('(display-mode: standalone)').matches && !window.navigator.standalone) {
+        localStorage.removeItem('md2_pwa_installed');
+        document.documentElement.classList.remove('is-pwa-standalone');
+        const btnInstall = document.getElementById('btn-footer-install');
+        if (btnInstall) btnInstall.style.display = 'inline-flex';
+    }
+});
+
+// 觸發 PWA 安裝程序
+window.triggerPWAInstall = function triggerPWAInstall() {
+    const ua = (navigator.userAgent || '').toLowerCase();
+    const isIOS = /ipad|iphone|ipod/.test(ua) && !window.MSStream;
+
+    // 1. 若瀏覽器已捕獲原生 PWA 安裝事件 (Chrome / Edge / Android)
+    if (window.deferredPrompt) {
+        window.deferredPrompt.prompt();
+        window.deferredPrompt.userChoice.then((choiceResult) => {
+            if (choiceResult && choiceResult.outcome === 'accepted') {
+                localStorage.setItem('md2_pwa_installed', 'true');
+                document.documentElement.classList.add('is-pwa-standalone');
+                const btnInstall = document.getElementById('btn-footer-install');
+                if (btnInstall) btnInstall.style.display = 'none';
+                showToast('📲 感謝您將明德里 2.0 專屬 App 加到桌面！');
+            }
+            window.deferredPrompt = null;
+        });
+        return;
+    }
+
+    // 2. 若為 iOS 裝置 (Safari 分享引導)
+    if (isIOS) {
+        const iosModal = document.getElementById('iosInstallModal');
+        if (iosModal) {
+            iosModal.classList.remove('hidden');
+            iosModal.style.display = 'flex';
+        }
+        return;
+    }
+
+    // 3. Android / Chrome 備援引導
+    const androidModal = document.getElementById('androidInstallGuideModal');
+    if (androidModal) {
+        androidModal.classList.remove('hidden');
+        androidModal.style.display = 'flex';
+    } else {
+        alert('📲 請點擊瀏覽器右上角「⋮」➜ 選擇「安裝應用程式」或「加到主畫面」即可安裝到桌面！');
+    }
+};
+
+// 監聽成功安裝完成事件
+window.addEventListener('appinstalled', () => {
+    localStorage.setItem('md2_pwa_installed', 'true');
+    document.documentElement.classList.add('is-pwa-standalone');
+    const btnInstall = document.getElementById('btn-footer-install');
+    if (btnInstall) btnInstall.style.display = 'none';
+    window.deferredPrompt = null;
+    showToast('📲 明德里 2.0 App 已成功加到您的桌面！');
+});
+
+// 複製官網網址分享功能
+window.copyWebsiteUrl = function copyWebsiteUrl() {
+    const url = 'https://a0987183520.github.io/web/';
+    const btn = document.getElementById('btn-footer-copy-url');
+    const originalContent = btn ? btn.innerHTML : '';
+
+    function handleSuccess() {
+        showToast('📋 官網網址已成功複製！歡迎分享至 LINE 或社群！');
+        if (btn) {
+            btn.innerHTML = '<span class="btn-icon">✅</span><span class="btn-text">已複製網址</span>';
+            setTimeout(() => {
+                if (btn) btn.innerHTML = originalContent;
+            }, 2500);
+        }
+    }
+
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(url).then(handleSuccess).catch(() => {
+            fallbackCopyUrl(url, handleSuccess);
+        });
+    } else {
+        fallbackCopyUrl(url, handleSuccess);
+    }
+};
+
+function fallbackCopyUrl(text, cb) {
+    try {
+        const input = document.createElement('input');
+        input.setAttribute('value', text);
+        input.style.position = 'fixed';
+        input.style.left = '-9999px';
+        document.body.appendChild(input);
+        input.select();
+        document.execCommand('copy');
+        document.body.removeChild(input);
+        if (cb) cb();
+    } catch (e) {
+        prompt('請長按複製下方官網網址：', text);
+    }
+}
+
+// 註冊 Service Worker 支援離線快取與 PWA 安裝
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('sw.js?v=21.04')
+            .catch(() => {});
+    });
+}
+
+// 初始化 PWA 狀態檢查
+updatePWAInstallVisibility();
+window.addEventListener('DOMContentLoaded', updatePWAInstallVisibility);
+
+

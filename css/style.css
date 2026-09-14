@@ -6000,3 +6000,136 @@ footer {
         letter-spacing: 0.01em !important;
     }
 }
+
+/* ==========================================================================
+   底端列快捷操作按鈕 (安裝 App ✕ 複製網址)
+   ========================================================================== */
+.site-dev-footer {
+    text-align: center;
+    font-size: 0.88rem;
+    color: var(--text-muted, #94a3b8);
+    padding: 0.85rem 0;
+    margin-top: 0.8rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.site-dev-footer-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.75rem 1.15rem;
+}
+
+.site-dev-credit {
+    display: inline-flex;
+    align-items: center;
+    color: var(--text-muted, #94a3b8);
+    font-size: 0.88rem;
+}
+
+.site-dev-credit a {
+    color: var(--accent-primary, #fbbf24);
+    text-decoration: underline;
+    cursor: pointer;
+    margin-left: 2px;
+}
+
+.site-dev-credit a:hover {
+    color: var(--accent-secondary, #34d399);
+}
+
+.footer-action-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    padding: 0.42rem 0.95rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    font-family: inherit;
+    color: #f8fafc;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 9999px;
+    cursor: pointer;
+    transition: all 0.22s ease;
+    white-space: nowrap;
+    text-decoration: none;
+    line-height: 1.2;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+}
+
+.footer-action-btn:hover {
+    background: rgba(255, 255, 255, 0.16);
+    border-color: rgba(251, 191, 36, 0.5);
+    color: #fbbf24;
+    transform: translateY(-1.5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+}
+
+.footer-action-btn:active {
+    transform: translateY(0);
+    scale: 0.96;
+}
+
+.footer-action-btn.btn-install {
+    border-color: rgba(52, 211, 153, 0.38);
+}
+
+.footer-action-btn.btn-install:hover {
+    border-color: rgba(52, 211, 153, 0.8);
+    color: #34d399;
+    box-shadow: 0 4px 14px rgba(52, 211, 153, 0.28);
+}
+
+.footer-action-btn.btn-copy-url {
+    border-color: rgba(251, 191, 36, 0.38);
+}
+
+.footer-action-btn.btn-copy-url:hover {
+    border-color: rgba(251, 191, 36, 0.8);
+    color: #fbbf24;
+    box-shadow: 0 4px 14px rgba(251, 191, 36, 0.28);
+}
+
+/* 在獨立 PWA 模式或已安裝時隱藏安裝按鈕 */
+.is-pwa-standalone #btn-footer-install,
+html.is-pwa-standalone #btn-footer-install {
+    display: none !important;
+}
+
+@media all and (display-mode: standalone) {
+    #btn-footer-install {
+        display: none !important;
+    }
+}
+
+/* 響應式佈局：桌機左右對稱，手機上下分層置中 */
+@media (min-width: 768px) {
+    .footer-action-btn.btn-install {
+        order: 1;
+    }
+    .site-dev-credit {
+        order: 2;
+    }
+    .footer-action-btn.btn-copy-url {
+        order: 3;
+    }
+}
+
+@media (max-width: 767px) {
+    .site-dev-credit {
+        order: 1;
+        width: 100%;
+        justify-content: center;
+        margin-bottom: 0.25rem;
+    }
+    .footer-action-btn.btn-install {
+        order: 2;
+    }
+    .footer-action-btn.btn-copy-url {
+        order: 3;
+    }
+}
+

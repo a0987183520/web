@@ -23,9 +23,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, viewport-fit=cover">
     <title>新北市土城區明德里 科技里長 陳新昱｜明德里 2.0 十五大政見白皮書</title>
     <link rel="canonical" href="https://a0987183520.github.io/web/">
-    <!-- Favicon -->
+    <!-- Favicon & PWA Manifest -->
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="alternate icon" href="favicon.ico">
+    <link rel="apple-touch-icon" href="images/icon-192.png">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#060b09">
     <meta name="google-site-verification" content="jWw2gXjcWI8QbuicvoBgRYcgPD22oXb2O-iEw5dmGT0">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
@@ -130,7 +133,7 @@
       ]
     }
     </script>
-    <link rel="stylesheet" href="css/style.css?v=21.03">
+    <link rel="stylesheet" href="css/style.css?v=21.04">
     <style>
     /* 調整主版面兩欄比例與間距，僅在桌機版生效以確保手機版正常響應式排版 */
     @media (min-width: 951px) {
@@ -1166,8 +1169,20 @@
                 <div class="copyright copyright-single-line">
                     © 2026 陳新昱競選總部｜2026.08.12 首創公開｜採 <span class="cc-badge-link" tabindex="0" data-tooltip="創用 CC 姓名標示-禁止改作 4.0 國際條款：歡迎選民分享轉載，嚴禁競選對手改作與抄襲。">CC BY-ND 4.0</span> 條款授權（歡迎轉載，嚴禁競選抄襲）
                 </div>
-                <div class="site-dev-footer" style="text-align:center; font-size:0.85rem; color:var(--text-muted, #94a3b8); padding: 0.75rem 0; margin-top: 0.8rem; border-top: 1px solid rgba(255,255,255,0.08);">
-                    網站開發：陳新昱 (網站問題回報：<a href="javascript:void(0)" onclick="openSiteReportModal('【明德里2.0官網】')" style="color:var(--accent-primary, #fbbf24); text-decoration:underline; cursor:pointer;">請點我</a>)
+                <div class="site-dev-footer">
+                    <div class="site-dev-footer-inner">
+                        <button type="button" id="btn-footer-install" class="footer-action-btn btn-install" onclick="triggerPWAInstall()" title="將明德里 2.0 安裝至手機桌面">
+                            <span class="btn-icon">📲</span>
+                            <span class="btn-text">安裝 App</span>
+                        </button>
+                        <span class="site-dev-credit">
+                            網站開發：陳新昱 (網站問題回報：<a href="javascript:void(0)" onclick="openSiteReportModal('【明德里2.0官網】')">請點我</a>)
+                        </span>
+                        <button type="button" id="btn-footer-copy-url" class="footer-action-btn btn-copy-url" onclick="copyWebsiteUrl()" title="快速複製官網網址分享給好友">
+                            <span class="btn-icon">🔗</span>
+                            <span class="btn-text">複製網址</span>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1492,7 +1507,38 @@
         </div>
     </div>
 
-    <script src="js/main.js?v=21.03"></script>
+    <!-- Android 專屬安裝 App 教學彈窗 -->
+    <div id="androidInstallGuideModal" class="line-guide-modal hidden" style="display: none;">
+        <div class="line-guide-card">
+            <div class="line-guide-icon">🤖</div>
+            <div class="line-guide-title">Android 手機加入桌面教學</div>
+            <div class="line-guide-steps">
+                <div class="step-item"><strong>1. 點擊瀏覽器右上角</strong> <span class="highlight-badge">[ ⋮ ]</span></div>
+                <div class="step-item"><strong>2. 點選</strong> <span class="highlight-text">「安裝應用程式」</span> 或 <span class="highlight-text">「加到主畫面」</span> 📲</div>
+                <div style="margin-top: 0.8rem; padding-top: 0.8rem; border-top: 1px dashed rgba(251, 191, 36, 0.35); font-size: 0.9rem; color: var(--accent-primary);">
+                    💡 <strong>若在 LINE 中開啟：</strong><br>
+                    請點右上角 [ ⋮ ] ➜ 點選「在預設瀏覽器中開啟」，即可一鍵安裝至桌面！
+                </div>
+            </div>
+            <button class="btn-guide-close" onclick="document.getElementById('androidInstallGuideModal').style.display='none'; document.getElementById('androidInstallGuideModal').classList.add('hidden');">我知道了 👍</button>
+        </div>
+    </div>
+
+    <!-- iOS Safari 加入主畫面教學彈窗 -->
+    <div id="iosInstallModal" class="line-guide-modal hidden" style="display: none;">
+        <div class="line-guide-card">
+            <div class="line-guide-icon">🍏</div>
+            <div class="line-guide-title">iPhone / iPad 加入桌面教學</div>
+            <div class="line-guide-steps">
+                <div class="step-item"><strong>1. 點擊 Safari 瀏覽器正下方的</strong> <span class="highlight-badge">[ 📤 分享 ]</span> 圖示</div>
+                <div class="step-item"><strong>2. 往下滑動，點選</strong> <span class="highlight-text">「加入主畫面」</span> ➕</div>
+                <div class="step-item"><strong>3. 點擊右上角</strong> <span class="highlight-text">「新增」</span> 即可在桌面秒開使用！</div>
+            </div>
+            <button class="btn-guide-close" onclick="document.getElementById('iosInstallModal').style.display='none'; document.getElementById('iosInstallModal').classList.add('hidden');">我知道了 👍</button>
+        </div>
+    </div>
+
+    <script src="js/main.js?v=21.04"></script>
     <script src="js/site-report-modal.js?v=1.00"></script>
 </body>
 </html>
