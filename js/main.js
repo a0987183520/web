@@ -38,13 +38,13 @@ const POLICIES_DATA = [
         highlight: "現場吉他彈唱互動、散步就能抵達！每年春、秋兩季定期各辦 1 次，善用市民活動中心旁公園草地，串聯街頭民歌手、獨立樂手與學生社團，打造有歌聲、有笑聲的草地音樂生活節。",
         icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"></path><circle cx="6" cy="18" r="3"></circle><circle cx="18" cy="16" r="3"></circle></svg>`,
         hooks: [
-            { question: "各位是否懷念早期民歌時代，一把吉他、一片草地、一張野餐墊，就可以拉近人與人之間的距離呢？", answer: "" },
-            { question: "假日想帶長輩小孩散步放鬆，為什麼非得塞車跑去大安森林公園？", answer: "" }
+            { question: "各位是否懷念早期民歌時代，<span class=\"hl-keyword\">一把吉他、一片草地、一張野餐墊</span>，就可以拉近人與人之間的距離呢？", answer: "" },
+            { question: "假日想帶長輩小孩散步放鬆，<span class=\"hl-keyword\">為什麼非得塞車跑去大安森林公園？</span>", answer: "" }
         ],
         howToDo: [
-            "固定於每年春、秋兩季假日試辦，下樓散步就能倘佯在草地音樂的懷抱，反應熱烈則會加辦場次。"
+            "固定於<span class=\"hl-keyword\">每年春、秋兩季假日試辦</span>，下樓散步就能倘佯在草地音樂的懷抱，反應熱烈則會加辦場次。"
         ],
-        whyPossible: "候選人擁有 20 年流行音樂產業背景，有人脈，懂得如何申請經費。"
+        whyPossible: "候選人擁有 <span class=\"hl-keyword\">20 年流行音樂產業背景</span>，有人脈，<span class=\"hl-keyword\">懂得如何申請經費</span>。"
     },
     {
         id: 2,
@@ -942,15 +942,16 @@ function openDrawer(policyId) {
             policy.hooks.forEach(h => {
                 const card = document.createElement('div');
                 card.className = 'hook-card';
+                const qContent = (h.question || h);
                 if (h.answer && h.answer.trim()) {
                     card.innerHTML = `
-                        <div class="hook-card-title">❓ ${escapeHTML(h.question)}</div>
-                        <p class="hook-card-text">${escapeHTML(h.answer)}</p>
+                        <div class="hook-card-title">❓ ${qContent}</div>
+                        <p class="hook-card-text">${h.answer}</p>
                     `;
                 } else {
                     card.innerHTML = `
-                        <div class="hook-card-text" style="font-size: 1.06rem; line-height: 1.65; color: var(--text-primary); font-weight: 600;">
-                            💭 ${escapeHTML(h.question || h)}
+                        <div class="hook-card-text">
+                            💭 ${qContent}
                         </div>
                     `;
                 }
@@ -1067,7 +1068,7 @@ function openDrawer(policyId) {
 
     // Why possible section
     const capText = document.getElementById('drawer-capability-text');
-    if (capText) capText.textContent = policy.whyPossible;
+    if (capText) capText.innerHTML = policy.whyPossible;
 
 
     // Open drawer view
