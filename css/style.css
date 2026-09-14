@@ -5343,60 +5343,6 @@ footer {
     50% { box-shadow: 0 4px 22px rgba(251, 191, 36, 0.35); border-color: rgba(251, 191, 36, 0.65); }
 }
 
-/* 2. 政見抽屜（Drawer）底部直覺返回操作列 */
-.drawer-bottom-actions {
-    margin-top: 0;
-    padding-top: 0;
-    border-top: none;
-    margin-bottom: 1.2rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.btn-drawer-bottom-close {
-    width: 100%;
-    max-width: 280px;
-    padding: 0.65rem 1.4rem;
-    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-    border: 1.5px solid rgba(255, 255, 255, 0.28);
-    border-radius: 14px;
-    color: #ffffff;
-    font-size: 1rem;
-    font-weight: 800;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    cursor: pointer;
-    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-    box-shadow: 0 4px 16px rgba(16, 185, 129, 0.38);
-}
-
-.btn-drawer-bottom-close:hover {
-    background: linear-gradient(135deg, #34d399 0%, #10b981 100%);
-    color: #ffffff;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(16, 185, 129, 0.65);
-}
-
-.btn-drawer-bottom-close:active {
-    transform: translateY(0);
-}
-
-.btn-drawer-bottom-close svg {
-    width: 18px;
-    height: 18px;
-    fill: #ffffff;
-    flex-shrink: 0;
-}
-
-[data-theme="light"] .btn-drawer-bottom-close {
-    background: linear-gradient(135deg, #059669 0%, #047857 100%);
-    color: #ffffff;
-    box-shadow: 0 4px 15px rgba(5, 150, 105, 0.35);
-}
-
 /* 2.5 政見抽屜（Drawer）開頭吸睛鉤子（Hook / 痛點大解密） */
 .drawer-hook-section {
     background: linear-gradient(135deg, rgba(251, 191, 36, 0.08) 0%, rgba(16, 185, 129, 0.05) 100%);
@@ -5468,6 +5414,19 @@ footer {
     line-height: 1.6;
     color: #e5e7eb;
     margin: 0;
+}
+
+/* 痛點區塊底部返回按鈕列（位置 B：固定於區塊內最後一行最右側） */
+.drawer-hook-footer {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 0.75rem;
+    padding-top: 0.25rem;
+}
+
+.drawer-hook-close {
+    flex-shrink: 0;
 }
 
 [data-theme="light"] .drawer-hook-section {
@@ -5918,7 +5877,7 @@ footer {
     .drawer-vote-slot .btn-want-vote .want-text {
         font-size: 0.96rem;
     }
-    .drawer-close {
+    .drawer-header-actions .drawer-close {
         flex: 1;
         width: 100%;
         min-width: 0;
@@ -5932,5 +5891,12 @@ footer {
     }
     .drawer-close .drawer-close-text {
         font-size: 0.96rem;
+    }
+    .drawer-hook-footer {
+        margin-top: 0.65rem;
+    }
+    .drawer-hook-close {
+        padding: 0.45rem 0.95rem;
+        border-radius: 14px;
     }
 }
