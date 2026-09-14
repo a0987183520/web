@@ -73,20 +73,20 @@ const POLICIES_DATA = [
         title: "防滑走廊 ＋ 友善步道 ＋ 通學安全",
         subtitle: "明德里為捷運通勤與校園通學必經動線，部分騎樓防滑係數不足，爭取市府全額整平！",
         image: "images/policy_04_safety_2_wide.png",
-        budgetSource: "工務局騎樓整平計畫 ＋ 人本交通專案款",
+        budgetSource: "工務局<span class=\"hl-keyword\">騎樓整平</span>計畫 ＋ <span class=\"hl-keyword\">人本交通</span>專案款",
         budgetSub: "<span class=\"hl-keyword\">完全不會用到</span>明德里 88 萬基層款",
-        budgetDesc: "主動彙整里民人行危險點資料庫，召開跨局會勘爭取市府專案款改善鋪面",
+        budgetDesc: "主動彙整里民人行<span class=\"hl-keyword\">危險點資料庫</span>，召開跨局會勘爭取<span class=\"hl-keyword\">市府專案款</span>改善鋪面",
         highlight: "聚焦明德里捷運通勤與學童通學核心動線！試行高摩擦防滑速解雨天濕滑，主動對接工務局騎樓整平專案爭取市府全額鋪設，守護長青、推車與學童步步安心！",
         icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 4v16M17 8l-4-4-4 4M7 20h10"></path><circle cx="12" cy="4" r="2"></circle></svg>`,
         hooks: [
-            "<span class=\"hl-keyword\">明德里周邊主要社區騎樓</span>，是學童上學、上班族前往捷運與居民採買的<span class=\"hl-keyword\">必經重要動線</span>；然而部分路段地面防滑係數不足、遇雨濕滑，仍有極大改善空間，雨天老人小孩行走令人提心吊膽！"
+            "明德里周邊主要社區騎樓，是<span class=\"hl-keyword\">學童上學</span>、<span class=\"hl-keyword\">上班族</span>前往捷運與<span class=\"hl-keyword\">居民採買</span>的必經重要動線；然而部分路段地面<span class=\"hl-keyword\">防滑係數不足</span>、遇雨濕滑，仍有極大改善空間，雨天老人小孩行走令人提心吊膽！"
         ],
         howToDo: [
-            "【近期】：優先針對人流密集的通學與捷運必經動線，花費極少經費試行高摩擦防滑塗料，快速提升防滑係數，雨天立即見效。",
-            "【中期】：主動對接工務局「騎樓整平計畫」與人本交通專款，跨社區聯合提報會勘，爭取市府出資整平並換裝防滑鋪面！",
-            "【長期】：使用我開發的「一鍵通報」App，緊急處理地磚破損、燈號故障、危險路段與監控盲區等狀況；守護里民通行安全，更替沿線管委會消除法律賠償風險。"
+            "【近期】：優先針對人流密集的<span class=\"hl-keyword\">通學</span>與<span class=\"hl-keyword\">捷運</span>必經動線，花費極少經費試行<span class=\"hl-keyword\">高摩擦防滑塗料</span>，快速提升防滑係數，雨天立即見效。",
+            "【中期】：主動對接工務局<span class=\"hl-keyword\">騎樓整平計畫</span>與<span class=\"hl-keyword\">人本交通專款</span>，跨社區聯合提報會勘，爭取市府出資整平並換裝防滑鋪面！",
+            "【長期】：使用我開發的「<span class=\"hl-keyword\">一鍵通報</span>」App，緊急處理<span class=\"hl-keyword\">地磚破損</span>、<span class=\"hl-keyword\">燈號故障</span>、<span class=\"hl-keyword\">危險路段</span>與<span class=\"hl-keyword\">監控盲區</span>等狀況；守護里民通行安全，更替沿線管委會消除法律賠償風險。"
         ],
-        whyPossible: "我<span class=\"hl-keyword\">懂法規、善協調、深諳公門運作</span>，擁有 10 年管委會實戰經驗；曾於 403 地震後深入研究法規，<span class=\"hl-keyword\">成功協調權責機關跨局處施工</span>，搶通三不管重要便道下陷的行人安全問題。"
+        whyPossible: "我<span class=\"hl-keyword\">懂法規、善協調、深諳公門運作</span>，擁有 10 年管委會實戰經驗；曾於 403 地震後深入研究法規，<span class=\"hl-keyword\">成功協調權責機關跨局處施工</span>，<span class=\"hl-keyword\">搶通三不管</span>重要便道下陷的行人安全問題。"
     },
     {
         id: 4,
@@ -2584,7 +2584,7 @@ function fallbackCopyUrl(text, cb) {
 // 註冊 Service Worker 支援離線快取與 PWA 安裝
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
-        navigator.serviceWorker.register('sw.js?v=22.03')
+        navigator.serviceWorker.register('sw.js?v=22.04')
             .catch(() => {});
     });
 }
