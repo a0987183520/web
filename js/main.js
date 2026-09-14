@@ -75,7 +75,7 @@ const POLICIES_DATA = [
         image: "images/policy_04_safety_2.png",
         budgetSource: "工務局騎樓整平計畫 ＋ 人本交通專案款",
         budgetSub: "<span class=\"hl-keyword\">完全不會用到</span>明德里 88 萬基層款",
-        budgetDesc: "主動彙整里民人行危險點資料庫，召開跨局處會勘爭取市府專案款改善鋪面，零花費里公款！",
+        budgetDesc: "主動彙整里民人行危險點資料庫，召開跨局會勘爭取市府專案款改善鋪面",
         highlight: "鎖定天京、孔雀一二期與捷運學府通勤動線！以高摩擦防滑塗料速解雨天濕滑，對接工務局騎樓整平計畫改善破損地磚與高低差，守護長輩推車與學童安全！",
         icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 4v16M17 8l-4-4-4 4M7 20h10"></path><circle cx="12" cy="4" r="2"></circle></svg>`,
         hooks: [
