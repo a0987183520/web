@@ -1,9 +1,9 @@
-const CACHE_NAME = 'md2-pwa-cache-v21.21';
+const CACHE_NAME = 'md2-pwa-cache-v22.00';
 
 const ASSETS_TO_CACHE = [
   'index.html',
-  'css/style.css?v=21.21',
-  'js/main.js?v=21.21',
+  'css/style.css?v=22.00',
+  'js/main.js?v=22.00',
   'manifest.json',
   'favicon.svg',
   'images/icon-192.png',
