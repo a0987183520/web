@@ -44,7 +44,7 @@ const POLICIES_DATA = [
         howToDo: [
             "固定於每年春、秋兩季假日試辦，下樓散步就能倘佯在草地音樂的懷抱，反應熱烈則會加辦場次。"
         ],
-        whyPossible: "候選人擁有 20 年流行音樂產業背景，有人脈，有資源。"
+        whyPossible: "候選人擁有 20 年流行音樂產業背景，有人脈，懂得如何申請經費。"
     },
     {
         id: 2,
@@ -950,7 +950,7 @@ function openDrawer(policyId) {
                 } else {
                     card.innerHTML = `
                         <div class="hook-card-text" style="font-size: 1.06rem; line-height: 1.65; color: var(--text-primary); font-weight: 600;">
-                            💡 ${escapeHTML(h.question || h)}
+                            💭 ${escapeHTML(h.question || h)}
                         </div>
                     `;
                 }
