@@ -30,7 +30,7 @@ const POLICIES_DATA = [
     {
         id: 1,
         title: "民歌Live草地音樂節",
-        subtitle: "街頭藝人吉他彈唱互動，每年春、秋相約草地同樂！",
+        subtitle: "邀請歌手吉他彈唱互動，春秋兩季相約活動中心草地野餐，用音樂找回與鄰居的連結",
         image: "images/policy_01_music.png",
         budgetSource: "文化局社造專案（5~20萬）＋ 區公所文康專款",
         budgetSub: "（完全不用動到明德里 88 萬基層款）",
