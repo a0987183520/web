@@ -1572,48 +1572,78 @@ nav {
 }
 
 .drawer-close {
-    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-    border: 1px solid rgba(255, 255, 255, 0.28);
-    color: #ffffff;
-    cursor: pointer;
-    padding: 0.42rem 0.92rem;
-    border-radius: 30px;
     display: inline-flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 0.4rem;
-    font-size: 0.86rem;
-    font-weight: 700;
+    gap: 0.2rem;
+    padding: 0.5rem 1.15rem;
+    min-width: 108px;
+    background: linear-gradient(135deg, #10b981 0%, #059669 60%, #047857 100%);
+    border: 1.5px solid rgba(255, 255, 255, 0.28);
+    border-radius: 16px;
+    color: #ffffff;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    user-select: none;
+    box-shadow: 0 4px 14px rgba(16, 185, 129, 0.45), 0 0 16px rgba(16, 185, 129, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.35);
+    backdrop-filter: blur(4px);
     flex-shrink: 0;
-    white-space: nowrap;
-    box-shadow: 0 3px 12px rgba(16, 185, 129, 0.35);
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .drawer-close:hover {
-    background: linear-gradient(135deg, #34d399 0%, #10b981 100%);
+    background: linear-gradient(135deg, #34d399 0%, #10b981 60%, #059669 100%);
+    border-color: rgba(255, 255, 255, 0.6);
     color: #ffffff;
-    transform: translateY(-2px);
-    box-shadow: 0 5px 18px rgba(16, 185, 129, 0.55);
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 8px 22px rgba(16, 185, 129, 0.65), 0 0 25px rgba(52, 211, 153, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.5);
 }
 
 .drawer-close:active {
-    transform: translateY(0);
+    transform: translateY(0) scale(0.96);
+    box-shadow: 0 2px 8px rgba(16, 185, 129, 0.4);
 }
 
-.drawer-close svg {
-    width: 15px;
-    height: 15px;
-    stroke: #ffffff;
-    stroke-width: 2.5;
-    fill: none;
-    flex-shrink: 0;
+/* 第一列：流線型弧線返回箭頭圖示 (與愛心列對齊) */
+.drawer-close .return-row-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 18px;
+    line-height: 1;
+}
+
+.drawer-close .return-row-icon svg {
+    width: 18px;
+    height: 18px;
+    fill: #ffffff;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.drawer-close:hover .return-row-icon svg {
+    transform: translateX(-3px) scale(1.15);
+}
+
+/* 第二列：返回上一頁文字 (與「我想要」等大對齊) */
+.drawer-close .return-row-text {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1.1;
+}
+
+.drawer-close .drawer-close-text {
+    font-size: 1.08rem;
+    font-weight: 900;
+    letter-spacing: 0.04em;
+    color: #ffffff;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
 }
 
 [data-theme="light"] .drawer-close {
     background: linear-gradient(135deg, #059669 0%, #047857 100%);
     color: #ffffff;
-    box-shadow: 0 3px 12px rgba(5, 150, 105, 0.3);
+    box-shadow: 0 4px 14px rgba(5, 150, 105, 0.35);
 }
 
 .drawer-body {
@@ -1626,7 +1656,7 @@ nav {
 .drawer-image-wrapper {
     width: 100%;
     border-radius: 16px;
-    margin-bottom: 2rem;
+    margin-bottom: 1.2rem;
     background: rgba(0, 0, 0, 0.2);
     display: none;
 }
@@ -1639,44 +1669,47 @@ nav {
 }
 
 .drawer-section {
-    margin-bottom: 2.8rem;
+    margin-bottom: 1.15rem;
 }
 
 .drawer-section h3 {
-    font-size: 1.32rem;
+    font-size: 1.22rem;
     color: var(--text-primary);
-    margin-bottom: 1.2rem;
+    margin-bottom: 0.45rem;
     display: flex;
     align-items: center;
-    gap: 0.6rem;
+    gap: 0.5rem;
     border-bottom: 1.5px solid var(--card-border);
-    padding-bottom: 0.6rem;
+    padding-bottom: 0.35rem;
 }
 
 .drawer-section h3 svg {
-    width: 22px;
-    height: 22px;
+    width: 20px;
+    height: 20px;
     fill: var(--accent-primary);
 }
 
 .drawer-section p {
     color: var(--text-primary);
-    font-size: 1.12rem;
+    font-size: 1.02rem;
     white-space: pre-line;
-    line-height: 1.72;
+    line-height: 1.6;
     letter-spacing: 0.01em;
+    margin: 0;
 }
 
 .drawer-list {
     list-style: none;
     display: flex;
     flex-direction: column;
-    gap: 1.1rem;
+    gap: 0.42rem;
+    margin: 0;
+    padding: 0;
 }
 
 .drawer-list-item {
     display: flex;
-    gap: 0.9rem;
+    gap: 0.6rem;
     align-items: flex-start;
 }
 
@@ -1685,14 +1718,14 @@ nav {
     height: 6px;
     border-radius: 50%;
     background: var(--accent-primary);
-    margin-top: 0.6rem;
+    margin-top: 0.48rem;
     flex-shrink: 0;
 }
 
 .drawer-list-text {
     color: var(--text-primary);
-    font-size: 1.1rem;
-    line-height: 1.68;
+    font-size: 1.02rem;
+    line-height: 1.55;
     letter-spacing: 0.01em;
 }
 
@@ -4203,8 +4236,8 @@ footer {
     background: rgba(251, 191, 36, 0.08);
     border: 1.5px solid rgba(251, 191, 36, 0.35);
     border-radius: 16px;
-    padding: 1.2rem 1.4rem;
-    margin-bottom: 1.3rem;
+    padding: 0.95rem 1.15rem;
+    margin-bottom: 1.15rem;
     box-shadow: 0 8px 20px -5px rgba(0, 0, 0, 0.25);
 }
 
@@ -4215,7 +4248,7 @@ footer {
 }
 
 .drawer-budget-badge-wrap {
-    margin-bottom: 0.9rem;
+    margin-bottom: 0.55rem;
 }
 
 .drawer-budget-title-row {
@@ -5312,9 +5345,10 @@ footer {
 
 /* 2. 政見抽屜（Drawer）底部直覺返回操作列 */
 .drawer-bottom-actions {
-    margin-top: 1.2rem;
-    padding-top: 1rem;
-    border-top: 1px solid var(--card-border);
+    margin-top: 0;
+    padding-top: 0;
+    border-top: none;
+    margin-bottom: 1.2rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -5322,20 +5356,20 @@ footer {
 
 .btn-drawer-bottom-close {
     width: 100%;
-    max-width: 320px;
+    max-width: 280px;
     padding: 0.65rem 1.4rem;
     background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-    border: 1px solid rgba(255, 255, 255, 0.28);
-    border-radius: 30px;
+    border: 1.5px solid rgba(255, 255, 255, 0.28);
+    border-radius: 14px;
     color: #ffffff;
-    font-size: 0.95rem;
-    font-weight: 700;
+    font-size: 1rem;
+    font-weight: 800;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
     cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
     box-shadow: 0 4px 16px rgba(16, 185, 129, 0.38);
 }
 
@@ -5351,11 +5385,9 @@ footer {
 }
 
 .btn-drawer-bottom-close svg {
-    width: 20px;
-    height: 20px;
-    stroke: #ffffff;
-    stroke-width: 2.5;
-    fill: none;
+    width: 18px;
+    height: 18px;
+    fill: #ffffff;
     flex-shrink: 0;
 }
 
@@ -5370,9 +5402,9 @@ footer {
     background: linear-gradient(135deg, rgba(251, 191, 36, 0.08) 0%, rgba(16, 185, 129, 0.05) 100%);
     border: 1px solid rgba(251, 191, 36, 0.3);
     border-radius: 16px;
-    padding: 1.3rem 1.5rem;
-    margin-bottom: 2rem;
-    box-shadow: 0 8px 25px -5px rgba(0, 0, 0, 0.3);
+    padding: 0.8rem 1.1rem;
+    margin-bottom: 0.5rem;
+    box-shadow: 0 6px 20px -5px rgba(0, 0, 0, 0.25);
     position: relative;
     overflow: hidden;
 }
@@ -5391,17 +5423,17 @@ footer {
 .drawer-hook-header {
     display: flex;
     align-items: center;
-    gap: 0.6rem;
-    margin-bottom: 0.9rem;
+    gap: 0.5rem;
+    margin-bottom: 0.45rem;
 }
 
 .drawer-hook-header .hook-icon {
-    font-size: 1.35rem;
+    font-size: 1.25rem;
 }
 
 .drawer-hook-header h3 {
     margin: 0 !important;
-    font-size: 1.18rem !important;
+    font-size: 1.15rem !important;
     font-weight: 800 !important;
     color: var(--accent-primary) !important;
     border: none !important;
@@ -5411,14 +5443,14 @@ footer {
 .drawer-hook-content {
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
+    gap: 0.42rem;
 }
 
 .hook-card {
     background: rgba(0, 0, 0, 0.28);
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 12px;
-    padding: 0.85rem 1rem;
+    padding: 0.55rem 0.8rem;
 }
 
 .hook-card-title {
@@ -5870,20 +5902,35 @@ footer {
         width: 100%;
         display: flex;
         justify-content: space-between;
-        align-items: center;
-        gap: 0.5rem;
+        align-items: stretch;
+        gap: 0.65rem;
+    }
+    .drawer-vote-slot {
+        flex: 1;
+        display: flex;
     }
     .drawer-vote-slot .btn-want-vote {
-        padding: 0.4rem 0.75rem;
-        font-size: 0.9rem;
+        width: 100%;
+        min-width: 0;
+        padding: 0.45rem 0.5rem;
+        border-radius: 14px;
+    }
+    .drawer-vote-slot .btn-want-vote .want-text {
+        font-size: 0.96rem;
     }
     .drawer-close {
-        padding: 0.38rem 0.8rem;
-        font-size: 0.82rem;
-        gap: 0.3rem;
+        flex: 1;
+        width: 100%;
+        min-width: 0;
+        padding: 0.45rem 0.5rem;
+        border-radius: 14px;
+        gap: 0.2rem;
     }
-    .drawer-close svg {
-        width: 14px;
-        height: 14px;
+    .drawer-close .return-row-icon svg {
+        width: 16px;
+        height: 16px;
+    }
+    .drawer-close .drawer-close-text {
+        font-size: 0.96rem;
     }
 }

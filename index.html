@@ -130,7 +130,7 @@
       ]
     }
     </script>
-    <link rel="stylesheet" href="css/style.css?v=20.04">
+    <link rel="stylesheet" href="css/style.css?v=20.05">
     <style>
     /* 調整主版面兩欄比例與間距，僅在桌機版生效以確保手機版正常響應式排版 */
     @media (min-width: 951px) {
@@ -1348,12 +1348,15 @@
             </div>
             <div class="drawer-header-actions">
                 <div class="drawer-vote-slot" id="drawer-vote-slot"></div>
-                <button class="drawer-close" id="drawer-close" aria-label="返回上一頁" onclick="closeDrawer()">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                        <line x1="19" y1="12" x2="5" y2="12"></line>
-                        <polyline points="12 19 5 12 12 5"></polyline>
-                    </svg>
-                    <span class="drawer-close-text">返回上一頁</span>
+                <button class="drawer-close" id="drawer-close" aria-label="返回上一頁" onclick="closeDrawer()" title="返回首頁政見列表">
+                    <div class="return-row-icon">
+                        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                            <path d="M10 4.5L2 12l8 7.5V14.2c5.5 0 9.8 2.3 12 7.8-.5-6.2-4.2-12.5-12-12.5V4.5z"/>
+                        </svg>
+                    </div>
+                    <div class="return-row-text">
+                        <span class="drawer-close-text">返回上一頁</span>
+                    </div>
                 </button>
             </div>
         </div>
@@ -1416,9 +1419,8 @@
                     <!-- 底部直覺關閉操作列 (長輩滑到底部無需向上捲動即可一鍵關閉) -->
                     <div class="drawer-bottom-actions">
                         <button type="button" class="btn-drawer-bottom-close" onclick="closeDrawer()" aria-label="返回上一頁">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                                <line x1="19" y1="12" x2="5" y2="12"></line>
-                                <polyline points="12 19 5 12 12 5"></polyline>
+                            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                                <path d="M10 4.5L2 12l8 7.5V14.2c5.5 0 9.8 2.3 12 7.8-.5-6.2-4.2-12.5-12-12.5V4.5z"/>
                             </svg>
                             <span class="close-text">返回上一頁</span>
                         </button>
@@ -1482,7 +1484,7 @@
         </div>
     </div>
 
-    <script src="js/main.js?v=20.04"></script>
+    <script src="js/main.js?v=20.05"></script>
     <script src="js/site-report-modal.js?v=1.00"></script>
 </body>
 </html>
