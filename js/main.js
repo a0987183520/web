@@ -56,11 +56,13 @@ const POLICIES_DATA = [
         budgetDesc: "",
         highlight: "想要什麼活動、你做主！打破單一活動中心限制，串聯明德里近 20 個社區公共空間平行開辦「微活動」，免奔波、下樓就能參加，熱門先辦，徹底告別一言堂黑箱蚊子活動！",
         icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>`,
-        hooks: [],
+        hookTitle: "創新",
+        hooks: [
+            "<span class=\"hl-keyword\">社區平行微活動</span>：試想如果你下樓就可以參加你想要的活動...",
+            "我們明德里是由近 20 個中大型社區所組成，我們主動與各管委會討論開放、善用公設空間給住戶使用；<span class=\"hl-keyword\">不用爭奪活動中心，活動加倍</span>，里民、長輩更便捷！"
+        ],
         howToDo: [
-            "<span class=\"hl-keyword\">想要什麼活動、你做主</span>，隨時可查看熱門排行，24 小時隨時可報名，多數成案，熱門先辦，告別一言堂的黑箱蚊子活動！",
-            "<span class=\"hl-keyword\">社區公設平行微活動</span>：打破單一活動中心限制，串連明德里近 20 個社區公共空間，免奔波、下樓就能參加，多場平行同時開辦！",
-            "<span class=\"hl-keyword\">活動時段分流</span>：晚上與假日開放不同族群使用，活動中心與社區公設雙軌並進，不影響長輩們的平時使用時間。"
+            "<span class=\"hl-keyword\">想要什麼活動、你做主</span>，隨時可查看熱門排行，24 小時隨時可報名，多數成案，熱門先辦，告別一言堂的黑箱蚊子活動！"
         ],
         whyPossible: "<span class=\"hl-keyword\">你點得出，我就辦得出</span>，我曾舉辦過直排輪入門、桌球入門、學生與長輩無人機入門、EQ親子營、手機 AI 短劇製作、長輩血壓AI管理、AI 家教、AI錯題本與AI程式開發...等<span class=\"hl-keyword\">十餘種熱門體驗營的經驗</span>，<span class=\"hl-keyword\">我知道哪裡有經費，我會寫企劃案</span>，因此我做得到！"
     },
@@ -930,9 +932,13 @@ function openDrawer(policyId) {
     const titleEl = document.getElementById('drawer-title');
     if (titleEl) titleEl.innerHTML = policy.displayTitle || escapeHTML(policy.title);
 
-    // Populate drawer hook section (初衷)
+    // Populate drawer hook section (初衷 / 創新)
     const hookBoxEl = document.getElementById('drawer-hook-box');
     const hookContentEl = document.getElementById('drawer-hook-content');
+    const hookTitleTextEl = document.getElementById('drawer-hook-title-text');
+    if (hookTitleTextEl) {
+        hookTitleTextEl.textContent = policy.hookTitle || '初衷';
+    }
     if (hookBoxEl && hookContentEl) {
         hookContentEl.innerHTML = '';
         if (Array.isArray(policy.hooks) && policy.hooks.length > 0) {
@@ -2565,7 +2571,7 @@ function fallbackCopyUrl(text, cb) {
 // 註冊 Service Worker 支援離線快取與 PWA 安裝
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
-        navigator.serviceWorker.register('sw.js?v=21.08')
+        navigator.serviceWorker.register('sw.js?v=21.09')
             .catch(() => {});
     });
 }
