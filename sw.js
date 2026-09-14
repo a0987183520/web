@@ -1,9 +1,10 @@
-const CACHE_NAME = 'md2-pwa-cache-v22.01';
+const CACHE_NAME = 'mingde2-cache-v22.02';
 
 const ASSETS_TO_CACHE = [
+  './',
   'index.html',
-  'css/style.css?v=22.01',
-  'js/main.js?v=22.01',
+  'css/style.css?v=22.02',
+  'js/main.js?v=22.02',
   'manifest.json',
   'favicon.svg',
   'images/icon-192.png',

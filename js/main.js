@@ -818,7 +818,6 @@ function renderPolicies() {
                     <div class="slider-button" id="card-slider-button-3"></div>
                     <span class="slider-label slider-label-before">改建願景</span>
                     <span class="slider-label slider-label-after">現況實景</span>
-                    <span class="vision-badge">概念示意圖</span>
                 </div>
             `;
         } else {
@@ -1038,7 +1037,6 @@ function openDrawer(policyId) {
                     <div class="slider-button" id="slider-button"></div>
                     <span class="slider-label slider-label-before">改建願景</span>
                     <span class="slider-label slider-label-after">現況實景</span>
-                    <span class="vision-badge">概念示意圖</span>
                 </div>
             `;
             // Add event listener to range input to handle clip-path and button/line position
@@ -2586,7 +2584,7 @@ function fallbackCopyUrl(text, cb) {
 // 註冊 Service Worker 支援離線快取與 PWA 安裝
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
-        navigator.serviceWorker.register('sw.js?v=22.01')
+        navigator.serviceWorker.register('sw.js?v=22.02')
             .catch(() => {});
     });
 }

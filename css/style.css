@@ -2092,35 +2092,48 @@ footer {
 }
 .slider-label {
     position: absolute;
-    top: 16px;
+    top: 12px;
     bottom: auto;
     padding: 6px 14px;
-    background: rgba(15, 23, 42, 0.82);
+    background: rgba(15, 23, 42, 0.48);
     color: #fff;
-    font-size: 0.82rem;
-    font-weight: 700;
+    font-size: 1.02rem;
+    font-weight: 650;
+    letter-spacing: 0.04em;
     border-radius: 8px;
-    z-index: 4;
+    z-index: 5;
     pointer-events: none;
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    border: 1px solid rgba(255,255,255,0.22);
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+    user-select: none;
 }
 .slider-label-before {
-    left: 16px;
+    left: 12px;
     color: #34d399;
-    border-color: rgba(52, 211, 153, 0.45);
+    border: 1px solid rgba(52, 211, 153, 0.38);
 }
 .slider-label-after {
-    right: 16px;
+    right: 12px;
     color: #fbbf24;
-    border-color: rgba(251, 191, 36, 0.45);
+    border: 1px solid rgba(251, 191, 36, 0.38);
 }
 
 @media (max-width: 768px) {
     .before-after-slider {
         height: 380px;
+    }
+    .slider-label {
+        font-size: 0.92rem;
+        padding: 5px 12px;
+        top: 10px;
+    }
+    .slider-label-before {
+        left: 10px;
+    }
+    .slider-label-after {
+        right: 10px;
     }
 }
 
@@ -2151,9 +2164,10 @@ footer {
 .policy-card-image-wrapper .slider-label {
     top: 10px;
     bottom: auto;
-    padding: 4px 10px;
-    font-size: 0.74rem;
-    font-weight: 700;
+    padding: 4px 11px;
+    font-size: 0.84rem;
+    font-weight: 650;
+    letter-spacing: 0.03em;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
 }
 
@@ -2167,10 +2181,6 @@ footer {
     right: 10px;
     color: #fbbf24;
     border-color: rgba(251, 191, 36, 0.45);
-}
-
-.policy-card-image-wrapper .before-after-slider .vision-badge {
-    display: none !important;
 }
 
 /* Bi-directional Cross-Slide Reveal Animations (Default Visible) */
