@@ -33,20 +33,18 @@ const POLICIES_DATA = [
         subtitle: "邀請歌手吉他彈唱互動，春秋兩季相約活動中心草地野餐，用音樂找回與鄰居的連結",
         image: "images/policy_01_music.png",
         budgetSource: "新北市文化局社造專案（5~20萬）",
-        budgetSub: "（完全不用動到明德里 88 萬基層款）",
-        budgetDesc: "全額申請專案補助支應舞台音響與演出師資，專款專用，完全不排擠里內既有修繕預算！",
+        budgetSub: "完全不用動到明德里 88 萬基層款",
+        budgetDesc: "",
         highlight: "現場吉他彈唱互動、散步就能抵達！每年春、秋兩季定期各辦 1 次，善用市民活動中心旁公園草地，串聯街頭民歌手、獨立樂手與學生社團，打造有歌聲、有笑聲的草地音樂生活節。",
         icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"></path><circle cx="6" cy="18" r="3"></circle><circle cx="18" cy="16" r="3"></circle></svg>`,
         hooks: [
-            { question: "假日想帶長輩小孩散步放鬆，為什麼非得塞車跑去大安森林公園？", answer: "善用市民活動中心旁現成公園綠地，每年春、秋兩季各辦 1 次，散步下樓就能享受草地野餐、街頭民歌手現場吉他彈唱互動！" },
-            { question: "傳統政見辦活動，是不是又要花里民上百萬基層工程款？", answer: "完全不用！我們向新北市文化局申請社造專款全額補助，完全不排擠里內既有修繕預算！" }
+            { question: "各位是否懷念早期民歌時代，一把吉他、一片草地、一張野餐墊，就可以拉近人與人之間的距離呢？", answer: "" },
+            { question: "假日想帶長輩小孩散步放鬆，為什麼非得塞車跑去大安森林公園？", answer: "" }
         ],
         howToDo: [
-            "【春秋兩季定期開辦】：固定於每年春、秋兩季假日試辦，散步下樓就能享受草地野餐與民歌現場彈唱互動。",
-            "【街頭民歌手與獨立樂團】：結合流行音樂圈人脈，邀請優秀街頭藝人、民歌手及在地學生社團共同登台展演。",
-            "【嚴格防噪與草地保護】：落實場地合規申請、嚴格管控音量時段與垃圾清運，並備妥完整雨天備案。"
+            "固定於每年春、秋兩季假日試辦，下樓散步就能倘佯在草地音樂的懷抱，反應熱烈則會加辦場次。"
         ],
-        whyPossible: "候選人擁有 20 年流行音樂產業背景，熟悉演出企劃與人脈資源，不需花大錢依賴公關外包即可高效打造優質音樂饗宴。"
+        whyPossible: "候選人擁有 20 年流行音樂產業背景，有人脈，有資源。"
     },
     {
         id: 2,
@@ -935,7 +933,7 @@ function openDrawer(policyId) {
     const titleEl = document.getElementById('drawer-title');
     if (titleEl) titleEl.innerHTML = policy.displayTitle || escapeHTML(policy.title);
 
-    // Populate drawer hook section (痛點大解密 / 你知道嗎？)
+    // Populate drawer hook section (初衷)
     const hookBoxEl = document.getElementById('drawer-hook-box');
     const hookContentEl = document.getElementById('drawer-hook-content');
     if (hookBoxEl && hookContentEl) {
@@ -944,10 +942,18 @@ function openDrawer(policyId) {
             policy.hooks.forEach(h => {
                 const card = document.createElement('div');
                 card.className = 'hook-card';
-                card.innerHTML = `
-                    <div class="hook-card-title">❓ ${escapeHTML(h.question)}</div>
-                    <p class="hook-card-text">${escapeHTML(h.answer)}</p>
-                `;
+                if (h.answer && h.answer.trim()) {
+                    card.innerHTML = `
+                        <div class="hook-card-title">❓ ${escapeHTML(h.question)}</div>
+                        <p class="hook-card-text">${escapeHTML(h.answer)}</p>
+                    `;
+                } else {
+                    card.innerHTML = `
+                        <div class="hook-card-text" style="font-size: 1.06rem; line-height: 1.65; color: var(--text-primary); font-weight: 600;">
+                            💡 ${escapeHTML(h.question || h)}
+                        </div>
+                    `;
+                }
                 hookContentEl.appendChild(card);
             });
             hookBoxEl.style.display = 'block';
@@ -960,9 +966,19 @@ function openDrawer(policyId) {
     const budgetBadgeEl = document.getElementById('drawer-budget-badge');
     if (budgetBadgeEl) budgetBadgeEl.textContent = policy.budgetSource || '明德里基層工作經費';
     const budgetSubEl = document.getElementById('drawer-budget-sub');
-    if (budgetSubEl) budgetSubEl.textContent = policy.budgetSub || '（使用每年近百萬基層款）';
+    if (budgetSubEl) {
+        const rawSub = policy.budgetSub || '';
+        budgetSubEl.textContent = rawSub.replace(/[（）()]/g, '').trim();
+    }
     const budgetTextEl = document.getElementById('drawer-budget-text');
-    if (budgetTextEl) budgetTextEl.textContent = policy.budgetDesc || '由相關公務預算依法支應。';
+    if (budgetTextEl) {
+        if (policy.budgetDesc && policy.budgetDesc.trim()) {
+            budgetTextEl.textContent = policy.budgetDesc;
+            budgetTextEl.style.display = 'block';
+        } else {
+            budgetTextEl.style.display = 'none';
+        }
+    }
 
     // Populate drawer image
 

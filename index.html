@@ -130,7 +130,7 @@
       ]
     }
     </script>
-    <link rel="stylesheet" href="css/style.css?v=20.08">
+    <link rel="stylesheet" href="css/style.css?v=20.09">
     <style>
     /* 調整主版面兩欄比例與間距，僅在桌機版生效以確保手機版正常響應式排版 */
     @media (min-width: 951px) {
@@ -1370,7 +1370,7 @@
                 
                 <!-- 右欄：政見與條文細節 -->
                 <div class="drawer-right-column">
-                    <!-- 1. Budget Source Section (經費來源與預算依據 - 第一順位直球對決) -->
+                    <!-- 1. 經費來源 -->
                     <div class="drawer-section drawer-budget-section" id="drawer-budget-box">
                         <h3 id="drawer-budget-title">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"></path><path d="M12 18V6"></path></svg>
@@ -1378,43 +1378,44 @@
                         </h3>
                         <div class="drawer-budget-badge-wrap">
                             <div class="drawer-budget-title-row">
-                                <span class="drawer-budget-badge" id="drawer-budget-badge">社區營造與藝文推廣專案補助</span>
-                                <span class="drawer-budget-sub" id="drawer-budget-sub">（完全不用動到明德里近百萬基層款）</span>
+                                <span class="drawer-budget-badge" id="drawer-budget-badge">新北市文化局社造專案（5~20萬）</span>
+                                <span class="drawer-budget-sub" id="drawer-budget-sub">完全不用動到明德里 88 萬基層款</span>
                             </div>
                         </div>
-                        <p id="drawer-budget-text">這裡會詳細載明具體的政府公務預算或專案出處...</p>
+                        <p id="drawer-budget-text" style="display: none;"></p>
                     </div>
 
-                    <!-- 2. How to implement (我會怎麼做) -->
+                    <!-- 2. 初衷 -->
+                    <div class="drawer-section drawer-hook-section" id="drawer-hook-box">
+                        <div class="drawer-hook-header">
+                            <span class="hook-icon">💡</span>
+                            <h3 id="drawer-hook-title">初衷</h3>
+                        </div>
+                        <div class="drawer-hook-content" id="drawer-hook-content">
+                            <!-- Injected dynamically by main.js -->
+                        </div>
+                    </div>
+
+                    <!-- 3. 我要怎麼做 -->
                     <div class="drawer-section" id="drawer-how-box">
-                        <h3>
+                        <h3 id="drawer-how-title">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
-                            我會怎麼做
+                            我要怎麼做
                         </h3>
                         <ul class="drawer-list" id="drawer-howtodo-list">
                             <!-- Injected dynamically by main.js -->
                         </ul>
                     </div>
 
-                    <!-- 3. Capability / Advantages (我為什麼做得到) -->
+                    <!-- 4. 為什麼做得到 -->
                     <div class="drawer-section" id="drawer-capability-box">
                         <h3 id="drawer-capability-title">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
-                            我為什麼做得到
+                            為什麼做得到
                         </h3>
-                        <p id="drawer-capability-text">這裡會詳細載明候選人的背景經歷與執行優勢...</p>
-                    </div>
+                        <p id="drawer-capability-text">候選人擁有 20 年流行音樂產業背景，有人脈，有資源。</p>
 
-                    <!-- 4. Hook / Pain Point Breakdown (痛點大解密 / 你知道嗎？) -->
-                    <div class="drawer-section drawer-hook-section" id="drawer-hook-box">
-                        <div class="drawer-hook-header">
-                            <span class="hook-icon">💡</span>
-                            <h3>痛點大解密 ‧ 你知道嗎？</h3>
-                        </div>
-                        <div class="drawer-hook-content" id="drawer-hook-content">
-                            <!-- Injected dynamically by main.js -->
-                        </div>
-                        <!-- 底部返回上頁按鈕（位置 B：固定於痛點區塊內最後一行最右側） -->
+                        <!-- 底部返回上頁按鈕（固定於第 4 段最後一行最右側） -->
                         <div class="drawer-hook-footer">
                             <button type="button" class="drawer-close drawer-hook-close" onclick="closeDrawer()" aria-label="返回上頁" title="返回首頁政見列表">
                                 <div class="return-row-icon">
@@ -1487,7 +1488,7 @@
         </div>
     </div>
 
-    <script src="js/main.js?v=20.08"></script>
+    <script src="js/main.js?v=20.09"></script>
     <script src="js/site-report-modal.js?v=1.00"></script>
 </body>
 </html>
