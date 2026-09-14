@@ -130,7 +130,7 @@
       ]
     }
     </script>
-    <link rel="stylesheet" href="css/style.css?v=20.11">
+    <link rel="stylesheet" href="css/style.css?v=20.12">
     <style>
     /* 調整主版面兩欄比例與間距，僅在桌機版生效以確保手機版正常響應式排版 */
     @media (min-width: 951px) {
@@ -1376,13 +1376,15 @@
                             <span class="drawer-section-icon">💡</span>
                             經費來源
                         </h3>
-                        <div class="drawer-budget-badge-wrap">
-                            <div class="drawer-budget-title-row">
-                                <span class="drawer-budget-badge" id="drawer-budget-badge">新北市文化局社造專案（5~20萬）</span>
-                                <span class="drawer-budget-sub" id="drawer-budget-sub">完全不用動到明德里 88 萬基層款</span>
+                        <div class="drawer-section-content">
+                            <div class="drawer-budget-badge-wrap">
+                                <div class="drawer-budget-title-row">
+                                    <span class="drawer-budget-badge" id="drawer-budget-badge">新北市文化局社造專案（5~20萬）</span>
+                                    <span class="drawer-budget-sub" id="drawer-budget-sub">完全不用動到明德里 88 萬基層款</span>
+                                </div>
                             </div>
+                            <p id="drawer-budget-text" style="display: none;"></p>
                         </div>
-                        <p id="drawer-budget-text" style="display: none;"></p>
                     </div>
 
                     <!-- 2. 初衷 -->
@@ -1391,7 +1393,7 @@
                             <span class="drawer-section-icon">💡</span>
                             初衷
                         </h3>
-                        <div class="drawer-hook-content" id="drawer-hook-content">
+                        <div class="drawer-section-content drawer-hook-content" id="drawer-hook-content">
                             <!-- Injected dynamically by main.js -->
                         </div>
                     </div>
@@ -1402,9 +1404,9 @@
                             <span class="drawer-section-icon">💡</span>
                             我要怎麼做
                         </h3>
-                        <ul class="drawer-list" id="drawer-howtodo-list">
+                        <div class="drawer-section-content" id="drawer-howtodo-list">
                             <!-- Injected dynamically by main.js -->
-                        </ul>
+                        </div>
                     </div>
 
                     <!-- 4. 為什麼做得到 -->
@@ -1413,20 +1415,22 @@
                             <span class="drawer-section-icon">💡</span>
                             為什麼做得到
                         </h3>
-                        <p id="drawer-capability-text">候選人擁有 <span class="hl-keyword">20 年流行音樂產業背景</span>，有人脈，<span class="hl-keyword">懂得如何申請經費</span>。</p>
+                        <div class="drawer-section-content">
+                            <p id="drawer-capability-text">候選人擁有 <span class="hl-keyword">20 年流行音樂產業背景</span>，有人脈，<span class="hl-keyword">懂得如何申請經費</span>。</p>
 
-                        <!-- 底部返回上頁按鈕（固定於第 4 段最後一行最右側） -->
-                        <div class="drawer-hook-footer">
-                            <button type="button" class="drawer-close drawer-hook-close" onclick="closeDrawer()" aria-label="返回上頁" title="返回首頁政見列表">
-                                <div class="return-row-icon">
-                                    <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
-                                        <path d="M10 4.5L2 12l8 7.5V14.2c5.5 0 9.8 2.3 12 7.8-.5-6.2-4.2-12.5-12-12.5V4.5z"/>
-                                    </svg>
-                                </div>
-                                <div class="return-row-text">
-                                    <span class="drawer-close-text">返回上頁</span>
-                                </div>
-                            </button>
+                            <!-- 底部返回上頁按鈕（固定於第 4 段最後一行最右側） -->
+                            <div class="drawer-hook-footer">
+                                <button type="button" class="drawer-close drawer-hook-close" onclick="closeDrawer()" aria-label="返回上頁" title="返回首頁政見列表">
+                                    <div class="return-row-icon">
+                                        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                                            <path d="M10 4.5L2 12l8 7.5V14.2c5.5 0 9.8 2.3 12 7.8-.5-6.2-4.2-12.5-12-12.5V4.5z"/>
+                                        </svg>
+                                    </div>
+                                    <div class="return-row-text">
+                                        <span class="drawer-close-text">返回上頁</span>
+                                    </div>
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1488,7 +1492,7 @@
         </div>
     </div>
 
-    <script src="js/main.js?v=20.11"></script>
+    <script src="js/main.js?v=20.12"></script>
     <script src="js/site-report-modal.js?v=1.00"></script>
 </body>
 </html>

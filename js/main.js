@@ -946,13 +946,11 @@ function openDrawer(policyId) {
                 if (h.answer && h.answer.trim()) {
                     card.innerHTML = `
                         <div class="hook-card-title">❓ ${qContent}</div>
-                        <p class="hook-card-text">${h.answer}</p>
+                        <p class="drawer-content-p">${h.answer}</p>
                     `;
                 } else {
                     card.innerHTML = `
-                        <div class="hook-card-text">
-                            💭 ${qContent}
-                        </div>
+                        <p class="drawer-content-p">${qContent}</p>
                     `;
                 }
                 hookContentEl.appendChild(card);
@@ -1056,13 +1054,10 @@ function openDrawer(policyId) {
     if (howToDoList) {
         howToDoList.innerHTML = '';
         policy.howToDo.forEach(step => {
-            const li = document.createElement('li');
-            li.className = 'drawer-list-item';
-            li.innerHTML = `
-                <span class="drawer-list-bullet"></span>
-                <span class="drawer-list-text">${step}</span>
-            `;
-            howToDoList.appendChild(li);
+            const p = document.createElement('p');
+            p.className = 'drawer-content-p';
+            p.innerHTML = step;
+            howToDoList.appendChild(p);
         });
     }
 

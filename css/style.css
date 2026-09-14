@@ -1677,7 +1677,7 @@ nav {
 .drawer-section h3 {
     font-size: 1.25rem;
     font-weight: 900;
-    color: #f3e8ff;
+    color: #c084fc !important;
     margin-bottom: 0.55rem;
     display: flex;
     align-items: center;
@@ -1685,11 +1685,11 @@ nav {
     border-bottom: none !important;
     padding-bottom: 0;
     letter-spacing: 0.02em;
-    text-shadow: 0 0 16px rgba(192, 132, 252, 0.45);
+    text-shadow: 0 0 14px rgba(192, 132, 252, 0.65), 0 0 28px rgba(168, 85, 247, 0.35);
 }
 
 [data-theme="light"] .drawer-section h3 {
-    color: #6b21a8;
+    color: #7e22ce !important;
     border-bottom: none !important;
     text-shadow: none;
 }
@@ -1698,17 +1698,27 @@ nav {
     font-size: 1.25rem;
     line-height: 1;
     display: inline-block;
-    filter: drop-shadow(0 0 8px rgba(192, 132, 252, 0.6));
+    filter: drop-shadow(0 0 8px rgba(192, 132, 252, 0.7));
 }
 
+/* 內文相對於標題主從縮排（向右縮進 1.85rem，對齊標題文字起點） */
+.drawer-section-content {
+    padding-left: 1.85rem;
+}
+
+.drawer-content-p,
 .drawer-section p {
     color: var(--text-primary);
     font-size: 1.15rem;
     white-space: pre-line;
     line-height: 1.72;
     letter-spacing: 0.01em;
-    margin: 0;
+    margin: 0 0 0.65rem 0;
     font-weight: 500;
+}
+
+.drawer-content-p:last-child {
+    margin-bottom: 0;
 }
 
 .drawer-list-text {
@@ -1718,15 +1728,15 @@ nav {
     font-weight: 500;
 }
 
-/* 內文重點關鍵字單一翡翠綠高光 */
+/* 內文重點關鍵字單一琥珀金高光（暖心聚焦，徹底解決與綠色 88 萬衝突） */
 .hl-keyword {
-    color: #34d399;
+    color: #fbbf24;
     font-weight: 900;
-    text-shadow: 0 0 10px rgba(52, 211, 153, 0.3);
+    text-shadow: 0 0 12px rgba(251, 191, 36, 0.35);
 }
 
 [data-theme="light"] .hl-keyword {
-    color: #059669;
+    color: #b45309;
     font-weight: 900;
     text-shadow: none;
 }
@@ -4295,19 +4305,19 @@ footer {
 .drawer-budget-badge {
     display: inline-block;
     background: transparent;
-    color: #fbbf24;
+    color: #f8fafc;
     font-size: 1.25rem;
     font-weight: 900;
     padding: 0;
     border-radius: 0;
     box-shadow: none;
     letter-spacing: 0.02em;
-    text-shadow: 0 0 14px rgba(251, 191, 36, 0.4);
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.25);
     line-height: 1.4;
 }
 
 [data-theme="light"] .drawer-budget-badge {
-    color: #b45309;
+    color: #0f172a;
     text-shadow: none;
 }
 
@@ -5959,6 +5969,9 @@ footer {
         font-weight: 900;
         letter-spacing: 0.02em;
     }
+    .drawer-section-content {
+        padding-left: 1.25rem !important;
+    }
     .drawer-budget-title-row {
         flex-direction: column;
         align-items: flex-start;
@@ -5967,6 +5980,7 @@ footer {
     .drawer-budget-badge {
         font-size: 1.25rem !important;
         font-weight: 900 !important;
+        color: #f8fafc !important;
         padding: 0 !important;
         background: transparent !important;
         box-shadow: none !important;
@@ -5978,6 +5992,7 @@ footer {
         display: block !important;
         line-height: 1.4 !important;
     }
+    .drawer-content-p,
     .drawer-section p,
     .drawer-list-text,
     .hook-card-text {
