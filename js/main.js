@@ -97,7 +97,7 @@ const POLICIES_DATA = [
         image: "images/policy_04_traffic.png",
         budgetSource: "交通局交控專案 ＋ 行人友善改善計畫",
         budgetSub: "<span class=\"hl-keyword\">完全不會用到</span>明德里 88 萬基層款",
-        budgetDesc: "申請調閱號誌秒數，運用我資工數據專長與市府對話會勘，完全不花明德里 88 萬基層款！",
+        budgetDesc: "",
         highlight: "聚焦海山路、學府路、學士路到金城路塞車痛點！爭取學府明德與海山明德路口白天行人專用時相，運用資工專長向交通局爭取全廊道動態綠波，直行綠燈同步，告別塞車！",
         icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"></polygon><line x1="9" y1="3" x2="9" y2="18"></line><line x1="15" y1="6" x2="15" y2="21"></line></svg>`,
         hooks: [
@@ -2582,7 +2582,7 @@ function fallbackCopyUrl(text, cb) {
 // 註冊 Service Worker 支援離線快取與 PWA 安裝
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
-        navigator.serviceWorker.register('sw.js?v=22.06')
+        navigator.serviceWorker.register('sw.js?v=22.07')
             .catch(() => {});
     });
 }
