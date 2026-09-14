@@ -1478,8 +1478,14 @@ nav {
     gap: 1.2rem;
 }
 
-.drawer-left-column, .drawer-right-column {
+.drawer-left-column {
     width: 100%;
+}
+
+.drawer-right-column {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 /* 電腦版大螢幕優化 (左圖右文、更寬的空間) */

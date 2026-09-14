@@ -48,21 +48,21 @@ const POLICIES_DATA = [
     },
     {
         id: 2,
-        title: "里民共治 ‧ 你用手機也能作主",
-        subtitle: "你的意見就是我的政見！你來點、我來辦，告別里長黑箱治理",
+        title: "里民共治 ＋ 手機作主 ＋ 社區平行微活動",
+        subtitle: "首創「社區平行微活動」善用每個社區的公設，下樓就能參加，活動瞬間加倍，你來點、我來辦",
         image: "images/policy_05_guide.png",
-        budgetSource: "我自己開發「里民作主」App，不花公費",
-        budgetSub: "<span class=\"hl-keyword\">完全不會用到</span>明德里 88 萬基層款",
-        budgetDesc: "",
-        highlight: "想要什麼活動、你做主！打破單一活動中心限制，串聯明德里近 20 個社區公共空間平行開辦「微活動」，免奔波、下樓就能參加，熱門先辦，徹底告別一言堂黑箱蚊子活動！",
+        sectionOrder: "innovation-first",
+        budgetSource: "我自己開發「里民作主」App",
+        budgetSub: "不花公費 <span class=\"hl-keyword\">完全不會用到</span>明德里 88 萬基層款",
+        budgetDesc: "不用爭奪活動中心，微型活動人數少也有機會成班",
+        highlight: "首創「社區平行微活動」！善用明德里 20 個大型社區公設，下樓就能參加，活動瞬間加倍，不用爭奪活動中心，手機作主你來點、我來辦！",
         icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>`,
         hookTitle: "創新",
         hooks: [
-            "<span class=\"hl-keyword\">社區平行微活動</span>：試想如果你下樓就可以參加你想要的活動...",
-            "我們明德里是由近 20 個中大型社區所組成，我們主動與各管委會討論開放、善用公設空間給住戶使用；<span class=\"hl-keyword\">不用爭奪活動中心，活動加倍</span>，里民、長輩更便捷！"
+            "<span class=\"hl-keyword\">試想如果你下樓就可以參加你想要的活動...</span><br>我們明德里是由 20 個大型社區所組成，我會主動與各管委會討論善用公設空間給住戶使用，<span class=\"hl-keyword\">社區出場地，我來出活動</span>，活動加倍，里民、長輩更便捷！"
         ],
         howToDo: [
-            "<span class=\"hl-keyword\">想要什麼活動、你做主</span>，隨時可查看熱門排行，24 小時隨時可報名，多數成案，熱門先辦，告別一言堂的黑箱蚊子活動！"
+            "<span class=\"hl-keyword\">想要什麼活動、你做主</span>，手機簡單提案，隨時可報名，熱門先辦，告別一言堂的黑箱蚊子活動！"
         ],
         whyPossible: "<span class=\"hl-keyword\">你點得出，我就辦得出</span>，我曾舉辦過直排輪入門、桌球入門、學生與長輩無人機入門、EQ親子營、手機 AI 短劇製作、長輩血壓AI管理、AI 家教、AI錯題本與AI程式開發...等<span class=\"hl-keyword\">十餘種熱門體驗營的經驗</span>，<span class=\"hl-keyword\">我知道哪裡有經費，我會寫企劃案</span>，因此我做得到！"
     },
@@ -978,11 +978,26 @@ function openDrawer(policyId) {
     const budgetTextEl = document.getElementById('drawer-budget-text');
     if (budgetTextEl) {
         if (policy.budgetDesc && policy.budgetDesc.trim()) {
-            budgetTextEl.textContent = policy.budgetDesc;
+            budgetTextEl.innerHTML = policy.budgetDesc;
             budgetTextEl.style.display = 'block';
         } else {
             budgetTextEl.style.display = 'none';
         }
+    }
+
+    // Dynamic Section Ordering (支援「創新」在先或「經費」在先)
+    const howBoxEl = document.getElementById('drawer-how-box');
+    const capabilityBoxEl = document.getElementById('drawer-capability-box');
+    if (policy.sectionOrder === 'innovation-first') {
+        if (hookBoxEl) hookBoxEl.style.order = '1';
+        if (howBoxEl) howBoxEl.style.order = '2';
+        if (capabilityBoxEl) capabilityBoxEl.style.order = '3';
+        if (budgetBoxEl) budgetBoxEl.style.order = '4';
+    } else {
+        if (budgetBoxEl) budgetBoxEl.style.order = '1';
+        if (hookBoxEl) hookBoxEl.style.order = '2';
+        if (howBoxEl) howBoxEl.style.order = '3';
+        if (capabilityBoxEl) capabilityBoxEl.style.order = '4';
     }
 
     // Populate drawer image
@@ -2571,7 +2586,7 @@ function fallbackCopyUrl(text, cb) {
 // 註冊 Service Worker 支援離線快取與 PWA 安裝
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
-        navigator.serviceWorker.register('sw.js?v=21.09')
+        navigator.serviceWorker.register('sw.js?v=21.10')
             .catch(() => {});
     });
 }
