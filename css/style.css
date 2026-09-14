@@ -5860,43 +5860,44 @@ footer {
     .drawer-header-actions {
         width: 100%;
         display: flex;
-        justify-content: space-between;
-        align-items: stretch;
-        gap: 0.65rem;
+        justify-content: center;
+        align-items: center;
+        gap: 0.85rem;
     }
     .drawer-vote-slot {
-        flex: 1;
         display: flex;
+        justify-content: center;
+        flex: 0 0 auto;
     }
-    .drawer-vote-slot .btn-want-vote {
-        width: 100%;
-        min-width: 0;
-        padding: 0.45rem 0.5rem;
-        border-radius: 14px;
-    }
-    .drawer-vote-slot .btn-want-vote .want-text {
-        font-size: 0.96rem;
-    }
+    .drawer-vote-slot .btn-want-vote,
     .drawer-header-actions .drawer-close {
-        flex: 1;
-        width: 100%;
-        min-width: 0;
-        padding: 0.45rem 0.5rem;
+        flex: 0 0 auto;
+        width: 122px;
+        min-width: 122px;
+        max-width: 122px;
+        padding: 0.45rem 0.75rem;
         border-radius: 14px;
         gap: 0.2rem;
+        box-sizing: border-box;
+    }
+    .drawer-vote-slot .btn-want-vote .want-text,
+    .drawer-header-actions .drawer-close .drawer-close-text {
+        font-size: 0.96rem;
     }
     .drawer-close .return-row-icon svg {
         width: 16px;
         height: 16px;
     }
-    .drawer-close .drawer-close-text {
-        font-size: 0.96rem;
-    }
     .drawer-hook-footer {
         margin-top: 0.65rem;
     }
     .drawer-hook-close {
-        padding: 0.45rem 0.95rem;
+        flex: 0 0 auto;
+        width: 122px;
+        min-width: 122px;
+        max-width: 122px;
+        padding: 0.45rem 0.75rem;
         border-radius: 14px;
+        box-sizing: border-box;
     }
 }
