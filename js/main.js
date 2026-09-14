@@ -92,24 +92,22 @@ const POLICIES_DATA = [
         id: 4,
         category: "democracy",
         categoryName: "人本交通與智慧安防",
-        title: "智慧交通號誌 ＋ 零死角安全網",
-        subtitle: "車流智慧連鎖告別塞車，路口死角監控守護行車與暗巷安全！",
+        title: "智慧交通號誌 ＋ 解決塞車問題",
+        subtitle: "海山、學府、學士路口紅綠燈不同步，爭取動態綠波與行人專用時相，告別塞車！",
         image: "images/policy_04_traffic.png",
-        budgetSource: "幹道動態綠波 ＋ 智慧安防專案工程款",
-        budgetSub: "（爭取市府專案工程款，零排擠里款）",
-        budgetDesc: "發揮 30 年資工數據專長，向市府交通局與警察局爭取動態綠波、路口微型安防監控專案款，徹底杜絕死角，零花費里款！",
-        highlight: "車流順暢、暗巷有光、行車有保障！發揮 30 年數據專長，爭取明德路二段動態綠波；建構全里路口與暗巷微型安防監控，告別「要調才知壞掉」的推拖弊端，搭配巡守隊科技智慧聯防！",
+        budgetSource: "交通局交控專案 ＋ 行人友善改善計畫",
+        budgetSub: "<span class=\"hl-keyword\">完全不會用到</span>明德里 88 萬基層款",
+        budgetDesc: "申請調閱號誌秒數，運用我資工數據專長與市府對話會勘，完全不花明德里 88 萬基層款！",
+        highlight: "聚焦海山路、學府路、學士路到金城路塞車痛點！爭取學府明德與海山明德路口白天行人專用時相，運用資工專長向交通局爭取全廊道動態綠波，直行綠燈同步，告別塞車！",
         icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"></polygon><line x1="9" y1="3" x2="9" y2="18"></line><line x1="15" y1="6" x2="15" y2="21"></line></svg>`,
         hooks: [
-            { question: "海山路、學府路、學士路、金城路四個路口，紅綠燈老是打架一路塞？", answer: "30 年資工數據專長，向交通局交控中心精準調閱秒數，爭取「全廊道動態智慧綠波」，串聯號誌連鎖，消除紅綠燈打架！" },
-            { question: "巷弄暗角行車擦撞糾紛，要調監視器往往發現「剛好壞掉」求助無門？", answer: "建立里內路口監控定期巡檢通報制度，消除暗巷死角，鏡頭清清楚楚，並與巡守隊智慧聯防升級！" }
+            "你是否被<span class=\"hl-keyword\">海山、學府、學士到金城路口</span>，<span class=\"hl-keyword\">塞車塞到懷疑人生</span>？<span class=\"hl-keyword\">直行綠燈不同步</span>、轉彎車因<span class=\"hl-keyword\">人車爭道</span>卡死在斑馬線，一個綠燈只能過一兩台車，每天下班回家的路漫長又痛苦，明德里值得更好的智慧交通！"
         ],
         howToDo: [
-            "【全廊道動態智慧綠波】：串聯海山路至金城路四節點號誌，爭取尖峰動態綠波續進，並推動學府路口全向行人專用時相。",
-            "【全里暗巷路口監控與定期巡檢】：優先針對狹窄轉彎與人流稀少暗巷補足微型監控，建立定期檢修機制，杜絕關鍵時刻鏡頭故障弊端。",
-            "【巡守隊智慧科技聯防】：天眼安防提供即時死角情報，規劃巡守隊重點巡邏動線，由「被動盲巡」升級為「主動科技聯防」。"
+            "推動學府明德路口與海山明德路口白天<span class=\"hl-keyword\">「行人專用號誌」</span>，徹底人車分流，根除轉彎車卡死動線的塞車主因！",
+            "用<span class=\"hl-keyword\">「全廊道動態綠波」</span>，同步直行綠燈暢通，不再走走停停！"
         ],
-        whyPossible: "候選人擁有 30 年資訊工程與數據分析背景，能精準解讀車流流量與號誌週期邏輯，用專業數據直接與市府交通局交控中心對話會勘。"
+        whyPossible: "運用我<span class=\"hl-keyword\">資工專長</span>，以車流數據向交通局爭取會勘，<span class=\"hl-keyword\">精準解讀車流流量與號誌週期邏輯</span>；在市府交通會勘中，直接拿出<span class=\"hl-keyword\">科學數據</span>與交通局交控中心專業對話，為明德里爭取最有感、最順暢的交通升級！"
     },
     {
         id: 5,
@@ -2584,7 +2582,7 @@ function fallbackCopyUrl(text, cb) {
 // 註冊 Service Worker 支援離線快取與 PWA 安裝
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
-        navigator.serviceWorker.register('sw.js?v=22.04')
+        navigator.serviceWorker.register('sw.js?v=22.05')
             .catch(() => {});
     });
 }
