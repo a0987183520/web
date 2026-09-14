@@ -48,7 +48,7 @@ const POLICIES_DATA = [
     },
     {
         id: 2,
-        title: "里民共治 ＋ 手機作主 ＋ 社區平行微活動",
+        title: "里民手機共治 ＋ 社區平行微活動",
         subtitle: "首創「社區平行微活動」善用每個社區的公設，下樓就能參加，活動瞬間加倍，你來點、我來辦",
         image: "images/policy_05_guide.png",
         sectionOrder: "innovation-first",
@@ -986,6 +986,7 @@ function openDrawer(policyId) {
     }
 
     // Dynamic Section Ordering (支援「創新」在先或「經費」在先)
+    const budgetBoxEl = document.getElementById('drawer-budget-box');
     const howBoxEl = document.getElementById('drawer-how-box');
     const capabilityBoxEl = document.getElementById('drawer-capability-box');
     if (policy.sectionOrder === 'innovation-first') {
@@ -2586,7 +2587,7 @@ function fallbackCopyUrl(text, cb) {
 // 註冊 Service Worker 支援離線快取與 PWA 安裝
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
-        navigator.serviceWorker.register('sw.js?v=21.10')
+        navigator.serviceWorker.register('sw.js?v=21.11')
             .catch(() => {});
     });
 }
