@@ -54,15 +54,13 @@ const POLICIES_DATA = [
         budgetSource: "我自己開發「里民作主」App，不花公費",
         budgetSub: "<span class=\"hl-keyword\">完全不會用到</span>明德里 88 萬基層款",
         budgetDesc: "",
-        highlight: "「繳那麼多稅金，平時感受不到里長服務？活動老是辦在上班時間或沒興趣？」想要什麼活動、你做主！隨時查看熱門排行，24 小時隨時可報名，多數成案熱門先辦，告別一言堂的黑箱蚊子活動！",
+        highlight: "想要什麼活動、你做主！打破單一活動中心限制，串聯明德里近 20 個社區公共空間平行開辦「微活動」，免奔波、下樓就能參加，熱門先辦，徹底告別一言堂黑箱蚊子活動！",
         icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>`,
-        hooks: [
-            { question: "我每年繳了那麼多的稅金，為什麼平時感覺不到里長的服務？", answer: "" },
-            { question: "活動老是辦在<span class=\"hl-keyword\">上班時間</span>，要不然就是<span class=\"hl-keyword\">沒興趣的課程</span>？", answer: "" }
-        ],
+        hooks: [],
         howToDo: [
             "<span class=\"hl-keyword\">想要什麼活動、你做主</span>，隨時可查看熱門排行，24 小時隨時可報名，多數成案，熱門先辦，告別一言堂的黑箱蚊子活動！",
-            "<span class=\"hl-keyword\">活動分流</span>：晚上與假日開放不同族群使用，不影響長輩們的使用時間。"
+            "<span class=\"hl-keyword\">社區公設平行微活動</span>：打破單一活動中心限制，串連明德里近 20 個社區公共空間，免奔波、下樓就能參加，多場平行同時開辦！",
+            "<span class=\"hl-keyword\">活動時段分流</span>：晚上與假日開放不同族群使用，活動中心與社區公設雙軌並進，不影響長輩們的平時使用時間。"
         ],
         whyPossible: "<span class=\"hl-keyword\">你點得出，我就辦得出</span>，我曾舉辦過直排輪入門、桌球入門、學生與長輩無人機入門、EQ親子營、手機 AI 短劇製作、長輩血壓AI管理、AI 家教、AI錯題本與AI程式開發...等<span class=\"hl-keyword\">十餘種熱門體驗營的經驗</span>，<span class=\"hl-keyword\">我知道哪裡有經費，我會寫企劃案</span>，因此我做得到！"
     },
@@ -2567,7 +2565,7 @@ function fallbackCopyUrl(text, cb) {
 // 註冊 Service Worker 支援離線快取與 PWA 安裝
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
-        navigator.serviceWorker.register('sw.js?v=21.07')
+        navigator.serviceWorker.register('sw.js?v=21.08')
             .catch(() => {});
     });
 }
