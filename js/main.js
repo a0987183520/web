@@ -113,23 +113,23 @@ const POLICIES_DATA = [
         id: 5,
         category: "education",
         categoryName: "生活美學與未來教育",
-        title: "無人機飛行 ＋ 實戰 AI 體驗營",
-        subtitle: "每學期寒暑假定期開辦，自備微型防護設備，長輩小孩都能親手操控的前瞻科技啟蒙！",
+        title: "我也會玩無人機＋實用生活AI",
+        subtitle: "誰說長輩不能飛？無人機可訓練立體空間感，生活實用 AI 輕鬆防詐、修復老照片",
         image: "images/policy_03_tech.png",
-        budgetSource: "青年科普培育專案 ＋ 區公所文康專款",
+        budgetSource: "產學志工講師支援 ＋ 社會局銀髮創新方案",
         budgetSub: "<span class=\"hl-keyword\">完全不會用到</span>明德里 88 萬基層款",
-        budgetDesc: "我運用 30 年科技背景自帶微型安全設備與志工團隊，對接青年科普專案補助，里民免費體驗。",
-        highlight: "每學期寒暑假定期開辦！為里內家庭提供安全的無人機與 AI 體驗課。無人機是未來趨勢，大人、小孩到長輩都適合學習，全面提升手腦協調與科技視野。",
+        budgetDesc: "我運用 30 年科技背景自備微型安全設備，號召產學志工無償教學，並結合社會局銀髮創新補助，里民完全免費體驗。",
+        highlight: "寒暑假與長青學堂定期開辦！無人機可精準訓練手眼協調與立體空間感，更結合實用生活 AI 破解換臉詐騙、修復老照片，老少共學無負擔。",
         icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>`,
         hooks: [
-            "AI 與無人機時代全面來臨，孩子只能在手機螢幕上看別人玩？外面昂貴的科技夏令營動輒數萬元，基層家庭負擔沉重。<span class=\"hl-keyword\">我自備合格設備與安全防護網</span>，讓里內孩子與長輩在社區就能親手操控、啟發前瞻視野！"
+            "AI 與無人機時代全面來臨，誰說長輩不能玩科技？外面昂貴的科技夏令營動輒數萬元，基層家庭負擔沉重。<span class=\"hl-keyword\">我自備合格設備與安全防護網</span>，長輩親手操作能刺激大腦空間感知，孩子更能啟發科技潛能，全家老少在社區就能輕鬆體驗！"
         ],
         howToDo: [
-            "【室內微型安全飛行營】：每學期寒暑假定期開辦，設置<span class=\"hl-keyword\">專屬保護網與 50g 以下微型機</span>，由合格安全員一對一引導，安全零風險。",
-            "【學童手機 AI 錯題本工作坊】：指導學童運用手機 AI 拍照整理專屬錯題本，<span class=\"hl-keyword\">拆解學業盲點、建立主動學習習慣</span>。",
-            "【長青 AI 老照片修復】：手把手教長輩用手機修復家族老照片與生成藝術照，<span class=\"hl-keyword\">用趣味科技溫暖拉近跨世代距離</span>。"
+            "【室內微型安全飛行】：定期開辦微型無人機班，設置<span class=\"hl-keyword\">專屬防護網與 50g 以下微型機</span>，由安全志工一對一帶飛，安全訓練手眼協調與立體空間感。",
+            "【長青生活防詐與老照片修復】：手把手教長輩<span class=\"hl-keyword\">秒辨 AI 換臉聲音詐騙</span>，並用手機 AI 修復泛黃家族老照片，打造個人專屬數位紀念。",
+            "【學童智慧學習與科普探索】：寒暑假舉辦學童 AI 工具與飛行科普營，<span class=\"hl-keyword\">引導善用科技自主學習</span>，縮短數位落差。"
         ],
-        whyPossible: "我具備 <span class=\"hl-keyword\">30 年資工與科技管理實務</span>，熟諳無人機飛控與 AI 工具，能凝聚科技青年志工團隊，自帶設備並成功申請科普專案補助，<span class=\"hl-keyword\">把頂尖科技資源無償帶進明德里</span>！"
+        whyPossible: "我具備 <span class=\"hl-keyword\">30 年資工與科技管理實務</span>，自備微型設備並凝聚產學志工夥伴無償支援，<span class=\"hl-keyword\">把高價值前瞻科技無償帶進明德里</span>！"hl-keyword\">30 年資工與科技管理實務</span>，熟諳無人機飛控與 AI 工具，能凝聚科技青年志工團隊，自帶設備並成功申請科普專案補助，<span class=\"hl-keyword\">把頂尖科技資源無償帶進明德里</span>！"
     },
     {
         id: 6,
@@ -2571,7 +2571,7 @@ function fallbackCopyUrl(text, cb) {
 // 註冊 Service Worker 支援離線快取與 PWA 安裝
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
-        navigator.serviceWorker.register('sw.js?v=23.01')
+        navigator.serviceWorker.register('sw.js?v=23.02')
             .catch(() => {});
     });
 }

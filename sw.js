@@ -1,4 +1,4 @@
-const CACHE_NAME = 'mingde2-cache-v23.01';
+const CACHE_NAME = 'mingde2-cache-v23.02';
 const ASSETS_TO_CACHE = [
   './',
   'index.html',
