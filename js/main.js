@@ -135,20 +135,20 @@ const POLICIES_DATA = [
         category: "governance",
         categoryName: "專業治理與精準服務",
         title: "AI健康管家 ＋ 獨居長輩暖心守護",
-        subtitle: "對接衛福部 62.5 億獨老專案，一塊麵包到府探視確認安危，建立公費緊急防跌救護網！",
+        subtitle: "對接衛福部 62.5 億專案，獨居與雙老同住皆可申請！專人送餐探視確認安危，建立 24 小時公費防跌救護網！",
         image: "images/policy_07_health.png",
         budgetSource: "衛福部獨老安居專案 ＋ 長照 2.0 專款",
         budgetSub: "<span class=\"hl-keyword\">完全不會用到</span>明德里 88 萬基層款",
         budgetDesc: "你知道嗎？年滿 65 歲以上<span class=\"hl-keyword\">「雙老同住」</span>，經評估也符合中央專案<span class=\"hl-keyword\">公費補助資格</span>，守護您的居家安全。",
-        highlight: "開設實用 AI 健康工作坊，對接衛福部 62.5 億獨老安危專案，導入主動式福利媒合、物資智慧適配與居家緊急防跌，讓三明治世代安心工作。",
+        highlight: "對接衛福部 62.5 億在宅安居專案！一人獨居或雙老同住皆可申請，爭取公費智慧緊急救援主機與自動防跌手環，結合專人送餐與長照代辦，守護長青安居。",
         icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>`,
         hooks: [
-            "子女在外打拼，最牽掛家中長輩的突發安危與跌倒風險。許多長輩省吃儉用不願麻煩子女，政府每年編列超過 60 億照顧專款卻因公文繁瑣鮮為人知。<span class=\"hl-keyword\">我主張以最溫暖的方式走進長輩生活</span>，用科技與制度替全家守住平安！"
+            "子女在外打拼，最牽掛家中長輩突發急病或跌倒；特別是<span class=\"hl-keyword\">「一人獨居」或「雙老同住」</span>，彼此無力攙扶照顧。政府每年編列超過 60 億照顧專款，卻常因行政門檻鮮為人知。<span class=\"hl-keyword\">我主張由里長擔任第一線守門人</span>，把中央公費資源主動送到家，為全家守住平安！"
         ],
         howToDo: [
-            "【送餐敲門確認安危】：以新鮮物資與送餐為媒介，志工按門鈴親自交付，<span class=\"hl-keyword\">第一時間掌握長者起居與防跌安危</span>。",
-            "【主動式福利導航與公費防跌】：建立里民一站式福利綠色窗口，主動協助申請每月<span class=\"hl-keyword\">身障生活補助（約 4,049 元）</span>與衛福部公費<span class=\"hl-keyword\">「智慧緊急救援防跌系統」</span>，公文一次辦到位！",
-            "【長輩手機 AI 拍照健康紀錄】：手把手指導長輩用手機拍照紀錄藥袋與血壓趨勢，<span class=\"hl-keyword\">雲端同步讓外地子女隨時安心掌握</span>。"
+            "【專人送餐與到府訪安】：結合社政專案提供高風險長輩<span class=\"hl-keyword\">每日營養送餐</span>與物資，專人親自交付，<span class=\"hl-keyword\">第一時間掌握長輩起居與居家防跌安危</span>。",
+            "【24小時公費緊急救援防跌系統】：主動協助獨老與雙老家庭申請衛福部公費<span class=\"hl-keyword\">「智慧緊急救援主機與自動防跌手環」</span>；雙老同住<span class=\"hl-keyword\">配發雙手環</span>，跌倒自動通報直連 119 與守護中心，公文一次辦到位！",
+            "【長照2.0與身障福利綠色窗口】：代辦對接 1966 長照專員到府評估，爭取<span class=\"hl-keyword\">居服員到宅備餐</span>、沐浴與每月<span class=\"hl-keyword\">身障生活補助（約 4,049 元）</span>，搭配手機 AI 拍照健康紀錄，讓外地子女隨時安心掌握！"
         ],
         whyPossible: "我擁有 <span class=\"hl-keyword\">30 年資工背景</span>與 <span class=\"hl-keyword\">10 年社區治理實務</span>，深諳政府社福、衛政補助法規與公文流程；<span class=\"hl-keyword\">我懂如何打破官僚障礙</span>，將國家級長照專款精準轉化為明德里長輩的居家守護盾。"
     },
@@ -2570,7 +2570,7 @@ function fallbackCopyUrl(text, cb) {
 // 註冊 Service Worker 支援離線快取與 PWA 安裝
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
-        navigator.serviceWorker.register('sw.js?v=23.07')
+        navigator.serviceWorker.register('sw.js?v=23.08')
             .catch(() => {});
     });
 }
