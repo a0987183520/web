@@ -125,10 +125,10 @@ const POLICIES_DATA = [
             "微型安全無人機<span class=\"hl-keyword\">已經非常便宜與普及</span>～我們不用擔心會撞壞，長輩飛行可<span class=\"hl-keyword\">訓練手眼協調能力，延緩退化</span>，孩子飛行可<span class=\"hl-keyword\">建立三維空間</span>，大人飛行可<span class=\"hl-keyword\">紓壓</span>！"
         ],
         howToDo: [
-            "【App連署與安全帶飛】：各位可透過<span class=\"hl-keyword\">「里民作主」App</span>，連署課程與期望活動地點，我來協調排課，由<span class=\"hl-keyword\">安全志工一對一帶飛</span>，先從簡單的起飛，前進與降落安全<span class=\"hl-keyword\">訓練手眼協調與立體空間感</span>。",
-            "【長青生活防詐與老照片修復】：手把手教長輩<span class=\"hl-keyword\">秒辨 AI 換臉聲音詐騙</span>，並用手機 AI 修復泛黃家族老照片，打造個人專屬數位紀念。"
+            "【無人機體驗營】：各位可透過<span class=\"hl-keyword\">「里民作主」App</span>，連署課程與期望活動地點，我來協調排課，先從簡單的起飛，前進與降落安全<span class=\"hl-keyword\">訓練手眼協調與立體空間感</span>。",
+            "【實用生活AI】：手把手教里民，用手機 AI <span class=\"hl-keyword\">修復泛黃照片</span>、製作<span class=\"hl-keyword\">有趣的搞笑短劇</span>，用 AI 輔助我們的生活。"
         ],
-        whyPossible: "我具備 <span class=\"hl-keyword\">30 年資工資歷與舉辦過相關體驗營活動</span>，我將凝聚社區的<span class=\"hl-keyword\">斜槓青年擔任志工</span>，<span class=\"hl-keyword\">把高價值前瞻科技無償帶進明德里</span>！"
+        whyPossible: "我有<span class=\"hl-keyword\">舉辦過各式各樣體驗營的經驗</span>，我將凝聚社區的<span class=\"hl-keyword\">斜槓青年擔任志工</span>，<span class=\"hl-keyword\">把高價值前瞻科技無償帶進明德里</span>！"
     },
     {
         id: 6,
@@ -2570,7 +2570,7 @@ function fallbackCopyUrl(text, cb) {
 // 註冊 Service Worker 支援離線快取與 PWA 安裝
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
-        navigator.serviceWorker.register('sw.js?v=23.04')
+        navigator.serviceWorker.register('sw.js?v=23.05')
             .catch(() => {});
     });
 }
