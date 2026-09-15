@@ -149,7 +149,8 @@ const POLICIES_DATA = [
         howToDo: [
             "結合社政專案提供高風險長輩<span class=\"hl-keyword\">每日送餐與物資</span>，專人親自交付，<span class=\"hl-keyword\">第一時間掌握長輩安危</span>。",
             "協助獨老與雙老家庭申請<span class=\"hl-keyword\">「智慧緊急救援主機與自動防跌手環」</span>，長輩不必學習複雜操作，<span class=\"hl-keyword\">跌倒自動通報直連 119 與守護中心</span>！",
-            "針對有日常照顧需求的長輩，主動協助對接<span class=\"hl-keyword\">長照 2.0 居家照顧</span>，包含到府置藥、用藥、陪伴聊天、陪同就醫等 <span class=\"hl-keyword\">36 項貼心服務</span>，減輕家庭負擔。"
+            "針對有日常照顧需求的長輩，主動協助對接<span class=\"hl-keyword\">長照 2.0 居家照顧</span>，包含到府置藥、用藥、陪伴聊天、陪同就醫等 <span class=\"hl-keyword\">36 項貼心服務</span>，減輕家庭負擔。",
+            "主動協助有需求的長輩申請<span class=\"hl-keyword\">長照 2.0 喘息服務與日間照顧</span>，引進政府公費照顧人力，並開辦照顧者心理支持工作坊，<span class=\"hl-keyword\">陪伴三明治世代走出照顧焦慮與疲憊</span>。"
         ],
         whyPossible: "我擁有 <span class=\"hl-keyword\">30 年資工技術</span>，深諳政府社福、衛政補助法規與公文流程；<span class=\"hl-keyword\">我懂如何簡化申請程序</span>，<span class=\"hl-keyword\">將國家級長照專款精準對接給各位</span>。"
     },
@@ -162,21 +163,18 @@ const POLICIES_DATA = [
         image: "images/policy_08_brain.png",
         budgetSource: "失智友善社區專案 ＋ 長者健康促進補助",
         budgetSub: "<span class=\"hl-keyword\">完全不會用到</span>明德里 88 萬基層款",
-        budgetDesc: "結合失智友善專案引進健腦教具，由候選人自研無廣告健腦 App，專案全額補助，零公款支出。",
-        highlight: "自研無廣告「1 至 50 數字尋寶」等大字體遊戲，系統異常自動提醒晚輩；更開辦老照片 AI 修復與動漫生成工作坊，以回憶療法活化記憶迴路，搭配長照 2.0 喘息支持！",
+        budgetDesc: "",
+        highlight: "自研無廣告「1 至 50 數字尋寶」等大字體遊戲，系統異常自動提醒晚輩；更開辦老照片 AI 修復工作坊，以回憶療法活化記憶迴路，全方位延緩大腦退化！",
         icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 4.44-2.04z"></path><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-4.44-2.04z"></path></svg>`,
         hooks: [
-            "長輩失智的來臨，往往是<span class=\"hl-keyword\">猝不及防且缺乏徵兆</span>的。我有親身照顧的經歷，深知失智是不可逆的，唯有<span class=\"hl-keyword\">儘早發現、儘早就醫用藥</span>，才能儘可能延緩退化或保持現狀！",
-            "除了大字體趣味遊戲，許多長輩更渴望重溫珍貴年輕記憶。<span class=\"hl-keyword\">我結合自研健腦 App 與老照片 AI 修復</span>，讓長輩在歡笑與感動中活化記憶，也讓晚輩安心。"
+            "長輩失智的來臨，往往是<span class=\"hl-keyword\">猝不及防且缺乏徵兆</span>的。我有親身照顧的經歷，深知失智是不可逆的，唯有<span class=\"hl-keyword\">儘早發現、儘早就醫用藥</span>，才能儘可能延緩退化或保持現狀！"
         ],
         howToDo: [
-            "引進我自研的<span class=\"hl-keyword\">「1 至 50 數字尋寶」</span>等大字體趣味手腦遊戲，透過輕鬆有趣、易達成的小關卡，讓長輩每天在歡笑中活化大腦神經。",
-            "透過長輩日常遊玩的反應時間與活躍頻率，系統能智慧偵測反應異狀，<span class=\"hl-keyword\">每天自動提醒晚輩掌握長輩身心狀況</span>，及早掌握健康警訊。",
-            "手把手帶長輩用手機 AI <span class=\"hl-keyword\">修復泛黃老照片、生成動漫肖像與回憶短片</span>，透過醫學證實的「回憶療法」深度活化記憶迴路。",
-            "主動協助有需求的長輩申請<span class=\"hl-keyword\">長照 2.0 喘息服務與日間照顧</span>，引進政府公費照顧人力，讓在外打拼的子女安心喘息。",
-            "開辦長照家庭照顧者心理支持工作坊，<span class=\"hl-keyword\">陪伴三明治世代走出照顧焦慮與疲憊</span>。"
+            "我已開發出<span class=\"hl-keyword\">「1 至 50 」趣味點選 App</span>，每天三分鐘，人人都會玩，一個小遊戲，將可獲得<span class=\"hl-keyword\">滿滿的情緒價值</span>。",
+            "透過長輩日常遊玩的反應時間與活躍頻率，系統能智慧偵測反應異狀，<span class=\"hl-keyword\">每天自動提醒晚輩掌握長輩身心狀況</span>。",
+            "手把手帶長輩用手機 AI <span class=\"hl-keyword\">修復泛黃老照片</span>，透過醫學證實的<span class=\"hl-keyword\">「回憶療法」</span>深度活化記憶迴路。"
         ],
-        whyPossible: "我具備 <span class=\"hl-keyword\">8 年 EQ 講師</span>與 <span class=\"hl-keyword\">30 年軟體開發經驗</span>，能親自研發適合長輩操作的無廣告健腦系統；深知長照家庭痛點，<span class=\"hl-keyword\">懂得如何導入失智友善專款</span>，為社區建立溫暖後盾。"
+        whyPossible: "我具備 <span class=\"hl-keyword\">8 年 EQ 講師</span>與 <span class=\"hl-keyword\">30 年軟體開發經驗</span>，能<span class=\"hl-keyword\">自行開發長輩需要的 App</span>，為社區建立溫暖後盾。"
     },
     {
         id: 8,
@@ -2574,7 +2572,7 @@ function fallbackCopyUrl(text, cb) {
 // 註冊 Service Worker 支援離線快取與 PWA 安裝
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
-        navigator.serviceWorker.register('sw.js?v=24.03')
+        navigator.serviceWorker.register('sw.js?v=24.04')
             .catch(() => {});
     });
 }
