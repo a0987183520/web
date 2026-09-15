@@ -114,7 +114,7 @@ const POLICIES_DATA = [
         category: "education",
         categoryName: "生活美學與未來教育",
         title: "我也會玩無人機＋實用生活AI",
-        subtitle: "誰說長輩不能飛？無人機可訓練立體空間感，生活實用 AI 輕鬆防詐、修復老照片",
+        subtitle: "誰說長輩不能飛？大人小孩都能輕鬆上手! 還有生活實用 AI 輕鬆防詐、修復老照片...",
         image: "images/policy_03_tech.png",
         budgetSource: "產學志工講師支援 ＋ 社會局銀髮創新方案",
         budgetSub: "<span class=\"hl-keyword\">完全不會用到</span>明德里 88 萬基層款",
@@ -2570,7 +2570,7 @@ function fallbackCopyUrl(text, cb) {
 // 註冊 Service Worker 支援離線快取與 PWA 安裝
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
-        navigator.serviceWorker.register('sw.js?v=23.05')
+        navigator.serviceWorker.register('sw.js?v=23.06')
             .catch(() => {});
     });
 }
