@@ -2571,7 +2571,7 @@ function fallbackCopyUrl(text, cb) {
 // 註冊 Service Worker 支援離線快取與 PWA 安裝
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
-        navigator.serviceWorker.register('sw.js?v=23.09')
+        navigator.serviceWorker.register('sw.js?v=24.00')
             .catch(() => {});
     });
 }
