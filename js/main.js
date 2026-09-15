@@ -113,21 +113,21 @@ const POLICIES_DATA = [
         id: 5,
         category: "education",
         categoryName: "生活美學與未來教育",
-        title: "趣味二維遙控車 ＋ 微型三維無人機",
-        subtitle: "誰說長輩不能飛？從地面二維遙控車輕鬆起步，進階無人機立體空間感，全齡手眼協調延緩退化！",
+        title: "微型遙控車 ＋ 微型無人機",
+        subtitle: "誰說長輩不能飛？從地面微型遙控車輕鬆起步，進階無人機飛行體驗，全齡手眼協調延緩退化！",
         image: "images/policy_03_tech.png",
         budgetSource: "產學志工講師支援 ＋ 社會局銀髮創新方案",
         budgetSub: "<span class=\"hl-keyword\">完全不會用到</span>明德里 88 萬基層款",
         budgetDesc: "",
-        highlight: "寒暑假與長青學堂定期開辦！從二維地面微型遙控車輕鬆入門鍛鍊手指微操，進階三維微型無人機訓練立體空間感，老少共學、安全好玩無負擔。",
+        highlight: "寒暑假與長青學堂定期開辦！從地面微型遙控車輕鬆入門鍛鍊手指微操，進階微型無人機訓練飛行空間感，老少共學、安全好玩無負擔。",
         icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>`,
         hooks: [
-            "微型遙控車與安全無人機<span class=\"hl-keyword\">非常便宜又普及</span>，完全不用擔心撞壞！長輩從二維地面遙控車輕鬆上手，能<span class=\"hl-keyword\">精準鍛鍊手指微操與手眼協調</span>；進階體驗三維微型飛行，更能<span class=\"hl-keyword\">活化大腦立體空間感</span>，長輩防退化、大人紓壓、孩子專注，全家同樂！"
+            "微型遙控車與安全無人機<span class=\"hl-keyword\">非常便宜又普及</span>，完全不用擔心撞壞！長輩從地面遙控車輕鬆上手，能<span class=\"hl-keyword\">精準鍛鍊手指微操與手眼協調</span>；進階體驗微型飛行，更能<span class=\"hl-keyword\">活化大腦空間反應</span>，長輩防退化、大人紓壓、孩子專注，全家同樂！"
         ],
         howToDo: [
-            "【二維地面遙控車手眼入門】：引進安全防撞微型遙控車，長輩坐在椅子上就能輕鬆握持遙控器，在活動中心平整地面練習轉向與障礙微操，<span class=\"hl-keyword\">零墜機壓力，活化手指神經</span>。",
-            "【三維微型無人機安全帶飛】：在室內安全防護網內，由產學志工一對一帶飛 50g 以下微型機，由淺入深體驗起飛、巡航與降落，<span class=\"hl-keyword\">安全訓練立體空間定向感</span>。",
-            "【青銀跨世代趣味障礙賽】：定期舉辦祖孫趣味同樂會，長輩比遙控車靈活繞錐、孫子挑戰無人機穿環，<span class=\"hl-keyword\">用平價科技拉近跨世代距離</span>。"
+            "引進安全防撞微型遙控車，長輩坐在椅子上就能輕鬆握持遙控器，在活動中心平整地面練習轉向與障礙微操，<span class=\"hl-keyword\">零墜機壓力，活化手指神經</span>。",
+            "在室內安全防護網內，由產學志工一對一帶飛 50g 以下微型無人機，由淺入深體驗起飛、巡航與降落，<span class=\"hl-keyword\">安全訓練立體空間定向感</span>。",
+            "定期舉辦祖孫趣味同樂會，長輩比遙控車靈活繞錐、孫子挑戰無人機穿環，<span class=\"hl-keyword\">用平價科技拉近跨世代距離</span>。"
         ],
         whyPossible: "我有<span class=\"hl-keyword\">豐富體驗營舉辦經驗</span>，自備微型教具設備；我將凝聚社區的<span class=\"hl-keyword\">青年志工手把手教學</span>，把平價有趣的科技玩具轉化為社區長幼同樂的活力引擎！"
     },
@@ -170,11 +170,11 @@ const POLICIES_DATA = [
             "除了大字體趣味遊戲，許多長輩更渴望重溫珍貴年輕記憶。<span class=\"hl-keyword\">我結合自研健腦 App 與老照片 AI 修復</span>，讓長輩在歡笑與感動中活化記憶，也讓晚輩安心。"
         ],
         howToDo: [
-            "【自研健腦遊戲活化神經】：引進我自研的<span class=\"hl-keyword\">「1 至 50 數字尋寶」</span>等大字體趣味手腦遊戲，透過輕鬆有趣、易達成的小關卡，讓長輩每天在歡笑中活化大腦神經。",
-            "【日常身心狀態預警提醒】：透過長輩日常遊玩的反應時間與活躍頻率，系統能智慧偵測反應異狀，<span class=\"hl-keyword\">每天自動提醒晚輩掌握長輩身心狀況</span>，及早掌握健康警訊。",
-            "【樂齡 AI 回憶健腦工作坊】：手把手帶長輩用手機 AI <span class=\"hl-keyword\">修復泛黃老照片、生成動漫肖像與回憶短片</span>，透過醫學證實的「回憶療法」深度活化記憶迴路。",
-            "【長照 2.0 喘息綠色窗口】：主動協助疑似或確診長輩申請<span class=\"hl-keyword\">長照 2.0 喘息服務與日間照顧</span>，引進政府公費照顧人力，讓在外打拼的子女安心喘息。",
-            "【照顧者 EQ 心理支持工作坊】：開辦長照家庭照顧者心理支持工作坊，<span class=\"hl-keyword\">陪伴三明治世代走出照顧焦慮與疲憊</span>。"
+            "引進我自研的<span class=\"hl-keyword\">「1 至 50 數字尋寶」</span>等大字體趣味手腦遊戲，透過輕鬆有趣、易達成的小關卡，讓長輩每天在歡笑中活化大腦神經。",
+            "透過長輩日常遊玩的反應時間與活躍頻率，系統能智慧偵測反應異狀，<span class=\"hl-keyword\">每天自動提醒晚輩掌握長輩身心狀況</span>，及早掌握健康警訊。",
+            "手把手帶長輩用手機 AI <span class=\"hl-keyword\">修復泛黃老照片、生成動漫肖像與回憶短片</span>，透過醫學證實的「回憶療法」深度活化記憶迴路。",
+            "主動協助有需求的長輩申請<span class=\"hl-keyword\">長照 2.0 喘息服務與日間照顧</span>，引進政府公費照顧人力，讓在外打拼的子女安心喘息。",
+            "開辦長照家庭照顧者心理支持工作坊，<span class=\"hl-keyword\">陪伴三明治世代走出照顧焦慮與疲憊</span>。"
         ],
         whyPossible: "我具備 <span class=\"hl-keyword\">8 年 EQ 講師</span>與 <span class=\"hl-keyword\">30 年軟體開發經驗</span>，能親自研發適合長輩操作的無廣告健腦系統；深知長照家庭痛點，<span class=\"hl-keyword\">懂得如何導入失智友善專款</span>，為社區建立溫暖後盾。"
     },
@@ -194,9 +194,9 @@ const POLICIES_DATA = [
             "傳統老人共餐常常「大家排隊領便當、坐著看電視、吃完就解散」，缺少真正的交流互動。共餐不該只是填飽肚子，更可以是鄰里情感的發酵所！<span class=\"hl-keyword\">我希望結合動腦遊戲與一人一菜</span>，讓長輩帶著笑容來、帶著朋友回家。"
         ],
         howToDo: [
-            "【餐前動腦趣味尋寶】：導入大螢幕觸控與手腦健能遊戲，長輩邊吃邊動腦、打卡闖關，<span class=\"hl-keyword\">徹底告別枯燥甩手操與坐著看電視</span>。",
-            "【全民灶咖一人一菜共聚】：開辦週末共享廚房，鼓勵年輕家庭與長輩<span class=\"hl-keyword\">「一人出一道拿手菜（Potluck）」</span>，促進青銀世代熱絡交流。",
-            "【青年志工四大法定保障】：嚴格落實《志願服務法》，提供青年志工<span class=\"hl-keyword\">意外險、服務學習時數與誤餐補助</span>，建立制度化熱情服務團隊。"
+            "導入大螢幕觸控與手腦健能遊戲，長輩邊吃邊動腦、打卡闖關，<span class=\"hl-keyword\">徹底告別枯燥甩手操與坐著看電視</span>。",
+            "開辦週末共享廚房，鼓勵年輕家庭與長輩<span class=\"hl-keyword\">「一人出一道拿手菜（Potluck）」</span>，促進青銀世代熱絡交流。",
+            "嚴格落實《志願服務法》，提供青年志工<span class=\"hl-keyword\">意外險、服務學習時數與誤餐補助</span>，建立制度化熱情服務團隊。"
         ],
         whyPossible: "我具備 <span class=\"hl-keyword\">30 年軟體研發經驗自製互動遊戲</span>，並有 <span class=\"hl-keyword\">8 年志工團隊帶領實務</span>；我熟悉社會局專案核銷規範，<span class=\"hl-keyword\">懂得在零公款負擔下把共餐辦得有尊嚴、有笑聲</span>。"
     },
@@ -216,9 +216,9 @@ const POLICIES_DATA = [
             "樓上深夜噪音、管道漏水求償無門，找里長只能「和稀泥」或勸你忍耐；遇到惡鄰濫訴或管委會糾紛，動輒數萬元的律師費讓善良住戶求助無門。明德里由 20 個大型社區組成，<span class=\"hl-keyword\">我們需要懂法規、有魄力的里長做公正靠山</span>！"
         ],
         howToDo: [
-            "【管委會規約與相鄰關係諮詢】：定期設立法律諮詢窗口，<span class=\"hl-keyword\">協助住戶與管委會釐清《公寓大廈管理條例》</span>與漏水權責。",
-            "【中立第三方調解平台】：針對噪音、停車位與公設爭議，<span class=\"hl-keyword\">依官方標準檢測途徑提供客觀調解</span>，避免鄰里對簿公堂。",
-            "【防濫訴規約實務推廣】：分享主委任內推動<span class=\"hl-keyword\">「防濫訴規約獲法院勝訴確定」</span>之實戰經驗，以制度守護熱心幹部與善良鄰里。"
+            "定期設立法律諮詢窗口，<span class=\"hl-keyword\">協助住戶與管委會釐清《公寓大廈管理條例》</span>與漏水權責。",
+            "針對噪音、停車位與公設爭議，<span class=\"hl-keyword\">依官方標準檢測途徑提供客觀調解</span>，避免鄰里對簿公堂。",
+            "分享主委任內推動<span class=\"hl-keyword\">「防濫訴規約獲法院勝訴確定」</span>之實戰經驗，以制度守護熱心幹部與善良鄰里。"
         ],
         whyPossible: "我擁有 <span class=\"hl-keyword\">10 年社區大廈管委會主委實戰經驗</span>，曾親自推動法治防禦規約並獲法院判決勝訴確定；<span class=\"hl-keyword\">身後有專業顧問律師群全力支持</span>，我有底氣以法、理、情替里民捍衛居住正義。"
     },
@@ -238,9 +238,9 @@ const POLICIES_DATA = [
             "明德里臥虎藏龍，許多身懷絕技的故事媽媽、EQ志工、手工皂達人、AI剪輯師與獨立樂手，卻苦於沒有適當場地開班分享；而里民想學才藝，也往往找不到平價優質的管道。<span class=\"hl-keyword\">我主張打開公共空間</span>，讓鄰里的才華在社區發光！"
         ],
         howToDo: [
-            "【建立明德斜槓人才資料庫】：公開徵選具備才藝與教學熱忱的里民，<span class=\"hl-keyword\">建立故事、手作、科技、音樂多元師資庫</span>。",
-            "【活動中心免租金場地支持】：協調市民活動中心公有空間，<span class=\"hl-keyword\">提供免租金開課支援</span>，堅持公益平價與材料費透明原則。",
-            "【社區成果展演舞台】：結合草地音樂節與社區節慶，<span class=\"hl-keyword\">為斜槓導師與學員舉辦公開成果發表會</span>，讓社區看見精彩才華。"
+            "公開徵選具備才藝與教學熱忱的里民，<span class=\"hl-keyword\">建立故事、手作、科技、音樂多元師資庫</span>。",
+            "協調市民活動中心公有空間，<span class=\"hl-keyword\">提供免租金開課支援</span>，堅持公益平價與材料費透明原則。",
+            "結合草地音樂節與社區節慶，<span class=\"hl-keyword\">為斜槓導師與學員舉辦公開成果發表會</span>，讓社區看見精彩才華。"
         ],
         whyPossible: "我擁有 <span class=\"hl-keyword\">20 年流行音樂產業經紀</span>與 <span class=\"hl-keyword\">8 年 EQ 志工培訓實務</span>，擅長發掘人才特質、策劃課程與大型展演；<span class=\"hl-keyword\">我懂得整合公共資源</span>，打造活力充沛的社區人才共學聚落。"
     },
@@ -258,9 +258,9 @@ const POLICIES_DATA = [
             "長輩在太鼓班、舞蹈班充滿活力揮灑汗水，但年輕兒孫卻常常覺得曲目單調而很少到場加油；傳統課程需要被珍惜，更可以被點亮！<span class=\"hl-keyword\">我堅持在完全不改動長輩習慣的前提下</span>，注入流行元素，讓長輩的表演成為全家人的驕傲。"
         ],
         howToDo: [
-            "【經典課程100%安心延續】：原時段、原教練、原班底全數保留，<span class=\"hl-keyword\">長輩習慣的練習模式絕不受任何干擾</span>。",
-            "【流行音樂改編跨世代共演】：在長輩自願前提下，<span class=\"hl-keyword\">融入流行音樂現代節奏與年輕樂手伴奏</span>，打造震撼人心的跨世代公演。",
-            "【成果專區留下珍貴紀念】：為長輩建立<span class=\"hl-keyword\">專屬高畫質影音紀錄專區</span>，讓兒孫主動轉發分享、為阿公阿嬤喝采！"
+            "原時段、原教練、原班底全數保留，<span class=\"hl-keyword\">長輩習慣的練習模式絕不受任何干擾</span>，經典課程 100% 安心延續。",
+            "在長輩自願前提下，<span class=\"hl-keyword\">融入流行音樂現代節奏與年輕樂手伴奏</span>，打造震撼人心的跨世代公演。",
+            "為長輩建立<span class=\"hl-keyword\">專屬高畫質影音紀錄專區</span>，讓兒孫主動轉發分享、為阿公阿嬤喝采！"
         ],
         whyPossible: "我具備 <span class=\"hl-keyword\">20 年流行音樂產業深厚背景</span>，熟諳編曲製作與大型演出策劃；<span class=\"hl-keyword\">我能邀請業界優秀樂手協同交流</span>，在尊重傳統的基礎上，讓明德里的長輩站上最耀眼的舞台。"
     },
@@ -281,9 +281,9 @@ const POLICIES_DATA = [
             "廚房炸油與過期食用油倒水槽會堵塞水管、滋生惡臭與蚊蟲，倒垃圾車又捨不得且污染環境。其實只要透過專業配方，廢油立刻能變成去油力最強的金黃家事皂！<span class=\"hl-keyword\">不用里民在家冒險碰強鹼</span>，我把現成好皂直接送到你手中。"
         ],
         howToDo: [
-            "【家戶集油便利回收】：廚房炸油與過期油濾入寶特瓶送至活動中心專用回收桶，<span class=\"hl-keyword\">徹底根除下水管道堵塞與惡臭</span>。",
-            "【專業師資安全工作坊】：每季攜手手工皂協會開辦體驗班，<span class=\"hl-keyword\">備妥完整安全防護配備現場指導</span>，里民安心體驗手作樂趣。",
-            "【憑油直接兌換熟成家事皂】：里民憑回收廢油可<span class=\"hl-keyword\">直接兌換專業熟成之「明德里環保家事皂」</span>，洗碗去油不傷手，省下日常開銷。"
+            "廚房炸油與過期油濾入寶特瓶送至活動中心專用回收桶，<span class=\"hl-keyword\">徹底根除下水管道堵塞與惡臭</span>。",
+            "每季攜手手工皂協會開辦體驗班，<span class=\"hl-keyword\">備妥完整安全防護配備現場指導</span>，里民安心體驗手作樂趣。",
+            "里民憑回收廢油可<span class=\"hl-keyword\">直接兌換專業熟成之「明德里環保家事皂」</span>，洗碗去油不傷手，省下日常開銷。"
         ],
         whyPossible: "我具備企業專案管理長才，<span class=\"hl-keyword\">已成功對接「中華綠生活手工皂協會王若家理事長」專業團隊</span>（已在土城日新里活動中心常態開課驗證成功），<span class=\"hl-keyword\">以市府低碳專案全額補助</span>為明德里落實循環經濟！"
     },
@@ -303,9 +303,9 @@ const POLICIES_DATA = [
             "活動中心白天長輩共餐熱熱鬧鬧，到了平日晚上和假日卻往往鐵捲門深鎖、漆黑一片。年輕人下班想看書、做專案或交流，只能花錢跑去擁擠的咖啡廳。<span class=\"hl-keyword\">公有場館是全體里民的資產</span>，我主張在完全不影響長輩的前提下，把空間溫暖點亮！"
         ],
         howToDo: [
-            "【落實「增量不取代」全齡共享】：白天維持長輩共餐與既有課程，<span class=\"hl-keyword\">開放平日夜間與假日為溫馨「全齡共學角」</span>。",
-            "【營造明亮友善自修環境】：優化內部照明與桌椅配置，<span class=\"hl-keyword\">規劃安靜閱讀區、青年筆電專區與家庭益智桌遊角落</span>。",
-            "【青年志工輪值服務維護】：組織社區熱心青年志工輪值，<span class=\"hl-keyword\">維護公有器材安全與現場清潔管理</span>，培養社區自治互助精神。"
+            "落實「增量不取代」全齡共享，白天維持長輩共餐與既有課程，<span class=\"hl-keyword\">開放平日夜間與假日為溫馨「全齡共學角」</span>。",
+            "優化內部照明與桌椅配置，<span class=\"hl-keyword\">規劃安靜閱讀區、青年筆電專區與家庭益智桌遊角落</span>。",
+            "組織社區熱心青年志工輪值，<span class=\"hl-keyword\">維護公有器材安全與現場清潔管理</span>，培養社區自治互助精神。"
         ],
         whyPossible: "我擁有 <span class=\"hl-keyword\">10 年社區大廈管委會主委實務</span>，深諳公共設施規約制定、時段調配與門禁管理；<span class=\"hl-keyword\">我懂得如何兼顧長青與青年需求</span>，以極低成本為社區釋放最大公共價值。"
     },
@@ -323,9 +323,9 @@ const POLICIES_DATA = [
             "面對孩子情緒暴走、家長管教焦慮、長輩委屈遷怒，家人往往在無意間互相傷害。外面的專業心理成長課程動輒數千上萬元，許多家庭難以負擔。<span class=\"hl-keyword\">我在樂利國小推動情緒教育 8 年</span>，最深切的心願就是把這套溫暖的解方完整帶回我們明德里！"
         ],
         howToDo: [
-            "【兒童與親子情緒共學班】：每季定期開辦 1 期，透過生動繪本與情境遊戲，<span class=\"hl-keyword\">引導孩子覺察情緒、學習同理合作、遠離校園霸凌</span>。",
-            "【家長正向教養支持工作坊】：分享情緒覺察與非暴力溝通實務，<span class=\"hl-keyword\">協助爸爸媽媽化解教養焦慮與夫妻溝通摩擦</span>。",
-            "【長者樂齡同理交流茶會】：為銀髮長輩開辦情緒調適與同理傾聽茶會，<span class=\"hl-keyword\">解開積壓心結，營造溫馨和睦的跨世代家庭氛圍</span>。"
+            "每季定期開辦 1 期情緒共學班，透過生動繪本與情境遊戲，<span class=\"hl-keyword\">引導孩子覺察情緒、學習同理合作、遠離校園霸凌</span>。",
+            "開辦家長支持工作坊分享情緒覺察與非暴力溝通，<span class=\"hl-keyword\">協助爸爸媽媽化解教養焦慮與夫妻溝通摩擦</span>。",
+            "為銀髮長輩開辦情緒調適與同理傾聽茶會，<span class=\"hl-keyword\">解開積壓心結，營造溫馨和睦的跨世代家庭氛圍</span>。"
         ],
         whyPossible: "我擔任 <span class=\"hl-keyword\">樂利國小 EQ 志工組長長達 8 年</span>，具備完整講師資格與 <span class=\"hl-keyword\">7 套專業情緒教育證照</span>，帶領過 50 餘名熱心志工團隊；<span class=\"hl-keyword\">我自備完整教材與師資庫</span>，對接教育專案補助，能為里民提供最溫暖扎實的支持。"
     },
@@ -345,9 +345,9 @@ const POLICIES_DATA = [
             "帶毛小孩到公園散步是許多里民每天最放鬆的時刻，但偶爾忘記帶便袋或缺乏洗手牽繩設施，常引來不養寵物鄰里的反感。<span class=\"hl-keyword\">愛護動物與環境清潔絕不衝突</span>！我們可以用很小的成本與貼心設計，讓所有里民都能在公園舒服共處。"
         ],
         howToDo: [
-            "【增設便攜袋補充站與專用垃圾桶】：爭取於明德公園周邊動線<span class=\"hl-keyword\">設置「寵物便攜袋取用站」與專用清潔箱</span>，方便飼主隨手維護環境。",
-            "【規劃友善牽繩繫留休憩角】：在休閒長椅旁<span class=\"hl-keyword\">加裝安全牽繩繫留環</span>，讓里民坐下休息或與鄰居聊天時，毛小孩能安全安穩陪伴。",
-            "【社區飼主責任宣導與志工巡檢】：結合動保處資源宣導晶片與疫苗，<span class=\"hl-keyword\">組織熱心志工定期巡檢草地</span>，營造人寵和諧共享典範。"
+            "爭取於明德公園周邊動線<span class=\"hl-keyword\">設置「寵物便攜袋取用站」與專用清潔箱</span>，方便飼主隨手維護環境。",
+            "在休閒長椅旁<span class=\"hl-keyword\">加裝安全牽繩繫留環</span>，讓里民坐下休息或與鄰居聊天時，毛小孩能安全安穩陪伴。",
+            "結合動保處資源宣導晶片與疫苗，<span class=\"hl-keyword\">組織熱心志工定期巡檢草地</span>，營造人寵和諧共享典範。"
         ],
         whyPossible: "我具備 <span class=\"hl-keyword\">10 年社區規約管理與空間協調實戰經驗</span>，最懂得如何兼顧非養寵物長輩對乾淨衛生的要求與飼主心聲；<span class=\"hl-keyword\">我善於用微小預算化解鄰里矛盾</span>，創造雙贏共享的友善社區。"
     }
@@ -2574,7 +2574,7 @@ function fallbackCopyUrl(text, cb) {
 // 註冊 Service Worker 支援離線快取與 PWA 安裝
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
-        navigator.serviceWorker.register('sw.js?v=24.02')
+        navigator.serviceWorker.register('sw.js?v=24.03')
             .catch(() => {});
     });
 }
