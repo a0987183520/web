@@ -129,7 +129,7 @@ const POLICIES_DATA = [
             "【長青生活防詐與老照片修復】：手把手教長輩<span class=\"hl-keyword\">秒辨 AI 換臉聲音詐騙</span>，並用手機 AI 修復泛黃家族老照片，打造個人專屬數位紀念。",
             "【學童智慧學習與科普探索】：寒暑假舉辦學童 AI 工具與飛行科普營，<span class=\"hl-keyword\">引導善用科技自主學習</span>，縮短數位落差。"
         ],
-        whyPossible: "我具備 <span class=\"hl-keyword\">30 年資工與科技管理實務</span>，自備微型設備並凝聚產學志工夥伴無償支援，<span class=\"hl-keyword\">把高價值前瞻科技無償帶進明德里</span>！"hl-keyword\">30 年資工與科技管理實務</span>，熟諳無人機飛控與 AI 工具，能凝聚科技青年志工團隊，自帶設備並成功申請科普專案補助，<span class=\"hl-keyword\">把頂尖科技資源無償帶進明德里</span>！"
+        whyPossible: "我具備 <span class=\"hl-keyword\">30 年資工與科技管理實務</span>，自備微型設備並凝聚產學志工夥伴無償支援，<span class=\"hl-keyword\">把高價值前瞻科技無償帶進明德里</span>！"
     },
     {
         id: 6,
@@ -2571,7 +2571,7 @@ function fallbackCopyUrl(text, cb) {
 // 註冊 Service Worker 支援離線快取與 PWA 安裝
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
-        navigator.serviceWorker.register('sw.js?v=23.02')
+        navigator.serviceWorker.register('sw.js?v=23.03')
             .catch(() => {});
     });
 }
