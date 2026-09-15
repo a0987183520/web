@@ -134,10 +134,10 @@ const POLICIES_DATA = [
         id: 6,
         category: "governance",
         categoryName: "專業治理與精準服務",
-        title: "AI健康管家 ＋ 獨居長輩暖心守護",
+        title: "公費緊急救援 ＋ 獨老居家暖心守護",
         subtitle: "對接衛福部 62.5 億專案，獨老與雙老同住皆可申請！建立 24 小時公費防跌守護網，為三明治世代守住全家平安！",
         image: "images/policy_07_health.png",
-        budgetSource: "衛福部 62.5 億獨老專案 ＋ 長照 2.0 專款",
+        budgetSource: "衛福部 62.5 億獨老專案 ＋ 長照 2.0 居家專款",
         budgetSub: "<span class=\"hl-keyword\">完全不會用到</span>明德里 88 萬基層款",
         budgetDesc: "你知道嗎？年滿 65 歲以上<span class=\"hl-keyword\">「雙老同住」</span>，經評估也符合中央專案<span class=\"hl-keyword\">公費補助資格</span>，守護您家長輩的安全。",
         highlight: "對接衛福部 62.5 億在宅安居專案！一人獨居或雙老同住皆可申請，爭取公費智慧緊急救援主機與自動防跌手環，結合專人送餐與長照代辦，守護長青安居。",
@@ -147,9 +147,8 @@ const POLICIES_DATA = [
         ],
         howToDo: [
             "結合社政專案提供高風險長輩<span class=\"hl-keyword\">每日送餐與物資</span>，專人親自交付，<span class=\"hl-keyword\">第一時間掌握長輩安危</span>。",
-            "協助獨老與雙老家庭申請<span class=\"hl-keyword\">「智慧緊急救援主機與自動防跌手環」</span>，<span class=\"hl-keyword\">跌倒自動通報直連 119 與守護中心</span>！",
-            "針對有需求的長輩協助對接<span class=\"hl-keyword\">長照 2.0 到府評估</span>，包含到府置藥、用藥、陪伴聊天、運動或就醫...等 <span class=\"hl-keyword\">36 項貼心服務</span>，讓晚輩能安心工作。",
-            "我會指導如何搭配<span class=\"hl-keyword\">手機 AI 一鍵完成健康紀錄</span>，讓子女也能同步安心！"
+            "協助獨老與雙老家庭申請<span class=\"hl-keyword\">「智慧緊急救援主機與自動防跌手環」</span>，長輩不必學習複雜操作，<span class=\"hl-keyword\">跌倒自動通報直連 119 與守護中心</span>！",
+            "針對有日常照顧需求的長輩，主動協助對接<span class=\"hl-keyword\">長照 2.0 居家照顧</span>，包含到府置藥、用藥、陪伴聊天、陪同就醫等 <span class=\"hl-keyword\">36 項貼心服務</span>，減輕家庭負擔。"
         ],
         whyPossible: "我擁有 <span class=\"hl-keyword\">30 年資工技術</span>，深諳政府社福、衛政補助法規與公文流程；<span class=\"hl-keyword\">我懂如何簡化申請程序</span>，<span class=\"hl-keyword\">將國家級長照專款精準對接給各位</span>。"
     },
@@ -157,20 +156,22 @@ const POLICIES_DATA = [
         id: 7,
         category: "governance",
         categoryName: "專業治理與長照支持",
-        title: "自研健腦 App ＋ 預防失智樂齡體驗",
-        subtitle: "自研大字體健腦遊戲活化大腦刺激，主動對接長照喘息補助，做三明治世代最強後盾！",
+        title: "預防失智 App ＋ 樂齡健腦工作坊",
+        subtitle: "我自行研發多款免費無廣告的預防失智健腦 App，長輩每天輕鬆動腦，晚輩即時掌握身心狀況！",
         image: "images/policy_08_brain.png",
         budgetSource: "失智友善社區專案 ＋ 長者健康促進補助",
         budgetSub: "<span class=\"hl-keyword\">完全不會用到</span>明德里 88 萬基層款",
         budgetDesc: "結合失智友善專案引進健腦教具，由候選人自研無廣告健腦 App，專案全額補助，零公款支出。",
-        highlight: "引進臨床 AI 腦力健能遊戲延緩退化，主動協助阿茲海默與失智長輩對接身障生活補助與長照 2.0 喘息資源，做三明治世代最堅實的後盾。",
+        highlight: "自研無廣告「1 至 50 數字尋寶」等大字體趣味遊戲，長輩每天輕鬆動腦活化神經；系統異常自動提醒晚輩掌握身心狀況，並主動對接長照 2.0 喘息服務，為三明治世代卸下照顧焦慮！",
         icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 4.44-2.04z"></path><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-4.44-2.04z"></path></svg>`,
         hooks: [
-            "長輩常常忘東忘西，卻非常排斥去醫院做冰冷的認知測驗；家中有退化跡象的長輩，三明治世代往往獨自承受龐大照顧壓力。<span class=\"hl-keyword\">我希望用充滿歡笑的趣味遊戲取代嚴肅的醫療檢測</span>，讓長輩開開心心動腦防退化！"
+            "長輩失智的來臨，往往是<span class=\"hl-keyword\">猝不及防且缺乏徵兆</span>的。我有親身照顧的經歷，深知失智是不可逆的，唯有<span class=\"hl-keyword\">儘早發現、儘早就醫用藥</span>，才能儘可能延緩退化或保持現狀！",
+            "許多長輩十分排斥去醫院做冰冷的認知測驗，<span class=\"hl-keyword\">我研發免費、無廣告的大字體趣味遊戲</span>，長輩在歡笑中動腦，也讓晚輩安心。"
         ],
         howToDo: [
-            "【樂齡 AI 大腦健能體驗角】：引進大螢幕平板與我自研的<span class=\"hl-keyword\">「1 至 50 數字尋寶」</span>等大字體趣味手腦遊戲，長輩在歡笑中活化大腦神經。",
-            "【主動式長照喘息綠色窗口】：主動協助疑似或確診長輩申請<span class=\"hl-keyword\">長照 2.0 喘息服務</span>與日間照顧，引進政府公費照顧人力，讓子女安心喘息。",
+            "【自研健腦遊戲活化神經】：引進我自研的<span class=\"hl-keyword\">「1 至 50 數字尋寶」</span>等大字體趣味手腦遊戲，透過輕鬆有趣、易達成的小關卡，讓長輩每天在歡笑中活化大腦神經。",
+            "【日常身心狀態預警提醒】：透過長輩日常遊玩的反應時間與活躍頻率，系統能智慧偵測反應異狀，<span class=\"hl-keyword\">每天自動提醒晚輩掌握長輩身心狀況</span>，及早掌握健康警訊。",
+            "【長照 2.0 喘息綠色窗口】：主動協助疑似或確診長輩申請<span class=\"hl-keyword\">長照 2.0 喘息服務與日間照顧</span>，引進政府公費照顧人力，讓在外打拼的子女安心喘息。",
             "【照顧者 EQ 心理支持工作坊】：開辦長照家庭照顧者心理支持工作坊，<span class=\"hl-keyword\">陪伴三明治世代走出照顧焦慮與疲憊</span>。"
         ],
         whyPossible: "我具備 <span class=\"hl-keyword\">8 年 EQ 講師</span>與 <span class=\"hl-keyword\">30 年軟體開發經驗</span>，能親自研發適合長輩操作的無廣告健腦系統；深知長照家庭痛點，<span class=\"hl-keyword\">懂得如何導入失智友善專款</span>，為社區建立溫暖後盾。"
@@ -2571,7 +2572,7 @@ function fallbackCopyUrl(text, cb) {
 // 註冊 Service Worker 支援離線快取與 PWA 安裝
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
-        navigator.serviceWorker.register('sw.js?v=24.00')
+        navigator.serviceWorker.register('sw.js?v=24.01')
             .catch(() => {});
     });
 }
