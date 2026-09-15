@@ -113,22 +113,23 @@ const POLICIES_DATA = [
         id: 5,
         category: "education",
         categoryName: "生活美學與未來教育",
-        title: "我也會玩無人機＋實用生活AI",
-        subtitle: "誰說長輩不能飛？大人小孩都能輕鬆上手! 還有生活實用 AI 輕鬆防詐、修復老照片...",
+        title: "趣味二維遙控車 ＋ 微型三維無人機",
+        subtitle: "誰說長輩不能飛？從地面二維遙控車輕鬆起步，進階無人機立體空間感，全齡手眼協調延緩退化！",
         image: "images/policy_03_tech.png",
         budgetSource: "產學志工講師支援 ＋ 社會局銀髮創新方案",
         budgetSub: "<span class=\"hl-keyword\">完全不會用到</span>明德里 88 萬基層款",
         budgetDesc: "",
-        highlight: "寒暑假與長青學堂定期開辦！無人機可精準訓練手眼協調與立體空間感，更結合實用生活 AI 破解換臉詐騙、修復老照片，老少共學無負擔。",
+        highlight: "寒暑假與長青學堂定期開辦！從二維地面微型遙控車輕鬆入門鍛鍊手指微操，進階三維微型無人機訓練立體空間感，老少共學、安全好玩無負擔。",
         icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>`,
         hooks: [
-            "微型安全無人機<span class=\"hl-keyword\">已經非常便宜與普及</span>～我們不用擔心會撞壞，長輩飛行可<span class=\"hl-keyword\">訓練手眼協調能力，延緩退化</span>，孩子飛行可<span class=\"hl-keyword\">建立三維空間</span>，大人飛行可<span class=\"hl-keyword\">紓壓</span>！"
+            "微型遙控車與安全無人機<span class=\"hl-keyword\">非常便宜又普及</span>，完全不用擔心撞壞！長輩從二維地面遙控車輕鬆上手，能<span class=\"hl-keyword\">精準鍛鍊手指微操與手眼協調</span>；進階體驗三維微型飛行，更能<span class=\"hl-keyword\">活化大腦立體空間感</span>，長輩防退化、大人紓壓、孩子專注，全家同樂！"
         ],
         howToDo: [
-            "【無人機體驗營】：各位可透過<span class=\"hl-keyword\">「里民作主」App</span>，連署課程與期望活動地點，我來協調排課，先從簡單的起飛，前進與降落安全<span class=\"hl-keyword\">訓練手眼協調與立體空間感</span>。",
-            "【實用生活AI】：手把手教里民，用手機 AI <span class=\"hl-keyword\">修復泛黃照片</span>、製作<span class=\"hl-keyword\">有趣的搞笑短劇</span>，用 AI 輔助我們的生活。"
+            "【二維地面遙控車手眼入門】：引進安全防撞微型遙控車，長輩坐在椅子上就能輕鬆握持遙控器，在活動中心平整地面練習轉向與障礙微操，<span class=\"hl-keyword\">零墜機壓力，活化手指神經</span>。",
+            "【三維微型無人機安全帶飛】：在室內安全防護網內，由產學志工一對一帶飛 50g 以下微型機，由淺入深體驗起飛、巡航與降落，<span class=\"hl-keyword\">安全訓練立體空間定向感</span>。",
+            "【青銀跨世代趣味障礙賽】：定期舉辦祖孫趣味同樂會，長輩比遙控車靈活繞錐、孫子挑戰無人機穿環，<span class=\"hl-keyword\">用平價科技拉近跨世代距離</span>。"
         ],
-        whyPossible: "我有<span class=\"hl-keyword\">舉辦過各式各樣體驗營的經驗</span>，我將凝聚社區的<span class=\"hl-keyword\">斜槓青年擔任志工</span>，<span class=\"hl-keyword\">把高價值前瞻科技無償帶進明德里</span>！"
+        whyPossible: "我有<span class=\"hl-keyword\">豐富體驗營舉辦經驗</span>，自備微型教具設備；我將凝聚社區的<span class=\"hl-keyword\">青年志工手把手教學</span>，把平價有趣的科技玩具轉化為社區長幼同樂的活力引擎！"
     },
     {
         id: 6,
@@ -156,21 +157,22 @@ const POLICIES_DATA = [
         id: 7,
         category: "governance",
         categoryName: "專業治理與長照支持",
-        title: "預防失智 App ＋ 樂齡健腦工作坊",
-        subtitle: "我自行研發多款免費無廣告的預防失智健腦 App，長輩每天輕鬆動腦，晚輩即時掌握身心狀況！",
+        title: "預防失智 App ＋ 樂齡 AI 健腦工作坊",
+        subtitle: "自研 1 至 50 健腦遊戲每天動態預警，結合老照片 AI 修復與回憶動漫，全方位延緩大腦退化！",
         image: "images/policy_08_brain.png",
         budgetSource: "失智友善社區專案 ＋ 長者健康促進補助",
         budgetSub: "<span class=\"hl-keyword\">完全不會用到</span>明德里 88 萬基層款",
         budgetDesc: "結合失智友善專案引進健腦教具，由候選人自研無廣告健腦 App，專案全額補助，零公款支出。",
-        highlight: "自研無廣告「1 至 50 數字尋寶」等大字體趣味遊戲，長輩每天輕鬆動腦活化神經；系統異常自動提醒晚輩掌握身心狀況，並主動對接長照 2.0 喘息服務，為三明治世代卸下照顧焦慮！",
+        highlight: "自研無廣告「1 至 50 數字尋寶」等大字體遊戲，系統異常自動提醒晚輩；更開辦老照片 AI 修復與動漫生成工作坊，以回憶療法活化記憶迴路，搭配長照 2.0 喘息支持！",
         icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 4.44-2.04z"></path><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-4.44-2.04z"></path></svg>`,
         hooks: [
             "長輩失智的來臨，往往是<span class=\"hl-keyword\">猝不及防且缺乏徵兆</span>的。我有親身照顧的經歷，深知失智是不可逆的，唯有<span class=\"hl-keyword\">儘早發現、儘早就醫用藥</span>，才能儘可能延緩退化或保持現狀！",
-            "許多長輩十分排斥去醫院做冰冷的認知測驗，<span class=\"hl-keyword\">我研發免費、無廣告的大字體趣味遊戲</span>，長輩在歡笑中動腦，也讓晚輩安心。"
+            "除了大字體趣味遊戲，許多長輩更渴望重溫珍貴年輕記憶。<span class=\"hl-keyword\">我結合自研健腦 App 與老照片 AI 修復</span>，讓長輩在歡笑與感動中活化記憶，也讓晚輩安心。"
         ],
         howToDo: [
             "【自研健腦遊戲活化神經】：引進我自研的<span class=\"hl-keyword\">「1 至 50 數字尋寶」</span>等大字體趣味手腦遊戲，透過輕鬆有趣、易達成的小關卡，讓長輩每天在歡笑中活化大腦神經。",
             "【日常身心狀態預警提醒】：透過長輩日常遊玩的反應時間與活躍頻率，系統能智慧偵測反應異狀，<span class=\"hl-keyword\">每天自動提醒晚輩掌握長輩身心狀況</span>，及早掌握健康警訊。",
+            "【樂齡 AI 回憶健腦工作坊】：手把手帶長輩用手機 AI <span class=\"hl-keyword\">修復泛黃老照片、生成動漫肖像與回憶短片</span>，透過醫學證實的「回憶療法」深度活化記憶迴路。",
             "【長照 2.0 喘息綠色窗口】：主動協助疑似或確診長輩申請<span class=\"hl-keyword\">長照 2.0 喘息服務與日間照顧</span>，引進政府公費照顧人力，讓在外打拼的子女安心喘息。",
             "【照顧者 EQ 心理支持工作坊】：開辦長照家庭照顧者心理支持工作坊，<span class=\"hl-keyword\">陪伴三明治世代走出照顧焦慮與疲憊</span>。"
         ],
@@ -2572,7 +2574,7 @@ function fallbackCopyUrl(text, cb) {
 // 註冊 Service Worker 支援離線快取與 PWA 安裝
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
-        navigator.serviceWorker.register('sw.js?v=24.01')
+        navigator.serviceWorker.register('sw.js?v=24.02')
             .catch(() => {});
     });
 }
