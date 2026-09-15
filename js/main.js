@@ -118,18 +118,17 @@ const POLICIES_DATA = [
         image: "images/policy_03_tech.png",
         budgetSource: "產學志工講師支援 ＋ 社會局銀髮創新方案",
         budgetSub: "<span class=\"hl-keyword\">完全不會用到</span>明德里 88 萬基層款",
-        budgetDesc: "我運用 30 年科技背景自備微型安全設備，號召產學志工無償教學，並結合社會局銀髮創新補助，里民完全免費體驗。",
+        budgetDesc: "",
         highlight: "寒暑假與長青學堂定期開辦！無人機可精準訓練手眼協調與立體空間感，更結合實用生活 AI 破解換臉詐騙、修復老照片，老少共學無負擔。",
         icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>`,
         hooks: [
-            "AI 與無人機時代全面來臨，誰說長輩不能玩科技？外面昂貴的科技夏令營動輒數萬元，基層家庭負擔沉重。<span class=\"hl-keyword\">我自備合格設備與安全防護網</span>，長輩親手操作能刺激大腦空間感知，孩子更能啟發科技潛能，全家老少在社區就能輕鬆體驗！"
+            "微型安全無人機<span class=\"hl-keyword\">已經非常便宜與普及</span>～我們不用擔心會撞壞，長輩飛行可<span class=\"hl-keyword\">訓練手眼協調能力，延緩退化</span>，孩子飛行可<span class=\"hl-keyword\">建立三維空間</span>，大人飛行可<span class=\"hl-keyword\">紓壓</span>！"
         ],
         howToDo: [
-            "【室內微型安全飛行】：定期開辦微型無人機班，設置<span class=\"hl-keyword\">專屬防護網與 50g 以下微型機</span>，由安全志工一對一帶飛，安全訓練手眼協調與立體空間感。",
-            "【長青生活防詐與老照片修復】：手把手教長輩<span class=\"hl-keyword\">秒辨 AI 換臉聲音詐騙</span>，並用手機 AI 修復泛黃家族老照片，打造個人專屬數位紀念。",
-            "【學童智慧學習與科普探索】：寒暑假舉辦學童 AI 工具與飛行科普營，<span class=\"hl-keyword\">引導善用科技自主學習</span>，縮短數位落差。"
+            "【App連署與安全帶飛】：各位可透過<span class=\"hl-keyword\">「里民作主」App</span>，連署課程與期望活動地點，我來協調排課，由<span class=\"hl-keyword\">安全志工一對一帶飛</span>，先從簡單的起飛，前進與降落安全<span class=\"hl-keyword\">訓練手眼協調與立體空間感</span>。",
+            "【長青生活防詐與老照片修復】：手把手教長輩<span class=\"hl-keyword\">秒辨 AI 換臉聲音詐騙</span>，並用手機 AI 修復泛黃家族老照片，打造個人專屬數位紀念。"
         ],
-        whyPossible: "我具備 <span class=\"hl-keyword\">30 年資工與科技管理實務</span>，自備微型設備並凝聚產學志工夥伴無償支援，<span class=\"hl-keyword\">把高價值前瞻科技無償帶進明德里</span>！"
+        whyPossible: "我具備 <span class=\"hl-keyword\">30 年資工資歷與舉辦過相關體驗營活動</span>，我將凝聚社區的<span class=\"hl-keyword\">斜槓青年擔任志工</span>，<span class=\"hl-keyword\">把高價值前瞻科技無償帶進明德里</span>！"
     },
     {
         id: 6,
@@ -2571,7 +2570,7 @@ function fallbackCopyUrl(text, cb) {
 // 註冊 Service Worker 支援離線快取與 PWA 安裝
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
-        navigator.serviceWorker.register('sw.js?v=23.03')
+        navigator.serviceWorker.register('sw.js?v=23.04')
             .catch(() => {});
     });
 }
