@@ -134,7 +134,7 @@ const POLICIES_DATA = [
         id: 6,
         category: "governance",
         categoryName: "專業治理與精準服務",
-        title: "公費緊急救援 ＋ 獨老雙老暖心照護",
+        title: "獨老或雙老暖心居家照護",
         subtitle: "對接衛福部 62.5 億專案，獨老與雙老同住皆可申請！建立 24 小時公費防跌守護網，為三明治世代守住全家平安！",
         image: "images/policy_06_health.png?v=25.07",
         badgePosition: "bottom-left",
