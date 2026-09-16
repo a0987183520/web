@@ -59,7 +59,7 @@ const POLICIES_DATA = [
         icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>`,
         hookTitle: "創新",
         hooks: [
-            "<span class=\"hl-keyword\">試想你下樓就可以參加你想要的活動...</span><br>我們明德里是由 20 個大型社區所組成，我會主動與各管委會討論善用公設空間給住戶使用，<span class=\"hl-keyword\">社區出場地，我來出活動</span>，活動加倍，里民、長輩更便捷！"
+            "<span class=\"hl-keyword\">試想你下樓就可以參加你想要的活動...</span><br>我們明德里是由 20 個大型社區所組成，我會主動與各管委會討論善用公設空間給住戶使用，<span class=\"hl-keyword\">社區出場地，我來出活動</span>，活動加倍，大家與長輩更便捷！"
         ],
         howToDo: [
             "<span class=\"hl-keyword\">想要什麼活動、你做主</span>，手機簡單提案，隨時可報名，熱門先辦，告別一言堂的黑箱蚊子活動！"
@@ -101,11 +101,11 @@ const POLICIES_DATA = [
         highlight: "聚焦海山路、學府路、學士路到金城路塞車痛點！爭取學府明德與海山明德路口白天行人專用時相，運用資工專長向交通局爭取全廊道動態綠波，直行綠燈同步，告別塞車！",
         icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"></polygon><line x1="9" y1="3" x2="9" y2="18"></line><line x1="15" y1="6" x2="15" y2="21"></line></svg>`,
         hooks: [
-            "你是否被<span class=\"hl-keyword\">海山、學府、學士到金城路口</span>，<span class=\"hl-keyword\">塞車塞到懷疑人生</span>？<span class=\"hl-keyword\">直行綠燈不同步</span>、轉彎車因<span class=\"hl-keyword\">人車爭道</span>卡死在斑馬線，一個綠燈只能過一兩台車，每天下班回家的路漫長又痛苦，明德里值得更好的智慧交通！"
+            "你是否被<span class=\"hl-keyword\">海山、學府、學士到金城路口</span>，<span class=\"hl-keyword\">塞車塞到懷疑人生</span>？<span class=\"hl-keyword\">直行綠燈不同步</span>、轉彎車因<span class=\"hl-keyword\">人車爭道</span>卡死在斑馬線，一個綠燈只能過一兩台車！"
         ],
         howToDo: [
-            "推動學府明德路口與海山明德路口白天<span class=\"hl-keyword\">「行人專用號誌」</span>，徹底人車分流，根除轉彎車卡死動線的塞車主因！",
-            "用<span class=\"hl-keyword\">「全廊道動態綠波」</span>，同步直行綠燈暢通，不再走走停停！"
+            "推動學府與明德路口、海山與明德路口白天<span class=\"hl-keyword\">「行人專用號誌」</span>，徹底人車分流，根除轉彎車卡死動線的塞車主因！",
+            "建置<span class=\"hl-keyword\">「全廊道動態綠波」</span>，直行一路綠燈暢行無阻，告別走走停停！"
         ],
         whyPossible: "運用我<span class=\"hl-keyword\">資工專長</span>，以車流數據向交通局爭取會勘，<span class=\"hl-keyword\">精準解讀車流流量與號誌週期邏輯</span>；在市府交通會勘中，直接拿出<span class=\"hl-keyword\">科學數據</span>與交通局交控中心專業對話，為明德里爭取最有感、最順暢的交通升級！"
     },
@@ -122,14 +122,13 @@ const POLICIES_DATA = [
         highlight: "寒暑假與長青學堂定期開辦！從地面微型遙控車輕鬆入門鍛鍊手指微操，進階微型無人機訓練飛行空間感，老少共學、安全好玩無負擔。",
         icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>`,
         hooks: [
-            "微型遙控車與安全無人機<span class=\"hl-keyword\">非常便宜又普及</span>，完全不用擔心撞壞！長輩從地面遙控車輕鬆上手，能<span class=\"hl-keyword\">精準鍛鍊手指微操與手眼協調</span>；進階體驗微型飛行，更能<span class=\"hl-keyword\">活化大腦空間反應</span>，長輩防退化、大人紓壓、孩子專注，全家同樂！"
+            "大家對微型遙控車與安全無人機充滿興趣，卻常<span class=\"hl-keyword\">擔心花大錢</span>、也<span class=\"hl-keyword\">擔心容易損壞</span>，更<span class=\"hl-keyword\">擔心沒人教不會操作</span>？請放心，這些問題我全都能解決！"
         ],
         howToDo: [
-            "引進安全防撞微型遙控車，長輩坐在椅子上就能輕鬆握持遙控器，在活動中心平整地面練習轉向與障礙微操，<span class=\"hl-keyword\">零墜機壓力，活化手指神經</span>。",
-            "在室內安全防護網內，由產學志工一對一帶飛 50g 以下微型無人機，由淺入深體驗起飛、巡航與降落，<span class=\"hl-keyword\">安全訓練立體空間定向感</span>。",
-            "定期舉辦祖孫趣味同樂會，長輩比遙控車靈活繞錐、孫子挑戰無人機穿環，<span class=\"hl-keyword\">用平價科技拉近跨世代距離</span>。"
+            "配合政見 02「社區平行微活動」，<span class=\"hl-keyword\">主動輪流到各社區舉辦體驗營</span>，下樓就能輕鬆上手！",
+            "每年於活動中心<span class=\"hl-keyword\">舉辦小型趣味賽（個人組／祖孫組／家庭組）</span>，拉近家人與鄰里之間的溫暖情感。"
         ],
-        whyPossible: "我有<span class=\"hl-keyword\">豐富體驗營舉辦經驗</span>，自備微型教具設備；我將凝聚社區的<span class=\"hl-keyword\">青年志工手把手教學</span>，把平價有趣的科技玩具轉化為社區長幼同樂的活力引擎！"
+        whyPossible: "機器已非常普及且具備<span class=\"hl-keyword\">多重保護設計</span>，不用擔心會損壞！微型遙控車與安全無人機能引發興趣、<span class=\"hl-keyword\">刺激手眼協調能力</span>：長輩防退化、大人紓壓、孩子專注，全家同樂！我有豐富體驗營與競賽舉辦的經驗，我將<span class=\"hl-keyword\">凝聚與訓練青年志工</span>，用平價科技拉近跨世代距離！"
     },
     {
         id: 6,
