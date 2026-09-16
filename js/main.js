@@ -156,20 +156,20 @@ const POLICIES_DATA = [
         id: 7,
         category: "governance",
         categoryName: "專業治理與長照支持",
-        title: "預防失智 App ＋ 樂齡 AI 健腦工作坊",
-        subtitle: "自研 1 至 50 健腦遊戲每天動態預警，結合老照片 AI 修復與回憶動漫，全方位延緩大腦退化！",
+        title: "預防失智 App ＋ AI樂齡趣味營",
+        subtitle: "自研 1 至 50 健腦遊戲每天動態預警，結合 AI 短劇與老照片修復，全方位延緩大腦退化！",
         image: "images/policy_08_brain.png",
         budgetSource: "失智友善社區專案 ＋ 長者健康促進補助",
         budgetSub: "<span class=\"hl-keyword\">完全不會用到</span>明德里 88 萬基層款",
         budgetDesc: "",
-        highlight: "自研無廣告「1 至 50 數字尋寶」等大字體遊戲，系統異常自動提醒晚輩；更開辦老照片 AI 修復工作坊，以回憶療法活化記憶迴路，全方位延緩大腦退化！",
+        highlight: "自研「1 至 50 」趣味點選 App 動態預警晚輩，更開辦手機 AI 短劇與老照片修復，以回憶療法活化記憶迴路，全方位延緩大腦退化！",
         icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 4.44-2.04z"></path><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-4.44-2.04z"></path></svg>`,
         hooks: [
             "長輩失智的來臨，往往是<span class=\"hl-keyword\">猝不及防且缺乏徵兆</span>的。我有親身照顧的經歷，深知失智是不可逆的，唯有<span class=\"hl-keyword\">儘早發現、儘早就醫用藥</span>，才能儘可能延緩退化或保持現狀！"
         ],
         howToDo: [
-            "我已開發出<span class=\"hl-keyword\">「1 至 50 」趣味點選 App</span>，每天三分鐘，人人都會玩，一個小遊戲，將可獲得<span class=\"hl-keyword\">滿滿的情緒價值</span>。",
-            "透過長輩日常遊玩的反應時間與活躍頻率，系統能智慧偵測反應異狀，<span class=\"hl-keyword\">每天自動提醒晚輩掌握長輩身心狀況</span>。",
+            "我已開發出<span class=\"hl-keyword\">「1 至 50 」趣味點選 App</span>，每次三分鐘，老少都會玩，一個小遊戲，既能獲得滿滿的情緒價值，也會記錄長輩的反應時間與活躍頻率，<span class=\"hl-keyword\">遠端提醒晚輩父母的身心狀況</span>。",
+            "長輩喜歡刷短劇，但我們直接教他<span class=\"hl-keyword\">製作 AI 短劇</span>，零門檻，手機就能製作，只要懂得跟 AI 聊天，就能完成製作。",
             "手把手帶長輩用手機 AI <span class=\"hl-keyword\">修復泛黃老照片</span>，透過醫學證實的<span class=\"hl-keyword\">「回憶療法」</span>深度活化記憶迴路。"
         ],
         whyPossible: "我具備 <span class=\"hl-keyword\">8 年 EQ 講師</span>與 <span class=\"hl-keyword\">30 年軟體開發經驗</span>，能<span class=\"hl-keyword\">自行開發長輩需要的 App</span>，為社區建立溫暖後盾。"
