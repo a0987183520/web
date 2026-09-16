@@ -1047,16 +1047,25 @@ function openDrawer(policyId) {
                 updateSlider();
             }
         } else if (policy.id === 4) {
-            // 計畫 04 (智慧交通)：抽屜渲染「海山學府路口現場塞車實況」，文字移至圖外避免遮擋塞車畫面
+            // 計畫 04 (智慧交通)：抽屜渲染「海山學府路口塞車實況」與「新北高工路口科技綠波願景」雙在地實景對照，文字皆外置
             drawerImgWrapper.style.display = 'block';
             drawerImgWrapper.innerHTML = `
-                <div style="border-radius: 14px; overflow: hidden; border: 1px solid var(--card-border); background: var(--card-bg, #fff); box-shadow: 0 4px 16px rgba(0,0,0,0.12);">
+                <div style="margin-bottom: 1.25rem; border-radius: 14px; overflow: hidden; border: 1px solid var(--card-border); background: var(--card-bg, #fff); box-shadow: 0 4px 16px rgba(0,0,0,0.12);">
                     <div style="position: relative;">
                         <img class="drawer-image" src="images/policy_04_traffic_real.jpg" alt="現場實況：海山學府路口號誌不同步，車卡路中央" style="width: 100%; display: block; object-fit: cover;">
                         <span class="vision-badge" style="background: rgba(220, 38, 38, 0.88); color: #fff; border: 1px solid rgba(255, 255, 255, 0.4); text-shadow: 0 1px 2px rgba(0,0,0,0.6);">現場痛點實況</span>
                     </div>
-                    <div style="padding: 12px 14px; background: rgba(239, 68, 68, 0.08); border-top: 1px solid rgba(239, 68, 68, 0.2); font-size: 0.95rem; font-weight: 600; color: #dc2626; line-height: 1.45; text-align: center; letter-spacing: 0.02em;">
+                    <div style="padding: 10px 14px; background: rgba(239, 68, 68, 0.08); border-top: 1px solid rgba(239, 68, 68, 0.2); font-size: 0.92rem; font-weight: 600; color: #dc2626; line-height: 1.4; text-align: center; letter-spacing: 0.02em;">
                         海山路口已綠燈放行，但學府路口仍為紅燈
+                    </div>
+                </div>
+                <div style="border-radius: 14px; overflow: hidden; border: 1px solid var(--card-border); background: var(--card-bg, #fff); box-shadow: 0 4px 16px rgba(0,0,0,0.12);">
+                    <div style="position: relative;">
+                        <img class="drawer-image" src="${policy.image}" alt="${policy.title} - 概念示意圖" style="width: 100%; display: block; object-fit: cover;">
+                        <span class="vision-badge" style="background: rgba(16, 185, 129, 0.88); color: #fff; border: 1px solid rgba(255, 255, 255, 0.4); text-shadow: 0 1px 2px rgba(0,0,0,0.6);">改善解方願景</span>
+                    </div>
+                    <div style="padding: 10px 14px; background: rgba(16, 185, 129, 0.08); border-top: 1px solid rgba(16, 185, 129, 0.2); font-size: 0.92rem; font-weight: 600; color: #059669; line-height: 1.4; text-align: center; letter-spacing: 0.02em;">
+                        新北高工學府明德路口：全向行人專用時相 ＋ 動態綠波續進
                     </div>
                 </div>
             `;
