@@ -107,7 +107,7 @@ const POLICIES_DATA = [
             "推動學府與明德路口、海山與明德路口白天<span class=\"hl-keyword\">「行人專用號誌」</span>，徹底人車分流，根除轉彎車卡死動線的塞車主因！",
             "建置<span class=\"hl-keyword\">「全廊道動態綠波」</span>，直行一路綠燈暢通！"
         ],
-        whyPossible: "運用我<span class=\"hl-keyword\">資工專長</span>，以車流數據向交通局爭取會勘，<span class=\"hl-keyword\">精準解讀車流流量與號誌週期邏輯</span>！"
+        whyPossible: "以我<span class=\"hl-keyword\">資工與橫向溝通專長</span>，向交通局爭取會勘，<span class=\"hl-keyword\">精準解讀車流量與號誌週期邏輯</span>！"
     },
     {
         id: 5,
@@ -125,7 +125,7 @@ const POLICIES_DATA = [
             "大家對微型遙控車與安全無人機充滿興趣，卻常<span class=\"hl-keyword\">擔心花大錢</span>、也<span class=\"hl-keyword\">擔心容易損壞</span>，更<span class=\"hl-keyword\">擔心沒人教不會操作</span>？請放心，這些問題我全都能解決！"
         ],
         howToDo: [
-            "配合政見 02「社區平行微活動」，<span class=\"hl-keyword\">主動輪流到各社區舉辦體驗營</span>，下樓就能輕鬆上手！",
+            "配合政見 02「社區平行微活動」，<span class=\"hl-keyword\">輪流到各社區舉辦體驗營</span>，下樓就能輕鬆體驗！",
             "每年於活動中心<span class=\"hl-keyword\">舉辦小型趣味賽（個人組／祖孫組／家庭組）</span>，拉近家人與鄰里之間的溫暖情感。"
         ],
         whyPossible: "機器已非常普及且具備<span class=\"hl-keyword\">多重保護設計</span>，不用擔心會損壞！微型遙控車與安全無人機能引發興趣、<span class=\"hl-keyword\">刺激手眼協調能力</span>：長輩防退化、大人紓壓、孩子專注，全家同樂！我有豐富體驗營與競賽舉辦的經驗，我將<span class=\"hl-keyword\">凝聚與訓練青年志工</span>，用平價科技拉近跨世代距離！"
@@ -137,7 +137,7 @@ const POLICIES_DATA = [
         title: "公費緊急救援 ＋ 獨老居家暖心守護",
         subtitle: "對接衛福部 62.5 億專案，獨老與雙老同住皆可申請！建立 24 小時公費防跌守護網，為三明治世代守住全家平安！",
         image: "images/policy_07_health.png",
-        budgetSource: "衛福部 62.5 億獨老專案 ＋ 長照 2.0 居家專款",
+        budgetSource: "衛福部 62.5 億獨老專案 ＋ 長照 2.0 專款",
         budgetSub: "<span class=\"hl-keyword\">完全不會用到</span>明德里 88 萬基層款",
         budgetDesc: "你知道嗎？年滿 65 歲以上<span class=\"hl-keyword\">「雙老同住」</span>，經評估也符合中央專案<span class=\"hl-keyword\">公費補助資格</span>，守護您家長輩的安全。",
         highlight: "對接衛福部 62.5 億在宅安居專案！一人獨居或雙老同住皆可申請，爭取公費智慧緊急救援主機與自動防跌手環，結合專人送餐與長照代辦，守護長青安居。",
@@ -146,12 +146,11 @@ const POLICIES_DATA = [
             "子女在外打拼，最牽掛家中長輩<span class=\"hl-keyword\">突發急病或跌倒</span>；政府編列超過 <span class=\"hl-keyword\">62.5 億專款</span>，卻常因行政門檻鮮為人知。<span class=\"hl-keyword\">我將協助將資源主動送到家</span>，讓晚輩安心！"
         ],
         howToDo: [
-            "結合社政專案提供高風險長輩<span class=\"hl-keyword\">每日送餐與物資</span>，專人親自交付，<span class=\"hl-keyword\">第一時間掌握長輩安危</span>。",
-            "協助獨老與雙老家庭申請<span class=\"hl-keyword\">「智慧緊急救援主機與自動防跌手環」</span>，長輩不必學習複雜操作，<span class=\"hl-keyword\">跌倒自動通報直連 119 與守護中心</span>！",
-            "針對有日常照顧需求的長輩，主動協助對接<span class=\"hl-keyword\">長照 2.0 居家照顧</span>，包含到府置藥、用藥、陪伴聊天、陪同就醫等 <span class=\"hl-keyword\">36 項貼心服務</span>，減輕家庭負擔。",
-            "主動協助有需求的長輩申請<span class=\"hl-keyword\">長照 2.0 喘息服務與日間照顧</span>，引進政府公費照顧人力，並開辦照顧者心理支持工作坊，<span class=\"hl-keyword\">陪伴三明治世代走出照顧焦慮與疲憊</span>。"
+            "結合社政專案提供高風險長輩<span class=\"hl-keyword\">每日送餐與物資</span>，藉送餐，<span class=\"hl-keyword\">掌握長輩安危</span>。",
+            "協助獨老與雙老家庭申請<span class=\"hl-keyword\">「智慧緊急救援主機與自動防跌手環」</span>，<span class=\"hl-keyword\">跌倒自動通報直連 119 與守護中心</span>！",
+            "針對有日常照顧需求的長輩，主動協助對接<span class=\"hl-keyword\">長照 2.0 居家照顧</span>，包含到府置藥、用藥、陪伴聊天、陪同就醫等 <span class=\"hl-keyword\">36 項貼心服務與喘息服務</span>，<span class=\"hl-keyword\">陪伴三明治世代走出照顧焦慮與疲憊</span>。"
         ],
-        whyPossible: "我擁有 <span class=\"hl-keyword\">30 年資工技術</span>，深諳政府社福、衛政補助法規與公文流程；<span class=\"hl-keyword\">我懂如何簡化申請程序</span>，<span class=\"hl-keyword\">將國家級長照專款精準對接給各位</span>。"
+        whyPossible: "我深諳<span class=\"hl-keyword\">社福、衛政補助法規與公文流程</span>；知道如何簡化申請，<span class=\"hl-keyword\">將國家級長照專款精準對接給各位</span>。"
     },
     {
         id: 7,

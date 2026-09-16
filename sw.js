@@ -1,9 +1,9 @@
-const CACHE_NAME = 'mingde2-cache-v25.00';
+const CACHE_NAME = 'mingde2-cache-v25.01';
 const ASSETS_TO_CACHE = [
   './',
   'index.html',
-  'css/style.css?v=25.00',
-  'js/main.js?v=25.00',
+  'css/style.css?v=25.01',
+  'js/main.js?v=25.01',
   'manifest.json',
   'favicon.svg',
   'images/icon-192.png',
