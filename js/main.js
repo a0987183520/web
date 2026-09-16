@@ -1046,6 +1046,25 @@ function openDrawer(policyId) {
                 range.addEventListener('change', updateSlider);
                 updateSlider();
             }
+        } else if (policy.id === 4) {
+            // 計畫 04 (智慧交通)：抽屜渲染「現場塞車痛點實況」與「科技綠波改善解方」雙圖對照
+            drawerImgWrapper.style.display = 'block';
+            drawerImgWrapper.innerHTML = `
+                <div style="position: relative; margin-bottom: 1.25rem; border-radius: 14px; overflow: hidden; border: 1px solid var(--card-border); box-shadow: 0 4px 16px rgba(0,0,0,0.18);">
+                    <img class="drawer-image" src="images/policy_04_traffic_real.jpg" alt="現場實況：海山學府路口號誌不同步，車卡路中央" style="width: 100%; display: block; object-fit: cover;">
+                    <span class="vision-badge" style="background: rgba(220, 38, 38, 0.88); color: #fff; border: 1px solid rgba(255, 255, 255, 0.4); text-shadow: 0 1px 2px rgba(0,0,0,0.6);">現場痛點實況</span>
+                    <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(15, 23, 42, 0.94) 0%, rgba(15, 23, 42, 0.65) 65%, transparent 100%); padding: 22px 14px 10px; color: #fff; font-size: 0.88rem; font-weight: 550; line-height: 1.45; text-shadow: 0 1px 3px rgba(0,0,0,0.85);">
+                        🔴 痛點直擊：海山路已綠燈放行，但學府路仍為紅燈，車流動彈不得卡在路口中央！
+                    </div>
+                </div>
+                <div style="position: relative; border-radius: 14px; overflow: hidden; border: 1px solid var(--card-border); box-shadow: 0 4px 16px rgba(0,0,0,0.18);">
+                    <img class="drawer-image" src="${policy.image}" alt="${policy.title} - 概念示意圖" style="width: 100%; display: block; object-fit: cover;">
+                    <span class="vision-badge" style="background: rgba(16, 185, 129, 0.85); color: #fff; border: 1px solid rgba(255, 255, 255, 0.4); text-shadow: 0 1px 2px rgba(0,0,0,0.6);">改善解方願景</span>
+                    <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(15, 23, 42, 0.94) 0%, rgba(15, 23, 42, 0.65) 65%, transparent 100%); padding: 22px 14px 10px; color: #fff; font-size: 0.88rem; font-weight: 550; line-height: 1.45; text-shadow: 0 1px 3px rgba(0,0,0,0.85);">
+                        🟢 科技解方：全廊道智慧動態綠波 ＋ 白天全向行人專用時相，直行轉彎徹底暢通！
+                    </div>
+                </div>
+            `;
         } else {
             // 其他一般計畫渲染單張圖
             const badgeClass = policy.badgePosition ? `vision-badge vision-badge-${policy.badgePosition}` : 'vision-badge';
