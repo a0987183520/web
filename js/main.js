@@ -72,7 +72,7 @@ const POLICIES_DATA = [
         categoryName: "人本交通與通學安全",
         title: "防滑走廊 ＋ 友善步道 ＋ 通學安全",
         subtitle: "明德里為捷運通勤與校園通學必經動線，部分騎樓防滑係數不足，爭取市府全額整平！",
-        image: "images/policy_04_safety_2_wide.png",
+        image: "images/policy_03_safety_2_wide.png",
         budgetSource: "工務局<span class=\"hl-keyword\">騎樓整平</span>計畫 ＋ <span class=\"hl-keyword\">人本交通</span>專案款",
         budgetSub: "<span class=\"hl-keyword\">完全不會用到</span>明德里 88 萬基層款",
         budgetDesc: "主動彙整里民人行<span class=\"hl-keyword\">危險點資料庫</span>，召開跨局會勘爭取<span class=\"hl-keyword\">市府專案款</span>改善鋪面",
@@ -115,7 +115,7 @@ const POLICIES_DATA = [
         categoryName: "生活美學與未來教育",
         title: "微型遙控車 ＋ 微型無人機",
         subtitle: "誰說長輩不能飛？從地面微型遙控車輕鬆起步，進階無人機飛行體驗，全齡手眼協調延緩退化！",
-        image: "images/policy_03_tech.png",
+        image: "images/policy_05_tech.png",
         budgetSource: "產學志工講師支援 ＋ 社會局銀髮創新方案",
         budgetSub: "<span class=\"hl-keyword\">完全不會用到</span>明德里 88 萬基層款",
         budgetDesc: "",
@@ -136,7 +136,7 @@ const POLICIES_DATA = [
         categoryName: "專業治理與精準服務",
         title: "公費緊急救援 ＋ 獨老居家暖心守護",
         subtitle: "對接衛福部 62.5 億專案，獨老與雙老同住皆可申請！建立 24 小時公費防跌守護網，為三明治世代守住全家平安！",
-        image: "images/policy_07_health.png?v=25.05",
+        image: "images/policy_06_health.png?v=25.06",
         badgePosition: "bottom-left",
         budgetSource: "衛福部 62.5 億獨老專案 ＋ 長照 2.0 專款",
         budgetSub: "<span class=\"hl-keyword\">完全不會用到</span>明德里 88 萬基層款",
@@ -159,7 +159,7 @@ const POLICIES_DATA = [
         categoryName: "專業治理與長照支持",
         title: "預防失智 App ＋ AI樂齡趣味營",
         subtitle: "自研 1 至 50 健腦遊戲每天動態預警，結合 AI 短劇與老照片修復，全方位延緩大腦退化！",
-        image: "images/policy_08_brain.png?v=22.03",
+        image: "images/policy_07_brain.png?v=25.06",
         budgetSource: "失智友善社區專案 ＋ 長者健康促進補助",
         budgetSub: "<span class=\"hl-keyword\">完全不會用到</span>明德里 88 萬基層款",
         budgetDesc: "",
@@ -181,7 +181,7 @@ const POLICIES_DATA = [
         categoryName: "健康樂齡與活力共融",
         title: "銀髮共餐2.0 ＋ 全民灶咖",
         subtitle: "用餐前、後志工帶領趣味小遊戲，全民灶咖發揮創意，重拾親子與鄰里情感！",
-        image: "images/policy_13_dining.png?v=20260830_2",
+        image: "images/policy_08_dining.png?v=25.06",
         budgetSource: "社會局銀髮共餐專案 ＋ 志願服務專款",
         budgetSub: "<span class=\"hl-keyword\">完全不會用到</span>明德里 88 萬基層款",
         budgetDesc: "",
@@ -203,7 +203,7 @@ const POLICIES_DATA = [
         categoryName: "專業治理與精準服務",
         title: "管委會法律諮詢 ＋ 鄰里和諧溝通平台",
         subtitle: "10 年管委會主委實務，顧問律師公益諮詢，理性調解漏水、噪音與規約糾紛！",
-        image: "images/policy_10_harmony.png?v=22.03",
+        image: "images/policy_09_harmony.png?v=25.06",
         budgetSource: "競選顧問律師群 ＋ 調解志工公益支援",
         budgetSub: "<span class=\"hl-keyword\">完全不會用到</span>明德里 88 萬基層款",
         budgetDesc: "由競選團隊顧問律師與 10 年管委會實務志工公益服務，零公帑支出，以法理情守護居住權益。",
@@ -225,7 +225,7 @@ const POLICIES_DATA = [
         categoryName: "生活美學與未來教育",
         title: "明德斜槓導師 ＋ 鄰里達人展演舞台",
         subtitle: "釋放市民活動中心免租金場地，發掘故事媽媽、手作、AI剪輯與音樂達人開班開課！",
-        image: "images/policy_12_mentor.png",
+        image: "images/policy_10_mentor.png?v=25.06",
         budgetSource: "青年創育與社區互助人才培力專案",
         budgetSub: "<span class=\"hl-keyword\">完全不會用到</span>明德里 88 萬基層款",
         budgetDesc: "善用公有場地免租金機制，對接社造人才補助，以極低成本搭建展演舞台，形成鄰里互助生態。",
@@ -245,7 +245,7 @@ const POLICIES_DATA = [
         id: 11,
         title: "長青傳統課程 ＋ 流行音樂共演升級",
         subtitle: "太鼓與舞蹈班100%安心延續，融入流行樂團改編節奏，祖孫同台公演讓全家搶著拍照錄影！",
-        image: "images/policy_06_upgrade.png?v=22.03",
+        image: "images/policy_11_upgrade.png?v=25.06",
         badgePosition: "bottom-left",
         budgetSource: "明德里基層工作經費 ＋ 流行音樂師資協作",
         budgetSub: "每年近百萬法定基層款依法支應（零額外自費）",
@@ -269,7 +269,7 @@ const POLICIES_DATA = [
         title: "食用廢油變黃金 ＋ 環保生活循環經濟",
         displayTitle: `食用廢油變黃金 ＋ <span class=\"policy-title-glow-green\">環保生活循環經濟</span>`,
         subtitle: "對接手工皂協會解決廚房廢油堵塞惡臭，剩油直接兌換熟成家事皂，守護下水道！",
-        image: "images/policy_15_soap.png",
+        image: "images/policy_12_soap.png?v=25.06",
         budgetSource: "環保局低碳社區專案 ＋ 環保志工教育補助",
         budgetSub: "<span class=\"hl-keyword\">完全不會用到</span>明德里 88 萬基層款",
         budgetDesc: "每季開辦工作坊，全額由環保局低碳專案補助講師與耗材，把廢油變黃金，不排擠基層款。",
@@ -291,7 +291,7 @@ const POLICIES_DATA = [
         categoryName: "空間活化與美學生活",
         title: "市民活動中心活化 ＋ 全齡共享共學角",
         subtitle: "落實「增量不取代」，開放平日夜間與假日共享空間，自習、桌遊與文化交流新聚落！",
-        image: "images/policy_09_lounge.png",
+        image: "images/policy_13_lounge.png?v=25.06",
         budgetSource: "市民活動中心活化專案 ＋ 明德里基層款",
         budgetSub: "公有空間專案活化（零額外自費）",
         budgetDesc: "運用公有設施既有空間，以活化專案補助與里基層款常態支應，零負擔落實全齡共享。",
@@ -311,7 +311,7 @@ const POLICIES_DATA = [
         id: 14,
         title: "樂利EQ志工扎根 ＋ 全齡家庭情緒共學",
         subtitle: "8 年國小志工組長帶領團隊，每季定期開辦情緒共學工作坊，陪伴跨世代家庭和諧溝通！",
-        image: "images/policy_02_eq_1.png",
+        image: "images/policy_14_eq_1.png",
         budgetSource: "教育部家庭教育專案 ＋ 校里跨域合作",
         budgetSub: "<span class=\"hl-keyword\">完全不會用到</span>明德里 88 萬基層款",
         budgetDesc: "結合 8 年樂利國小 EQ 志工組長團隊師資，免費借用校園空間並對接教育部專案全額補助，零公帑開辦。",
@@ -333,7 +333,7 @@ const POLICIES_DATA = [
         categoryName: "空間活化與美學生活",
         title: "明德公園寵物友善 ＋ 乾淨衛生雙贏共享",
         subtitle: "爭取設置寵物便攜袋補充站與友善繫留區，兼顧公園整潔衛生與毛小孩活動權益！",
-        image: "images/policy_11_pet.png",
+        image: "images/policy_15_pet.png?v=25.06",
         budgetSource: "明德里基層工作經費 ＋ 動保處推廣專案",
         budgetSub: "每年近百萬法定基層款依法支應（每座僅千餘元）",
         budgetDesc: "便攜袋補充站由里基層款支應（經濟實惠），並結合動保處宣導品與志工維護，乾淨衛生。",
@@ -796,10 +796,10 @@ function renderPolicies() {
             imageHtml = `
                 <div class="before-after-slider card-slider-3" onclick="event.stopPropagation()">
                     <div class="slider-image-before">
-                        <img src="images/policy_04_safety_1_wide.jpg" alt="現況：人行道標線磨損補丁（實地現況）">
+                        <img src="images/policy_03_safety_1_wide.jpg" alt="現況：人行道標線磨損補丁（實地現況）">
                     </div>
                     <div class="slider-image-after" id="card-slider-image-after-3">
-                        <img src="images/policy_04_safety_2_wide.png" alt="願景：防滑平整友善人行步道 - 概念示意圖">
+                        <img src="images/policy_03_safety_2_wide.png" alt="願景：防滑平整友善人行步道 - 概念示意圖">
                     </div>
                     <input type="range" min="0" max="100" value="50" class="slider-range" id="card-slider-range-3" aria-label="Before/After 拖拽滑塊對比" onclick="event.stopPropagation()">
                     <div class="slider-line" id="card-slider-line-3"></div>
@@ -998,15 +998,15 @@ function openDrawer(policyId) {
             drawerImgWrapper.style.display = 'block';
             drawerImgWrapper.innerHTML = `
                 <div style="position: relative; margin-bottom: 1.5rem; border-radius: 12px; overflow: hidden; border: 1px solid var(--card-border);">
-                    <img class="drawer-image" src="images/policy_02_eq_3.png" alt="${policy.title} 概念示意圖 - 概念示意圖">
+                    <img class="drawer-image" src="images/policy_14_eq_3.png" alt="${policy.title} 概念示意圖 - 概念示意圖">
                     <span class="vision-badge">概念示意圖</span>
                 </div>
                 <div style="position: relative; margin-bottom: 1.5rem; border-radius: 12px; overflow: hidden; border: 1px solid var(--card-border);">
-                    <img class="drawer-image" src="images/policy_02_eq_2.png" alt="${policy.title} 概念示意圖 - 概念示意圖">
+                    <img class="drawer-image" src="images/policy_14_eq_2.png" alt="${policy.title} 概念示意圖 - 概念示意圖">
                     <span class="vision-badge">概念示意圖</span>
                 </div>
                 <div style="position: relative; border-radius: 12px; overflow: hidden; border: 1px solid var(--card-border);">
-                    <img class="drawer-image" src="images/policy_02_eq_1.png" alt="${policy.title} 概念示意圖 - 概念示意圖">
+                    <img class="drawer-image" src="images/policy_14_eq_1.png" alt="${policy.title} 概念示意圖 - 概念示意圖">
                     <span class="vision-badge">概念示意圖</span>
                 </div>
             `;
@@ -1016,10 +1016,10 @@ function openDrawer(policyId) {
             drawerImgWrapper.innerHTML = `
                 <div class="before-after-slider">
                     <div class="slider-image-before">
-                        <img src="images/policy_04_safety_1_wide.jpg" alt="現況：人行道標線磨損補丁（實地現況）">
+                        <img src="images/policy_03_safety_1_wide.jpg" alt="現況：人行道標線磨損補丁（實地現況）">
                     </div>
                     <div class="slider-image-after" id="slider-image-after">
-                        <img src="images/policy_04_safety_2_wide.png" alt="願景：防滑平整友善人行步道 - 概念示意圖">
+                        <img src="images/policy_03_safety_2_wide.png" alt="願景：防滑平整友善人行步道 - 概念示意圖">
                     </div>
                     <input type="range" min="0" max="100" value="50" class="slider-range" id="slider-range" aria-label="Before/After 拖拽滑塊對比">
                     <div class="slider-line" id="slider-line"></div>
