@@ -178,23 +178,23 @@ const POLICIES_DATA = [
         id: 8,
         category: "governance",
         categoryName: "健康樂齡與活力共融",
-        title: "銀髮共餐 ＋ 全民灶咖跨世代同樂",
-        subtitle: "餐前趣味動腦尋寶，鄰里一人一菜週末共享廚房，青銀共煮告別枯燥看電視！",
+        title: "銀髮共餐2.0 ＋ 全民灶咖",
+        subtitle: "用餐前、後志工帶領趣味小遊戲，全民灶咖發揮創意，重拾親子與鄰里情感！",
         image: "images/policy_13_dining.png?v=20260830_2",
         budgetSource: "社會局銀髮共餐專案 ＋ 志願服務專款",
         budgetSub: "<span class=\"hl-keyword\">完全不會用到</span>明德里 88 萬基層款",
-        budgetDesc: "食材由社會局專款專用核銷；動腦教材與志工四大保障由專案支應，完全不排擠里內修繕款。",
-        highlight: "打破吃飯看電視的傳統模式！餐前引進大螢幕與趣味手腦尋寶遊戲，結合「全民灶咖一人一菜」青銀共煮共聚，打造溫暖跨世代共餐！",
+        budgetDesc: "",
+        highlight: "打破吃飯看電視的傳統模式！用餐前後志工帶領趣味小遊戲，結合全民灶咖發揮創意，重拾親子與鄰里情感！",
         icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>`,
         hooks: [
-            "傳統老人共餐常常「大家排隊領便當、坐著看電視、吃完就解散」，缺少真正的交流互動。共餐不該只是填飽肚子，更可以是鄰里情感的發酵所！<span class=\"hl-keyword\">我希望結合動腦遊戲與一人一菜</span>，讓長輩帶著笑容來、帶著朋友回家。"
+            "我希望透過<span class=\"hl-keyword\">簡單易學的小團康</span>，拉近人與人之間的距離，<span class=\"hl-keyword\">重新找回鄰里之間的笑容</span>。"
         ],
         howToDo: [
-            "導入大螢幕觸控與手腦健能遊戲，長輩邊吃邊動腦、打卡闖關，<span class=\"hl-keyword\">徹底告別枯燥甩手操與坐著看電視</span>。",
-            "開辦週末共享廚房，鼓勵年輕家庭與長輩<span class=\"hl-keyword\">「一人出一道拿手菜（Potluck）」</span>，促進青銀世代熱絡交流。",
-            "嚴格落實《志願服務法》，提供青年志工<span class=\"hl-keyword\">意外險、服務學習時數與誤餐補助</span>，建立制度化熱情服務團隊。"
+            "銀髮共餐 2.0 將透過<span class=\"hl-keyword\">簡單易學的小團康或手機小遊戲</span>，讓長輩除了吃飽、還能動手與動腦，<span class=\"hl-keyword\">徹底告別甩手操的枯燥感</span>。",
+            "<span class=\"hl-keyword\">全民灶咖</span>更是將參與年齡推向更廣，開辦共享廚房，鼓勵家庭共同參與，<span class=\"hl-keyword\">合併多樣化的體驗營一起舉辦</span>。",
+            "嚴格落實《志願服務法》，提供青年志工<span class=\"hl-keyword\">服務學習時數與誤餐補助</span>，建立制度化熱情服務團隊。"
         ],
-        whyPossible: "我具備 <span class=\"hl-keyword\">30 年軟體研發經驗自製互動遊戲</span>，並有 <span class=\"hl-keyword\">8 年志工團隊帶領實務</span>；我熟悉社會局專案核銷規範，<span class=\"hl-keyword\">懂得在零公款負擔下把共餐辦得有尊嚴、有笑聲</span>。"
+        whyPossible: "我具備<span class=\"hl-keyword\">豐富的體驗營與志工團隊帶領經驗</span>，熟悉社會局專案核銷規範，<span class=\"hl-keyword\">懂得讓共餐辦得熱鬧、有笑聲</span>。"
     },
     {
         id: 9,
