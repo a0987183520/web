@@ -59,7 +59,7 @@ const POLICIES_DATA = [
         icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>`,
         hookTitle: "創新",
         hooks: [
-            "<span class=\"hl-keyword\">試想你下樓就可以參加你想要的活動...</span><br>我們明德里是由 20 個大型社區所組成，我會主動與各管委會討論善用公設空間給住戶使用，<span class=\"hl-keyword\">社區出場地，我來出活動</span>，活動加倍，大家與長輩更便捷！"
+            "<span class=\"hl-keyword\">試想你下樓就可以參加你想要的活動...</span><br>我們明德里是由 20 個大型社區所組成，我會主動與各管委會討論<span class=\"hl-keyword\">善用公設空間給住戶使用</span>，活動加倍，大家與長輩更便捷！"
         ],
         howToDo: [
             "<span class=\"hl-keyword\">想要什麼活動、你做主</span>，手機簡單提案，隨時可報名，熱門先辦，告別一言堂的黑箱蚊子活動！"
@@ -105,7 +105,7 @@ const POLICIES_DATA = [
         ],
         howToDo: [
             "推動學府與明德路口、海山與明德路口白天<span class=\"hl-keyword\">「行人專用號誌」</span>，徹底人車分流，根除轉彎車卡死動線的塞車主因！",
-            "建置<span class=\"hl-keyword\">「全廊道動態綠波」</span>，直行一路綠燈暢行無阻，告別走走停停！"
+            "建置<span class=\"hl-keyword\">「全廊道動態綠波」</span>，直行一路綠燈暢通！"
         ],
         whyPossible: "運用我<span class=\"hl-keyword\">資工專長</span>，以車流數據向交通局爭取會勘，<span class=\"hl-keyword\">精準解讀車流流量與號誌週期邏輯</span>；在市府交通會勘中，直接拿出<span class=\"hl-keyword\">科學數據</span>與交通局交控中心專業對話，為明德里爭取最有感、最順暢的交通升級！"
     },
