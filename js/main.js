@@ -94,7 +94,7 @@ const POLICIES_DATA = [
         categoryName: "人本交通與智慧安防",
         title: "智慧交通號誌 ＋ 解決塞車問題",
         subtitle: "海山、學府、學士路口紅綠燈不同步，爭取動態綠波與行人專用時相，告別塞車！",
-        image: "images/policy_04_traffic.png",
+        image: "images/policy_04_traffic.png?v=26.00",
         budgetSource: "交通局交控專案 ＋ 行人友善改善計畫",
         budgetSub: "<span class=\"hl-keyword\">完全不會用到</span>明德里 88 萬基層款",
         budgetDesc: "",
@@ -1052,7 +1052,7 @@ function openDrawer(policyId) {
             drawerImgWrapper.innerHTML = `
                 <div style="margin-bottom: 1.25rem; border-radius: 14px; overflow: hidden; border: 1px solid var(--card-border); background: var(--card-bg, #fff); box-shadow: 0 4px 16px rgba(0,0,0,0.12);">
                     <div style="position: relative;">
-                        <img class="drawer-image" src="images/policy_04_traffic_real.jpg" alt="現場實況：海山學府路口號誌不同步，車卡路中央" style="width: 100%; display: block; object-fit: cover;">
+                        <img class="drawer-image" src="images/policy_04_traffic_real.jpg?v=26.00" alt="現場實況：海山學府路口號誌不同步，車卡路中央" style="width: 100%; display: block; object-fit: cover;">
                         <span class="vision-badge" style="background: rgba(220, 38, 38, 0.88); color: #fff; border: 1px solid rgba(255, 255, 255, 0.4); text-shadow: 0 1px 2px rgba(0,0,0,0.6);">現場痛點實況</span>
                     </div>
                     <div style="padding: 10px 14px; background: rgba(239, 68, 68, 0.08); border-top: 1px solid rgba(239, 68, 68, 0.2); font-size: 0.92rem; font-weight: 600; color: #dc2626; line-height: 1.4; text-align: center; letter-spacing: 0.02em;">
