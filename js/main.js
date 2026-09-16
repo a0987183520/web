@@ -107,7 +107,7 @@ const POLICIES_DATA = [
             "推動學府與明德路口、海山與明德路口白天<span class=\"hl-keyword\">「行人專用號誌」</span>，徹底人車分流，根除轉彎車卡死動線的塞車主因！",
             "建置<span class=\"hl-keyword\">「全廊道動態綠波」</span>，直行一路綠燈暢通！"
         ],
-        whyPossible: "運用我<span class=\"hl-keyword\">資工專長</span>，以車流數據向交通局爭取會勘，<span class=\"hl-keyword\">精準解讀車流流量與號誌週期邏輯</span>；在市府交通會勘中，直接拿出<span class=\"hl-keyword\">科學數據</span>與交通局交控中心專業對話，為明德里爭取最有感、最順暢的交通升級！"
+        whyPossible: "運用我<span class=\"hl-keyword\">資工專長</span>，以車流數據向交通局爭取會勘，<span class=\"hl-keyword\">精準解讀車流流量與號誌週期邏輯</span>！"
     },
     {
         id: 5,
