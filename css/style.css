@@ -2354,6 +2354,20 @@ footer {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
 }
 
+.vision-badge-bottom-left {
+    top: auto !important;
+    bottom: 12px !important;
+    right: auto !important;
+    left: 12px !important;
+}
+
+.vision-badge-bottom-right {
+    top: auto !important;
+    bottom: 12px !important;
+    left: auto !important;
+    right: 12px !important;
+}
+
 /* ==========================================================================
    兩行置中導覽列與標題徽章
    ========================================================================== */

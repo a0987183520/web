@@ -158,7 +158,7 @@ const POLICIES_DATA = [
         categoryName: "專業治理與長照支持",
         title: "預防失智 App ＋ AI樂齡趣味營",
         subtitle: "自研 1 至 50 健腦遊戲每天動態預警，結合 AI 短劇與老照片修復，全方位延緩大腦退化！",
-        image: "images/policy_08_brain.png",
+        image: "images/policy_08_brain.png?v=22.03",
         budgetSource: "失智友善社區專案 ＋ 長者健康促進補助",
         budgetSub: "<span class=\"hl-keyword\">完全不會用到</span>明德里 88 萬基層款",
         budgetDesc: "",
@@ -202,7 +202,7 @@ const POLICIES_DATA = [
         categoryName: "專業治理與精準服務",
         title: "管委會法律諮詢 ＋ 鄰里和諧溝通平台",
         subtitle: "10 年管委會主委實務，顧問律師公益諮詢，理性調解漏水、噪音與規約糾紛！",
-        image: "images/policy_10_harmony.png",
+        image: "images/policy_10_harmony.png?v=22.03",
         budgetSource: "競選顧問律師群 ＋ 調解志工公益支援",
         budgetSub: "<span class=\"hl-keyword\">完全不會用到</span>明德里 88 萬基層款",
         budgetDesc: "由競選團隊顧問律師與 10 年管委會實務志工公益服務，零公帑支出，以法理情守護居住權益。",
@@ -244,7 +244,8 @@ const POLICIES_DATA = [
         id: 11,
         title: "長青傳統課程 ＋ 流行音樂共演升級",
         subtitle: "太鼓與舞蹈班100%安心延續，融入流行樂團改編節奏，祖孫同台公演讓全家搶著拍照錄影！",
-        image: "images/policy_06_upgrade.png",
+        image: "images/policy_06_upgrade.png?v=22.03",
+        badgePosition: "bottom-left",
         budgetSource: "明德里基層工作經費 ＋ 流行音樂師資協作",
         budgetSub: "每年近百萬法定基層款依法支應（零額外自費）",
         budgetDesc: "善用既有場地與基層款常態維護，結合候選人音樂圈師資人脈協同教學，發揮最大綜效。",
@@ -807,9 +808,10 @@ function renderPolicies() {
                 </div>
             `;
         } else {
+            const badgeClass = policy.badgePosition ? `vision-badge vision-badge-${policy.badgePosition}` : 'vision-badge';
             imageHtml = `
                 <img class="policy-card-image" src="${policy.image}" alt="${policy.title} - 概念示意圖" onerror="this.style.display='none'; if(this.nextElementSibling) this.nextElementSibling.style.display='none'; this.parentElement.querySelector('.policy-card-image-placeholder').style.display='flex';">
-                <span class="vision-badge">概念示意圖</span>
+                <span class="${badgeClass}">概念示意圖</span>
                 <div class="policy-card-image-placeholder" style="display: none;">
                     <div class="placeholder-icon">${policy.icon}</div>
                     <span class="placeholder-text">示意圖繪製中</span>
@@ -1045,10 +1047,11 @@ function openDrawer(policyId) {
             }
         } else {
             // 其他一般計畫渲染單張圖
+            const badgeClass = policy.badgePosition ? `vision-badge vision-badge-${policy.badgePosition}` : 'vision-badge';
             drawerImgWrapper.innerHTML = `
                 <div style="position: relative; border-radius: 16px; overflow: hidden; border: 1px solid var(--card-border);">
                     <img class="drawer-image" src="${policy.image}" alt="${policy.title} - 概念示意圖" onerror="this.closest('#drawer-image-wrapper').style.display='none';" onload="this.closest('#drawer-image-wrapper').style.display='block';">
-                    <span class="vision-badge">概念示意圖</span>
+                    <span class="${badgeClass}">概念示意圖</span>
                 </div>
             `;
         }
