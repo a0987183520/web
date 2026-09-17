@@ -188,14 +188,14 @@ const POLICIES_DATA = [
         highlight: "打破吃飯看電視的傳統模式！用餐前後志工帶領趣味小遊戲，結合全民灶咖發揮創意，重拾親子與鄰里情感！",
         icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>`,
         hooks: [
-            "我希望透過<span class=\"hl-keyword\">簡單易學的小團康</span>，拉近人與人之間的距離，<span class=\"hl-keyword\">重新找回鄰里之間的笑容</span>。"
+            "我希望透過<span class=\"hl-keyword\">簡單有趣的小團康</span>，拉近人與人之間的距離，<span class=\"hl-keyword\">重新找回鄰里之間的笑容</span>。"
         ],
         howToDo: [
-            "銀髮共餐 2.0 將透過<span class=\"hl-keyword\">簡單易學的小團康或手機小遊戲</span>，讓長輩除了吃飽、還能動手與動腦，<span class=\"hl-keyword\">徹底告別甩手操的枯燥感</span>。",
-            "<span class=\"hl-keyword\">全民灶咖</span>更是將參與年齡推向更廣，開辦共享廚房，鼓勵家庭共同參與，<span class=\"hl-keyword\">合併多樣化的體驗營一起舉辦</span>。",
+            "銀髮共餐 2.0 將透過<span class=\"hl-keyword\">有趣小遊戲</span>，讓長輩除了吃飽、還能<span class=\"hl-keyword\">手腦並用的歡笑</span>，<span class=\"hl-keyword\">徹底告別甩手操的枯燥感</span>。",
+            "<span class=\"hl-keyword\">全民灶咖</span>更是將參與年齡推向更廣，開辦共享廚房，鼓勵家庭共同參與，<span class=\"hl-keyword\">合併熱門的體驗營一起舉辦</span>。",
             "嚴格落實《志願服務法》，提供青年志工<span class=\"hl-keyword\">服務學習時數與誤餐補助</span>，建立制度化熱情服務團隊。"
         ],
-        whyPossible: "我具備<span class=\"hl-keyword\">豐富的體驗營與志工團隊帶領經驗</span>，熟悉社會局專案核銷規範，<span class=\"hl-keyword\">懂得讓共餐辦得熱鬧、有笑聲</span>。"
+        whyPossible: "我具備<span class=\"hl-keyword\">豐富的體驗營與團康帶領經驗</span>，熟悉政府專案核銷規範，<span class=\"hl-keyword\">懂得讓共餐辦得熱鬧、有笑聲</span>。"
     },
     {
         id: 9,
