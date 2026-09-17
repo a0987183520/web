@@ -21,22 +21,20 @@
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>2026孔雀二期中秋晚會 ‧ 報名統計與籌辦檢討報告</title>
+  <title>2026孔雀二期中秋晚會 ‧ 報名統計與籌辦檢討</title>
 
-  <meta name="description" content="2026孔雀王朝二期中秋聯歡晚會報名意願去識別化統計與管委會籌辦策進檢討報告。">
   <meta name="robots" content="noindex, nofollow">
 
   <style>
     :root {
       --bg-dark: #0a0f1d;
-      --bg-card: rgba(22, 32, 54, 0.85);
-      --bg-card-inner: rgba(15, 23, 42, 0.7);
+      --bg-card: rgba(22, 32, 54, 0.9);
+      --bg-card-inner: rgba(15, 23, 42, 0.75);
       --border-color: rgba(245, 158, 11, 0.25);
       --border-gold: #f59e0b;
       --gold-gradient: linear-gradient(135deg, #fbbf24 0%, #f59e0b 50%, #d97706 100%);
-      --gold-glow: 0 0 20px rgba(245, 158, 11, 0.3);
       --text-main: #f8fafc;
-      --text-muted: #94a3b8;
+      --text-muted: #a0aec0;
       --text-gold: #fde68a;
       --accent-blue: #38bdf8;
       --accent-green: #34d399;
@@ -45,7 +43,6 @@
       --radius-sm: 8px;
       --radius-md: 14px;
       --radius-lg: 20px;
-      --shadow-card: 0 12px 32px rgba(0, 0, 0, 0.45);
     }
 
     * {
@@ -60,133 +57,82 @@
       background-color: var(--bg-dark);
       background-image: 
         radial-gradient(circle at 50% 0%, rgba(245, 158, 11, 0.12) 0%, transparent 60%),
-        radial-gradient(circle at 90% 90%, rgba(56, 189, 248, 0.08) 0%, transparent 50%),
-        radial-gradient(circle at 10% 40%, rgba(217, 119, 6, 0.08) 0%, transparent 40%);
+        radial-gradient(circle at 90% 90%, rgba(56, 189, 248, 0.08) 0%, transparent 50%);
       color: var(--text-main);
       line-height: 1.6;
-      padding-bottom: 70px;
+      padding-bottom: 50px;
       min-height: 100vh;
     }
 
     .container {
-      max-width: 960px;
+      max-width: 900px;
       margin: 0 auto;
-      padding: 20px 16px;
+      padding: 24px 16px;
     }
 
-    /* 頂部導航列 */
-    header.top-header {
-      background: rgba(10, 15, 29, 0.94);
-      backdrop-filter: blur(14px);
-      border-bottom: 1px solid rgba(245, 158, 11, 0.3);
-      padding: 16px 20px;
-      position: sticky;
-      top: 0;
-      z-index: 100;
+    /* 頂部標題 */
+    header.page-header {
+      text-align: center;
+      padding-bottom: 20px;
+      margin-bottom: 20px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
 
-    .header-content {
-      max-width: 960px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .header-title-wrap h1 {
-      font-size: 1.25rem;
-      font-weight: 800;
+    .header-main-title {
+      font-size: 1.6rem;
+      font-weight: 900;
       color: #ffffff;
       letter-spacing: 0.5px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
+      margin-bottom: 6px;
     }
 
-    .header-sub {
-      font-size: 0.82rem;
+    .header-sub-info {
+      font-size: 0.95rem;
       color: var(--text-muted);
-      margin-top: 2px;
     }
 
-    .header-actions {
-      display: flex;
-      gap: 8px;
-    }
-
-    .btn-action {
-      background: rgba(245, 158, 11, 0.15);
-      border: 1px solid var(--border-gold);
-      color: var(--text-gold);
-      font-size: 0.85rem;
-      font-weight: 600;
-      padding: 6px 12px;
-      border-radius: var(--radius-sm);
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      transition: all 0.2s ease;
-      white-space: nowrap;
-    }
-
-    .btn-action:hover {
-      background: var(--gold-gradient);
-      color: #000;
-      box-shadow: var(--gold-glow);
-    }
-
-    /* 狀態告示卡 */
+    /* 精簡狀態橫幅：單一明確結論 */
     .status-banner {
-      background: linear-gradient(135deg, rgba(239, 68, 68, 0.15), rgba(245, 158, 11, 0.12));
-      border: 1px solid rgba(239, 68, 68, 0.4);
+      background: linear-gradient(135deg, rgba(239, 68, 68, 0.2), rgba(245, 158, 11, 0.15));
+      border: 1.5px solid rgba(239, 68, 68, 0.5);
       border-radius: var(--radius-md);
-      padding: 18px 20px;
+      padding: 16px 20px;
       margin-bottom: 24px;
       display: flex;
-      align-items: flex-start;
-      gap: 16px;
+      align-items: center;
+      gap: 14px;
     }
 
     .status-badge {
       background: #ef4444;
       color: #ffffff;
-      font-size: 0.85rem;
+      font-size: 0.95rem;
       font-weight: 800;
-      padding: 4px 10px;
+      padding: 4px 12px;
       border-radius: 6px;
-      letter-spacing: 1px;
       flex-shrink: 0;
-      margin-top: 2px;
     }
 
-    .status-text h2 {
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: #fecaca;
-      margin-bottom: 4px;
+    .status-title {
+      font-size: 1.22rem;
+      font-weight: 800;
+      color: #fee2e2;
+      line-height: 1.4;
     }
 
-    .status-text p {
-      font-size: 0.9rem;
-      color: #cbd5e1;
-      line-height: 1.5;
-    }
-
-    /* 核心指標 KPI 區塊 */
+    /* 核心 KPI 卡片（大字體） */
     .kpi-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 14px;
-      margin-bottom: 28px;
+      margin-bottom: 26px;
     }
 
     .kpi-card {
       background: var(--bg-card);
-      border: 1px solid rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.1);
       border-radius: var(--radius-md);
-      padding: 16px;
+      padding: 18px 12px;
       text-align: center;
       position: relative;
       overflow: hidden;
@@ -198,75 +144,53 @@
       top: 0;
       left: 0;
       right: 0;
-      height: 3px;
+      height: 4px;
       background: var(--gold-gradient);
     }
 
     .kpi-title {
-      font-size: 0.82rem;
+      font-size: 0.92rem;
       color: var(--text-muted);
-      font-weight: 500;
+      font-weight: 600;
       margin-bottom: 6px;
     }
 
     .kpi-value {
-      font-size: 1.85rem;
+      font-size: 2.1rem;
       font-weight: 900;
       color: #ffffff;
       line-height: 1.1;
-      margin-bottom: 4px;
     }
 
     .kpi-value span {
-      font-size: 0.9rem;
-      font-weight: 500;
+      font-size: 1.05rem;
+      font-weight: 600;
       color: var(--text-gold);
       margin-left: 2px;
     }
 
-    .kpi-desc {
-      font-size: 0.78rem;
-      color: #94a3b8;
-    }
-
-    /* 區塊標準外框 */
+    /* 區塊容器 */
     .section-box {
       background: var(--bg-card);
       border: 1px solid rgba(255, 255, 255, 0.08);
       border-radius: var(--radius-lg);
-      padding: 24px;
-      margin-bottom: 28px;
-      box-shadow: var(--shadow-card);
-    }
-
-    .section-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-      padding-bottom: 14px;
-      margin-bottom: 18px;
+      padding: 22px;
+      margin-bottom: 24px;
     }
 
     .section-title {
-      font-size: 1.15rem;
+      font-size: 1.25rem;
       font-weight: 800;
       color: #ffffff;
+      margin-bottom: 18px;
       display: flex;
       align-items: center;
       gap: 8px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding-bottom: 12px;
     }
 
-    .section-tag {
-      font-size: 0.75rem;
-      padding: 3px 8px;
-      border-radius: 4px;
-      background: rgba(56, 189, 248, 0.15);
-      color: var(--accent-blue);
-      border: 1px solid rgba(56, 189, 248, 0.3);
-    }
-
-    /* 去識別化資料清單卡片 */
+    /* 去識別化清單（字體加大、去掉多餘標籤） */
     .household-list {
       display: flex;
       flex-direction: column;
@@ -275,72 +199,57 @@
 
     .household-card {
       background: var(--bg-card-inner);
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      border-left: 4px solid var(--border-gold);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-left: 5px solid var(--border-gold);
       border-radius: var(--radius-sm);
-      padding: 16px 18px;
-      transition: all 0.2s ease;
-    }
-
-    .household-card:hover {
-      border-color: rgba(245, 158, 11, 0.4);
-      background: rgba(22, 30, 49, 0.95);
+      padding: 18px 20px;
     }
 
     .card-top {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
     }
 
-    .household-badge {
-      font-size: 1.05rem;
-      font-weight: 800;
-      color: #ffffff;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .household-badge .unit-tag {
+    .unit-tag {
       background: var(--gold-gradient);
       color: #000;
-      font-size: 0.78rem;
-      font-weight: 800;
-      padding: 2px 8px;
-      border-radius: 4px;
+      font-size: 1.05rem;
+      font-weight: 900;
+      padding: 3px 12px;
+      border-radius: 6px;
+      letter-spacing: 0.5px;
     }
 
     .reg-meta {
-      font-size: 0.8rem;
+      font-size: 0.88rem;
       color: var(--text-muted);
     }
 
     .card-meta-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-      gap: 10px;
-      margin-bottom: 12px;
-      background: rgba(0, 0, 0, 0.2);
-      padding: 10px 14px;
-      border-radius: 6px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-bottom: 14px;
+      background: rgba(0, 0, 0, 0.25);
+      padding: 12px 16px;
+      border-radius: 8px;
     }
 
     .meta-item {
-      font-size: 0.85rem;
+      font-size: 1rem;
     }
 
     .meta-label {
       color: var(--text-muted);
-      margin-right: 4px;
+      font-size: 0.95rem;
     }
 
     .meta-val {
-      font-weight: 600;
+      font-weight: 700;
       color: #ffffff;
+      font-size: 1.05rem;
     }
 
     .meta-val.meal-self {
@@ -354,53 +263,45 @@
     .card-events {
       display: flex;
       flex-wrap: wrap;
-      gap: 6px;
+      gap: 8px;
       align-items: center;
     }
 
     .event-label {
-      font-size: 0.8rem;
+      font-size: 0.95rem;
       color: var(--text-muted);
-      margin-right: 4px;
+      font-weight: 600;
     }
 
     .event-chip {
-      font-size: 0.78rem;
-      padding: 3px 9px;
+      font-size: 0.92rem;
+      font-weight: 600;
+      padding: 5px 12px;
       border-radius: 20px;
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      color: #e2e8f0;
       display: inline-flex;
       align-items: center;
       gap: 4px;
     }
 
     .event-chip.chip-beer {
-      background: rgba(245, 158, 11, 0.15);
-      border-color: rgba(245, 158, 11, 0.35);
+      background: rgba(245, 158, 11, 0.18);
+      border: 1px solid rgba(245, 158, 11, 0.45);
       color: var(--text-gold);
     }
 
     .event-chip.chip-app {
-      background: rgba(56, 189, 248, 0.15);
-      border-color: rgba(56, 189, 248, 0.35);
+      background: rgba(56, 189, 248, 0.18);
+      border: 1px solid rgba(56, 189, 248, 0.45);
       color: var(--accent-blue);
     }
 
     .event-chip.chip-soda {
-      background: rgba(52, 211, 153, 0.15);
-      border-color: rgba(52, 211, 153, 0.35);
+      background: rgba(52, 211, 153, 0.18);
+      border: 1px solid rgba(52, 211, 153, 0.45);
       color: var(--accent-green);
     }
 
-    .event-chip.chip-sing {
-      background: rgba(168, 85, 247, 0.15);
-      border-color: rgba(168, 85, 247, 0.35);
-      color: #d8b4fe;
-    }
-
-    /* 統計分析圖表卡片 */
+    /* 統計分析圖表（字體加大、移除洞察） */
     .analysis-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -409,187 +310,107 @@
     }
 
     .stat-box {
-      background: var(--bg-card-inner);
-      border: 1px solid rgba(255, 255, 255, 0.06);
+      background: var(--bg-card);
+      border: 1px solid rgba(255, 255, 255, 0.08);
       border-radius: var(--radius-md);
-      padding: 16px;
+      padding: 18px 20px;
     }
 
     .stat-box-title {
-      font-size: 0.95rem;
-      font-weight: 700;
+      font-size: 1.15rem;
+      font-weight: 800;
       color: #ffffff;
-      margin-bottom: 12px;
-      display: flex;
-      align-items: center;
-      gap: 6px;
+      margin-bottom: 16px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding-bottom: 10px;
     }
 
     .stat-row {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 10px;
-      font-size: 0.85rem;
+      margin-bottom: 12px;
+      font-size: 1.02rem;
+    }
+
+    .stat-row:last-child {
+      margin-bottom: 0;
     }
 
     .stat-name {
-      color: #cbd5e1;
-      display: flex;
-      align-items: center;
-      gap: 6px;
+      color: #e2e8f0;
+      font-weight: 600;
+      min-width: 140px;
     }
 
     .stat-bar-wrap {
       flex: 1;
-      margin: 0 12px;
-      background: rgba(255, 255, 255, 0.08);
-      height: 8px;
-      border-radius: 4px;
+      margin: 0 14px;
+      background: rgba(255, 255, 255, 0.1);
+      height: 10px;
+      border-radius: 5px;
       overflow: hidden;
     }
 
     .stat-bar {
       height: 100%;
-      border-radius: 4px;
+      border-radius: 5px;
     }
 
     .stat-count {
-      font-weight: 700;
+      font-weight: 800;
       color: #ffffff;
-      min-width: 45px;
+      font-size: 1.08rem;
+      min-width: 75px;
       text-align: right;
     }
 
-    /* 檢討報告重點區 */
+    /* 籌辦檢討報告（只留大標題，完全無冗長內文） */
     .review-card {
-      background: linear-gradient(180deg, rgba(22, 32, 54, 0.95) 0%, rgba(15, 23, 42, 0.98) 100%);
-      border: 1px solid rgba(245, 158, 11, 0.25);
+      background: var(--bg-card);
+      border: 1px solid rgba(245, 158, 11, 0.3);
       border-radius: var(--radius-lg);
-      padding: 24px;
-      margin-bottom: 28px;
+      padding: 22px;
     }
 
-    .review-point {
-      margin-bottom: 20px;
-      padding-bottom: 18px;
-      border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+    .review-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 14px 16px;
+      background: var(--bg-card-inner);
+      border-radius: var(--radius-sm);
+      margin-bottom: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
     }
 
-    .review-point:last-child {
+    .review-item:last-child {
       margin-bottom: 0;
-      padding-bottom: 0;
-      border-bottom: none;
     }
 
-    .point-tag-title {
-      font-size: 1.05rem;
-      font-weight: 800;
-      margin-bottom: 8px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
+    .review-icon {
+      font-size: 1.25rem;
+      flex-shrink: 0;
+      margin-top: 1px;
     }
 
-    .tag-danger {
-      color: #f87171;
-    }
-
-    .tag-suggest {
-      color: #38bdf8;
-    }
-
-    .tag-good {
-      color: #34d399;
-    }
-
-    .point-desc {
-      font-size: 0.92rem;
-      color: #cbd5e1;
-      line-height: 1.65;
-    }
-
-    .highlight-text {
-      color: var(--text-gold);
+    .review-title-text {
+      font-size: 1.1rem;
       font-weight: 700;
+      color: #f1f5f9;
+      line-height: 1.5;
     }
 
-    /* 底部通報文字複製盒 */
-    .copy-box {
-      background: rgba(0, 0, 0, 0.45);
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      border-radius: var(--radius-md);
-      padding: 16px;
-      margin-top: 16px;
+    .title-danger {
+      color: #fca5a5;
     }
 
-    .copy-textarea {
-      width: 100%;
-      height: 140px;
-      background: transparent;
-      border: none;
-      color: #e2e8f0;
-      font-size: 0.85rem;
-      font-family: inherit;
-      resize: none;
-      outline: none;
-      line-height: 1.6;
+    .title-suggest {
+      color: #bae6fd;
     }
 
-    /* 提示彈窗 Toast */
-    #toast {
-      position: fixed;
-      bottom: 24px;
-      left: 50%;
-      transform: translateX(-50%) translateY(100px);
-      background: #10b981;
-      color: #ffffff;
-      padding: 10px 20px;
-      border-radius: 30px;
-      font-size: 0.9rem;
-      font-weight: 700;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
-      transition: transform 0.3s cubic-bezier(0.18, 0.89, 0.32, 1.28);
-      z-index: 1000;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    #toast.show {
-      transform: translateX(-50%) translateY(0);
-    }
-
-    /* 列印友善樣式 */
-    @media print {
-      header.top-header, .header-actions, .btn-action, .copy-box, #toast {
-        display: none !important;
-      }
-      body {
-        background: #ffffff !important;
-        color: #000000 !important;
-      }
-      .container {
-        max-width: 100% !important;
-        padding: 0 !important;
-      }
-      .section-box, .kpi-card, .household-card, .review-card, .status-banner {
-        background: #ffffff !important;
-        color: #000000 !important;
-        border: 1px solid #cccccc !important;
-        box-shadow: none !important;
-      }
-      .section-title, .kpi-value, .household-badge, .point-tag-title, h1, h2 {
-        color: #000000 !important;
-      }
-      .stat-bar-wrap {
-        background: #eee !important;
-      }
-      .event-chip {
-        border: 1px solid #666 !important;
-        color: #000 !important;
-        background: #f4f4f4 !important;
-      }
+    .title-highlight {
+      color: #fde68a;
     }
 
     @media (max-width: 768px) {
@@ -599,79 +420,65 @@
       .analysis-grid {
         grid-template-columns: 1fr;
       }
-      .header-content {
-        flex-direction: column;
-        align-items: flex-start;
+      .card-meta-grid {
+        grid-template-columns: 1fr;
+        gap: 8px;
       }
-      .header-actions {
-        width: 100%;
-        justify-content: flex-end;
+      .header-main-title {
+        font-size: 1.35rem;
+      }
+      .status-title {
+        font-size: 1.05rem;
+      }
+      .stat-name {
+        min-width: 100px;
+        font-size: 0.92rem;
       }
     }
   </style>
 </head>
 <body>
 
-  <!-- 頂部標題導航列 -->
-  <header class="top-header">
-    <div class="header-content">
-      <div class="header-title-wrap">
-        <h1>🏮 2026孔雀二期中秋晚會 ‧ 報名統計與籌辦檢討報告</h1>
-        <div class="header-sub">受文對象：孔雀王朝第二期管理委員會 ｜ 彙整日期：2026年9月17日</div>
-      </div>
-      <div class="header-actions">
-        <button class="btn-action" onclick="copyLineReport()">
-          <span>📋</span> 複製群組通報文字
-        </button>
-        <button class="btn-action" onclick="window.print()">
-          <span>🖨️</span> 列印紙本 / PDF
-        </button>
-      </div>
-    </div>
-  </header>
-
   <div class="container">
 
-    <!-- 狀態橫幅：決議不予召開 -->
+    <!-- 頂部精簡標題 -->
+    <header class="page-header">
+      <h1 class="header-main-title">🏮 2026孔雀二期中秋晚會 ‧ 報名統計與籌辦檢討</h1>
+      <div class="header-sub-info">孔雀王朝第二期管理委員會 ｜ 彙整日期：2026年9月17日</div>
+    </header>
+
+    <!-- 單一精確狀態橫幅（無多餘內文） -->
     <div class="status-banner">
       <div class="status-badge">籌辦結論</div>
-      <div class="status-text">
-        <h2>本次中秋晚會報名戶數未達基本門檻，決議停辦（不成案）</h2>
-        <p>截至 2026 年 9 月 17 日報名截止，系統累計登記 5 戶（約 11 ~ 16 位住戶）。因未達社區活動舉辦基本經濟規模（食材叫料與活動外包門檻），本次晚會不予召開。以下完整呈現登記住戶熱度意願（去識別化保護隱私）與深層原因檢討，作為後續管委會辦理各類社區活動之重要參考依據。</p>
+      <div class="status-title">
+        本次中秋晚會戶數未達基本門檻 決議停辦（不成案）
       </div>
     </div>
 
-    <!-- 核心數據 KPI -->
+    <!-- 四大關鍵指標卡片 -->
     <div class="kpi-grid">
       <div class="kpi-card">
-        <div class="kpi-title">總意願登記戶數</div>
+        <div class="kpi-title">意願戶數</div>
         <div class="kpi-value">5 <span>戶</span></div>
-        <div class="kpi-desc">涵蓋 D、E、I、J 等 4 棟</div>
       </div>
       <div class="kpi-card">
-        <div class="kpi-title">預估參與總人數</div>
-        <div class="kpi-value">11~16 <span>位</span></div>
-        <div class="kpi-desc">平均每戶 2.6 位住戶</div>
+        <div class="kpi-title">預估總人數</div>
+        <div class="kpi-value">11~16 <span>人</span></div>
       </div>
       <div class="kpi-card">
-        <div class="kpi-title">自帶熟食/熟食補助偏好</div>
-        <div class="kpi-value">80 <span>%</span></div>
-        <div class="kpi-desc">共 4 戶偏好免開火熟食</div>
+        <div class="kpi-title">偏好自帶熟食</div>
+        <div class="kpi-value">4 <span>戶</span></div>
       </div>
       <div class="kpi-card">
-        <div class="kpi-title">趣味賽事參與熱度</div>
-        <div class="kpi-value">100 <span>%</span></div>
-        <div class="kpi-desc">全數登記戶均報名競賽</div>
+        <div class="kpi-title">趣味競賽參與度</div>
+        <div class="kpi-value">5 <span>戶</span></div>
       </div>
     </div>
 
-    <!-- 去識別化住戶意願名冊 -->
+    <!-- 去識別化住戶名單（字體加大、移除多餘文字） -->
     <div class="section-box">
-      <div class="section-header">
-        <div class="section-title">
-          <span>📋</span> 去識別化報名意願明細清單
-        </div>
-        <span class="section-tag">去識別化隱私保護 ‧ 僅列棟別樓層</span>
+      <div class="section-title">
+        <span>📋</span> 住戶報名意願明細清單
       </div>
 
       <div class="household-list">
@@ -679,11 +486,8 @@
         <!-- 第 1 筆：E棟 5F -->
         <div class="household-card">
           <div class="card-top">
-            <div class="household-badge">
-              <span class="unit-tag">E棟 5F</span>
-              <span>住戶熱心登記</span>
-            </div>
-            <div class="reg-meta">登記時間：2026/09/11 07:51</div>
+            <span class="unit-tag">E棟 5樓</span>
+            <span class="reg-meta">登記時間：2026/09/11 07:51</span>
           </div>
           <div class="card-meta-grid">
             <div class="meta-item">
@@ -692,11 +496,11 @@
             </div>
             <div class="meta-item">
               <span class="meta-label">餐飲模式：</span>
-              <span class="meta-val meal-self">自帶熟食（申領補助）</span>
+              <span class="meta-val meal-self">自帶熟食</span>
             </div>
             <div class="meta-item">
               <span class="meta-label">星空歡唱：</span>
-              <span class="meta-val" style="color: #d8b4fe;">已登記 1 位歡唱</span>
+              <span class="meta-val" style="color: #d8b4fe;">報名 1 位唱歌</span>
             </div>
           </div>
           <div class="card-events">
@@ -709,11 +513,8 @@
         <!-- 第 2 筆：D棟 2F -->
         <div class="household-card">
           <div class="card-top">
-            <div class="household-badge">
-              <span class="unit-tag">D棟 2F</span>
-              <span>住戶熱心登記</span>
-            </div>
-            <div class="reg-meta">登記時間：2026/09/13 12:01</div>
+            <span class="unit-tag">D棟 2樓</span>
+            <span class="reg-meta">登記時間：2026/09/13 12:01</span>
           </div>
           <div class="card-meta-grid">
             <div class="meta-item">
@@ -722,11 +523,11 @@
             </div>
             <div class="meta-item">
               <span class="meta-label">餐飲模式：</span>
-              <span class="meta-val meal-self">自帶熟食（申領補助）</span>
+              <span class="meta-val meal-self">自帶熟食</span>
             </div>
             <div class="meta-item">
               <span class="meta-label">星空歡唱：</span>
-              <span class="meta-val" style="color: #d8b4fe;">已登記 1 位歡唱</span>
+              <span class="meta-val" style="color: #d8b4fe;">報名 1 位唱歌</span>
             </div>
           </div>
           <div class="card-events">
@@ -738,11 +539,8 @@
         <!-- 第 3 筆：I棟 6F -->
         <div class="household-card">
           <div class="card-top">
-            <div class="household-badge">
-              <span class="unit-tag">I棟 6F</span>
-              <span>住戶熱心登記</span>
-            </div>
-            <div class="reg-meta">登記時間：2026/09/13 20:35</div>
+            <span class="unit-tag">I棟 6樓</span>
+            <span class="reg-meta">登記時間：2026/09/13 20:35</span>
           </div>
           <div class="card-meta-grid">
             <div class="meta-item">
@@ -751,11 +549,11 @@
             </div>
             <div class="meta-item">
               <span class="meta-label">餐飲模式：</span>
-              <span class="meta-val meal-self">自帶熟食（申領補助）</span>
+              <span class="meta-val meal-self">自帶熟食</span>
             </div>
             <div class="meta-item">
               <span class="meta-label">星空歡唱：</span>
-              <span class="meta-val">不參加歡唱</span>
+              <span class="meta-val">不參加</span>
             </div>
           </div>
           <div class="card-events">
@@ -770,11 +568,8 @@
         <!-- 第 4 筆：J棟 12F -->
         <div class="household-card">
           <div class="card-top">
-            <div class="household-badge">
-              <span class="unit-tag">J棟 12F</span>
-              <span>住戶熱心登記</span>
-            </div>
-            <div class="reg-meta">登記時間：2026/09/15 18:59</div>
+            <span class="unit-tag">J棟 12樓</span>
+            <span class="reg-meta">登記時間：2026/09/15 18:59</span>
           </div>
           <div class="card-meta-grid">
             <div class="meta-item">
@@ -783,11 +578,11 @@
             </div>
             <div class="meta-item">
               <span class="meta-label">餐飲模式：</span>
-              <span class="meta-val meal-bbq">現場烤肉（開爐烤肉）</span>
+              <span class="meta-val meal-bbq">我要烤肉</span>
             </div>
             <div class="meta-item">
               <span class="meta-label">星空歡唱：</span>
-              <span class="meta-val">不參加歡唱</span>
+              <span class="meta-val">不參加</span>
             </div>
           </div>
           <div class="card-events">
@@ -800,11 +595,8 @@
         <!-- 第 5 筆：D棟 9F -->
         <div class="household-card">
           <div class="card-top">
-            <div class="household-badge">
-              <span class="unit-tag">D棟 9F</span>
-              <span>住戶熱心登記</span>
-            </div>
-            <div class="reg-meta">登記時間：2026/09/17 00:35</div>
+            <span class="unit-tag">D棟 9樓</span>
+            <span class="reg-meta">登記時間：2026/09/17 00:35</span>
           </div>
           <div class="card-meta-grid">
             <div class="meta-item">
@@ -813,11 +605,11 @@
             </div>
             <div class="meta-item">
               <span class="meta-label">餐飲模式：</span>
-              <span class="meta-val meal-self">自帶熟食（申領補助）</span>
+              <span class="meta-val meal-self">自帶熟食</span>
             </div>
             <div class="meta-item">
               <span class="meta-label">星空歡唱：</span>
-              <span class="meta-val" style="color: #d8b4fe;">已登記 1 位歡唱</span>
+              <span class="meta-val" style="color: #d8b4fe;">報名 1 位唱歌</span>
             </div>
           </div>
           <div class="card-events">
@@ -830,56 +622,53 @@
       </div>
     </div>
 
-    <!-- 統計分佈圖表 -->
+    <!-- 統計圖表（大字體、無多餘洞察文字） -->
     <div class="analysis-grid">
-      <!-- 餐飲型態分佈 -->
+      <!-- 餐飲食材分析 -->
       <div class="stat-box">
-        <div class="stat-box-title">🍽️ 餐飲食材偏好分析</div>
+        <div class="stat-box-title">🍽️ 餐飲食材分析</div>
         <div class="stat-row">
-          <div class="stat-name">自帶熟食 / 熟食補助</div>
+          <div class="stat-name">自帶熟食</div>
           <div class="stat-bar-wrap">
             <div class="stat-bar" style="width: 80%; background: var(--accent-green);"></div>
           </div>
           <div class="stat-count">4 戶 (80%)</div>
         </div>
         <div class="stat-row">
-          <div class="stat-name">現場開烤 (烤肉組)</div>
+          <div class="stat-name">我要烤肉</div>
           <div class="stat-bar-wrap">
             <div class="stat-bar" style="width: 20%; background: var(--accent-orange);"></div>
           </div>
           <div class="stat-count">1 戶 (20%)</div>
         </div>
-        <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 10px;">
-          💡 洞察：現代大樓住戶高度偏好免生火、免煙燻的熟食輕便聚餐模式。
-        </div>
       </div>
 
-      <!-- 活動項目熱度 -->
+      <!-- 參與人次統計 -->
       <div class="stat-box">
-        <div class="stat-box-title">🎯 活動項目參與人次統計</div>
+        <div class="stat-box-title">🎯 參與人次統計</div>
         <div class="stat-row">
-          <div class="stat-name">🍺 啤酒大賽 (男子/女子組)</div>
+          <div class="stat-name">🍺 啤酒大賽</div>
           <div class="stat-bar-wrap">
             <div class="stat-bar" style="width: 100%; background: var(--border-gold);"></div>
           </div>
           <div class="stat-count">5 人次</div>
         </div>
         <div class="stat-row">
-          <div class="stat-name">📱 1至50 APP (各組賽事)</div>
+          <div class="stat-name">📱 1至50 APP</div>
           <div class="stat-bar-wrap">
             <div class="stat-bar" style="width: 100%; background: var(--accent-blue);"></div>
           </div>
           <div class="stat-count">5 人次</div>
         </div>
         <div class="stat-row">
-          <div class="stat-name">🎤 星空歡唱 KTV</div>
+          <div class="stat-name">🎤 星空歡唱</div>
           <div class="stat-bar-wrap">
             <div class="stat-bar" style="width: 60%; background: #d8b4fe;"></div>
           </div>
           <div class="stat-count">3 人次</div>
         </div>
         <div class="stat-row">
-          <div class="stat-name">🥤 汽水大賽 (親子敬老組)</div>
+          <div class="stat-name">🥤 汽水大賽</div>
           <div class="stat-bar-wrap">
             <div class="stat-bar" style="width: 20%; background: var(--accent-green);"></div>
           </div>
@@ -888,120 +677,47 @@
       </div>
     </div>
 
-    <!-- 籌辦檢討報告與管委會策進建議 -->
+    <!-- 籌辦成效檢討（僅列標題，無任何贅字內文） -->
     <div class="review-card">
-      <div class="section-header" style="border-color: rgba(245, 158, 11, 0.2);">
-        <div class="section-title">
-          <span>🔍</span> 籌辦成效檢討與未來策進建議（供管委會參酌）
-        </div>
-        <span class="section-tag" style="background: rgba(245, 158, 11, 0.15); color: var(--text-gold); border-color: var(--border-gold);">關鍵反思</span>
+      <div class="section-title" style="margin-bottom: 14px;">
+        <span>🔍</span> 籌辦成效檢討
       </div>
 
-      <!-- 核心問題檢討 -->
-      <div class="review-point">
-        <div class="point-tag-title tag-danger">
-          <span>⚠️</span> 核心成因檢討：活動檔期適逢「4天中秋連續假期」，住戶行程早已排滿
-        </div>
-        <div class="point-desc">
-          多數住戶反映，本次中秋節適逢連續假期，許多家庭早在一至兩個月前即已預訂返鄉探親、出國觀光或外部家族餐廳聚會。在連假精華時間，住戶普遍<span class="highlight-text">「不希望被社區單一晚會行程拘束」</span>，導致多數住戶雖有意願卻無法配合排程，這是本次未能成案的最根本主因。
+      <!-- 核心問題 -->
+      <div class="review-item">
+        <div class="review-icon">⚠️</div>
+        <div class="review-title-text title-danger">
+          活動檔期適逢4天連假，住戶行程早已排滿
         </div>
       </div>
 
-      <!-- 策進建議一：避開連假正檔 -->
-      <div class="review-point">
-        <div class="point-tag-title tag-suggest">
-          <span>💡</span> 策進建議一：活動檔期彈性化，改於「節前一週」或「節後一週」常態週末辦理
-        </div>
-        <div class="point-desc">
-          未來管委會若欲辦理節慶聯歡或鄰里活動，<span class="highlight-text">強烈建議避開連續假期的當週</span>。建議調整至「節日前一週的星期六」或「節日後一週的星期六」辦理。在平常週末舉辦，既能營造歡樂節慶氣氛，又完全不與住戶的長假出遊行程衝突，能顯著提升住戶闔家出席率與報名規模。
+      <!-- 建議一 -->
+      <div class="review-item">
+        <div class="review-icon">💡</div>
+        <div class="review-title-text title-suggest">
+          建議一：改於節日前一週或後一週常態週末辦理
         </div>
       </div>
 
-      <!-- 策進建議二：餐飲型態精緻轉型 -->
-      <div class="review-point">
-        <div class="point-tag-title tag-suggest">
-          <span>💡</span> 策進建議二：餐飲朝向「熟食補助 / 外燴輕食」模式，減輕籌備負擔
-        </div>
-        <div class="point-desc">
-          從本次報名數據中發現，高達 80% 的意願戶選擇「自帶熟食或申請熟食補助」，僅 1 戶勾選現場烤肉。這反映出現代集合住宅住戶對「耗時生火、油煙附著、收尾清潔繁重」的現場起爐烤肉接受度降低。日後活動可規劃為「輕食茶會、熟食百匯或外燴補助」，不僅更受住戶喜愛，更能大幅節省管委會搬運爐具與清潔的龐大人力負擔。
+      <!-- 建議二 -->
+      <div class="review-item">
+        <div class="review-icon">💡</div>
+        <div class="review-title-text title-suggest">
+          建議二：以熟食補助模式為主，減輕負擔
         </div>
       </div>
 
-      <!-- 策進建議三：趣味 APP 賽事深具吸引力 -->
-      <div class="review-point">
-        <div class="point-tag-title tag-good">
-          <span>✨</span> 亮點保留：手眼協調「1至50 APP挑戰賽」與快飲賽事深獲好評
-        </div>
-        <div class="point-desc">
-          雖然本次總戶數不足，但報名的每一戶成員均跨年齡層積極登記參加「1至50 APP 數字挑戰」與快飲賽。這證明了「零門檻、跨年齡、即時刺激、具現金誘因」的微型手機競技深受青睞。未來在任何社區文康同樂活動中，此項規劃均非常適合獨立保留並常態推廣。
+      <!-- 亮點 -->
+      <div class="review-item">
+        <div class="review-icon">✨</div>
+        <div class="review-title-text title-highlight">
+          手眼協調1至50 APP挑戰賽與快飲賽事深獲好評
         </div>
       </div>
 
-    </div>
-
-    <!-- 快速通報文字複製盒 -->
-    <div class="section-box" style="margin-bottom: 0;">
-      <div class="section-header">
-        <div class="section-title">
-          <span>📱</span> 管委會 LINE 群組通報文字範本（一鍵複製）
-        </div>
-        <span class="section-tag">免編輯直接轉發</span>
-      </div>
-      <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 10px;">
-        可直接點擊下方按鈕複製，即時向管委會委員會議或主委回報本次成果與檢討：
-      </p>
-      <div class="copy-box">
-        <textarea id="lineCopyText" class="copy-textarea" readonly>【2026孔雀二期中秋晚會報名彙整與辦理檢討報告】
-各位委員好：
-本次中秋晚會報名已告一段落，去識別化意願彙整如下：
-
-一、報名現況統計：
-1. 意願登記戶數：共 5 戶（E棟5F、D棟2F、I棟6F、J棟12F、D棟9F），預估參與人數約 11~16 位。
-2. 餐飲型態：80%（4戶）偏好自帶熟食/熟食補助，20%（1戶）預計開爐烤肉。
-3. 活動項目：全數住戶皆熱情報名趣味賽事（啤酒大賽5人次、1~50 APP挑戰賽5人次、星空歡唱3人次）。
-
-二、籌辦結論：
-因報名總戶數僅 5 戶，未達預期開辦經濟規模與基本門檻，本次晚會決議停辦（不成案），不另行叫料與向住戶收費。
-
-三、深層原因檢討與策進建言：
-1. 避開連假檔期：多數住戶反映 4 天連假多已排定返鄉或出遊行程，不願被拘束在社區。未來若再辦活動，建議避開連假，調整至「節前一週」或「節後一週」的普通週末舉辦，出席率將明顯提高。
-2. 餐飲轉型輕食：多數住戶偏好熟食，未來活動可多採「輕食熟食百匯或外燴補助」，免除繁重起火與清潔負擔。
-3. 趣味APP競技亮點：1~50手眼協調賽事住戶反響極佳，未來社區各類活動可持續列為亮點項目。
-
-線上完整視覺化報表連結：
-https://a0987183520.github.io/web/mid-autumn-report.html</textarea>
-      </div>
-      <div style="margin-top: 12px; text-align: right;">
-        <button class="btn-action" onclick="copyLineReport()">
-          <span>📋</span> 點此複製上方全部文字
-        </button>
-      </div>
     </div>
 
   </div>
 
-  <div id="toast">已複製通報文字至剪貼簿！</div>
-
-  <script>
-    function copyLineReport() {
-      const textarea = document.getElementById('lineCopyText');
-      textarea.select();
-      textarea.setSelectionRange(0, 99999);
-      navigator.clipboard.writeText(textarea.value).then(function() {
-        showToast('已成功複製管委會通報文字！');
-      }).catch(function() {
-        showToast('複製失敗，請手動長按選取複製。');
-      });
-    }
-
-    function showToast(msg) {
-      const toast = document.getElementById('toast');
-      toast.innerText = msg;
-      toast.classList.add('show');
-      setTimeout(function() {
-        toast.classList.remove('show');
-      }, 2500);
-    }
-  </script>
 </body>
 </html>
