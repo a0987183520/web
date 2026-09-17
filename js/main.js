@@ -221,23 +221,23 @@ const POLICIES_DATA = [
         id: 10,
         category: "education",
         categoryName: "生活美學與未來教育",
-        title: "明德斜槓導師 ＋ 鄰里達人展演舞台",
-        subtitle: "釋放市民活動中心免租金場地，發掘故事媽媽、手作、AI剪輯與音樂達人開班開課！",
-        image: "images/policy_10_mentor.png?v=25.06",
+        title: "斜槓人才招募計畫",
+        subtitle: "故事媽媽、EQ爸爸、直排輪教練到 AI 達人，發掘身邊臥虎藏龍的鄰里才華！",
+        image: "images/policy_10_mentor.png?v=26.07",
         budgetSource: "青年創育與社區互助人才培力專案",
         budgetSub: "<span class=\"hl-keyword\">完全不會用到</span>明德里 88 萬基層款",
-        budgetDesc: "善用公有場地免租金機制，對接社造人才補助，以極低成本搭建展演舞台，形成鄰里互助生態。",
-        highlight: "招募里內故事媽媽、EQ爸爸、手工皂、AI剪輯師、獨立樂手與熱舞導師，在活動中心開辦多元工作坊。",
+        budgetDesc: "",
+        highlight: "故事媽媽、EQ爸爸、運動教練到 AI 達人，在活動中心開辦多元工作坊。",
         icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>`,
         hooks: [
-            "明德里臥虎藏龍，許多身懷絕技的故事媽媽、EQ志工、手工皂達人、AI剪輯師與獨立樂手，卻苦於沒有適當場地開班分享；而里民想學才藝，也往往找不到平價優質的管道。<span class=\"hl-keyword\">我主張打開公共空間</span>，讓鄰里的才華在社區發光！"
+            "我們身邊有許多身懷絕技的鄰居，都是社區最珍貴的寶藏。<span class=\"hl-keyword\">提供免租金舞台</span>，讓人人都能成為明德名師！"
         ],
         howToDo: [
-            "公開徵選具備才藝與教學熱忱的里民，<span class=\"hl-keyword\">建立故事、手作、科技、音樂多元師資庫</span>。",
-            "協調市民活動中心公有空間，<span class=\"hl-keyword\">提供免租金開課支援</span>，堅持公益平價與材料費透明原則。",
-            "結合草地音樂節與社區節慶，<span class=\"hl-keyword\">為斜槓導師與學員舉辦公開成果發表會</span>，讓社區看見精彩才華。"
+            "公開徵選熱忱里民，<span class=\"hl-keyword\">建立多元師資庫</span>。",
+            "結合社區微活動<span class=\"hl-keyword\">提供免租金場地</span>，堅持公益平價與費用透明。",
+            "結合草地音樂節與節慶，<span class=\"hl-keyword\">為導師與學員舉辦公開成果發表會</span>。"
         ],
-        whyPossible: "我擁有 <span class=\"hl-keyword\">20 年流行音樂產業經紀</span>與 <span class=\"hl-keyword\">8 年 EQ 志工培訓實務</span>，擅長發掘人才特質、策劃課程與大型展演；<span class=\"hl-keyword\">我懂得整合公共資源</span>，打造活力充沛的社區人才共學聚落。"
+        whyPossible: "我擁有 <span class=\"hl-keyword\">20 年流行音樂經紀</span>與 <span class=\"hl-keyword\">帶領大型志工專案的經驗</span>，擅長發掘特質、策劃課程與大型展演；<span class=\"hl-keyword\">懂得整合公有資源</span>，打造活力充沛的社區共學聚落。"
     },
     {
         id: 11,
