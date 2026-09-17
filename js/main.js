@@ -208,14 +208,14 @@ const POLICIES_DATA = [
         highlight: "分享反濫訴規約防禦條款，協助釐清公私權責界線，建立里辦中立協調窗口，守護熱心幹部與善良鄰里！",
         icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path></svg>`,
         hooks: [
-            "社區生活最怕遇到非理性糾紛或惡意濫訴，不僅耗損錢財，更讓熱心服務的住戶感到心力交瘁，<span class=\"hl-keyword\">沒人願意擔任管委會</span>；我希望用健全的規約制度守護熱心付出的人，不再讓惡意濫訴消磨鄰里熱情，<span class=\"hl-keyword\">為社區找回安心和諧的生活環境</span>。"
+            "社區生活最怕遇到<span class=\"hl-keyword\">非理性糾紛或惡意濫訴</span>，不僅<span class=\"hl-keyword\">勞民傷財</span>，更讓住戶<span class=\"hl-keyword\">沒人願意擔任管委會</span>。"
         ],
         howToDo: [
-            "與各管委會分享<span class=\"hl-keyword\">反濫訴規約條款</span>，<span class=\"hl-keyword\">避免熱心的管委會或住戶被訴訟霸凌</span>。",
+            "與各管委會分享我們的<span class=\"hl-keyword\">反濫訴規約條款成功經驗</span>，<span class=\"hl-keyword\">避免熱心的管委會或住戶被訴訟霸凌</span>。",
             "協助<span class=\"hl-keyword\">釐清公私權責界線</span>，讓問題回歸制度，<span class=\"hl-keyword\">避免無謂爭執</span>。",
             "建立<span class=\"hl-keyword\">里辦中立協調窗口</span>，協助解決生活事端。"
         ],
-        whyPossible: "我有豐富的管委會經歷與主委經驗，曾制定規約解決社區被住戶濫訴的困擾；很多紛爭來自於雙方不懂得怎麼好好說話，<span class=\"hl-keyword\">讓 EQ 講師里長來幫您們</span>！"
+        whyPossible: "我有豐富的<span class=\"hl-keyword\">主委經驗與管委會資歷</span>，曾制定規約<span class=\"hl-keyword\">解決社區被住戶濫訴的困擾</span>！很多紛爭來自於雙方不懂得怎麼好好說話，<span class=\"hl-keyword\">讓 EQ 講師里長來幫您們</span>！"
     },
     {
         id: 10,
