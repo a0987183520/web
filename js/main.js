@@ -201,23 +201,23 @@ const POLICIES_DATA = [
         id: 9,
         category: "governance",
         categoryName: "專業治理與精準服務",
-        title: "管委會法律諮詢 ＋ 鄰里和諧溝通平台",
-        subtitle: "10 年管委會主委實務，顧問律師公益諮詢，理性調解漏水、噪音與規約糾紛！",
+        title: "社區規約諮詢 ＋ 鄰里和諧溝通平台",
+        subtitle: "你們是否有遇過喜歡濫訴的鄰居，漏水責任問題，噪音如何處理？讓專業規約與EQ溝通化解紛爭！",
         image: "images/policy_09_harmony.png?v=25.09",
-        budgetSource: "競選顧問律師群 ＋ 調解志工公益支援",
+        budgetSource: "主委實務經驗傳承 ＋ 零公帑支出",
         budgetSub: "<span class=\"hl-keyword\">完全不會用到</span>明德里 88 萬基層款",
-        budgetDesc: "由競選團隊顧問律師與 10 年管委會實務志工公益服務，零公帑支出，以法理情守護居住權益。",
-        highlight: "引進法律與社區調解志工，提供鄰里噪音、騎樓占用、管道漏水與社區規約之理性溝通諮詢窗口。",
+        budgetDesc: "",
+        highlight: "分享反濫訴規約防禦條款，協助釐清公私權責界線，建立里辦中立協調窗口，守護熱心幹部與善良鄰里！",
         icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path></svg>`,
         hooks: [
-            "樓上深夜噪音、管道漏水求償無門，找里長只能「和稀泥」或勸你忍耐；遇到惡鄰濫訴或管委會糾紛，動輒數萬元的律師費讓善良住戶求助無門。明德里由 20 個大型社區組成，<span class=\"hl-keyword\">我們需要懂法規、有魄力的里長做公正靠山</span>！"
+            "社區生活最怕遇到非理性糾紛或惡意濫訴，不僅耗損錢財，更讓熱心服務的住戶感到心力交瘁，<span class=\"hl-keyword\">沒人願意擔任管委會</span>；因此我們需要真正懂規約、有經驗的里長，<span class=\"hl-keyword\">協助社區營造安定和諧的環境</span>。"
         ],
         howToDo: [
-            "定期設立法律諮詢窗口，<span class=\"hl-keyword\">協助住戶與管委會釐清《公寓大廈管理條例》</span>與漏水權責。",
-            "針對噪音、停車位與公設爭議，<span class=\"hl-keyword\">依官方標準檢測途徑提供客觀調解</span>，避免鄰里對簿公堂。",
-            "分享主委任內推動<span class=\"hl-keyword\">「防濫訴規約獲法院勝訴確定」</span>之實戰經驗，以制度守護熱心幹部與善良鄰里。"
+            "分享<span class=\"hl-keyword\">反濫訴規約條款</span>，協助各管委會檢視並增訂合規自保機制，<span class=\"hl-keyword\">避免熱心的管委會或住戶被訴訟霸凌</span>。",
+            "協助<span class=\"hl-keyword\">釐清公私權責界線</span>，讓問題回歸制度，<span class=\"hl-keyword\">避免無謂爭執</span>。",
+            "建立<span class=\"hl-keyword\">里辦中立協調窗口</span>，協助解決生活事端。"
         ],
-        whyPossible: "我擁有 <span class=\"hl-keyword\">10 年社區大廈管委會主委實戰經驗</span>，曾親自推動法治防禦規約並獲法院判決勝訴確定；<span class=\"hl-keyword\">身後有專業顧問律師群全力支持</span>，我有底氣以法、理、情替里民捍衛居住正義。"
+        whyPossible: "我擁有<span class=\"hl-keyword\">社區管委會主委的實戰經驗</span>，曾制定行為不當住戶規約解決社區濫訴的困擾；依據多年的 <span class=\"hl-keyword\">EQ 講師經歷</span>，很多誤會其實來自於彼此不懂得如何將事情講清楚而已。"
     },
     {
         id: 10,
