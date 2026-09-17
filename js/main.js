@@ -202,22 +202,20 @@ const POLICIES_DATA = [
         category: "governance",
         categoryName: "專業治理與精準服務",
         title: "社區規約諮詢 ＋ 鄰里和諧溝通平台",
-        subtitle: "你們是否有遇過喜歡濫訴的鄰居，漏水責任問題，噪音如何處理？讓專業規約與EQ溝通化解紛爭！",
+        subtitle: "你們是否有遇過喜歡濫訴的鄰居，漏水責任問題，噪音如何處理？",
         image: "images/policy_09_harmony.png?v=25.09",
-        budgetSource: "主委實務經驗傳承 ＋ 零公帑支出",
-        budgetSub: "<span class=\"hl-keyword\">完全不會用到</span>明德里 88 萬基層款",
-        budgetDesc: "",
+        hideBudget: true,
         highlight: "分享反濫訴規約防禦條款，協助釐清公私權責界線，建立里辦中立協調窗口，守護熱心幹部與善良鄰里！",
         icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path></svg>`,
         hooks: [
-            "社區生活最怕遇到非理性糾紛或惡意濫訴，不僅耗損錢財，更讓熱心服務的住戶感到心力交瘁，<span class=\"hl-keyword\">沒人願意擔任管委會</span>；因此我們需要真正懂規約、有經驗的里長，<span class=\"hl-keyword\">協助社區營造安定和諧的環境</span>。"
+            "社區生活最怕遇到非理性糾紛或惡意濫訴，不僅耗損錢財，更讓熱心服務的住戶感到心力交瘁，<span class=\"hl-keyword\">沒人願意擔任管委會</span>；我希望用健全的規約制度守護熱心付出的人，不再讓惡意濫訴消磨鄰里熱情，<span class=\"hl-keyword\">為社區找回安心和諧的生活環境</span>。"
         ],
         howToDo: [
-            "分享<span class=\"hl-keyword\">反濫訴規約條款</span>，協助各管委會檢視並增訂合規自保機制，<span class=\"hl-keyword\">避免熱心的管委會或住戶被訴訟霸凌</span>。",
+            "與各管委會分享<span class=\"hl-keyword\">反濫訴規約條款</span>，<span class=\"hl-keyword\">避免熱心的管委會或住戶被訴訟霸凌</span>。",
             "協助<span class=\"hl-keyword\">釐清公私權責界線</span>，讓問題回歸制度，<span class=\"hl-keyword\">避免無謂爭執</span>。",
             "建立<span class=\"hl-keyword\">里辦中立協調窗口</span>，協助解決生活事端。"
         ],
-        whyPossible: "我擁有<span class=\"hl-keyword\">社區管委會主委的實戰經驗</span>，曾制定行為不當住戶規約解決社區濫訴的困擾；依據多年的 <span class=\"hl-keyword\">EQ 講師經歷</span>，很多誤會其實來自於彼此不懂得如何將事情講清楚而已。"
+        whyPossible: "我有豐富的管委會經歷與主委經驗，曾制定規約解決社區被住戶濫訴的困擾；很多紛爭來自於雙方不懂得怎麼好好說話，<span class=\"hl-keyword\">讓 EQ 講師里長來幫您們</span>！"
     },
     {
         id: 10,
@@ -952,28 +950,33 @@ function openDrawer(policyId) {
     }
 
     // Populate drawer budget section
-    const budgetBadgeEl = document.getElementById('drawer-budget-badge');
-    if (budgetBadgeEl) budgetBadgeEl.innerHTML = policy.budgetSource || '明德里基層工作經費';
-    const budgetSubEl = document.getElementById('drawer-budget-sub');
-    if (budgetSubEl) {
-        let rawSub = policy.budgetSub || '';
-        if (!rawSub.includes('<')) {
-            rawSub = rawSub.replace(/^[（(]/, '').replace(/[）)]$/, '').trim();
+    const budgetBoxEl = document.getElementById('drawer-budget-box');
+    if (policy.hideBudget || (!policy.budgetSource && !policy.budgetSub)) {
+        if (budgetBoxEl) budgetBoxEl.style.display = 'none';
+    } else {
+        if (budgetBoxEl) budgetBoxEl.style.display = 'block';
+        const budgetBadgeEl = document.getElementById('drawer-budget-badge');
+        if (budgetBadgeEl) budgetBadgeEl.innerHTML = policy.budgetSource || '明德里基層工作經費';
+        const budgetSubEl = document.getElementById('drawer-budget-sub');
+        if (budgetSubEl) {
+            let rawSub = policy.budgetSub || '';
+            if (!rawSub.includes('<')) {
+                rawSub = rawSub.replace(/^[（(]/, '').replace(/[）)]$/, '').trim();
+            }
+            budgetSubEl.innerHTML = rawSub;
         }
-        budgetSubEl.innerHTML = rawSub;
-    }
-    const budgetTextEl = document.getElementById('drawer-budget-text');
-    if (budgetTextEl) {
-        if (policy.budgetDesc && policy.budgetDesc.trim()) {
-            budgetTextEl.innerHTML = policy.budgetDesc;
-            budgetTextEl.style.display = 'block';
-        } else {
-            budgetTextEl.style.display = 'none';
+        const budgetTextEl = document.getElementById('drawer-budget-text');
+        if (budgetTextEl) {
+            if (policy.budgetDesc && policy.budgetDesc.trim()) {
+                budgetTextEl.innerHTML = policy.budgetDesc;
+                budgetTextEl.style.display = 'block';
+            } else {
+                budgetTextEl.style.display = 'none';
+            }
         }
     }
 
     // Dynamic Section Ordering (支援「創新」在先或「經費」在先)
-    const budgetBoxEl = document.getElementById('drawer-budget-box');
     const howBoxEl = document.getElementById('drawer-how-box');
     const capabilityBoxEl = document.getElementById('drawer-capability-box');
     if (policy.sectionOrder === 'innovation-first') {
