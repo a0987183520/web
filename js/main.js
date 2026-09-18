@@ -223,7 +223,7 @@ const POLICIES_DATA = [
         categoryName: "生活美學與未來教育",
         title: "斜槓人才招募計畫",
         subtitle: "故事媽媽、EQ爸爸、園藝達人到 AI 短劇高手，招募鄰里微專長的斜槓人才！",
-        image: "images/policy_10_mentor.png?v=26.10",
+        image: "images/policy_10_mentor.png?v=27.00",
         budgetSource: "青年創育與社區互助人才培力專案",
         budgetSub: "<span class=\"hl-keyword\">完全不會用到</span>明德里 88 萬基層款",
         budgetDesc: "",
