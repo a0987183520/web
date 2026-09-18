@@ -222,22 +222,22 @@ const POLICIES_DATA = [
         category: "education",
         categoryName: "生活美學與未來教育",
         title: "斜槓人才招募計畫",
-        subtitle: "故事媽媽、EQ爸爸、直排輪教練到 AI 達人，發掘身邊臥虎藏龍的鄰里才華！",
-        image: "images/policy_10_mentor.png?v=26.07",
+        subtitle: "故事媽媽、EQ爸爸、直排輪教練到 AI 達人，招募身邊臥虎藏龍的斜槓人才！",
+        image: "images/policy_10_mentor.png?v=26.08",
         budgetSource: "青年創育與社區互助人才培力專案",
         budgetSub: "<span class=\"hl-keyword\">完全不會用到</span>明德里 88 萬基層款",
         budgetDesc: "",
         highlight: "故事媽媽、EQ爸爸、運動教練到 AI 達人，在活動中心開辦多元工作坊。",
         icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>`,
         hooks: [
-            "我們身邊有許多身懷絕技的鄰居，都是社區最珍貴的寶藏。<span class=\"hl-keyword\">提供免租金舞台</span>，讓人人都能成為明德名師！"
+            "我們身邊有許多身懷絕技的鄰居，都是社區最珍貴的寶藏。<span class=\"hl-keyword\">我們將提供平台</span>，引導斜槓人才<span class=\"hl-keyword\">舉辦微課程</span>！"
         ],
         howToDo: [
             "公開徵選熱忱里民，<span class=\"hl-keyword\">建立多元師資庫</span>。",
-            "結合社區微活動<span class=\"hl-keyword\">提供免租金場地</span>，堅持公益平價與費用透明。",
-            "結合草地音樂節與節慶，<span class=\"hl-keyword\">為導師與學員舉辦公開成果發表會</span>。"
+            "結合政見02的社區微活動<span class=\"hl-keyword\">提供平台場地</span>，堅持公益平價與費用透明。",
+            "結合草地音樂節與節慶，<span class=\"hl-keyword\">擴大舉辦成果發表會</span>。"
         ],
-        whyPossible: "我擁有 <span class=\"hl-keyword\">20 年流行音樂經紀</span>與 <span class=\"hl-keyword\">帶領大型志工專案的經驗</span>，擅長發掘特質、策劃課程與大型展演；<span class=\"hl-keyword\">懂得整合公有資源</span>，打造活力充沛的社區共學聚落。"
+        whyPossible: "我擁有 <span class=\"hl-keyword\">20 年流行音樂經紀</span>與 <span class=\"hl-keyword\">帶領大量志工的經驗</span>，擅長發掘特質、策劃大型活動；<span class=\"hl-keyword\">知道如何整合公有資源</span>，打造斜槓人才孵化基地。"
     },
     {
         id: 11,
