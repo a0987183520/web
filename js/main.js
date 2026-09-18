@@ -243,8 +243,8 @@ const POLICIES_DATA = [
     {
         id: 11,
         title: "長青傳統課程 ＋ 流行音樂共演升級",
-        subtitle: "太鼓與舞蹈班100%安心延續，融入流行樂團改編節奏，祖孫同台公演讓全家搶著拍照錄影！",
-        image: "images/policy_11_upgrade.png?v=27.02",
+        subtitle: "太鼓與舞蹈班...等舊課程安心延續。流行樂團背景陪襯，祖孫同台不是夢",
+        image: "images/policy_11_upgrade.png?v=27.03",
         badgePosition: "bottom-left",
         budgetSource: "社會局世代共融專案補助",
         budgetSub: "<span class=\"hl-keyword\">完全不會用到</span>明德里 88 萬基層款",
@@ -259,7 +259,7 @@ const POLICIES_DATA = [
             "在長輩自願前提下，<span class=\"hl-keyword\">融入流行音樂現代節奏與年輕樂手伴奏</span>，打造震撼人心的跨世代公演。",
             "為長輩建立<span class=\"hl-keyword\">專屬高畫質影音紀錄 YouTube / IG 專區</span>，讓兒孫主動轉發分享、為阿公阿嬤喝采！"
         ],
-        whyPossible: "我具備 <span class=\"hl-keyword\">20 年流行音樂產業與策劃大型活動經歷</span>，我能邀請業界優秀樂手協同交流，在尊重傳統的基礎上，<span class=\"hl-keyword\">讓明德里的長輩站上最耀眼的舞台</span>。"
+        whyPossible: "我具備 <span class=\"hl-keyword\">20 年流行樂團與策劃大型活動經歷</span>，我能邀請優秀樂手協同交流，在尊重傳統的基礎上，<span class=\"hl-keyword\">讓明德里的長輩站上最耀眼的舞台</span>。"
     },
     {
         id: 12,
