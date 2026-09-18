@@ -244,22 +244,22 @@ const POLICIES_DATA = [
         id: 11,
         title: "長青傳統課程 ＋ 流行音樂共演升級",
         subtitle: "太鼓與舞蹈班100%安心延續，融入流行樂團改編節奏，祖孫同台公演讓全家搶著拍照錄影！",
-        image: "images/policy_11_upgrade.png?v=25.06",
+        image: "images/policy_11_upgrade.png?v=27.01",
         badgePosition: "bottom-left",
-        budgetSource: "明德里基層工作經費 ＋ 流行音樂師資協作",
-        budgetSub: "每年近百萬法定基層款依法支應（零額外自費）",
-        budgetDesc: "善用既有場地與基層款常態維護，結合候選人音樂圈師資人脈協同教學，發揮最大綜效。",
+        budgetSource: "社會局世代共融專案補助",
+        budgetSub: "<span class=\"hl-keyword\">完全不會用到</span>明德里 88 萬基層款",
+        budgetDesc: "市府社會局專案全額補助講師、音響與成果展演，長輩零自費，絕不排擠 88 萬民生修繕款。",
         highlight: "既有課程（如太鼓班、舞蹈班）安心延續，並注入現代流行音樂與節奏元素，邀請年輕樂手與家人加入合練，舉辦跨世代公演。",
         icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>`,
         hooks: [
-            "長輩在太鼓班、舞蹈班充滿活力揮灑汗水，但年輕兒孫卻常常覺得曲目單調而很少到場加油；傳統課程需要被珍惜，更可以被點亮！<span class=\"hl-keyword\">我堅持在完全不改動長輩習慣的前提下</span>，注入流行元素，讓長輩的表演成為全家人的驕傲。"
+            "<span class=\"hl-keyword\">為什麼長輩的活動，年輕兒孫無法產生共鳴呢？</span><br>傳統課程需要被珍惜，<span class=\"hl-keyword\">更可以被點亮！</span>"
         ],
         howToDo: [
-            "原時段、原教練、原班底全數保留，<span class=\"hl-keyword\">長輩習慣的練習模式絕不受任何干擾</span>，經典課程 100% 安心延續。",
+            "原時段、教練全數保留，<span class=\"hl-keyword\">長輩習慣的模式絕不受任何干擾並安心延續</span>。",
             "在長輩自願前提下，<span class=\"hl-keyword\">融入流行音樂現代節奏與年輕樂手伴奏</span>，打造震撼人心的跨世代公演。",
-            "為長輩建立<span class=\"hl-keyword\">專屬高畫質影音紀錄專區</span>，讓兒孫主動轉發分享、為阿公阿嬤喝采！"
+            "為長輩建立<span class=\"hl-keyword\">專屬高畫質影音紀錄 YouTube / IG 專區</span>，讓兒孫主動轉發分享、為阿公阿嬤喝采！"
         ],
-        whyPossible: "我具備 <span class=\"hl-keyword\">20 年流行音樂產業深厚背景</span>，熟諳編曲製作與大型演出策劃；<span class=\"hl-keyword\">我能邀請業界優秀樂手協同交流</span>，在尊重傳統的基礎上，讓明德里的長輩站上最耀眼的舞台。"
+        whyPossible: "我具備 <span class=\"hl-keyword\">20 年流行音樂產業與策劃大型活動經歷</span>，我能邀請業界優秀樂手協同交流，在尊重傳統的基礎上，<span class=\"hl-keyword\">讓明德里的長輩站上最耀眼的舞台</span>。"
     },
     {
         id: 12,
