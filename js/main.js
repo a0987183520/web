@@ -244,11 +244,11 @@ const POLICIES_DATA = [
         id: 11,
         title: "長青傳統課程 ＋ 流行音樂共演升級",
         subtitle: "太鼓與舞蹈班100%安心延續，融入流行樂團改編節奏，祖孫同台公演讓全家搶著拍照錄影！",
-        image: "images/policy_11_upgrade.png?v=27.01",
+        image: "images/policy_11_upgrade.png?v=27.02",
         badgePosition: "bottom-left",
         budgetSource: "社會局世代共融專案補助",
         budgetSub: "<span class=\"hl-keyword\">完全不會用到</span>明德里 88 萬基層款",
-        budgetDesc: "市府社會局專案全額補助講師、音響與成果展演，長輩零自費，絕不排擠 88 萬民生修繕款。",
+        budgetDesc: "",
         highlight: "既有課程（如太鼓班、舞蹈班）安心延續，並注入現代流行音樂與節奏元素，邀請年輕樂手與家人加入合練，舉辦跨世代公演。",
         icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>`,
         hooks: [
