@@ -133,7 +133,7 @@
       ]
     }
     </script>
-    <link rel="stylesheet" href="css/style.css?v=27.09">
+    <link rel="stylesheet" href="css/style.css?v=27.10">
     <style>
     /* 調整主版面兩欄比例與間距，僅在桌機版生效以確保手機版正常響應式排版 */
     @media (min-width: 951px) {
@@ -1450,9 +1450,34 @@
                     </div>
                 </div>
             </div>
-        </div>
     </div>
 
+    <!-- 全局政策影音播放燈箱 (YouTube Video Modal) -->
+    <div class="video-modal-backdrop" id="policy-video-modal-backdrop" aria-hidden="true" onclick="closePolicyVideoModal()"></div>
+    <div class="video-modal" id="policy-video-modal" role="dialog" aria-labelledby="policy-video-title" aria-modal="true">
+        <div class="video-modal-header">
+            <div class="video-modal-title-group">
+                <span class="video-modal-tag">🎬 政策影音實錄</span>
+                <h3 class="video-modal-title" id="policy-video-title">政見影音實錄</h3>
+            </div>
+            <button class="video-modal-close" onclick="closePolicyVideoModal()" aria-label="關閉影音">
+                ✕
+            </button>
+        </div>
+        <div class="video-modal-body">
+            <div class="video-responsive-wrap">
+                <iframe id="policy-video-iframe" src="" title="政策實錄影音" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+            <div class="video-modal-footer">
+                <div class="video-modal-note" id="policy-video-note">
+                    將 8 年校園陪伴經驗，轉化為明德里鄰里和諧與家庭支持的溫暖力量
+                </div>
+                <button type="button" class="video-modal-drawer-btn" id="policy-video-drawer-btn" onclick="openPolicyDrawerFromModal()">
+                    查看政見 14 完整執行計畫與預算 →
+                </button>
+            </div>
+        </div>
+    </div>
 
     <!-- 參與式里政：補充在地現況 (附議) 彈窗 Modal -->
     <div class="sub-modal-overlay" id="sub-proposal-modal" role="dialog" aria-labelledby="sub-modal-title" aria-modal="true">
@@ -1538,7 +1563,7 @@
         </div>
     </div>
 
-    <script src="js/main.js?v=27.09"></script>
+    <script src="js/main.js?v=27.10"></script>
     <script src="js/site-report-modal.js?v=1.00"></script>
 </body>
 </html>

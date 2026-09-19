@@ -376,9 +376,12 @@ if (drawerBackdrop) {
     drawerBackdrop.addEventListener('click', closeDrawer);
 }
 
-// Listen to escape key to close drawer
+// Listen to escape key to close drawer or video modal
 window.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && typeof closeDrawer === 'function') closeDrawer();
+    if (e.key === 'Escape') {
+        if (typeof closePolicyVideoModal === 'function') closePolicyVideoModal();
+        if (typeof closeDrawer === 'function') closeDrawer();
+    }
 });
 
 // Scroll Event for Header blur
@@ -809,9 +812,21 @@ function renderPolicies() {
             `;
         } else {
             const badgeClass = policy.badgePosition ? `vision-badge vision-badge-${policy.badgePosition}` : 'vision-badge';
+            const videoBtnHtml = policy.id === 14 ? `
+                <button type="button" class="card-video-play-btn" onclick="openPolicyVideoModal(event, 'quGLo4wa1wU', '政見 14 實錄：樂利國小 EQ 志工組長親身推廣分享', '將 8 年校園陪伴經驗，轉化為明德里鄰里和諧與家庭支持的溫暖力量！', 14)" title="點擊觀看 8 年 EQ 組長實錄影片">
+                    <span class="play-btn-icon-wrap">
+                        <span class="play-pulse-ring"></span>
+                        <svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor">
+                            <path d="M8 5v14l11-7z"/>
+                        </svg>
+                    </span>
+                    <span class="play-btn-text">觀看 8 年 EQ 組長實錄</span>
+                </button>
+            ` : '';
             imageHtml = `
                 <img class="policy-card-image" src="${policy.image}" alt="${policy.title} - 概念示意圖" onerror="this.style.display='none'; if(this.nextElementSibling) this.nextElementSibling.style.display='none'; this.parentElement.querySelector('.policy-card-image-placeholder').style.display='flex';">
                 <span class="${badgeClass}">概念示意圖</span>
+                ${videoBtnHtml}
                 <div class="policy-card-image-placeholder" style="display: none;">
                     <div class="placeholder-icon">${policy.icon}</div>
                     <span class="placeholder-text">示意圖繪製中</span>
@@ -997,10 +1012,24 @@ function openDrawer(policyId) {
     // Populate drawer image
     const drawerImgWrapper = document.getElementById('drawer-image-wrapper');
     if (drawerImgWrapper) {
-        // 如果是計畫 14 (EQ教育)，渲染三張圖
+        // 如果是計畫 14 (EQ教育)，左欄頂部置頂渲染 16:9 YouTube 影音播放器，下方接概念圖
         if (policy.id === 14) {
             drawerImgWrapper.style.display = 'block';
             drawerImgWrapper.innerHTML = `
+                <div class="drawer-video-card">
+                    <div class="drawer-video-card-header">
+                        <span class="drawer-video-card-title">
+                            <span>🎬</span> 8 年 EQ 志工組長親身推廣實錄
+                        </span>
+                        <span class="drawer-video-card-badge">YouTube 完整影片</span>
+                    </div>
+                    <div class="drawer-video-wrap">
+                        <iframe src="https://www.youtube-nocookie.com/embed/quGLo4wa1wU?rel=0" title="樂利國小 EQ 志工組長親身推廣實錄" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    </div>
+                    <div class="drawer-video-card-footer">
+                        將 8 年校園陪伴經驗，轉化為明德里鄰里和諧與家庭支持的溫暖力量！
+                    </div>
+                </div>
                 <div style="position: relative; margin-bottom: 1.5rem; border-radius: 12px; overflow: hidden; border: 1px solid var(--card-border);">
                     <img class="drawer-image" src="images/policy_14_eq_3.png" alt="${policy.title} 概念示意圖 - 概念示意圖">
                     <span class="vision-badge">概念示意圖</span>
@@ -2609,5 +2638,58 @@ if ('serviceWorker' in navigator) {
 // 初始化 PWA 狀態檢查
 updatePWAInstallVisibility();
 window.addEventListener('DOMContentLoaded', updatePWAInstallVisibility);
+
+// ==========================================================================
+// 政策影音播放燈箱 (Policy Video Modal Controller)
+// ==========================================================================
+let currentVideoPolicyId = 14;
+
+function openPolicyVideoModal(e, videoId, title, note, policyId = 14) {
+    if (e) {
+        e.stopPropagation();
+        e.preventDefault();
+    }
+    currentVideoPolicyId = policyId;
+    const backdrop = document.getElementById('policy-video-modal-backdrop');
+    const modal = document.getElementById('policy-video-modal');
+    const iframe = document.getElementById('policy-video-iframe');
+    const titleEl = document.getElementById('policy-video-title');
+    const noteEl = document.getElementById('policy-video-note');
+    const drawerBtn = document.getElementById('policy-video-drawer-btn');
+
+    if (!backdrop || !modal || !iframe) return;
+
+    if (titleEl && title) titleEl.textContent = title;
+    if (noteEl && note) noteEl.textContent = note;
+    if (drawerBtn) {
+        const numStr = policyId < 10 ? '0' + policyId : policyId;
+        drawerBtn.textContent = `查看政見 ${numStr} 完整執行計畫與預算 →`;
+    }
+
+    iframe.src = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0`;
+
+    backdrop.classList.add('active');
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closePolicyVideoModal() {
+    const backdrop = document.getElementById('policy-video-modal-backdrop');
+    const modal = document.getElementById('policy-video-modal');
+    const iframe = document.getElementById('policy-video-iframe');
+
+    if (iframe) iframe.src = '';
+    if (backdrop) backdrop.classList.remove('active');
+    if (modal) modal.classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+function openPolicyDrawerFromModal() {
+    const policyId = currentVideoPolicyId || 14;
+    closePolicyVideoModal();
+    setTimeout(() => {
+        openDrawer(policyId);
+    }, 200);
+}
 
 
