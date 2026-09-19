@@ -813,14 +813,14 @@ function renderPolicies() {
         } else {
             const badgeClass = policy.badgePosition ? `vision-badge vision-badge-${policy.badgePosition}` : 'vision-badge';
             const videoBtnHtml = policy.id === 14 ? `
-                <button type="button" class="card-video-play-btn" onclick="openPolicyVideoModal(event, 'quGLo4wa1wU', '政見 14 實錄：樂利國小 EQ 志工組長親身推廣分享', '將 8 年校園陪伴經驗，轉化為明德里鄰里和諧與家庭支持的溫暖力量！', 14)" title="點擊觀看 8 年 EQ 組長實錄影片">
+                <button type="button" class="card-video-play-btn" onclick="openPolicyVideoModal(event, 'quGLo4wa1wU', '政見 14 Podcast：訪談 EQ 爸爸的 8 年經歷', '', 14)" title="點擊觀看專訪 EQ 爸爸">
                     <span class="play-btn-icon-wrap">
                         <span class="play-pulse-ring"></span>
                         <svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor">
                             <path d="M8 5v14l11-7z"/>
                         </svg>
                     </span>
-                    <span class="play-btn-text">觀看 8 年 EQ 組長實錄</span>
+                    <span class="play-btn-text">專訪 EQ 爸爸</span>
                 </button>
             ` : '';
             imageHtml = `
@@ -2659,11 +2659,9 @@ function openPolicyVideoModal(e, videoId, title, note, policyId = 14) {
 
     if (!backdrop || !modal || !iframe) return;
 
-    if (titleEl && title) titleEl.textContent = title;
-    if (noteEl && note) noteEl.textContent = note;
+    if (titleEl) titleEl.textContent = title || '政見 14 Podcast：訪談 EQ 爸爸的 8 年經歷';
     if (drawerBtn) {
-        const numStr = policyId < 10 ? '0' + policyId : policyId;
-        drawerBtn.textContent = `查看政見 ${numStr} 完整執行計畫與預算 →`;
+        drawerBtn.textContent = '查看完整計畫與預算 →';
     }
 
     iframe.src = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0`;
