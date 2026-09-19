@@ -287,24 +287,24 @@ const POLICIES_DATA = [
     {
         id: 13,
         category: "culture",
-        categoryName: "空間活化與美學生活",
-        title: "市民活動中心活化 ＋ 全齡共享共學角",
-        subtitle: "落實「增量不取代」，開放平日夜間與假日共享空間，自習、桌遊與文化交流新聚落！",
-        image: "images/policy_13_lounge.png?v=25.06",
-        budgetSource: "市民活動中心活化專案 ＋ 明德里基層款",
-        budgetSub: "公有空間專案活化（零額外自費）",
-        budgetDesc: "運用公有設施既有空間，以活化專案補助與里基層款常態支應，零負擔落實全齡共享。",
-        highlight: "遵循增量不取代原則，開放活動中心夜間與假日空間成立全齡共學角，讓青年與長者獲得溫馨交流空間。",
-        icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>`,
+        categoryName: "跨世代共融與活力出遊",
+        title: "陽光自強活動 ＋ 樂活出遊加開機制",
+        subtitle: "資訊公開、早鳥預告、想去就加開車次！合格領隊隨行照護，讓每一位里民都能歡樂同行！",
+        image: "images/policy_13_travel.png?v=27.09",
+        budgetSource: "區公所研習活動補助 ＋ 合法代辦差額平攤",
+        budgetSub: "<span class=\"hl-keyword\">完全不會濫用</span>明德里 88 萬民生修繕款",
+        budgetDesc: "",
+        highlight: "告別秒殺與偷跑！落實出遊訊息早鳥預告、充裕報名緩衝，只要里民反應熱烈即啟動加開車次機制，合格專業領隊隨車協助，讓想出遊的鄰居長輩通通去得成！",
+        icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6v6"></path><path d="M16 6v6"></path><path d="M2 12h20"></path><path d="M18 18h2a1 1 0 0 0 1-1v-9a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v9a1 1 0 0 0 1 1h2"></path><circle cx="7" cy="18" r="2"></circle><circle cx="17" cy="18" r="2"></circle></svg>`,
         hooks: [
-            "活動中心白天長輩共餐熱熱鬧鬧，到了平日晚上和假日卻往往鐵捲門深鎖、漆黑一片。年輕人下班想看書、做專案或交流，只能花錢跑去擁擠的咖啡廳。<span class=\"hl-keyword\">公有場館是全體里民的資產</span>，我主張在完全不影響長輩的前提下，把空間溫暖點亮！"
+            "不少長輩與家庭主婦跟我反映：<span class=\"hl-keyword\">里長辦的自強活動常常一下就報滿</span>，收到訊息時往往已經來不及，報名緩衝時間太短、資訊不夠通透，讓人覺得被排除在外。<span class=\"hl-keyword\">里民出遊是為了全里同樂</span>，而不是少數人的特權！"
         ],
         howToDo: [
-            "落實「增量不取代」全齡共享，白天維持長輩共餐與既有課程，<span class=\"hl-keyword\">開放平日夜間與假日為溫馨「全齡共學角」</span>。",
-            "優化內部照明與桌椅配置，<span class=\"hl-keyword\">規劃安靜閱讀區、青年筆電專區與家庭益智桌遊角落</span>。",
-            "組織社區熱心青年志工輪值，<span class=\"hl-keyword\">維護公有器材安全與現場清潔管理</span>，培養社區自治互助精神。"
+            "【早鳥預告與充裕窗口】：出發前 3 週固定於手機平台與公佈欄公告行程，<span class=\"hl-keyword\">設置至少 48 小時充裕報名緩衝期</span>，徹底杜絕突襲偷跑。",
+            "【反應熱烈即加開車次】：打破名額天花板，<span class=\"hl-keyword\">不搞抽籤、不讓里民向隅</span>，只要報名熱烈即啟動加開車次，人人都能歡樂成行！",
+            "【專業領隊隨行照護】：志工之外<span class=\"hl-keyword\">聘請合格旅行社專業領隊隨車協助</span>，全方位照顧長輩上下車與沿途安全，子女更放心。"
         ],
-        whyPossible: "我擁有 <span class=\"hl-keyword\">10 年社區大廈管委會主委實務</span>，深諳公共設施規約制定、時段調配與門禁管理；<span class=\"hl-keyword\">我懂得如何兼顧長青與青年需求</span>，以極低成本為社區釋放最大公共價值。"
+        whyPossible: "我深諳<span class=\"hl-keyword\">大型活動籌辦與專案管理流程</span>，能高效對接合格合法之甲種旅行社與優良遊覽車隊；<span class=\"hl-keyword\">懂得行政法規與核銷程序</span>，用公開透明的數位管理，讓明德里的每一趟旅程安全、熱鬧又安心！"
     },
     {
         id: 14,
