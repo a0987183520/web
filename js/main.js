@@ -266,23 +266,22 @@ const POLICIES_DATA = [
         category: "environment",
         categoryName: "綠色永續與環境治理",
         title: "食用廢油變黃金 ＋ 環保循環綠生活",
-        displayTitle: `食用廢油變黃金 ＋ <span class=\"policy-title-glow-green\">環保循環綠生活</span>`,
+        displayTitle: `食用廢油變黃金 ＋ <span class="policy-title-glow-green">環保循環綠生活</span>`,
         subtitle: "廚房廢油是堵塞水管的元兇，將廢油做成手工皂，省錢更環保",
-        image: "images/policy_12_soap.png?v=27.04",
-        budgetSource: "環保局低碳社區專案 ＋ 環保志工教育補助",
+        image: "images/policy_12_soap.png?v=27.12",
+        budgetSource: "環保局低碳社區專案",
         budgetSub: "<span class=\"hl-keyword\">完全不會用到</span>明德里 88 萬基層款",
-        budgetDesc: "每季開辦工作坊，全額由環保局低碳專案補助講師與耗材，把廢油變黃金，不排擠基層款。",
+        budgetDesc: "",
         highlight: "把堵塞水管的廚房廢油，化為全家通用的金黃家事皂。省下修繕費、呵護下水道，實踐科技與永續並重的綠色循環經濟！",
         icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg>`,
         hooks: [
-            "廚房炸油與過期食用油倒水槽會堵塞水管、滋生惡臭與蚊蟲，倒垃圾車又捨不得且污染環境。其實只要透過專業配方，廢油立刻能變成去油力最強的金黃家事皂！<span class=\"hl-keyword\">不用里民在家冒險碰強鹼</span>，我把現成好皂直接送到你手中。"
+            "廚房油炸或過期的食用油，倒進水槽容易<span class=\"hl-keyword\">堵塞水管、滋生惡臭與蚊蟲</span>，倒垃圾車又捨不得且污染環境。"
         ],
         howToDo: [
-            "廚房炸油與過期油濾入寶特瓶送至活動中心專用回收桶，<span class=\"hl-keyword\">徹底根除下水管道堵塞與惡臭</span>。",
-            "每季攜手手工皂協會開辦體驗班，<span class=\"hl-keyword\">備妥完整安全防護配備現場指導</span>，里民安心體驗手作樂趣。",
-            "里民憑回收廢油可<span class=\"hl-keyword\">直接兌換專業熟成之「明德里環保家事皂」</span>，洗碗去油不傷手，省下日常開銷。"
+            "每季攜手「中華綠生活手工皂協會」開辦體驗工作坊，<span class=\"hl-keyword\">透過專業配方，廢油馬上變成實用的黃金家事皂</span>。",
+            "將廚房油炸與過期油濾入寶特瓶送至活動中心專用回收桶，<span class=\"hl-keyword\">徹底根除下水管道堵塞與惡臭</span>。"
         ],
-        whyPossible: "我具備企業專案管理長才，<span class=\"hl-keyword\">已成功對接「中華綠生活手工皂協會王若家理事長」專業團隊</span>（已在土城日新里活動中心常態開課驗證成功），<span class=\"hl-keyword\">以市府低碳專案全額補助</span>為明德里落實循環經濟！"
+        whyPossible: "我具備企業管理長才，<span class=\"hl-keyword\">能成功引薦「中華綠生活手工皂協會」跨界合作</span>，由協會提供專業師資，<span class=\"hl-keyword\">搭配市府低碳專案全額補助</span>，為明德里落實循環經濟！"
     },
     {
         id: 13,
