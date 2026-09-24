@@ -163,7 +163,7 @@ nav {
 }
 
 .logo {
-    font-size: 1.55rem;
+    font-size: 1.85rem;
     font-weight: 900;
     display: flex;
     align-items: center;
@@ -172,8 +172,8 @@ nav {
 }
 
 .logo-icon {
-    width: 24px;
-    height: 24px;
+    width: 30px;
+    height: 30px;
     background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
     border-radius: 7px;
     display: inline-block;
@@ -211,7 +211,7 @@ nav {
 }
 
 .candidate-name {
-    font-size: 1.55rem;
+    font-size: 1.85rem;
     font-weight: 900;
     color: #ffffff;
     text-shadow: 0 0 12px rgba(251, 191, 36, 0.45);
@@ -225,7 +225,7 @@ nav {
 }
 
 .candidate-title {
-    font-size: 1.55rem;
+    font-size: 1.85rem;
     font-weight: 900;
     color: var(--accent-primary);
     letter-spacing: 0.03em;
@@ -6521,19 +6521,23 @@ html.is-pwa-standalone #btn-footer-install {
     .logo {
         gap: 0.25rem;
         white-space: nowrap;
-        font-size: 1.25rem;
+        font-size: 1.35rem;
     }
     .logo-main, .logo-sub {
-        font-size: 1.25rem;
+        font-size: 1.35rem;
+    }
+    .logo-icon {
+        width: 24px;
+        height: 24px;
     }
     .candidate-block {
         gap: 0.25rem;
         white-space: nowrap;
     }
     .candidate-name {
-        font-size: 1.25rem;
+        font-size: 1.35rem;
     }
     .candidate-title {
-        font-size: 1.25rem;
+        font-size: 1.35rem;
     }
 }
