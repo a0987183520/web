@@ -5643,10 +5643,12 @@ footer {
 
 .ranking-note {
     display: inline-block;
-    font-size: 0.88rem;
+    font-size: 1.15rem;
     color: #10b981;
     margin-top: 0.4rem;
     font-weight: 600;
+    text-align: left;
+    line-height: 1.6;
 }
 
 [data-theme="light"] .ranking-note {
@@ -5922,7 +5924,7 @@ footer {
     }
 
     .ranking-note {
-        font-size: 0.82rem;
+        font-size: 1.05rem;
     }
 
     .ranking-bar-item {
