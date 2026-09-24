@@ -1198,7 +1198,7 @@ nav {
 }
 
 .policy-number {
-    font-size: 1.12rem;
+    font-size: clamp(1.15rem, 1.3vw, 1.35rem);
     font-weight: 800;
     color: var(--accent-primary);
     text-transform: uppercase;
@@ -1207,7 +1207,7 @@ nav {
 }
 
 .policy-card h3 {
-    font-size: clamp(1.15rem, 1.32vw, 1.35rem);
+    font-size: clamp(1.05rem, 1.2vw, 1.22rem);
     margin-bottom: 0;
     line-height: 1.35;
     display: -webkit-box;
@@ -6516,3 +6516,23 @@ html.is-pwa-standalone #btn-footer-install {
     background: rgba(244, 244, 240, 0.8);
 }
 
+/* Fix mobile header text wrapping on small screens */
+@media (max-width: 580px) {
+    .logo {
+        gap: 0.25rem;
+        white-space: nowrap;
+    }
+    .logo-main, .logo-sub {
+        font-size: 1.15rem;
+    }
+    .candidate-block {
+        gap: 0.25rem;
+        white-space: nowrap;
+    }
+    .candidate-name {
+        font-size: 1.2rem;
+    }
+    .candidate-title {
+        font-size: 0.85rem;
+    }
+}
