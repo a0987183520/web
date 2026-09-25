@@ -49,7 +49,7 @@ const POLICIES_DATA = [
     {
         id: 2,
         title: "里民手機共治 ＋ 社區平行微活動",
-        subtitle: "首創「社區平行微活動」善用每個社區的公設，下樓就能參加，活動瞬間加倍，你來點、我來辦",
+        subtitle: "首創<span class=\"hl-keyword\">雲端里辦</span>，手機就能反映問題，報名活動，監督預算，下樓就能參與活動",
         image: "images/policy_02_clubhouse_stem.jpg",
         sectionOrder: "innovation-first",
         budgetSource: "我自己開發「里民作主」App",
