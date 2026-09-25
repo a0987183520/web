@@ -308,23 +308,23 @@ const POLICIES_DATA = [
     },
     {
         id: 14,
-        title: "打造高 EQ 和諧社區 ＋ 全齡家庭情緒共學",
-        subtitle: "引進國小專業師資團隊，每季開辦<span class=\"hl-subtitle-green\">免費情緒共學工作坊</span>，化解鄰里與跨世代溝通摩擦！",
+        title: "打造高 EQ 和諧社區 ＋ 免費家庭情緒課程",
+        subtitle: "引進專業師資團隊，每季開辦<span class=\"hl-subtitle-green\">免費情緒教育課程</span>，化解鄰里糾紛與跨世代溝通摩擦！",
         image: "images/policy_14_eq_1.png",
-        budgetSource: "市府社會局社區發展專案",
+        budgetSource: "市府社會局社區發展專案 (每年 10 萬補助)",
         budgetSub: "<span class=\"hl-keyword\">完全不會用到</span>明德里 88 萬基層款",
-        budgetDesc: "向社會局申請專案補助，將里辦打造為社區 EQ 實踐孵化基地，合法發放講師費解決志工流失，淬鍊後再推向學校。專案經費全額支應，里民上課完全免費。",
-        highlight: "每季定期開辦 1 期「免費」共學工作坊！將里辦打造成師資前哨站與孵化基地，陪伴大家了解情緒、覺察委屈、避免遷怒、遠離霸凌。",
+        budgetDesc: "每年向市府申請 10 萬元專案補助，全額支付專業講師費與教材費。里民上課完全免費，讓社區成為 EQ 師資的實踐基地。",
+        highlight: "每季定期開辦 1 期「免費情緒課程」！陪伴里民了解情緒、覺察委屈、避免遷怒，化解不必要的鄰里糾紛。",
         icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a5 5 0 1 0 10 0v-2H12z"></path><path d="M12 10a8 8 0 1 0 8 8v-8H12z"></path><circle cx="12" cy="12" r="10"></circle><path d="M8 14s1.5 2 4 2 4-2 4-2"></path><line x1="9" y1="9" x2="9.01" y2="9"></line><line x1="15" y1="9" x2="15.01" y2="9"></line></svg>`,
         hooks: [
-            "面對孩子情緒暴走、家長管教焦慮、長輩委屈遷怒，家人往往在無意間互相傷害。外面的專業心理成長課程動輒數千上萬元，許多家庭難以負擔。<span class=\"hl-keyword\">我在樂利國小推動情緒教育 8 年</span>，最深切的心願就是把這套溫暖的解方完整帶回我們明德里！"
+            "面對孩子情緒暴走、家長管教焦慮、長輩委屈遷怒，家人往往在無意間互相傷害。外面的心理課程動輒數千元，許多家庭難以負擔。<span class=\"hl-keyword\">把這套溫暖的解方免費帶回明德里</span>，是我最深切的心願！"
         ],
         howToDo: [
-            "每季定期開辦 1 期情緒共學班，透過生動繪本與情境遊戲，<span class=\"hl-keyword\">引導孩子覺察情緒、學習同理合作、遠離校園霸凌</span>。",
-            "開辦家長支持工作坊分享情緒覺察與非暴力溝通，<span class=\"hl-keyword\">協助爸爸媽媽化解教養焦慮與夫妻溝通摩擦</span>。",
-            "為銀髮長輩開辦情緒調適與同理傾聽茶會，<span class=\"hl-keyword\">解開積壓心結，營造溫馨和睦的跨世代家庭氛圍</span>。"
+            "每季開辦 1 期兒童情緒課程，透過繪本與遊戲，<span class=\"hl-keyword\">引導孩子覺察情緒、同理合作、遠離霸凌</span>。",
+            "開辦家長支持講座，分享非暴力溝通，<span class=\"hl-keyword\">協助化解教養焦慮與夫妻摩擦</span>。",
+            "為長輩舉辦同理傾聽茶會，<span class=\"hl-keyword\">解開積壓心結，營造和睦的跨世代氛圍</span>。"
         ],
-        whyPossible: "我擔任 <span class=\"hl-keyword\">樂利國小 EQ 志工組長長達 8 年</span>，具備完整講師資格與 <span class=\"hl-keyword\">7 套專業情緒教育證照</span>，帶領過 50 餘名熱心志工團隊；<span class=\"hl-keyword\">我自備完整教材與師資庫</span>，對接教育專案補助，能為里民提供最溫暖扎實的支持。"
+        whyPossible: "我具備 <span class=\"hl-keyword\">8 年國小 EQ 志工組長經驗與 7 套專業證照</span>，曾帶領 50 餘名熱心志工；<span class=\"hl-keyword\">我自備完整教材與師資庫</span>，能對接市府專案補助，為里民提供最扎實的免費課程。"
     },
     {
         id: 15,
