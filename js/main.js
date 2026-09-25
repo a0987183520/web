@@ -308,7 +308,7 @@ const POLICIES_DATA = [
     },
     {
         id: 14,
-        title: "用情緒教育課程 打造高 EQ 社區",
+        title: "用情緒教育課程　打造高 EQ 社區",
         subtitle: "每季開辦<span class=\"hl-subtitle-green\">免費情緒教育課程</span>，化解鄰里糾紛與親子溝通困難！",
         image: "images/policy_14_eq_1.png",
         budgetSource: "市府社會局社區發展專案 (每年 10 萬補助)",
@@ -320,11 +320,11 @@ const POLICIES_DATA = [
             "面對孩子情緒暴走、家長管教焦慮與長輩委屈遷怒，家人往往在無意間互相傷害。外面的心理課程動輒數千元，許多家庭難以負擔。<span class=\"hl-keyword\">把這套溫暖的解方免費帶回明德里</span>，是我最深切的心願！"
         ],
         howToDo: [
-            "每季開辦「兒童情緒系列課程」，透過繪本與遊戲，<span class=\"hl-keyword\">引導孩子覺察情緒、同理合作、遠離霸凌</span>。",
-            "定期舉辦家長支持講座，分享非暴力溝通，<span class=\"hl-keyword\">協助化解教養焦慮與夫妻摩擦</span>。",
+            "每季開辦「兒童情緒教育系列課程」，透過繪本與遊戲，<span class=\"hl-keyword\">引導孩子覺察情緒、建立同理心、遠離霸凌</span>。",
+            "定期舉辦家長支持講座，分享正向溝通技巧，<span class=\"hl-keyword\">協助化解教養焦慮與夫妻摩擦</span>。",
             "為長輩舉辦同理傾聽茶會，<span class=\"hl-keyword\">解開積壓心結，營造和睦的跨世代氛圍</span>。"
         ],
-        whyPossible: "我具備 <span class=\"hl-keyword\">8 年國小 EQ 志工組長經驗與 7 套專業證照</span>，曾帶領 50 餘名熱心志工；<span class=\"hl-keyword\">我自備完整教材與師資庫</span>，能對接市府專案補助，為里民提供最扎實的免費課程。"
+        whyPossible: "我具備 <span class=\"hl-keyword\">8 年 EQ 講師資歷與 7 套專業證照</span>，每年帶領 <span class=\"hl-keyword\">70 位志工夥伴</span>；我自備完整教材與師資庫，能對接市府專案補助，為里民提供最扎實的免費課程。"
     },
     {
         id: 15,
