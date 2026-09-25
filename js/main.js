@@ -275,13 +275,13 @@ const POLICIES_DATA = [
         highlight: "把堵塞水管的廚房廢油，化為全家通用的金黃家事皂。省下修繕費、呵護下水道，實踐科技與永續並重的綠色循環經濟！",
         icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg>`,
         hooks: [
-            "廚房油炸或過期的食用油，倒進水槽容易<span class=\"hl-keyword\">堵塞水管、滋生惡臭與蚊蟲</span>，倒垃圾車又捨不得且污染環境。"
+            "廚房油炸或過期的食用油，倒進水槽容易<span class=\"hl-keyword\">堵塞水管、滋生惡臭與蚊蟲</span>。"
         ],
         howToDo: [
-            "每季攜手「中華綠生活手工皂協會」開辦體驗工作坊，<span class=\"hl-keyword\">透過專業配方，廢油馬上變成實用的黃金家事皂</span>。",
-            "將廚房油炸與過期油濾入寶特瓶送至活動中心專用回收桶，<span class=\"hl-keyword\">徹底根除下水管道堵塞與惡臭</span>。"
+            "於活動中心設置<span class=\"hl-keyword\">廢油專用回收桶</span>，將廚房油炸或過期廢油濾入寶特瓶送交回收，即可徹底杜絕下水道堵塞與惡臭。",
+            "每季定期開辦體驗工作坊，透過專業配方，<span class=\"hl-keyword\">馬上將回收廢油變身為天然實用的黃金家事皂</span>。"
         ],
-        whyPossible: "我具備企業管理長才，<span class=\"hl-keyword\">能成功引薦「中華綠生活手工皂協會」跨界合作</span>，由協會提供專業師資，<span class=\"hl-keyword\">搭配市府低碳專案全額補助</span>，為明德里落實循環經濟！"
+        whyPossible: "我具備企業管理長才，<span class=\"hl-keyword\">能結合「中華綠生活手工皂協會」等環保團體跨界合作</span>，並爭取市府專案全額補助，<span class=\"hl-keyword\">為明德里落實循環經濟</span>！"
     },
     {
         id: 13,
