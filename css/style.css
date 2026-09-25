@@ -1740,6 +1740,18 @@ nav {
 }
 
 /* 內文重點關鍵字單一琥珀金高光（暖心聚焦，徹底解決與綠色 88 萬衝突） */
+.hl-subtitle-green {
+    color: #34d399; /* 較清新的薄荷綠 */
+    font-weight: 600; /* 不要太粗以免糊掉 */
+    text-shadow: 0 0 8px rgba(52, 211, 153, 0.25); /* 較輕微的光暈 */
+}
+
+[data-theme="light"] .hl-subtitle-green {
+    color: #059669; /* 亮色主題用深綠色確保對比 */
+    font-weight: 700;
+    text-shadow: none;
+}
+
 .hl-keyword {
     color: #fbbf24;
     font-weight: 900;
