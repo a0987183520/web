@@ -278,7 +278,7 @@ const POLICIES_DATA = [
             "廚房油炸或過期的食用油，倒進水槽容易<span class=\"hl-keyword\">堵塞水管、滋生惡臭與蚊蟲</span>。"
         ],
         howToDo: [
-            "於活動中心設置<span class=\"hl-keyword\">廢油專用回收桶</span>，將廚房油炸或過期廢油濾入寶特瓶送交回收，即可徹底杜絕下水道堵塞與惡臭。",
+            "於活動中心設置<span class=\"hl-keyword\">廢油專用回收桶</span>，將廚房油炸或過期廢油濾入寶特瓶集中送交回收。",
             "每季定期開辦體驗工作坊，透過專業配方，<span class=\"hl-keyword\">馬上將回收廢油變身為天然實用的黃金家事皂</span>。"
         ],
         whyPossible: "我具備企業管理長才，<span class=\"hl-keyword\">能結合「中華綠生活手工皂協會」等環保團體跨界合作</span>，並爭取市府專案全額補助，<span class=\"hl-keyword\">為明德里落實循環經濟</span>！"
@@ -290,7 +290,7 @@ const POLICIES_DATA = [
         title: "陽光自強活動 ＋ 樂活出遊加開機制",
         subtitle: "<span class=\"hl-subtitle-green\">資訊公開</span>、<span class=\"hl-subtitle-green\">早鳥預告</span>、想去就<span class=\"hl-subtitle-green\">加開車次</span>！合格領隊隨行照護，讓每一位里民都能歡樂同行！",
         image: "images/policy_13_travel.png?v=27.09",
-        budgetSource: "區公所研習活動補助 ＋ 合法代辦差額平攤",
+        budgetSource: "區公所研習活動補助",
         budgetSub: "<span class=\"hl-keyword\">完全不會濫用</span>明德里 88 萬民生修繕款",
         budgetDesc: "",
         highlight: "告別秒殺與偷跑！落實出遊訊息早鳥預告、充裕報名緩衝，只要里民反應熱烈即啟動加開車次機制，合格專業領隊隨車協助，讓想出遊的鄰居長輩通通去得成！",
