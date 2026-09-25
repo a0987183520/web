@@ -330,22 +330,21 @@ const POLICIES_DATA = [
         id: 15,
         category: "culture",
         categoryName: "空間活化與美學生活",
-        title: "明德寵物友善社區 ＋ 乾淨衛生雙贏共享",
-        subtitle: "推廣友善毛孩配件與<span class=\"hl-subtitle-green\">匿名狗友社群</span>，設置便攜袋補充站維護<span class=\"hl-subtitle-green\">公園衛生</span>！",
+        title: "明德寵物友善社區 ＋ 人寵共融雙贏",
+        subtitle: "首創<span class=\"hl-subtitle-green\">友善毛孩配件</span>（歡迎摸摸/我比較害羞），解決孩童養寵渴望，建立<span class=\"hl-subtitle-green\">匿名交流社群</span>！",
         image: "images/policy_15_pet.png?v=25.06",
         budgetSource: "明德里 88 萬基層工作經費",
-        budgetSub: "採購便攜袋與友善配件（花費極低）",
-        budgetDesc: "以極低預算發放友善毛孩配件與設置便攜袋補充站，兼具實質效益與環境整潔。",
-        highlight: "推動友善毛孩配件、建置寵物便攜袋補充站與匿名交流社群，兼顧環境衛生與社區情感。",
+        budgetSub: "善用既有經費（不排擠其他建設）",
+        budgetDesc: "以極低成本的巧思，取代花大錢興建硬體寵物公園，發揮最大社區效益。",
+        highlight: "發放友善毛孩互動配件，建置匿名交流社群，滿足孩童心願並兼顧飼主隱私。",
         icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="22"></line></svg>`,
         hooks: [
-            "許多家庭渴望讓孩童接觸毛孩，但飼主也有隱私與安全顧慮；同時，公園的衛生也需兼顧。<span class=\"hl-keyword\">愛護動物與環境清潔絕不衝突</span>！我們能用微小巧思與低成本設施，打造讓所有人都能安心共處的友善社區。"
+            "許多家庭常面臨孩童吵著要養寵物，卻因環境不允許而苦惱；同時，飼主外出遛狗也有安全與隱私顧慮。<span class=\"hl-keyword\">滿足孩童心願與保護飼主絕不衝突</span>！我們不需花大錢蓋寵物公園，只需用極低成本的巧思配件，就能打造讓所有人都能安心互動的友善社區。"
         ],
         howToDo: [
-            "由里辦公處發放<span class=\"hl-keyword\">「友善毛孩配件」</span>（如：歡迎摸摸/請先問我），讓飼主遛狗時配戴，促成孩童與毛孩的安全互動。",
-            "盤點里內適合路線製作<span class=\"hl-keyword\">實體「毛孩友善地圖」</span>，並鼓勵固定時間的狗友交流小聚。",
-            "建置<span class=\"hl-keyword\">「匿名 LINE 狗友社群」</span>，飼主以狗狗照片為頭像即可即時相約散步，滿足社交又保障住家隱私。",
-            "於公園周邊設置<span class=\"hl-keyword\">「寵物便攜袋補充站」</span>，使用里基層經費支應耗材，讓飼主隨手維護環境。"
+            "首創發放<span class=\"hl-keyword\">「友善毛孩互動配件」</span>（標示：歡迎摸摸 / 請先問我 / 我比較害羞），讓飼主散步時配戴，安全促成鄰里孩童與毛孩的互動，解決家長困擾。",
+            "建置<span class=\"hl-keyword\">「匿名 LINE 狗友社群」</span>，飼主以狗狗照片為頭像即可即時相約散步，滿足社交需求又徹底保障住家隱私。",
+            "於公園周邊爭取設置<span class=\"hl-keyword\">「寵物便攜袋補充站」</span>，提供飼主應急使用，讓社區環境隨時保持乾淨整潔。"
         ],
         whyPossible: "我具備 <span class=\"hl-keyword\">10 年社區規約管理與空間協調實戰經驗</span>，最懂得如何兼顧非養寵物長輩對乾淨衛生的要求與飼主心聲；<span class=\"hl-keyword\">我善於用微小預算化解鄰里矛盾</span>，創造雙贏共享的友善社區。"
     }
