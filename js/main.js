@@ -290,18 +290,19 @@ const POLICIES_DATA = [
         title: "陽光自強活動 ＋ 樂活出遊加開機制",
         subtitle: "<span class=\"hl-subtitle-green\">資訊公開</span>、<span class=\"hl-subtitle-green\">早鳥預告</span>、想去就<span class=\"hl-subtitle-green\">加開車次</span>！合格領隊隨行照護，讓每一位里民都能歡樂同行！",
         image: "images/policy_13_travel.png?v=27.09",
-        budgetSource: "區公所研習活動補助",
-        budgetSub: "<span class=\"hl-keyword\">完全不會濫用</span>明德里 88 萬民生修繕款",
+        hideBudget: true,
+        budgetSource: "",
+        budgetSub: "",
         budgetDesc: "",
         highlight: "告別秒殺與偷跑！落實出遊訊息早鳥預告、充裕報名緩衝，只要里民反應熱烈即啟動加開車次機制，合格專業領隊隨車協助，讓想出遊的鄰居長輩通通去得成！",
         icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6v6"></path><path d="M16 6v6"></path><path d="M2 12h20"></path><path d="M18 18h2a1 1 0 0 0 1-1v-9a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v9a1 1 0 0 0 1 1h2"></path><circle cx="7" cy="18" r="2"></circle><circle cx="17" cy="18" r="2"></circle></svg>`,
         hooks: [
-            "不少長輩與家庭主婦跟我反映：<span class=\"hl-keyword\">里長辦的自強活動常常一下就報滿</span>，收到訊息時往往已經來不及，報名緩衝時間太短、資訊不夠通透，讓人覺得被排除在外。<span class=\"hl-keyword\">里民出遊是為了全里同樂</span>，而不是少數人的特權！"
+            "以往的自強活動常因報名時間緊湊、資訊流通不夠廣泛，讓許多里民來不及參與。<span class=\"hl-keyword\">里民出遊是為了全里同樂</span>，每一位想參加的鄰居長輩，都應該有公平參與的機會。"
         ],
         howToDo: [
-            "【早鳥預告與充裕窗口】：出發前 3 週固定於手機平台與公佈欄公告行程，<span class=\"hl-keyword\">設置至少 48 小時充裕報名緩衝期</span>，徹底杜絕突襲偷跑。",
-            "【反應熱烈即加開車次】：打破名額天花板，<span class=\"hl-keyword\">不搞抽籤、不讓里民向隅</span>，只要報名熱烈即啟動加開車次，人人都能歡樂成行！",
-            "【專業領隊隨行照護】：志工之外<span class=\"hl-keyword\">聘請合格旅行社專業領隊隨車協助</span>，全方位照顧長輩上下車與沿途安全，子女更放心。"
+            "提前於雲端里辦 App 與實體佈告欄等多重管道同步公告，<span class=\"hl-keyword\">提供充裕的報名緩衝期</span>，讓資訊徹底公開透明。",
+            "打破名額天花板，不搞抽籤！<span class=\"hl-keyword\">只要報名熱烈即主動加開車次</span>，讓想參加的人都能開心成行。",
+            "除了熱心志工，更<span class=\"hl-keyword\">聘請合格旅行社的專業領隊隨車協助</span>，全方位照顧長輩上下車與沿途安全。"
         ],
         whyPossible: "我深諳<span class=\"hl-keyword\">大型活動籌辦與專案管理流程</span>，能高效對接合格合法之甲種旅行社與優良遊覽車隊；<span class=\"hl-keyword\">懂得行政法規與核銷程序</span>，用公開透明的數位管理，讓明德里的每一趟旅程安全、熱鬧又安心！"
     },
