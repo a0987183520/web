@@ -308,16 +308,16 @@ const POLICIES_DATA = [
     },
     {
         id: 14,
-        title: "打造高 EQ 和諧社區 ＋ 免費家庭情緒課程",
-        subtitle: "引進專業師資團隊，每季開辦<span class=\"hl-subtitle-green\">免費情緒教育課程</span>，化解鄰里糾紛與跨世代溝通摩擦！",
+        title: "免費情緒課程 打造高 EQ 社區",
+        subtitle: "每季開辦<span class=\"hl-subtitle-green\">情緒教育課程</span>，化解鄰里糾紛與親子溝通困難！",
         image: "images/policy_14_eq_1.png",
         budgetSource: "市府社會局社區發展專案 (每年 10 萬補助)",
-        budgetSub: "<span class=\"hl-keyword\">完全不會用到</span>明德里 88 萬基層款",
-        budgetDesc: "每年向市府申請 10 萬元專案補助，全額支付專業講師費與教材費。里民上課完全免費，讓社區成為 EQ 師資的實踐基地。",
+        budgetSub: "<span class=\"hl-keyword\">全額支付</span>專業講師費與教材費",
+        budgetDesc: "本專案<span class=\"hl-keyword\">完全不會用到</span>明德里 88 萬基層款。",
         highlight: "每季定期開辦 1 期「免費情緒課程」！陪伴里民了解情緒、覺察委屈、避免遷怒，化解不必要的鄰里糾紛。",
         icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a5 5 0 1 0 10 0v-2H12z"></path><path d="M12 10a8 8 0 1 0 8 8v-8H12z"></path><circle cx="12" cy="12" r="10"></circle><path d="M8 14s1.5 2 4 2 4-2 4-2"></path><line x1="9" y1="9" x2="9.01" y2="9"></line><line x1="15" y1="9" x2="15.01" y2="9"></line></svg>`,
         hooks: [
-            "面對孩子情緒暴走、家長管教焦慮、長輩委屈遷怒，家人往往在無意間互相傷害。外面的心理課程動輒數千元，許多家庭難以負擔。<span class=\"hl-keyword\">把這套溫暖的解方免費帶回明德里</span>，是我最深切的心願！"
+            "面對孩子情緒暴走、家長管教焦慮與長輩委屈遷怒，家人往往在無意間互相傷害。外面的心理課程動輒數千元，許多家庭難以負擔。<span class=\"hl-keyword\">把這套溫暖的解方免費帶回明德里</span>，是我最深切的心願！"
         ],
         howToDo: [
             "每季開辦 1 期兒童情緒課程，透過繪本與遊戲，<span class=\"hl-keyword\">引導孩子覺察情緒、同理合作、遠離霸凌</span>。",
