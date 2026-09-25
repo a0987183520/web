@@ -309,7 +309,7 @@ const POLICIES_DATA = [
     {
         id: 14,
         title: "用情緒教育課程　打造高 EQ 社區",
-        subtitle: "每季開辦<span class=\"hl-subtitle-green\">免費情緒教育課程</span>，化解鄰里糾紛與親子溝通困難！",
+        subtitle: "每季開辦<span class=\"hl-subtitle-green\">免費 EQ 課程</span>，化解鄰里糾紛與親子溝通困難！",
         image: "images/policy_14_eq_1.png",
         budgetSource: "市府社會局社區發展專案 (每年 10 萬補助)",
         budgetSub: "<span class=\"hl-keyword\">全額支付</span>專業講師費與教材費<br>本專案<span class=\"hl-keyword\">完全不會動用</span>明德里 88 萬基層款",
@@ -324,7 +324,7 @@ const POLICIES_DATA = [
             "定期舉辦家長支持講座，分享正向溝通技巧，<span class=\"hl-keyword\">協助化解教養焦慮與夫妻摩擦</span>。",
             "為長輩舉辦同理傾聽茶會，<span class=\"hl-keyword\">解開積壓心結，拉近跨世代距離</span>。"
         ],
-        whyPossible: "我具備 <span class=\"hl-keyword\">8 年 EQ 講師資歷與 7 套專業證照</span>，每年帶領 <span class=\"hl-keyword\">70 位志工夥伴</span>；我自備完整教材與師資庫，能對接市府專案補助，為里民提供最扎實的免費課程。"
+        whyPossible: "我具備 <span class=\"hl-keyword\">8 年 EQ 講師資歷與 7 套專業證照</span>，每年帶領 <span class=\"hl-keyword\">70 位志工夥伴</span>；我自備完整教材與專業師資庫，將最好的資源直接回饋明德里！"
     },
     {
         id: 15,
