@@ -287,7 +287,7 @@ const POLICIES_DATA = [
         id: 13,
         category: "culture",
         categoryName: "跨世代共融與活力出遊",
-        title: "里民旅遊活動 ＋ 暢通報名機制",
+        title: "里民旅遊活動 ＋ 保證報名機制",
         subtitle: "<span class=\"hl-subtitle-green\">資訊公開</span>、<span class=\"hl-subtitle-green\">早鳥預告</span>、<span class=\"hl-subtitle-green\">多元報名</span>！合格專業領隊隨行照護。",
         image: "images/policy_13_travel.png?v=27.09",
         hideBudget: true,
@@ -301,7 +301,7 @@ const POLICIES_DATA = [
         ],
         howToDo: [
             "提前於雲端里辦、實體佈告欄與 LINE 等多重管道同步公告，<span class=\"hl-keyword\">保證報名時間充裕、資訊公開透明</span>。",
-            "打破名額天花板，不搞抽籤！<span class=\"hl-keyword\">只要報名熱烈即加開車次</span>。",
+            "打破名額天花板，不搞抽籤！在交通與場地安全容量許可下，<span class=\"hl-keyword\">保證啟動加開車次機制</span>。",
             "除了熱心志工，更<span class=\"hl-keyword\">聘請專業領隊隨行協助</span>，讓大家玩得開心又安全。"
         ],
         whyPossible: "我具備<span class=\"hl-keyword\">豐富的大型活動籌備經驗</span>，能直接對接優質的旅行社與車隊，<span class=\"hl-keyword\">用公開透明的管理方式</span>，為明德里帶來高品質的出遊體驗。"
