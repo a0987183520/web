@@ -311,10 +311,10 @@ const POLICIES_DATA = [
         title: "樂利EQ志工扎根 ＋ 全齡家庭情緒共學",
         subtitle: "8 年國小志工組長帶領團隊，每季定期開辦<span class=\"hl-subtitle-green\">情緒共學工作坊</span>，陪伴跨世代家庭和諧溝通！",
         image: "images/policy_14_eq_1.png",
-        budgetSource: "教育部家庭教育專案 ＋ 校里跨域合作",
+        budgetSource: "市府社會局社區發展專案",
         budgetSub: "<span class=\"hl-keyword\">完全不會用到</span>明德里 88 萬基層款",
-        budgetDesc: "結合 8 年樂利國小 EQ 志工組長團隊師資，免費借用校園空間並對接教育部專案全額補助，零公帑開辦。",
-        highlight: "每季定期開辦 1 期共學工作坊！涵蓋孩子、家長與長者都能參與的情緒管理課程，陪伴大家了解情緒、覺察委屈、避免遷怒、遠離霸凌。",
+        budgetDesc: "向社會局申請專案補助，將里辦打造為社區 EQ 實踐孵化基地，合法發放講師費解決志工流失，淬鍊後再推向學校。",
+        highlight: "每季定期開辦 1 期共學工作坊！將里辦打造成師資前哨站與孵化基地，陪伴大家了解情緒、覺察委屈、避免遷怒、遠離霸凌。",
         icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a5 5 0 1 0 10 0v-2H12z"></path><path d="M12 10a8 8 0 1 0 8 8v-8H12z"></path><circle cx="12" cy="12" r="10"></circle><path d="M8 14s1.5 2 4 2 4-2 4-2"></path><line x1="9" y1="9" x2="9.01" y2="9"></line><line x1="15" y1="9" x2="15.01" y2="9"></line></svg>`,
         hooks: [
             "面對孩子情緒暴走、家長管教焦慮、長輩委屈遷怒，家人往往在無意間互相傷害。外面的專業心理成長課程動輒數千上萬元，許多家庭難以負擔。<span class=\"hl-keyword\">我在樂利國小推動情緒教育 8 年</span>，最深切的心願就是把這套溫暖的解方完整帶回我們明德里！"
