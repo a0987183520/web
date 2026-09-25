@@ -288,7 +288,7 @@ const POLICIES_DATA = [
         category: "culture",
         categoryName: "跨世代共融與活力出遊",
         title: "里民旅遊活動 ＋ 保證報名機制",
-        subtitle: "<span class=\"hl-subtitle-green\">資訊公開</span>、<span class=\"hl-subtitle-green\">早鳥預告</span>、<span class=\"hl-subtitle-green\">多元報名</span>！合格專業領隊隨行照護。",
+        subtitle: "<span class=\"hl-subtitle-green\">資訊公開</span>、<span class=\"hl-subtitle-green\">早鳥預告</span>、提供<span class=\"hl-subtitle-green\"> LINE / 電話 / 雲端 </span>等多種報名方式！合格專業領隊隨行照護。",
         image: "images/policy_13_travel.png?v=27.09",
         hideBudget: true,
         budgetSource: "",
