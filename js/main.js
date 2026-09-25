@@ -1134,6 +1134,14 @@ function openDrawer(policyId) {
     if (drawerBackdrop && drawer) {
         drawerBackdrop.classList.add('active');
         drawer.classList.add('active');
+        
+        // 確保每次開啟抽屜時，捲動軸都回到最上方
+        drawer.scrollTop = 0;
+        const scrollableArea = drawer.querySelector('.drawer-content') || drawer.querySelector('.drawer-body');
+        if (scrollableArea) {
+            scrollableArea.scrollTop = 0;
+        }
+        
         document.body.style.overflow = 'hidden'; // Lock main scroll
     }
 }
