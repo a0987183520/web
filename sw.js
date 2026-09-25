@@ -1,4 +1,4 @@
-﻿const CACHE_NAME = 'mingde2-cache-v27.12';
+const CACHE_NAME = 'mingde2-cache-v27.12';
 const ASSETS_TO_CACHE = [
   './',
   'index.html',
@@ -10,7 +10,7 @@ const ASSETS_TO_CACHE = [
   'images/icon-512.png'
 ];
 
-// 摰?????憛?箸敹怠?
+// 安裝時，預先塞入基本快取
 self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME)
@@ -19,7 +19,7 @@ self.addEventListener('install', (event) => {
   );
 });
 
-// ???皜?翰??
+// 啟用時，清除舊快取
 self.addEventListener('activate', (event) => {
   event.waitUntil(
     caches.keys().then((cacheNames) => {
@@ -34,16 +34,16 @@ self.addEventListener('activate', (event) => {
   );
 });
 
-// ?敹??伐?蝬脰楝?芸?蝑 Network-First嚗?潭??文?蝡?API??
+// 【核心策略：網路優先策略 Network-First，嚴格排除後端 API】
 self.addEventListener('fetch', (event) => {
   const url = event.request.url;
   
-  // ?湔? Google Apps Script API ???刻楊??瘙?蝯??????
+  // 嚴格排除 Google Apps Script API 與外部跨域請求，絕不攔截或重發
   if (url.includes('script.google.com') || 
       url.includes('googleusercontent.com') || 
       url.includes('googleapis.com') ||
       !url.startsWith(self.location.origin)) {
-    return; // ?湔鈭斤?汗?典??雯頝航???
+    return; // 直接交由瀏覽器原生網路處理
   }
 
   event.respondWith(
