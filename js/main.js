@@ -332,7 +332,7 @@ const POLICIES_DATA = [
         categoryName: "空間活化與美學生活",
         title: "寵物友善社區 ＋ 首創毛孩性格標語",
         subtitle: "免費配發<span class=\"hl-subtitle-green\">毛孩性格標語</span>（歡迎摸摸/請保距離），解決孩童養寵渴望，建立<span class=\"hl-subtitle-green\">LINE毛孩社群</span>！",
-        image: "images/policy_15_pet.png?v=32.02",
+        image: "images/policy_15_pet.png?v=33.01",
         budgetSource: "僅動用明德里每年 88 萬基層款中的約 5 千元而已",
         highlight: "免費發放毛孩性格標語配件，建置 LINE 毛孩社群，滿足孩童心願並促進鄰里交流。",
         icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="22"></line></svg>`,
