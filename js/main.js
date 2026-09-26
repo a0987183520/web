@@ -333,14 +333,15 @@ const POLICIES_DATA = [
         title: "明德寵物友善社區 ＋ 人寵共融雙贏",
         subtitle: "首創<span class=\"hl-subtitle-green\">友善毛孩配件</span>（歡迎摸摸/我比較害羞），解決孩童養寵渴望，建立<span class=\"hl-subtitle-green\">LINE狗友社群</span>！",
         image: "images/policy_15_pet.png?v=25.06",
-        budgetSource: "明德里 88 萬基層工作經費",
+        budgetSource: "新北市動保處補助 ＋ 88 萬基層工作經費",
         highlight: "發放友善毛孩互動配件，建置 LINE 狗友社群，滿足孩童心願並促進鄰里交流。",
         icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="22"></line></svg>`,
         hooks: [
             "許多家庭常面臨孩童吵著要養寵物，卻因環境不允許而苦惱。<span class=\"hl-keyword\">滿足孩童心願與社區環境維持絕不衝突</span>！我們能用微小巧思，打造讓所有人都能安心互動的友善社區。"
         ],
         howToDo: [
-            "首創發放<span class=\"hl-keyword\">「友善毛孩互動配件」</span>（標示：歡迎摸摸 / 請先問我 / 我比較害羞），提供飼主領取配戴，安全促成鄰里孩童與毛孩的互動。",
+            "首選向新北市動保處申請動物保護獎勵補助，搭配 88 萬基層款，<span class=\"hl-keyword\">於當選後常態運行時造冊配發</span>，落實社區友善政策。",
+            "發放既有成熟的<span class=\"hl-keyword\">「牽繩標語套」</span>或<span class=\"hl-keyword\">「胸背魔鬼氈貼片」</span>（標示：歡迎摸摸 / 我比較害羞），讓怕狗里民能安心保持距離，也讓毛孩能與孩童安全互動。",
             "建置<span class=\"hl-keyword\">「LINE 狗友社群」</span>，讓飼主能即時相約散步，滿足毛孩社交需求並增進鄰里情誼。",
             "於公園周邊爭取設置<span class=\"hl-keyword\">「寵物便攜袋補充站」</span>，提供飼主應急使用，讓社區環境隨時保持乾淨整潔。"
         ],
