@@ -333,20 +333,20 @@ const POLICIES_DATA = [
         title: "寵物友善社區 ＋ 首創毛孩性格標語",
         subtitle: "免費配發<span class=\"hl-subtitle-green\">毛孩性格標語</span>（歡迎摸摸/請保距離），解決孩童養寵渴望，建立<span class=\"hl-subtitle-green\">LINE毛孩社群</span>！",
         image: "images/policy_15_pet.png?v=25.06",
-        budgetSource: "僅動用明德里每年 88 萬基層款中的 1 萬元",
+        budgetSource: "僅動用明德里每年 88 萬基層款中的約 5 千元而已",
         highlight: "免費發放毛孩性格標語配件，建置 LINE 毛孩社群，滿足孩童心願並促進鄰里交流。",
         icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="22"></line></svg>`,
         hooks: [
-            "許多家庭面臨孩童吵著要養寵物，卻因環境不允許而苦惱，希望能有機會在社區安全地與毛孩互動。",
-            "有些飼主的毛小孩非常友善，其實很歡迎鄰里或孩童來摸摸牠，卻苦無方式表達。",
-            "有些毛小孩較為怕生或有警戒心，飼主出門散步時總提心吊膽，希望能有效提醒路人「請保持距離」。"
+            "許多家庭面臨孩童吵著養寵物，卻因環境不允許而苦惱。",
+            "有些飼主的毛小孩非常友善，卻苦無方式表達。",
+            "有些毛小孩較為怕生，希望能有效提醒鄰居。"
         ],
         howToDo: [
-            "免費發放 <span class=\"hl-keyword\">牽繩標語套</span> 或 <span class=\"hl-keyword\">胸背魔鬼氈貼片</span>，標語包含 <span class=\"hl-keyword\">歡迎摸摸</span>、<span class=\"hl-keyword\">我比較害羞</span>、<span class=\"hl-keyword\">請保距離</span>，精準解決社交痛點。",
-            "建置 <span class=\"hl-keyword\">LINE 毛孩社群</span>，讓飼主能及時相約散步，也滿足無寵家庭的孩童想與毛孩遊玩的渴望。",
-            "於公園周邊爭取設置 <span class=\"hl-keyword\">寵物便攜袋補充站</span>，提供飼主應急使用，讓社區環境隨時保持乾淨整潔。"
+            "免費發放 <span class=\"hl-keyword\">牽繩標語套</span> 或 <span class=\"hl-keyword\">胸背魔鬼氈貼片</span>，標語包含 <span class=\"hl-keyword\">歡迎摸摸</span>、<span class=\"hl-keyword\">我比較害羞</span>、<span class=\"hl-keyword\">請保距離</span>。",
+            "建置 <span class=\"hl-keyword\">LINE 毛孩社群</span>，建立飼主間的情感，也滿足無寵家庭孩童想與毛孩遊玩的渴望。",
+            "於公園周邊設置 <span class=\"hl-keyword\">寵物便攜袋補充站</span>，提供飼主應急使用，保持公園環境整潔。"
         ],
-        whyPossible: "我具備 <span class=\"hl-keyword\">10 年社區規約管理與空間協調實戰經驗</span>，最懂得如何兼顧非養寵物長輩對乾淨衛生的要求與飼主心聲。"
+        whyPossible: "我具備 <span class=\"hl-keyword\">10 年打造友善社區經驗</span>，最懂得如何兼顧公園清潔與飼主煩惱。"
     }
 ];
 
