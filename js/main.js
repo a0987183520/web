@@ -1035,17 +1035,17 @@ function openDrawer(policyId) {
                 </div>
             `;
         } else if (policy.id === 15) {
-            // 如果是計畫 15 (寵物友善)，渲染 16:9 YouTube 影音播放器，下方接概念圖
+            // 如果是計畫 15 (寵物友善)，置頂溫馨概念示意圖，下方接 YouTube 衛教宣導影片
             drawerImgWrapper.style.display = 'block';
             drawerImgWrapper.innerHTML = `
-                <div class="drawer-video-card" style="margin-bottom: 1.5rem;">
+                <div style="position: relative; border-radius: 16px; overflow: hidden; border: 1px solid var(--card-border); margin-bottom: 1.5rem;">
+                    <img class="drawer-image" src="${policy.image}" alt="${policy.title} - 概念示意圖" onerror="this.closest('#drawer-image-wrapper').style.display='none';" onload="this.closest('#drawer-image-wrapper').style.display='block';">
+                    <span class="vision-badge">概念示意圖</span>
+                </div>
+                <div class="drawer-video-card">
                     <div class="drawer-video-wrap">
                         <iframe src="https://www.youtube-nocookie.com/embed/nMQRwei0P-8?rel=0" title="寵物便便袋宣導" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                     </div>
-                </div>
-                <div style="position: relative; border-radius: 16px; overflow: hidden; border: 1px solid var(--card-border);">
-                    <img class="drawer-image" src="${policy.image}" alt="${policy.title} - 概念示意圖" onerror="this.closest('#drawer-image-wrapper').style.display='none';" onload="this.closest('#drawer-image-wrapper').style.display='block';">
-                    <span class="vision-badge">概念示意圖</span>
                 </div>
             `;
         } else if (policy.id === 3) {
