@@ -331,10 +331,10 @@ const POLICIES_DATA = [
         category: "culture",
         categoryName: "空間活化與美學生活",
         title: "寵物友善社區 ＋ 首創毛孩性格標語",
-        subtitle: "免費配發<span class=\"hl-subtitle-green\">毛孩性格標語</span>（歡迎摸摸/請保距離），解決孩童養寵渴望，建立<span class=\"hl-subtitle-green\">LINE狗友社群</span>！",
+        subtitle: "免費配發<span class=\"hl-subtitle-green\">毛孩性格標語</span>（歡迎摸摸/請保距離），解決孩童養寵渴望，建立<span class=\"hl-subtitle-green\">LINE毛孩社群</span>！",
         image: "images/policy_15_pet.png?v=25.06",
-        budgetSource: "明德里 88 萬基層工作經費 (每年僅約 1 萬元)",
-        highlight: "免費發放毛孩性格標語配件，建置 LINE 狗友社群，滿足孩童心願並促進鄰里交流。",
+        budgetSource: "動用明德里 88 萬基層款中每年約 1 萬元",
+        highlight: "免費發放毛孩性格標語配件，建置 LINE 毛孩社群，滿足孩童心願並促進鄰里交流。",
         icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="22"></line></svg>`,
         hooks: [
             "許多家庭面臨孩童吵著要養寵物，卻因環境不允許而苦惱，希望能有機會在社區安全地與毛孩互動。",
@@ -342,9 +342,9 @@ const POLICIES_DATA = [
             "有些毛小孩較為怕生或有警戒心，飼主出門散步時總提心吊膽，希望能有效提醒路人「請保持距離」。"
         ],
         howToDo: [
-            "動用 88 萬基層款中極小比例（每年約 1 萬元，僅佔八十八分之一），<span class=\"hl-keyword\">於當選後常態運行時免費造冊配發</span>，花小錢創造大幸福。",
+            "僅需動用 88 萬基層款中的 1 萬元，<span class=\"hl-keyword\">於當選後常態運行時免費造冊配發</span>，花小錢創造大幸福。",
             "發放既有成熟的<span class=\"hl-keyword\">「牽繩標語套」</span>或<span class=\"hl-keyword\">「胸背魔鬼氈貼片」</span>（標示：歡迎摸摸 / 我比較害羞 / 請保距離），精準解決飼主與路人的社交痛點。",
-            "建置<span class=\"hl-keyword\">「LINE 狗友社群」</span>，讓飼主能即時相約散步，滿足毛孩社交需求並增進鄰里情誼。",
+            "建置<span class=\"hl-keyword\">「LINE 毛孩社群」</span>，讓飼主能及時相約散步，也滿足無寵家庭的孩童想與毛孩遊玩的渴望。",
             "於公園周邊爭取設置<span class=\"hl-keyword\">「寵物便攜袋補充站」</span>，提供飼主應急使用，讓社區環境隨時保持乾淨整潔。"
         ],
         whyPossible: "我具備 <span class=\"hl-keyword\">10 年社區規約管理與空間協調實戰經驗</span>，最懂得如何兼顧非養寵物長輩對乾淨衛生的要求與飼主心聲。"
