@@ -330,18 +330,20 @@ const POLICIES_DATA = [
         id: 15,
         category: "culture",
         categoryName: "空間活化與美學生活",
-        title: "明德寵物友善社區 ＋ 人寵共融雙贏",
-        subtitle: "首創<span class=\"hl-subtitle-green\">友善毛孩配件</span>（歡迎摸摸/我比較害羞），解決孩童養寵渴望，建立<span class=\"hl-subtitle-green\">LINE狗友社群</span>！",
+        title: "寵物友善社區 ＋ 首創毛孩性格標語",
+        subtitle: "免費配發<span class=\"hl-subtitle-green\">毛孩性格標語</span>（歡迎摸摸/請保距離），解決孩童養寵渴望，建立<span class=\"hl-subtitle-green\">LINE狗友社群</span>！",
         image: "images/policy_15_pet.png?v=25.06",
-        budgetSource: "明德里 88 萬基層工作經費",
-        highlight: "發放友善毛孩互動配件，建置 LINE 狗友社群，滿足孩童心願並促進鄰里交流。",
+        budgetSource: "明德里 88 萬基層工作經費 (每年僅約 1 萬元)",
+        highlight: "免費發放毛孩性格標語配件，建置 LINE 狗友社群，滿足孩童心願並促進鄰里交流。",
         icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="22"></line></svg>`,
         hooks: [
-            "許多家庭常面臨孩童吵著要養寵物，卻因環境不允許而苦惱。<span class=\"hl-keyword\">滿足孩童心願與社區環境維持絕不衝突</span>！我們能用微小巧思，打造讓所有人都能安心互動的友善社區。"
+            "許多家庭面臨孩童吵著要養寵物，卻因環境不允許而苦惱，希望能有機會在社區安全地與毛孩互動。",
+            "有些飼主的毛小孩非常友善，其實很歡迎鄰里或孩童來摸摸牠，卻苦無方式表達。",
+            "有些毛小孩較為怕生或有警戒心，飼主出門散步時總提心吊膽，希望能有效提醒路人「請保持距離」。"
         ],
         howToDo: [
-            "動用 88 萬基層款中極小比例（每年約 1~2 萬元額度），<span class=\"hl-keyword\">於當選後常態運行時造冊配發</span>，落實社區友善政策。",
-            "發放既有成熟的<span class=\"hl-keyword\">「牽繩標語套」</span>或<span class=\"hl-keyword\">「胸背魔鬼氈貼片」</span>（標示：歡迎摸摸 / 我比較害羞），讓怕狗里民能安心保持距離，也讓毛孩能與孩童安全互動。",
+            "動用 88 萬基層款中極小比例（每年約 1 萬元，僅佔八十八分之一），<span class=\"hl-keyword\">於當選後常態運行時免費造冊配發</span>，花小錢創造大幸福。",
+            "發放既有成熟的<span class=\"hl-keyword\">「牽繩標語套」</span>或<span class=\"hl-keyword\">「胸背魔鬼氈貼片」</span>（標示：歡迎摸摸 / 我比較害羞 / 請保距離），精準解決飼主與路人的社交痛點。",
             "建置<span class=\"hl-keyword\">「LINE 狗友社群」</span>，讓飼主能即時相約散步，滿足毛孩社交需求並增進鄰里情誼。",
             "於公園周邊爭取設置<span class=\"hl-keyword\">「寵物便攜袋補充站」</span>，提供飼主應急使用，讓社區環境隨時保持乾淨整潔。"
         ],
