@@ -343,7 +343,7 @@
     }
 
     /* 
-       2.5 中間橫幅：預算與執行力獨立雙行問答 Bar (頂部左右對齊 ✕ 底部全寬亮綠重點)
+       2.5 中間橫幅：預算與執行力獨立雙行問答 Bar (極致 3 色高對比：珊瑚紅 ✕ 純白 ✕ 翡翠綠)
     */
     .budget-bar {
       height: 16.5mm;
@@ -363,7 +363,7 @@
     .budget-row {
       display: flex;
       align-items: center;
-      font-size: 16.5px;
+      font-size: 17.5px;
       font-weight: 700;
       line-height: 1.25;
       letter-spacing: 0.1px;
@@ -376,46 +376,34 @@
       width: 100%;
     }
 
+    /* 第一行左側：統一為珊瑚暖紅 */
     .budget-row .top-left {
       color: #f87171;
       text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
       display: inline-flex;
       align-items: center;
+      font-weight: 800;
     }
 
-    .budget-row .top-left .q-lead {
-      color: #fca5a5;
-      font-weight: 900;
-      margin-right: 6px;
-    }
-
+    /* 第一行右側：統一為純白 */
     .budget-row .top-right {
-      color: #e2e8f0;
+      color: #f8fafc;
       display: inline-flex;
       align-items: center;
+      font-weight: 700;
     }
 
-    .budget-row .top-right .fact-lead {
-      color: #fbbf24;
-      font-weight: 900;
-      margin-right: 6px;
-    }
-
-    /* 第二行：回答與實力宣告（純白 ＋ 翡翠亮綠重點） */
+    /* 第二行：回答與實力宣告（純白 ＋ 翡翠亮綠重點，大字 18px） */
     .budget-row.row-bottom {
       color: #f8fafc;
-      font-size: 17px;
-    }
-
-    .budget-row .highlight-lead {
-      color: #fcd34d;
-      font-weight: 800;
+      font-size: 18px;
+      font-weight: 700;
     }
 
     .budget-row .highlight-green {
       color: #34d399;
       font-weight: 900;
-      font-size: 18.5px;
+      font-size: 19.5px;
       margin: 0 1px;
       text-shadow: 0 0 10px rgba(52, 211, 153, 0.6);
     }
@@ -586,14 +574,14 @@
     <div class="budget-bar">
       <div class="budget-row row-top">
         <div class="top-left">
-          <span class="q-lead">有人問</span>里長每月 5 萬元，怎麼做得到？
+          有人問：里長每月 5 萬元，怎麼做得到？
         </div>
         <div class="top-right">
-          <span class="fact-lead">其實</span>明德里為超過 6 千人的人口大里
+          其實：明德里為超過 6 千人的人口大里
         </div>
       </div>
       <div class="budget-row row-bottom">
-        <span class="highlight-lead">會寫企劃案的里長</span>，每年可全額申請 <span class="highlight-green">88 萬元</span>基層經費，而我有實力再爭取<span class="highlight-green">破百萬</span>專案補助！
+        我懂企劃能全額申請 <span class="highlight-green">88 萬</span>基層經費，更能跨局處爭取<span class="highlight-green">破百萬</span>專案補助！
       </div>
     </div>
 
