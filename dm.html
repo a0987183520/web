@@ -92,7 +92,7 @@
       overflow: hidden;
       display: flex;
       flex-direction: column;
-      padding: 7mm 8mm 6mm 8mm;
+      padding: 5.5mm 8mm 5mm 8mm;
     }
 
     @page {
@@ -123,7 +123,7 @@
        1. 頂端列 (Top Bar，左側品牌 ✕ 右側政策白皮書標題)
     */
     .top-bar {
-      height: 11mm;
+      height: 10.5mm;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -188,14 +188,14 @@
     }
 
     /* 
-       2. 上半部 HERO 區塊 (占約 45%，高約 118mm，左側文字 ✕ 右側願景形象圖)
+       2. 上半部 HERO 區塊 (占約 45%，高約 108mm，左側文字 ✕ 右側願景形象圖)
     */
     .hero-container {
-      height: 118mm;
+      height: 108mm;
       display: grid;
       grid-template-columns: 1.18fr 0.82fr;
       gap: 8px;
-      margin-top: 3mm;
+      margin-top: 2mm;
       flex-shrink: 0;
     }
 
@@ -204,7 +204,7 @@
       background: rgba(12, 20, 17, 0.7);
       border: 1px solid rgba(255, 255, 255, 0.1);
       border-radius: 12px;
-      padding: 7px 14px 4px 14px;
+      padding: 6px 14px 4px 14px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -220,7 +220,7 @@
     }
 
     .hero-subhead {
-      font-size: 35px;
+      font-size: 34px;
       font-weight: 900;
       color: #ffffff;
       letter-spacing: 0.5px;
@@ -228,7 +228,7 @@
     }
 
     .hero-mainhead {
-      font-size: 35px;
+      font-size: 34px;
       font-weight: 900;
       line-height: 1.1;
       background: linear-gradient(135deg, #fbbf24 0%, #34d399 100%);
@@ -241,17 +241,17 @@
     .letter-body {
       display: flex;
       flex-direction: column;
-      gap: 3px;
+      gap: 2px;
       margin-top: -6px;
     }
 
     .letter-body p {
-      font-size: 17.5px;
+      font-size: 18.5px;
       font-weight: 500;
-      line-height: 1.40;
+      line-height: 1.45;
       color: #f5f5f4;
       margin: 0;
-      letter-spacing: 0.15px;
+      letter-spacing: 0.2px;
     }
 
     /* 發光微光標籤 */
@@ -281,7 +281,7 @@
       display: flex;
       justify-content: flex-end;
       align-items: flex-end;
-      margin-top: -95px;
+      margin-top: -105px;
       position: relative;
       z-index: 5;
     }
@@ -304,7 +304,7 @@
     .hero-image-card {
       width: 100%;
       height: 100%;
-      max-height: 110mm;
+      max-height: 108mm;
       border-radius: 12px;
       overflow: hidden;
       position: relative;
@@ -342,16 +342,99 @@
     }
 
     /* 
+       2.5 中間橫幅：預算與執行力獨立問答 Bar (高質感深翠綠漸層 ✕ 金色警語膠囊)
+    */
+    .budget-bar {
+      height: 9mm;
+      margin: 2mm 0;
+      background: linear-gradient(90deg, rgba(251, 191, 36, 0.12) 0%, rgba(16, 185, 129, 0.16) 40%, rgba(6, 78, 59, 0.22) 100%);
+      border: 1px solid rgba(251, 191, 36, 0.45);
+      border-radius: 7px;
+      padding: 0 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-shrink: 0;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
+    }
+
+    .budget-q-group {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-shrink: 0;
+    }
+
+    .budget-q-badge {
+      background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+      color: #040806;
+      font-size: 11px;
+      font-weight: 900;
+      padding: 2px 6px;
+      border-radius: 4px;
+      letter-spacing: 0.5px;
+    }
+
+    .budget-q-text {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: #fef08a;
+      letter-spacing: 0.2px;
+    }
+
+    .budget-arrow-icon {
+      color: #10b981;
+      font-size: 14px;
+      font-weight: 900;
+      margin: 0 2px;
+    }
+
+    .budget-a-group {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .budget-a-badge {
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      color: #ffffff;
+      font-size: 11px;
+      font-weight: 900;
+      padding: 2px 6px;
+      border-radius: 4px;
+      letter-spacing: 0.5px;
+    }
+
+    .budget-a-text {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: #f5f5f4;
+      letter-spacing: 0.2px;
+    }
+
+    .budget-a-text span.gold-highlight {
+      color: #fbbf24;
+      font-weight: 900;
+      font-size: 14.5px;
+    }
+
+    .budget-a-text span.green-highlight {
+      color: #34d399;
+      font-weight: 900;
+      font-size: 14.5px;
+    }
+
+    /* 
        3. 下半部 15 大政見網格 (純文字大字版，3 欄 x 5 列)
     */
     .grid-container {
-      height: 148mm;
+      height: 147mm;
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       grid-template-rows: repeat(5, 1fr);
       gap: 5.5px;
       flex-shrink: 0;
-      margin-top: 3.5mm;
+      margin-top: 0mm;
     }
 
     .policy-card {
@@ -478,10 +561,8 @@
           <p>
             我曾任職 <span class="letter-tag green">500 大企業工程師</span><br>
             擁有 <span class="letter-tag green">20 年以上企業管理資歷</span><br>
-            <span class="letter-tag green">10 年社區管委會</span>與兩屆<span class="letter-tag green">主委</span>資歷<br>
-            明德里每年有 <span class="letter-tag green">88 萬基層專款</span><br>
+            更有 <span class="letter-tag green">10 年社區管委會治理經驗</span><br>與兩屆<span class="letter-tag green">主委</span>資歷<br>
             我熟法規、<span class="letter-tag green">擅寫補助款企劃案</span><br>
-            更能往上爭取<span class="letter-tag green">過百萬補助</span><br>
             我有 <span class="letter-tag green">100% 實力</span>去兌現我的<br><span class="letter-tag green">十五大創新政見</span>！
           </p>
         </div>
@@ -503,6 +584,19 @@
         </div>
       </div>
 
+    </div>
+
+    <!-- 2.5 中間橫幅：預算與執行力獨立問答 Bar -->
+    <div class="budget-bar">
+      <div class="budget-q-group">
+        <span class="budget-q-badge">選民常問</span>
+        <span class="budget-q-text">里長每月僅 5 萬事務費，政見如何做到？</span>
+      </div>
+      <span class="budget-arrow-icon">➜</span>
+      <div class="budget-a-group">
+        <span class="budget-a-badge">預算解方</span>
+        <span class="budget-a-text">明德里每年依法享有 <span class="gold-highlight">88 萬基層專款</span> ✕ 專業企劃爭取中央地方<span class="green-highlight">百萬專案補助</span>！</span>
+      </div>
     </div>
 
     <!-- 下半部 15 大政見網格 (Apple 風格微向量 Icon，3 欄 x 5 列) -->
