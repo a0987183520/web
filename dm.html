@@ -343,7 +343,7 @@
     }
 
     /* 
-       2.5 中間橫幅：預算與執行力獨立雙行問答 Bar (珊瑚暖紅問句 ✕ 亮白翡翠綠答句)
+       2.5 中間橫幅：預算與執行力獨立雙行問答 Bar (頂部左右對齊 ✕ 底部全寬亮綠重點)
     */
     .budget-bar {
       height: 16.5mm;
@@ -355,7 +355,7 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      gap: 3px;
+      gap: 3.5px;
       flex-shrink: 0;
       box-shadow: 0 4px 14px rgba(0, 0, 0, 0.55);
     }
@@ -363,40 +363,59 @@
     .budget-row {
       display: flex;
       align-items: center;
-      font-size: 17.5px;
+      font-size: 16.5px;
       font-weight: 700;
       line-height: 1.25;
       letter-spacing: 0.1px;
       white-space: nowrap;
     }
 
-    /* 第一行：提問（珊瑚暖紅） */
-    .budget-row.q-row {
-      color: #f87171;
-      text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+    /* 第一行：左右對稱排版 */
+    .budget-row.row-top {
+      justify-content: space-between;
+      width: 100%;
     }
 
-    .budget-row.q-row .q-lead {
+    .budget-row .top-left {
+      color: #f87171;
+      text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .budget-row .top-left .q-lead {
       color: #fca5a5;
       font-weight: 900;
       margin-right: 6px;
     }
 
-    /* 第二行：回答（純白 ＋ 翡翠亮綠重點） */
-    .budget-row.a-row {
-      color: #f8fafc;
+    .budget-row .top-right {
+      color: #e2e8f0;
+      display: inline-flex;
+      align-items: center;
     }
 
-    .budget-row.a-row .a-lead {
-      color: #34d399;
+    .budget-row .top-right .fact-lead {
+      color: #fbbf24;
       font-weight: 900;
       margin-right: 6px;
+    }
+
+    /* 第二行：回答與實力宣告（純白 ＋ 翡翠亮綠重點） */
+    .budget-row.row-bottom {
+      color: #f8fafc;
+      font-size: 17px;
+    }
+
+    .budget-row .highlight-lead {
+      color: #fcd34d;
+      font-weight: 800;
     }
 
     .budget-row .highlight-green {
       color: #34d399;
       font-weight: 900;
-      font-size: 19px;
+      font-size: 18.5px;
       margin: 0 1px;
       text-shadow: 0 0 10px rgba(52, 211, 153, 0.6);
     }
@@ -565,11 +584,16 @@
 
     <!-- 2.5 中間橫幅：預算與執行力獨立雙行問答 Bar -->
     <div class="budget-bar">
-      <div class="budget-row q-row">
-        <span class="q-lead">有人問</span>里長每月 5 萬元，怎麼做得到？
+      <div class="budget-row row-top">
+        <div class="top-left">
+          <span class="q-lead">有人問</span>里長每月 5 萬元，怎麼做得到？
+        </div>
+        <div class="top-right">
+          <span class="fact-lead">其實</span>明德里為超過 6 千人的人口大里
+        </div>
       </div>
-      <div class="budget-row a-row">
-        <span class="a-lead">其實</span>明德里每年有 <span class="highlight-green">88 萬元</span>基層款，我有實力寫出<span class="highlight-green">超過百萬元</span>的補助企劃案！
+      <div class="budget-row row-bottom">
+        <span class="highlight-lead">會寫企劃案的里長</span>，每年可全額申請 <span class="highlight-green">88 萬元</span>基層經費，而我有實力再爭取<span class="highlight-green">破百萬</span>專案補助！
       </div>
     </div>
 
