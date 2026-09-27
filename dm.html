@@ -188,10 +188,10 @@
     }
 
     /* 
-       2. 上半部 HERO 區塊 (占約 45%，高約 108mm，左側文字 ✕ 右側願景形象圖)
+       2. 上半部 HERO 區塊 (占約 45%，高約 101mm，左側文字 ✕ 右側願景形象圖)
     */
     .hero-container {
-      height: 108mm;
+      height: 101mm;
       display: grid;
       grid-template-columns: 1.18fr 0.82fr;
       gap: 8px;
@@ -204,7 +204,7 @@
       background: rgba(12, 20, 17, 0.7);
       border: 1px solid rgba(255, 255, 255, 0.1);
       border-radius: 12px;
-      padding: 6px 14px 4px 14px;
+      padding: 5px 14px 4px 14px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -220,7 +220,7 @@
     }
 
     .hero-subhead {
-      font-size: 34px;
+      font-size: 33px;
       font-weight: 900;
       color: #ffffff;
       letter-spacing: 0.5px;
@@ -228,7 +228,7 @@
     }
 
     .hero-mainhead {
-      font-size: 34px;
+      font-size: 33px;
       font-weight: 900;
       line-height: 1.1;
       background: linear-gradient(135deg, #fbbf24 0%, #34d399 100%);
@@ -246,9 +246,9 @@
     }
 
     .letter-body p {
-      font-size: 18.5px;
+      font-size: 18px;
       font-weight: 500;
-      line-height: 1.45;
+      line-height: 1.42;
       color: #f5f5f4;
       margin: 0;
       letter-spacing: 0.2px;
@@ -281,7 +281,7 @@
       display: flex;
       justify-content: flex-end;
       align-items: flex-end;
-      margin-top: -105px;
+      margin-top: -100px;
       position: relative;
       z-index: 5;
     }
@@ -293,7 +293,7 @@
       filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.6));
     }
 
-    /* 右側願景形象照 */
+    /* 右側願景形象照（聚焦頭肩表情，裁切下方桌面） */
     .hero-right {
       height: 100%;
       display: flex;
@@ -304,7 +304,7 @@
     .hero-image-card {
       width: 100%;
       height: 100%;
-      max-height: 108mm;
+      max-height: 101mm;
       border-radius: 12px;
       overflow: hidden;
       position: relative;
@@ -317,6 +317,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+      object-position: center 8%;
       display: block;
     }
 
@@ -342,92 +343,70 @@
     }
 
     /* 
-       2.5 中間橫幅：預算與執行力獨立問答 Bar (高質感深翠綠漸層 ✕ 金色警語膠囊)
+       2.5 中間橫幅：預算與執行力獨立雙行問答 Bar (無膠囊・大字雙行排版)
     */
     .budget-bar {
-      height: 10.5mm;
-      margin: 2mm 0;
-      background: linear-gradient(90deg, rgba(251, 191, 36, 0.14) 0%, rgba(16, 185, 129, 0.18) 40%, rgba(6, 78, 59, 0.25) 100%);
+      height: 16.5mm;
+      margin: 1.8mm 0 2.2mm 0;
+      background: linear-gradient(135deg, rgba(14, 30, 22, 0.92) 0%, rgba(8, 20, 15, 0.96) 100%);
       border: 1.2px solid rgba(251, 191, 36, 0.5);
-      border-radius: 7px;
-      padding: 0 10px;
+      border-radius: 8px;
+      padding: 0 14px;
       display: flex;
-      align-items: center;
-      justify-content: space-between;
+      flex-direction: column;
+      justify-content: center;
+      gap: 3px;
       flex-shrink: 0;
-      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.45);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5);
     }
 
-    .budget-q-group {
+    .budget-row {
       display: flex;
       align-items: center;
-      gap: 6px;
-      flex-shrink: 0;
-    }
-
-    .budget-q-badge {
-      background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
-      color: #040806;
-      font-size: 13.5px;
-      font-weight: 900;
-      padding: 2.5px 7px;
-      border-radius: 4px;
-      letter-spacing: 0.5px;
-      white-space: nowrap;
-    }
-
-    .budget-q-text {
-      font-size: 18px;
+      font-size: 18.5px;
       font-weight: 700;
-      color: #fef08a;
-      letter-spacing: -0.2px;
+      line-height: 1.25;
+      letter-spacing: 0.1px;
       white-space: nowrap;
     }
 
-    .budget-arrow-icon {
-      color: #10b981;
-      font-size: 16px;
-      font-weight: 900;
-      margin: 0 2px;
-    }
-
-    .budget-a-group {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .budget-a-badge {
-      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-      color: #ffffff;
-      font-size: 13.5px;
-      font-weight: 900;
-      padding: 2.5px 7px;
-      border-radius: 4px;
-      letter-spacing: 0.5px;
-      white-space: nowrap;
-    }
-
-    .budget-a-text {
-      font-size: 18px;
-      font-weight: 700;
-      color: #f5f5f4;
-      letter-spacing: -0.2px;
-      white-space: nowrap;
-    }
-
-    .budget-a-text span.gold-highlight {
+    /* 第一行：提問（亮眼金黃） */
+    .budget-row.q-row {
       color: #fbbf24;
-      font-weight: 900;
-      font-size: 19px;
-      margin: 0 1px;
+      text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
     }
 
-    .budget-a-text span.green-highlight {
+    .budget-row.q-row .q-lead {
+      color: #fef08a;
+      font-weight: 900;
+      margin-right: 6px;
+    }
+
+    /* 第二行：回答（純白 ＋ 翡翠亮綠重點） */
+    .budget-row.a-row {
+      color: #f5f5f4;
+    }
+
+    .budget-row.a-row .a-lead {
       color: #34d399;
       font-weight: 900;
-      font-size: 19px;
+      margin-right: 6px;
+    }
+
+    .budget-row .highlight-gold {
+      color: #fbbf24;
+      font-weight: 900;
+      font-size: 20px;
       margin: 0 1px;
+      text-shadow: 0 0 10px rgba(251, 191, 36, 0.6);
+    }
+
+    .budget-row .highlight-green {
+      color: #34d399;
+      font-weight: 900;
+      font-size: 20px;
+      margin: 0 1px;
+      text-shadow: 0 0 10px rgba(52, 211, 153, 0.6);
     }
 
     /* 
@@ -592,16 +571,13 @@
 
     </div>
 
-    <!-- 2.5 中間橫幅：預算與執行力獨立問答 Bar -->
+    <!-- 2.5 中間橫幅：預算與執行力獨立雙行問答 Bar -->
     <div class="budget-bar">
-      <div class="budget-q-group">
-        <span class="budget-q-badge">有人問</span>
-        <span class="budget-q-text">里長每月5萬元，怎麼做得到？</span>
+      <div class="budget-row q-row">
+        <span class="q-lead">有人問</span>里長每月 5 萬元，怎麼做得到？
       </div>
-      <span class="budget-arrow-icon">➜</span>
-      <div class="budget-a-group">
-        <span class="budget-a-badge">其實</span>
-        <span class="budget-a-text">明德里每年能申請到<span class="gold-highlight">88萬</span>基層款，會寫企劃案更能爭取<span class="green-highlight">破百萬</span></span>
+      <div class="budget-row a-row">
+        <span class="a-lead">其實</span>明德里每年能申請到 <span class="highlight-gold">88 萬</span>基層款，會寫企劃案更能爭取<span class="highlight-green">破百萬</span>
       </div>
     </div>
 
