@@ -52,10 +52,10 @@ const POLICIES_DATA = [
         subtitle: "首創<span class=\"hl-subtitle-green\">雲端里辦</span>，手機就能反映問題，報名活動，監督預算，下樓就能參與活動",
         image: "images/policy_02_clubhouse_stem.jpg",
         sectionOrder: "innovation-first",
-        budgetSource: "我自己開發「里民作主」App",
+        budgetSource: "我自己開發<span class=\"hl-keyword\">里民作主 App</span>",
         budgetSub: "<span class=\"hl-keyword\">完全不會動用</span>明德里 88 萬基層款",
         budgetDesc: "不用爭奪活動中心，同時間多社區平行舉辦，微型活動，人數少也有機會成班",
-        highlight: "首創「社區平行微活動」！善用明德里 20 個大型社區公設，下樓就能參加，活動瞬間加倍，不用爭奪活動中心，手機作主你來點、我來辦！",
+        highlight: "首創社區平行微活動！善用明德里 20 個大型社區公設，下樓就能參加，活動瞬間加倍，不用爭奪活動中心，手機作主你來點、我來辦！",
         icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>`,
         hookTitle: "創新",
         hooks: [
@@ -76,14 +76,14 @@ const POLICIES_DATA = [
         budgetSource: "工務局<span class=\"hl-keyword\">騎樓整平</span>計畫 ＋ <span class=\"hl-keyword\">人本交通</span>專案款",
         budgetSub: "搭配明德里 <span class=\"hl-keyword\">88 萬基層款</span>",
         budgetDesc: "",
-        highlight: "高摩擦防滑塗料速解雨天濕滑！升級守望相助巡守隊落實「夜巡治安、日巡護童」，結合「一鍵定位通報App」主動查報路面破損與環境死角，守護步步安心！",
+        highlight: "高摩擦防滑塗料速解雨天濕滑！升級守望相助巡守隊落實夜巡治安、日巡護童，結合一鍵定位通報App主動查報路面破損與環境死角，守護步步安心！",
         icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 4v16M17 8l-4-4-4 4M7 20h10"></path><circle cx="12" cy="4" r="2"></circle></svg>`,
         hooks: [
             "明德里是<span class=\"hl-keyword\">上學、上班與民眾採買</span>的必經要道；部分地面<span class=\"hl-keyword\">防滑不足</span>，路口<span class=\"hl-keyword\">人車爭道</span>，對小孩、長者是潛在威脅！"
         ],
         howToDo: [
             "<span class=\"hl-keyword\">高摩擦防滑塗料</span>，雨天立即見效。",
-            "升級<span class=\"hl-keyword\">守望相助巡守隊</span>，<span class=\"hl-keyword\">夜巡治安、日巡護童</span>，賦予志工就近「<span class=\"hl-keyword\">下樓即護童</span>」的微任務，提供齊全反光裝備與保險！",
+            "升級<span class=\"hl-keyword\">守望相助巡守隊</span>，<span class=\"hl-keyword\">夜巡治安、日巡護童</span>，賦予志工就近<span class=\"hl-keyword\">下樓即護童</span>的微任務，提供齊全反光裝備與保險！",
             "巡守任務包含<span class=\"hl-keyword\">路面破損</span>、<span class=\"hl-keyword\">騎樓濕滑</span>、<span class=\"hl-keyword\">犬便髒亂</span>、<span class=\"hl-keyword\">路燈故障</span>、<span class=\"hl-keyword\">違停死角</span>與<span class=\"hl-keyword\">危險障礙物</span>，<span class=\"hl-keyword\">一鍵定位通報App</span>，雲端里辦即時列管修繕！"
         ],
         whyPossible: "我<span class=\"hl-keyword\">擅長組織志工、撰寫企畫案、深諳公門運作</span>，擁有 10 年管委會實戰經驗；曾於 403 地震研究法規，<span class=\"hl-keyword\">成功協調跨局處施工</span>，搶通三不管的重要便道地面下陷的行人安全問題。"
@@ -104,8 +104,8 @@ const POLICIES_DATA = [
             "你是否被<span class=\"hl-keyword\">海山、學府、學士到金城路口</span>，<span class=\"hl-keyword\">塞車塞到懷疑人生</span>？<span class=\"hl-keyword\">直行綠燈不同步</span>、轉彎車因<span class=\"hl-keyword\">人車爭道</span>卡死在斑馬線，一個綠燈只能過一兩台車！"
         ],
         howToDo: [
-            "推動學府與明德路口、海山與明德路口白天<span class=\"hl-keyword\">「行人專用號誌」</span>，徹底人車分流，根除轉彎車卡死動線的塞車主因！",
-            "建置<span class=\"hl-keyword\">「全廊道動態綠波」</span>，直行一路綠燈暢通！"
+            "推動學府與明德路口、海山與明德路口白天<span class=\"hl-keyword\">行人專用號誌</span>，徹底人車分流，根除轉彎車卡死動線的塞車主因！",
+            "建置<span class=\"hl-keyword\">全廊道動態綠波</span>，直行一路綠燈暢通！"
         ],
         whyPossible: "以我<span class=\"hl-keyword\">資工與橫向溝通專長</span>，向交通局爭取會勘，<span class=\"hl-keyword\">精準解讀車流量與號誌週期邏輯</span>！"
     },
@@ -125,7 +125,7 @@ const POLICIES_DATA = [
             "大家對微型遙控車與安全無人機充滿興趣，卻常<span class=\"hl-keyword\">擔心花大錢</span>、也<span class=\"hl-keyword\">擔心容易損壞</span>，更<span class=\"hl-keyword\">擔心沒人教不會操作</span>？請放心，這些問題我全都能解決！"
         ],
         howToDo: [
-            "配合政見 02「社區平行微活動」，<span class=\"hl-keyword\">輪流到各社區舉辦體驗營</span>，下樓就能輕鬆體驗！",
+            "配合政見 02 社區平行微活動，<span class=\"hl-keyword\">輪流到各社區舉辦體驗營</span>，下樓就能輕鬆體驗！",
             "每年於活動中心<span class=\"hl-keyword\">舉辦小型趣味賽（個人組／祖孫組／家庭組）</span>，拉近家人與鄰里之間的溫暖情感。"
         ],
         whyPossible: "機器已非常普及且具備<span class=\"hl-keyword\">多重保護設計</span>，不用擔心會損壞！微型遙控車與安全無人機能引發興趣、<span class=\"hl-keyword\">刺激手眼協調能力</span>：長輩防退化、大人紓壓、孩子專注，全家同樂！我有豐富體驗營與競賽舉辦的經驗，我將<span class=\"hl-keyword\">凝聚與訓練青年志工</span>，用平價科技拉近跨世代距離！"
@@ -140,7 +140,7 @@ const POLICIES_DATA = [
         badgePosition: "bottom-left",
         budgetSource: "衛福部 62.5 億獨老專案 ＋ 長照 2.0 專款",
         budgetSub: "<span class=\"hl-keyword\">完全不會動用</span>明德里 88 萬基層款",
-        budgetDesc: "你知道嗎？年滿 65 歲以上<span class=\"hl-keyword\">「雙老同住」</span>，經評估也符合中央專案<span class=\"hl-keyword\">公費補助資格</span>，守護您家長輩的安全。",
+        budgetDesc: "你知道嗎？年滿 65 歲以上<span class=\"hl-keyword\">雙老同住</span>，經評估也符合中央專案<span class=\"hl-keyword\">公費補助資格</span>，守護您家長輩的安全。",
         highlight: "對接衛福部 62.5 億在宅安居專案！一人獨居或雙老同住皆可申請，爭取公費智慧緊急救援主機與自動防跌手環，結合專人送餐與長照代辦，守護長青安居。",
         icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>`,
         hooks: [
@@ -148,7 +148,7 @@ const POLICIES_DATA = [
         ],
         howToDo: [
             "結合社政專案提供高風險長輩<span class=\"hl-keyword\">每日送餐與物資</span>，藉送餐，<span class=\"hl-keyword\">掌握長輩安危</span>。",
-            "協助獨老與雙老家庭申請<span class=\"hl-keyword\">「智慧緊急救援主機與自動防跌手環」</span>，<span class=\"hl-keyword\">跌倒自動通報直連 119 與守護中心</span>！",
+            "協助獨老與雙老家庭申請<span class=\"hl-keyword\">智慧緊急救援主機與自動防跌手環</span>，<span class=\"hl-keyword\">跌倒自動通報直連 119 與守護中心</span>！",
             "針對有日常照顧需求的長輩，主動協助對接<span class=\"hl-keyword\">長照 2.0 居家照顧</span>，包含到府置藥、用藥、陪伴聊天、陪同就醫等 <span class=\"hl-keyword\">36 項貼心服務與喘息服務</span>，<span class=\"hl-keyword\">陪伴三明治世代走出照顧焦慮與疲憊</span>。"
         ],
         whyPossible: "我深諳<span class=\"hl-keyword\">社福、衛政補助法規與公文流程</span>；知道如何簡化申請，<span class=\"hl-keyword\">將國家級長照專款精準對接給各位</span>。"
@@ -163,15 +163,15 @@ const POLICIES_DATA = [
         budgetSource: "失智友善社區專案 ＋ 長者健康促進補助",
         budgetSub: "<span class=\"hl-keyword\">完全不會動用</span>明德里 88 萬基層款",
         budgetDesc: "",
-        highlight: "自研「1 至 50 」趣味點選 App 動態預警晚輩，更開辦手機 AI 短劇與老照片修復，以回憶療法活化記憶迴路，全方位延緩大腦退化！",
+        highlight: "自研 1 至 50 趣味點選 App 動態預警晚輩，更開辦手機 AI 短劇與老照片修復，以回憶療法活化記憶迴路，全方位延緩大腦退化！",
         icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 4.44-2.04z"></path><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-4.44-2.04z"></path></svg>`,
         hooks: [
             "長輩失智的來臨，往往是<span class=\"hl-keyword\">猝不及防且缺乏徵兆</span>的。我有親身照顧的經歷，深知失智是不可逆的，唯有<span class=\"hl-keyword\">儘早發現、儘早就醫用藥</span>，才能儘可能延緩退化或保持現狀！"
         ],
         howToDo: [
-            "我已開發出<span class=\"hl-keyword\">「1 至 50 」趣味點選 App</span>，每次三分鐘，老少都會玩，一個小遊戲，既能獲得滿滿的情緒價值，也會記錄長輩的反應時間與活躍頻率，<span class=\"hl-keyword\">遠端提醒晚輩父母的身心狀況</span>。",
+            "我已開發出<span class=\"hl-keyword\">1 至 50 趣味點選 App</span>，每次三分鐘，老少都會玩，一個小遊戲，既能獲得滿滿的情緒價值，也會記錄長輩的反應時間與活躍頻率，<span class=\"hl-keyword\">遠端提醒晚輩父母的身心狀況</span>。",
             "長輩喜歡刷短劇，但我們直接教他<span class=\"hl-keyword\">製作 AI 短劇</span>，零門檻，手機就能製作，只要懂得跟 AI 聊天，就能完成製作。",
-            "手把手帶長輩用手機 AI <span class=\"hl-keyword\">修復泛黃老照片</span>，透過醫學證實的<span class=\"hl-keyword\">「回憶療法」</span>深度活化記憶迴路。"
+            "手把手帶長輩用手機 AI <span class=\"hl-keyword\">修復泛黃老照片</span>，透過醫學證實的<span class=\"hl-keyword\">回憶療法</span>深度活化記憶迴路。"
         ],
         whyPossible: "我具備 <span class=\"hl-keyword\">8 年 EQ 講師</span>與 <span class=\"hl-keyword\">30 年軟體開發經驗</span>，能<span class=\"hl-keyword\">自行開發長輩需要的 App</span>，為社區建立溫暖後盾。"
     },
@@ -281,7 +281,7 @@ const POLICIES_DATA = [
             "於活動中心設置<span class=\"hl-keyword\">廢油專用回收桶</span>，將廚房油炸或過期廢油濾入寶特瓶集中送交回收。",
             "每季定期開辦體驗工作坊，透過專業配方，<span class=\"hl-keyword\">馬上將回收廢油變身為天然實用的黃金家事皂</span>。"
         ],
-        whyPossible: "我具備企業管理長才，<span class=\"hl-keyword\">能結合「中華綠生活手工皂協會」等環保團體跨界合作</span>，並爭取市府專案全額補助，<span class=\"hl-keyword\">為明德里落實循環經濟</span>！"
+        whyPossible: "我具備企業管理長才，<span class=\"hl-keyword\">能結合中華綠生活手工皂協會等環保團體跨界合作</span>，並爭取市府專案全額補助，<span class=\"hl-keyword\">為明德里落實循環經濟</span>！"
     },
     {
         id: 13,
@@ -297,14 +297,14 @@ const POLICIES_DATA = [
         highlight: "告別秒殺與偷跑！落實出遊訊息早鳥預告、充裕報名緩衝，只要里民反應熱烈即啟動加開車次機制，合格專業領隊隨車協助，讓想出遊的里民通通去得成！",
         icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6v6"></path><path d="M16 6v6"></path><path d="M2 12h20"></path><path d="M18 18h2a1 1 0 0 0 1-1v-9a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v9a1 1 0 0 0 1 1h2"></path><circle cx="7" cy="18" r="2"></circle><circle cx="17" cy="18" r="2"></circle></svg>`,
         hooks: [
-            "以往里民旅遊常因報名時間短、資訊不夠流通，讓許多人來不及參與。<span class=\"hl-keyword\">出遊是為了全里同樂</span>，每位想參加的里民，都應享有公平參與的機會。"
+            "以往里民旅遊常因報名時間短、資訊不夠流通，讓許多人來不及參與。<span class=\"hl-keyword\">出遊是為了全里同樂</span>，每位想參加的里民，都應享有公平參與的機會。",
         ],
         howToDo: [
             "提前於雲端里辦、實體佈告欄與 LINE 等多重管道同步公告，<span class=\"hl-keyword\">保證報名時間充裕、資訊公開透明</span>。",
             "打破名額天花板，不搞抽籤！在交通與場地安全容量許可下，<span class=\"hl-keyword\">保證啟動加開車次機制</span>。",
-            "除了熱心志工，更<span class=\"hl-keyword\">聘請專業領隊隨行協助</span>，讓大家玩得開心又安全。"
+            "除了熱心志工，更<span class=\"hl-keyword\">聘請專業領隊隨行協助</span>，讓大家玩得開心又安全。",
         ],
-        whyPossible: "我具備<span class=\"hl-keyword\">豐富的大型活動籌備經驗</span>，能直接對接優質的旅行社與車隊，<span class=\"hl-keyword\">用公開透明的管理方式</span>，為明德里帶來高品質的出遊體驗。"
+        whyPossible: "我具備<span class=\"hl-keyword\">豐富的大型活動籌備經驗</span>，能直接對接優質的旅行社與車隊，<span class=\"hl-keyword\">用公開透明的管理方式</span>，為明德里帶來高品質的出遊體驗。",
     },
     {
         id: 14,
@@ -314,15 +314,15 @@ const POLICIES_DATA = [
         budgetSource: "市府社會局社區發展專案 (每年 10 萬補助)",
         budgetSub: "<span class=\"hl-keyword\">全額支付</span>專業講師費與教材費<br>本專案<span class=\"hl-keyword\">完全不會動用</span>明德里 88 萬基層款",
         budgetDesc: "",
-        highlight: "每季定期開辦 1 期「免費情緒課程」！陪伴里民了解情緒、覺察委屈、避免遷怒，化解不必要的鄰里糾紛。",
+        highlight: "每季定期開辦 1 期免費情緒課程！陪伴里民了解情緒、覺察委屈、避免遷怒，化解不必要的鄰里糾紛。",
         icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a5 5 0 1 0 10 0v-2H12z"></path><path d="M12 10a8 8 0 1 0 8 8v-8H12z"></path><circle cx="12" cy="12" r="10"></circle><path d="M8 14s1.5 2 4 2 4-2 4-2"></path><line x1="9" y1="9" x2="9.01" y2="9"></line><line x1="15" y1="9" x2="15.01" y2="9"></line></svg>`,
         hooks: [
-            "面對孩子情緒暴走、家長管教焦慮與長輩委屈遷怒，家人往往在無意間互相傷害。外面的心理課程動輒數千元，許多家庭難以負擔。<span class=\"hl-keyword\">把這套溫暖的解方免費帶回明德里</span>，是我最深切的心願！"
+            "面對孩子情緒暴走、家長管教焦慮與長輩委屈遷怒，家人往往在無意間互相傷害。外面的心理課程動輒數千元，許多家庭難以負擔。<span class=\"hl-keyword\">把這套溫暖的解方免費帶回明德里</span>，是我最深切的心願！",
         ],
         howToDo: [
-            "每季開辦「兒童情緒教育系列課程」，透過繪本與遊戲，<span class=\"hl-keyword\">引導孩子覺察情緒、建立同理心、遠離霸凌</span>。",
+            "每季開辦兒童情緒教育系列課程，透過繪本與遊戲，<span class=\"hl-keyword\">引導孩子覺察情緒、建立同理心、遠離霸凌</span>。",
             "定期舉辦家長支持講座，分享正向溝通技巧，<span class=\"hl-keyword\">協助化解教養焦慮與夫妻摩擦</span>。",
-            "為長輩舉辦同理傾聽茶會，<span class=\"hl-keyword\">解開積壓心結，拉近跨世代距離</span>。"
+            "為長輩舉辦同理傾聽茶會，<span class=\"hl-keyword\">解開積壓心結，拉近跨世代距離</span>。",
         ],
         whyPossible: "我具備 <span class=\"hl-keyword\">8 年 EQ 講師資歷與 7 套專業證照</span>，每年帶領 <span class=\"hl-keyword\">70 位志工夥伴</span>；我自備完整教材與專業師資庫，將最好的資源直接回饋明德里！"
     },
@@ -656,7 +656,7 @@ function showVoteSuccessAnimation(policyId, policyTitle) {
     if (!overlay) return;
     if (msgEl) {
         const pNum = policyId < 10 ? `0${policyId}` : policyId;
-        msgEl.textContent = `已將您的支持列入「政見 ${pNum} ‧ ${policyTitle}」推動優先序！`;
+        msgEl.textContent = `已將您的支持列入【政見 ${pNum} ‧ ${policyTitle}】推動優先序！`;
     }
     overlay.style.display = 'flex';
     const timer = setTimeout(() => {
@@ -703,7 +703,7 @@ function renderPolicyRankings() {
         const hotBadgeHtml = rank <= 3 ? '<span class="ranking-hot-tag"><span class="crown-icon">👑</span> 里民最關注</span>' : '';
 
         html += `
-            <div class="ranking-bar-item ${itemExtraClass} ${itemRankClass}" data-policy-id="${item.id}" onclick="openDrawer(${item.id})" title="點擊查看「政見 ${item.id < 10 ? '0' + item.id : item.id} ‧ ${item.title}」詳細規劃與經費解密">
+            <div class="ranking-bar-item ${itemExtraClass} ${itemRankClass}" data-policy-id="${item.id}" onclick="openDrawer(${item.id})" title="點擊查看【政見 ${item.id < 10 ? '0' + item.id : item.id} ‧ ${item.title}】詳細規劃與經費解密">
                 <div class="ranking-item-header">
                     <div class="ranking-item-left">
                         <span class="ranking-pos-badge ${rankClass}">第${rank}名</span>
