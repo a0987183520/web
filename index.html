@@ -133,7 +133,7 @@
       ]
     }
     </script>
-    <link rel="stylesheet" href="css/style.css?v=27.17">
+    <link rel="stylesheet" href="css/style.css?v=27.22">
     <style>
     /* 調整主版面兩欄比例與間距，僅在桌機版生效以確保手機版正常響應式排版 */
     @media (min-width: 951px) {
@@ -835,12 +835,12 @@
                                     <form id="qa-submit-form">
                                         <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:1.2rem;">
                                             <div class="form-group">
-                                                <label for="qa-user-name" style="font-size:0.95rem; font-weight:600; color:var(--text-primary);">您的稱呼 / 社區（選填）</label>
-                                                <input type="text" id="qa-user-name" class="form-control" placeholder="例：陳先生／孔雀王朝" style="font-size:1rem; padding:0.8rem 1rem;">
+                                                <label for="qa-user-name">您的稱呼 / 社區（選填）</label>
+                                                <input type="text" id="qa-user-name" class="form-control" placeholder="例：陳先生／孔雀王朝">
                                             </div>
                                             <div class="form-group">
-                                                <label for="qa-category" style="font-size:0.95rem; font-weight:600; color:var(--text-primary);">議題分類標籤</label>
-                                                <select id="qa-category" class="form-control" style="background:var(--bg-primary); color:var(--text-primary); font-size:1rem; padding:0.8rem 1rem;">
+                                                <label for="qa-category">議題分類標籤</label>
+                                                <select id="qa-category" class="form-control">
                                                     <option value="#巷弄安全與照明">#巷弄安全與照明</option>
                                                     <option value="#環境衛生與整潔">#環境衛生與整潔</option>
                                                     <option value="#跨世代共融與課程">#跨世代共融與課程</option>
@@ -851,14 +851,14 @@
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="qa-contact" style="font-size:0.95rem; font-weight:600; color:var(--text-primary);">聯絡方式（選填，方便向您回報進度）</label>
-                                            <input type="text" id="qa-contact" class="form-control" placeholder="Email 或 手機號碼" style="font-size:1rem; padding:0.8rem 1rem;">
+                                            <label for="qa-contact">聯絡方式（選填，方便向您回報進度）</label>
+                                            <input type="text" id="qa-contact" class="form-control" placeholder="Email 或 手機號碼">
                                         </div>
                                         <div class="form-group">
-                                            <label for="qa-content" style="font-size:0.95rem; font-weight:600; color:var(--text-primary);">提案或問題詳情（必填）</label>
-                                            <textarea id="qa-content" class="form-control" rows="4" placeholder="請盡量具體描述地點或希望改善之情境..." required style="font-size:1rem; line-height:1.6; padding:0.9rem 1rem;"></textarea>
+                                            <label for="qa-content">提案或問題詳情（必填）</label>
+                                            <textarea id="qa-content" class="form-control" rows="4" placeholder="請盡量具體描述地點或希望改善之情境..." required></textarea>
                                         </div>
-                                        <button type="submit" class="submit-btn" style="width:100%; font-size:1.08rem; padding:0.95rem;">送出提案 ‧ 即時上牆受理</button>
+                                        <button type="submit" class="submit-btn">送出提案 ‧ 即時上牆受理</button>
                                     </form>
                                 </div>
                             </div>
@@ -1557,7 +1557,7 @@
         </div>
     </div>
 
-    <script src="js/main.js?v=27.21"></script>
+    <script src="js/main.js?v=27.22"></script>
     <script src="js/site-report-modal.js?v=1.00"></script>
 </body>
 </html>
