@@ -115,13 +115,13 @@
       box-shadow: 0 4px 12px rgba(251, 191, 36, 0.4);
     }
 
-    /* A4 畫布設定 (官網旗艦應徵信・暖白高級信箋質感) */
+    /* A4 畫布設定 (適度收窄左右邊距至 18mm，保證抬頭一整行不折行) */
     .page {
       background: #ffffff;
       width: 210mm;
       height: 297mm;
       margin: 0 auto;
-      padding: 24mm 24mm 20mm 24mm;
+      padding: 20mm 18mm 16mm 18mm;
       box-shadow: 0 18px 50px rgba(0, 0, 0, 0.45);
       display: flex;
       flex-direction: column;
@@ -145,32 +145,44 @@
         box-shadow: none;
         width: 210mm;
         height: 297mm;
-        padding: 22mm 22mm 18mm 22mm;
+        padding: 18mm 16mm 14mm 16mm;
         border-top: 4px solid #d97706;
         page-break-after: always;
       }
     }
 
-    /* 正文內容 (字體放大至 16.5px，精緻官網光暈重點標籤配色) */
+    /* 置中大標題 */
+    .letter-main-title {
+      text-align: center;
+      font-size: 25px;
+      font-weight: 900;
+      color: #0f172a;
+      letter-spacing: 2px;
+      margin-bottom: 12px;
+      font-family: 'Noto Serif TC', 'Noto Sans TC', serif;
+    }
+
+    /* 正文內容 (字體清晰大器 16.5px，精緻色彩標籤) */
     .letter-body {
       flex: 1;
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
-      gap: 16px;
-      font-size: 16.5px;
-      line-height: 1.85;
+      gap: 14px;
+      font-size: 16.2px;
+      line-height: 1.8;
       color: #1e293b;
       text-align: justify;
     }
 
     .salutation {
-      font-size: 20px;
+      font-size: 18px;
       font-weight: 800;
       color: #0f172a;
-      line-height: 1.45;
+      line-height: 1.4;
       margin-bottom: 2px;
-      letter-spacing: 0.2px;
+      letter-spacing: 0.1px;
+      white-space: nowrap;
     }
 
     .salutation span.community-name-target {
@@ -189,7 +201,7 @@
     p.lead-text {
       text-indent: 0;
       font-weight: 700;
-      font-size: 17px;
+      font-size: 16.5px;
       color: #0f172a;
     }
 
@@ -232,16 +244,16 @@
       border: 1.5px solid #e2e8f0;
       border-left: 4px solid #d97706;
       border-radius: 8px;
-      padding: 14px 20px;
-      margin: 2px 0;
+      padding: 12px 18px;
+      margin: 1px 0;
     }
 
     .key-points-list {
       list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 8px;
-      font-size: 16.5px;
+      gap: 6px;
+      font-size: 16.2px;
       color: #1e293b;
     }
 
@@ -256,45 +268,70 @@
       border: 1.5px solid #86efac;
       border-left: 4px solid #059669;
       border-radius: 8px;
-      padding: 14px 20px;
-      font-size: 16.5px;
+      padding: 12px 18px;
+      font-size: 16.2px;
       color: #14532d;
-      line-height: 1.8;
+      line-height: 1.75;
       text-indent: 0;
     }
 
     .request-card strong {
       color: #064e3b;
       font-weight: 900;
-      font-size: 17.5px;
+      font-size: 17px;
     }
 
     .closing-blessing {
       font-weight: 800;
-      font-size: 17.5px;
+      font-size: 17px;
       text-align: right;
       color: #0f172a;
-      margin-top: 4px;
+      margin-top: 2px;
     }
 
     /* 頁尾 Sign & QR Code 區塊 */
     .letter-footer {
       border-top: 1.5px solid #e2e8f0;
-      padding-top: 16px;
+      padding-top: 14px;
       display: flex;
       justify-content: space-between;
       align-items: flex-end;
     }
 
     .sign-left {
-      font-size: 14px;
+      font-size: 13.5px;
       color: #334155;
-      line-height: 1.8;
+      line-height: 1.65;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
     }
 
-    .sign-left strong {
+    .contact-row {
+      font-size: 14px;
+      color: #1e293b;
+      font-weight: 600;
+    }
+
+    .whitepaper-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 2px;
+      font-size: 13.5px;
+      color: #334155;
+      margin-top: 2px;
+    }
+
+    .wp-label {
+      font-weight: 700;
       color: #0f172a;
-      font-size: 15.5px;
+      white-space: nowrap;
+    }
+
+    .wp-lines {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.45;
     }
 
     .sign-right {
@@ -307,22 +344,15 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 4px;
     }
 
     .qr-wrap img {
-      width: 72px;
-      height: 72px;
+      width: 70px;
+      height: 70px;
       border: 1.5px solid #cbd5e1;
       padding: 3px;
       border-radius: 6px;
       background: white;
-    }
-
-    .qr-wrap span {
-      font-size: 11px;
-      color: #64748b;
-      font-weight: 700;
     }
 
     .sign-name-wrap {
@@ -330,35 +360,35 @@
       display: flex;
       flex-direction: column;
       align-items: flex-end;
-      min-width: 130px;
+      min-width: 140px;
     }
 
     .sign-role {
-      font-size: 13px;
-      color: #64748b;
-      font-weight: 600;
+      font-size: 14px;
+      color: #b45309;
+      font-weight: 800;
+      letter-spacing: 1px;
     }
 
-    /* 官網專屬透明底簽名圖檔 (handwritten_signature.png) */
+    /* 官網專屬黑金雙色親筆簽名圖檔 (handwritten_signature_dark.png) */
     .official-sig-box {
-      height: 60px;
+      height: 62px;
       display: flex;
       align-items: center;
       justify-content: flex-end;
-      margin: 2px 0;
+      margin: 1px 0;
     }
 
     .official-sig-img {
-      height: 58px;
+      height: 60px;
       width: auto;
       display: block;
-      /* 濾鏡微調：使其在白底信箋上清晰深邃、兼具金色書法力道與黑深墨感 */
-      filter: drop-shadow(0 2px 4px rgba(180, 83, 9, 0.25)) contrast(1.4) brightness(0.85);
+      filter: drop-shadow(0 2px 4px rgba(15, 23, 42, 0.15));
     }
 
     /* 留白手簽框 (若使用者勾選純手簽) */
     .blank-sig-box {
-      height: 50px;
+      height: 52px;
       width: 140px;
       border-bottom: 1.5px dashed #94a3b8;
       display: none;
@@ -371,7 +401,7 @@
     .sign-date {
       font-size: 13px;
       color: #475569;
-      font-weight: 500;
+      font-weight: 600;
     }
   </style>
 </head>
@@ -384,7 +414,7 @@
       <input type="text" id="communityNameInput" value="孔雀王朝" placeholder="請輸入社區名稱" oninput="updateCommunityName()">
     </div>
     
-    <label class="sig-toggle-wrap" title="勾選使用官網專屬手寫簽名圖檔，取消則留白供列印後親筆手簽">
+    <label class="sig-toggle-wrap" title="勾選使用官網專屬黑金手寫簽名圖檔，取消則留白供列印後親筆手簽">
       <input type="checkbox" id="sigToggle" checked onchange="toggleSignatureMode()">
       <span>印出官方手寫簽名圖</span>
     </label>
@@ -396,11 +426,14 @@
 
   <div class="page">
 
-    <!-- 正文 (頂部橫幅全數移除，採用官網應徵信的高級視覺強調標籤) -->
+    <!-- 置中大標題 -->
+    <h1 class="letter-main-title">明德里里長候選人陳新昱 拜訪函</h1>
+
+    <!-- 正文 (抬頭精簡為管委會，左右拉寬確保一行不折行) -->
     <div class="letter-body">
       
       <div class="salutation">
-        敬致 <span class="community-name-target" id="displayCommunityName">孔雀王朝</span> 管理委員會 主委、副主委、監委、全體委員及總幹事：
+        敬致 <span class="community-name-target" id="displayCommunityName">孔雀王朝</span> 管委會 主委、副主委、監委、全體委員及總幹事：
       </div>
 
       <p class="lead-text">大家好！我是明德里里長候選人陳新昱。</p>
@@ -427,31 +460,35 @@
       </div>
 
       <div class="closing-blessing">
-        敬祝 貴社區管理委員會會務順遂！
+        敬祝 貴社區管委會會務順遂！
       </div>
 
     </div>
 
-    <!-- 頁尾 (含官網 handwritten_signature.png、聯絡電話、LINE 與政策白皮書 QR Code) -->
+    <!-- 頁尾 (精簡重複、QR Code 與搜尋指令上下對齊、黑金親筆簽名與精簡日期) -->
     <div class="letter-footer">
       <div class="sign-left">
-        <strong>明德里里長候選人：陳新昱 敬上</strong><br>
-        • 服務聯絡電話：0987-183-520<br>
-        • 官方 LINE 帳號：b0987183520<br>
-        • 線上政策白皮書：Google 搜尋「明德里2.0」或掃描右方 QR Code
+        <div class="contact-row">• 服務聯絡電話：0987-183-520</div>
+        <div class="contact-row">• 官方 LINE 帳號：b0987183520</div>
+        <div class="whitepaper-row">
+          <span class="wp-label">• 政策白皮書：</span>
+          <div class="wp-lines">
+            <div>Google 搜尋「明德里2.0」</div>
+            <div>或 掃描右方 QR Code</div>
+          </div>
+        </div>
       </div>
 
       <div class="sign-right">
         <div class="qr-wrap">
           <img src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=https://a0987183520.github.io/web/" alt="明德里2.0 政策白皮書 QR Code">
-          <span>掃描看政策白皮書</span>
         </div>
         <div class="sign-name-wrap">
-          <div class="sign-role">明德里里長候選人</div>
+          <div class="sign-role">科技里長</div>
           
-          <!-- 官網專屬手寫簽名圖檔 (handwritten_signature.png) -->
+          <!-- 官網專屬黑金手寫簽名圖檔 (handwritten_signature_dark.png) -->
           <div class="official-sig-box" id="officialSigBox">
-            <img src="images/handwritten_signature.png?v=27.23" alt="科技里長 陳新昱 簽名" class="official-sig-img">
+            <img src="images/handwritten_signature_dark.png?v=27.24" alt="科技里長 陳新昱 簽名" class="official-sig-img">
           </div>
 
           <!-- 留白供實體親筆簽名之空格 -->
@@ -459,7 +496,7 @@
             (候選人親簽處)
           </div>
 
-          <div class="sign-date">中華民國 115 年 10 月 1 日</div>
+          <div class="sign-date">115 年 10 月 1 日</div>
         </div>
       </div>
     </div>
