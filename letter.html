@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>致社區管委會拜訪函 A4 - 科技里長 陳新昱</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Noto+Serif+TC:wght@600;900&family=Kaiti+TC&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Noto+Serif+TC:wght@600;900&family=Outfit:wght@600;800&display=swap');
 
     * {
       box-sizing: border-box;
@@ -15,8 +15,8 @@
 
     body {
       font-family: 'Noto Sans TC', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang TC", "Microsoft JhengHei", sans-serif;
-      background-color: #0f172a;
-      color: #0f172a;
+      background-color: #0b1311;
+      color: #1e293b;
       -webkit-print-color-adjust: exact;
       print-color-adjust: exact;
       padding-top: 65px;
@@ -29,13 +29,13 @@
       top: 12px;
       left: 50%;
       transform: translateX(-50%);
-      background: rgba(15, 23, 42, 0.95);
-      backdrop-filter: blur(12px);
-      border: 1px solid rgba(255, 255, 255, 0.2);
+      background: rgba(11, 19, 17, 0.95);
+      backdrop-filter: blur(14px);
+      border: 1px solid rgba(251, 191, 36, 0.3);
       color: white;
-      padding: 8px 20px;
+      padding: 8px 22px;
       border-radius: 40px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      box-shadow: 0 10px 35px rgba(0, 0, 0, 0.6);
       z-index: 1000;
       display: flex;
       gap: 12px;
@@ -47,9 +47,10 @@
       display: flex;
       align-items: center;
       gap: 6px;
-      background: rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.08);
       padding: 4px 12px;
       border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
     }
 
     .community-input-wrap label {
@@ -64,13 +65,27 @@
       font-weight: 700;
       font-size: 13.5px;
       outline: none;
-      width: 150px;
+      width: 135px;
+    }
+
+    .sig-toggle-wrap {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: #e2e8f0;
+      font-size: 12.5px;
+      cursor: pointer;
+    }
+
+    .sig-toggle-wrap input {
+      cursor: pointer;
+      accent-color: #fbbf24;
     }
 
     .toolbar button,
     .toolbar a {
       background: linear-gradient(135deg, #fbbf24 0%, #d97706 100%);
-      color: #0f172a;
+      color: #060b09;
       border: none;
       padding: 6px 16px;
       border-radius: 20px;
@@ -85,13 +100,13 @@
     }
 
     .toolbar a.secondary-btn {
-      background: rgba(255, 255, 255, 0.12);
+      background: rgba(255, 255, 255, 0.1);
       color: #e2e8f0;
       border: 1px solid rgba(255, 255, 255, 0.15);
     }
 
     .toolbar a.secondary-btn:hover {
-      background: rgba(255, 255, 255, 0.22);
+      background: rgba(255, 255, 255, 0.2);
       color: white;
     }
 
@@ -100,20 +115,21 @@
       box-shadow: 0 4px 12px rgba(251, 191, 36, 0.4);
     }
 
-    /* A4 畫布設定 (極致精確 1 頁 A4，白底黑字正式公文規格) */
+    /* A4 畫布設定 (官網旗艦應徵信・暖白高級信箋質感) */
     .page {
       background: #ffffff;
       width: 210mm;
       height: 297mm;
       margin: 0 auto;
       padding: 24mm 24mm 20mm 24mm;
-      box-shadow: 0 15px 45px rgba(0, 0, 0, 0.4);
+      box-shadow: 0 18px 50px rgba(0, 0, 0, 0.45);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       position: relative;
       box-sizing: border-box;
       overflow: hidden;
+      border-top: 5px solid #d97706;
     }
 
     @media print {
@@ -130,11 +146,12 @@
         width: 210mm;
         height: 297mm;
         padding: 22mm 22mm 18mm 22mm;
+        border-top: 4px solid #d97706;
         page-break-after: always;
       }
     }
 
-    /* 正文內容 (字體大幅放大至 16.5px，清晰舒適、正式莊重) */
+    /* 正文內容 (字體放大至 16.5px，精緻官網光暈重點標籤配色) */
     .letter-body {
       flex: 1;
       display: flex;
@@ -143,40 +160,77 @@
       gap: 16px;
       font-size: 16.5px;
       line-height: 1.85;
-      color: #111827;
+      color: #1e293b;
       text-align: justify;
     }
 
     .salutation {
-      font-size: 19px;
+      font-size: 20px;
       font-weight: 800;
       color: #0f172a;
-      line-height: 1.5;
-      margin-bottom: 4px;
+      line-height: 1.45;
+      margin-bottom: 2px;
+      letter-spacing: 0.2px;
     }
 
     .salutation span.community-name-target {
-      color: #0f172a;
-      text-decoration: underline;
-      text-underline-offset: 4px;
+      color: #b45309;
+      font-weight: 900;
+      border-bottom: 2px solid #fbbf24;
+      padding-bottom: 1px;
     }
 
     p {
       text-indent: 35px;
       margin: 0;
-      letter-spacing: 0.3px;
+      letter-spacing: 0.25px;
     }
 
     p.lead-text {
       text-indent: 0;
       font-weight: 700;
       font-size: 17px;
+      color: #0f172a;
     }
 
-    /* 重點色塊區 (雙色塊乾淨呈現，無突兀括號) */
+    /* 官網應徵信專屬配色標籤 (Letter Highlights) */
+    .tag-gold {
+      color: #b45309;
+      font-weight: 800;
+      background: #fef3c7;
+      padding: 1px 6px;
+      border-radius: 4px;
+    }
+
+    .tag-green {
+      color: #047857;
+      font-weight: 800;
+      background: #d1fae5;
+      padding: 1px 6px;
+      border-radius: 4px;
+    }
+
+    .tag-blue {
+      color: #0369a1;
+      font-weight: 800;
+      background: #e0f2fe;
+      padding: 1px 6px;
+      border-radius: 4px;
+    }
+
+    .tag-red {
+      color: #be123c;
+      font-weight: 800;
+      background: #ffe4e6;
+      padding: 1px 6px;
+      border-radius: 4px;
+    }
+
+    /* 核心亮點卡片 (兩件事) */
     .key-points-box {
       background: #f8fafc;
-      border: 1px solid #e2e8f0;
+      border: 1.5px solid #e2e8f0;
+      border-left: 4px solid #d97706;
       border-radius: 8px;
       padding: 14px 20px;
       margin: 2px 0;
@@ -193,23 +247,26 @@
 
     .key-points-list li strong {
       color: #0f172a;
-      font-weight: 700;
+      font-weight: 800;
     }
 
+    /* 5 分鐘請求專屬高亮卡片 */
     .request-card {
       background: #f0fdf4;
-      border: 1.5px solid #bbf7d0;
+      border: 1.5px solid #86efac;
+      border-left: 4px solid #059669;
       border-radius: 8px;
       padding: 14px 20px;
       font-size: 16.5px;
-      color: #166534;
+      color: #14532d;
       line-height: 1.8;
       text-indent: 0;
     }
 
     .request-card strong {
-      color: #14532d;
-      font-weight: 800;
+      color: #064e3b;
+      font-weight: 900;
+      font-size: 17.5px;
     }
 
     .closing-blessing {
@@ -217,12 +274,12 @@
       font-size: 17.5px;
       text-align: right;
       color: #0f172a;
-      margin-top: 6px;
+      margin-top: 4px;
     }
 
     /* 頁尾 Sign & QR Code 區塊 */
     .letter-footer {
-      border-top: 1.5px solid #cbd5e1;
+      border-top: 1.5px solid #e2e8f0;
       padding-top: 16px;
       display: flex;
       justify-content: space-between;
@@ -237,7 +294,7 @@
 
     .sign-left strong {
       color: #0f172a;
-      font-size: 15px;
+      font-size: 15.5px;
     }
 
     .sign-right {
@@ -254,10 +311,10 @@
     }
 
     .qr-wrap img {
-      width: 70px;
-      height: 70px;
-      border: 1px solid #cbd5e1;
-      padding: 2px;
+      width: 72px;
+      height: 72px;
+      border: 1.5px solid #cbd5e1;
+      padding: 3px;
       border-radius: 6px;
       background: white;
     }
@@ -273,28 +330,42 @@
       display: flex;
       flex-direction: column;
       align-items: flex-end;
+      min-width: 130px;
     }
 
     .sign-role {
-      font-size: 13.5px;
-      color: #475569;
+      font-size: 13px;
+      color: #64748b;
       font-weight: 600;
     }
 
-    /* 深藍色鋼筆手寫親筆簽名視覺 */
-    .pen-signature-box {
+    /* 官網專屬透明底簽名圖檔 (handwritten_signature.png) */
+    .official-sig-box {
+      height: 60px;
       display: flex;
       align-items: center;
       justify-content: flex-end;
-      height: 52px;
       margin: 2px 0;
-      position: relative;
     }
 
-    .pen-signature-svg {
-      height: 48px;
+    .official-sig-img {
+      height: 58px;
       width: auto;
-      filter: drop-shadow(0 1px 1px rgba(15, 23, 42, 0.2));
+      display: block;
+      /* 濾鏡微調：使其在白底信箋上清晰深邃、兼具金色書法力道與黑深墨感 */
+      filter: drop-shadow(0 2px 4px rgba(180, 83, 9, 0.25)) contrast(1.4) brightness(0.85);
+    }
+
+    /* 留白手簽框 (若使用者勾選純手簽) */
+    .blank-sig-box {
+      height: 50px;
+      width: 140px;
+      border-bottom: 1.5px dashed #94a3b8;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      color: #94a3b8;
+      font-size: 12px;
     }
 
     .sign-date {
@@ -306,20 +377,26 @@
 </head>
 <body>
 
-  <!-- 工具列 (預覽切換與一鍵列印) -->
+  <!-- 工具列 (預覽切換、簽名模式選擇與一鍵列印) -->
   <div class="toolbar">
     <div class="community-input-wrap">
-      <label>🏢 社區名稱：</label>
+      <label>🏢 社區：</label>
       <input type="text" id="communityNameInput" value="孔雀王朝" placeholder="請輸入社區名稱" oninput="updateCommunityName()">
     </div>
+    
+    <label class="sig-toggle-wrap" title="勾選使用官網專屬手寫簽名圖檔，取消則留白供列印後親筆手簽">
+      <input type="checkbox" id="sigToggle" checked onchange="toggleSignatureMode()">
+      <span>印出官方手寫簽名圖</span>
+    </label>
+
     <button onclick="window.print()">🖨️ 一鍵列印 / 存為 A4 PDF</button>
-    <a href="index.html" class="secondary-btn">🏠 返回官網首頁</a>
-    <a href="dm.html" class="secondary-btn">📄 15大政見 A4 DM</a>
+    <a href="index.html" class="secondary-btn">🏠 返回官網</a>
+    <a href="dm.html" class="secondary-btn">📄 15大政見 DM</a>
   </div>
 
   <div class="page">
 
-    <!-- 正文 (頂部橫幅全數移除，直接以正式大標抬頭展開) -->
+    <!-- 正文 (頂部橫幅全數移除，採用官網應徵信的高級視覺強調標籤) -->
     <div class="letter-body">
       
       <div class="salutation">
@@ -328,9 +405,9 @@
 
       <p class="lead-text">大家好！我是明德里里長候選人陳新昱。</p>
 
-      <p>我曾任職台灣 500 大企業資深工程師與出版社主管，我也和各位一樣帶著對社區的熱忱，擔任過多年的社區管委會委員與主委。我深知各位委員平日忙於公私事務，時間非常寶貴，因此這封信我不談空泛的客套與寒暄，請見諒我的直接。</p>
+      <p>我曾任職台灣 <span class="tag-blue">500 大企業資深工程師</span>與<span class="tag-blue">出版社主管</span>，我也和各位一樣帶著對社區的熱忱，擔任過多年的<span class="tag-gold">社區管委會委員與主委</span>。我深知各位委員平日忙於公私事務，時間非常寶貴，因此這封信我不談空泛的客套與寒暄，請見諒我的直接。</p>
 
-      <p>這一次參選，我是帶著「向全體里民面試應徵里長」的心態而來。</p>
+      <p>這一次參選，我是帶著「<span class="tag-red">向全體里民面試應徵里長</span>」的心態而來。</p>
 
       <p>我不走傳統握手哈腰拜託的拜票路線；身為前管委會主委的我，深知大家最在意的只有兩件事：</p>
 
@@ -341,7 +418,7 @@
         </ul>
       </div>
 
-      <p>為此，我已完成讓各年齡層都能實質感受的「明德里 2.0 十五大新政見」，每項政見均已核對國家與市府現行法規、年度預算編列與公所行政資源，並有具體的經費來源與我過往實際政績作為佐證。</p>
+      <p>為此，我已完成讓各年齡層都能實質感受的「<span class="tag-green">明德里 2.0 十五大新政見</span>」，每項政見均已核對國家與市府現行法規、年度預算編列與公所行政資源，並有具體的經費來源與我過往實際政績作為佐證。</p>
 
       <p>敬請參考隨函檢附的「15 大政見 DM」，完整預算來源、法規依據與執行步驟亦全數公開於我的官網政策白皮書。</p>
 
@@ -355,7 +432,7 @@
 
     </div>
 
-    <!-- 頁尾 (含深藍色鋼珠筆親筆手寫簽名、聯絡資訊與白皮書 QR Code) -->
+    <!-- 頁尾 (含官網 handwritten_signature.png、聯絡電話、LINE 與政策白皮書 QR Code) -->
     <div class="letter-footer">
       <div class="sign-left">
         <strong>明德里里長候選人：陳新昱 敬上</strong><br>
@@ -371,19 +448,17 @@
         </div>
         <div class="sign-name-wrap">
           <div class="sign-role">明德里里長候選人</div>
-          <div class="pen-signature-box" title="陳新昱 親筆簽名">
-            <!-- 擬真深藍色鋼筆親筆手寫筆跡向量 (Dark Navy Fountain Pen Signature) -->
-            <svg class="pen-signature-svg" viewBox="0 0 170 55" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <!-- 陳 (Chen) -->
-              <path d="M12 18 C12 28, 11 38, 9 46 M12 20 C18 16, 24 16, 26 21 C28 26, 22 31, 16 32 C22 33, 27 36, 27 41 C27 46, 20 49, 11 48" stroke="#1e3a8a" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M32 19 L48 16 M40 12 L39 47 M31 29 L49 26 M30 38 L51 36 M30 48 L53 46" stroke="#1e3a8a" stroke-width="2.3" stroke-linecap="round"/>
-              <!-- 新 (Shin) -->
-              <path d="M62 17 C60 22, 57 28, 54 33 M60 25 L75 22 M62 33 L76 30 M57 40 C63 39, 70 38, 77 37 M67 15 L66 48" stroke="#1e3a8a" stroke-width="2.4" stroke-linecap="round"/>
-              <path d="M83 18 L103 15 M86 16 C84 27, 80 39, 74 46 M96 23 C96 32, 98 42, 105 47 M102 24 L103 48" stroke="#1e3a8a" stroke-width="2.4" stroke-linecap="round"/>
-              <!-- 昱 (Yu) -->
-              <path d="M115 15 L142 12 M115 14 L114 28 L141 24 L142 12 M115 21 L141 18 M112 33 L146 29 M129 27 L128 39 M109 41 C118 40, 137 38, 150 36 M118 43 C115 48, 110 52, 104 54 M139 39 C144 43, 149 48, 156 52" stroke="#1e3a8a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
+          
+          <!-- 官網專屬手寫簽名圖檔 (handwritten_signature.png) -->
+          <div class="official-sig-box" id="officialSigBox">
+            <img src="images/handwritten_signature.png?v=27.23" alt="科技里長 陳新昱 簽名" class="official-sig-img">
           </div>
+
+          <!-- 留白供實體親筆簽名之空格 -->
+          <div class="blank-sig-box" id="blankSigBox">
+            (候選人親簽處)
+          </div>
+
           <div class="sign-date">中華民國 115 年 10 月 1 日</div>
         </div>
       </div>
@@ -396,6 +471,20 @@
       const inputVal = document.getElementById('communityNameInput').value.trim();
       const target = document.getElementById('displayCommunityName');
       target.textContent = inputVal || '［社區名稱］';
+    }
+
+    function toggleSignatureMode() {
+      const isChecked = document.getElementById('sigToggle').checked;
+      const officialBox = document.getElementById('officialSigBox');
+      const blankBox = document.getElementById('blankSigBox');
+
+      if (isChecked) {
+        officialBox.style.display = 'flex';
+        blankBox.style.display = 'none';
+      } else {
+        officialBox.style.display = 'none';
+        blankBox.style.display = 'flex';
+      }
     }
   </script>
 </body>
