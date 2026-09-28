@@ -54,7 +54,7 @@ const POLICIES_DATA = [
         sectionOrder: "innovation-first",
         budgetSource: "我自己開發<span class=\"hl-keyword\">里民作主 App</span>",
         budgetSub: "<span class=\"hl-keyword\">完全不會動用</span>明德里 88 萬基層款",
-        budgetDesc: "不用爭奪活動中心，同時間多社區平行舉辦，微型活動，人數少也有機會成班",
+        budgetDesc: "不用爭奪活動中心，多社區舉辦不同微活動，人少也有成班的機會",
         highlight: "首創社區平行微活動！善用明德里 20 個大型社區公設，下樓就能參加，活動瞬間加倍，不用爭奪活動中心，手機作主你來點、我來辦！",
         icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>`,
         hookTitle: "創新",
@@ -64,7 +64,7 @@ const POLICIES_DATA = [
         howToDo: [
             "<span class=\"hl-keyword\">想要什麼活動、你做主</span>，手機簡單提案，隨時可報名，熱門先辦，告別一言堂的黑箱蚊子活動！"
         ],
-        whyPossible: "<span class=\"hl-keyword\">你點得出，我就辦得出</span>，我曾舉辦過直排輪、桌球、學生與長輩無人機入門、EQ親子營、手機 AI 短劇製作、長輩血壓AI管理、AI 家教與AI程式開發...等<span class=\"hl-keyword\">十餘種體驗營經驗</span>，<span class=\"hl-keyword\">我知道哪裡有經費，我會寫企劃案</span>，因此我做得到！"
+        whyPossible: "<span class=\"hl-keyword\">你點得出，我就辦得出</span>，我曾舉辦過直排輪、桌球、學生與長輩無人機入門、EQ親子營、手機 AI 短劇製作、長輩血壓AI管理、AI 家教與AI程式開發...等<span class=\"hl-keyword\">十餘種體驗營經驗</span>，<span class=\"hl-keyword\">我知道哪裡有經費，我會寫企劃案</span>！"
     },
     {
         id: 3,
@@ -1138,6 +1138,13 @@ function openDrawer(policyId) {
 
     // Open drawer view
     if (drawerBackdrop && drawer) {
+        const wasActive = drawer.classList.contains('active');
+        if (!wasActive) {
+            history.pushState({ modalType: 'policy-drawer', policyId: policy.id }, '', `#policy-${policy.id}`);
+        } else {
+            history.replaceState({ modalType: 'policy-drawer', policyId: policy.id }, '', `#policy-${policy.id}`);
+        }
+
         drawerBackdrop.classList.add('active');
         drawer.classList.add('active');
         
@@ -1152,13 +1159,34 @@ function openDrawer(policyId) {
     }
 }
 
-function closeDrawer() {
+function closeDrawer(isFromPopstate = false) {
     if (drawerBackdrop && drawer) {
+        const wasActive = drawer.classList.contains('active');
         drawerBackdrop.classList.remove('active');
         drawer.classList.remove('active');
         document.body.style.overflow = ''; // Unlock main scroll
+
+        // 如果非瀏覽器/手機返回鍵觸發（例如使用者點擊 X 或背景關閉），且上一筆歷史紀錄為抽屜狀態，則退回上一頁維持瀏覽紀錄乾淨
+        if (!isFromPopstate && wasActive && window.history.state && window.history.state.modalType === 'policy-drawer') {
+            window.history.back();
+        }
     }
 }
+
+// 監聽手機實體/手勢返回鍵與瀏覽器上一頁 (Popstate Event)
+window.addEventListener('popstate', (e) => {
+    // 若政見抽屜為開啟狀態，按返回鍵僅關閉抽屜，避免直接跳出網站回到桌面
+    if (drawer && drawer.classList.contains('active')) {
+        closeDrawer(true);
+    }
+    // 若影音燈箱為開啟狀態，按返回鍵關閉燈箱
+    const videoModal = document.getElementById('policy-video-modal');
+    if (videoModal && videoModal.classList.contains('active')) {
+        if (typeof closePolicyVideoModal === 'function') {
+            closePolicyVideoModal(true);
+        }
+    }
+});
 
 function observeRevealElements() {
     const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-bottom, .reveal-top');
@@ -2679,20 +2707,29 @@ function openPolicyVideoModal(e, videoId, title, note, policyId = 14) {
 
     iframe.src = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0`;
 
+    if (!modal.classList.contains('active')) {
+        history.pushState({ modalType: 'policy-video-modal' }, '', '#video-modal');
+    }
+
     backdrop.classList.add('active');
     modal.classList.add('active');
     document.body.style.overflow = 'hidden';
 }
 
-function closePolicyVideoModal() {
+function closePolicyVideoModal(isFromPopstate = false) {
     const backdrop = document.getElementById('policy-video-modal-backdrop');
     const modal = document.getElementById('policy-video-modal');
     const iframe = document.getElementById('policy-video-iframe');
 
+    const wasActive = modal && modal.classList.contains('active');
     if (iframe) iframe.src = '';
     if (backdrop) backdrop.classList.remove('active');
     if (modal) modal.classList.remove('active');
     document.body.style.overflow = '';
+
+    if (!isFromPopstate && wasActive && window.history.state && window.history.state.modalType === 'policy-video-modal') {
+        window.history.back();
+    }
 }
 
 function openPolicyDrawerFromModal() {
