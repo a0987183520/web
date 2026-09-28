@@ -70,23 +70,23 @@ const POLICIES_DATA = [
         id: 3,
         category: "democracy",
         categoryName: "人本交通與通學安全",
-        title: "防滑走廊 ＋ 友善步道 ＋ 通學安全",
-        subtitle: "明德里為捷運通勤與校園通學必經動線，部分騎樓<span class=\"hl-subtitle-green\">防滑係數不足</span>，爭取市府全額整平！",
+        title: "防滑走廊 ＋ 巡守升級安全通學",
+        subtitle: "明德里部分騎樓<span class=\"hl-subtitle-green\">防滑不足</span>，許多路口<span class=\"hl-subtitle-green\">人車爭道</span>，解決方案為...",
         image: "images/policy_03_safety_2_wide.png",
         budgetSource: "工務局<span class=\"hl-keyword\">騎樓整平</span>計畫 ＋ <span class=\"hl-keyword\">人本交通</span>專案款",
-        budgetSub: "<span class=\"hl-keyword\">完全不會動用</span>明德里 88 萬基層款",
-        budgetDesc: "",
-        highlight: "聚焦明德里捷運通勤與學童通學核心動線！試行高摩擦防滑速解雨天濕滑，成立安全巡守隊落實「夜巡治安、日巡護童」，結合「一鍵通報」主動查報路面與死角，守護步步安心！",
+        budgetSub: "搭配明德里 <span class=\"hl-keyword\">88 萬基層款</span>（巡守裝備與安全耗材）",
+        budgetDesc: "主力鋪面爭取市府專案全額補助，里基層款僅用於反光裝備、保險與通報系統",
+        highlight: "試行高摩擦防滑塗料速解雨天濕滑！巡守隊升級落實「夜巡治安、日巡護童」，結合「一鍵通報」主動查報路面破損與髒亂死角，守護步步安心！",
         icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 4v16M17 8l-4-4-4 4M7 20h10"></path><circle cx="12" cy="4" r="2"></circle></svg>`,
         hooks: [
-            "明德里周邊主要社區騎樓，是<span class=\"hl-keyword\">學童上學</span>、<span class=\"hl-keyword\">上班族</span>前往捷運與<span class=\"hl-keyword\">居民採買</span>的必經重要動線；然而部分路段地面<span class=\"hl-keyword\">防滑係數不足</span>、遇雨濕滑，仍有極大改善空間，雨天老人小孩行走令人提心吊膽！"
+            "明德里是<span class=\"hl-keyword\">上學、上班與民眾採買</span>的必經要道；部分地面<span class=\"hl-keyword\">防滑不足</span>，路口<span class=\"hl-keyword\">人車爭道</span>，對小孩、長者是潛在威脅！"
         ],
         howToDo: [
-            "【近期】：針對人流密集的<span class=\"hl-keyword\">通學</span>與<span class=\"hl-keyword\">捷運</span>必經動線，花費極少經費試行<span class=\"hl-keyword\">高摩擦防滑塗料</span>，快速提升防滑係數，雨天立即見效。",
-            "【中期】：爭取市府工務局<span class=\"hl-keyword\">騎樓整平計畫</span>全額補助鋪面；成立本里安全巡守隊「<span class=\"hl-keyword\">護童協勤組</span>」，落實「<span class=\"hl-keyword\">夜巡治安、日巡護童</span>」，邀請各社區志工就近「下樓即護童」，提供齊全反光裝備與保險守護上下學！",
-            "【長期】：升級巡守隊與里民「<span class=\"hl-keyword\">一鍵通報</span>」手機工具，巡查時主動查報<span class=\"hl-keyword\">路面破損</span>、<span class=\"hl-keyword\">騎樓濕滑</span>、<span class=\"hl-keyword\">狗便髒亂</span>、<span class=\"hl-keyword\">路燈故障</span>、<span class=\"hl-keyword\">違停死角</span>與<span class=\"hl-keyword\">危險障礙物</span>，即查即報、里辦即時列管修繕，替沿線管委會消除法律責任！"
+            "試行<span class=\"hl-keyword\">高摩擦防滑塗料</span>，雨天立即見效。",
+            "巡守隊全面升級，落實「<span class=\"hl-keyword\">夜巡治安、日巡護童</span>」，邀請各社區志工就近「<span class=\"hl-keyword\">下樓即護童</span>」的微任務，提供齊全反光裝備與保險守護上下學！",
+            "升級「<span class=\"hl-keyword\">一鍵通報</span>」手機工具，巡查時主動查報<span class=\"hl-keyword\">路面破損</span>、<span class=\"hl-keyword\">騎樓濕滑</span>、<span class=\"hl-keyword\">狗便髒亂</span>、<span class=\"hl-keyword\">路燈故障</span>、<span class=\"hl-keyword\">違停死角</span>與<span class=\"hl-keyword\">危險障礙物</span>，主動定位即報、雲端里辦即時列管修繕！"
         ],
-        whyPossible: "我<span class=\"hl-keyword\">懂法規、善協調、深諳公門運作</span>，擁有 10 年管委會實戰經驗；曾於 403 地震研究法規，<span class=\"hl-keyword\">成功協調權責機關跨局處施工</span>，<span class=\"hl-keyword\">搶通三不管</span>重要便道下陷的行人安全問題。"
+        whyPossible: "我<span class=\"hl-keyword\">擅長組織志工、撰寫企畫案、深諳公門運作</span>，擁有 10 年管委會實戰經驗；曾於 403 地震研究法規，<span class=\"hl-keyword\">成功協調跨局處施工</span>，搶通三不管的重要便道地面下陷的行人安全問題。"
     },
     {
         id: 4,
