@@ -74,17 +74,17 @@ const POLICIES_DATA = [
         subtitle: "明德里部分騎樓<span class=\"hl-subtitle-green\">防滑不足</span>，許多路口<span class=\"hl-subtitle-green\">人車爭道</span>，解決方案為...",
         image: "images/policy_03_safety_2_wide.png",
         budgetSource: "工務局<span class=\"hl-keyword\">騎樓整平</span>計畫 ＋ <span class=\"hl-keyword\">人本交通</span>專案款",
-        budgetSub: "搭配明德里 <span class=\"hl-keyword\">88 萬基層款</span>（巡守裝備與安全耗材）",
-        budgetDesc: "主力鋪面爭取市府專案全額補助，里基層款僅用於反光裝備、保險與通報系統",
-        highlight: "試行高摩擦防滑塗料速解雨天濕滑！巡守隊升級落實「夜巡治安、日巡護童」，結合「一鍵通報」主動查報路面破損與髒亂死角，守護步步安心！",
+        budgetSub: "搭配明德里 <span class=\"hl-keyword\">88 萬基層款</span>",
+        budgetDesc: "",
+        highlight: "高摩擦防滑塗料速解雨天濕滑！升級守望相助巡守隊落實「夜巡治安、日巡護童」，結合「一鍵定位通報App」主動查報路面破損與環境死角，守護步步安心！",
         icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 4v16M17 8l-4-4-4 4M7 20h10"></path><circle cx="12" cy="4" r="2"></circle></svg>`,
         hooks: [
             "明德里是<span class=\"hl-keyword\">上學、上班與民眾採買</span>的必經要道；部分地面<span class=\"hl-keyword\">防滑不足</span>，路口<span class=\"hl-keyword\">人車爭道</span>，對小孩、長者是潛在威脅！"
         ],
         howToDo: [
-            "試行<span class=\"hl-keyword\">高摩擦防滑塗料</span>，雨天立即見效。",
-            "巡守隊全面升級，落實「<span class=\"hl-keyword\">夜巡治安、日巡護童</span>」，邀請各社區志工就近「<span class=\"hl-keyword\">下樓即護童</span>」的微任務，提供齊全反光裝備與保險守護上下學！",
-            "升級「<span class=\"hl-keyword\">一鍵通報</span>」手機工具，巡查時主動查報<span class=\"hl-keyword\">路面破損</span>、<span class=\"hl-keyword\">騎樓濕滑</span>、<span class=\"hl-keyword\">狗便髒亂</span>、<span class=\"hl-keyword\">路燈故障</span>、<span class=\"hl-keyword\">違停死角</span>與<span class=\"hl-keyword\">危險障礙物</span>，主動定位即報、雲端里辦即時列管修繕！"
+            "<span class=\"hl-keyword\">高摩擦防滑塗料</span>，雨天立即見效。",
+            "升級<span class=\"hl-keyword\">守望相助巡守隊</span>，<span class=\"hl-keyword\">夜巡治安、日巡護童</span>，賦予志工就近「<span class=\"hl-keyword\">下樓即護童</span>」的微任務，提供齊全反光裝備與保險！",
+            "巡守任務包含<span class=\"hl-keyword\">路面破損</span>、<span class=\"hl-keyword\">騎樓濕滑</span>、<span class=\"hl-keyword\">犬便髒亂</span>、<span class=\"hl-keyword\">路燈故障</span>、<span class=\"hl-keyword\">違停死角</span>與<span class=\"hl-keyword\">危險障礙物</span>，<span class=\"hl-keyword\">一鍵定位通報App</span>，雲端里辦即時列管修繕！"
         ],
         whyPossible: "我<span class=\"hl-keyword\">擅長組織志工、撰寫企畫案、深諳公門運作</span>，擁有 10 年管委會實戰經驗；曾於 403 地震研究法規，<span class=\"hl-keyword\">成功協調跨局處施工</span>，搶通三不管的重要便道地面下陷的行人安全問題。"
     },
