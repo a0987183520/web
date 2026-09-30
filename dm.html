@@ -120,10 +120,10 @@
     }
 
     /* 
-       1. 頂端列 (Top Bar，極致超大 28px 旗艦設計)
+       1. 頂端列 (Top Bar，極致超大 27px 旗艦設計 ✕ 右側白皮書 QR Code)
     */
     .top-bar {
-      height: 13.8mm;
+      height: 14.5mm;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -179,17 +179,42 @@
       margin-left: 6px;
     }
 
-    /* 頂端列右側：政策白皮書標題（極致 28px 大字，與下方 QR Code 垂直中軸居中對齊） */
+    /* 頂端列右側：政策白皮書 ＋ 精緻 44px QR Code 相框 */
+    .top-policy-group {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
     .top-policy-label {
-      font-size: 28px;
+      font-size: 26px;
       font-weight: 900;
       color: #fbbf24;
       letter-spacing: -0.2px;
-      margin-right: 29px;
+    }
+
+    .top-qr-frame {
+      width: 44px;
+      height: 44px;
+      background: #ffffff;
+      border: 1.5px solid #fbbf24;
+      border-radius: 6px;
+      padding: 2px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .top-qr-frame img {
+      width: 100%;
+      height: 100%;
+      display: block;
     }
 
     /* 
-       2. 上半部 HERO 區塊 (占約 45%，高約 101mm，左側文字 ✕ 右側願景形象圖)
+       2. 上半部 HERO 區塊 (占約 45%，高約 101mm，左側大氣無框文字 ✕ 右側全景形象圖)
     */
     .hero-container {
       height: 101mm;
@@ -202,14 +227,14 @@
 
     .hero-left-content {
       height: 100%;
-      background: rgba(12, 20, 17, 0.7);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 12px;
-      padding: 5px 14px 4px 14px;
+      background: transparent;
+      border: none;
+      border-radius: 0px;
+      padding: 4px 6px 2px 2px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+      box-shadow: none;
       position: relative;
     }
 
@@ -281,8 +306,8 @@
     /* 底部手寫簽名（絕對定位浮貼於右下角，完全不推擠內文） */
     .letter-signature-wrap-right {
       position: absolute;
-      bottom: 6px;
-      right: 12px;
+      bottom: 28px;
+      right: 2px;
       z-index: 5;
       pointer-events: none;
     }
@@ -322,26 +347,6 @@
       display: block;
     }
 
-    /* Hero 右上角純淨白底 QR Code 相框（精準置於右上角，遮蔽部分「讓我們」，完整露出第二行「更懂彼此！」與右下角「陳新昱」名牌） */
-    .hero-qr-frame {
-      position: absolute;
-      top: 4px;
-      right: 66px;
-      width: 66px;
-      height: 66px;
-      background: #ffffff;
-      border: 2px solid #fbbf24;
-      border-radius: 8px;
-      padding: 3px;
-      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.75);
-      z-index: 10;
-    }
-
-    .hero-qr-frame img {
-      width: 100%;
-      height: 100%;
-      display: block;
-    }
 
     /* 
        2.5 中間橫幅：預算與執行力獨立雙行問答 Bar (對齊下方 15 大政見容器質感與 2px 線框)
@@ -515,7 +520,7 @@
 
   <div class="page">
 
-    <!-- 1. 頂端導航條 (明德里 2.0 ｜ 陳新昱 候選人 ✕ 政策白皮書) -->
+    <!-- 1. 頂端導航條 (明德里 2.0 ｜ 陳新昱 候選人 ✕ 政策白皮書 ＋ 掃碼 QR) -->
     <div class="top-bar">
       <div class="brand-logo-group">
         <div class="logo-gradient-box"></div>
@@ -524,7 +529,13 @@
         <div class="brand-candidate-name">陳新昱</div>
         <div class="brand-candidate-title">候選人</div>
       </div>
-      <div class="top-policy-label">政策白皮書</div>
+      <div class="top-policy-group">
+        <div class="top-policy-label">政策白皮書</div>
+        <div class="top-qr-frame">
+          <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://a0987183520.github.io/web/"
+            alt="政策白皮書 QR Code">
+        </div>
+      </div>
     </div>
 
     <!-- 2. 上半部 Hero 區塊 -->
@@ -560,14 +571,10 @@
 
       </div>
 
-      <!-- 右側：願景形象主圖 ＋ 右上角純淨白底 QR Code 相框（與頂端政策白皮書垂直對齊） -->
+      <!-- 右側：願景形象主圖（全幅無遮擋 ✕ 完整露出金句與名牌） -->
       <div class="hero-right">
         <div class="hero-image-card">
           <img src="images/hero_vision_a4.png" alt="明德里2.0願景主視覺">
-          <div class="hero-qr-frame">
-            <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://a0987183520.github.io/web/"
-              alt="政策白皮書 QR Code">
-          </div>
         </div>
       </div>
 
