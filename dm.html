@@ -138,18 +138,21 @@
       gap: 12px;
     }
 
-    /* 明德里 2.0 專屬動態雙旗流線音符 Logo (傳承音樂底蘊 ✕ 活力雙曲線) */
-    .brand-music-logo {
-      width: 38px;
-      height: 38px;
+    /* 明德里 2.0 專屬品牌 App 徽章 (翡翠亮綠光感底座 ✕ 雙旗流線音符 Logo) */
+    .brand-music-badge {
+      width: 34px;
+      height: 34px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, #a3e635 0%, #10b981 100%);
+      box-shadow: 0 0 14px rgba(16, 185, 129, 0.65);
       display: flex;
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
-      filter: drop-shadow(0 2px 8px rgba(16, 185, 129, 0.4));
+      padding: 3px;
     }
 
-    .brand-music-logo svg {
+    .brand-music-badge svg {
       width: 100%;
       height: 100%;
       display: block;
@@ -533,37 +536,33 @@
     <!-- 1. 頂端導航條 (明德里 2.0 ｜ 陳新昱 候選人 ✕ 政策白皮書 ＋ 掃碼 QR) -->
     <div class="top-bar">
       <div class="brand-logo-group">
-        <!-- 明德里 2.0 專屬動態雙旗流線音符 Logo (傳承音樂資歷 ✕ 活力雙曲線 ✕ 翡翠金紅配色) -->
-        <div class="brand-music-logo" title="明德里2.0 ✕ 生活美學與音樂藝術">
+        <!-- 明德里 2.0 專屬品牌 App 徽章 (翡翠亮綠光感底座 ✕ 雙旗流線音符 Logo) -->
+        <div class="brand-music-badge" title="明德里2.0 ✕ 生活美學與音樂藝術">
           <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
             <defs>
-              <linearGradient id="noteBodyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#0b1a14"/>
-                <stop offset="100%" stop-color="#18382b"/>
-              </linearGradient>
-              <linearGradient id="stemGrad" x1="0%" y1="100%" x2="0%" y2="0%">
-                <stop offset="0%" stop-color="#10b981"/>
-                <stop offset="100%" stop-color="#34d399"/>
+              <linearGradient id="badgeBallGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#27272a"/>
+                <stop offset="100%" stop-color="#09090b"/>
               </linearGradient>
               <linearGradient id="topFlagGrad" x1="0%" y1="0%" x2="100%" y2="100%">
                 <stop offset="0%" stop-color="#ef4444"/>
-                <stop offset="100%" stop-color="#f87171"/>
+                <stop offset="100%" stop-color="#dc2626"/>
               </linearGradient>
               <linearGradient id="bottomFlagGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#fbbf24"/>
-                <stop offset="100%" stop-color="#fde047"/>
+                <stop offset="0%" stop-color="#fde047"/>
+                <stop offset="100%" stop-color="#eab308"/>
               </linearGradient>
             </defs>
-            <!-- 符桿 (向左微傾 12 度) -->
-            <path d="M 55 60 L 68 12" stroke="url(#stemGrad)" stroke-width="5" stroke-linecap="round"/>
-            <!-- 雙層飄逸流線旗幟 -->
-            <path d="M 68 12 Q 86 16 95 30 Q 82 23 68 23 Z" fill="url(#topFlagGrad)"/>
-            <path d="M 68 29 Q 85 33 93 45 Q 81 38 68 39 Z" fill="url(#bottomFlagGrad)"/>
-            <!-- 符頭圓球本體 (微光翡翠墨黑 ✕ 亮綠外框) -->
-            <circle cx="40" cy="67" r="23" fill="url(#noteBodyGrad)" stroke="#34d399" stroke-width="1.8"/>
-            <!-- 上下雙月牙珊瑚粉紅微光弧線 -->
-            <path d="M 23 55 Q 40 46 57 55" stroke="#f43f5e" stroke-width="3" stroke-linecap="round" fill="none"/>
-            <path d="M 26 79 Q 40 88 54 79" stroke="#f43f5e" stroke-width="3" stroke-linecap="round" fill="none"/>
+            <!-- 符桿 (深墨黑高對比 ✕ 12度傾斜) -->
+            <path d="M 54 60 L 68 12" stroke="#09090b" stroke-width="6.5" stroke-linecap="round"/>
+            <!-- 雙層飄逸流線旗幟 (珊瑚紅 ✕ 琉璃金) -->
+            <path d="M 68 12 Q 86 16 96 30 Q 82 23 68 23 Z" fill="url(#topFlagGrad)"/>
+            <path d="M 68 29 Q 85 33 94 45 Q 81 38 68 39 Z" fill="url(#bottomFlagGrad)"/>
+            <!-- 符頭立體黑球 (在亮綠底座上清晰分明) -->
+            <circle cx="39" cy="67" r="23" fill="url(#badgeBallGrad)"/>
+            <!-- 符頭上下雙月牙亮珊瑚粉紅微光弧線 -->
+            <path d="M 22 55 Q 39 46 56 55" stroke="#f43f5e" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+            <path d="M 25 79 Q 39 88 53 79" stroke="#f43f5e" stroke-width="3.5" stroke-linecap="round" fill="none"/>
           </svg>
         </div>
         <div class="brand-text-main">明德里<span class="highlight-num">2.0</span></div>
