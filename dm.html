@@ -138,24 +138,22 @@
       gap: 12px;
     }
 
-    .logo-gradient-box {
-      width: 33px;
-      height: 33px;
-      border-radius: 8px;
-      background: linear-gradient(135deg, #a3e635 0%, #10b981 100%);
-      box-shadow: 0 0 14px rgba(16, 185, 129, 0.65);
+    /* 明德里 2.0 專屬動態雙旗流線音符 Logo (傳承音樂底蘊 ✕ 活力雙曲線) */
+    .brand-music-logo {
+      width: 38px;
+      height: 38px;
       display: flex;
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
+      filter: drop-shadow(0 2px 8px rgba(16, 185, 129, 0.4));
     }
 
-    .logo-icon-svg {
-      width: 21px;
-      height: 21px;
-      fill: #ffffff;
-      transform: rotate(12deg) translateY(-1px);
-      filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.45));
+    .brand-music-logo svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+      overflow: visible;
     }
 
     .brand-text-main {
@@ -535,10 +533,37 @@
     <!-- 1. 頂端導航條 (明德里 2.0 ｜ 陳新昱 候選人 ✕ 政策白皮書 ＋ 掃碼 QR) -->
     <div class="top-bar">
       <div class="brand-logo-group">
-        <div class="logo-gradient-box" title="明德生活美學 ✕ 音樂藝術">
-          <!-- 12度微傾斜流線動感音符 Logo -->
-          <svg viewBox="0 0 24 24" class="logo-icon-svg">
-            <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z" />
+        <!-- 明德里 2.0 專屬動態雙旗流線音符 Logo (傳承音樂資歷 ✕ 活力雙曲線 ✕ 翡翠金紅配色) -->
+        <div class="brand-music-logo" title="明德里2.0 ✕ 生活美學與音樂藝術">
+          <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="noteBodyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#0b1a14"/>
+                <stop offset="100%" stop-color="#18382b"/>
+              </linearGradient>
+              <linearGradient id="stemGrad" x1="0%" y1="100%" x2="0%" y2="0%">
+                <stop offset="0%" stop-color="#10b981"/>
+                <stop offset="100%" stop-color="#34d399"/>
+              </linearGradient>
+              <linearGradient id="topFlagGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#ef4444"/>
+                <stop offset="100%" stop-color="#f87171"/>
+              </linearGradient>
+              <linearGradient id="bottomFlagGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#fbbf24"/>
+                <stop offset="100%" stop-color="#fde047"/>
+              </linearGradient>
+            </defs>
+            <!-- 符桿 (向左微傾 12 度) -->
+            <path d="M 55 60 L 68 12" stroke="url(#stemGrad)" stroke-width="5" stroke-linecap="round"/>
+            <!-- 雙層飄逸流線旗幟 -->
+            <path d="M 68 12 Q 86 16 95 30 Q 82 23 68 23 Z" fill="url(#topFlagGrad)"/>
+            <path d="M 68 29 Q 85 33 93 45 Q 81 38 68 39 Z" fill="url(#bottomFlagGrad)"/>
+            <!-- 符頭圓球本體 (微光翡翠墨黑 ✕ 亮綠外框) -->
+            <circle cx="40" cy="67" r="23" fill="url(#noteBodyGrad)" stroke="#34d399" stroke-width="1.8"/>
+            <!-- 上下雙月牙珊瑚粉紅微光弧線 -->
+            <path d="M 23 55 Q 40 46 57 55" stroke="#f43f5e" stroke-width="3" stroke-linecap="round" fill="none"/>
+            <path d="M 26 79 Q 40 88 54 79" stroke="#f43f5e" stroke-width="3" stroke-linecap="round" fill="none"/>
           </svg>
         </div>
         <div class="brand-text-main">明德里<span class="highlight-num">2.0</span></div>
