@@ -210,6 +210,7 @@
       flex-direction: column;
       justify-content: space-between;
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+      position: relative;
     }
 
     /* 頂部大標題（緊湊銜接內文，段距縮小半個字高） */
@@ -221,7 +222,7 @@
     }
 
     .hero-subhead {
-      font-size: 33px;
+      font-size: 21px;
       font-weight: 900;
       color: #ffffff;
       letter-spacing: 0.5px;
@@ -229,7 +230,7 @@
     }
 
     .hero-mainhead {
-      font-size: 33px;
+      font-size: 40px;
       font-weight: 900;
       line-height: 1.1;
       background: linear-gradient(135deg, #fbbf24 0%, #34d399 100%);
@@ -249,7 +250,7 @@
     .letter-body p {
       font-size: 18px;
       font-weight: 500;
-      line-height: 1.42;
+      line-height: 1.45;
       color: #f5f5f4;
       margin: 0;
       letter-spacing: 0.2px;
@@ -277,14 +278,13 @@
       text-shadow: 0 0 10px rgba(52, 211, 153, 0.7);
     }
 
-    /* 底部手寫簽名（靠右並與最後一行政見精準底部切齊） */
+    /* 底部手寫簽名（絕對定位浮貼於右下角，完全不推擠內文） */
     .letter-signature-wrap-right {
-      display: flex;
-      justify-content: flex-end;
-      align-items: flex-end;
-      margin-top: -100px;
-      position: relative;
+      position: absolute;
+      bottom: 6px;
+      right: 12px;
       z-index: 5;
+      pointer-events: none;
     }
 
     .letter-signature-img {
@@ -344,13 +344,13 @@
     }
 
     /* 
-       2.5 中間橫幅：預算與執行力獨立雙行問答 Bar (極致 3 色高對比：珊瑚紅 ✕ 純白 ✕ 翡翠綠)
+       2.5 中間橫幅：預算與執行力獨立雙行問答 Bar (對齊下方 15 大政見容器質感與 2px 線框)
     */
     .budget-bar {
       height: 16.5mm;
       margin: 1.8mm 0 2.2mm 0;
-      background: linear-gradient(135deg, rgba(20, 24, 22, 0.95) 0%, rgba(10, 20, 16, 0.98) 100%);
-      border: 1.2px solid rgba(248, 113, 113, 0.45);
+      background: linear-gradient(145deg, rgba(38, 18, 20, 0.92) 0%, rgba(20, 10, 12, 0.95) 100%);
+      border: 2px solid rgba(248, 113, 113, 0.55);
       border-radius: 8px;
       padding: 0 14px;
       display: flex;
@@ -358,7 +358,9 @@
       justify-content: center;
       gap: 3.5px;
       flex-shrink: 0;
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.55);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+      position: relative;
+      z-index: 10;
     }
 
     .budget-row {
@@ -424,7 +426,7 @@
 
     .policy-card {
       background: linear-gradient(145deg, rgba(18, 38, 28, 0.92) 0%, rgba(10, 24, 18, 0.95) 100%);
-      border: 1px solid rgba(52, 211, 153, 0.28);
+      border: 2px solid rgba(52, 211, 153, 0.55);
       border-radius: 8px;
       padding: 7px 10px 6px 10px;
       display: flex;
