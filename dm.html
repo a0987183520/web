@@ -120,10 +120,10 @@
     }
 
     /* 
-       1. 頂端列 (Top Bar，極致 30px 旗艦設計 ✕ 右側白皮書 52px QR Code)
+       1. 頂端列 (Top Bar，極致 34px 旗艦大字 ✕ 12度流線動感音符 Logo ✕ 52px QR Code)
     */
     .top-bar {
-      height: 16mm;
+      height: 16.5mm;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -139,15 +139,27 @@
     }
 
     .logo-gradient-box {
-      width: 30px;
-      height: 30px;
-      border-radius: 7px;
+      width: 33px;
+      height: 33px;
+      border-radius: 8px;
       background: linear-gradient(135deg, #a3e635 0%, #10b981 100%);
       box-shadow: 0 0 14px rgba(16, 185, 129, 0.65);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .logo-icon-svg {
+      width: 21px;
+      height: 21px;
+      fill: #ffffff;
+      transform: rotate(12deg) translateY(-1px);
+      filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.45));
     }
 
     .brand-text-main {
-      font-size: 30px;
+      font-size: 32px;
       font-weight: 900;
       color: #ffffff;
       letter-spacing: -0.2px;
@@ -166,14 +178,14 @@
     }
 
     .brand-candidate-name {
-      font-size: 31px;
+      font-size: 34px;
       font-weight: 900;
       color: #ffffff;
       letter-spacing: 0.2px;
     }
 
     .brand-candidate-title {
-      font-size: 28px;
+      font-size: 29px;
       font-weight: 900;
       color: #fbbf24;
       margin-left: 6px;
@@ -187,7 +199,7 @@
     }
 
     .top-policy-label {
-      font-size: 28px;
+      font-size: 29px;
       font-weight: 900;
       color: #fbbf24;
       letter-spacing: -0.2px;
@@ -523,7 +535,12 @@
     <!-- 1. 頂端導航條 (明德里 2.0 ｜ 陳新昱 候選人 ✕ 政策白皮書 ＋ 掃碼 QR) -->
     <div class="top-bar">
       <div class="brand-logo-group">
-        <div class="logo-gradient-box"></div>
+        <div class="logo-gradient-box" title="明德生活美學 ✕ 音樂藝術">
+          <!-- 12度微傾斜流線動感音符 Logo -->
+          <svg viewBox="0 0 24 24" class="logo-icon-svg">
+            <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z" />
+          </svg>
+        </div>
         <div class="brand-text-main">明德里<span class="highlight-num">2.0</span></div>
         <div class="brand-divider">｜</div>
         <div class="brand-candidate-name">陳新昱</div>
