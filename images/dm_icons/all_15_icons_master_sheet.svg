@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1500" width="900" height="1500">
+  <!-- 
+    明德里2.0 十五大政見向量圖標總集合畫板 
+    可用 Adobe Illustrator 直接開啟 (File -> Open)，每組圖標皆已群組並獨立分層，可任意縮放、換色或複製貼上！
+  -->
+  <defs>
+    <style>
+      .bg-rect { fill: #060b09; }
+      .card-bg { fill: #0c1411; stroke: #34d399; stroke-width: 2; stroke-opacity: 0.5; }
+      .label-title { font-family: sans-serif; font-size: 17px; fill: #fbbf24; font-weight: bold; }
+      .label-num { font-family: sans-serif; font-size: 13px; fill: #a8a29e; }
+    </style>
+  </defs>
+  <rect width="100%" height="100%" class="bg-rect"/>
+
+  <!-- 項目 01: 民歌Live草地音樂節 -->
+  <g id="icon_group_01_music" transform="translate(40, 40)">
+    <rect width="260" height="260" rx="16" class="card-bg"/>
+    <g transform="translate(80, 45) scale(4.16)">
+      <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z" fill="#34d399"/>
+    </g>
+    <text x="130" y="185" text-anchor="middle" class="label-num">【政見 01】</text>
+    <text x="130" y="215" text-anchor="middle" class="label-title">民歌Live草地音樂節</text>
+  </g>
+  <!-- 項目 02: 里民手機共治社區平行微活動 -->
+  <g id="icon_group_02_smartphone" transform="translate(320, 40)">
+    <rect width="260" height="260" rx="16" class="card-bg"/>
+    <g transform="translate(80, 45) scale(4.16)">
+      <path d="M17 1.01L7 1c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99zM17 19H7V5h10v14z" fill="#34d399"/>
+    </g>
+    <text x="130" y="185" text-anchor="middle" class="label-num">【政見 02】</text>
+    <text x="130" y="215" text-anchor="middle" class="label-title">里民手機共治社區平行微活動</text>
+  </g>
+  <!-- 項目 03: 防滑走廊巡守升級安全通學 -->
+  <g id="icon_group_03_safety_patrol" transform="translate(600, 40)">
+    <rect width="260" height="260" rx="16" class="card-bg"/>
+    <g transform="translate(80, 45) scale(4.16)">
+      <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z" fill="#34d399"/>
+    </g>
+    <text x="130" y="185" text-anchor="middle" class="label-num">【政見 03】</text>
+    <text x="130" y="215" text-anchor="middle" class="label-title">防滑走廊巡守升級安全通學</text>
+  </g>
+  <!-- 項目 04: 智慧交通號誌解決塞車問題 -->
+  <g id="icon_group_04_traffic_light" transform="translate(40, 320)">
+    <rect width="260" height="260" rx="16" class="card-bg"/>
+    <g transform="translate(80, 45) scale(4.16)">
+      <path d="M12 2c-2.76 0-5 2.24-5 5v10c0 2.76 2.24 5 5 5s5-2.24 5-5V7c0-2.76-2.24-5-5-5zm0 3c.83 0 1.5.67 1.5 1.5S12.83 8 12 8s-1.5-.67-1.5-1.5S11.17 5 12 5zm0 5.5c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5-1.5-.67-1.5-1.5.67-1.5 1.5-1.5zm0 5.5c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5-1.5-.67-1.5-1.5.67-1.5 1.5-1.5z" fill="#34d399"/>
+    </g>
+    <text x="130" y="185" text-anchor="middle" class="label-num">【政見 04】</text>
+    <text x="130" y="215" text-anchor="middle" class="label-title">智慧交通號誌解決塞車問題</text>
+  </g>
+  <!-- 項目 05: 社區輪辦活動微型安全無人機 -->
+  <g id="icon_group_05_drone" transform="translate(320, 320)">
+    <rect width="260" height="260" rx="16" class="card-bg"/>
+    <g transform="translate(80, 45) scale(4.16)">
+      <path d="M22 6.5l-3.35 1.34C17.78 6.7 16.5 6 15 6c-2.21 0-4.04 1.44-4.69 3.44C9.72 9.17 9.07 9 8.39 9c-2.48 0-4.5 2.02-4.5 4.5s2.02 4.5 4.5 4.5c.68 0 1.33-.17 1.92-.44.65 2 2.48 3.44 4.69 3.44 1.5 0 2.78-.7 3.65-1.84L22 17.5v-2l-3-1.2v-1.6l3-1.2v-2zM8.39 16c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5c.57 0 1.09.2 1.51.52l-.01.48c0 1.84.83 3.5 2.14 4.63-.7.54-1.59.87-2.64.87zm6.61 3c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3z" fill="#34d399"/>
+    </g>
+    <text x="130" y="185" text-anchor="middle" class="label-num">【政見 05】</text>
+    <text x="130" y="215" text-anchor="middle" class="label-title">社區輪辦活動微型安全無人機</text>
+  </g>
+  <!-- 項目 06: 獨老雙老暖心居家照護 -->
+  <g id="icon_group_06_elderly_care" transform="translate(600, 320)">
+    <rect width="260" height="260" rx="16" class="card-bg"/>
+    <g transform="translate(80, 45) scale(4.16)">
+      <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="#34d399"/>
+    </g>
+    <text x="130" y="185" text-anchor="middle" class="label-num">【政見 06】</text>
+    <text x="130" y="215" text-anchor="middle" class="label-title">獨老雙老暖心居家照護</text>
+  </g>
+  <!-- 項目 07: 社區輪辦預防失智趣味App -->
+  <g id="icon_group_07_brain_ai_app" transform="translate(40, 600)">
+    <rect width="260" height="260" rx="16" class="card-bg"/>
+    <g transform="translate(80, 45) scale(4.16)">
+      <path d="M12 3c-4.97 0-9 4.03-9 9 0 2.12.74 4.07 1.97 5.61L4.35 20.3c-.39.39-.39 1.02 0 1.41.39.39 1.02.39 1.41 0l2.79-2.79C9.72 19.57 10.83 20 12 20c4.97 0 9-4.03 9-9s-4.03-9-9-9zm0 15c-1.01 0-1.97-.26-2.8-.71l-.31-.18-1.88 1.88.58-1.74-.2-.31C6.54 15.98 6 14.56 6 13c0-3.86 3.14-7 7-7s7 3.14 7 7-3.14 7-7 7z" fill="#34d399"/>
+    </g>
+    <text x="130" y="185" text-anchor="middle" class="label-num">【政見 07】</text>
+    <text x="130" y="215" text-anchor="middle" class="label-title">社區輪辦預防失智趣味App</text>
+  </g>
+  <!-- 項目 08: 銀髮共餐全民灶咖 -->
+  <g id="icon_group_08_senior_dining" transform="translate(320, 600)">
+    <rect width="260" height="260" rx="16" class="card-bg"/>
+    <g transform="translate(80, 45) scale(4.16)">
+      <path d="M11 9H9V2H7v7H5V2H3v7c0 2.12 1.66 3.84 3.75 3.97V22h2.5v-9.03C11.34 12.84 13 11.12 13 9V2h-2v7zm5-3v8h2.5v8H21V2c-2.76 0-5 2.24-5 4z" fill="#34d399"/>
+    </g>
+    <text x="130" y="185" text-anchor="middle" class="label-num">【政見 08】</text>
+    <text x="130" y="215" text-anchor="middle" class="label-title">銀髮共餐全民灶咖</text>
+  </g>
+  <!-- 項目 09: 社區規約諮詢鄰里EQ溝通平台 -->
+  <g id="icon_group_09_community_law" transform="translate(600, 600)">
+    <rect width="260" height="260" rx="16" class="card-bg"/>
+    <g transform="translate(80, 45) scale(4.16)">
+      <path d="M12 2L4 7v2h1.6l-3.2 7c-.5 1.1.3 2 1.6 2h6c1.3 0 2.1-.9 1.6-2L8.4 9H11v11H8v2h8v-2h-3V9h2.6l-3.2 7c-.5 1.1.3 2 1.6 2h6c1.3 0 2.1-.9 1.6-2L18.4 9H20V7l-8-5z" fill="#34d399"/>
+    </g>
+    <text x="130" y="185" text-anchor="middle" class="label-num">【政見 09】</text>
+    <text x="130" y="215" text-anchor="middle" class="label-title">社區規約諮詢鄰里EQ溝通平台</text>
+  </g>
+  <!-- 項目 10: 鄰里斜槓人才招募計畫 -->
+  <g id="icon_group_10_talent_star" transform="translate(40, 880)">
+    <rect width="260" height="260" rx="16" class="card-bg"/>
+    <g transform="translate(80, 45) scale(4.16)">
+      <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" fill="#34d399"/>
+    </g>
+    <text x="130" y="185" text-anchor="middle" class="label-num">【政見 10】</text>
+    <text x="130" y="215" text-anchor="middle" class="label-title">鄰里斜槓人才招募計畫</text>
+  </g>
+  <!-- 項目 11: 長青熱門課程全面安心保留 -->
+  <g id="icon_group_11_course_drum" transform="translate(320, 880)">
+    <rect width="260" height="260" rx="16" class="card-bg"/>
+    <g transform="translate(80, 45) scale(4.16)">
+      <path d="M12 2C6.48 2 2 4.02 2 6.5v11C2 19.98 6.48 22 12 22s10-2.02 10-4.5v-11C22 4.02 17.52 2 12 2zm0 2c4.41 0 8 1.34 8 2.5S16.41 9 12 9 4 7.66 4 6.5 7.59 4 12 4zm8 13.5c0 1.16-3.59 2.5-8 2.5s-8-1.34-8-2.5V8.82C5.69 9.87 8.66 10.5 12 10.5s6.31-.63 8-1.68v8.68z" fill="#34d399"/>
+    </g>
+    <text x="130" y="185" text-anchor="middle" class="label-num">【政見 11】</text>
+    <text x="130" y="215" text-anchor="middle" class="label-title">長青熱門課程全面安心保留</text>
+  </g>
+  <!-- 項目 12: 社區輪辦食用廢油變黃金 -->
+  <g id="icon_group_12_waste_oil" transform="translate(600, 880)">
+    <rect width="260" height="260" rx="16" class="card-bg"/>
+    <g transform="translate(80, 45) scale(4.16)">
+      <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z" fill="#34d399"/>
+    </g>
+    <text x="130" y="185" text-anchor="middle" class="label-num">【政見 12】</text>
+    <text x="130" y="215" text-anchor="middle" class="label-title">社區輪辦食用廢油變黃金</text>
+  </g>
+  <!-- 項目 13: 里民旅遊保證報名增額制度 -->
+  <g id="icon_group_13_tour_bus" transform="translate(40, 1160)">
+    <rect width="260" height="260" rx="16" class="card-bg"/>
+    <g transform="translate(80, 45) scale(4.16)">
+      <path d="M4 16c0 .88.39 1.67 1 2.22V20c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h8v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1.78c.61-.55 1-1.34 1-2.22V6c0-3.5-3.58-4-8-4s-8 .5-8 4v10zm3.5 1c-.83 0-1.5-.67-1.5-1.5S6.67 14 7.5 14s1.5.67 1.5 1.5S8.33 17 7.5 17zm9 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm1.5-6H6V6h12v5z" fill="#34d399"/>
+    </g>
+    <text x="130" y="185" text-anchor="middle" class="label-num">【政見 13】</text>
+    <text x="130" y="215" text-anchor="middle" class="label-title">里民旅遊保證報名增額制度</text>
+  </g>
+  <!-- 項目 14: 情緒教育課程打造高EQ社區 -->
+  <g id="icon_group_14_eq_smile" transform="translate(320, 1160)">
+    <rect width="260" height="260" rx="16" class="card-bg"/>
+    <g transform="translate(80, 45) scale(4.16)">
+      <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z" fill="#34d399"/>
+    </g>
+    <text x="130" y="185" text-anchor="middle" class="label-num">【政見 14】</text>
+    <text x="130" y="215" text-anchor="middle" class="label-title">情緒教育課程打造高EQ社區</text>
+  </g>
+  <!-- 項目 15: 寵物友善社區首創毛孩性格標語 -->
+  <g id="icon_group_15_pet_paw" transform="translate(600, 1160)">
+    <rect width="260" height="260" rx="16" class="card-bg"/>
+    <g transform="translate(80, 45) scale(4.16)">
+      <path d="M12 10.5c1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3 1.34 3 3 3zm-6.5-1c1.38 0 2.5-1.12 2.5-2.5S6.88 4.5 5.5 4.5 3 5.62 3 7s1.12 2.5 2.5 2.5zm13 0c1.38 0 2.5-1.12 2.5-2.5S19.88 4.5 18.5 4.5 16 5.62 16 7s1.12 2.5 2.5 2.5zM12 13c-3.13 0-5.67 1.94-5.67 4.5 0 2.14 1.76 3.5 3.67 3.5 1.35 0 2-.5 2-.5s.65.5 2 .5c1.91 0 3.67-1.36 3.67-3.5 0-2.56-2.54-4.5-5.67-4.5z" fill="#34d399"/>
+    </g>
+    <text x="130" y="185" text-anchor="middle" class="label-num">【政見 15】</text>
+    <text x="130" y="215" text-anchor="middle" class="label-title">寵物友善社區首創毛孩性格標語</text>
+  </g>
+</svg>
