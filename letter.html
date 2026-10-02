@@ -30,8 +30,8 @@
       color: #1e293b;
       -webkit-print-color-adjust: exact;
       print-color-adjust: exact;
-      padding-top: 60px;
-      padding-bottom: 40px;
+      padding-top: 65px;
+      padding-bottom: 50px;
     }
 
     /* 網頁懸浮工具列 (極簡單列橫排) */
@@ -40,13 +40,13 @@
       top: 12px;
       left: 50%;
       transform: translateX(-50%);
-      background: rgba(11, 19, 17, 0.95);
+      background: rgba(11, 19, 17, 0.96);
       backdrop-filter: blur(14px);
-      border: 1px solid rgba(251, 191, 36, 0.3);
+      border: 1px solid rgba(251, 191, 36, 0.35);
       color: white;
-      padding: 6px 16px;
+      padding: 6px 14px;
       border-radius: 40px;
-      box-shadow: 0 10px 35px rgba(0, 0, 0, 0.6);
+      box-shadow: 0 10px 35px rgba(0, 0, 0, 0.7);
       z-index: 1000;
       display: flex;
       gap: 8px;
@@ -56,11 +56,30 @@
       flex-wrap: nowrap;
     }
 
+    .community-select-wrap {
+      display: flex;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.08);
+      padding: 2px 8px;
+      border-radius: 20px;
+      border: 1px solid rgba(251, 191, 36, 0.4);
+    }
+
+    .community-select-wrap select {
+      background: transparent;
+      border: none;
+      color: #fbbf24;
+      font-weight: 800;
+      font-size: 12px;
+      outline: none;
+      cursor: pointer;
+    }
+
     .community-input-wrap {
       display: flex;
       align-items: center;
       background: rgba(255, 255, 255, 0.08);
-      padding: 3px 10px;
+      padding: 2px 8px;
       border-radius: 20px;
       border: 1px solid rgba(255, 255, 255, 0.15);
     }
@@ -70,9 +89,9 @@
       border: none;
       color: #fbbf24;
       font-weight: 800;
-      font-size: 13px;
+      font-size: 12px;
       outline: none;
-      width: 90px;
+      width: 75px;
       text-align: center;
     }
 
@@ -81,7 +100,7 @@
       background: linear-gradient(135deg, #fbbf24 0%, #d97706 100%);
       color: #060b09;
       border: none;
-      padding: 5px 14px;
+      padding: 5px 12px;
       border-radius: 20px;
       font-weight: 800;
       cursor: pointer;
@@ -92,6 +111,18 @@
       align-items: center;
       justify-content: center;
       white-space: nowrap;
+    }
+
+    .toolbar button.primary-btn {
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      color: #ffffff;
+      box-shadow: 0 0 12px rgba(16, 185, 129, 0.4);
+    }
+
+    .toolbar button.primary-btn:hover {
+      background: linear-gradient(135deg, #34d399 0%, #059669 100%);
+      box-shadow: 0 0 18px rgba(16, 185, 129, 0.7);
+      transform: translateY(-1px);
     }
 
     .toolbar a.secondary-btn {
@@ -134,11 +165,11 @@
 
     /* A4 畫布設定 (極致流暢 1 頁 A4 滿版大器，支援動態字級等比縮放) */
     .page {
-      --font-scale: 1.0;
+      --font-scale: 1.2;
       background: #ffffff;
       width: 210mm;
       height: 297mm;
-      margin: 0 auto;
+      margin: 0 auto 30px auto;
       padding: 14mm 16mm 12mm 16mm;
       box-shadow: 0 18px 50px rgba(0, 0, 0, 0.45);
       display: flex;
@@ -148,6 +179,17 @@
       box-sizing: border-box;
       overflow: hidden;
       transition: font-size 0.15s ease;
+    }
+
+    .page-index-badge {
+      position: absolute;
+      top: 4mm;
+      right: 6mm;
+      font-size: 11px;
+      color: #94a3b8;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      letter-spacing: 0.5px;
     }
 
     @page {
@@ -160,7 +202,7 @@
         background: white;
         padding: 0;
       }
-      .toolbar {
+      .toolbar, .no-print {
         display: none !important;
       }
       .page {
@@ -170,6 +212,10 @@
         height: 297mm;
         padding: 14mm 16mm 12mm 16mm;
         page-break-after: always;
+        break-after: page;
+      }
+      .page-index-badge {
+        display: none !important;
       }
     }
 
@@ -199,324 +245,254 @@
     }
 
     .salutation {
-      font-size: calc(20px * var(--font-scale, 1));
+      font-size: calc(21.5px * var(--font-scale, 1));
       font-weight: 900;
-      color: #0f172a;
-      line-height: 1.35;
-      margin-bottom: 2px;
-      letter-spacing: 0.2px;
-      white-space: nowrap;
+      color: #047857;
+      letter-spacing: 0.5px;
+      border-bottom: 2px solid #e2e8f0;
+      padding-bottom: calc(6px * var(--font-scale, 1));
+      margin-bottom: calc(2px * var(--font-scale, 1));
     }
 
-    .salutation span.community-name-target {
+    .community-name-target {
       color: #b45309;
-      font-weight: 900;
-      border-bottom: 2.5px solid #fbbf24;
-      padding-bottom: 1px;
+      background: #fef3c7;
+      padding: 0 calc(6px * var(--font-scale, 1));
+      border-radius: 4px;
+      display: inline-block;
+      border: 1px solid #fde68a;
     }
 
     p {
-      text-indent: calc(38px * var(--font-scale, 1));
       margin: 0;
-      letter-spacing: calc(0.3px * var(--font-scale, 1));
+      letter-spacing: 0.3px;
     }
 
     p.lead-text {
-      text-indent: 0;
-      font-weight: 800;
-      font-size: calc(18.5px * var(--font-scale, 1));
+      color: #0f172a;
+      font-weight: 600;
+    }
+
+    /* 重點檢驗雙問框 */
+    .key-points-box {
+      background: #f8fafc;
+      border-left: calc(5px * var(--font-scale, 1)) solid #047857;
+      border-radius: 0 10px 10px 0;
+      padding: calc(10px * var(--font-scale, 1)) calc(16px * var(--font-scale, 1));
+      margin: calc(2px * var(--font-scale, 1)) 0;
+    }
+
+    .key-points-list {
+      list-style: none;
+      padding-left: 0;
+      display: flex;
+      flex-direction: column;
+      gap: calc(6px * var(--font-scale, 1));
+    }
+
+    .key-points-list li {
+      font-size: calc(18px * var(--font-scale, 1));
       color: #0f172a;
     }
 
-    /* 配色標籤 (對齊官網應徵信三色邏輯) */
+    .key-points-list li strong {
+      color: #047857;
+      font-weight: 900;
+    }
+
+    /* 誠摯請求卡片 (8分鐘) */
+    .request-card {
+      background: #f0fdf4;
+      border: 1.5px dashed #10b981;
+      border-radius: 10px;
+      padding: calc(11px * var(--font-scale, 1)) calc(16px * var(--font-scale, 1));
+      color: #064e3b;
+      font-weight: 600;
+      line-height: 1.75;
+    }
+
+    .request-dm-note {
+      display: inline-block;
+      margin-top: calc(4px * var(--font-scale, 1));
+      font-size: calc(16px * var(--font-scale, 1));
+      color: #047857;
+      font-weight: 700;
+    }
+
+    .closing-blessing {
+      text-align: right;
+      font-size: calc(19.5px * var(--font-scale, 1));
+      font-weight: 900;
+      color: #047857;
+      margin-top: calc(4px * var(--font-scale, 1));
+      letter-spacing: 1px;
+    }
+
+    /* 強調標籤配色系統 */
     .tag-gold {
-      color: #b45309;
-      font-weight: 800;
-      background: rgba(251, 191, 36, 0.15);
-      padding: 1px 6px;
+      color: #92400e;
+      background: #fef3c7;
+      font-weight: 900;
+      padding: 0 4px;
       border-radius: 4px;
     }
 
     .tag-blue {
       color: #0369a1;
-      font-weight: 800;
-      background: rgba(56, 189, 248, 0.15);
-      padding: 1px 6px;
+      background: #e0f2fe;
+      font-weight: 900;
+      padding: 0 4px;
       border-radius: 4px;
     }
 
     .tag-green {
-      color: #047857;
-      font-weight: 800;
-      background: rgba(16, 185, 129, 0.15);
-      padding: 1px 6px;
+      color: #065f46;
+      background: #d1fae5;
+      font-weight: 900;
+      padding: 0 4px;
       border-radius: 4px;
     }
 
     .tag-red {
-      color: #b91c1c;
-      font-weight: 800;
-      background: rgba(239, 68, 68, 0.12);
-      padding: 1px 6px;
+      color: #991b1b;
+      background: #fee2e2;
+      font-weight: 900;
+      padding: 0 4px;
       border-radius: 4px;
     }
 
-    /* 核心檢驗卡片 (兩件事) */
-    .key-points-box {
-      background: #f8fafc;
-      border: 1.5px solid #e2e8f0;
-      border-left: 4.5px solid #d97706;
-      border-radius: 8px;
-      padding: calc(9px * var(--font-scale, 1)) calc(18px * var(--font-scale, 1));
-      margin: 1px 0;
-    }
-
-    .key-points-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: calc(5px * var(--font-scale, 1));
-      font-size: calc(18.5px * var(--font-scale, 1));
-      color: #1e293b;
-    }
-
-    .key-points-list li strong {
-      color: #0f172a;
-      font-weight: 800;
-    }
-
-    /* 8 分鐘請求專屬高亮卡片 */
-    .request-card {
-      background: #f0fdf4;
-      border: 1.5px solid #86efac;
-      border-left: 4.5px solid #059669;
-      border-radius: 8px;
-      padding: calc(9px * var(--font-scale, 1)) calc(18px * var(--font-scale, 1));
-      font-size: calc(18px * var(--font-scale, 1));
-      color: #14532d;
-      line-height: 1.7;
-      text-indent: 0;
-    }
-
-    .request-card strong {
-      color: #064e3b;
-      font-weight: 900;
-      font-size: calc(19px * var(--font-scale, 1));
-    }
-
-    .request-card .tag-gold {
-      color: #92400e;
-      font-weight: 900;
-      font-size: calc(19px * var(--font-scale, 1));
-      background: #fef3c7;
-      padding: 1px 7px;
-      border-radius: 4px;
-    }
-
-    .request-dm-note {
-      font-size: calc(16.5px * var(--font-scale, 1));
-      color: #166534;
-      font-weight: 800;
-      margin-top: 4px;
-      display: inline-block;
-    }
-
-    .closing-blessing {
-      font-weight: 900;
-      font-size: calc(19px * var(--font-scale, 1));
-      text-align: right;
-      color: #0f172a;
-      margin-top: 1px;
-    }
-
-    /* 頁尾 聯絡資訊、Google 搜尋膠囊、緊鄰 QR Code 與 2 倍特大簽名區塊 */
+    /* 頁尾資訊區 (滿版穩重) */
     .letter-footer {
-      padding-top: 6px;
+      border-top: 2px solid #cbd5e1;
+      padding-top: calc(10px * var(--font-scale, 1));
       display: flex;
       justify-content: space-between;
       align-items: flex-end;
-      gap: 12px;
       position: relative;
     }
 
     .sign-left {
       display: flex;
       flex-direction: column;
-      gap: calc(6px * var(--font-scale, 1));
-      font-size: calc(17px * var(--font-scale, 1));
-      color: #1e293b;
-      line-height: 1.45;
-      padding-bottom: 2px;
+      gap: calc(5px * var(--font-scale, 1));
     }
 
     .contact-row {
-      font-size: calc(17px * var(--font-scale, 1));
-      color: #1e293b;
-      font-weight: 700;
+      font-size: calc(18px * var(--font-scale, 1));
+      color: #0f172a;
+      font-weight: 600;
     }
 
     .contact-row strong {
-      color: #0f172a;
-      font-weight: 800;
+      color: #047857;
+      font-weight: 900;
     }
 
     .whitepaper-row {
       display: flex;
       align-items: center;
-      gap: 7px;
-      font-size: calc(17px * var(--font-scale, 1));
-      color: #1e293b;
-      margin-top: 3px;
-      flex-wrap: nowrap;
+      gap: calc(8px * var(--font-scale, 1));
+      font-size: calc(18px * var(--font-scale, 1));
+      color: #0f172a;
+      font-weight: 600;
     }
 
     .wp-label {
-      font-weight: 800;
       color: #0f172a;
-      white-space: nowrap;
+      font-weight: 600;
     }
 
-    /* Google 廣告專屬圓角膠囊搜尋框 */
+    /* Google 搜尋膠囊框 */
     .google-search-capsule {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
       background: #ffffff;
-      border: 1.8px solid #cbd5e1;
-      padding: 3px 11px 3px 9px;
-      border-radius: 30px;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+      border: 1.5px solid #cbd5e1;
+      border-radius: 20px;
+      padding: calc(3px * var(--font-scale, 1)) calc(10px * var(--font-scale, 1));
+      box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+      gap: calc(6px * var(--font-scale, 1));
     }
 
     .google-logo {
       font-family: 'Outfit', sans-serif;
       font-weight: 800;
-      font-size: 15.5px;
+      font-size: calc(15px * var(--font-scale, 1));
       letter-spacing: -0.5px;
     }
 
     .search-keyword {
-      font-weight: 800;
-      font-size: 15.5px;
-      color: #0f172a;
-    }
-
-    .search-icon {
-      margin-left: 1px;
+      font-weight: 900;
+      color: #1e293b;
+      font-size: calc(16.5px * var(--font-scale, 1));
+      letter-spacing: 0.5px;
     }
 
     .qr-or-text {
-      font-size: calc(17px * var(--font-scale, 1));
-      font-weight: 800;
-      color: #0f172a;
-      white-space: nowrap;
-      margin: 0 2px;
+      font-size: calc(16px * var(--font-scale, 1));
+      color: #64748b;
+      font-weight: 700;
     }
 
     .qr-inline-wrap {
-      display: inline-flex;
+      width: calc(38px * var(--font-scale, 1));
+      height: calc(38px * var(--font-scale, 1));
+      background: white;
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
+      padding: 2px;
+      display: flex;
       align-items: center;
+      justify-content: center;
     }
 
     .qr-inline-wrap img {
-      width: 78px;
-      height: 78px;
-      border: 1.5px solid #cbd5e1;
-      padding: 2px;
-      border-radius: 6px;
-      background: white;
+      width: 100%;
+      height: 100%;
       display: block;
     }
 
-    /* 右側 放大 2 倍特大簽名與日期欄位 */
     .sign-right {
       display: flex;
       flex-direction: column;
       align-items: flex-end;
-      justify-content: flex-end;
-      min-width: 190px;
+      position: relative;
     }
 
-    /* 官網專屬黑金手寫簽名圖檔 (深古銅金 ✕ 深黑墨，磅礡大器) */
+    /* 官網專屬黑金手寫簽名圖檔 (特大 2 倍，無比磅礡) */
     .official-sig-box {
-      height: 128px;
+      width: calc(230px * var(--font-scale, 1));
+      height: calc(78px * var(--font-scale, 1));
       display: flex;
       align-items: flex-end;
       justify-content: flex-end;
-      margin-bottom: -6px;
+      margin-bottom: calc(2px * var(--font-scale, 1));
     }
 
     .official-sig-img {
-      height: 136px;
-      width: auto;
-      max-width: 220px;
-      display: block;
-      filter: drop-shadow(0 2px 6px rgba(15, 23, 42, 0.18));
+      width: 100%;
+      height: 100%;
       object-fit: contain;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.15));
     }
 
     .sign-date {
-      font-size: calc(18px * var(--font-scale, 1));
+      font-size: calc(16.5px * var(--font-scale, 1));
       color: #0f172a;
-      font-weight: 800;
-      margin-top: 2px;
-      letter-spacing: 0.5px;
+      font-weight: 700;
+      letter-spacing: 1px;
     }
 
-    /* === 字體風格切換系統 === */
-    /* 字體模式 1：方案 A 清新硬筆手寫體 (Klee One - 預設親切真誠) */
-    .font-hardpen {
-      font-family: 'Klee One', 'Noto Sans TC', sans-serif !important;
-    }
-    .font-hardpen .letter-main-title {
-      font-family: 'Klee One', 'Noto Sans TC', sans-serif !important;
-      font-weight: 600 !important;
-      font-size: calc(29px * var(--font-scale, 1));
-      letter-spacing: calc(2px * var(--font-scale, 1));
-    }
-    .font-hardpen .salutation {
-      font-family: 'Klee One', 'Noto Sans TC', sans-serif !important;
-      font-weight: 600 !important;
-    }
-    .font-hardpen .letter-body {
-      font-family: 'Klee One', 'Noto Sans TC', sans-serif !important;
-      font-weight: 600 !important;
-    }
-    .font-hardpen p {
-      font-family: 'Klee One', 'Noto Sans TC', sans-serif !important;
-      font-weight: 600 !important;
-      letter-spacing: calc(0.5px * var(--font-scale, 1));
-    }
-    .font-hardpen p.lead-text {
-      font-family: 'Klee One', 'Noto Sans TC', sans-serif !important;
-      font-weight: 600 !important;
-    }
-    .font-hardpen .key-points-list li strong {
-      font-family: 'Klee One', 'Noto Sans TC', sans-serif !important;
-      font-weight: 600 !important;
-    }
-    .font-hardpen .request-card {
-      font-family: 'Klee One', 'Noto Sans TC', sans-serif !important;
-      font-weight: 600 !important;
-    }
-    .font-hardpen .closing-blessing {
-      font-family: 'Klee One', 'Noto Sans TC', sans-serif !important;
-      font-weight: 600 !important;
-    }
-    .font-hardpen .contact-row strong,
-    .font-hardpen .sign-date {
-      font-family: 'Klee One', 'Noto Sans TC', sans-serif !important;
-      font-weight: 600 !important;
-    }
-
-    /* 字體模式 2：方案 B 鋼筆行楷體 (ARPenXingKai - 本機向量原生手寫勁道) */
+    /* ========================================================
+       字體體系切換 (方案A / 方案B / 方案C)
+       ======================================================== */
+    /* 字體模式 1：方案 A 鋼筆行楷體 (ARPenXingKai-Direct) */
     .font-penxingkai {
       font-family: 'ARPenXingKai-Direct', 'AR PenXingKaiB5 Bold', '文鼎鋼筆行楷', 'Klee One', 'Noto Sans TC', sans-serif !important;
     }
     .font-penxingkai .letter-main-title {
-      font-family: 'ARPenXingKai-Direct', 'AR PenXingKaiB5 Bold', '文鼎鋼筆行楷', 'Klee One', 'Noto Sans TC', sans-serif !important;
-      font-size: calc(30px * var(--font-scale, 1));
-      font-weight: normal;
+      font-family: 'ARPenXingKai-Direct', 'AR PenXingKaiB5 Bold', '文鼎鋼筆行楷', 'Noto Sans TC', sans-serif !important;
+      letter-spacing: calc(4px * var(--font-scale, 1));
     }
     .font-penxingkai .salutation {
       font-family: 'ARPenXingKai-Direct', 'AR PenXingKaiB5 Bold', '文鼎鋼筆行楷', 'Klee One', 'Noto Sans TC', sans-serif !important;
@@ -525,10 +501,6 @@
       font-family: 'ARPenXingKai-Direct', 'AR PenXingKaiB5 Bold', '文鼎鋼筆行楷', 'Klee One', 'Noto Sans TC', sans-serif !important;
     }
     .font-penxingkai p {
-      font-family: 'ARPenXingKai-Direct', 'AR PenXingKaiB5 Bold', '文鼎鋼筆行楷', 'Klee One', 'Noto Sans TC', sans-serif !important;
-      letter-spacing: calc(0.6px * var(--font-scale, 1));
-    }
-    .font-penxingkai p.lead-text {
       font-family: 'ARPenXingKai-Direct', 'AR PenXingKaiB5 Bold', '文鼎鋼筆行楷', 'Klee One', 'Noto Sans TC', sans-serif !important;
     }
     .font-penxingkai .key-points-list li strong {
@@ -543,6 +515,42 @@
     .font-penxingkai .contact-row strong,
     .font-penxingkai .sign-date {
       font-family: 'ARPenXingKai-Direct', 'AR PenXingKaiB5 Bold', '文鼎鋼筆行楷', 'Klee One', 'Noto Sans TC', sans-serif !important;
+    }
+
+    /* 字體模式 2：方案 B 清新硬筆體 (Klee One) */
+    .font-hardpen {
+      font-family: 'Klee One', 'Noto Sans TC', sans-serif !important;
+    }
+    .font-hardpen .letter-main-title {
+      font-family: 'Noto Sans TC', sans-serif !important;
+      font-weight: 900;
+    }
+    .font-hardpen .salutation {
+      font-family: 'Klee One', 'Noto Sans TC', sans-serif !important;
+      font-weight: 600;
+    }
+    .font-hardpen .letter-body {
+      font-family: 'Klee One', 'Noto Sans TC', sans-serif !important;
+    }
+    .font-hardpen p {
+      font-family: 'Klee One', 'Noto Sans TC', sans-serif !important;
+    }
+    .font-hardpen .key-points-list li strong {
+      font-family: 'Klee One', 'Noto Sans TC', sans-serif !important;
+      font-weight: 600;
+    }
+    .font-hardpen .request-card {
+      font-family: 'Klee One', 'Noto Sans TC', sans-serif !important;
+      font-weight: 600;
+    }
+    .font-hardpen .closing-blessing {
+      font-family: 'Klee One', 'Noto Sans TC', sans-serif !important;
+      font-weight: 600;
+    }
+    .font-hardpen .contact-row strong,
+    .font-hardpen .sign-date {
+      font-family: 'Klee One', 'Noto Sans TC', sans-serif !important;
+      font-weight: 600;
     }
 
     /* 字體模式 3：方案 C 沉穩黑體公文 (Noto Sans TC) */
@@ -589,8 +597,38 @@
 
   <!-- 工具列 (極簡單列橫排) -->
   <div class="toolbar">
-    <div class="community-input-wrap">
-      <input type="text" id="communityNameInput" value="孔雀王朝" placeholder="社區名稱" oninput="updateCommunityName()">
+    <!-- 社區快速切換選單 -->
+    <div class="community-select-wrap">
+      <select id="communityDropdown" onchange="handleCommunitySelect(this.value)">
+        <option value="ALL" selected>📚 全部 21 大社區 (21 頁)</option>
+        <option value="大別莊">01. 大別莊</option>
+        <option value="金站">02. 金站</option>
+        <option value="軍翰一期">03. 軍翰一期</option>
+        <option value="軍翰二期">04. 軍翰二期</option>
+        <option value="孔雀一期">05. 孔雀一期</option>
+        <option value="孔雀二期">06. 孔雀二期</option>
+        <option value="天京">07. 天京</option>
+        <option value="捷運學府">08. 捷運學府</option>
+        <option value="世紀經典">09. 世紀經典</option>
+        <option value="海山學府">10. 海山學府</option>
+        <option value="大江山">11. 大江山</option>
+        <option value="快樂花園">12. 快樂花園</option>
+        <option value="新學府捷運">13. 新學府捷運</option>
+        <option value="蟠龍大地">14. 蟠龍大地</option>
+        <option value="海山贊">15. 海山贊</option>
+        <option value="學士雅築">16. 學士雅築</option>
+        <option value="青玉">17. 青玉</option>
+        <option value="馥華城峰">18. 馥華城峰</option>
+        <option value="璞真仰睦">19. 璞真仰睦</option>
+        <option value="樂富">20. 樂富</option>
+        <option value="丞林">21. 丞林</option>
+        <option value="CUSTOM">✏️ 自訂社區名稱...</option>
+      </select>
+    </div>
+
+    <!-- 自訂手動輸入框 (當選擇單一社區或自訂時顯示) -->
+    <div class="community-input-wrap" id="customInputWrap" style="display: none;">
+      <input type="text" id="communityNameInput" value="" placeholder="社區名稱" oninput="handleCustomInput(this.value)">
     </div>
 
     <!-- 字體風格切換選單 (方案A / 方案B / 方案C) -->
@@ -616,89 +654,161 @@
       </select>
     </div>
     
-    <button onclick="window.print()">存PDF</button>
+    <button class="primary-btn" onclick="printAll21Pdf()" title="一鍵匯出或列印全部 21 個社區的拜訪函 (21 頁 A4)">🖨️ 存 21 社區全套 PDF</button>
+    <button onclick="window.print()" title="列印或另存目前畫面">存PDF</button>
     <a href="index.html" class="secondary-btn">官網</a>
+    <a href="../04_陸戰文宣/01_DM_A4.html" class="secondary-btn">A4 DM</a>
   </div>
 
-  <div class="page font-penxingkai" id="letterPage" style="--font-scale: 1.2;">
-
-    <!-- 置中大標題 -->
-    <h1 class="letter-main-title">明德里里長候選人陳新昱 拜訪函</h1>
-
-    <!-- 正文 (親切務實接地氣定稿版) -->
-    <div class="letter-body">
-      
-      <div class="salutation">
-        敬致 <span class="community-name-target" id="displayCommunityName">孔雀王朝</span> 管委會 主委、委員們及總幹事：
-      </div>
-
-      <p class="lead-text">大家好！我是樂利國小孩子們熟悉的 <span class="tag-gold">故事爸爸</span>與 <span class="tag-blue">EQ 爸爸</span>，也曾是 <span class="tag-green">500 大企業的工程師</span>、曾任 <span class="tag-green">10 年管委會委員</span>與 <span class="tag-green">2 屆主委</span>的明德里．里長候選人．陳新昱。</p>
-
-      <p>我深知各位委員公務繁重，這封信我不空談寒暄。我認為競選不應該只是揮手拜託，而是該帶著<span class="tag-red">向所有里民面試應徵的心態</span>，正面回答大家最在意的兩件事：</p>
-
-      <div class="key-points-box">
-        <ul class="key-points-list">
-          <li><strong>一、你能帶給社區住戶什麼實質的服務？</strong></li>
-          <li><strong>二、你如何證明你能完成這麼多的政見？</strong></li>
-        </ul>
-      </div>
-
-      <p>這關係到我們明德里<span class="tag-gold">每年至少 88 萬元</span>的預算如何發揮最大效益！為此，我完成了依法可循、預算明確的<span class="tag-green">十五大創新政見</span>白皮書，裡面包含了具體經費來源與執行方案。</p>
-
-      <div class="request-card">
-        自詡科技里長的我，極度重視會議效率。因此誠摯懇請委員會於 10 月份例會撥冗借我 <span class="tag-gold">8 分鐘</span>，讓我有機會向各位簡報，說明如何運用 88 萬的預算，絕不耽誤各位開會時間！<br>
-        <span class="request-dm-note">📄 隨信附上我的十五大創新政見 DM</span>
-      </div>
-
-      <div class="closing-blessing">
-        敬祝 各位委員 會務順利！
-      </div>
-
-    </div>
-
-    <!-- 頁尾 (大字體聯絡列、Google 搜尋膠囊框、緊接「或」+ QR Code、2倍特大黑金簽名) -->
-    <div class="letter-footer">
-      <div class="sign-left">
-        <div class="contact-row">• 我的 LINE ID：<strong>b0987183520</strong></div>
-        <div class="contact-row">• 我的聯絡電話：<strong>0987-183-520</strong></div>
-        <div class="whitepaper-row">
-          <span class="wp-label">• 政策白皮書：</span>
-          <div class="google-search-capsule">
-            <span class="google-logo"><span style="color:#4285f4">G</span><span style="color:#ea4335">o</span><span style="color:#fbbc05">o</span><span style="color:#4285f4">g</span><span style="color:#34a853">l</span><span style="color:#ea4335">e</span></span>
-            <span class="search-keyword">明德里2.0</span>
-            <svg class="search-icon" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#64748b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-          </div>
-          <span class="qr-or-text">或</span>
-          <div class="qr-inline-wrap">
-            <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https://a0987183520.github.io/web/" alt="政策白皮書 QR Code">
-          </div>
-        </div>
-      </div>
-
-      <div class="sign-right">
-        <!-- 官網專屬黑金手寫簽名圖檔 (深古銅金 ✕ 深黑墨，磅礡大器) -->
-        <div class="official-sig-box" id="officialSigBox">
-          <img src="images/handwritten_signature_dark.png?v=27.26" alt="科技里長 陳新昱 簽名" class="official-sig-img">
-        </div>
-
-        <div class="sign-date">115 年 10 月 5 日</div>
-      </div>
-    </div>
-
-  </div>
+  <!-- 拜訪函主要渲染容器 -->
+  <div id="lettersContainer"></div>
 
   <script>
-    let currentFontScale = 1.2;
+    const communities21 = [
+      "大別莊",
+      "金站",
+      "軍翰一期",
+      "軍翰二期",
+      "孔雀一期",
+      "孔雀二期",
+      "天京",
+      "捷運學府",
+      "世紀經典",
+      "海山學府",
+      "大江山",
+      "快樂花園",
+      "新學府捷運",
+      "蟠龍大地",
+      "海山贊",
+      "學士雅築",
+      "青玉",
+      "馥華城峰",
+      "璞真仰睦",
+      "樂富",
+      "丞林"
+    ];
 
-    function updateCommunityName() {
-      const inputVal = document.getElementById('communityNameInput').value.trim();
-      const target = document.getElementById('displayCommunityName');
-      target.textContent = inputVal || '［社區名稱］';
+    let currentFontScale = 1.2;
+    let currentFontMode = 'font-penxingkai';
+    let currentViewMode = 'ALL'; // 'ALL' or specific community name
+    let customCommunityName = '';
+
+    function generateSinglePageHtml(name, pageIdx, totalPages) {
+      return `
+        <div class="page ${currentFontMode}" style="--font-scale: ${currentFontScale};">
+          <div class="page-index-badge no-print">${totalPages > 1 ? `第 ${pageIdx} / ${totalPages} 頁：${name}` : ''}</div>
+
+          <!-- 置中大標題 -->
+          <h1 class="letter-main-title">明德里里長候選人陳新昱 拜訪函</h1>
+
+          <!-- 正文 (親切務實接地氣定稿版) -->
+          <div class="letter-body">
+            
+            <div class="salutation">
+              敬致 <span class="community-name-target">${name}</span> 管委會 主委、委員們及總幹事：
+            </div>
+
+            <p class="lead-text">大家好！我是樂利國小孩子們熟悉的 <span class="tag-gold">故事爸爸</span>與 <span class="tag-blue">EQ 爸爸</span>，也曾是 <span class="tag-green">500 大企業的工程師</span>、曾任 <span class="tag-green">10 年管委會委員</span>與 <span class="tag-green">2 屆主委</span>的明德里．里長候選人．陳新昱。</p>
+
+            <p>我深知各位委員公務繁重，這封信我不空談寒暄。我認為競選不應該只是揮手拜託，而是該帶著<span class="tag-red">向所有里民面試應徵的心態</span>，正面回答大家最在意的兩件事：</p>
+
+            <div class="key-points-box">
+              <ul class="key-points-list">
+                <li><strong>一、你能帶給社區住戶什麼實質的服務？</strong></li>
+                <li><strong>二、你如何證明你能完成這麼多的政見？</strong></li>
+              </ul>
+            </div>
+
+            <p>這關係到我們明德里<span class="tag-gold">每年至少 88 萬元</span>的預算如何發揮最大效益！為此，我完成了依法可循、預算明確的<span class="tag-green">十五大創新政見</span>白皮書，裡面包含了具體經費來源與執行方案。</p>
+
+            <div class="request-card">
+              自詡科技里長的我，極度重視會議效率。因此誠摯懇請委員會於 10 月份例會撥冗借我 <span class="tag-gold">8 分鐘</span>，讓我有機會向各位簡報，說明如何運用 88 萬的預算，絕不耽誤各位開會時間！<br>
+              <span class="request-dm-note">📄 隨信附上我的十五大創新政見 DM</span>
+            </div>
+
+            <div class="closing-blessing">
+              敬祝 各位委員 會務順利！
+            </div>
+
+          </div>
+
+          <!-- 頁尾 (大字體聯絡列、Google 搜尋膠囊框、緊接「或」+ QR Code、2倍特大黑金簽名) -->
+          <div class="letter-footer">
+            <div class="sign-left">
+              <div class="contact-row">• 我的 LINE ID：<strong>b0987183520</strong></div>
+              <div class="contact-row">• 我的聯絡電話：<strong>0987-183-520</strong></div>
+              <div class="whitepaper-row">
+                <span class="wp-label">• 政策白皮書：</span>
+                <div class="google-search-capsule">
+                  <span class="google-logo"><span style="color:#4285f4">G</span><span style="color:#ea4335">o</span><span style="color:#fbbc05">o</span><span style="color:#4285f4">g</span><span style="color:#34a853">l</span><span style="color:#ea4335">e</span></span>
+                  <span class="search-keyword">明德里2.0</span>
+                  <svg class="search-icon" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#64748b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                </div>
+                <span class="qr-or-text">或</span>
+                <div class="qr-inline-wrap">
+                  <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https://a0987183520.github.io/web/" alt="政策白皮書 QR Code">
+                </div>
+              </div>
+            </div>
+
+            <div class="sign-right">
+              <!-- 官網專屬黑金手寫簽名圖檔 (深古銅金 ✕ 深黑墨，磅礡大器) -->
+              <div class="official-sig-box">
+                <img src="../04_陸戰文宣/images/handwritten_signature_dark.png?v=27.26" alt="科技里長 陳新昱 簽名" class="official-sig-img">
+              </div>
+
+              <div class="sign-date">115 年 10 月 5 日</div>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function renderLetters() {
+      const container = document.getElementById('lettersContainer');
+      let html = '';
+
+      if (currentViewMode === 'ALL') {
+        communities21.forEach((name, idx) => {
+          html += generateSinglePageHtml(name, idx + 1, communities21.length);
+        });
+      } else if (currentViewMode === 'CUSTOM') {
+        const name = customCommunityName || '［社區名稱］';
+        html = generateSinglePageHtml(name, 1, 1);
+      } else {
+        html = generateSinglePageHtml(currentViewMode, 1, 1);
+      }
+
+      container.innerHTML = html;
+    }
+
+    function handleCommunitySelect(val) {
+      currentViewMode = val;
+      const customWrap = document.getElementById('customInputWrap');
+      const input = document.getElementById('communityNameInput');
+
+      if (val === 'CUSTOM') {
+        customWrap.style.display = 'flex';
+        input.value = customCommunityName;
+        input.focus();
+      } else if (val === 'ALL') {
+        customWrap.style.display = 'none';
+      } else {
+        customWrap.style.display = 'none';
+      }
+      renderLetters();
+    }
+
+    function handleCustomInput(val) {
+      customCommunityName = val.trim();
+      renderLetters();
     }
 
     function changeFontMode(mode) {
-      const page = document.getElementById('letterPage');
-      page.className = 'page ' + mode;
+      currentFontMode = mode;
+      document.querySelectorAll('.page').forEach(page => {
+        page.className = `page ${currentFontMode}`;
+      });
     }
 
     function setFontSizeScale(scale) {
@@ -706,8 +816,9 @@
       if (currentFontScale < 0.9) currentFontScale = 0.9;
       if (currentFontScale > 1.3) currentFontScale = 1.3;
       
-      const page = document.getElementById('letterPage');
-      page.style.setProperty('--font-scale', currentFontScale);
+      document.querySelectorAll('.page').forEach(page => {
+        page.style.setProperty('--font-scale', currentFontScale);
+      });
       
       const percentStr = Math.round(currentFontScale * 100) + '%';
       document.getElementById('fontSizeDisplay').textContent = percentStr;
@@ -730,6 +841,23 @@
     function adjustFontSize(delta) {
       setFontSizeScale(currentFontScale + delta);
     }
+
+    function printAll21Pdf() {
+      if (currentViewMode !== 'ALL') {
+        currentViewMode = 'ALL';
+        document.getElementById('communityDropdown').value = 'ALL';
+        document.getElementById('customInputWrap').style.display = 'none';
+        renderLetters();
+      }
+      setTimeout(() => {
+        window.print();
+      }, 200);
+    }
+
+    // 初始化渲染
+    window.onload = () => {
+      renderLetters();
+    };
   </script>
 </body>
 </html>
