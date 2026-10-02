@@ -369,18 +369,22 @@
       justify-content: space-between;
       align-items: flex-end;
       position: relative;
+      gap: 10px;
     }
 
     .sign-left {
+      flex: 1;
       display: flex;
       flex-direction: column;
       gap: calc(5px * var(--font-scale, 1));
+      min-width: 0;
     }
 
     .contact-row {
       font-size: calc(18px * var(--font-scale, 1));
       color: #0f172a;
       font-weight: 600;
+      white-space: nowrap;
     }
 
     .contact-row strong {
@@ -391,15 +395,19 @@
     .whitepaper-row {
       display: flex;
       align-items: center;
-      gap: calc(8px * var(--font-scale, 1));
-      font-size: calc(18px * var(--font-scale, 1));
+      gap: calc(7px * var(--font-scale, 1));
+      font-size: calc(17px * var(--font-scale, 1));
       color: #0f172a;
       font-weight: 600;
+      white-space: nowrap;
+      flex-wrap: nowrap;
     }
 
     .wp-label {
       color: #0f172a;
       font-weight: 600;
+      white-space: nowrap;
+      flex-shrink: 0;
     }
 
     /* Google 搜尋膠囊框 */
@@ -409,34 +417,38 @@
       background: #ffffff;
       border: 1.5px solid #cbd5e1;
       border-radius: 20px;
-      padding: calc(3px * var(--font-scale, 1)) calc(10px * var(--font-scale, 1));
+      padding: calc(2.5px * var(--font-scale, 1)) calc(8px * var(--font-scale, 1));
       box-shadow: 0 2px 6px rgba(0,0,0,0.06);
-      gap: calc(6px * var(--font-scale, 1));
+      gap: calc(5px * var(--font-scale, 1));
+      white-space: nowrap;
+      flex-shrink: 0;
     }
 
     .google-logo {
       font-family: 'Outfit', sans-serif;
       font-weight: 800;
-      font-size: calc(15px * var(--font-scale, 1));
+      font-size: calc(14.5px * var(--font-scale, 1));
       letter-spacing: -0.5px;
     }
 
     .search-keyword {
       font-weight: 900;
       color: #1e293b;
-      font-size: calc(16.5px * var(--font-scale, 1));
+      font-size: calc(16px * var(--font-scale, 1));
       letter-spacing: 0.5px;
     }
 
     .qr-or-text {
-      font-size: calc(16px * var(--font-scale, 1));
+      font-size: calc(15.5px * var(--font-scale, 1));
       color: #64748b;
       font-weight: 700;
+      white-space: nowrap;
+      flex-shrink: 0;
     }
 
     .qr-inline-wrap {
-      width: calc(38px * var(--font-scale, 1));
-      height: calc(38px * var(--font-scale, 1));
+      width: calc(36px * var(--font-scale, 1));
+      height: calc(36px * var(--font-scale, 1));
       background: white;
       border: 1px solid #cbd5e1;
       border-radius: 6px;
@@ -444,6 +456,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      flex-shrink: 0;
     }
 
     .qr-inline-wrap img {
@@ -457,12 +470,13 @@
       flex-direction: column;
       align-items: flex-end;
       position: relative;
+      flex-shrink: 0;
     }
 
     /* 官網專屬黑金手寫簽名圖檔 (特大 2 倍，無比磅礡) */
     .official-sig-box {
-      width: calc(230px * var(--font-scale, 1));
-      height: calc(78px * var(--font-scale, 1));
+      width: calc(205px * var(--font-scale, 1));
+      height: calc(72px * var(--font-scale, 1));
       display: flex;
       align-items: flex-end;
       justify-content: flex-end;
