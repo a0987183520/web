@@ -5,7 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>致社區管委會拜訪函 A4 - 科技里長 陳新昱</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Outfit:wght@600;800&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&family=Noto+Sans+TC:wght@400;500;700;900&family=Outfit:wght@600;800&display=swap');
+
+    @font-face {
+      font-family: 'ARPenXingKai-Direct';
+      src: url('../04_陸戰文宣/fonts/ARPenXingKaiB5Bold.otf') format('opentype'),
+           local('AR PenXingKaiB5 Bold'),
+           local('ARPenXingKaiB5-Bold'),
+           local('文鼎鋼筆行楷B'),
+           local('文鼎鋼筆行楷');
+      font-weight: normal;
+      font-style: normal;
+    }
 
     * {
       box-sizing: border-box;
@@ -14,7 +25,7 @@
     }
 
     body {
-      font-family: 'Noto Sans TC', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang TC", "Microsoft JhengHei", sans-serif;
+      font-family: 'Klee One', 'Noto Sans TC', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang TC", "Microsoft JhengHei", sans-serif;
       background-color: #0b1311;
       color: #1e293b;
       -webkit-print-color-adjust: exact;
@@ -418,6 +429,127 @@
       margin-top: 2px;
       letter-spacing: 0.5px;
     }
+
+    /* === 字體風格切換系統 === */
+    /* 字體模式 1：方案 A 清新硬筆手寫體 (Klee One - 預設親切真誠) */
+    .font-hardpen {
+      font-family: 'Klee One', 'Noto Sans TC', sans-serif !important;
+    }
+    .font-hardpen .letter-main-title {
+      font-family: 'Klee One', 'Noto Sans TC', sans-serif !important;
+      font-weight: 600 !important;
+      font-size: 29px;
+      letter-spacing: 2px;
+    }
+    .font-hardpen .salutation {
+      font-family: 'Klee One', 'Noto Sans TC', sans-serif !important;
+      font-weight: 600 !important;
+    }
+    .font-hardpen .letter-body {
+      font-family: 'Klee One', 'Noto Sans TC', sans-serif !important;
+      font-weight: 600 !important;
+    }
+    .font-hardpen p {
+      font-family: 'Klee One', 'Noto Sans TC', sans-serif !important;
+      font-weight: 600 !important;
+      letter-spacing: 0.5px;
+    }
+    .font-hardpen p.lead-text {
+      font-family: 'Klee One', 'Noto Sans TC', sans-serif !important;
+      font-weight: 600 !important;
+    }
+    .font-hardpen .key-points-list li strong {
+      font-family: 'Klee One', 'Noto Sans TC', sans-serif !important;
+      font-weight: 600 !important;
+    }
+    .font-hardpen .request-card {
+      font-family: 'Klee One', 'Noto Sans TC', sans-serif !important;
+      font-weight: 600 !important;
+    }
+    .font-hardpen .closing-blessing {
+      font-family: 'Klee One', 'Noto Sans TC', sans-serif !important;
+      font-weight: 600 !important;
+    }
+    .font-hardpen .contact-row strong,
+    .font-hardpen .sign-date {
+      font-family: 'Klee One', 'Noto Sans TC', sans-serif !important;
+      font-weight: 600 !important;
+    }
+
+    /* 字體模式 2：方案 A 鋼筆行楷體 (ARPenXingKai - 本機向量原生手寫勁道) */
+    .font-penxingkai {
+      font-family: 'ARPenXingKai-Direct', 'AR PenXingKaiB5 Bold', '文鼎鋼筆行楷', 'Klee One', 'Noto Sans TC', sans-serif !important;
+    }
+    .font-penxingkai .letter-main-title {
+      font-family: 'ARPenXingKai-Direct', 'AR PenXingKaiB5 Bold', '文鼎鋼筆行楷', 'Klee One', 'Noto Sans TC', sans-serif !important;
+      font-size: 30px;
+      font-weight: normal;
+    }
+    .font-penxingkai .salutation {
+      font-family: 'ARPenXingKai-Direct', 'AR PenXingKaiB5 Bold', '文鼎鋼筆行楷', 'Klee One', 'Noto Sans TC', sans-serif !important;
+    }
+    .font-penxingkai .letter-body {
+      font-family: 'ARPenXingKai-Direct', 'AR PenXingKaiB5 Bold', '文鼎鋼筆行楷', 'Klee One', 'Noto Sans TC', sans-serif !important;
+    }
+    .font-penxingkai p {
+      font-family: 'ARPenXingKai-Direct', 'AR PenXingKaiB5 Bold', '文鼎鋼筆行楷', 'Klee One', 'Noto Sans TC', sans-serif !important;
+      letter-spacing: 0.6px;
+    }
+    .font-penxingkai p.lead-text {
+      font-family: 'ARPenXingKai-Direct', 'AR PenXingKaiB5 Bold', '文鼎鋼筆行楷', 'Klee One', 'Noto Sans TC', sans-serif !important;
+    }
+    .font-penxingkai .key-points-list li strong {
+      font-family: 'ARPenXingKai-Direct', 'AR PenXingKaiB5 Bold', '文鼎鋼筆行楷', 'Klee One', 'Noto Sans TC', sans-serif !important;
+    }
+    .font-penxingkai .request-card {
+      font-family: 'ARPenXingKai-Direct', 'AR PenXingKaiB5 Bold', '文鼎鋼筆行楷', 'Klee One', 'Noto Sans TC', sans-serif !important;
+    }
+    .font-penxingkai .closing-blessing {
+      font-family: 'ARPenXingKai-Direct', 'AR PenXingKaiB5 Bold', '文鼎鋼筆行楷', 'Klee One', 'Noto Sans TC', sans-serif !important;
+    }
+    .font-penxingkai .contact-row strong,
+    .font-penxingkai .sign-date {
+      font-family: 'ARPenXingKai-Direct', 'AR PenXingKaiB5 Bold', '文鼎鋼筆行楷', 'Klee One', 'Noto Sans TC', sans-serif !important;
+    }
+
+    /* 字體模式 3：方案 B 沉穩黑體公文 (Noto Sans TC) */
+    .font-noto {
+      font-family: 'Noto Sans TC', sans-serif !important;
+    }
+    .font-noto .letter-main-title {
+      font-family: 'Noto Sans TC', sans-serif !important;
+      font-weight: 900;
+    }
+    .font-noto .salutation {
+      font-family: 'Noto Sans TC', sans-serif !important;
+      font-weight: 900;
+    }
+    .font-noto .letter-body {
+      font-family: 'Noto Sans TC', sans-serif !important;
+    }
+    .font-noto p {
+      font-family: 'Noto Sans TC', sans-serif !important;
+    }
+    .font-noto p.lead-text {
+      font-family: 'Noto Sans TC', sans-serif !important;
+      font-weight: 800;
+    }
+    .font-noto .key-points-list li strong {
+      font-family: 'Noto Sans TC', sans-serif !important;
+      font-weight: 800;
+    }
+    .font-noto .request-card {
+      font-family: 'Noto Sans TC', sans-serif !important;
+    }
+    .font-noto .closing-blessing {
+      font-family: 'Noto Sans TC', sans-serif !important;
+      font-weight: 800;
+    }
+    .font-noto .contact-row strong,
+    .font-noto .sign-date {
+      font-family: 'Noto Sans TC', sans-serif !important;
+      font-weight: 800;
+    }
   </style>
 </head>
 <body>
@@ -427,13 +559,18 @@
     <div class="community-input-wrap">
       <input type="text" id="communityNameInput" value="孔雀王朝" placeholder="社區名稱" oninput="updateCommunityName()">
     </div>
+
+    <select id="fontSelect" onchange="changeFontMode(this.value)" style="background: rgba(255,255,255,0.12); color: #fbbf24; border: 1px solid rgba(251,191,36,0.4); border-radius: 20px; padding: 4px 10px; font-size: 12px; font-weight: 800; outline: none; cursor: pointer;">
+      <option value="font-hardpen" selected style="background:#0b1311; color:#fbbf24;">🖋️ 方案A：清新硬筆體</option>
+      <option value="font-penxingkai" style="background:#0b1311; color:#fff;">🖋️ 方案A：鋼筆行楷體</option>
+      <option value="font-noto" style="background:#0b1311; color:#e2e8f0;">📄 方案B：沉穩黑體公文</option>
+    </select>
     
     <button onclick="window.print()">存PDF</button>
     <a href="index.html" class="secondary-btn">官網</a>
-    <a href="dm.html" class="secondary-btn">A4 DM</a>
   </div>
 
-  <div class="page">
+  <div class="page font-hardpen" id="letterPage">
 
     <!-- 置中沉穩黑體大標題 (30px 大字體) -->
     <h1 class="letter-main-title">明德里里長候選人陳新昱 拜訪函</h1>
@@ -505,6 +642,11 @@
       const inputVal = document.getElementById('communityNameInput').value.trim();
       const target = document.getElementById('displayCommunityName');
       target.textContent = inputVal || '［社區名稱］';
+    }
+
+    function changeFontMode(mode) {
+      const page = document.getElementById('letterPage');
+      page.className = 'page ' + mode;
     }
   </script>
 </body>
