@@ -595,24 +595,24 @@
 
     <!-- 字體風格切換選單 (方案A / 方案B / 方案C) -->
     <select id="fontSelect" onchange="changeFontMode(this.value)" style="background: rgba(255,255,255,0.12); color: #fbbf24; border: 1px solid rgba(251,191,36,0.4); border-radius: 20px; padding: 4px 10px; font-size: 12px; font-weight: 800; outline: none; cursor: pointer;">
-      <option value="font-hardpen" selected style="background:#0b1311; color:#fbbf24;">🖋️ 方案A：清新硬筆體</option>
-      <option value="font-penxingkai" style="background:#0b1311; color:#fff;">🖋️ 方案B：鋼筆行楷體</option>
+      <option value="font-penxingkai" selected style="background:#0b1311; color:#fbbf24;">🖋️ 方案A：鋼筆行楷體</option>
+      <option value="font-hardpen" style="background:#0b1311; color:#fff;">🖋️ 方案B：清新硬筆體</option>
       <option value="font-noto" style="background:#0b1311; color:#e2e8f0;">📄 方案C：沉穩黑體公文</option>
     </select>
 
     <!-- 動態字級調節組件 -->
     <div style="display: flex; align-items: center; background: rgba(255,255,255,0.08); border-radius: 20px; border: 1px solid rgba(255,255,255,0.15); padding: 2px 6px; gap: 4px;">
       <button class="font-stepper-btn" onclick="adjustFontSize(-0.02)" title="字級縮小 2%">A-</button>
-      <span id="fontSizeDisplay" style="color: #fbbf24; font-weight: 800; font-size: 12px; min-width: 38px; text-align: center;">100%</span>
+      <span id="fontSizeDisplay" style="color: #fbbf24; font-weight: 800; font-size: 12px; min-width: 38px; text-align: center;">120%</span>
       <button class="font-stepper-btn" onclick="adjustFontSize(0.02)" title="字級放大 2%">A+</button>
       
       <select id="fontSizeSelect" onchange="setFontSizeScale(parseFloat(this.value))" style="background: transparent; color: #cbd5e1; border: none; font-size: 11px; font-weight: 700; outline: none; cursor: pointer; padding-left: 2px;">
-        <option value="1.00" selected style="background:#0b1311; color:#fff;">標準 (100%)</option>
+        <option value="1.00" style="background:#0b1311; color:#fff;">標準 (100%)</option>
         <option value="1.04" style="background:#0b1311; color:#fff;">微大 (104%)</option>
         <option value="1.08" style="background:#0b1311; color:#fff;">飽滿 (108%)</option>
         <option value="1.12" style="background:#0b1311; color:#fff;">清晰 (112%)</option>
         <option value="1.16" style="background:#0b1311; color:#fff;">特大 (116%)</option>
-        <option value="1.20" style="background:#0b1311; color:#fff;">極大 (120%)</option>
+        <option value="1.20" selected style="background:#0b1311; color:#fff;">極大 (120%)</option>
       </select>
     </div>
     
@@ -620,7 +620,7 @@
     <a href="index.html" class="secondary-btn">官網</a>
   </div>
 
-  <div class="page font-hardpen" id="letterPage">
+  <div class="page font-penxingkai" id="letterPage" style="--font-scale: 1.2;">
 
     <!-- 置中大標題 -->
     <h1 class="letter-main-title">明德里里長候選人陳新昱 拜訪函</h1>
@@ -688,7 +688,7 @@
   </div>
 
   <script>
-    let currentFontScale = 1.0;
+    let currentFontScale = 1.2;
 
     function updateCommunityName() {
       const inputVal = document.getElementById('communityNameInput').value.trim();
