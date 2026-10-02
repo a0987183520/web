@@ -115,7 +115,7 @@
       box-shadow: 0 4px 12px rgba(251, 191, 36, 0.4);
     }
 
-    /* A4 畫布設定 (極致流暢 1 頁 A4，白底黑字高級公文信箋規格) */
+    /* A4 畫布設定 (極致流暢 1 頁 A4 滿版大器，無頂部色條干擾) */
     .page {
       background: #ffffff;
       width: 210mm;
@@ -129,7 +129,11 @@
       position: relative;
       box-sizing: border-box;
       overflow: hidden;
-      border-top: 5px solid #d97706;
+    }
+
+    @page {
+      size: A4 portrait;
+      margin: 0;
     }
 
     @media print {
@@ -145,44 +149,43 @@
         box-shadow: none;
         width: 210mm;
         height: 297mm;
-        padding: 14mm 15mm 10mm 15mm;
-        border-top: 4px solid #d97706;
+        padding: 14mm 16mm 12mm 16mm;
         page-break-after: always;
       }
     }
 
-    /* 置中沉穩黑體大標題 (28px 大字體) */
+    /* 置中沉穩黑體大標題 (30px 大字體) */
     .letter-main-title {
       text-align: center;
-      font-size: 28px;
+      font-size: 30px;
       font-weight: 900;
       color: #0f172a;
-      letter-spacing: 2px;
+      letter-spacing: 2.5px;
       margin-top: 0;
       margin-bottom: 12px;
       font-family: 'Noto Sans TC', sans-serif;
     }
 
-    /* 正文內容 (字體 17.5px，精緻色彩標籤) */
+    /* 正文內容 (字體放大至 18.5px，行高 1.78，排版滿版大器) */
     .letter-body {
       flex: 1;
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
-      gap: 11px;
-      font-size: 17.5px;
-      line-height: 1.74;
+      gap: 12px;
+      font-size: 18.5px;
+      line-height: 1.78;
       color: #1e293b;
       text-align: justify;
     }
 
     .salutation {
-      font-size: 19.5px;
+      font-size: 20px;
       font-weight: 900;
       color: #0f172a;
       line-height: 1.35;
       margin-bottom: 2px;
-      letter-spacing: 0.1px;
+      letter-spacing: 0.2px;
       white-space: nowrap;
     }
 
@@ -194,15 +197,15 @@
     }
 
     p {
-      text-indent: 36px;
+      text-indent: 38px;
       margin: 0;
-      letter-spacing: 0.2px;
+      letter-spacing: 0.3px;
     }
 
     p.lead-text {
       text-indent: 0;
       font-weight: 800;
-      font-size: 17.5px;
+      font-size: 18.5px;
       color: #0f172a;
     }
 
@@ -254,7 +257,7 @@
       display: flex;
       flex-direction: column;
       gap: 5px;
-      font-size: 17.5px;
+      font-size: 18.5px;
       color: #1e293b;
     }
 
@@ -270,21 +273,21 @@
       border-left: 4.5px solid #059669;
       border-radius: 8px;
       padding: 9px 18px;
-      font-size: 17.5px;
+      font-size: 18.5px;
       color: #14532d;
-      line-height: 1.7;
+      line-height: 1.72;
       text-indent: 0;
     }
 
     .request-card strong {
       color: #064e3b;
       font-weight: 900;
-      font-size: 18.5px;
+      font-size: 19.5px;
     }
 
     .closing-blessing {
       font-weight: 900;
-      font-size: 18px;
+      font-size: 19px;
       text-align: right;
       color: #0f172a;
       margin-top: 1px;
@@ -304,14 +307,14 @@
       display: flex;
       flex-direction: column;
       gap: 6px;
-      font-size: 16.5px;
+      font-size: 17px;
       color: #1e293b;
       line-height: 1.45;
       padding-bottom: 2px;
     }
 
     .contact-row {
-      font-size: 16.5px;
+      font-size: 17px;
       color: #1e293b;
       font-weight: 700;
     }
@@ -325,7 +328,7 @@
       display: flex;
       align-items: center;
       gap: 7px;
-      font-size: 16.5px;
+      font-size: 17px;
       color: #1e293b;
       margin-top: 3px;
       flex-wrap: nowrap;
@@ -352,13 +355,13 @@
     .google-logo {
       font-family: 'Outfit', sans-serif;
       font-weight: 800;
-      font-size: 15px;
+      font-size: 15.5px;
       letter-spacing: -0.5px;
     }
 
     .search-keyword {
       font-weight: 800;
-      font-size: 15px;
+      font-size: 15.5px;
       color: #0f172a;
     }
 
@@ -367,7 +370,7 @@
     }
 
     .qr-or-text {
-      font-size: 16.5px;
+      font-size: 17px;
       font-weight: 800;
       color: #0f172a;
       white-space: nowrap;
@@ -380,8 +383,8 @@
     }
 
     .qr-inline-wrap img {
-      width: 76px;
-      height: 76px;
+      width: 78px;
+      height: 78px;
       border: 1.5px solid #cbd5e1;
       padding: 2px;
       border-radius: 6px;
@@ -398,7 +401,7 @@
       min-width: 190px;
     }
 
-    /* 官網專屬黑金手寫簽名圖檔 (放大 2 倍至 140px，深古銅金 ✕ 深黑墨，大器磅礡) */
+    /* 官網專屬黑金手寫簽名圖檔 (深古銅金 ✕ 深黑墨，大器磅礡) */
     .official-sig-box {
       height: 128px;
       display: flex;
@@ -431,7 +434,7 @@
     }
 
     .sign-date {
-      font-size: 17.5px;
+      font-size: 18px;
       color: #0f172a;
       font-weight: 800;
       margin-top: 2px;
@@ -441,7 +444,7 @@
 </head>
 <body>
 
-  <!-- 工具列 (預覽切換、簽名模式選擇與一鍵列印) -->
+  <!-- 工具列 (預覽切換、簽名模式選擇與另存PDF) -->
   <div class="toolbar">
     <div class="community-input-wrap">
       <label>🏢 社區：</label>
@@ -453,17 +456,17 @@
       <span>印出官方手寫簽名圖</span>
     </label>
 
-    <button onclick="window.print()">🖨️ 一鍵列印 / 存為 A4 PDF</button>
+    <button onclick="window.print()">另存PDF</button>
     <a href="index.html" class="secondary-btn">🏠 返回官網</a>
     <a href="dm.html" class="secondary-btn">📄 15大政見 DM</a>
   </div>
 
   <div class="page">
 
-    <!-- 置中沉穩黑體大標題 (28px 大字體) -->
+    <!-- 置中沉穩黑體大標題 (30px 大字體) -->
     <h1 class="letter-main-title">明德里里長候選人陳新昱 拜訪函</h1>
 
-    <!-- 正文 (抬頭精簡為管委會，全文字體加大至 17.5px) -->
+    <!-- 正文 (抬頭精簡為管委會，全文字體加大至 18.5px 滿版排版) -->
     <div class="letter-body">
       
       <div class="salutation">
@@ -519,7 +522,7 @@
       </div>
 
       <div class="sign-right">
-        <!-- 官網專屬黑金手寫簽名圖檔 (放大 2 倍至 136px，深古銅金 ✕ 深黑墨，磅礡大器) -->
+        <!-- 官網專屬黑金手寫簽名圖檔 (深古銅金 ✕ 深黑墨，磅礡大器) -->
         <div class="official-sig-box" id="officialSigBox">
           <img src="images/handwritten_signature_dark.png?v=27.26" alt="科技里長 陳新昱 簽名" class="official-sig-img">
         </div>
@@ -529,7 +532,7 @@
           (候選人親簽處)
         </div>
 
-        <div class="sign-date">115 年 10 月 1 日</div>
+        <div class="sign-date">115 年 10 月 5 日</div>
       </div>
     </div>
 
