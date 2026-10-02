@@ -19,11 +19,11 @@
       color: #1e293b;
       -webkit-print-color-adjust: exact;
       print-color-adjust: exact;
-      padding-top: 65px;
+      padding-top: 60px;
       padding-bottom: 40px;
     }
 
-    /* 網頁懸浮工具列 */
+    /* 網頁懸浮工具列 (極簡單列橫排) */
     .toolbar {
       position: fixed;
       top: 12px;
@@ -33,53 +33,36 @@
       backdrop-filter: blur(14px);
       border: 1px solid rgba(251, 191, 36, 0.3);
       color: white;
-      padding: 8px 22px;
+      padding: 6px 16px;
       border-radius: 40px;
       box-shadow: 0 10px 35px rgba(0, 0, 0, 0.6);
       z-index: 1000;
       display: flex;
-      gap: 12px;
+      gap: 8px;
       align-items: center;
       font-size: 13px;
+      white-space: nowrap;
+      flex-wrap: nowrap;
     }
 
     .community-input-wrap {
       display: flex;
       align-items: center;
-      gap: 6px;
       background: rgba(255, 255, 255, 0.08);
-      padding: 4px 12px;
+      padding: 3px 10px;
       border-radius: 20px;
-      border: 1px solid rgba(255, 255, 255, 0.12);
-    }
-
-    .community-input-wrap label {
-      color: #94a3b8;
-      font-size: 12.5px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
     }
 
     .community-input-wrap input {
       background: transparent;
       border: none;
       color: #fbbf24;
-      font-weight: 700;
-      font-size: 13.5px;
+      font-weight: 800;
+      font-size: 13px;
       outline: none;
-      width: 135px;
-    }
-
-    .sig-toggle-wrap {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      color: #e2e8f0;
-      font-size: 12.5px;
-      cursor: pointer;
-    }
-
-    .sig-toggle-wrap input {
-      cursor: pointer;
-      accent-color: #fbbf24;
+      width: 90px;
+      text-align: center;
     }
 
     .toolbar button,
@@ -87,16 +70,17 @@
       background: linear-gradient(135deg, #fbbf24 0%, #d97706 100%);
       color: #060b09;
       border: none;
-      padding: 6px 16px;
+      padding: 5px 14px;
       border-radius: 20px;
       font-weight: 800;
       cursor: pointer;
-      font-size: 12.5px;
+      font-size: 12px;
       text-decoration: none;
       transition: all 0.2s ease;
       display: inline-flex;
       align-items: center;
-      gap: 5px;
+      justify-content: center;
+      white-space: nowrap;
     }
 
     .toolbar a.secondary-btn {
@@ -401,7 +385,7 @@
       min-width: 190px;
     }
 
-    /* 官網專屬黑金手寫簽名圖檔 (深古銅金 ✕ 深黑墨，大器磅礡) */
+    /* 官網專屬黑金手寫簽名圖檔 (深古銅金 ✕ 深黑墨，磅礡大器) */
     .official-sig-box {
       height: 128px;
       display: flex;
@@ -419,20 +403,6 @@
       object-fit: contain;
     }
 
-    /* 留白手簽框 (若使用者取消勾選) */
-    .blank-sig-box {
-      height: 110px;
-      width: 180px;
-      border-bottom: 2px dashed #94a3b8;
-      display: none;
-      align-items: flex-end;
-      justify-content: center;
-      padding-bottom: 8px;
-      color: #94a3b8;
-      font-size: 14px;
-      font-weight: 600;
-    }
-
     .sign-date {
       font-size: 18px;
       color: #0f172a;
@@ -444,21 +414,15 @@
 </head>
 <body>
 
-  <!-- 工具列 (預覽切換、簽名模式選擇與另存PDF) -->
+  <!-- 工具列 (極簡單列橫排) -->
   <div class="toolbar">
     <div class="community-input-wrap">
-      <label>🏢 社區：</label>
-      <input type="text" id="communityNameInput" value="孔雀王朝" placeholder="請輸入社區名稱" oninput="updateCommunityName()">
+      <input type="text" id="communityNameInput" value="孔雀王朝" placeholder="社區名稱" oninput="updateCommunityName()">
     </div>
     
-    <label class="sig-toggle-wrap" title="勾選使用官網專屬黑金手寫簽名圖檔，取消則留白供列印後親筆手簽">
-      <input type="checkbox" id="sigToggle" checked onchange="toggleSignatureMode()">
-      <span>印出官方手寫簽名圖</span>
-    </label>
-
-    <button onclick="window.print()">另存PDF</button>
-    <a href="index.html" class="secondary-btn">🏠 返回官網</a>
-    <a href="dm.html" class="secondary-btn">📄 15大政見 DM</a>
+    <button onclick="window.print()">存PDF</button>
+    <a href="index.html" class="secondary-btn">官網</a>
+    <a href="dm.html" class="secondary-btn">A4 DM</a>
   </div>
 
   <div class="page">
@@ -527,11 +491,6 @@
           <img src="images/handwritten_signature_dark.png?v=27.26" alt="科技里長 陳新昱 簽名" class="official-sig-img">
         </div>
 
-        <!-- 留白手簽框 -->
-        <div class="blank-sig-box" id="blankSigBox">
-          (候選人親簽處)
-        </div>
-
         <div class="sign-date">115 年 10 月 5 日</div>
       </div>
     </div>
@@ -543,20 +502,6 @@
       const inputVal = document.getElementById('communityNameInput').value.trim();
       const target = document.getElementById('displayCommunityName');
       target.textContent = inputVal || '［社區名稱］';
-    }
-
-    function toggleSignatureMode() {
-      const isChecked = document.getElementById('sigToggle').checked;
-      const officialBox = document.getElementById('officialSigBox');
-      const blankBox = document.getElementById('blankSigBox');
-
-      if (isChecked) {
-        officialBox.style.display = 'flex';
-        blankBox.style.display = 'none';
-      } else {
-        officialBox.style.display = 'none';
-        blankBox.style.display = 'flex';
-      }
     }
   </script>
 </body>
