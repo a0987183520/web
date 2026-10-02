@@ -110,8 +110,31 @@
       box-shadow: 0 4px 12px rgba(251, 191, 36, 0.4);
     }
 
-    /* A4 畫布設定 (極致流暢 1 頁 A4 滿版大器，無頂部色條干擾) */
+    /* 字級調整微型按鈕 */
+    .font-stepper-btn {
+      background: rgba(255, 255, 255, 0.15) !important;
+      color: #ffffff !important;
+      border: 1px solid rgba(255, 255, 255, 0.2) !important;
+      padding: 2px 7px !important;
+      font-size: 11px !important;
+      font-weight: 900 !important;
+      height: 24px !important;
+      min-width: 24px !important;
+      line-height: 1 !important;
+      border-radius: 12px !important;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .font-stepper-btn:hover {
+      background: rgba(251, 191, 36, 0.3) !important;
+      color: #fbbf24 !important;
+      border-color: #fbbf24 !important;
+    }
+
+    /* A4 畫布設定 (極致流暢 1 頁 A4 滿版大器，支援動態字級等比縮放) */
     .page {
+      --font-scale: 1.0;
       background: #ffffff;
       width: 210mm;
       height: 297mm;
@@ -124,6 +147,7 @@
       position: relative;
       box-sizing: border-box;
       overflow: hidden;
+      transition: font-size 0.15s ease;
     }
 
     @page {
@@ -149,33 +173,33 @@
       }
     }
 
-    /* 置中沉穩黑體大標題 (30px 大字體) */
+    /* 置中大標題 (基準 30px) */
     .letter-main-title {
       text-align: center;
-      font-size: 30px;
+      font-size: calc(30px * var(--font-scale, 1));
       font-weight: 900;
       color: #0f172a;
-      letter-spacing: 2.5px;
+      letter-spacing: calc(2.5px * var(--font-scale, 1));
       margin-top: 0;
-      margin-bottom: 12px;
+      margin-bottom: calc(12px * var(--font-scale, 1));
       font-family: 'Noto Sans TC', sans-serif;
     }
 
-    /* 正文內容 (字體 18.5px，行高 1.76，排版滿版大器) */
+    /* 正文內容 (基準 18.5px，行高 1.76，排版滿版大器) */
     .letter-body {
       flex: 1;
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
-      gap: 12px;
-      font-size: 18.5px;
+      gap: calc(12px * var(--font-scale, 1));
+      font-size: calc(18.5px * var(--font-scale, 1));
       line-height: 1.76;
       color: #1e293b;
       text-align: justify;
     }
 
     .salutation {
-      font-size: 20px;
+      font-size: calc(20px * var(--font-scale, 1));
       font-weight: 900;
       color: #0f172a;
       line-height: 1.35;
@@ -192,15 +216,15 @@
     }
 
     p {
-      text-indent: 38px;
+      text-indent: calc(38px * var(--font-scale, 1));
       margin: 0;
-      letter-spacing: 0.3px;
+      letter-spacing: calc(0.3px * var(--font-scale, 1));
     }
 
     p.lead-text {
       text-indent: 0;
       font-weight: 800;
-      font-size: 18.5px;
+      font-size: calc(18.5px * var(--font-scale, 1));
       color: #0f172a;
     }
 
@@ -243,7 +267,7 @@
       border: 1.5px solid #e2e8f0;
       border-left: 4.5px solid #d97706;
       border-radius: 8px;
-      padding: 9px 18px;
+      padding: calc(9px * var(--font-scale, 1)) calc(18px * var(--font-scale, 1));
       margin: 1px 0;
     }
 
@@ -251,8 +275,8 @@
       list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 5px;
-      font-size: 18.5px;
+      gap: calc(5px * var(--font-scale, 1));
+      font-size: calc(18.5px * var(--font-scale, 1));
       color: #1e293b;
     }
 
@@ -267,8 +291,8 @@
       border: 1.5px solid #86efac;
       border-left: 4.5px solid #059669;
       border-radius: 8px;
-      padding: 9px 18px;
-      font-size: 18px;
+      padding: calc(9px * var(--font-scale, 1)) calc(18px * var(--font-scale, 1));
+      font-size: calc(18px * var(--font-scale, 1));
       color: #14532d;
       line-height: 1.7;
       text-indent: 0;
@@ -277,11 +301,11 @@
     .request-card strong {
       color: #064e3b;
       font-weight: 900;
-      font-size: 19px;
+      font-size: calc(19px * var(--font-scale, 1));
     }
 
     .request-dm-note {
-      font-size: 16.5px;
+      font-size: calc(16.5px * var(--font-scale, 1));
       color: #166534;
       font-weight: 800;
       margin-top: 4px;
@@ -290,7 +314,7 @@
 
     .closing-blessing {
       font-weight: 900;
-      font-size: 19px;
+      font-size: calc(19px * var(--font-scale, 1));
       text-align: right;
       color: #0f172a;
       margin-top: 1px;
@@ -309,15 +333,15 @@
     .sign-left {
       display: flex;
       flex-direction: column;
-      gap: 6px;
-      font-size: 17px;
+      gap: calc(6px * var(--font-scale, 1));
+      font-size: calc(17px * var(--font-scale, 1));
       color: #1e293b;
       line-height: 1.45;
       padding-bottom: 2px;
     }
 
     .contact-row {
-      font-size: 17px;
+      font-size: calc(17px * var(--font-scale, 1));
       color: #1e293b;
       font-weight: 700;
     }
@@ -331,7 +355,7 @@
       display: flex;
       align-items: center;
       gap: 7px;
-      font-size: 17px;
+      font-size: calc(17px * var(--font-scale, 1));
       color: #1e293b;
       margin-top: 3px;
       flex-wrap: nowrap;
@@ -373,7 +397,7 @@
     }
 
     .qr-or-text {
-      font-size: 17px;
+      font-size: calc(17px * var(--font-scale, 1));
       font-weight: 800;
       color: #0f172a;
       white-space: nowrap;
@@ -423,7 +447,7 @@
     }
 
     .sign-date {
-      font-size: 18px;
+      font-size: calc(18px * var(--font-scale, 1));
       color: #0f172a;
       font-weight: 800;
       margin-top: 2px;
@@ -438,8 +462,8 @@
     .font-hardpen .letter-main-title {
       font-family: 'Klee One', 'Noto Sans TC', sans-serif !important;
       font-weight: 600 !important;
-      font-size: 29px;
-      letter-spacing: 2px;
+      font-size: calc(29px * var(--font-scale, 1));
+      letter-spacing: calc(2px * var(--font-scale, 1));
     }
     .font-hardpen .salutation {
       font-family: 'Klee One', 'Noto Sans TC', sans-serif !important;
@@ -452,7 +476,7 @@
     .font-hardpen p {
       font-family: 'Klee One', 'Noto Sans TC', sans-serif !important;
       font-weight: 600 !important;
-      letter-spacing: 0.5px;
+      letter-spacing: calc(0.5px * var(--font-scale, 1));
     }
     .font-hardpen p.lead-text {
       font-family: 'Klee One', 'Noto Sans TC', sans-serif !important;
@@ -476,13 +500,13 @@
       font-weight: 600 !important;
     }
 
-    /* 字體模式 2：方案 A 鋼筆行楷體 (ARPenXingKai - 本機向量原生手寫勁道) */
+    /* 字體模式 2：方案 B 鋼筆行楷體 (ARPenXingKai - 本機向量原生手寫勁道) */
     .font-penxingkai {
       font-family: 'ARPenXingKai-Direct', 'AR PenXingKaiB5 Bold', '文鼎鋼筆行楷', 'Klee One', 'Noto Sans TC', sans-serif !important;
     }
     .font-penxingkai .letter-main-title {
       font-family: 'ARPenXingKai-Direct', 'AR PenXingKaiB5 Bold', '文鼎鋼筆行楷', 'Klee One', 'Noto Sans TC', sans-serif !important;
-      font-size: 30px;
+      font-size: calc(30px * var(--font-scale, 1));
       font-weight: normal;
     }
     .font-penxingkai .salutation {
@@ -493,7 +517,7 @@
     }
     .font-penxingkai p {
       font-family: 'ARPenXingKai-Direct', 'AR PenXingKaiB5 Bold', '文鼎鋼筆行楷', 'Klee One', 'Noto Sans TC', sans-serif !important;
-      letter-spacing: 0.6px;
+      letter-spacing: calc(0.6px * var(--font-scale, 1));
     }
     .font-penxingkai p.lead-text {
       font-family: 'ARPenXingKai-Direct', 'AR PenXingKaiB5 Bold', '文鼎鋼筆行楷', 'Klee One', 'Noto Sans TC', sans-serif !important;
@@ -512,7 +536,7 @@
       font-family: 'ARPenXingKai-Direct', 'AR PenXingKaiB5 Bold', '文鼎鋼筆行楷', 'Klee One', 'Noto Sans TC', sans-serif !important;
     }
 
-    /* 字體模式 3：方案 B 沉穩黑體公文 (Noto Sans TC) */
+    /* 字體模式 3：方案 C 沉穩黑體公文 (Noto Sans TC) */
     .font-noto {
       font-family: 'Noto Sans TC', sans-serif !important;
     }
@@ -560,11 +584,28 @@
       <input type="text" id="communityNameInput" value="孔雀王朝" placeholder="社區名稱" oninput="updateCommunityName()">
     </div>
 
+    <!-- 字體風格切換選單 (方案A / 方案B / 方案C) -->
     <select id="fontSelect" onchange="changeFontMode(this.value)" style="background: rgba(255,255,255,0.12); color: #fbbf24; border: 1px solid rgba(251,191,36,0.4); border-radius: 20px; padding: 4px 10px; font-size: 12px; font-weight: 800; outline: none; cursor: pointer;">
       <option value="font-hardpen" selected style="background:#0b1311; color:#fbbf24;">🖋️ 方案A：清新硬筆體</option>
-      <option value="font-penxingkai" style="background:#0b1311; color:#fff;">🖋️ 方案A：鋼筆行楷體</option>
-      <option value="font-noto" style="background:#0b1311; color:#e2e8f0;">📄 方案B：沉穩黑體公文</option>
+      <option value="font-penxingkai" style="background:#0b1311; color:#fff;">🖋️ 方案B：鋼筆行楷體</option>
+      <option value="font-noto" style="background:#0b1311; color:#e2e8f0;">📄 方案C：沉穩黑體公文</option>
     </select>
+
+    <!-- 動態字級調節組件 -->
+    <div style="display: flex; align-items: center; background: rgba(255,255,255,0.08); border-radius: 20px; border: 1px solid rgba(255,255,255,0.15); padding: 2px 6px; gap: 4px;">
+      <button class="font-stepper-btn" onclick="adjustFontSize(-0.02)" title="字級縮小 2%">A-</button>
+      <span id="fontSizeDisplay" style="color: #fbbf24; font-weight: 800; font-size: 12px; min-width: 38px; text-align: center;">100%</span>
+      <button class="font-stepper-btn" onclick="adjustFontSize(0.02)" title="字級放大 2%">A+</button>
+      
+      <select id="fontSizeSelect" onchange="setFontSizeScale(parseFloat(this.value))" style="background: transparent; color: #cbd5e1; border: none; font-size: 11px; font-weight: 700; outline: none; cursor: pointer; padding-left: 2px;">
+        <option value="1.00" selected style="background:#0b1311; color:#fff;">標準 (100%)</option>
+        <option value="1.04" style="background:#0b1311; color:#fff;">微大 (104%)</option>
+        <option value="1.08" style="background:#0b1311; color:#fff;">飽滿 (108%)</option>
+        <option value="1.12" style="background:#0b1311; color:#fff;">清晰 (112%)</option>
+        <option value="1.16" style="background:#0b1311; color:#fff;">特大 (116%)</option>
+        <option value="1.20" style="background:#0b1311; color:#fff;">極大 (120%)</option>
+      </select>
+    </div>
     
     <button onclick="window.print()">存PDF</button>
     <a href="index.html" class="secondary-btn">官網</a>
@@ -572,7 +613,7 @@
 
   <div class="page font-hardpen" id="letterPage">
 
-    <!-- 置中沉穩黑體大標題 (30px 大字體) -->
+    <!-- 置中大標題 -->
     <h1 class="letter-main-title">明德里里長候選人陳新昱 拜訪函</h1>
 
     <!-- 正文 (親切務實接地氣定稿版) -->
@@ -638,6 +679,8 @@
   </div>
 
   <script>
+    let currentFontScale = 1.0;
+
     function updateCommunityName() {
       const inputVal = document.getElementById('communityNameInput').value.trim();
       const target = document.getElementById('displayCommunityName');
@@ -647,6 +690,36 @@
     function changeFontMode(mode) {
       const page = document.getElementById('letterPage');
       page.className = 'page ' + mode;
+    }
+
+    function setFontSizeScale(scale) {
+      currentFontScale = Math.round(scale * 100) / 100;
+      if (currentFontScale < 0.9) currentFontScale = 0.9;
+      if (currentFontScale > 1.3) currentFontScale = 1.3;
+      
+      const page = document.getElementById('letterPage');
+      page.style.setProperty('--font-scale', currentFontScale);
+      
+      const percentStr = Math.round(currentFontScale * 100) + '%';
+      document.getElementById('fontSizeDisplay').textContent = percentStr;
+      
+      // 同步下拉選單
+      const select = document.getElementById('fontSizeSelect');
+      let matched = false;
+      for (let i = 0; i < select.options.length; i++) {
+        if (Math.abs(parseFloat(select.options[i].value) - currentFontScale) < 0.01) {
+          select.selectedIndex = i;
+          matched = true;
+          break;
+        }
+      }
+      if (!matched) {
+        select.value = "";
+      }
+    }
+
+    function adjustFontSize(delta) {
+      setFontSizeScale(currentFontScale + delta);
     }
   </script>
 </body>
