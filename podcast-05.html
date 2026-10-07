@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <!-- 防快取機制 -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+
+    <!-- LINE 內嵌瀏覽器極速逃脫機制 -->
+    <script>
+        (function () {
+            try {
+                var ua = (navigator.userAgent || '').toLowerCase();
+                if (ua.indexOf('line') > -1 && window.location.search.indexOf('openExternalBrowser=1') === -1) {
+                    var sep = window.location.href.indexOf('?') > -1 ? '&' : '?';
+                    window.location.href = window.location.href + sep + 'openExternalBrowser=1';
+                }
+            } catch (e) { }
+        })();
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, viewport-fit=cover">
+    <title>明德 2.0 鄰里相談所｜林經開 ✕ 小新 錄音逐字稿</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <style>
+        :root {
+            --bg-color: #0d1117;
+            --card-bg: #161b22;
+            --text-color: #e6edf3;
+            --text-muted: #8b949e;
+            --border-color: #30363d;
+            --accent-green: #2ea043;
+            --accent-blue: #58a6ff;
+            --accent-yellow: #d29922;
+            --xin-color: #58a6ff;
+            --kai-color: #3fb950;
+            --content-size: 20px;
+            --line-height: 1.8;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: var(--line-height);
+            padding: 16px 14px 80px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* 頂部控制列（固定於上方） */
+        .control-bar {
+            position: sticky;
+            top: 10px;
+            z-index: 100;
+            background: rgba(22, 27, 34, 0.94);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 12px 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+        }
+
+        .bar-title {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .bar-badge {
+            background: rgba(46, 160, 67, 0.2);
+            color: var(--kai-color);
+            border: 1px solid rgba(46, 160, 67, 0.4);
+            font-size: 12px;
+            padding: 2px 8px;
+            border-radius: 20px;
+        }
+
+        .size-control {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .size-control label {
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        .size-select {
+            background: #21262d;
+            color: var(--text-color);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 6px 12px;
+            font-size: 15px;
+            cursor: pointer;
+            outline: none;
+        }
+
+        .size-select:focus {
+            border-color: var(--accent-blue);
+        }
+
+        /* 節目標題資訊卡 */
+        .header-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .program-name {
+            font-size: 14px;
+            color: var(--accent-yellow);
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 6px;
+        }
+
+        .main-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+
+        .meta-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        .meta-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        /* 對話內容區 */
+        .script-container {
+            font-size: var(--content-size);
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .dialogue-item {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 18px 20px;
+            transition: border-color 0.2s;
+        }
+
+        .dialogue-item.xin {
+            border-left: 5px solid var(--xin-color);
+        }
+
+        .dialogue-item.kai {
+            border-left: 5px solid var(--kai-color);
+        }
+
+        .speaker-tag {
+            display: inline-flex;
+            align-items: center;
+            font-size: 15px;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 6px;
+            margin-bottom: 10px;
+            letter-spacing: 0.5px;
+        }
+
+        .speaker-tag.xin {
+            background: rgba(88, 166, 255, 0.15);
+            color: var(--xin-color);
+        }
+
+        .speaker-tag.kai {
+            background: rgba(63, 185, 80, 0.15);
+            color: var(--kai-color);
+        }
+
+        .speech-text {
+            color: var(--text-color);
+            line-height: var(--line-height);
+            word-break: break-word;
+        }
+
+        .highlight-quote {
+            color: #ffd33d;
+            font-weight: 600;
+        }
+
+        .footer-note {
+            margin-top: 40px;
+            text-align: center;
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- 固定頂部控制器 -->
+    <div class="control-bar">
+        <div class="bar-title">
+            <span>🎙️ 錄音讀稿面板</span>
+            <span class="bar-badge">5-10 分鐘對談</span>
+        </div>
+        <div class="size-control">
+            <label for="font-size">字體大小：</label>
+            <select id="font-size" class="size-select" onchange="changeFontSize(this.value)">
+                <option value="16px">小 (16px)</option>
+                <option value="18px">標準 (18px)</option>
+                <option value="20px" selected>適中 (20px - 建議)</option>
+                <option value="24px">大字 (24px)</option>
+                <option value="28px">特大 (28px - 手機推薦)</option>
+                <option value="32px">超大 (32px)</option>
+            </select>
+        </div>
+    </div>
+
+    <!-- 節目資訊 -->
+    <div class="header-card">
+        <div class="program-name">明德 2.0 鄰里相談所｜第 05 集</div>
+        <h1 class="main-title">永遠不站在孩子的對立面！EQ 爸爸的溝通魔法與社區巡迴藍圖</h1>
+        <div class="meta-info">
+            <div class="meta-item">對談人物：陳新昱（小新爸爸） ✕ 林經開（經開爸爸）</div>
+            <div class="meta-item">所屬社區：學士雅筑</div>
+            <div class="meta-item">預估時長：約 5 至 8 分鐘</div>
+        </div>
+    </div>
+
+    <!-- 逐字稿正文 -->
+    <div class="script-container" id="script-content">
+
+        <div class="dialogue-item xin">
+            <div class="speaker-tag xin">小新爸爸（陳新昱）</div>
+            <div class="speech-text">
+                哈囉大家好，我是明德里長候選人小新！今天《明德 2.0 鄰里相談所》非常榮幸邀請到一位重量級嘉賓，也是我住在「學士雅筑」多年的好鄰居、好兄弟——經開爸爸！經開跟大家打個招呼吧！
+            </div>
+        </div>
+
+        <div class="dialogue-item kai">
+            <div class="speaker-tag kai">經開爸爸（林經開）</div>
+            <div class="speech-text">
+                哈囉小新，明德里的鄰居朋友們大家好！我是學士雅筑的經開。我和小新一樣，平時我們都是善用上班日的空檔，每學期特別跟公司請假幾小時，走進校園當志工、教小朋友情緒管理。很開心今天能來和小新一起聊聊！
+            </div>
+        </div>
+
+        <div class="dialogue-item xin">
+            <div class="speaker-tag xin">小新爸爸（陳新昱）</div>
+            <div class="speech-text">
+                經開真的太有心了！大家可能不知道，經開在情緒教育與引導上非常專業，更是我一路走來的「精神導師」。我自己在擔任 EQ 志工組長、推動社區事務時，偶爾也會遇到瓶頸或負能量，但每次只要跟經開聊聊，他總能一眼看透事情本質，用滿滿的正能量幫我充電！
+            </div>
+        </div>
+
+        <div class="dialogue-item kai">
+            <div class="speaker-tag kai">經開爸爸（林經開）</div>
+            <div class="speech-text">
+                哈哈，小新你太客氣了！因為我們都是爸爸，我們太懂那種「想把事情做好、但面對衝突又感到無力」的心情。不管是在家裡面對孩子情緒暴走、夫妻溝通摩擦，還是在職場和同事應對，情緒永遠是第一道關卡。
+            </div>
+        </div>
+
+        <div class="dialogue-item xin">
+            <div class="speaker-tag xin">小新爸爸（陳新昱）</div>
+            <div class="speech-text">
+                沒錯！所以今天一定要把經開這位「EQ 達人」身上的寶藏挖出來分享給里民！我常常在想，很多人遇到孩子吵鬧或講不聽，第一反應就是生氣、責備。但經開有一句讓我受用無窮的金句，叫做——<span class="highlight-quote">「溝通時，永遠不要站在對方的對立面」</span>。經開，這句話到底是什麼意思？
+            </div>
+        </div>
+
+        <div class="dialogue-item kai">
+            <div class="speaker-tag kai">經開爸爸（林經開）</div>
+            <div class="speech-text">
+                這其實是 EQ 最核心的心法。舉個最常見的例子：在課堂或家裡，如果小朋友不專心，一直在桌上畫畫、或者一直轉頭找隔壁同學講話。傳統的做法往往是我們大人習慣直接開罵：「你為什麼不認真聽？」「畫什麼畫？」「你們兩個給我分開不要講話！」
+            </div>
+        </div>
+
+        <div class="dialogue-item xin">
+            <div class="speaker-tag xin">小新爸爸（陳新昱）</div>
+            <div class="speech-text">
+                對！結果通常是小孩滿臉不服氣、氣氛僵掉，甚至開始跟我們對嗆！
+            </div>
+        </div>
+
+        <div class="dialogue-item kai">
+            <div class="speaker-tag kai">經開爸爸（林經開）</div>
+            <div class="speech-text">
+                因為當我們開口指責時，就已經站在他的「對立面」了，大腦接收到威脅訊號，唯一的回應就是「反擊」或「防衛」。但如果我們換個角度，不站對立面，而是順著他的狀態走呢？
+            </div>
+        </div>
+
+        <div class="dialogue-item xin">
+            <div class="speaker-tag xin">小新爸爸（陳新昱）</div>
+            <div class="speech-text">
+                那經開你通常會怎麼做？
+            </div>
+        </div>
+
+        <div class="dialogue-item kai">
+            <div class="speaker-tag kai">經開爸爸（林經開）</div>
+            <div class="speech-text">
+                我會走過去，帶著好奇而不是質問的語氣問他：「哇，你畫的這隻恐龍好生動喔！你看起來現在精神很好，特別想跟隔壁同學分享對不對？」這時候孩子的第一道防備就卸下了。接著，我會運用我們 EQ 課教的<span class="highlight-quote">「情緒線索三部曲」——表情線索、生理反應、想法線索</span>。
+            </div>
+        </div>
+
+        <div class="dialogue-item xin">
+            <div class="speaker-tag xin">小新爸爸（陳新昱）</div>
+            <div class="speech-text">
+                把孩子的注意力引導回自我覺察！
+            </div>
+        </div>
+
+        <div class="dialogue-item kai">
+            <div class="speaker-tag kai">經開爸爸（林經開）</div>
+            <div class="speech-text">
+                沒錯！我會跟他說：「你看你現在很興奮，心跳是不是有點快？眼睛是不是睜得很大？我們今天這堂課正好在講『身體的感覺』，你現在的這個興奮狀態，正好就是最佳範例！你願意先把畫筆借我保管 10 分鐘，幫我當示範，等下我們一起把恐龍的感覺帶進課堂討論好嗎？」神奇的是，孩子通常就會笑笑地把筆放下，專心回到課堂上。
+            </div>
+        </div>
+
+        <div class="dialogue-item xin">
+            <div class="speaker-tag xin">小新爸爸（陳新昱）</div>
+            <div class="speech-text">
+                這招真的太厲害了！不僅化解了衝突，還順勢把孩子的行為「繞回教學主題」！而且這套心法不只教小孩有用，放在夫妻溝通、同事相處、甚至是鄰里協調上完全相通。只要不站對立面，願意先接住對方的感受，就沒有解不開的心結。
+            </div>
+        </div>
+
+        <div class="dialogue-item kai">
+            <div class="speaker-tag kai">經開爸爸（林經開）</div>
+            <div class="speech-text">
+                真的！這也是為什麼我和小新都深深著迷於情緒教育。聊到這裡，我就不得不提我們今年暑假一起辦的那場「親子 EQ 研習營」，小新提出了一個超大膽的翻轉設計！
+            </div>
+        </div>
+
+        <div class="dialogue-item xin">
+            <div class="speaker-tag xin">小新爸爸（陳新昱）</div>
+            <div class="speech-text">
+                哈哈！平常在學校上課一節只有 40 分鐘，進度很趕，都是大人在台上講；但暑假研習營我們時間充裕，我們乾脆讓 EQ 志工講師的孩子上台當「小老師」，換小朋友來教台下同學！
+            </div>
+        </div>
+
+        <div class="dialogue-item kai">
+            <div class="speaker-tag kai">經開爸爸（林經開）</div>
+            <div class="speech-text">
+                那天的場面真的太震撼了！孩子站上講台當小老師，收穫是雙倍的：第一，要教別人，自己必須把同理心、情緒暫停法的觀念徹底「深度內化」；第二，當台下其他小朋友開始躁動、情緒造反時，小老師立刻親身體會到「原來當老師、維持秩序這麼不容易」！
+            </div>
+        </div>
+
+        <div class="dialogue-item xin">
+            <div class="speaker-tag xin">小新爸爸（陳新昱）</div>
+            <div class="speech-text">
+                而且最棒的是，小老師當下不能抓狂，他必須現場現學現賣，用剛剛學到的 EQ 溝通技巧去安撫同學。看著孩子在台上學會換位思考、展現沉穩與領導力，台下的家長看了都感動得快掉眼淚！
+            </div>
+        </div>
+
+        <div class="dialogue-item kai">
+            <div class="speaker-tag kai">經開爸爸（林經開）</div>
+            <div class="speech-text">
+                很多住戶問我，外面一套專業的兒童心理或 EQ 課程，動輒幾千甚至上萬元，很多家庭根本負擔不起。小新，你如果選上里長，真的有辦法把這麼棒的課程免費帶進明德里嗎？
+            </div>
+        </div>
+
+        <div class="dialogue-item xin">
+            <div class="speaker-tag xin">小新爸爸（陳新昱）</div>
+            <div class="speech-text">
+                這是我最堅定的承諾！而且大家不用擔心經費問題，我們競選團隊已經做好完整的「多局處經費分流藍圖」：<br>
+                第一，我們透過社區發展協會向社會局爭取「社區發展專案補助」，每年約 10 萬元，全額支付專業講師費與教材費。<br>
+                第二，我們每季向教育局家庭教育中心申請社教專案補助。<br>
+                第三，里辦公處每年 88 萬基層款中，僅需彈性提撥約 5 萬元作為場地與行政支援。
+            </div>
+        </div>
+
+        <div class="dialogue-item kai">
+            <div class="speaker-tag kai">經開爸爸（林經開）</div>
+            <div class="speech-text">
+                這樣多元案源獨立分流，每季就能辦好幾場對吧？
+            </div>
+        </div>
+
+        <div class="dialogue-item xin">
+            <div class="speaker-tag xin">小新爸爸（陳新昱）</div>
+            <div class="speech-text">
+                沒錯！一季可以辦 3 場，一年高達 12 場！未來我不只在里民活動中心辦大型講座，我更要把「翻轉小老師 EQ 研習營」開進「學士雅筑」以及明德里 21 個社區大樓的交誼廳！只要管委會願意，我們直接把師資和教材送到社區門口，讓爸爸媽媽和孩子<span class="highlight-quote">「下樓就能免費體驗」</span>！
+            </div>
+        </div>
+
+        <div class="dialogue-item kai">
+            <div class="speaker-tag kai">經開爸爸（林經開）</div>
+            <div class="speech-text">
+                聽到小新要把這套資源普及到學士雅筑和每一個社區，身為鄰居和 EQ 爸爸，我絕對全力相挺！這才是真正能改變孩子一生、溫暖每個家庭的里長！
+            </div>
+        </div>
+
+        <div class="dialogue-item xin">
+            <div class="speaker-tag xin">小新爸爸（陳新昱）</div>
+            <div class="speech-text">
+                感謝經開今天滿滿的乾貨分享！未來我們明德 2.0 還會邀請更多像經開這樣的在地斜槓達人，把各領域的專業資源帶回里內。感謝大家收聽，我們下次見！
+            </div>
+        </div>
+
+        <div class="dialogue-item kai">
+            <div class="speaker-tag kai">經開爸爸（林經開）</div>
+            <div class="speech-text">
+                謝謝大家，下次見，拜拜！
+            </div>
+        </div>
+
+    </div>
+
+    <div class="footer-note">
+        明德 2.0 鄰里相談所 ✕ 林經開對談專用
+    </div>
+</div>
+
+<script>
+    function changeFontSize(size) {
+        document.getElementById('script-content').style.setProperty('--content-size', size);
+    }
+</script>
+</body>
+</html>
