@@ -21,7 +21,7 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, viewport-fit=cover">
-    <title>明德 2.0 鄰里相談所｜林經開 ✕ 小新 錄音逐字稿</title>
+    <title>明德里會客室｜林金楷 ✕ 科技里長 陳信譽 錄音專用提詞稿</title>
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <style>
         :root {
@@ -205,225 +205,195 @@
 
         .speech-text {
             color: var(--text-color);
-            line-height: var(--line-height);
-            word-break: break-word;
+            white-space: pre-line;
+            letter-spacing: 0.5px;
+        }
+
+        .highlight-gold {
+            color: #f2cc60;
+            font-weight: 600;
         }
 
         .highlight-quote {
-            color: #ffd33d;
+            color: #ff9bce;
             font-weight: 600;
         }
 
         .footer-note {
-            margin-top: 40px;
             text-align: center;
-            font-size: 13px;
+            margin-top: 40px;
             color: var(--text-muted);
+            font-size: 13px;
         }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <!-- 固定頂部控制器 -->
+
     <div class="control-bar">
         <div class="bar-title">
-            <span>🎙️ 錄音讀稿面板</span>
-            <span class="bar-badge">5-10 分鐘對談</span>
+            <span>🎙️ 錄音專用提詞機</span>
+            <span class="bar-badge">試錄定稿版</span>
         </div>
         <div class="size-control">
-            <label for="font-size">字體大小：</label>
-            <select id="font-size" class="size-select" onchange="changeFontSize(this.value)">
-                <option value="16px">小 (16px)</option>
-                <option value="18px">標準 (18px)</option>
-                <option value="20px" selected>適中 (20px - 建議)</option>
-                <option value="24px">大字 (24px)</option>
-                <option value="28px">特大 (28px - 手機推薦)</option>
-                <option value="32px">超大 (32px)</option>
+            <label for="fontSizeSelect">字級：</label>
+            <select id="fontSizeSelect" class="size-select" onchange="changeFontSize(this.value)">
+                <option value="18px">一般 (18px)</option>
+                <option value="20px" selected>適中 (20px)</option>
+                <option value="24px">超大 (24px)</option>
+                <option value="28px">極大 (28px)</option>
             </select>
         </div>
     </div>
 
-    <!-- 節目資訊 -->
     <div class="header-card">
-        <div class="program-name">明德 2.0 鄰里相談所｜第 05 集</div>
+        <div class="program-name">明德里會客室・明德里大小事</div>
         <h1 class="main-title">永遠不站在孩子的對立面！EQ 爸爸的溝通魔法與社區巡迴藍圖</h1>
         <div class="meta-info">
-            <div class="meta-item">對談人物：陳新昱（小新爸爸） ✕ 林經開（經開爸爸）</div>
-            <div class="meta-item">所屬社區：學士雅筑</div>
-            <div class="meta-item">預估時長：約 5 至 8 分鐘</div>
+            <div class="meta-item">🏠 <strong>社區：</strong>學士雅筑</div>
+            <div class="meta-item">👤 <strong>對談：</strong>科技里長 陳信譽（小新） ✕ 林金楷（金楷爸爸）</div>
+            <div class="meta-item">🎯 <strong>核心：</strong>同理心法 ✕ 真實育兒案例 ✕ 翻轉小老師研習營 ✕ 21 社區交誼廳巡迴</div>
         </div>
     </div>
 
-    <!-- 逐字稿正文 -->
-    <div class="script-container" id="script-content">
+    <div id="script-content" class="script-container">
 
         <div class="dialogue-item xin">
-            <div class="speaker-tag xin">小新爸爸（陳新昱）</div>
+            <div class="speaker-tag xin">小新（科技里長 陳信譽）</div>
             <div class="speech-text">
-                哈囉大家好，我是明德里長候選人小新！今天《明德 2.0 鄰里相談所》非常榮幸邀請到一位重量級嘉賓，也是我住在「學士雅筑」多年的好鄰居、好兄弟——經開爸爸！經開跟大家打個招呼吧！
+                好，歡迎來到《明德里會客室・明德里大小事》，我是科技里長陳信譽！今天我們邀請到一位重量級的嘉賓，也是住在「學士雅筑」、我多年認識的好鄰居、好兄弟——林金楷，金楷爸爸！那歡迎一下金楷！
             </div>
         </div>
 
         <div class="dialogue-item kai">
-            <div class="speaker-tag kai">經開爸爸（林經開）</div>
+            <div class="speaker-tag kai">金楷爸爸（林金楷）</div>
             <div class="speech-text">
-                哈囉小新，明德里的鄰居朋友們大家好！我是學士雅筑的經開。我和小新一樣，平時我們都是善用上班日的空檔，每學期特別跟公司請假幾小時，走進校園當志工、教小朋友情緒管理。很開心今天能來和小新一起聊聊！
+                哈囉小新，哈囉明德里的鄰居跟朋友們大家好！我是學士雅筑的金楷爸爸。我和小新一樣，平常都是善用上班日的空檔，每個學期特別去跟公司請假幾個小時，走進校園當志工，教小朋友情緒管理。很高興今天能來和小新一起聊聊！
             </div>
         </div>
 
         <div class="dialogue-item xin">
-            <div class="speaker-tag xin">小新爸爸（陳新昱）</div>
+            <div class="speaker-tag xin">小新（科技里長 陳信譽）</div>
             <div class="speech-text">
-                經開真的太有心了！大家可能不知道，經開在情緒教育與引導上非常專業，更是我一路走來的「精神導師」。我自己在擔任 EQ 志工組長、推動社區事務時，偶爾也會遇到瓶頸或負能量，但每次只要跟經開聊聊，他總能一眼看透事情本質，用滿滿的正能量幫我充電！
+                好，金楷真的太有心了！大家可能不知道，金楷在情緒教育上，他雖然是我的學弟，但是一直以來都是我的「精神導師」。我前兩年擔任 EQ 組志工組長的時候，其實承受蠻大的壓力，也遇到很多瓶頸；但每次遇到負能量時我都跟金楷聊聊，他總能一眼看透事情的本質，用滿滿的正能量來幫我充電！
             </div>
         </div>
 
         <div class="dialogue-item kai">
-            <div class="speaker-tag kai">經開爸爸（林經開）</div>
+            <div class="speaker-tag kai">金楷爸爸（林金楷）</div>
             <div class="speech-text">
-                哈哈，小新你太客氣了！因為我們都是爸爸，我們太懂那種「想把事情做好、但面對衝突又感到無力」的心情。不管是在家裡面對孩子情緒暴走、夫妻溝通摩擦，還是在職場和同事應對，情緒永遠是第一道關卡。
+                OK，小新太客氣了！因為我們都是爸爸啦，我們太懂那種想要把事情做好、但面對衝突時的那種無力感。不管面對家裡小朋友的情緒風暴、夫妻溝通摩擦，還是在職場上同事的應對，情緒永遠是第一道關卡。我永遠記得，在我還沒學 EQ 之前，我老婆常跟我講一句話：<span class="highlight-quote">「你說的都對，但我不想聽！」</span>（兩人笑）
             </div>
         </div>
 
         <div class="dialogue-item xin">
-            <div class="speaker-tag xin">小新爸爸（陳新昱）</div>
+            <div class="speaker-tag xin">小新（科技里長 陳信譽）</div>
             <div class="speech-text">
-                沒錯！所以今天一定要把經開這位「EQ 達人」身上的寶藏挖出來分享給里民！我常常在想，很多人遇到孩子吵鬧或講不聽，第一反應就是生氣、責備。但經開有一句讓我受用無窮的金句，叫做——<span class="highlight-quote">「溝通時，永遠不要站在對方的對立面」</span>。經開，這句話到底是什麼意思？
+                好，對！沒錯！所以今天一定要請金楷這位 EQ 達人，從他身上挖寶分享給里民知道。我常常在想，很多人遇到吵鬧不聽、講不聽的小孩，第一個反應就是開始生氣、責備。但金楷曾經有一句話讓我受用無窮，就是——<span class="highlight-gold">「溝通，永遠不要站在對方的對立面」</span>。這句話不只可以用在小孩，甚至也可以用在自己老婆身上（笑）。那請金楷跟我們分享一下，這句話到底是什麼意思？
             </div>
         </div>
 
         <div class="dialogue-item kai">
-            <div class="speaker-tag kai">經開爸爸（林經開）</div>
+            <div class="speaker-tag kai">金楷爸爸（林金楷）</div>
             <div class="speech-text">
-                這其實是 EQ 最核心的心法。舉個最常見的例子：在課堂或家裡，如果小朋友不專心，一直在桌上畫畫、或者一直轉頭找隔壁同學講話。傳統的做法往往是我們大人習慣直接開罵：「你為什麼不認真聽？」「畫什麼畫？」「你們兩個給我分開不要講話！」
+                其實這就是 EQ 我們大家耳熟能詳的一個心法——「同理」。一般像是我們在課堂或家裡，看到小朋友不專心，例如他在做功課，然後在旁邊開始畫圖了，我們可能一看就說：「為什麼不趕快做功課？為什麼還在畫畫？」那是因為我們有時候忘記看到自己的擔心，因為我們太急了，也忘記先看看小孩子為什麼現在不專心。所以同理是第一步，才有辦法讓小朋友把他內心的話告訴你，你才有機會真正化解你內心的擔心。
             </div>
         </div>
 
         <div class="dialogue-item xin">
-            <div class="speaker-tag xin">小新爸爸（陳新昱）</div>
+            <div class="speaker-tag xin">小新（科技里長 陳信譽）</div>
             <div class="speech-text">
-                對！結果通常是小孩滿臉不服氣、氣氛僵掉，甚至開始跟我們對嗆！
+                喔！所以小孩的不服氣、或是跟我們對嗆，都是因為我們站在他的對立面；那為什麼站在對立面？就是因為沒有同理他！那一旦我們同理他之後，具體來講你會怎麼做呢？
             </div>
         </div>
 
         <div class="dialogue-item kai">
-            <div class="speaker-tag kai">經開爸爸（林經開）</div>
+            <div class="speaker-tag kai">金楷爸爸（林金楷）</div>
             <div class="speech-text">
-                因為當我們開口指責時，就已經站在他的「對立面」了，大腦接收到威脅訊號，唯一的回應就是「反擊」或「防衛」。但如果我們換個角度，不站對立面，而是順著他的狀態走呢？
+                如果我們不小心開口第一句話就先指責，孩子內心第一個收到的是「委屈」。當委屈的情緒出來之後，他就很難跟你一起面對現在的問題，他心裡只想著：「我好難過，為什麼爸爸突然這樣罵我？」所以他就會開始防衛，甚至在青春期他會反擊說：「那你呢？」所以我們首先要做的，是站在旁邊同理——但也不是要拉低我們的標準。我說的同理是指：「我能理解你現在心情可能有起伏、沒辦法專心，你可以跟爸爸聊一下你現在的狀況嗎？」類似這樣。
             </div>
         </div>
 
         <div class="dialogue-item xin">
-            <div class="speaker-tag xin">小新爸爸（陳新昱）</div>
+            <div class="speaker-tag xin">小新（科技里長 陳信譽）</div>
             <div class="speech-text">
-                那經開你通常會怎麼做？
+                那你有沒有一個更具體的例子？
             </div>
         </div>
 
         <div class="dialogue-item kai">
-            <div class="speaker-tag kai">經開爸爸（林經開）</div>
+            <div class="speaker-tag kai">金楷爸爸（林金楷）</div>
             <div class="speech-text">
-                我會走過去，帶著好奇而不是質問的語氣問他：「哇，你畫的這隻恐龍好生動喔！你看起來現在精神很好，特別想跟隔壁同學分享對不對？」這時候孩子的第一道防備就卸下了。接著，我會運用我們 EQ 課教的<span class="highlight-quote">「情緒線索三部曲」——表情線索、生理反應、想法線索</span>。
+                好，我來舉個例。我小朋友有一次寫功課寫到很晚，他常常會寫到晚上八、九點以後還沒寫完。你看他也並不是不想坐在桌子前面，但他就是寫得很慢。這時候我就會走過去說：「哇，你看起來心情好像不太好，你怎麼了？是因為功課讓你有什麼困擾嗎？」他一開始不太會說，那我們能做的就是靜靜地先陪伴、等他一下。因為有時候家長很緊張，會催說：「你怎麼不跟我講？趕快講啊，爸爸在旁邊聽啊！」這樣小朋友會更緊張，反而講不下去。當我好好陪伴他之後，他上次就說：「爸爸，我覺得我寫完之後就沒有時間玩了。」原來他內心的擔心，是怕功課寫完剩下的時間不多、會被叫去睡覺，所以他覺得今天功課好多、心情好差，就更不想寫。
             </div>
         </div>
 
         <div class="dialogue-item xin">
-            <div class="speaker-tag xin">小新爸爸（陳新昱）</div>
+            <div class="speaker-tag xin">小新（科技里長 陳信譽）</div>
             <div class="speech-text">
-                把孩子的注意力引導回自我覺察！
+                抓到孩子內心真正的擔心了！
             </div>
         </div>
 
         <div class="dialogue-item kai">
-            <div class="speaker-tag kai">經開爸爸（林經開）</div>
+            <div class="speaker-tag kai">金楷爸爸（林金楷）</div>
             <div class="speech-text">
-                沒錯！我會跟他說：「你看你現在很興奮，心跳是不是有點快？眼睛是不是睜得很大？我們今天這堂課正好在講『身體的感覺』，你現在的這個興奮狀態，正好就是最佳範例！你願意先把畫筆借我保管 10 分鐘，幫我當示範，等下我們一起把恐龍的感覺帶進課堂討論好嗎？」神奇的是，孩子通常就會笑笑地把筆放下，專心回到課堂上。
+                沒錯！當你知道他是因為擔心後面沒得玩才會把速度放慢，你才有機會進一步去引導他：「如果你繼續保持這種擔心、讓自己寫得更慢，那你是不是後面不但沒得玩，還有可能被爸爸媽媽修理？這對你來說並不是好事。那不然這樣好了，如果現在剩下半小時，你覺得這件事你可以多久寫完？」試著跟他協調看看。他換個角度一想：「其實我東西剩下 10 分鐘、15 分鐘就寫完了。」我就說：「15 分鐘，那寫完之後這樣好了，今天晚上再多給你 10 分鐘，讓你湊個 20 到 25 分鐘去玩好不好？」他就會很高興開始寫！因為他的目的是想玩心愛的玩具。當你先同理他、陪伴他聊出內心的渴望，再去處理他的渴望，後面的結果就會符合我們想要的自主。孩子慢慢學會自主學習，以後面對情緒就會說：「我有點擔心，我可以跟爸爸先討論一下。」
             </div>
         </div>
 
         <div class="dialogue-item xin">
-            <div class="speaker-tag xin">小新爸爸（陳新昱）</div>
+            <div class="speaker-tag xin">小新（科技里長 陳信譽）</div>
             <div class="speech-text">
-                這招真的太厲害了！不僅化解了衝突，還順勢把孩子的行為「繞回教學主題」！而且這套心法不只教小孩有用，放在夫妻溝通、同事相處、甚至是鄰里協調上完全相通。只要不站對立面，願意先接住對方的感受，就沒有解不開的心結。
+                這一點真的講得太好了！我之前聽到你這個論述之後，每次在跟我女兒有衝突、或講話她不聽的時候，我也都會叫自己停下來，去詢問她：「你在擔心什麼？」例如有一次我們晚上要去某間餐廳吃飯，她死活都不想去那間，聊了半天之後才發現，原來她執著的是那間餐廳的香腸！既然香腸可以解決問題，那就不用特地去哪間餐廳，我們只要解決香腸的問題，事情就解決了！
             </div>
         </div>
 
         <div class="dialogue-item kai">
-            <div class="speaker-tag kai">經開爸爸（林經開）</div>
+            <div class="speaker-tag kai">金楷爸爸（林金楷）</div>
             <div class="speech-text">
-                真的！這也是為什麼我和小新都深深著迷於情緒教育。聊到這裡，我就不得不提我們今年暑假一起辦的那場「親子 EQ 研習營」，小新提出了一個超大膽的翻轉設計！
+                對對對！常常是一件很小的事情，卻會把小朋友卡住很久，甚至夫妻之間也會因為小事卡住。這也是為什麼我和小新都非常沉迷於情緒教育。
             </div>
         </div>
 
         <div class="dialogue-item xin">
-            <div class="speaker-tag xin">小新爸爸（陳新昱）</div>
+            <div class="speaker-tag xin">小新（科技里長 陳信譽）</div>
             <div class="speech-text">
-                哈哈！平常在學校上課一節只有 40 分鐘，進度很趕，都是大人在台上講；但暑假研習營我們時間充裕，我們乾脆讓 EQ 志工講師的孩子上台當「小老師」，換小朋友來教台下同學！
+                講到這裡，就不得不提我們今年暑假在學校辦的一場親子研習營，讓小朋友去體驗 EQ 是什麼！
             </div>
         </div>
 
         <div class="dialogue-item kai">
-            <div class="speaker-tag kai">經開爸爸（林經開）</div>
+            <div class="speaker-tag kai">金楷爸爸（林金楷）</div>
             <div class="speech-text">
-                那天的場面真的太震撼了！孩子站上講台當小老師，收穫是雙倍的：第一，要教別人，自己必須把同理心、情緒暫停法的觀念徹底「深度內化」；第二，當台下其他小朋友開始躁動、情緒造反時，小老師立刻親身體會到「原來當老師、維持秩序這麼不容易」！
+                我們具體的做法，第一節課先上平常會上的 EQ 課；第二節課我們角色翻轉——請小朋友當老師，我們當學生！他在第一節課學了什麼，要試著講出來。不只這樣，他在當小老師的過程中，還要面對台下小朋友暴走、愛講話吵鬧時該怎麼處理，他可以現學現賣、現用！這真的是一個非常有意義的活動。
             </div>
         </div>
 
         <div class="dialogue-item xin">
-            <div class="speaker-tag xin">小新爸爸（陳新昱）</div>
+            <div class="speaker-tag xin">小新（科技里長 陳信譽）</div>
             <div class="speech-text">
-                而且最棒的是，小老師當下不能抓狂，他必須現場現學現賣，用剛剛學到的 EQ 溝通技巧去安撫同學。看著孩子在台上學會換位思考、展現沉穩與領導力，台下的家長看了都感動得快掉眼淚！
+                看到孩子在台上學會換位思考與情緒引導，真的非常感動！所以未來我選上里長之後，我們競選團隊規劃了完整的「多局處經費分流藍圖」：透過社會局社區發展補助 10 萬、教育局社教專案 3 到 5 萬、以及里基層款 5 萬元彈性挹注，一年規劃 12 場巡迴工作坊，直接把這套翻轉式 EQ 課程帶進「學士雅筑」以及全里 21 社區大樓的交誼廳，讓所有爸爸媽媽與孩子<span class="highlight-quote">「下樓就能免費體驗」</span>！
             </div>
         </div>
 
         <div class="dialogue-item kai">
-            <div class="speaker-tag kai">經開爸爸（林經開）</div>
+            <div class="speaker-tag kai">金楷爸爸（林金楷）</div>
             <div class="speech-text">
-                很多住戶問我，外面一套專業的兒童心理或 EQ 課程，動輒幾千甚至上萬元，很多家庭根本負擔不起。小新，你如果選上里長，真的有辦法把這麼棒的課程免費帶進明德里嗎？
+                聽到小新要把這套資源普及到學士雅筑和每一個社區，身為鄰居和 EQ 爸爸，我絕對全力相挺！這才是真正能改變孩子一生、溫暖每個家庭的科技里長！
             </div>
         </div>
 
         <div class="dialogue-item xin">
-            <div class="speaker-tag xin">小新爸爸（陳新昱）</div>
+            <div class="speaker-tag xin">小新（科技里長 陳信譽）</div>
             <div class="speech-text">
-                這是我最堅定的承諾！而且大家不用擔心經費問題，我們競選團隊已經做好完整的「多局處經費分流藍圖」：<br>
-                第一，我們透過社區發展協會向社會局爭取「社區發展專案補助」，每年約 10 萬元，全額支付專業講師費與教材費。<br>
-                第二，我們每季向教育局家庭教育中心申請社教專案補助。<br>
-                第三，里辦公處每年 88 萬基層款中，僅需彈性提撥約 5 萬元作為場地與行政支援。
+                感謝金楷今天滿滿的乾貨分享！感謝大家收聽《明德里會客室》，我們下次見！
             </div>
         </div>
 
         <div class="dialogue-item kai">
-            <div class="speaker-tag kai">經開爸爸（林經開）</div>
-            <div class="speech-text">
-                這樣多元案源獨立分流，每季就能辦好幾場對吧？
-            </div>
-        </div>
-
-        <div class="dialogue-item xin">
-            <div class="speaker-tag xin">小新爸爸（陳新昱）</div>
-            <div class="speech-text">
-                沒錯！一季可以辦 3 場，一年高達 12 場！未來我不只在里民活動中心辦大型講座，我更要把「翻轉小老師 EQ 研習營」開進「學士雅筑」以及明德里 21 個社區大樓的交誼廳！只要管委會願意，我們直接把師資和教材送到社區門口，讓爸爸媽媽和孩子<span class="highlight-quote">「下樓就能免費體驗」</span>！
-            </div>
-        </div>
-
-        <div class="dialogue-item kai">
-            <div class="speaker-tag kai">經開爸爸（林經開）</div>
-            <div class="speech-text">
-                聽到小新要把這套資源普及到學士雅筑和每一個社區，身為鄰居和 EQ 爸爸，我絕對全力相挺！這才是真正能改變孩子一生、溫暖每個家庭的里長！
-            </div>
-        </div>
-
-        <div class="dialogue-item xin">
-            <div class="speaker-tag xin">小新爸爸（陳新昱）</div>
-            <div class="speech-text">
-                感謝經開今天滿滿的乾貨分享！未來我們明德 2.0 還會邀請更多像經開這樣的在地斜槓達人，把各領域的專業資源帶回里內。感謝大家收聽，我們下次見！
-            </div>
-        </div>
-
-        <div class="dialogue-item kai">
-            <div class="speaker-tag kai">經開爸爸（林經開）</div>
+            <div class="speaker-tag kai">金楷爸爸（林金楷）</div>
             <div class="speech-text">
                 謝謝大家，下次見，拜拜！
             </div>
@@ -432,7 +402,7 @@
     </div>
 
     <div class="footer-note">
-        明德 2.0 鄰里相談所 ✕ 林經開對談專用
+        明德 2.0 競選辦公室 ✕ 林金楷對談專用提詞稿
     </div>
 </div>
 
