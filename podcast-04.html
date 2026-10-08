@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <!-- 防快取機制 -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+
+    <!-- LINE 內嵌瀏覽器極速逃脫機制 -->
+    <script>
+        (function () {
+            try {
+                var ua = (navigator.userAgent || '').toLowerCase();
+                if (ua.indexOf('line') > -1 && window.location.search.indexOf('openExternalBrowser=1') === -1) {
+                    var sep = window.location.href.indexOf('?') > -1 ? '&' : '?';
+                    window.location.href = window.location.href + sep + 'openExternalBrowser=1';
+                }
+            } catch (e) { }
+        })();
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, viewport-fit=cover">
+    <title>明德里會客室｜小莉 ✕ 科技里長 陳新昱 錄音專用提詞稿（民歌live草地音樂節）</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <style>
+        :root {
+            --bg-color: #f8fafc;
+            --card-header-bg: #ffffff;
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+            --border-color: #e2e8f0;
+            --accent-orange: #ea580c;
+            --accent-blue: #0284c7;
+            --accent-green: #16a34a;
+            --accent-gold: #b45309;
+            --li-bg: #fff7ed;
+            --li-border: #fdba74;
+            --li-accent: #ea580c;
+            --li-tag-bg: #ffedd5;
+            --xin-bg: #f0f9ff;
+            --xin-border: #7dd3fc;
+            --xin-accent: #0284c7;
+            --xin-tag-bg: #e0f2fe;
+            --content-size: 24px;
+            --line-height: 1.85;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang TC", "Noto Sans TC", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: var(--line-height);
+            padding: 16px 14px 100px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 820px;
+            margin: 0 auto;
+        }
+
+        /* 頂部控制列（固定於上方） */
+        .control-bar {
+            position: sticky;
+            top: 10px;
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            padding: 12px 18px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
+        }
+
+        .bar-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #0f172a;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .bar-badge {
+            background: #dcfce7;
+            color: #15803d;
+            border: 1px solid #86efac;
+            font-size: 12px;
+            font-weight: 600;
+            padding: 2px 10px;
+            border-radius: 20px;
+        }
+
+        .size-control {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .size-control label {
+            font-size: 15px;
+            font-weight: 600;
+            color: #475569;
+        }
+
+        .size-select {
+            background: #f1f5f9;
+            color: #0f172a;
+            border: 1.5px solid #cbd5e1;
+            border-radius: 8px;
+            padding: 6px 14px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            outline: none;
+            transition: all 0.2s;
+        }
+
+        .size-select:focus {
+            border-color: var(--accent-blue);
+            background: #ffffff;
+            box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15);
+        }
+
+        /* 節目標題資訊卡 */
+        .header-card {
+            background: var(--card-header-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            padding: 22px 24px;
+            margin-bottom: 22px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+        }
+
+        .program-name {
+            font-size: 14px;
+            color: var(--accent-orange);
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .main-title {
+            font-size: 22px;
+            font-weight: 800;
+            color: #0f172a;
+            margin-bottom: 14px;
+            line-height: 1.45;
+        }
+
+        .meta-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px 20px;
+            font-size: 14px;
+            color: var(--text-muted);
+            border-top: 1px solid #f1f5f9;
+            padding-top: 12px;
+        }
+
+        .meta-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .meta-item strong {
+            color: #334155;
+        }
+
+        /* 段落標籤分隔 */
+        .section-divider {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 30px 0 16px;
+            color: #854d0e;
+            background: #fef9c3;
+            border: 1px solid #fef08a;
+            border-radius: 8px;
+            padding: 8px 16px;
+            font-size: 16px;
+            font-weight: 700;
+        }
+
+        /* 對話內容區 */
+        .script-container {
+            font-size: var(--content-size);
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .dialogue-item {
+            border-radius: 14px;
+            padding: 20px 22px;
+            transition: transform 0.15s, box-shadow 0.15s;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        }
+
+        /* 小莉（主持人）：淡橘暖色底 */
+        .dialogue-item.li {
+            background-color: var(--li-bg);
+            border: 1.5px solid var(--li-border);
+            border-left: 6px solid var(--li-accent);
+        }
+
+        /* 陳新昱（受訪者）：淡藍清爽底 */
+        .dialogue-item.xin {
+            background-color: var(--xin-bg);
+            border: 1.5px solid var(--xin-border);
+            border-left: 6px solid var(--xin-accent);
+        }
+
+        .speaker-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 12px;
+        }
+
+        .speaker-tag {
+            display: inline-flex;
+            align-items: center;
+            font-size: 16px;
+            font-weight: 800;
+            padding: 4px 14px;
+            border-radius: 20px;
+            letter-spacing: 0.5px;
+        }
+
+        .speaker-tag.li {
+            background: var(--li-tag-bg);
+            color: var(--li-accent);
+            border: 1px solid rgba(234, 88, 12, 0.3);
+        }
+
+        .speaker-tag.xin {
+            background: var(--xin-tag-bg);
+            color: var(--xin-accent);
+            border: 1px solid rgba(2, 132, 199, 0.3);
+        }
+
+        .speaker-role {
+            font-size: 13px;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        /* 純黑大字演播文字 */
+        .speech-text {
+            color: #000000;
+            font-weight: 500;
+            line-height: var(--line-height);
+            letter-spacing: 0.3px;
+            white-space: pre-line;
+            word-break: break-word;
+        }
+
+        .speech-text p {
+            margin-bottom: 12px;
+        }
+
+        .speech-text p:last-child {
+            margin-bottom: 0;
+        }
+
+        .highlight-key {
+            color: #0369a1;
+            font-weight: 700;
+        }
+
+        .highlight-quote {
+            color: #b91c1c;
+            font-weight: 700;
+        }
+
+        .bgm-cue {
+            background: #f1f5f9;
+            border: 1px dashed #94a3b8;
+            border-radius: 10px;
+            padding: 12px 18px;
+            font-size: 15px;
+            color: #475569;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin: 10px 0;
+        }
+
+        .footer-note {
+            text-align: center;
+            margin-top: 48px;
+            color: var(--text-muted);
+            font-size: 14px;
+            padding: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        @media (max-width: 640px) {
+            body {
+                padding: 12px 10px 80px;
+            }
+            .control-bar {
+                padding: 10px 14px;
+            }
+            .header-card {
+                padding: 16px 16px;
+            }
+            .main-title {
+                font-size: 19px;
+            }
+            .dialogue-item {
+                padding: 16px 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- 頂部字級控制列 -->
+    <div class="control-bar">
+        <div class="bar-title">
+            <span>🎙️ 錄音專用提詞機</span>
+            <span class="bar-badge">孔雀王朝・小莉篇</span>
+        </div>
+        <div class="size-control">
+            <label for="fontSizeSelect">字級：</label>
+            <select id="fontSizeSelect" class="size-select" onchange="changeFontSize(this.value)">
+                <option value="20px">一般 (20px)</option>
+                <option value="22px">適中 (22px)</option>
+                <option value="24px" selected>特大 (24px - 推薦)</option>
+                <option value="28px">超大 (28px)</option>
+                <option value="32px">巨無霸 (32px)</option>
+            </select>
+        </div>
+    </div>
+
+    <!-- 節目資訊卡 -->
+    <div class="header-card">
+        <div class="program-name">明德里會客室・明德里大小事</div>
+        <h1 class="main-title">下樓三分鐘遇見美好生活！民歌 live 草地音樂節 ✕ 20年音樂人脈注入明德里</h1>
+        <div class="meta-info">
+            <div class="meta-item">🏠 <strong>社區：</strong>孔雀王朝</div>
+            <div class="meta-item">👤 <strong>節目主持：</strong>小莉（孔雀王朝在地熱心里民）</div>
+            <div class="meta-item">👤 <strong>受訪來賓：</strong>陳新昱（科技里長候選人）</div>
+            <div class="meta-item">⏱️ <strong>預估時長：</strong>約 3 至 5 分鐘</div>
+        </div>
+    </div>
+
+    <!-- 逐字稿提詞區 -->
+    <div id="script-content" class="script-container">
+
+        <!-- 段落一 -->
+        <div class="section-divider">🎵 【開場音效與引薦出場｜0:00 - 0:45】</div>
+
+        <div class="bgm-cue">
+            <span>🎸【BGM：清脆悠揚的木吉他指彈旋律漸漸揚起，夾雜微風吹拂樹葉與微弱鳥鳴的環境音，氛圍極度舒適、放鬆，隨後轉為背景微弱襯樂】</span>
+        </div>
+
+        <div class="dialogue-item li">
+            <div class="speaker-header">
+                <div class="speaker-tag li">小莉（主持人）</div>
+                <div class="speaker-role">孔雀王朝住戶代表</div>
+            </div>
+            <div class="speech-text">
+                <p>問大家一個問題喔：週六或週日的午後，大家最想做的事情是什麼？</p>
+                <p>常常一到週末，想帶家人出門透透氣，但想到要準備點心、換衣服、開車、塞車，去大安森林公園或河濱公園找車位、人擠人……光是踏出家門那一刻，整個人都累了。因此我常常在想，有沒有更好打發時間的好活動呢？歡迎來到《明德里會客室，明德里大小事》，我是小莉！今天我們邀請科技里長陳新昱，一起來聊聊這個話題！</p>
+            </div>
+        </div>
+
+        <div class="dialogue-item xin">
+            <div class="speaker-header">
+                <div class="speaker-tag xin">陳新昱（科技里長）</div>
+                <div class="speaker-role">明德里長候選人</div>
+            </div>
+            <div class="speech-text">
+                <p>哈囉！小莉好，各位明德里的好朋友大家好， 妳剛剛講到塞車找車位，真的是很多好朋友共同假日的縮影！</p>
+                <p>我常在想：我們明德里明明有這麼漂亮的綠地、舒服的林蔭，為什麼大家不能把最棒的休閒時光，留在我們自己的明德里呢？</p>
+            </div>
+        </div>
+
+        <!-- 段落二 -->
+        <div class="section-divider">🌿 【想像一下：下樓三分鐘的「草地生活日常」｜0:45 - 1:45】</div>
+
+        <div class="dialogue-item li">
+            <div class="speaker-header">
+                <div class="speaker-tag li">小莉（主持人）</div>
+                <div class="speaker-role">孔雀王朝住戶代表</div>
+            </div>
+            <div class="speech-text">
+                <p>沒錯！所以聽說您正在為我們里民籌備一個非常夢幻的活動——「民歌live草地音樂節」？到底這會是一個什麼樣的畫面呢？</p>
+            </div>
+        </div>
+
+        <div class="dialogue-item xin">
+            <div class="speaker-header">
+                <div class="speaker-tag xin">陳新昱（科技里長）</div>
+                <div class="speaker-role">明德里長候選人</div>
+            </div>
+            <div class="speech-text">
+                <p>大家不妨閉上眼睛想像一下這個畫面：</p>
+                <p>那是春天或秋天一個涼爽的週末下午，陽光透過樹葉灑下來，微風徐徐吹過。你只要換上一雙最輕鬆的鞋子，隨手買了一杯冰咖啡或熱茶，帶著家人，下樓散步幾分鐘就走到我們的市民活動中心草地公園。</p>
+                <p>在草地中央，沒有吵雜刺耳的大喇叭，只有一把木吉他與歌手，用不插電的方式，悠閒地彈奏著我們熟悉的音樂。</p>
+                <p>長輩坐在樹蔭下、長椅上、一群人三五好友坐在野餐墊上，跟著哼唱熟悉的民歌或現在的流行歌曲；</p>
+                <p>小朋友吹著泡泡在草地上追逐奔跑，完全沒有車輛的危險。這就是我希望帶給每一位里民的「週末小確幸」。</p>
+            </div>
+        </div>
+
+        <!-- 段落三 -->
+        <div class="section-divider">🎸 【喚醒回憶：找回學生時期的純粹與溫度｜1:45 - 2:45】</div>
+
+        <div class="dialogue-item li">
+            <div class="speaker-header">
+                <div class="speaker-tag li">小莉（主持人）</div>
+                <div class="speaker-role">孔雀王朝住戶代表</div>
+            </div>
+            <div class="speech-text">
+                <p>哇……光聽你的描述，我腦海裡的畫面都浮現出來了！那種放鬆感真的很吸引人。現在城市生活步調這麼快，大家好像很久沒有這樣好好坐下來放空了。</p>
+            </div>
+        </div>
+
+        <div class="dialogue-item xin">
+            <div class="speaker-header">
+                <div class="speaker-tag xin">陳新昱（科技里長）</div>
+                <div class="speaker-role">明德里長候選人</div>
+            </div>
+            <div class="speech-text">
+                <p>對！在我們學生時期，最珍貴的就是那種「純粹」。一把吉他、幾首旋律，人與人之間的距離一下子就被拉近了。</p>
+                <p>或許你在電梯裡遇到鄰居時，可能只會點頭示意或是假裝看手機，但在草地上，你可以聞著青草香、聽著舒服的音樂，你很自然就會轉過頭跟隔壁鄰居聊上兩句、甚至分一塊餅乾。</p>
+                <p>音樂不該高高在上，也不該非得花幾千塊買票進演唱會現場；最好的音樂，應該像陽光跟微風一樣，自然融入在我們的生活日常裡。</p>
+            </div>
+        </div>
+
+        <!-- 段落四 -->
+        <div class="section-divider">💡 【為什麼做得到：把 20 年的音樂精華搬到社區｜2:45 - 3:45】</div>
+
+        <div class="dialogue-item li">
+            <div class="speaker-header">
+                <div class="speaker-tag li">小莉（主持人）</div>
+                <div class="speaker-role">孔雀王朝住戶代表</div>
+            </div>
+            <div class="speech-text">
+                <p>真的！能在自家附近就聽到高品質的現場演奏，光想就覺得好幸福。不過要辦出這樣有質感、聲音舒服又不會擾民的音樂節，很不簡單吧？</p>
+            </div>
+        </div>
+
+        <div class="dialogue-item xin">
+            <div class="speaker-header">
+                <div class="speaker-tag xin">陳新昱（科技里長）</div>
+                <div class="speaker-role">明德里長候選人</div>
+            </div>
+            <div class="speech-text">
+                <p>這就是我想用自己的專業回饋大家的地方！我在流行音樂圈工作 20 多年了，我很清楚怎樣的聲音配置聽起來最舒服。而我也認識非常多優秀的民歌手與街頭藝人歌手。</p>
+                <p>我希望把這 20 年累積的專業與人脈全部帶回明德里，幫大家建立一個溫馨的草地音樂節。</p>
+                <p>而且大家不用擔心經費問題，我擅長寫企劃案，我有能力向文化局申請社區營造專案補助，因此不用動用到我們明德里每年的 88 萬的基層建設費用，</p>
+                <p>大家每天要經過的路面、路燈的維修與環境的消毒一樣都不會少，卻又多了一個高品質的音樂假期活動！</p>
+            </div>
+        </div>
+
+        <!-- 段落五 -->
+        <div class="section-divider">🌸 【春秋限定 ✕ 邀請大家一起來野餐｜3:45 - 4:45】</div>
+
+        <div class="dialogue-item li">
+            <div class="speaker-header">
+                <div class="speaker-tag li">小莉（主持人）</div>
+                <div class="speaker-role">孔雀王朝住戶代表</div>
+            </div>
+            <div class="speech-text">
+                <p>太棒了！既不影響日常維護，又能讓整個明德里的生活質感大升級！那你預計什麼時候里民可以體驗到呢？</p>
+            </div>
+        </div>
+
+        <div class="dialogue-item xin">
+            <div class="speaker-header">
+                <div class="speaker-tag xin">陳新昱（科技里長）</div>
+                <div class="speaker-role">明德里長候選人</div>
+            </div>
+            <div class="speech-text">
+                <p>如果我當選里長後，我會選在天氣最舒服的春季與秋季假日來舉辦。只要里民喜歡、反應熱烈，我們還可以想辦法持續加辦，把它變成明德里引以為傲的招牌活動！</p>
+                <p>當天大家什麼都不用準備，也可以帶上你最喜歡的點心與飲料，帶著爸爸媽媽、牽著孩子，或者就自己一個人來草地上躺著曬太陽。</p>
+            </div>
+        </div>
+
+        <div class="dialogue-item li">
+            <div class="speaker-header">
+                <div class="speaker-tag li">小莉（主持人）</div>
+                <div class="speaker-role">孔雀王朝住戶代表</div>
+            </div>
+            <div class="speech-text">
+                <p>走路就能到，轉角就能徜徉在音樂裡，這就是我們夢想中的社區生活！</p>
+                <p>想了解草地音樂節與明德里十五大政見的更多細節，大家只要在 Google 搜尋「明德里2.0」，</p>
+                <p>就可以搜尋到我們科技里長陳新昱的官方網站與政見白皮書喔！</p>
+                <p>非常期待明德草地音樂節登場的那一天，各位鄰居，那到時候草地上見囉！</p>
+            </div>
+        </div>
+
+        <div class="dialogue-item xin">
+            <div class="speaker-header">
+                <div class="speaker-tag xin">陳新昱（科技里長）</div>
+                <div class="speaker-role">明德里長候選人</div>
+            </div>
+            <div class="speech-text">
+                <p>草地上見！謝謝小莉，謝謝所有的好朋友！</p>
+            </div>
+        </div>
+
+        <div class="bgm-cue">
+            <span>🎸【BGM：溫暖明亮的木吉他掃弦尾奏漸強，伴隨幾聲清脆鳥鳴，悠然結束】</span>
+        </div>
+
+    </div>
+
+    <div class="footer-note">
+        💡 錄音提詞小提示：請保持放鬆微笑、語速適中（約每分鐘 180~200 字），享受像與鄰居好友在客廳喝咖啡般的自然對話感。
+    </div>
+
+</div>
+
+<script>
+    function changeFontSize(size) {
+        document.documentElement.style.setProperty('--content-size', size);
+        try {
+            localStorage.setItem('podcast_font_size', size);
+        } catch (e) { }
+    }
+
+    // 載入儲存的字級偏好
+    window.addEventListener('DOMContentLoaded', function () {
+        try {
+            var savedSize = localStorage.getItem('podcast_font_size');
+            if (savedSize) {
+                var select = document.getElementById('fontSizeSelect');
+                if (select) {
+                    select.value = savedSize;
+                    changeFontSize(savedSize);
+                }
+            }
+        } catch (e) { }
+    });
+</script>
+
+</body>
+</html>
