@@ -6719,3 +6719,8 @@ html.is-pwa-standalone #btn-footer-install {
         font-size: 1.35rem;
     }
 }
+
+/* 里民提議致謝標註 (政見抽屜) */
+.policy-credit { color: #60a5fa; font-weight: 600; }
+[data-theme="light"] .policy-credit { color: #1d4ed8; }
+
