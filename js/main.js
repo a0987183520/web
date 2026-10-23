@@ -42,7 +42,9 @@ const POLICIES_DATA = [
             { question: "假日想帶長輩小孩散步放鬆，<span class=\"hl-keyword\">為什麼非得塞車跑去大安森林公園？</span>", answer: "" }
         ],
         howToDo: [
-            "固定於<span class=\"hl-keyword\">每年春、秋兩季假日試辦</span>，下樓散步就能倘佯在草地音樂的懷抱，反應熱烈則會加辦場次。"
+            "固定於<span class=\"hl-keyword\">每年春、秋兩季假日試辦</span>，下樓散步就能倘佯在草地音樂的懷抱，反應熱烈則會加辦場次。",
+            "民歌演唱中穿插<span class=\"hl-keyword\">故事爸爸、故事媽媽說故事</span>，大人聽歌、孩子聽故事，全齡共享。",
+            "同步規劃<span class=\"hl-keyword\">綠蔭二手惜物與文創市集</span>：里民與青年手作零場地費、零抽成，棚架桌椅、電力與公共意外險由專案支援。"
         ],
         whyPossible: "候選人擁有 <span class=\"hl-keyword\">20 年流行音樂產業背景</span>，有人脈，<span class=\"hl-keyword\">懂得如何申請經費</span>。"
     },
