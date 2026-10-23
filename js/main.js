@@ -43,8 +43,8 @@ const POLICIES_DATA = [
         ],
         howToDo: [
             "固定於<span class=\"hl-keyword\">每年春、秋兩季假日試辦</span>，下樓散步就能倘佯在草地音樂的懷抱，反應熱烈則會加辦場次。",
-            "民歌演唱中穿插<span class=\"hl-keyword\">故事爸爸、故事媽媽說故事</span>，大人聽歌、孩子聽故事，全齡共享。",
-            "同步規劃<span class=\"hl-keyword\">綠蔭二手惜物與文創市集</span>：里民與青年手作零場地費、零抽成，棚架桌椅、電力與公共意外險由專案支援。"
+            "民歌演唱之間穿插<span class=\"hl-keyword\">故事爸爸、故事媽媽說故事</span>，大人聽歌、孩子聽故事，全齡共享。<br><span style=\"display:block;margin-top:0.35rem;font-size:0.85em;opacity:0.8;\">💬 2026/10/22 感謝故事媽媽的提議，你的意見，就是我的政見！</span>",
+            "同步規劃<span class=\"hl-keyword\">綠蔭二手惜物與文創市集</span>：里民與青年手作<span class=\"hl-keyword\">零場地費、零抽成</span>，棚架桌椅、電力與公共意外險由專案支援。<br><span style=\"display:block;margin-top:0.35rem;font-size:0.85em;opacity:0.8;\">💬 2026/10/23 感謝 Lois 的提議，你的意見，就是我的政見！</span>"
         ],
         whyPossible: "候選人擁有 <span class=\"hl-keyword\">20 年流行音樂產業背景</span>，有人脈，<span class=\"hl-keyword\">懂得如何申請經費</span>。"
     },
