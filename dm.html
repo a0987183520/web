@@ -360,6 +360,44 @@
       display: block;
     }
 
+    /* 形象照左下角：大大的選舉抽籤號碼章（經典紅金雙層立體圓章，桌面處不遮臉） */
+    .hero-number-circle {
+      position: absolute;
+      bottom: 8px;
+      left: 8px;
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 35% 30%, #f87171 0%, #dc2626 60%, #991b1b 100%);
+      border: 3px solid #ffffff;
+      outline: 2.5px solid #fbbf24;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.85), 0 0 14px rgba(239, 68, 68, 0.55);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      z-index: 10;
+    }
+
+    .hero-number-circle .num-digit {
+      font-size: 33px;
+      font-weight: 900;
+      line-height: 0.88;
+      text-shadow: 0 2px 5px rgba(0, 0, 0, 0.6);
+      font-family: 'Outfit', sans-serif;
+    }
+
+    .hero-number-circle .num-sub {
+      font-size: 8px;
+      font-weight: 800;
+      line-height: 1;
+      color: #fef08a;
+      letter-spacing: 0.5px;
+      margin-top: 1px;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+    }
+
 
     /* 
        2.5 中間橫幅：預算與執行力獨立雙行問答 Bar (對齊下方 15 大政見容器質感與 2px 線框)
@@ -526,9 +564,10 @@
 <body>
 
   <div class="toolbar">
-    <button onclick="window.print()">🖨️ 列印 / 存為 PDF</button>
+    <button onclick="window.print()">🖨️ 列印 / 存為 PDF (正面)</button>
     <a href="index.html" class="secondary-btn">🏠 返回官網首頁</a>
     <a href="letter.html" class="secondary-btn">📄 管委會請益函</a>
+    <a href="dm-2.html" class="secondary-btn" style="background: #fbbf24; color: #060b09; font-weight: 800;">📄 查看背面 (白皮書與預算)</a>
   </div>
 
   <div class="page">
@@ -551,7 +590,7 @@
         <div class="brand-text-main">明德里<span class="highlight-num">2.0</span></div>
         <div class="brand-divider">｜</div>
         <div class="brand-candidate-name">陳新昱</div>
-        <div class="brand-candidate-title">候選人</div>
+        <div class="brand-candidate-title">里長候選人</div>
       </div>
       <div class="top-policy-group">
         <div class="top-policy-label">政策白皮書</div>
@@ -595,10 +634,15 @@
 
       </div>
 
-      <!-- 右側：願景形象主圖（全幅無遮擋 ✕ 完整露出金句與名牌） -->
+      <!-- 右側：願景形象主圖（全幅無遮擋 ✕ 完整露出金句與名牌 ✕ 左下角霸氣號次章） -->
       <div class="hero-right">
         <div class="hero-image-card">
           <img src="images/hero_vision_a4.png" alt="明德里2.0願景主視覺">
+          <!-- 候選人抽籤號碼章（左下角桌面/褲子處，經典紅金立體大圓圈） -->
+          <div class="hero-number-circle" title="里長候選人抽籤號次">
+            <span class="num-digit">1</span>
+            <span class="num-sub">號候選人</span>
+          </div>
         </div>
       </div>
 
