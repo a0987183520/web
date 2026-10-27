@@ -360,42 +360,71 @@
       display: block;
     }
 
-    /* 形象照左下角：大大的選舉抽籤號碼章（經典紅金雙層立體圓章，桌面處不遮臉） */
-    .hero-number-circle {
+    /* 形象照左下角：大大的選舉抽籤號碼章（直徑放大一倍、白底正紅 2 號章 ✕ 桌面稱謂標籤） */
+    .hero-candidate-stamp-group {
       position: absolute;
       bottom: 8px;
       left: 8px;
-      width: 58px;
-      height: 58px;
-      border-radius: 50%;
-      background: radial-gradient(circle at 35% 30%, #f87171 0%, #dc2626 60%, #991b1b 100%);
-      border: 3px solid #ffffff;
-      outline: 2.5px solid #fbbf24;
-      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.85), 0 0 14px rgba(239, 68, 68, 0.55);
       display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      color: #ffffff;
+      align-items: flex-end;
+      gap: 6px;
       z-index: 10;
     }
 
-    .hero-number-circle .num-digit {
-      font-size: 33px;
-      font-weight: 900;
-      line-height: 0.88;
-      text-shadow: 0 2px 5px rgba(0, 0, 0, 0.6);
-      font-family: 'Outfit', sans-serif;
+    .hero-number-circle {
+      width: 106px;
+      height: 106px;
+      border-radius: 50%;
+      background: #ffffff;
+      border: 5px solid #dc2626;
+      outline: 2.5px solid #fbbf24;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.85), 0 0 16px rgba(251, 191, 36, 0.45);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
     }
 
-    .hero-number-circle .num-sub {
-      font-size: 8px;
-      font-weight: 800;
-      line-height: 1;
-      color: #fef08a;
+    .hero-number-circle .num-digit {
+      font-size: 84px;
+      font-weight: 900;
+      line-height: 0.86;
+      color: #dc2626;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+      font-family: 'Outfit', sans-serif;
+      margin-top: -4px;
+      letter-spacing: -2px;
+    }
+
+    /* 圓圈右下角桌面上：精緻銘牌標籤（號 里長候選人） */
+    .hero-stamp-label-wrap {
+      margin-bottom: 8px;
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+      background: rgba(6, 11, 9, 0.9);
+      border: 1.5px solid #fbbf24;
+      padding: 3px 8px;
+      border-radius: 6px;
+      backdrop-filter: blur(6px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.7);
+    }
+
+    .hero-stamp-label-wrap .stamp-label-sub {
+      font-size: 13px;
+      font-weight: 900;
+      color: #fbbf24;
+      line-height: 1.1;
       letter-spacing: 0.5px;
-      margin-top: 1px;
-      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+    }
+
+    .hero-stamp-label-wrap .stamp-label-title {
+      font-size: 12px;
+      font-weight: 800;
+      color: #ffffff;
+      line-height: 1.1;
+      letter-spacing: 0.5px;
+      white-space: nowrap;
     }
 
 
@@ -638,10 +667,15 @@
       <div class="hero-right">
         <div class="hero-image-card">
           <img src="images/hero_vision_a4.png" alt="明德里2.0願景主視覺">
-          <!-- 候選人抽籤號碼章（左下角桌面/褲子處，經典紅金立體大圓圈） -->
-          <div class="hero-number-circle" title="里長候選人抽籤號次">
-            <span class="num-digit">1</span>
-            <span class="num-sub">號候選人</span>
+          <!-- 候選人抽籤號碼章（左下角桌面處：直徑放大一倍、白底正紅 2 號大圓章 ✕ 右下角精美桌面稱謂標籤） -->
+          <div class="hero-candidate-stamp-group">
+            <div class="hero-number-circle" title="里長候選人 2 號">
+              <span class="num-digit">2</span>
+            </div>
+            <div class="hero-stamp-label-wrap" title="2 號 里長候選人">
+              <span class="stamp-label-sub">號</span>
+              <span class="stamp-label-title">里長候選人</span>
+            </div>
           </div>
         </div>
       </div>
