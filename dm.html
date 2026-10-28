@@ -271,10 +271,23 @@
       font-size: 40px;
       font-weight: 900;
       line-height: 1.1;
-      background: linear-gradient(135deg, #fbbf24 0%, #34d399 100%);
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+    }
+
+    .hero-mainhead-action {
+      color: #ffffff;
+      letter-spacing: 0.5px;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+    }
+
+    .hero-mainhead-target {
+      background: linear-gradient(135deg, #fffbeb 0%, #fbbf24 45%, #f59e0b 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      filter: drop-shadow(0 2px 8px rgba(16, 185, 129, 0.35));
+      filter: drop-shadow(0 2px 10px rgba(251, 191, 36, 0.65));
+      letter-spacing: 0.5px;
     }
 
     /* 內文段落 */
@@ -396,35 +409,37 @@
       letter-spacing: -2px;
     }
 
-    /* 圓圈右下角桌面上：精緻銘牌標籤（號 里長候選人） */
+    /* 圓圈右下角桌面上：精緻銘牌標籤（明德里 里長候選人） */
     .hero-stamp-label-wrap {
-      margin-bottom: 8px;
+      margin-bottom: 6px;
       display: flex;
       flex-direction: column;
-      gap: 1px;
-      background: rgba(6, 11, 9, 0.9);
-      border: 1.5px solid #fbbf24;
-      padding: 3px 8px;
-      border-radius: 6px;
-      backdrop-filter: blur(6px);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.7);
+      gap: 1.5px;
+      background: rgba(6, 11, 9, 0.92);
+      border: 1.8px solid #fbbf24;
+      padding: 4px 8px;
+      border-radius: 7px;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.8), 0 0 10px rgba(251, 191, 36, 0.25);
     }
 
     .hero-stamp-label-wrap .stamp-label-sub {
-      font-size: 13px;
+      font-size: 21px;
       font-weight: 900;
       color: #fbbf24;
-      line-height: 1.1;
-      letter-spacing: 0.5px;
+      line-height: 1.15;
+      letter-spacing: 0.8px;
+      text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
     }
 
     .hero-stamp-label-wrap .stamp-label-title {
-      font-size: 12px;
-      font-weight: 800;
+      font-size: 19.5px;
+      font-weight: 900;
       color: #ffffff;
-      line-height: 1.1;
+      line-height: 1.15;
       letter-spacing: 0.5px;
       white-space: nowrap;
+      text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
     }
 
 
@@ -638,7 +653,10 @@
 
         <div class="hero-top-title-wrap">
           <div class="hero-subhead">我想向各位好鄰居</div>
-          <div class="hero-mainhead">應徵面試明德里里長</div>
+          <div class="hero-mainhead">
+            <span class="hero-mainhead-action">應徵面試</span>
+            <span class="hero-mainhead-target">明德里里長</span>
+          </div>
         </div>
 
         <div class="letter-body">
@@ -672,8 +690,8 @@
             <div class="hero-number-circle" title="里長候選人 2 號">
               <span class="num-digit">2</span>
             </div>
-            <div class="hero-stamp-label-wrap" title="2 號 里長候選人">
-              <span class="stamp-label-sub">號</span>
+            <div class="hero-stamp-label-wrap" title="明德里 里長候選人">
+              <span class="stamp-label-sub">明德里</span>
               <span class="stamp-label-title">里長候選人</span>
             </div>
           </div>
