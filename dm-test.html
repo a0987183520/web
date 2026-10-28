@@ -1,0 +1,1036 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>【測試對比專頁】明德里2.0 A4 DM 號次補救方案模擬器 - 陳新昱</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=Noto+Sans+TC:wght@400;500;700;900&display=swap');
+
+    :root {
+      --bg-primary: #060b09;
+      --bg-secondary: #0c1411;
+      --accent-primary: #fbbf24;
+      --accent-secondary: #10b981;
+      --text-primary: #f5f5f4;
+      --text-secondary: #a8a29e;
+      --font-sans: 'Outfit', 'Noto Sans TC', sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background-color: #040806;
+      color: var(--text-primary);
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+      padding-bottom: 40px;
+    }
+
+    /* 頂端互動測試切換面板（列印時自動隱藏） */
+    .test-control-panel {
+      width: 210mm;
+      margin: 15px auto 10px auto;
+      background: linear-gradient(145deg, #131f18 0%, #0d1712 100%);
+      border: 2px solid #fbbf24;
+      border-radius: 12px;
+      padding: 14px 18px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.85);
+    }
+
+    .test-panel-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+      border-bottom: 1px solid rgba(251, 191, 36, 0.3);
+      padding-bottom: 8px;
+    }
+
+    .test-panel-title {
+      font-size: 17px;
+      font-weight: 900;
+      color: #fbbf24;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .test-panel-hint {
+      font-size: 13px;
+      color: #94a3b8;
+    }
+
+    .test-btn-group {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+
+    .test-btn {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1.5px solid rgba(255, 255, 255, 0.2);
+      border-radius: 8px;
+      padding: 10px 12px;
+      color: #e2e8f0;
+      cursor: pointer;
+      font-family: var(--font-sans);
+      text-align: left;
+      transition: all 0.2s ease;
+    }
+
+    .test-btn:hover {
+      background: rgba(251, 191, 36, 0.15);
+      border-color: #fbbf24;
+    }
+
+    .test-btn.active {
+      background: linear-gradient(135deg, rgba(251, 191, 36, 0.25) 0%, rgba(16, 185, 129, 0.2) 100%);
+      border-color: #fbbf24;
+      box-shadow: 0 0 14px rgba(251, 191, 36, 0.4);
+    }
+
+    .test-btn-title {
+      font-size: 14px;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 3px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .test-btn.active .test-btn-title {
+      color: #fbbf24;
+    }
+
+    .test-btn-desc {
+      font-size: 11.5px;
+      color: #94a3b8;
+      line-height: 1.35;
+    }
+
+    .diagnostic-alert {
+      margin-top: 10px;
+      padding: 8px 12px;
+      border-radius: 6px;
+      font-size: 12.5px;
+      font-weight: 600;
+      line-height: 1.4;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .diagnostic-alert.warning {
+      background: rgba(239, 68, 68, 0.18);
+      border: 1px solid rgba(239, 68, 68, 0.5);
+      color: #fca5a5;
+    }
+
+    .diagnostic-alert.success {
+      background: rgba(16, 185, 129, 0.18);
+      border: 1px solid rgba(16, 185, 129, 0.5);
+      color: #6ee7b7;
+    }
+
+    /* A4 比例容器 (210mm x 297mm) */
+    .page {
+      width: 210mm;
+      height: 297mm;
+      margin: 10px auto;
+      background: #060b09 radial-gradient(circle at 85% 15%, #0f241a 0%, #060b09 60%, #020504 100%);
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.85);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      padding: 5.5mm 8mm 5mm 8mm;
+    }
+
+    @page {
+      size: A4 portrait;
+      margin: 0;
+    }
+
+    @media print {
+      body {
+        background: none;
+      }
+
+      .test-control-panel,
+      .toolbar {
+        display: none !important;
+      }
+
+      .page {
+        margin: 0;
+        box-shadow: none;
+        width: 210mm;
+        height: 297mm;
+        page-break-after: always;
+      }
+    }
+
+    /* 頂端列 */
+    .top-bar {
+      height: 16.5mm;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 2px;
+      border-bottom: 1.5px solid rgba(255, 255, 255, 0.15);
+      flex-shrink: 0;
+    }
+
+    .brand-logo-group {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-music-badge {
+      width: 34px;
+      height: 34px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, #a3e635 0%, #10b981 100%);
+      box-shadow: 0 0 14px rgba(16, 185, 129, 0.65);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      padding: 3px;
+    }
+
+    .brand-music-badge svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+      overflow: visible;
+    }
+
+    .brand-text-main {
+      font-size: 32px;
+      font-weight: 900;
+      color: #ffffff;
+      letter-spacing: -0.2px;
+    }
+
+    .brand-text-main span.highlight-num {
+      color: #fbbf24;
+      margin-left: 2px;
+    }
+
+    .brand-divider {
+      color: rgba(255, 255, 255, 0.3);
+      margin: 0 8px;
+      font-weight: 300;
+      font-size: 28px;
+    }
+
+    .brand-candidate-name {
+      font-size: 34px;
+      font-weight: 900;
+      color: #ffffff;
+      letter-spacing: 0.2px;
+    }
+
+    .brand-candidate-title {
+      font-size: 29px;
+      font-weight: 900;
+      color: #fbbf24;
+      margin-left: 6px;
+    }
+
+    .top-policy-group {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .top-policy-label {
+      font-size: 29px;
+      font-weight: 900;
+      color: #fbbf24;
+      letter-spacing: -0.2px;
+    }
+
+    .top-qr-frame {
+      width: 52px;
+      height: 52px;
+      background: #ffffff;
+      border: 1.8px solid #fbbf24;
+      border-radius: 6px;
+      padding: 2.5px;
+      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.55);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .top-qr-frame img {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    /* 上半部 HERO 區塊 */
+    .hero-container {
+      height: 101mm;
+      display: grid;
+      grid-template-columns: 1.08fr 0.92fr;
+      gap: 8px;
+      margin-top: 2mm;
+      flex-shrink: 0;
+    }
+
+    .hero-left-content {
+      height: 100%;
+      background: transparent;
+      padding: 4px 6px 2px 2px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+    }
+
+    .hero-top-title-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 0px;
+      margin-bottom: -5px;
+    }
+
+    .hero-subhead {
+      font-size: 21px;
+      font-weight: 900;
+      color: #ffffff;
+      letter-spacing: 0.5px;
+      line-height: 1.1;
+    }
+
+    .hero-mainhead {
+      font-size: 40px;
+      font-weight: 900;
+      line-height: 1.1;
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+    }
+
+    .hero-mainhead-action {
+      color: #ffffff;
+      letter-spacing: 0.5px;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+    }
+
+    .hero-mainhead-target {
+      background: linear-gradient(135deg, #fffbeb 0%, #fbbf24 45%, #f59e0b 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 2px 10px rgba(251, 191, 36, 0.65));
+      letter-spacing: 0.5px;
+    }
+
+    .letter-body {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      margin-top: -6px;
+    }
+
+    .letter-body p {
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 1.45;
+      color: #f5f5f4;
+      margin: 0;
+      letter-spacing: 0.2px;
+    }
+
+    .letter-tag {
+      display: inline-block;
+      padding: 0 1px;
+      font-weight: 800;
+    }
+
+    .letter-tag.gold {
+      color: #fbbf24;
+      text-shadow: 0 0 10px rgba(251, 191, 36, 0.7);
+    }
+
+    .letter-tag.blue {
+      color: #38bdf8;
+      text-shadow: 0 0 10px rgba(56, 189, 248, 0.7);
+    }
+
+    .letter-tag.green {
+      color: #34d399;
+      text-shadow: 0 0 10px rgba(52, 211, 153, 0.7);
+    }
+
+    .letter-signature-wrap-right {
+      position: absolute;
+      bottom: 28px;
+      right: 2px;
+      z-index: 5;
+      pointer-events: none;
+    }
+
+    .letter-signature-img {
+      max-width: 125px;
+      height: auto;
+      display: block;
+      filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.6));
+    }
+
+    /* 右側願景形象照 */
+    .hero-right {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .hero-image-card {
+      width: 100%;
+      height: 100%;
+      max-height: 101mm;
+      border-radius: 12px;
+      overflow: hidden;
+      position: relative;
+      border: 1.5px solid rgba(251, 191, 36, 0.5);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+      background: #0c1411;
+    }
+
+    .hero-image-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 70% 0%;
+      display: block;
+    }
+
+    /* 通用號次群組容器 */
+    .hero-candidate-stamp-group {
+      position: absolute;
+      bottom: 8px;
+      left: 8px;
+      display: flex;
+      align-items: flex-end;
+      gap: 6px;
+      z-index: 10;
+      transition: all 0.3s ease;
+    }
+
+    /* 模式 1：白底標籤貼紙 */
+    .stamp-mode-white-sticker .hero-number-circle {
+      width: 106px;
+      height: 106px;
+      border-radius: 50%;
+      background: #ffffff !important;
+      border: 5px solid #dc2626 !important;
+      outline: 2.5px solid #fbbf24;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.85), 0 0 16px rgba(251, 191, 36, 0.45);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .stamp-mode-white-sticker .hero-number-circle .num-digit {
+      font-size: 84px;
+      font-weight: 900;
+      line-height: 0.86;
+      color: #dc2626 !important;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+      font-family: 'Outfit', sans-serif;
+      margin-top: -4px;
+      letter-spacing: -2px;
+    }
+
+    .stamp-mode-white-sticker .hero-stamp-label-wrap {
+      margin-bottom: 6px;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5px;
+      background: rgba(6, 11, 9, 0.92);
+      border: 1.8px solid #fbbf24;
+      padding: 4px 8px;
+      border-radius: 7px;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.8), 0 0 10px rgba(251, 191, 36, 0.25);
+    }
+
+    .stamp-mode-white-sticker .hero-stamp-label-wrap .stamp-label-sub {
+      font-size: 21px;
+      font-weight: 900;
+      color: #fbbf24;
+      line-height: 1.15;
+      letter-spacing: 0.8px;
+      text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+    }
+
+    .stamp-mode-white-sticker .hero-stamp-label-wrap .stamp-label-title {
+      font-size: 19.5px;
+      font-weight: 900;
+      color: #ffffff;
+      line-height: 1.15;
+      letter-spacing: 0.5px;
+      white-space: nowrap;
+      text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+    }
+
+    /* 模式 2：單色紅墨印章直接蓋在照片上（透底實測） */
+    .stamp-mode-stamp-on-photo .hero-number-circle {
+      width: 106px;
+      height: 106px;
+      border-radius: 50%;
+      background: transparent !important;
+      border: 5px solid rgba(220, 38, 38, 0.85) !important;
+      outline: none !important;
+      box-shadow: inset 0 0 8px rgba(220, 38, 38, 0.3) !important;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      backdrop-filter: none !important;
+    }
+
+    .stamp-mode-stamp-on-photo .hero-number-circle .num-digit {
+      font-size: 84px;
+      font-weight: 900;
+      line-height: 0.86;
+      color: rgba(220, 38, 38, 0.88) !important;
+      text-shadow: 0 0 2px rgba(0, 0, 0, 0.8);
+      font-family: 'Outfit', sans-serif;
+      margin-top: -4px;
+      letter-spacing: -2px;
+    }
+
+    .stamp-mode-stamp-on-photo .hero-stamp-label-wrap {
+      display: none !important;
+    }
+
+    /* 模式 3：單色紅墨印章蓋在左側信件手寫簽名旁 */
+    .stamp-mode-stamp-on-letter .hero-candidate-stamp-group {
+      left: auto;
+      right: 130px;
+      bottom: 24px;
+    }
+
+    .stamp-mode-stamp-on-letter .hero-number-circle {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: transparent !important;
+      border: 4px solid rgba(239, 68, 68, 0.85) !important;
+      outline: none !important;
+      box-shadow: none !important;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .stamp-mode-stamp-on-letter .hero-number-circle .num-digit {
+      font-size: 64px;
+      font-weight: 900;
+      color: rgba(239, 68, 68, 0.9) !important;
+      font-family: 'Outfit', sans-serif;
+    }
+
+    .stamp-mode-stamp-on-letter .hero-stamp-label-wrap {
+      display: none !important;
+    }
+
+    /* 中間橫幅與政見卡片 */
+    .budget-bar {
+      height: 16.5mm;
+      margin: 1.8mm 0 2.2mm 0;
+      background: linear-gradient(145deg, rgba(38, 18, 20, 0.92) 0%, rgba(20, 10, 12, 0.95) 100%);
+      border: 2px solid rgba(248, 113, 113, 0.55);
+      border-radius: 8px;
+      padding: 0 14px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 3px;
+      flex-shrink: 0;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+      position: relative;
+      z-index: 10;
+    }
+
+    .budget-row {
+      display: flex;
+      align-items: center;
+      font-size: 17.5px;
+      font-weight: 700;
+      line-height: 1.25;
+      letter-spacing: 0.1px;
+      white-space: nowrap;
+    }
+
+    .budget-row.q-row {
+      color: #f87171;
+      text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+    }
+
+    .budget-row.q-row .q-lead {
+      color: #fca5a5;
+      font-weight: 900;
+      margin-right: 6px;
+    }
+
+    .budget-row.a-row {
+      color: #f8fafc;
+    }
+
+    .budget-row.a-row .a-lead {
+      color: #34d399;
+      font-weight: 900;
+      margin-right: 6px;
+    }
+
+    .budget-row .highlight-green {
+      color: #34d399;
+      font-weight: 900;
+      font-size: 19px;
+      margin: 0 1px;
+      text-shadow: 0 0 10px rgba(52, 211, 153, 0.6);
+    }
+
+    .grid-container {
+      height: 147mm;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(5, 1fr);
+      gap: 5.5px;
+      flex-shrink: 0;
+      margin-top: 0mm;
+    }
+
+    .policy-card {
+      background: linear-gradient(145deg, rgba(18, 38, 28, 0.92) 0%, rgba(10, 24, 18, 0.95) 100%);
+      border: 1px solid rgba(52, 211, 153, 0.28);
+      border-radius: 8px;
+      padding: 7px 10px 6px 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .card-icon {
+      width: 28px;
+      height: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: #34d399;
+    }
+
+    .card-icon svg {
+      width: 26px;
+      height: 26px;
+      fill: currentColor;
+      filter: drop-shadow(0 2px 6px rgba(52, 211, 153, 0.45));
+    }
+
+    .card-title {
+      font-size: 19.5px;
+      font-weight: 900;
+      color: #fbbf24;
+      line-height: 1.15;
+      letter-spacing: 0.1px;
+      text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    .title-split-row {
+      display: inline-flex;
+      align-items: center;
+      gap: 4.5px;
+    }
+
+    .split-col {
+      display: inline-flex;
+      flex-direction: column;
+      line-height: 1.05;
+      font-size: 19.5px;
+      font-weight: 900;
+      color: #fbbf24;
+      border-right: 1.5px solid rgba(251, 191, 36, 0.35);
+      padding-right: 4px;
+      text-align: center;
+    }
+
+    .split-main {
+      line-height: 1.15;
+    }
+
+    .card-desc {
+      font-size: 13.5px;
+      font-weight: 500;
+      color: #f1f5f9;
+      line-height: 1.36;
+      margin-left: 36px;
+      letter-spacing: 0.1px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- 頂部互動切換面板（點擊即時切換比對） -->
+  <div class="test-control-panel">
+    <div class="test-panel-header">
+      <div class="test-panel-title">
+        <span>🔬【DM 補救號次工法・即時模擬對比器】</span>
+      </div>
+      <div class="test-panel-hint">點擊下方按鈕，即時觀察「深底色無白底」印章透底 vs 貼紙遮底之視覺效果</div>
+    </div>
+
+    <div class="test-btn-group">
+      <button class="test-btn active" id="btn-mode-1" onclick="switchMode(1)">
+        <div class="test-btn-title">🏷️ 方案 A（鶴屋 L38 白底標籤貼）</div>
+        <div class="test-btn-desc">自帶厚實純白底座，100% 遮蔽深色照片，紅字 2 號極致立體奪目（強烈推薦）。</div>
+      </button>
+
+      <button class="test-btn" id="btn-mode-2" onclick="switchMode(2)">
+        <div class="test-btn-title">🔴 方案 B（單色紅墨印章・蓋照片）</div>
+        <div class="test-btn-desc">真實模擬：印章無白墨，字體鏤空透出深綠與西裝，紅色在深色底沉暗難辨。</div>
+      </button>
+
+      <button class="test-btn" id="btn-mode-3" onclick="switchMode(3)">
+        <div class="test-btn-title">✍️ 方案 C（單色紅墨印章・蓋簽名旁）</div>
+        <div class="test-btn-desc">蓋在左側信件手寫簽名旁，同樣因黑底缺乏白底襯托，紅字辨識度偏弱。</div>
+      </button>
+    </div>
+
+    <div class="diagnostic-alert success" id="diagnostic-msg">
+      💡 【當前評估結論】：白色圓形標籤貼紙自帶純白底座，徹底解決原稿無預留白底的痛點，貼在右側桌面處零違和感！
+    </div>
+  </div>
+
+  <div class="page stamp-mode-white-sticker" id="dm-page">
+
+    <!-- 1. 頂端導航條 -->
+    <div class="top-bar">
+      <div class="brand-logo-group">
+        <div class="brand-music-badge" title="明德里2.0 ✕ 生活美學與音樂藝術">
+          <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <path d="M 54 60 L 68 12" stroke="#ffffff" stroke-width="7" stroke-linecap="round"/>
+            <path d="M 68 12 Q 86 16 96 30 Q 82 23 68 23 Z" fill="#ffffff"/>
+            <path d="M 68 29 Q 85 33 94 45 Q 81 38 68 39 Z" fill="#ffffff"/>
+            <circle cx="39" cy="67" r="23" fill="#ffffff"/>
+          </svg>
+        </div>
+        <div class="brand-text-main">明德里<span class="highlight-num">2.0</span></div>
+        <div class="brand-divider">｜</div>
+        <div class="brand-candidate-name">陳新昱</div>
+        <div class="brand-candidate-title">里長候選人</div>
+      </div>
+      <div class="top-policy-group">
+        <div class="top-policy-label">政策白皮書</div>
+        <div class="top-qr-frame">
+          <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://a0987183520.github.io/web/"
+            alt="政策白皮書 QR Code">
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. 上半部 Hero 區塊 -->
+    <div class="hero-container">
+
+      <!-- 左側：頂部大標 ＋ 應徵信 ＋ 右下角手寫簽名 -->
+      <div class="hero-left-content">
+
+        <div class="hero-top-title-wrap">
+          <div class="hero-subhead">我想向各位好鄰居</div>
+          <div class="hero-mainhead">
+            <span class="hero-mainhead-action">應徵面試</span>
+            <span class="hero-mainhead-target">明德里里長</span>
+          </div>
+        </div>
+
+        <div class="letter-body">
+          <p>
+            我是孩子們熟知的<span class="letter-tag gold">故事爸爸</span>與 <span class="letter-tag blue">EQ 爸爸</span><br>
+            至今已在鄰里服務超過<span class="letter-tag green">8 年以上</span><br>
+            每年帶領著 <span class="letter-tag green">70 位志工</span>堅持走進每一間教室<br>
+            陪伴孩子與家長們一起學習成長
+          </p>
+          <p>
+            我曾任職 <span class="letter-tag green">500 大企業工程師</span><br>
+            擁有 <span class="letter-tag green">20 年以上企業管理資歷</span><br>
+            更有 <span class="letter-tag green">10 年社區管委會治理經驗</span><br>與兩屆<span class="letter-tag green">主委</span>資歷<br>
+            我熟法規、<span class="letter-tag green">擅寫補助款企劃案</span><br>
+            我有 <span class="letter-tag green">100% 實力</span>去兌現我的<br><span class="letter-tag green">十五大創新政見</span>！
+          </p>
+        </div>
+
+        <div class="letter-signature-wrap-right">
+          <img src="images/handwritten_signature.png" alt="科技里長 陳新昱 親筆簽名" class="letter-signature-img">
+        </div>
+
+      </div>
+
+      <!-- 右側：願景形象主圖 -->
+      <div class="hero-right">
+        <div class="hero-image-card">
+          <img src="images/hero_vision_a4.png" alt="明德里2.0願景主視覺">
+
+          <!-- 候選人抽籤號碼章群組 -->
+          <div class="hero-candidate-stamp-group" id="target-stamp-group">
+            <div class="hero-number-circle" title="里長候選人 2 號">
+              <span class="num-digit">2</span>
+            </div>
+            <div class="hero-stamp-label-wrap" title="明德里 里長候選人">
+              <span class="stamp-label-sub">明德里</span>
+              <span class="stamp-label-title">里長候選人</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- 2.5 中間橫幅：預算與執行力獨立雙行問答 Bar -->
+    <div class="budget-bar">
+      <div class="budget-row q-row">
+        <span class="q-lead">有人問</span>里長每月 5 萬元，怎麼做得到？
+      </div>
+      <div class="budget-row a-row">
+        <span class="a-lead">其實</span>明德里每年有 <span class="highlight-green">88 萬元</span>基層款，我有實力寫出<span class="highlight-green">超過百萬元</span>的補助企劃案！
+      </div>
+    </div>
+
+    <!-- 下半部 15 大政見網格 -->
+    <div class="grid-container">
+
+      <!-- 01 -->
+      <div class="policy-card">
+        <div class="card-header">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
+          </div>
+          <div class="card-title">民歌Live<br>草地音樂節</div>
+        </div>
+        <div class="card-desc">春秋相約活動中心<br>草地野餐共享音樂</div>
+      </div>
+
+      <!-- 02 -->
+      <div class="policy-card">
+        <div class="card-header">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24"><path d="M17 1.01L7 1c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99zM17 19H7V5h10v14z"/></svg>
+          </div>
+          <div class="card-title">里民手機共治<br>社區平行微活動</div>
+        </div>
+        <div class="card-desc">雲端里辦超便利<br>下樓就能參加活動</div>
+      </div>
+
+      <!-- 03 -->
+      <div class="policy-card">
+        <div class="card-header">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+          </div>
+          <div class="card-title">防滑走廊友善步道<br>通學安全</div>
+        </div>
+        <div class="card-desc">夜巡治安日巡護童<br>防滑整平即查即報</div>
+      </div>
+
+      <!-- 04 -->
+      <div class="policy-card">
+        <div class="card-header">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2c-2.76 0-5 2.24-5 5v10c0 2.76 2.24 5 5 5s5-2.24 5-5V7c0-2.76-2.24-5-5-5zm0 3c.83 0 1.5.67 1.5 1.5S12.83 8 12 8s-1.5-.67-1.5-1.5S11.17 5 12 5zm0 5.5c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5-1.5-.67-1.5-1.5.67-1.5 1.5-1.5zm0 5.5c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5-1.5-.67-1.5-1.5.67-1.5 1.5-1.5z"/></svg>
+          </div>
+          <div class="card-title">智慧交通號誌<br>解決塞車問題</div>
+        </div>
+        <div class="card-desc">同步海山學府學士<br>增設行人專用燈號</div>
+      </div>
+
+      <!-- 05 -->
+      <div class="policy-card">
+        <div class="card-header">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24"><path d="M22 6.5l-3.35 1.34C17.78 6.7 16.5 6 15 6c-2.21 0-4.04 1.44-4.69 3.44C9.72 9.17 9.07 9 8.39 9c-2.48 0-4.5 2.02-4.5 4.5s2.02 4.5 4.5 4.5c.68 0 1.33-.17 1.92-.44.65 2 2.48 3.44 4.69 3.44 1.5 0 2.78-.7 3.65-1.84L22 17.5v-2l-3-1.2v-1.6l3-1.2v-2zM8.39 16c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5c.57 0 1.09.2 1.51.52l-.01.48c0 1.84.83 3.5 2.14 4.63-.7.54-1.59.87-2.64.87zm6.61 3c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3z"/></svg>
+          </div>
+          <div class="card-title">社區輪辦活動<br>微型安全無人機</div>
+        </div>
+        <div class="card-desc">長輩小孩輕鬆上手<br>下樓就能體驗學習</div>
+      </div>
+
+      <!-- 06 -->
+      <div class="policy-card">
+        <div class="card-header">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+          </div>
+          <div class="card-title title-split-row">
+            <span class="split-col">
+              <span>獨老</span>
+              <span>雙老</span>
+            </span>
+            <span class="split-main">暖心居家照護</span>
+          </div>
+        </div>
+        <div class="card-desc">對接衛福部62.5億專案<br>出外子女更安心</div>
+      </div>
+
+      <!-- 07 -->
+      <div class="policy-card">
+        <div class="card-header">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 3c-4.97 0-9 4.03-9 9 0 2.12.74 4.07 1.97 5.61L4.35 20.3c-.39.39-.39 1.02 0 1.41.39.39 1.02.39 1.41 0l2.79-2.79C9.72 19.57 10.83 20 12 20c4.97 0 9-4.03 9-9s-4.03-9-9-9zm0 15c-1.01 0-1.97-.26-2.8-.71l-.31-.18-1.88 1.88.58-1.74-.2-.31C6.54 15.98 6 14.56 6 13c0-3.86 3.14-7 7-7s7 3.14 7 7-3.14 7-7 7z"/></svg>
+          </div>
+          <div class="card-title">社區輪辦<br>預防失智趣味 App</div>
+        </div>
+        <div class="card-desc">老照片修復與生成<br>AI動態趣味健腦</div>
+      </div>
+
+      <!-- 08 -->
+      <div class="policy-card">
+        <div class="card-header">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24"><path d="M11 9H9V2H7v7H5V2H3v7c0 2.12 1.66 3.84 3.75 3.97V22h2.5v-9.03C11.34 12.84 13 11.12 13 9V2h-2v7zm5-3v8h2.5v8H21V2c-2.76 0-5 2.24-5 4z"/></svg>
+          </div>
+          <div class="card-title">銀髮共餐2.0<br>全民灶咖</div>
+        </div>
+        <div class="card-desc">志工帶領趣味遊戲<br>重拾親子鄰里溫情</div>
+      </div>
+
+      <!-- 09 -->
+      <div class="policy-card">
+        <div class="card-header">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2L4 7v2h1.6l-3.2 7c-.5 1.1.3 2 1.6 2h6c1.3 0 2.1-.9 1.6-2L8.4 9H11v11H8v2h8v-2h-3V9h2.6l-3.2 7c-.5 1.1.3 2 1.6 2h6c1.3 0 2.1-.9 1.6-2L18.4 9H20V7l-8-5z"/></svg>
+          </div>
+          <div class="card-title">社區規約諮詢<br>鄰里EQ溝通平台</div>
+        </div>
+        <div class="card-desc">協助解決鄰居濫訴<br>釐清漏水噪音責任</div>
+      </div>
+
+      <!-- 10 -->
+      <div class="policy-card">
+        <div class="card-header">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          </div>
+          <div class="card-title">鄰里斜槓人才<br>招募計畫</div>
+        </div>
+        <div class="card-desc">廣納故事爸媽與達人<br>依規享有專業鐘點</div>
+      </div>
+
+      <!-- 11 -->
+      <div class="policy-card">
+        <div class="card-header">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 4.02 2 6.5v11C2 19.98 6.48 22 12 22s10-2.02 10-4.5v-11C22 4.02 17.52 2 12 2zm0 2c4.41 0 8 1.34 8 2.5S16.41 9 12 9 4 7.66 4 6.5 7.59 4 12 4zm8 13.5c0 1.16-3.59 2.5-8 2.5s-8-1.34-8-2.5V8.82C5.69 9.87 8.66 10.5 12 10.5s6.31-.63 8-1.68v8.68z"/></svg>
+          </div>
+          <div class="card-title">長青熱門課程<br>全面安心保留</div>
+        </div>
+        <div class="card-desc">太鼓等舊課全面保留<br>祖孫同台不是夢</div>
+      </div>
+
+      <!-- 12 -->
+      <div class="policy-card">
+        <div class="card-header">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+          </div>
+          <div class="card-title">社區輪辦<br>食用廢油變黃金</div>
+        </div>
+        <div class="card-desc">解決水管堵塞元兇<br>廢油變手工皂環保</div>
+      </div>
+
+      <!-- 13 -->
+      <div class="policy-card">
+        <div class="card-header">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24"><path d="M4 16c0 .88.39 1.67 1 2.22V20c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h8v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1.78c.61-.55 1-1.34 1-2.22V6c0-3.5-3.58-4-8-4s-8 .5-8 4v10zm3.5 1c-.83 0-1.5-.67-1.5-1.5S6.67 14 7.5 14s1.5.67 1.5 1.5S8.33 17 7.5 17zm9 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm1.5-6H6V6h12v5z"/></svg>
+          </div>
+          <div class="card-title">里民旅遊保證報名<br>增額制度</div>
+        </div>
+        <div class="card-desc">LINE/社區多元公告<br>人人保證報名免排隊</div>
+      </div>
+
+      <!-- 14 -->
+      <div class="policy-card">
+        <div class="card-header">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z"/></svg>
+          </div>
+          <div class="card-title">情緒教育課程<br>打造高 EQ 社區</div>
+        </div>
+        <div class="card-desc">每季免費定期開辦<br>化解糾紛與溝通難題</div>
+      </div>
+
+      <!-- 15 -->
+      <div class="policy-card">
+        <div class="card-header">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 10.5c1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3 1.34 3 3 3zm-6.5-1c1.38 0 2.5-1.12 2.5-2.5S6.88 4.5 5.5 4.5 3 5.62 3 7s1.12 2.5 2.5 2.5zm13 0c1.38 0 2.5-1.12 2.5-2.5S19.88 4.5 18.5 4.5 16 5.62 16 7s1.12 2.5 2.5 2.5zM12 13c-3.13 0-5.67 1.94-5.67 4.5 0 2.14 1.76 3.5 3.67 3.5 1.35 0 2-.5 2-.5s.65.5 2 .5c1.91 0 3.67-1.36 3.67-3.5 0-2.56-2.54-4.5-5.67-4.5z"/></svg>
+          </div>
+          <div class="card-title">寵物友善社區<br>首創毛孩性格標語</div>
+        </div>
+        <div class="card-desc">免費領取性格標語<br>散步互動安全安心</div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <script>
+    function switchMode(mode) {
+      const page = document.getElementById('dm-page');
+      const stampGroup = document.getElementById('target-stamp-group');
+      const alertMsg = document.getElementById('diagnostic-msg');
+      const leftContent = document.querySelector('.hero-left-content');
+      const imageCard = document.querySelector('.hero-image-card');
+
+      document.querySelectorAll('.test-btn').forEach(btn => btn.classList.remove('active'));
+      document.getElementById('btn-mode-' + mode).classList.add('active');
+
+      page.classList.remove('stamp-mode-white-sticker', 'stamp-mode-stamp-on-photo', 'stamp-mode-stamp-on-letter');
+
+      if (mode === 1) {
+        page.classList.add('stamp-mode-white-sticker');
+        imageCard.appendChild(stampGroup);
+        alertMsg.className = 'diagnostic-alert success';
+        alertMsg.innerHTML = '💡 <strong>【方案 A（白底圓標貼紙）】</strong>：貼紙自帶不透明純白底，完全遮蔽照片暗底，2號正紅大字立體耀眼！完美避開原稿無預留白底的缺陷，最推薦！';
+      } else if (mode === 2) {
+        page.classList.add('stamp-mode-stamp-on-photo');
+        imageCard.appendChild(stampGroup);
+        alertMsg.className = 'diagnostic-alert warning';
+        alertMsg.innerHTML = '⚠️ <strong>【方案 B（單色紅墨印章直接蓋照片）】</strong>：印章無白墨，字體鏤空透底！紅色墨水落在深綠底與深色西裝上，字體變暗沉髒濁，對比度嚴重不足！';
+      } else if (mode === 3) {
+        page.classList.add('stamp-mode-stamp-on-letter');
+        leftContent.appendChild(stampGroup);
+        alertMsg.className = 'diagnostic-alert warning';
+        alertMsg.innerHTML = '⚠️ <strong>【方案 C（單色印章蓋左側黑底信件區）】</strong>：印章蓋在手寫簽名旁，底色為近黑色（#060b09），紅墨水依然因缺乏白底反襯而辨識度偏弱，容易與黑底融合。';
+      }
+    }
+  </script>
+
+</body>
+
+</html>
