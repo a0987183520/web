@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>明德里 政策白皮書詳解與預算來源篇 A4 旗艦彩色 DM (背面：白皮書白底高對比版) - 陳新昱</title>
+  <title>明德里里長候選人 陳新昱 政策白皮書 (背面：預算透明與專案來源篇) - A4彩色DM</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=Noto+Sans+TC:wght@400;500;700;900&display=swap');
 
@@ -17,8 +17,9 @@
       --primary-green: #059669;
       --primary-green-dark: #065f46;
       --accent-gold: #d97706;
+      --accent-gold-dark: #b45309;
       --accent-red: #dc2626;
-      --border-light: #e2e8f0;
+      --border-card: #cbd5e1;
       --font-sans: 'Outfit', 'Noto Sans TC', sans-serif;
     }
 
@@ -125,25 +126,25 @@
     }
 
     /* 
-       1. 頂端列 (Top Bar，白底大氣排版 ✕ 號次圓圈 ✕ 候選人名稱 ✕ 政策白皮書)
+       1. 頂端列 (Top Bar，極簡大氣、橫向展開、零折行、候選人與白皮書為唯一主角)
     */
     .top-bar {
-      height: 16.5mm;
+      height: 15.5mm;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding-bottom: 3px;
-      border-bottom: 2px solid #059669;
+      padding-bottom: 2.5mm;
+      border-bottom: 2.5px solid #059669;
       flex-shrink: 0;
     }
 
-    .brand-logo-group {
+    .brand-candidate-group {
       display: flex;
       align-items: center;
       gap: 10px;
     }
 
-    /* 品牌音符徽章 */
+    /* 品牌綠色音符徽章 (美化裝飾) */
     .brand-music-badge {
       width: 36px;
       height: 36px;
@@ -153,8 +154,8 @@
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
-      padding: 3.5px;
-      box-shadow: 0 2px 6px rgba(5, 150, 105, 0.35);
+      padding: 4px;
+      box-shadow: 0 2px 6px rgba(5, 150, 105, 0.3);
     }
 
     .brand-music-badge svg {
@@ -163,111 +164,69 @@
       display: block;
     }
 
-    .brand-text-main {
-      font-size: 32px;
+    .top-title-main {
+      font-size: 29px;
       font-weight: 900;
-      color: #0f172a;
-      letter-spacing: -0.5px;
-    }
-
-    .brand-text-main span.highlight-num {
       color: #059669;
-      margin-left: 2px;
-    }
-
-    .brand-divider {
-      color: #cbd5e1;
-      margin: 0 4px;
-      font-weight: 300;
-      font-size: 26px;
+      letter-spacing: -0.2px;
+      white-space: nowrap;
     }
 
     /* 抽籤號次 2 號章 (白底正紅 2 號章 ✕ 金外框) */
     .top-candidate-badge {
-      width: 38px;
-      height: 38px;
+      width: 36px;
+      height: 36px;
       border-radius: 50%;
       background: #ffffff;
       border: 2.5px solid #dc2626;
       outline: 2px solid #d97706;
-      box-shadow: 0 2px 8px rgba(220, 38, 38, 0.25);
+      box-shadow: 0 2px 8px rgba(220, 38, 38, 0.2);
       display: flex;
       align-items: center;
       justify-content: center;
       color: #dc2626;
-      font-size: 27px;
+      font-size: 26px;
       font-weight: 900;
       line-height: 1;
       font-family: 'Outfit', sans-serif;
       flex-shrink: 0;
     }
 
-    .brand-candidate-name {
+    .candidate-name-main {
       font-size: 36px;
       font-weight: 900;
       color: #0f172a;
-      letter-spacing: 0.5px;
-      margin-left: 2px;
+      letter-spacing: 1px;
+      white-space: nowrap;
     }
 
-    .brand-candidate-title {
-      font-size: 28px;
-      font-weight: 900;
-      color: #059669;
-      margin-left: 6px;
-    }
-
-    /* 頂端列右側：政策白皮書 ＋ QR Code */
-    .top-policy-group {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .top-policy-tag-wrap {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      line-height: 1.15;
-    }
-
-    .top-policy-label {
-      font-size: 27px;
+    /* 頂端列右側：政策白皮書主標 (字體大氣沉穩，無多餘小副標) */
+    .top-whitepaper-tag {
+      font-size: 30px;
       font-weight: 900;
       color: #0f172a;
-      letter-spacing: 0.8px;
+      letter-spacing: 2px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      white-space: nowrap;
     }
 
-    .top-policy-sub {
-      font-size: 13px;
-      font-weight: 800;
-      color: #059669;
-      letter-spacing: 0.5px;
-    }
-
-    .top-qr-frame {
-      width: 50px;
-      height: 50px;
-      background: #ffffff;
-      border-radius: 6px;
-      padding: 2px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
-      border: 1.5px solid #059669;
-      flex-shrink: 0;
-    }
-
-    .top-qr-frame img {
-      width: 100%;
-      height: 100%;
-      display: block;
+    .top-whitepaper-tag::before {
+      content: '';
+      display: inline-block;
+      width: 3px;
+      height: 26px;
+      background: #cbd5e1;
+      border-radius: 2px;
     }
 
     /* 
-       2. 戰略承諾橫幅 (白底淡翡翠綠光澤 ✕ 雙行清晰宣示 ✕ 零多餘贅字)
+       2. 戰略承諾橫幅 (雙行大字、字體填滿橫幅、無多餘贅字、清晰專業)
     */
     .strategy-banner {
-      height: 13.5mm;
-      margin: 2.2mm 0 2.8mm 0;
+      height: 14mm;
+      margin: 2.5mm 0 3mm 0;
       background: #f0fdf4;
       border: 1.8px solid #10b981;
       border-radius: 8px;
@@ -275,44 +234,50 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      gap: 2.5px;
+      gap: 3px;
       flex-shrink: 0;
       box-shadow: 0 2px 6px rgba(16, 185, 129, 0.1);
     }
 
     .banner-line-1 {
-      font-size: 16.5px;
+      font-size: 16px;
       font-weight: 900;
-      color: #0f172a;
-      letter-spacing: 0.3px;
+      color: #065f46;
+      letter-spacing: 0.5px;
       display: flex;
       align-items: center;
-      gap: 6px;
+      justify-content: space-between;
     }
 
-    .banner-line-1 .hl-gold {
+    .banner-line-1 span.highlight-amount {
       color: #b45309;
       background: #fef3c7;
-      padding: 0 5px;
+      padding: 1px 7px;
       border-radius: 4px;
-    }
-
-    .banner-line-1 .hl-green {
-      color: #065f46;
-      background: #d1fae5;
-      padding: 0 5px;
-      border-radius: 4px;
+      font-weight: 900;
     }
 
     .banner-line-2 {
-      font-size: 13.5px;
-      font-weight: 800;
+      font-size: 15.5px;
+      font-weight: 900;
+      color: #0f172a;
+      letter-spacing: 0.6px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .banner-line-2 .hl-gold {
+      color: #b45309;
+    }
+
+    .banner-line-2 .hl-green {
       color: #047857;
-      letter-spacing: 0.4px;
     }
 
     /* 
-       3. 9 大旗艦政見網格 (3 欄 x 3 列，空間充裕翻倍，大字級、無折行、副標突顯預算專案)
+       3. 9 大旗艦政見網格 (3 欄 x 3 列，卡片佈局，由左至右、由上至下)
+          重要：徹底消除 display:flex 造成的單字垂直排版 Bug，文字採純淨橫書自然流排版！
     */
     .grid-container {
       flex: 1;
@@ -320,20 +285,20 @@
       grid-template-columns: repeat(3, 1fr);
       grid-template-rows: repeat(3, 1fr);
       gap: 3.2mm;
-      margin-bottom: 2mm;
+      margin-bottom: 2.2mm;
     }
 
     .policy-detail-card {
       background: #ffffff;
-      border: 1.5px solid #cbd5e1;
+      border: 1.5px solid var(--border-card);
       border-radius: 8px;
-      padding: 2.8mm 3.2mm;
+      padding: 3mm 3.5mm;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
+      justify-content: flex-start;
       position: relative;
       overflow: hidden;
-      box-shadow: 0 3px 10px rgba(15, 23, 42, 0.05);
+      box-shadow: 0 3px 8px rgba(15, 23, 42, 0.05);
     }
 
     .policy-detail-card::before {
@@ -347,33 +312,18 @@
       border-radius: 8px 0 0 8px;
     }
 
-    /* 卡片頭部：序號 + 圖示 + 政策大標題 */
+    /* 卡片頭部：向量圖標 + 政策大標題 (不放序號數字，直接大標題，單行不折行) */
     .card-head {
       display: flex;
       align-items: center;
       gap: 7px;
-      margin-bottom: 2px;
-    }
-
-    .card-num-badge {
-      width: 24px;
-      height: 24px;
-      border-radius: 6px;
-      background: #fef3c7;
-      border: 1.5px solid #d97706;
-      color: #b45309;
-      font-size: 13.5px;
-      font-weight: 900;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      margin-bottom: 2.5px;
       flex-shrink: 0;
-      font-family: 'Outfit', sans-serif;
     }
 
     .card-icon {
-      width: 22px;
-      height: 22px;
+      width: 24px;
+      height: 24px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -388,7 +338,7 @@
     }
 
     .card-title-main {
-      font-size: 18px;
+      font-size: 19px;
       font-weight: 900;
       color: #0f172a;
       line-height: 1.2;
@@ -396,20 +346,21 @@
       white-space: nowrap;
     }
 
-    /* 卡片副標題：法規依據與預算來源 (獨立一行，綠底深字膠囊標籤，拉開市場極致區隔) */
+    /* 卡片副標題：法規專案與預算來源 (獨立一行，綠底深字膠囊，拉開專業區隔) */
     .card-budget-bar {
       display: flex;
       align-items: center;
-      gap: 4px;
+      gap: 5px;
       background: #ecfdf5;
       border: 1px solid #a7f3d0;
       border-radius: 4px;
-      padding: 2.2px 6px;
-      margin: 2px 0 4px 0;
+      padding: 2.5px 7px;
+      margin: 2px 0 5px 0;
+      flex-shrink: 0;
     }
 
     .budget-icon {
-      font-size: 11px;
+      font-size: 12px;
       line-height: 1;
     }
 
@@ -428,19 +379,19 @@
       font-weight: 900;
     }
 
-    /* 具體實踐辦法 (字級 14px，行高 1.45，清爽易讀零碎行) */
+    /* 具體實踐辦法 (純文字流，由左至右、由上至下正常橫排，字級 14px，絕不垂直分割) */
     .card-action-text {
-      font-size: 13.6px;
+      display: block;
+      font-size: 13.8px;
       font-weight: 500;
       color: #334155;
       line-height: 1.45;
       letter-spacing: 0.1px;
-      flex: 1;
-      display: flex;
-      align-items: center;
+      margin-top: 2px;
+      text-align: justify;
     }
 
-    .card-action-text .hl-key {
+    .card-action-text strong {
       color: #0f172a;
       font-weight: 800;
       background: #f1f5f9;
@@ -493,7 +444,7 @@
       background: #f8fafc;
       border: 1.5px solid #cbd5e1;
       border-radius: 8px;
-      padding: 0 12px;
+      padding: 0 14px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -538,7 +489,7 @@
       font-weight: 700;
       color: #64748b;
       display: flex;
-      gap: 12px;
+      gap: 14px;
     }
 
     .footer-info span {
@@ -550,13 +501,13 @@
     .footer-qr-group {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 14px;
     }
 
     .qr-item-wrap {
       display: flex;
       align-items: center;
-      gap: 6px;
+      gap: 7px;
     }
 
     .qr-text-col {
@@ -573,14 +524,14 @@
     }
 
     .qr-tag-main {
-      font-size: 12px;
+      font-size: 12.5px;
       font-weight: 900;
       color: #0f172a;
     }
 
     .footer-qr-box {
-      width: 44px;
-      height: 44px;
+      width: 45px;
+      height: 45px;
       background: #ffffff;
       border: 1.5px solid #059669;
       border-radius: 5px;
@@ -609,11 +560,11 @@
 
   <div class="page">
 
-    <!-- 1. 頂端導航條 (明德里 ｜ 候選人 2 號章 ✕ 陳新昱 ✕ 里長候選人 ＋ 政策白皮書) -->
+    <!-- 1. 頂端導航條 (明德里里長候選人 ② 陳新昱 ｜ 政策白皮書，大字大氣展開、零折行) -->
     <div class="top-bar">
-      <div class="brand-logo-group">
-        <!-- 明德里品牌綠色音符徽章 -->
-        <div class="brand-music-badge" title="明德里 ✕ 生活美學與音樂藝術">
+      <div class="brand-candidate-group">
+        <!-- 綠色音符美化徽章 -->
+        <div class="brand-music-badge" title="生活美學與文化藝術">
           <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
             <path d="M 54 60 L 68 12" stroke="#ffffff" stroke-width="7" stroke-linecap="round"/>
             <path d="M 68 12 Q 86 16 96 30 Q 82 23 68 23 Z" fill="#ffffff"/>
@@ -621,42 +572,33 @@
             <circle cx="39" cy="67" r="23" fill="#ffffff"/>
           </svg>
         </div>
-        <div class="brand-text-main">明德里<span class="highlight-num">2.0</span></div>
-        <div class="brand-divider">｜</div>
+        <div class="top-title-main">明德里里長候選人</div>
         <!-- 抽籤號次 2 號章 -->
         <div class="top-candidate-badge" title="里長候選人 2 號">2</div>
-        <div class="brand-candidate-name">陳新昱</div>
-        <div class="brand-candidate-title">里長候選人</div>
+        <div class="candidate-name-main">陳新昱</div>
       </div>
-      <div class="top-policy-group">
-        <div class="top-policy-tag-wrap">
-          <div class="top-policy-label">政策白皮書</div>
-          <div class="top-policy-sub">預算透明 ✕ 法規具體</div>
-        </div>
-        <div class="top-qr-frame">
-          <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://a0987183520.github.io/web/"
-            alt="政策白皮書 QR Code">
-        </div>
-      </div>
+      <!-- 右側：政策白皮書 -->
+      <div class="top-whitepaper-tag">政策白皮書</div>
     </div>
 
-    <!-- 2. 戰略承諾橫幅 (雙行清晰宣示 ✕ 零多餘贅字) -->
+    <!-- 2. 戰略承諾橫幅 (大字填滿橫幅、清楚說明 88 萬基層款 + 專案補助、無空頭支票贅字) -->
     <div class="strategy-banner">
       <div class="banner-line-1">
-        每一分錢都有<span class="hl-gold">明確來源</span>，每一項承諾都有<span class="hl-green">實力兌現</span>！
+        <span>明德里每年 <span class="highlight-amount">88 萬基層款</span> 全額爭取到位</span>
+        <span>＋ 善用中央部會與新北市政府各項專案補助款</span>
       </div>
       <div class="banner-line-2">
-        88 萬基層款全額爭取 ✕ 善用中央市府專案補助 ✕ 嚴拒開立空頭支票
+        <span>每一分錢都有<span class="hl-gold">明確來源與專案預算</span></span>
+        <span>每一項承諾都有<span class="hl-green">充分能力與實踐依據</span>！</span>
       </div>
     </div>
 
-    <!-- 3. 9 大旗艦政見網格 (3 欄 x 3 列，空間充裕翻倍，大字級、無折行、副標突顯專案) -->
+    <!-- 3. 9 大旗艦政見網格 (3 欄 x 3 列，卡片式，由左至右、由上至下展開) -->
     <div class="grid-container">
 
-      <!-- 01 -->
+      <!-- 卡片 1 (草地音樂節) -->
       <div class="policy-detail-card">
         <div class="card-head">
-          <div class="card-num-badge">01</div>
           <div class="card-icon">
             <svg viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
           </div>
@@ -667,14 +609,13 @@
           <span class="budget-text">文化局社造專案（5~20萬）<span class="zero-cost">【零動用基層款】</span></span>
         </div>
         <div class="card-action-text">
-          春秋相約綠地野餐，<span class="hl-key">歌手木吉他現場彈唱</span>；穿插說故事志工與青年免抽成惜物市集，豐富社區休閒生活。
+          結合 20 年音樂人脈，邀集<strong>歌手木吉他現場彈唱</strong>；穿插說故事志工與青年免抽成文創市集，充實社區休閒活動。
         </div>
       </div>
 
-      <!-- 02 -->
+      <!-- 卡片 2 (手機共治) -->
       <div class="policy-detail-card">
         <div class="card-head">
-          <div class="card-num-badge">02</div>
           <div class="card-icon">
             <svg viewBox="0 0 24 24"><path d="M17 1.01L7 1c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99zM17 19H7V5h10v14z"/></svg>
           </div>
@@ -682,17 +623,16 @@
         </div>
         <div class="card-budget-bar">
           <span class="budget-icon">💰</span>
-          <span class="budget-text">工程師候選人自研里民作主App <span class="zero-cost">【零動用基層款】</span></span>
+          <span class="budget-text">工程師候選人自研里民App <span class="zero-cost">【零動用基層款】</span></span>
         </div>
         <div class="card-action-text">
-          首創<span class="hl-key">雲端里辦</span>，手機查報修繕；善用全里 20 個大型社區公設，下樓就能參加才藝與運動營，活動瞬間加倍。
+          首創<strong>雲端里辦</strong>隨手查報修繕進度；善用全里 20 個大型社區公設，下樓即能參加才藝與運動營，活動瞬間加倍。
         </div>
       </div>
 
-      <!-- 03 -->
+      <!-- 卡片 3 (防滑走廊) -->
       <div class="policy-detail-card">
         <div class="card-head">
-          <div class="card-num-badge">03</div>
           <div class="card-icon">
             <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
           </div>
@@ -700,17 +640,16 @@
         </div>
         <div class="card-budget-bar">
           <span class="budget-icon">💰</span>
-          <span class="budget-text">工務局騎樓整平款 ＋ 人本交通專案 ＋ 88萬基層款</span>
+          <span class="budget-text">工務局騎樓整平 ＋ 人本交通專案 ＋ 88萬款</span>
         </div>
         <div class="card-action-text">
-          主要通學騎樓鋪設<span class="hl-key">高摩擦防滑塗料</span>解雨天濕滑；守望巡守隊日夜守護學童，結合 App 即時排除破損死角。
+          主要通學騎樓鋪設<strong>高摩擦防滑塗料</strong>解決雨天濕滑；巡守隊日夜守護學童，結合 App 即時通報排除破損路面死角。
         </div>
       </div>
 
-      <!-- 04 -->
+      <!-- 卡片 4 (智慧交通) -->
       <div class="policy-detail-card">
         <div class="card-head">
-          <div class="card-num-badge">04</div>
           <div class="card-icon">
             <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 14h-2v-2h2v2zm0-4h-2V7h2v5z"/></svg>
           </div>
@@ -718,17 +657,16 @@
         </div>
         <div class="card-budget-bar">
           <span class="budget-icon">💰</span>
-          <span class="budget-text">交通局交控專案 ＋ 行人友善改善計畫 <span class="zero-cost">【零動用基層款】</span></span>
+          <span class="budget-text">交通局交控專案 ＋ 行人友善改善計畫 <span class="zero-cost">【零動用】</span></span>
         </div>
         <div class="card-action-text">
-          聚焦海山、學府到金城路口！爭取白天<span class="hl-key">行人專用時相</span>人車分流，以資工專業爭取全廊道動態綠波一路暢通。
+          聚焦海山、學府、金城路口！爭取白天<strong>行人專用時相</strong>落實人車分流，以資工專業爭取全廊道動態綠波一路暢通。
         </div>
       </div>
 
-      <!-- 05 -->
+      <!-- 卡片 5 (獨老雙老) -->
       <div class="policy-detail-card">
         <div class="card-head">
-          <div class="card-num-badge">05</div>
           <div class="card-icon">
             <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
           </div>
@@ -736,17 +674,16 @@
         </div>
         <div class="card-budget-bar">
           <span class="budget-icon">💰</span>
-          <span class="budget-text">衛福部 62.5 億獨老專案 ＋ 長照2.0專款 <span class="zero-cost">【零動用基層款】</span></span>
+          <span class="budget-text">衛福部 62.5 億獨老專案 ＋ 長照2.0專款 <span class="zero-cost">【零動用】</span></span>
         </div>
         <div class="card-action-text">
-          一人獨居或<span class="hl-key">雙老同住</span>皆可申請！代辦公費智慧緊急救援主機與防跌手環，結合專人送餐問安，守護長者安居。
+          一人獨居或<strong>雙老同住</strong>皆可申請！代辦公費智慧緊急救援主機與防跌手環，整合專人送餐問安，守護長者安居。
         </div>
       </div>
 
-      <!-- 06 -->
+      <!-- 卡片 6 (爬梯機) -->
       <div class="policy-detail-card">
         <div class="card-head">
-          <div class="card-num-badge">06</div>
           <div class="card-icon">
             <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14l-5-5 1.41-1.41L12 14.17l5.59-5.59L19 10l-7 7z"/></svg>
           </div>
@@ -754,17 +691,16 @@
         </div>
         <div class="card-budget-bar">
           <span class="budget-icon">💰</span>
-          <span class="budget-text">新北輔具資源中心 ＋ 衛生局長照交通專款 <span class="zero-cost">【零動用基層款】</span></span>
+          <span class="budget-text">新北輔具資源中心 ＋ 衛生局交通專款 <span class="zero-cost">【零動用】</span></span>
         </div>
         <div class="card-action-text">
-          無電梯老公寓長輩救星！媒合專人專車提供<span class="hl-key">公費爬梯機上下樓</span>服務，對接長照交通車，打破就醫階梯障礙。
+          無電梯老公寓長輩救星！媒合專人專車提供<strong>公費爬梯機上下樓</strong>服務，對接長照交通車，打破就醫階梯障礙。
         </div>
       </div>
 
-      <!-- 07 -->
+      <!-- 卡片 7 (AI預防失智) -->
       <div class="policy-detail-card">
         <div class="card-head">
-          <div class="card-num-badge">07</div>
           <div class="card-icon">
             <svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
           </div>
@@ -772,17 +708,16 @@
         </div>
         <div class="card-budget-bar">
           <span class="budget-icon">💰</span>
-          <span class="budget-text">社會局長青樂活專案 ＋ 醫療科技企業公益合作 <span class="zero-cost">【零動用】</span></span>
+          <span class="budget-text">社會局長青樂活案 ＋ 醫療科技企業公益 <span class="zero-cost">【零動用】</span></span>
         </div>
         <div class="card-action-text">
-          導入平價平易的<span class="hl-key">AI 趣味腦力鍛鍊</span>；長輩透過手機即時量測血壓心率並自動連線家屬，異常即時通報心血管。
+          導入平價平易的<strong>AI 趣味腦力鍛鍊</strong>；長輩透過手機即時量測血壓心率並自動連線家屬，異常即刻通報守護心血管。
         </div>
       </div>
 
-      <!-- 08 -->
+      <!-- 卡片 8 (親子共學) -->
       <div class="policy-detail-card">
         <div class="card-head">
-          <div class="card-num-badge">08</div>
           <div class="card-icon">
             <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
           </div>
@@ -790,17 +725,16 @@
         </div>
         <div class="card-budget-bar">
           <span class="budget-icon">💰</span>
-          <span class="budget-text">教育局親職教育補助款 ＋ 志工自籌資源 <span class="zero-cost">【零動用基層款】</span></span>
+          <span class="budget-text">教育局親職教育補助款 ＋ 志工自籌資源 <span class="zero-cost">【零動用】</span></span>
         </div>
         <div class="card-action-text">
-          深耕 8 年 70 位志工團隊經驗！常態舉辦<span class="hl-key">品格 EQ 親子營</span>與繪本巡迴走讀，陪伴家長化解育兒教養焦慮。
+          深耕 8 年 70 位志工團隊經驗！常態舉辦<strong>品格 EQ 親子營</strong>與繪本巡迴走讀，陪伴家長化解育兒教養焦慮。
         </div>
       </div>
 
-      <!-- 09 -->
+      <!-- 卡片 9 (法律諮詢) -->
       <div class="policy-detail-card">
         <div class="card-head">
-          <div class="card-num-badge">09</div>
           <div class="card-icon">
             <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
           </div>
@@ -811,7 +745,7 @@
           <span class="budget-text">區公所調解委員會體系 ＋ 志工律師團隊義務諮詢</span>
         </div>
         <div class="card-action-text">
-          組建律師與建築顧問團，定期駐點提供<span class="hl-key">房屋漏水、租賃、繼承法務</span>義務諮詢，用專業化解鄰里糾紛。
+          組建律師與建築顧問團，定期駐點提供<strong>房屋漏水、租賃、繼承法務</strong>義務諮詢，用專業化解鄰里糾紛。
         </div>
       </div>
 
