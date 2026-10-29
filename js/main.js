@@ -327,7 +327,7 @@ const POLICIES_DATA = [
             "為長輩舉辦同理傾聽茶會，<span class=\"hl-keyword\">解開積壓心結，拉近跨世代距離</span>。",
             "整合市府補助與基層款擴增場次，<span class=\"hl-keyword\">巡迴 21 個社區交誼廳開辦研習營，下樓就能免費體驗</span>。",
         ],
-        whyPossible: "我具備 <span class=\"hl-keyword\">8 年 EQ 講師資歷與 7 套專業證照</span>，每年帶領 <span class=\"hl-keyword\">70 位志工夥伴</span>；我自備完整教材與專業師資庫，將最好的資源直接回饋明德里！"
+        whyPossible: "我具備 <span class=\"hl-keyword\">8 年 EQ 講師資歷與 7 套專業證照</span>，每年攜手 <span class=\"hl-keyword\">70 位志工夥伴</span>；我自備完整教材與專業師資庫，將最好的資源直接回饋明德里！"
     },
     {
         id: 15,
