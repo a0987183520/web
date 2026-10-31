@@ -96,7 +96,7 @@ const POLICIES_DATA = [
         categoryName: "人本交通與智慧安防",
         title: "智慧交通號誌 ＋ 解決塞車問題",
         subtitle: "海山、學府、學士路口<span class=\"hl-subtitle-green\">紅綠燈不同步</span>，爭取<span class=\"hl-subtitle-green\">動態綠波</span>與<span class=\"hl-subtitle-green\">行人專用時相</span>，告別塞車！",
-        image: "images/policy_04_traffic.png?v=57.17",
+        image: "images/policy_04_traffic.png?v=58.01",
         budgetSource: "交通局交控專案 ＋ 行人友善改善計畫",
         budgetSub: "<span class=\"hl-keyword\">完全不會動用</span>明德里 88 萬基層款",
         budgetDesc: "",
