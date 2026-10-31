@@ -1148,15 +1148,15 @@ nav {
         margin-top: -3px;
     }
     .hero-stamp-label-wrap {
-        margin-bottom: 6px;
-        padding: 6px 10px;
+        margin-bottom: 5px;
+        padding: 5px 9px;
         border-radius: 8px;
     }
     .hero-stamp-label-wrap .stamp-label-sub {
-        font-size: 34px;
+        font-size: 28px;
     }
     .hero-stamp-label-wrap .stamp-label-title {
-        font-size: 30px;
+        font-size: 25px;
     }
 }
 
@@ -1164,7 +1164,7 @@ nav {
     .hero-candidate-stamp-group {
         bottom: 10px;
         left: 10px;
-        gap: 7px;
+        gap: 6px;
     }
     .hero-number-circle {
         width: 90px;
@@ -1177,15 +1177,15 @@ nav {
         margin-top: -3px;
     }
     .hero-stamp-label-wrap {
-        margin-bottom: 5px;
-        padding: 6px 10px;
+        margin-bottom: 4px;
+        padding: 4px 8px;
         border-radius: 7px;
     }
     .hero-stamp-label-wrap .stamp-label-sub {
-        font-size: 32.5px;
+        font-size: 26px;
     }
     .hero-stamp-label-wrap .stamp-label-title {
-        font-size: 28.75px;
+        font-size: 23px;
     }
 }
 
