@@ -226,6 +226,28 @@ nav {
     text-shadow: 0 0 12px rgba(217, 119, 6, 0.3);
 }
 
+.candidate-number-circle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: #ffffff;
+    border: 2px solid #dc2626;
+    outline: 1.5px solid #fbbf24;
+    color: #dc2626;
+    font-size: 20px;
+    font-weight: 900;
+    line-height: 1;
+    font-family: 'Outfit', -apple-system, sans-serif;
+    letter-spacing: -0.5px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4), 0 0 8px rgba(251, 191, 36, 0.4);
+    flex-shrink: 0;
+    margin: 0 0.15rem;
+    padding-bottom: 1px;
+}
+
 .candidate-title {
     font-size: 1.85rem;
     font-weight: 900;
@@ -2102,8 +2124,16 @@ footer {
     .candidate-name {
         font-size: 1.4rem;
     }
+    .candidate-number-circle {
+        width: 22px;
+        height: 22px;
+        font-size: 15px;
+        border-width: 1.6px;
+        outline-width: 1px;
+        margin: 0 0.1rem;
+    }
     .candidate-title {
-        font-size: 0.92rem;
+        font-size: 1.4rem;
     }
     header {
         position: fixed;
@@ -6845,6 +6875,14 @@ html.is-pwa-standalone #btn-footer-install {
     }
     .candidate-name {
         font-size: 1.35rem;
+    }
+    .candidate-number-circle {
+        width: 20px;
+        height: 20px;
+        font-size: 14px;
+        border-width: 1.5px;
+        outline-width: 1px;
+        margin: 0 0.1rem;
     }
     .candidate-title {
         font-size: 1.35rem;
