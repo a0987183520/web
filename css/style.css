@@ -1149,14 +1149,14 @@ nav {
     }
     .hero-stamp-label-wrap {
         margin-bottom: 5px;
-        padding: 5px 9px;
+        padding: 5px 8px;
         border-radius: 8px;
     }
     .hero-stamp-label-wrap .stamp-label-sub {
-        font-size: 28px;
+        font-size: 22px;
     }
     .hero-stamp-label-wrap .stamp-label-title {
-        font-size: 25px;
+        font-size: 19.5px;
     }
 }
 
@@ -1178,14 +1178,14 @@ nav {
     }
     .hero-stamp-label-wrap {
         margin-bottom: 4px;
-        padding: 4px 8px;
-        border-radius: 7px;
+        padding: 4px 7px;
+        border-radius: 6px;
     }
     .hero-stamp-label-wrap .stamp-label-sub {
-        font-size: 26px;
+        font-size: 19.5px;
     }
     .hero-stamp-label-wrap .stamp-label-title {
-        font-size: 23px;
+        font-size: 17.5px;
     }
 }
 
