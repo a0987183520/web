@@ -97,17 +97,18 @@ const POLICIES_DATA = [
         title: "智慧交通號誌 ＋ 解決塞車問題",
         subtitle: "海山、學府、學士路口<span class=\"hl-subtitle-green\">紅綠燈不同步</span>，爭取<span class=\"hl-subtitle-green\">動態綠波</span>與<span class=\"hl-subtitle-green\">行人專用時相</span>，告別塞車！",
         image: "images/policy_04_traffic.png?v=58.03",
+        sectionOrder: "innovation-first",
         budgetSource: "交通局交控專案 ＋ 行人友善改善計畫",
         budgetSub: "<span class=\"hl-keyword\">完全不會動用</span>明德里 88 萬基層款",
-        budgetDesc: "",
+        budgetDesc: "🤝 此政見也適用其他繁忙地區的路口",
         highlight: "聚焦海山路、學府路、學士路到金城路塞車痛點！爭取學府明德與海山明德路口白天行人專用時相，運用資工專長向交通局爭取全廊道動態綠波，直行綠燈同步，告別塞車！",
         icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"></polygon><line x1="9" y1="3" x2="9" y2="18"></line><line x1="15" y1="6" x2="15" y2="21"></line></svg>`,
         hooks: [
             "你是否被<span class=\"hl-keyword\">海山、學府、學士到金城路口</span>，<span class=\"hl-keyword\">塞車塞到懷疑人生</span>？<br>轉彎車<span class=\"hl-keyword\">怕科技執法開罰</span>，停讓斑馬線；但行人一個接一個走不完，整段綠燈轉彎車動彈不得，<span class=\"hl-keyword\">連帶後方直行車全被堵死</span>！燈號一變，卡在路口的車又擋住橫向車道，全路口連環大打結！"
         ],
         howToDo: [
-            "落實人車分流：<br>・「海山與明德路口」增加白天行人專用時相<br>・「學府與明德路口」延長行人專用時段至 07:00～22:00<br>・<strong>行人綠燈時</strong>：四向車輛全停，長輩小孩安心大步走、一次走完！<br>・<strong>行車綠燈時</strong>：斑馬線完全淨空，轉彎車順暢過、不再卡在路中央！",
-            "同時建置<span class=\"hl-keyword\">全廊道動態綠波</span>，直行一路綠燈暢通！"
+            "落實人車分流：<br>・「海山與明德路口」增加白天行人專用時相<br>・「學府與明德路口」延長行人專用時段至 07:00～22:00<br>✔ <strong>行人綠燈時</strong>：四向車輛全停，長輩小孩安心大步走、一次走完！<br>✔ <strong>行車綠燈時</strong>：斑馬線完全淨空，轉彎車順暢過、不再卡在路中央！",
+            "✔ 同時也要建置<span class=\"hl-keyword\">全廊道動態綠波</span>，直行一路綠燈暢通！"
         ],
         whyPossible: "以我<span class=\"hl-keyword\">資工與橫向溝通專長</span>，向交通局爭取會勘，<span class=\"hl-keyword\">精準解讀車流量與號誌週期邏輯</span>！"
     },
