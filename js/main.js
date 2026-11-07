@@ -51,22 +51,24 @@ const POLICIES_DATA = [
     {
         id: 2,
         title: "里民手機共治 ＋ 社區平行微活動",
-        subtitle: "首創<span class=\"hl-subtitle-green\">雲端里辦</span>，手機就能反映問題，報名活動，監督預算，下樓就能參與活動",
+        subtitle: "首創<span class=\"hl-subtitle-green\">雲端里辦與線上會勘</span>，手機追蹤進度、重大交通進度全透明、活動下樓就能參與！",
         image: "images/policy_02_clubhouse_stem.jpg",
         sectionOrder: "innovation-first",
         budgetSource: "我自己開發<span class=\"hl-keyword\">里民作主 App</span>",
         budgetSub: "<span class=\"hl-keyword\">完全不會動用</span>明德里 88 萬基層款",
         budgetDesc: "不用爭奪活動中心，多社區舉辦不同微活動，人少也有成班的機會",
-        highlight: "首創社區平行微活動！善用明德里 20 個大型社區公設，下樓就能參加，活動瞬間加倍，不用爭奪活動中心，手機作主你來點、我來辦！",
+        highlight: "首創雲端里辦與社區平行微活動！上班族平日免請假，手機即時追蹤重大交通會勘與公文進度；善用社區公設下樓就辦活動，資訊全透明、里政大家做主！",
         icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>`,
         hookTitle: "創新",
         hooks: [
-            "<span class=\"hl-keyword\">試想你下樓就可以參加你想要的活動...</span><br>我們明德里是由 20 個大型社區所組成，我會主動與各管委會討論<span class=\"hl-keyword\">善用公設空間給住戶使用</span>，活動加倍，大家與長輩更便捷！"
+            "明德里由 20 個大型社區組成，多數里民都是忙碌的上班族，<span class=\"hl-keyword\">平日白天根本無法請假參加公部門會勘</span>！每天面對明德路二段塞車、紅綠燈不同步、路口行人時相不足，卻不知道官方到底會勘了沒、處理進度為何，資訊完全黑箱！",
+            "<span class=\"hl-keyword\">試想你只要打開手機，隨時就能追蹤會勘進度</span>；下樓還能直接參加專屬活動，這才是現代化的智慧社區！"
         ],
         howToDo: [
-            "<span class=\"hl-keyword\">想要什麼活動、你做主</span>，手機簡單提案，隨時可報名，熱門先辦，告別一言堂的黑箱蚊子活動！"
+            "✔ <span class=\"hl-keyword\">雲端里辦 ✕ 線上會勘透明化</span>：所有公部門會勘紀錄、官方公文回函與改善進度（包含明德路二段紅綠燈連鎖同步、明德海山路口增設行人時相、明德學府路口延長行人時相至 07:00~22:00 等重大交通案）全數公開上網，上班族 24 小時用手機就能精確追蹤，告別公文互踢皮球與石沉大海！",
+            "✔ <span class=\"hl-keyword\">社區平行微活動</span>：想要什麼活動由你手機做主，善用各社區現成公設空間，下樓就能報名參加，告別單一活動中心排隊爭奪！"
         ],
-        whyPossible: "<span class=\"hl-keyword\">你點得出，我就辦得出</span>，我曾舉辦過直排輪、桌球、學生與長輩無人機入門、EQ親子營、手機 AI 短劇製作、長輩血壓AI管理、AI 家教與AI程式開發...等<span class=\"hl-keyword\">十餘種體驗營經驗</span>，<span class=\"hl-keyword\">我知道哪裡有經費，我會寫企劃案</span>！"
+        whyPossible: "我有 <span class=\"hl-keyword\">30 年科技系統開發與企業專案管理資歷</span>，自主打造雲端里辦追蹤架構，<span class=\"hl-keyword\">完全不花里內 88 萬公帑</span>！懂科技、懂管理、會寫企劃案，讓里政資訊透明攤在陽光下！"
     },
     {
         id: 3,
