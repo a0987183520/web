@@ -142,20 +142,20 @@ const POLICIES_DATA = [
         category: "governance",
         categoryName: "專業治理與精準服務",
         title: "獨老或雙老暖心居家照護",
-        subtitle: "對接<span class=\"hl-subtitle-green\">衛福部 62.5 億專案</span>，獨老與雙老同住皆可申請！建立 24 小時公費防跌守護網，為三明治世代守住全家平安！",
+        subtitle: "對接<span class=\"hl-subtitle-green\">衛福部長照與在宅安居專案</span>，協助獨老申辦緊急救援系統，引導雙老對接長照 2.0，守護全家平安！",
         image: "images/policy_06_health.png?v=25.09",
         badgePosition: "bottom-left",
         budgetSource: "衛福部 62.5 億獨老專案 ＋ 長照 2.0 專款",
         budgetSub: "<span class=\"hl-keyword\">完全不會動用</span>明德里 88 萬基層款",
-        budgetDesc: "你知道嗎？年滿 65 歲以上<span class=\"hl-keyword\">雙老同住</span>，經評估也符合中央專案<span class=\"hl-keyword\">公費補助資格</span>，守護您家長輩的安全。",
-        highlight: "對接衛福部 62.5 億在宅安居專案！一人獨居或雙老同住皆可申請，爭取公費智慧緊急救援主機與自動防跌手環，結合專人送餐與長照代辦，守護長青安居。",
+        budgetDesc: "你知道嗎？除了列冊獨居長輩可依規定申辦緊急救援設備外，針對<span class=\"hl-keyword\">雙老同住家庭</span>，更可全面對接<span class=\"hl-keyword\">長照 2.0 居家照護與喘息服務</span>，守護您家長輩的安全。",
+        highlight: "對接衛福部長照 2.0 與在宅專案！依資格協助獨老申請緊急救援防護設備，雙老家庭全面對接居家照顧、送餐與陪醫喘息，守護長青安居。",
         icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>`,
         hooks: [
             "子女在外打拼，最牽掛家中長輩<span class=\"hl-keyword\">突發急病或跌倒</span>；政府編列超過 <span class=\"hl-keyword\">62.5 億專款</span>，卻常因行政門檻鮮為人知。<span class=\"hl-keyword\">我將協助將資源主動送到家</span>，讓晚輩安心！"
         ],
         howToDo: [
-            "結合社政專案提供高風險長輩<span class=\"hl-keyword\">每日送餐與物資</span>，藉送餐，<span class=\"hl-keyword\">掌握長輩安危</span>。",
-            "協助獨老與雙老家庭申請<span class=\"hl-keyword\">智慧緊急救援主機與自動防跌手環</span>，<span class=\"hl-keyword\">跌倒自動通報直連 119 與守護中心</span>！",
+            "結合社福與長照專案提供高風險長輩<span class=\"hl-keyword\">每日送餐與關懷訪視</span>，藉由定時送餐，<span class=\"hl-keyword\">即時掌握長輩安危</span>。",
+            "協助符合資格之獨居長輩申辦<span class=\"hl-keyword\">緊急救援系統與守護設備</span>，遇突發狀況可即時求援直連中心；雙老家庭則全面引導至<span class=\"hl-keyword\">長照 2.0 居家照顧</span>！",
             "針對有日常照顧需求的長輩，主動協助對接<span class=\"hl-keyword\">長照 2.0 居家照顧</span>，包含到府置藥、用藥、陪伴聊天、陪同就醫等 <span class=\"hl-keyword\">36 項貼心服務與喘息服務</span>，<span class=\"hl-keyword\">陪伴三明治世代走出照顧焦慮與疲憊</span>。"
         ],
         whyPossible: "我深諳<span class=\"hl-keyword\">社福、衛政補助法規與公文流程</span>；知道如何簡化申請，<span class=\"hl-keyword\">將國家級長照專款精準對接給各位</span>。"
