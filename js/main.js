@@ -2548,6 +2548,7 @@ function initHashAnchorNavigation() {
     const hash = window.location.hash;
     if (hash === '#podcast' || hash === '#podcast-showcase') {
         setTimeout(() => {
+            if (typeof openPodcastDetails === 'function') openPodcastDetails();
             const target = document.getElementById('podcast-showcase');
             if (target) {
                 target.scrollIntoView({ behavior: 'smooth', block: 'center' });
@@ -2817,10 +2818,46 @@ updatePWAInstallVisibility();
 window.addEventListener('DOMContentLoaded', updatePWAInstallVisibility);
 
 // ==========================================================================
-// 政策影音與 Podcast 播放燈箱控制器 (Policy Video & Podcast Modal Controller)
+// 政策影音與 Podcast 抽屜播放燈箱控制器 (Policy Video & Podcast Modal Controller)
 // ==========================================================================
 let currentVideoPolicyId = 1;
 let currentVideoEpNum = 1;
+let podcastTriggerScrollY = 0;
+
+function openPodcastDetails() {
+    // 記錄展開前精準視窗滾動座標
+    podcastTriggerScrollY = window.scrollY;
+    const toggleWrap = document.getElementById('podcast-toggle-wrapper');
+    const content = document.getElementById('podcast-collapsible-content');
+    if (toggleWrap) toggleWrap.style.display = 'none';
+    if (content) content.classList.add('active');
+}
+
+function closePodcastDetails() {
+    const toggleWrap = document.getElementById('podcast-toggle-wrapper');
+    const content = document.getElementById('podcast-collapsible-content');
+    const showcase = document.getElementById('podcast-showcase');
+    const openBtn = document.getElementById('btn-podcast-open');
+
+    if (content) {
+        content.classList.remove('active');
+    }
+    if (toggleWrap) toggleWrap.style.display = 'flex';
+
+    // 視線與焦點精準平滑回到下拉前的位置，徹底防止突兀跳躍
+    if (showcase) {
+        const rect = showcase.getBoundingClientRect();
+        const headerOffset = 95;
+        const targetY = window.scrollY + rect.top - headerOffset;
+        window.scrollTo({ top: Math.max(0, targetY), behavior: 'smooth' });
+    } else if (podcastTriggerScrollY) {
+        window.scrollTo({ top: podcastTriggerScrollY, behavior: 'smooth' });
+    }
+
+    if (openBtn) {
+        try { openBtn.focus({ preventScroll: true }); } catch (e) {}
+    }
+}
 
 function renderPodcastShowcase() {
     const grid = document.getElementById('podcast-episodes-grid');
@@ -2828,33 +2865,25 @@ function renderPodcastShowcase() {
 
     grid.innerHTML = PODCAST_EPISODES.map(ep => {
         const isReady = ep.status === 'ready';
-        const tagClass = isReady ? 'ep-tag-live' : 'ep-tag-soon';
         const actionBtnHtml = isReady 
-            ? `<button type="button" class="btn-podcast-play" onclick="openPolicyVideoModal(event, '${ep.videoId}', '《明德里會客室 EP.0${ep.ep}》${ep.title}', ${ep.ep}, ${ep.policyId})" title="立即收聽 EP.0${ep.ep} ${ep.title}">
+            ? `<button type="button" class="btn-podcast-play" onclick="openPolicyVideoModal(event, '${ep.videoId}', '《明德里會客室 EP.${ep.ep}》${ep.title}', ${ep.ep}, ${ep.policyId})" title="立即收聽 EP.${ep.ep} ${ep.title}">
                 <span class="play-icon-triangle">▶</span>
                 <span>立即收聽</span>
                </button>`
-            : `<button type="button" class="btn-podcast-play btn-podcast-soon" onclick="showPodcastComingSoon(event, '${ep.title}')" title="錄製後製中，敬請期待">
-                <span>⏳ 敬請期待</span>
+            : `<button type="button" class="btn-podcast-play btn-podcast-soon" onclick="showPodcastComingSoon(event, '${ep.title}')" title="敬請期待">
+                <span>敬請期待</span>
                </button>`;
 
         return `
             <div class="podcast-ep-card ${!isReady ? 'is-coming-soon' : ''}">
                 <div class="podcast-card-top">
-                    <span class="ep-num-pill">EP.0${ep.ep}</span>
-                    <span class="ep-status-pill ${tagClass}">${ep.tag}</span>
+                    <span class="ep-num-pill">EP.${ep.ep}</span>
                 </div>
                 <div class="podcast-card-body">
                     <h4 class="ep-title">${ep.title}</h4>
-                    <p class="ep-subtitle">${ep.subtitle}</p>
-                    <p class="ep-desc">${ep.desc}</p>
                 </div>
                 <div class="podcast-card-footer">
                     ${actionBtnHtml}
-                    <button type="button" class="btn-podcast-policy" onclick="openDrawer(${ep.policyId})" title="查看「${ep.title}」白皮書細節">
-                        <span>看政見</span>
-                        <span class="btn-arrow">→</span>
-                    </button>
                 </div>
             </div>
         `;
@@ -2866,7 +2895,7 @@ function showPodcastComingSoon(e, title) {
         e.stopPropagation();
         e.preventDefault();
     }
-    alert(`《明德里會客室 EP.04》${title || 'EQ情緒教育'}\n目前正在緊鑼密鼓錄音與後製剪輯中，即將熱騰騰上架，敬請期待！`);
+    alert(`《明德里會客室 EP.4》${title || 'EQ情緒教育'}\n目前正在緊鑼密鼓錄音與後製剪輯中，即將熱騰騰上架，敬請期待！`);
 }
 
 function switchModalEpisode(epNum) {
@@ -2876,7 +2905,7 @@ function switchModalEpisode(epNum) {
         showPodcastComingSoon(null, ep.title);
         return;
     }
-    openPolicyVideoModal(null, ep.videoId, `《明德里會客室 EP.0${ep.ep}》${ep.title}`, ep.ep, ep.policyId);
+    openPolicyVideoModal(null, ep.videoId, `《明德里會客室 EP.${ep.ep}》${ep.title}`, ep.ep, ep.policyId);
 }
 
 function renderModalPlaylist(activeEpNum) {
@@ -2889,11 +2918,11 @@ function renderModalPlaylist(activeEpNum) {
         return `
             <button type="button" class="playlist-ep-tab ${isActive ? 'active' : ''} ${!isReady ? 'disabled' : ''}" 
                 onclick="switchModalEpisode(${ep.ep})" 
-                title="${isReady ? '切換至 EP.0' + ep.ep + ' ' + ep.title : '即將上架'}">
-                <span class="tab-ep-badge">EP.0${ep.ep}</span>
+                title="${isReady ? '切換至 EP.' + ep.ep + ' ' + ep.title : '敬請期待'}">
+                <span class="tab-ep-badge">EP.${ep.ep}</span>
                 <span class="tab-ep-title">${ep.title}</span>
                 ${isActive ? '<span class="tab-now-playing">● 播放中</span>' : ''}
-                ${!isReady ? '<span class="tab-soon-label">即將上線</span>' : ''}
+                ${!isReady ? '<span class="tab-soon-label">敬請期待</span>' : ''}
             </button>
         `;
     }).join('');
@@ -2916,10 +2945,10 @@ function openPolicyVideoModal(e, videoId, title, epNum = 1, policyId = 1) {
     if (!backdrop || !modal || !iframe) return;
 
     if (tagEl) {
-        tagEl.textContent = `🎙️ 明德里會客室${epNum ? ' EP.0' + epNum : ''}`;
+        tagEl.textContent = `🎙️ 明德里會客室${epNum ? ' EP.' + epNum : ''}`;
     }
     if (titleEl) {
-        titleEl.textContent = title || `《明德里會客室 EP.0${epNum}》政策專題`;
+        titleEl.textContent = title || `《明德里會客室 EP.${epNum}》政策專題`;
     }
     if (drawerBtn) {
         const targetPolicy = POLICIES_DATA.find(p => p.id === policyId);
