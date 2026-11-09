@@ -26,6 +26,56 @@ try {
 const VOTE_COOLDOWN_MS = 60 * 60 * 1000; // 1 小時防刷冷卻
 let pendingVotePolicyId = null;
 
+// ==========================================================================
+// 明德里會客室 Podcast 官方專輯資料庫 (Podcast Master Data)
+// ==========================================================================
+const PODCAST_EPISODES = [
+    {
+        ep: 1,
+        title: "草地音樂節",
+        subtitle: "一把吉他與野餐墊的草地浪漫",
+        videoId: "QSrbRYbfua4",
+        policyId: 1,
+        status: "ready",
+        tag: "熱播中",
+        duration: "05:20",
+        desc: "邀請歌手吉他彈唱互動，春秋兩季相約草地野餐，用音樂找回鄰居的溫暖連結！"
+    },
+    {
+        ep: 2,
+        title: "獨老雙老照護",
+        subtitle: "對接長照專款，守護長輩安全",
+        videoId: "9RAHDzaFu3M",
+        policyId: 6,
+        status: "ready",
+        tag: "熱播中",
+        duration: "06:15",
+        desc: "對接衛福部長照與在宅安居專案，協助獨老緊急救援，引導雙老安心在宅！"
+    },
+    {
+        ep: 3,
+        title: "防滑通學安全",
+        subtitle: "下雨天騎樓不打滑，學童安全通學",
+        videoId: "kCcu_xdjKvM",
+        policyId: 3,
+        status: "ready",
+        tag: "熱播中",
+        duration: "04:48",
+        desc: "騎樓防滑噴砂或防滑貼條體檢，巡守升級守護學童上下學步行安全！"
+    },
+    {
+        ep: 4,
+        title: "EQ情緒教育",
+        subtitle: "8年志工故事爸爸，打造高EQ社區",
+        videoId: "",
+        policyId: 14,
+        status: "coming_soon",
+        tag: "敬請期待",
+        duration: "即將上線",
+        desc: "每季開辦免費 EQ 情緒教育系列專題，化解跨代衝突與鄰里摩擦！"
+    }
+];
+
 const POLICIES_DATA = [
     {
         id: 1,
@@ -816,21 +866,46 @@ function renderPolicies() {
                     <div class="slider-button" id="card-slider-button-3"></div>
                     <span class="slider-label slider-label-before">改建願景</span>
                     <span class="slider-label slider-label-after">現況實景</span>
+                    <button type="button" class="card-video-play-btn" style="bottom: 12px; right: 12px;" onclick="openPolicyVideoModal(event, 'kCcu_xdjKvM', '《明德里會客室 EP.03》防滑通學安全', 3, 3)" title="點擊收聽《明德里會客室 EP.03》">
+                        <span class="play-btn-icon-wrap">
+                            <span class="play-pulse-ring"></span>
+                            <svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor">
+                                <path d="M8 5v14l11-7z"/>
+                            </svg>
+                        </span>
+                        <span class="play-btn-text">🎙️ 聽 EP.03</span>
+                    </button>
                 </div>
             `;
         } else {
             const badgeClass = policy.badgePosition ? `vision-badge vision-badge-${policy.badgePosition}` : 'vision-badge';
-            const videoBtnHtml = policy.id === 14 ? `
-                <button type="button" class="card-video-play-btn" onclick="openPolicyVideoModal(event, 'quGLo4wa1wU', '政見 14 Podcast：訪談 EQ 爸爸的 8 年經歷', '', 14)" title="點擊觀看專訪 EQ 爸爸">
-                    <span class="play-btn-icon-wrap">
-                        <span class="play-pulse-ring"></span>
-                        <svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor">
-                            <path d="M8 5v14l11-7z"/>
-                        </svg>
-                    </span>
-                    <span class="play-btn-text">專訪 EQ 爸爸</span>
-                </button>
-            ` : '';
+            const epInfo = PODCAST_EPISODES.find(ep => ep.policyId === policy.id);
+            let videoBtnHtml = '';
+            if (epInfo) {
+                if (epInfo.status === 'ready') {
+                    videoBtnHtml = `
+                        <button type="button" class="card-video-play-btn" onclick="openPolicyVideoModal(event, '${epInfo.videoId}', '《明德里會客室 EP.0${epInfo.ep}》${epInfo.title}', ${epInfo.ep}, ${epInfo.policyId})" title="點擊收聽《明德里會客室 EP.0${epInfo.ep}》">
+                            <span class="play-btn-icon-wrap">
+                                <span class="play-pulse-ring"></span>
+                                <svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor">
+                                    <path d="M8 5v14l11-7z"/>
+                                </svg>
+                            </span>
+                            <span class="play-btn-text">🎙️ 聽 EP.0${epInfo.ep}</span>
+                        </button>
+                    `;
+                } else {
+                    videoBtnHtml = `
+                        <button type="button" class="card-video-play-btn coming-soon-btn" onclick="showPodcastComingSoon(event, '${epInfo.title}')" title="EP.0${epInfo.ep} 錄製後製中，即將上架">
+                            <span class="play-btn-icon-wrap">
+                                <span class="play-pulse-ring coming-ring"></span>
+                                <span style="font-size: 11px;">⏳</span>
+                            </span>
+                            <span class="play-btn-text">EP.0${epInfo.ep} 即將上線</span>
+                        </button>
+                    `;
+                }
+            }
             imageHtml = `
                 <img class="policy-card-image" src="${policy.image}" alt="${policy.title} - 概念示意圖" onerror="this.style.display='none'; if(this.nextElementSibling) this.nextElementSibling.style.display='none'; this.parentElement.querySelector('.policy-card-image-placeholder').style.display='flex';">
                 <span class="${badgeClass}">概念示意圖</span>
@@ -1021,8 +1096,43 @@ function openDrawer(policyId) {
     // Populate drawer image
     const drawerImgWrapper = document.getElementById('drawer-image-wrapper');
     if (drawerImgWrapper) {
-        // 如果是計畫 14 (EQ教育)，左欄頂部置頂渲染 16:9 YouTube 影音播放器，下方接概念圖
-        if (policy.id === 14) {
+        // 如果是計畫 01 (草地音樂節)，左欄頂部置頂渲染 16:9 YouTube 影音播放器，下方接概念圖
+        if (policy.id === 1) {
+            drawerImgWrapper.style.display = 'block';
+            drawerImgWrapper.innerHTML = `
+                <div class="drawer-video-card" style="margin-bottom: 1.5rem;">
+                    <div class="drawer-video-card-header">
+                        <span class="drawer-video-tag">🎙️ 明德里會客室 EP.01</span>
+                        <span class="drawer-video-title">草地音樂節・一把吉他與野餐墊的浪漫</span>
+                    </div>
+                    <div class="drawer-video-wrap">
+                        <iframe src="https://www.youtube-nocookie.com/embed/QSrbRYbfua4?rel=0" title="民歌Live草地音樂節" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    </div>
+                </div>
+                <div style="position: relative; border-radius: 16px; overflow: hidden; border: 1px solid var(--card-border);">
+                    <img class="drawer-image" src="${policy.image}" alt="${policy.title} - 概念示意圖">
+                    <span class="vision-badge">概念示意圖</span>
+                </div>
+            `;
+        } else if (policy.id === 6) {
+            // 如果是計畫 06 (獨老照護)，左欄頂部置頂渲染 16:9 YouTube 影音播放器，下方接概念圖
+            drawerImgWrapper.style.display = 'block';
+            drawerImgWrapper.innerHTML = `
+                <div class="drawer-video-card" style="margin-bottom: 1.5rem;">
+                    <div class="drawer-video-card-header">
+                        <span class="drawer-video-tag">🎙️ 明德里會客室 EP.02</span>
+                        <span class="drawer-video-title">獨老雙老照護・對接衛福部長照在宅安居</span>
+                    </div>
+                    <div class="drawer-video-wrap">
+                        <iframe src="https://www.youtube-nocookie.com/embed/9RAHDzaFu3M?rel=0" title="獨老雙老居家照護" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    </div>
+                </div>
+                <div style="position: relative; border-radius: 16px; overflow: hidden; border: 1px solid var(--card-border);">
+                    <img class="drawer-image" src="${policy.image}" alt="${policy.title} - 概念示意圖">
+                    <span class="vision-badge">概念示意圖</span>
+                </div>
+            `;
+        } else if (policy.id === 14) {
             drawerImgWrapper.style.display = 'block';
             drawerImgWrapper.innerHTML = `
                 <div class="drawer-video-card" style="margin-bottom: 1.5rem;">
@@ -1058,9 +1168,18 @@ function openDrawer(policyId) {
                 </div>
             `;
         } else if (policy.id === 3) {
-            // 如果是計畫 03 (友善步道)，渲染 Before/After 拖拽對比滑塊
+            // 如果是計畫 03 (友善步道)，渲染 Before/After 拖拽對比滑塊 ＋ YouTube 影音卡片
             drawerImgWrapper.style.display = 'block';
             drawerImgWrapper.innerHTML = `
+                <div class="drawer-video-card" style="margin-bottom: 1.5rem;">
+                    <div class="drawer-video-card-header">
+                        <span class="drawer-video-tag">🎙️ 明德里會客室 EP.03</span>
+                        <span class="drawer-video-title">防滑通學安全・通學步道升級與騎樓體檢</span>
+                    </div>
+                    <div class="drawer-video-wrap">
+                        <iframe src="https://www.youtube-nocookie.com/embed/kCcu_xdjKvM?rel=0" title="防滑走廊與通學安全" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    </div>
+                </div>
                 <div class="before-after-slider">
                     <div class="slider-image-before">
                         <img src="images/policy_03_safety_1_wide.jpg" alt="現況：人行道標線磨損補丁（實地現況）">
@@ -2427,7 +2546,14 @@ function initCollapsibles() {
 // 錨點導航與自動展開
 function initHashAnchorNavigation() {
     const hash = window.location.hash;
-    if (hash && hash.startsWith('#qa-')) {
+    if (hash === '#podcast' || hash === '#podcast-showcase') {
+        setTimeout(() => {
+            const target = document.getElementById('podcast-showcase');
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        }, 400);
+    } else if (hash && hash.startsWith('#qa-')) {
         setTimeout(() => {
             const targetCard = document.querySelector(hash);
             if (targetCard) {
@@ -2444,6 +2570,7 @@ function initHashAnchorNavigation() {
 }
 
 // Initial Render and setup
+renderPodcastShowcase();
 renderPolicies();
 renderPolicyRankings();
 initRankingAnimationObserver();
@@ -2690,30 +2817,117 @@ updatePWAInstallVisibility();
 window.addEventListener('DOMContentLoaded', updatePWAInstallVisibility);
 
 // ==========================================================================
-// 政策影音播放燈箱 (Policy Video Modal Controller)
+// 政策影音與 Podcast 播放燈箱控制器 (Policy Video & Podcast Modal Controller)
 // ==========================================================================
-let currentVideoPolicyId = 14;
+let currentVideoPolicyId = 1;
+let currentVideoEpNum = 1;
 
-function openPolicyVideoModal(e, videoId, title, note, policyId = 14) {
+function renderPodcastShowcase() {
+    const grid = document.getElementById('podcast-episodes-grid');
+    if (!grid) return;
+
+    grid.innerHTML = PODCAST_EPISODES.map(ep => {
+        const isReady = ep.status === 'ready';
+        const tagClass = isReady ? 'ep-tag-live' : 'ep-tag-soon';
+        const actionBtnHtml = isReady 
+            ? `<button type="button" class="btn-podcast-play" onclick="openPolicyVideoModal(event, '${ep.videoId}', '《明德里會客室 EP.0${ep.ep}》${ep.title}', ${ep.ep}, ${ep.policyId})" title="立即收聽 EP.0${ep.ep} ${ep.title}">
+                <span class="play-icon-triangle">▶</span>
+                <span>立即收聽</span>
+               </button>`
+            : `<button type="button" class="btn-podcast-play btn-podcast-soon" onclick="showPodcastComingSoon(event, '${ep.title}')" title="錄製後製中，敬請期待">
+                <span>⏳ 敬請期待</span>
+               </button>`;
+
+        return `
+            <div class="podcast-ep-card ${!isReady ? 'is-coming-soon' : ''}">
+                <div class="podcast-card-top">
+                    <span class="ep-num-pill">EP.0${ep.ep}</span>
+                    <span class="ep-status-pill ${tagClass}">${ep.tag}</span>
+                </div>
+                <div class="podcast-card-body">
+                    <h4 class="ep-title">${ep.title}</h4>
+                    <p class="ep-subtitle">${ep.subtitle}</p>
+                    <p class="ep-desc">${ep.desc}</p>
+                </div>
+                <div class="podcast-card-footer">
+                    ${actionBtnHtml}
+                    <button type="button" class="btn-podcast-policy" onclick="openDrawer(${ep.policyId})" title="查看「${ep.title}」白皮書細節">
+                        <span>看政見</span>
+                        <span class="btn-arrow">→</span>
+                    </button>
+                </div>
+            </div>
+        `;
+    }).join('');
+}
+
+function showPodcastComingSoon(e, title) {
+    if (e) {
+        e.stopPropagation();
+        e.preventDefault();
+    }
+    alert(`《明德里會客室 EP.04》${title || 'EQ情緒教育'}\n目前正在緊鑼密鼓錄音與後製剪輯中，即將熱騰騰上架，敬請期待！`);
+}
+
+function switchModalEpisode(epNum) {
+    const ep = PODCAST_EPISODES.find(e => e.ep === epNum);
+    if (!ep) return;
+    if (ep.status !== 'ready' || !ep.videoId) {
+        showPodcastComingSoon(null, ep.title);
+        return;
+    }
+    openPolicyVideoModal(null, ep.videoId, `《明德里會客室 EP.0${ep.ep}》${ep.title}`, ep.ep, ep.policyId);
+}
+
+function renderModalPlaylist(activeEpNum) {
+    const playlistBar = document.getElementById('video-modal-playlist');
+    if (!playlistBar) return;
+
+    playlistBar.innerHTML = PODCAST_EPISODES.map(ep => {
+        const isActive = ep.ep === activeEpNum;
+        const isReady = ep.status === 'ready';
+        return `
+            <button type="button" class="playlist-ep-tab ${isActive ? 'active' : ''} ${!isReady ? 'disabled' : ''}" 
+                onclick="switchModalEpisode(${ep.ep})" 
+                title="${isReady ? '切換至 EP.0' + ep.ep + ' ' + ep.title : '即將上架'}">
+                <span class="tab-ep-badge">EP.0${ep.ep}</span>
+                <span class="tab-ep-title">${ep.title}</span>
+                ${isActive ? '<span class="tab-now-playing">● 播放中</span>' : ''}
+                ${!isReady ? '<span class="tab-soon-label">即將上線</span>' : ''}
+            </button>
+        `;
+    }).join('');
+}
+
+function openPolicyVideoModal(e, videoId, title, epNum = 1, policyId = 1) {
     if (e) {
         e.stopPropagation();
         e.preventDefault();
     }
     currentVideoPolicyId = policyId;
+    currentVideoEpNum = epNum;
     const backdrop = document.getElementById('policy-video-modal-backdrop');
     const modal = document.getElementById('policy-video-modal');
     const iframe = document.getElementById('policy-video-iframe');
     const titleEl = document.getElementById('policy-video-title');
-    const noteEl = document.getElementById('policy-video-note');
+    const tagEl = document.getElementById('policy-video-tag');
     const drawerBtn = document.getElementById('policy-video-drawer-btn');
 
     if (!backdrop || !modal || !iframe) return;
 
-    if (titleEl) titleEl.textContent = title || '政見 14 Podcast：訪談 EQ 爸爸的 8 年經歷';
+    if (tagEl) {
+        tagEl.textContent = `🎙️ 明德里會客室${epNum ? ' EP.0' + epNum : ''}`;
+    }
+    if (titleEl) {
+        titleEl.textContent = title || `《明德里會客室 EP.0${epNum}》政策專題`;
+    }
     if (drawerBtn) {
-        drawerBtn.textContent = '查看完整計畫與預算 →';
+        const targetPolicy = POLICIES_DATA.find(p => p.id === policyId);
+        const pTitle = targetPolicy ? targetPolicy.title : '該項政見';
+        drawerBtn.textContent = `查看「${pTitle}」完整計畫與預算 →`;
     }
 
+    renderModalPlaylist(epNum);
     iframe.src = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0`;
 
     if (!modal.classList.contains('active')) {
@@ -2742,7 +2956,7 @@ function closePolicyVideoModal(isFromPopstate = false) {
 }
 
 function openPolicyDrawerFromModal() {
-    const policyId = currentVideoPolicyId || 14;
+    const policyId = currentVideoPolicyId || 1;
     closePolicyVideoModal();
     setTimeout(() => {
         openDrawer(policyId);

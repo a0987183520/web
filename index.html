@@ -339,6 +339,12 @@
                         </a>
                     </li>
                     <li>
+                        <a href="#podcast-showcase" class="nav-two-line">
+                            <span>明德里會客室</span>
+                            <span>語音Podcast</span>
+                        </a>
+                    </li>
+                    <li>
                         <a href="#qa-section" class="nav-two-line">
                             <span>里民共治</span>
                             <span>有問必答牆</span>
@@ -454,6 +460,21 @@
         <div class="container">
             <div class="section-header reveal">
                 <h2 class="policy-glowing-pill-title">我會怎麼做？十五大新政見</h2>
+
+                <!-- 明德里會客室 Podcast 專區展架 -->
+                <div class="podcast-showcase-hub glass reveal" id="podcast-showcase">
+                    <div class="podcast-hub-header">
+                        <div class="podcast-hub-badge-group">
+                            <span class="podcast-hub-tag"><span class="pulse-dot"></span> 語音政策白皮書</span>
+                            <span class="podcast-hub-ep-count">🎙️ 4 集精華隨選即聽</span>
+                        </div>
+                        <h3 class="podcast-hub-title">【明德里會客室 🎙️ 聽里長聊政見】</h3>
+                        <p class="podcast-hub-desc">不想看密密麻麻的文字？用聽的更輕鬆！陳新昱親自為您解說核心施政藍圖</p>
+                    </div>
+                    <div class="podcast-episodes-grid" id="podcast-episodes-grid">
+                        <!-- 由 main.js 動態渲染 4 大集數卡片 -->
+                    </div>
+                </div>
                 <div class="policy-qa-flow">
                     <div class="qa-flow-q">有人問：里長每月 5 萬元怎麼做得到？</div>
                     <div class="qa-flow-a">
@@ -1647,7 +1668,10 @@
         <div class="video-modal" id="policy-video-modal" role="dialog" aria-labelledby="policy-video-title"
             aria-modal="true">
             <div class="video-modal-header">
-                <h3 class="video-modal-title" id="policy-video-title">政見 14 Podcast：訪談 EQ 爸爸的 8 年經歷</h3>
+                <div class="video-modal-title-group">
+                    <span class="video-modal-tag" id="policy-video-tag">🎙️ 明德里會客室</span>
+                    <h3 class="video-modal-title" id="policy-video-title">政見 14 Podcast：訪談 EQ 爸爸的 8 年經歷</h3>
+                </div>
                 <button class="video-modal-close" onclick="closePolicyVideoModal()" aria-label="關閉影音">
                     ✕
                 </button>
@@ -1657,6 +1681,10 @@
                     <iframe id="policy-video-iframe" src="" title="政策實錄影音" frameborder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                         allowfullscreen></iframe>
+                </div>
+                <!-- 集數切換選單 -->
+                <div class="video-modal-playlist-bar" id="video-modal-playlist">
+                    <!-- 由 main.js 動態渲染集數按鈕 -->
                 </div>
                 <div class="video-modal-footer">
                     <button type="button" class="video-modal-drawer-btn" id="policy-video-drawer-btn"
