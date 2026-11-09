@@ -7014,11 +7014,13 @@ html.is-pwa-standalone #btn-footer-install {
 .ep-num-pill {
     font-size: 1.15rem;
     font-weight: 800;
-    color: #060b09;
-    background: linear-gradient(135deg, #fbbf24 0%, #d97706 100%);
-    padding: 0.35rem 1.15rem;
+    color: #fbbf24;
+    background: rgba(251, 191, 36, 0.12);
+    border: 1.5px solid rgba(251, 191, 36, 0.45);
+    padding: 0.32rem 1.15rem;
     border-radius: 24px;
     letter-spacing: 0.04em;
+    box-shadow: 0 0 12px rgba(251, 191, 36, 0.15);
 }
 
 .podcast-card-body {
@@ -7050,21 +7052,22 @@ html.is-pwa-standalone #btn-footer-install {
     justify-content: center;
     gap: 0.55rem;
     padding: 0.75rem 1.4rem;
-    background: linear-gradient(135deg, #fbbf24 0%, #d97706 100%);
-    color: #060b09;
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    color: #ffffff;
     border: none;
     border-radius: 10px;
     font-size: 1.18rem;
     font-weight: 800;
     cursor: pointer;
     transition: all 0.2s ease;
-    box-shadow: 0 4px 12px rgba(251, 191, 36, 0.3);
+    box-shadow: 0 4px 14px rgba(16, 185, 129, 0.35), 0 0 10px rgba(16, 185, 129, 0.2);
 }
 
 .btn-podcast-play:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(251, 191, 36, 0.45);
-    filter: brightness(1.08);
+    background: linear-gradient(135deg, #34d399 0%, #10b981 100%);
+    box-shadow: 0 6px 20px rgba(16, 185, 129, 0.5), 0 0 16px rgba(16, 185, 129, 0.3);
+    filter: brightness(1.05);
 }
 
 .play-icon-triangle {
@@ -7232,6 +7235,24 @@ html.is-pwa-standalone #btn-footer-install {
     background: #fafaf9;
     border-color: rgba(217, 119, 6, 0.5);
     box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="light"] .ep-num-pill {
+    color: #b45309;
+    background: rgba(217, 119, 6, 0.1);
+    border: 1.5px solid rgba(217, 119, 6, 0.35);
+    box-shadow: none;
+}
+
+[data-theme="light"] .btn-podcast-play {
+    background: linear-gradient(135deg, #059669 0%, #047857 100%);
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(5, 150, 105, 0.25);
+}
+
+[data-theme="light"] .btn-podcast-play:hover {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    box-shadow: 0 6px 18px rgba(5, 150, 105, 0.4);
 }
 
 [data-theme="light"] .ep-title {
