@@ -6911,8 +6911,8 @@ html.is-pwa-standalone #btn-footer-install {
 .btn-podcast-toggle-pill {
     display: inline-flex;
     align-items: center;
-    gap: 0.65rem;
-    padding: 0.65rem 1.65rem;
+    gap: 0.75rem;
+    padding: 0.75rem 2.2rem;
     background: linear-gradient(145deg, rgba(22, 35, 29, 0.85) 0%, rgba(13, 20, 17, 0.95) 100%);
     border: 1.5px solid rgba(251, 191, 36, 0.55);
     border-radius: 50px;
@@ -6930,32 +6930,40 @@ html.is-pwa-standalone #btn-footer-install {
 }
 
 .podcast-pill-icon {
-    font-size: 1.25rem;
+    font-size: 1.55rem;
     line-height: 1;
-    filter: drop-shadow(0 0 5px rgba(251, 191, 36, 0.6));
+    filter: drop-shadow(0 0 6px rgba(251, 191, 36, 0.6));
 }
 
 .podcast-pill-text {
-    font-size: 1.05rem;
-    font-weight: 700;
+    font-size: 1.52rem;
+    font-weight: 800;
     color: #e2e8f0;
     letter-spacing: 0.02em;
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.4rem;
 }
 
 .podcast-pill-highlight {
     color: #fbbf24;
     font-weight: 900;
-    margin-left: 0.15rem;
-    text-shadow: 0 0 10px rgba(251, 191, 36, 0.45);
+    text-shadow: 0 0 12px rgba(251, 191, 36, 0.5);
+}
+
+.podcast-pill-en {
+    color: #f8fafc;
+    font-weight: 800;
+    letter-spacing: 0.03em;
 }
 
 .podcast-pill-arrow {
-    font-size: 1.1rem;
+    font-size: 1.45rem;
     color: #fbbf24;
     font-weight: 900;
     transition: transform 0.35s ease;
     display: inline-block;
-    margin-left: 0.2rem;
+    margin-left: 0.3rem;
 }
 
 .btn-podcast-toggle-pill.active .podcast-pill-arrow {
@@ -6975,12 +6983,12 @@ html.is-pwa-standalone #btn-footer-install {
     background: rgba(255, 255, 255, 0.035);
     border: 1px solid rgba(255, 255, 255, 0.09);
     border-radius: 16px;
-    padding: 1.35rem 1.15rem;
+    padding: 1.5rem 1.25rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: 0.9rem;
+    gap: 1.1rem;
     transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     box-sizing: border-box;
 }
@@ -7004,13 +7012,13 @@ html.is-pwa-standalone #btn-footer-install {
 }
 
 .ep-num-pill {
-    font-size: 0.85rem;
+    font-size: 1.15rem;
     font-weight: 800;
     color: #060b09;
     background: linear-gradient(135deg, #fbbf24 0%, #d97706 100%);
-    padding: 0.25rem 0.8rem;
-    border-radius: 20px;
-    letter-spacing: 0.03em;
+    padding: 0.35rem 1.15rem;
+    border-radius: 24px;
+    letter-spacing: 0.04em;
 }
 
 .podcast-card-body {
@@ -7021,7 +7029,7 @@ html.is-pwa-standalone #btn-footer-install {
 }
 
 .ep-title {
-    font-size: 1.18rem;
+    font-size: 1.52rem;
     font-weight: 800;
     color: #fff;
     margin: 0;
@@ -7036,17 +7044,17 @@ html.is-pwa-standalone #btn-footer-install {
 
 .btn-podcast-play {
     width: 100%;
-    max-width: 200px;
+    max-width: 240px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 0.45rem;
-    padding: 0.65rem 1rem;
+    gap: 0.55rem;
+    padding: 0.75rem 1.4rem;
     background: linear-gradient(135deg, #fbbf24 0%, #d97706 100%);
     color: #060b09;
     border: none;
-    border-radius: 8px;
-    font-size: 0.92rem;
+    border-radius: 10px;
+    font-size: 1.18rem;
     font-weight: 800;
     cursor: pointer;
     transition: all 0.2s ease;
@@ -7060,7 +7068,7 @@ html.is-pwa-standalone #btn-footer-install {
 }
 
 .play-icon-triangle {
-    font-size: 0.75rem;
+    font-size: 0.95rem;
 }
 
 .btn-podcast-soon {
@@ -7083,19 +7091,19 @@ html.is-pwa-standalone #btn-footer-install {
 .podcast-collapse-bottom-row {
     display: flex;
     justify-content: center;
-    margin-top: 1.4rem;
+    margin-top: 1.6rem;
 }
 
 .btn-podcast-collapse-inline {
     display: inline-flex;
     align-items: center;
-    gap: 0.35rem;
-    padding: 0.45rem 1.4rem;
+    gap: 0.45rem;
+    padding: 0.55rem 1.6rem;
     background: rgba(255, 255, 255, 0.06);
     border: 1px solid rgba(255, 255, 255, 0.18);
     border-radius: 30px;
     color: var(--text-secondary);
-    font-size: 0.88rem;
+    font-size: 1.05rem;
     font-weight: 700;
     cursor: pointer;
     transition: all 0.2s ease;
@@ -7195,6 +7203,10 @@ html.is-pwa-standalone #btn-footer-install {
     color: #334155;
 }
 
+[data-theme="light"] .podcast-pill-en {
+    color: #0f172a;
+}
+
 [data-theme="light"] .podcast-pill-highlight {
     color: #d97706;
     text-shadow: none;
@@ -7253,24 +7265,36 @@ html.is-pwa-standalone #btn-footer-install {
 
 @media (max-width: 640px) {
     .btn-podcast-toggle-pill {
-        padding: 0.55rem 1.25rem;
-        gap: 0.5rem;
+        padding: 0.65rem 1.35rem;
+        gap: 0.6rem;
     }
     .podcast-pill-text {
-        font-size: 0.95rem;
+        font-size: 1.35rem;
+        gap: 0.3rem;
     }
     .podcast-pill-icon {
-        font-size: 1.1rem;
+        font-size: 1.35rem;
+    }
+    .podcast-pill-arrow {
+        font-size: 1.25rem;
     }
     .podcast-episodes-grid {
         grid-template-columns: 1fr;
-        gap: 0.9rem;
+        gap: 1rem;
     }
     .podcast-ep-card {
-        padding: 1.15rem 1rem;
+        padding: 1.35rem 1.15rem;
+        gap: 1rem;
+    }
+    .ep-num-pill {
+        font-size: 1.05rem;
     }
     .ep-title {
+        font-size: 1.38rem;
+    }
+    .btn-podcast-play {
         font-size: 1.12rem;
+        padding: 0.75rem 1.2rem;
     }
 }
 

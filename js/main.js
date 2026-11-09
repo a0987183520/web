@@ -2890,8 +2890,9 @@ function renderPodcastShowcase() {
 
     grid.innerHTML = PODCAST_EPISODES.map(ep => {
         const isReady = ep.status === 'ready';
+        const epNumStr = ep.ep < 10 ? `0${ep.ep}` : `${ep.ep}`;
         const actionBtnHtml = isReady 
-            ? `<button type="button" class="btn-podcast-play" onclick="openPolicyVideoModal(event, '${ep.videoId}', '《明德里會客室 EP.${ep.ep}》${ep.title}', ${ep.ep}, ${ep.policyId})" title="立即收聽 EP.${ep.ep} ${ep.title}">
+            ? `<button type="button" class="btn-podcast-play" onclick="openPolicyVideoModal(event, '${ep.videoId}', '《明德里會客室 EP.${epNumStr}》${ep.title}', ${ep.ep}, ${ep.policyId})" title="立即收聽 EP.${epNumStr} ${ep.title}">
                 <span class="play-icon-triangle">▶</span>
                 <span>立即收聽</span>
                </button>`
@@ -2902,7 +2903,7 @@ function renderPodcastShowcase() {
         return `
             <div class="podcast-ep-card ${!isReady ? 'is-coming-soon' : ''}">
                 <div class="podcast-card-top">
-                    <span class="ep-num-pill">EP.${ep.ep}</span>
+                    <span class="ep-num-pill">EP.${epNumStr}</span>
                 </div>
                 <div class="podcast-card-body">
                     <h4 class="ep-title">${ep.title}</h4>
@@ -2920,17 +2921,18 @@ function showPodcastComingSoon(e, title) {
         e.stopPropagation();
         e.preventDefault();
     }
-    alert(`《明德里會客室 EP.4》${title || 'EQ情緒教育'}\n目前正在緊鑼密鼓錄音與後製剪輯中，即將熱騰騰上架，敬請期待！`);
+    alert(`《明德里會客室 EP.04》${title || 'EQ情緒教育'}\n目前正在緊鑼密鼓錄音與後製剪輯中，即將熱騰騰上架，敬請期待！`);
 }
 
 function switchModalEpisode(epNum) {
     const ep = PODCAST_EPISODES.find(e => e.ep === epNum);
     if (!ep) return;
+    const epNumStr = ep.ep < 10 ? `0${ep.ep}` : `${ep.ep}`;
     if (ep.status !== 'ready' || !ep.videoId) {
         showPodcastComingSoon(null, ep.title);
         return;
     }
-    openPolicyVideoModal(null, ep.videoId, `《明德里會客室 EP.${ep.ep}》${ep.title}`, ep.ep, ep.policyId);
+    openPolicyVideoModal(null, ep.videoId, `《明德里會客室 EP.${epNumStr}》${ep.title}`, ep.ep, ep.policyId);
 }
 
 function renderModalPlaylist(activeEpNum) {
@@ -2940,11 +2942,12 @@ function renderModalPlaylist(activeEpNum) {
     playlistBar.innerHTML = PODCAST_EPISODES.map(ep => {
         const isActive = ep.ep === activeEpNum;
         const isReady = ep.status === 'ready';
+        const epNumStr = ep.ep < 10 ? `0${ep.ep}` : `${ep.ep}`;
         return `
             <button type="button" class="playlist-ep-tab ${isActive ? 'active' : ''} ${!isReady ? 'disabled' : ''}" 
                 onclick="switchModalEpisode(${ep.ep})" 
-                title="${isReady ? '切換至 EP.' + ep.ep + ' ' + ep.title : '敬請期待'}">
-                <span class="tab-ep-badge">EP.${ep.ep}</span>
+                title="${isReady ? '切換至 EP.' + epNumStr + ' ' + ep.title : '敬請期待'}">
+                <span class="tab-ep-badge">EP.${epNumStr}</span>
                 <span class="tab-ep-title">${ep.title}</span>
                 ${isActive ? '<span class="tab-now-playing">● 播放中</span>' : ''}
                 ${!isReady ? '<span class="tab-soon-label">敬請期待</span>' : ''}
