@@ -2549,9 +2549,12 @@ function initHashAnchorNavigation() {
     if (hash === '#podcast' || hash === '#podcast-showcase') {
         setTimeout(() => {
             if (typeof openPodcastDetails === 'function') openPodcastDetails();
-            const target = document.getElementById('podcast-showcase');
+            const target = document.querySelector('.policy-glowing-pill-title') || document.getElementById('podcast-showcase');
             if (target) {
-                target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                const headerOffset = 95;
+                const rect = target.getBoundingClientRect();
+                const targetY = window.scrollY + rect.top - headerOffset;
+                window.scrollTo({ top: Math.max(0, targetY), behavior: 'smooth' });
             }
         }, 400);
     } else if (hash && hash.startsWith('#qa-')) {
@@ -2854,9 +2857,10 @@ function togglePodcastDrawer() {
         if (actionText) actionText.textContent = '點選收聽';
         if (arrow) arrow.textContent = '▾';
 
-        // 焦點與滾動座標精準平滑回到下拉前的位置，徹底防止突兀跳躍
-        if (showcase) {
-            const rect = showcase.getBoundingClientRect();
+        // 焦點與滾動座標精準平滑回到收起後的標題位置，以「十五大新政見：我要怎麼做？」為畫面最頂端
+        const scrollTarget = document.querySelector('.policy-glowing-pill-title') || showcase;
+        if (scrollTarget) {
+            const rect = scrollTarget.getBoundingClientRect();
             const headerOffset = 95;
             const targetY = window.scrollY + rect.top - headerOffset;
             window.scrollTo({ top: Math.max(0, targetY), behavior: 'smooth' });
