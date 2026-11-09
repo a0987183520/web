@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>明德里里長候選人 陳新昱 政策白皮書 (背面：預算透明與專案來源篇) - A4彩色DM</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=Noto+Sans+TC:wght@400;500;700;900&display=swap');
+
+    :root {
+      --bg-page: #ffffff;
+      --bg-card: #ffffff;
+      --text-main: #0f172a;
+      --text-muted: #334155;
+      --text-sub: #64748b;
+      --primary-green: #059669;
+      --primary-green-dark: #065f46;
+      --primary-green-light: #ecfdf5;
+      --accent-gold: #d97706;
+      --accent-gold-dark: #b45309;
+      --accent-red: #dc2626;
+      --border-card: #cbd5e1;
+      --font-sans: 'Outfit', 'Noto Sans TC', sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background-color: #e2e8f0;
+      color: var(--text-main);
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    /* A4 比例容器 (210mm x 297mm，純淨白底高對比政策白皮書) */
+    .page {
+      width: 210mm;
+      height: 297mm;
+      margin: 15px auto;
+      background: #ffffff;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      padding: 5mm 8mm 4mm 8mm;
+    }
+
+    @page {
+      size: A4 portrait;
+      margin: 0;
+    }
+
+    @media print {
+      body {
+        background: none;
+      }
+
+      .toolbar {
+        display: none !important;
+      }
+
+      .page {
+        margin: 0;
+        box-shadow: none;
+        width: 210mm;
+        height: 297mm;
+        page-break-after: always;
+      }
+    }
+
+    /* 頂端工具列（瀏覽與正反面切換） */
+    .toolbar {
+      width: 210mm;
+      margin: 15px auto 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #0f172a;
+      padding: 10px 20px;
+      border-radius: 8px;
+      border: 1px solid rgba(251, 191, 36, 0.4);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .toolbar button {
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      color: #ffffff;
+      border: none;
+      padding: 8px 18px;
+      font-size: 15px;
+      font-weight: 700;
+      border-radius: 6px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 2px 8px rgba(16, 185, 129, 0.4);
+    }
+
+    .toolbar .page-switch {
+      display: flex;
+      gap: 10px;
+    }
+
+    .toolbar .page-switch a {
+      color: #fbbf24;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 700;
+      padding: 6px 14px;
+      border: 1px solid rgba(251, 191, 36, 0.5);
+      border-radius: 6px;
+      background: rgba(251, 191, 36, 0.1);
+      transition: all 0.2s;
+    }
+
+    .toolbar .page-switch a.active {
+      background: #fbbf24;
+      color: #060b09;
+    }
+
+    /* 
+       1. 頂端列 (Top Bar，極簡大氣、橫向展開、零折行、候選人與白皮書為唯一主角)
+    */
+    .top-bar {
+      height: 16.5mm;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 2mm;
+      border-bottom: 3px solid #059669;
+      flex-shrink: 0;
+    }
+
+    .brand-candidate-group {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    /* 品牌綠色音符徽章 (美化裝飾，尺寸放大) */
+    .brand-music-badge {
+      width: 44px;
+      height: 44px;
+      border-radius: 9px;
+      background: linear-gradient(135deg, #10b981 0%, #047857 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      padding: 5px;
+      box-shadow: 0 2px 6px rgba(5, 150, 105, 0.3);
+    }
+
+    .brand-music-badge svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    /* 明德里獨立設色（深綠翡翠尊榮感） */
+    .top-village-name {
+      font-size: 36px;
+      font-weight: 900;
+      color: #047857;
+      letter-spacing: 0.5px;
+      white-space: nowrap;
+    }
+
+    /* 抽籤號次 2 號章 (白底正紅 2 號章 ✕ 金外框，大氣立體) */
+    .top-candidate-badge {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: #ffffff;
+      border: 3px solid #dc2626;
+      outline: 2px solid #d97706;
+      box-shadow: 0 2px 8px rgba(220, 38, 38, 0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #dc2626;
+      font-size: 32px;
+      font-weight: 900;
+      line-height: 1;
+      font-family: 'Outfit', sans-serif;
+      flex-shrink: 0;
+    }
+
+    .candidate-title-sub {
+      font-size: 25px;
+      font-weight: 800;
+      color: #334155;
+      letter-spacing: 0.5px;
+      white-space: nowrap;
+    }
+
+    .candidate-name-main {
+      font-size: 42px;
+      font-weight: 900;
+      color: #0f172a;
+      letter-spacing: 1.5px;
+      white-space: nowrap;
+    }
+
+    /* 頂端列右側：政策白皮書主標 (大氣沉穩) */
+    .top-whitepaper-tag {
+      font-size: 34px;
+      font-weight: 900;
+      color: #0f172a;
+      letter-spacing: 2px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      white-space: nowrap;
+    }
+
+    .top-whitepaper-tag::before {
+      content: '';
+      display: inline-block;
+      width: 4px;
+      height: 30px;
+      background: #cbd5e1;
+      border-radius: 2px;
+    }
+
+    /* 
+       2. 戰略承諾視覺化三行看板 (3-Row Strategy Manifesto，取消外框、大字1.5倍、極致大氣)
+    */
+    .strategy-banner {
+      height: 25mm;
+      margin: 1.5mm 0 1.5mm 0;
+      background: transparent;
+      border: none;
+      border-radius: 0;
+      padding: 1mm 2px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      flex-shrink: 0;
+      box-shadow: none;
+      box-sizing: border-box;
+    }
+
+    .banner-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      white-space: nowrap;
+      line-height: 1.25;
+    }
+
+    .banner-row-icon {
+      font-size: 26px;
+      line-height: 1;
+      flex-shrink: 0;
+      width: 30px;
+      text-align: center;
+    }
+
+    .banner-row-text {
+      font-size: 21px;
+      font-weight: 800;
+      color: #0f172a;
+      letter-spacing: -0.3px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+    }
+
+    .banner-row-text .hl-green {
+      color: #047857;
+      font-weight: 900;
+    }
+
+    .banner-row-text .hl-gold {
+      color: #b45309;
+      font-weight: 900;
+    }
+
+    .banner-row-text .hl-amount {
+      color: #b45309;
+      background: #fef3c7;
+      padding: 1.5px 8px;
+      border-radius: 5px;
+      font-weight: 900;
+    }
+
+    /* 
+       3. 9 大旗艦政見通欄橫列 (9 Horizontal Policy Rows，徹底告別卡片重複疲乏)
+    */
+    .policy-rows-container {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 1.5mm;
+      margin-bottom: 1.8mm;
+    }
+
+    .policy-row-strip {
+      background: #ffffff;
+      border: 1.5px solid var(--border-card);
+      border-left: 5.5px solid #059669;
+      border-radius: 8px;
+      padding: 2.8mm 10px;
+      display: grid;
+      grid-template-columns: 50mm 36.5mm 1fr;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 1px 4px rgba(15, 23, 42, 0.04);
+      position: relative;
+    }
+
+    /* 左側：圖標 ✕ 政策標題 (移除序號徽章，空間極致讓渡) */
+    .row-col-head {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      overflow: hidden;
+    }
+
+    .row-icon {
+      width: 46px;
+      height: 46px;
+      background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+      border: 1.8px solid #6ee7b7;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: #047857;
+      padding: 6px;
+      box-shadow: 0 1px 3px rgba(5, 150, 105, 0.15);
+    }
+
+    .row-icon svg {
+      width: 100%;
+      height: 100%;
+      fill: currentColor;
+    }
+
+    .row-title-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5px;
+      line-height: 1.15;
+      overflow: hidden;
+    }
+
+    /* 主標題第一行：字型改成跟第二行一樣大！ */
+    .row-title-sub {
+      font-size: 19.5px;
+      font-weight: 900;
+      color: #059669;
+      white-space: nowrap;
+      letter-spacing: -0.3px;
+    }
+
+    .row-title-main {
+      font-size: 19.5px;
+      font-weight: 900;
+      color: #0f172a;
+      white-space: nowrap;
+      letter-spacing: -0.3px;
+    }
+
+    /* 中間：預算來源與專案金額晶片 */
+    .row-col-budget {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      background: #fdfaf5;
+      border: 1.2px solid #fde68a;
+      border-radius: 6px;
+      padding: 3px 6px;
+      overflow: hidden;
+      justify-content: center;
+    }
+
+    .row-budget-source {
+      font-size: 14.5px;
+      font-weight: 800;
+      color: #065f46;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      line-height: 1.2;
+    }
+
+    .row-budget-amount {
+      font-size: 14.5px;
+      font-weight: 900;
+      color: #b45309;
+      background: #fef3c7;
+      border-radius: 4px;
+      padding: 1.5px 6px;
+      white-space: nowrap;
+      line-height: 1.2;
+      width: fit-content;
+    }
+
+    /* 右側：核心落實實踐亮點 (長句清晰飽滿) */
+    .row-col-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 3.5px;
+      justify-content: center;
+      overflow: hidden;
+      padding-left: 2px;
+    }
+
+    .row-action-item {
+      font-size: 15px;
+      font-weight: 700;
+      color: #0f172a;
+      line-height: 1.34;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+      letter-spacing: -0.35px;
+    }
+
+    .row-action-check {
+      font-size: 14px;
+      font-weight: 900;
+      color: #059669;
+      flex-shrink: 0;
+    }
+
+    /* 
+       4. 底端列 (極致鏡像對稱：左側 QRCode + 政見 Podcast ｜ 右側 15 大圖解政見白皮書 + QRCode)
+    */
+    .footer-bar {
+      height: 22.5mm;
+      background: #f8fafc;
+      border: 1.5px solid #cbd5e1;
+      border-radius: 8px;
+      padding: 0 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-shrink: 0;
+      box-shadow: 0 1px 4px rgba(15, 23, 42, 0.04);
+    }
+
+    .footer-unit {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex: 1;
+    }
+
+    .footer-unit-left {
+      justify-content: flex-start;
+    }
+
+    .footer-unit-right {
+      justify-content: flex-end;
+    }
+
+    .footer-divider {
+      width: 1.5px;
+      height: 14mm;
+      background: #cbd5e1;
+      margin: 0 18px;
+      flex-shrink: 0;
+    }
+
+    .footer-unit-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      line-height: 1.2;
+    }
+
+    .footer-text-main {
+      font-size: 26px;
+      font-weight: 900;
+      color: #0f172a;
+      letter-spacing: 0.5px;
+      white-space: nowrap;
+    }
+
+    .footer-qr-box {
+      width: 62px;
+      height: 62px;
+      background: #ffffff;
+      border: 2px solid #059669;
+      border-radius: 7px;
+      padding: 3px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+    }
+
+    .footer-unit-left .footer-qr-box {
+      border-color: #d97706;
+    }
+
+    .footer-qr-box img {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="toolbar">
+    <button onclick="window.print()">🖨️ 列印 / 存為 PDF (背面)</button>
+    <div class="page-switch">
+      <a href="01_DM_A4_p1.html">📄 查看正面 (願景與形象)</a>
+      <a href="01_DM_A4_p2.html" class="active">📄 查看背面 (白皮書白底高對比版)</a>
+      <a href="index.html" style="background: rgba(255,255,255,0.18); color: #ffffff; padding: 0.4rem 0.85rem; border-radius: 6px; text-decoration: none; font-size: 13px; font-weight: 700; margin-left: 0.5rem;">🏠 回官網首頁</a>
+    </div>
+  </div>
+
+  <div class="page">
+
+    <!-- 1. 頂端導航條 (明德里 ✕ ② 號 ✕ 里長候選人 陳新昱 ｜ 政策白皮書) -->
+    <div class="top-bar">
+      <div class="brand-candidate-group">
+        <!-- 綠色音符美化徽章 -->
+        <div class="brand-music-badge" title="生活美學與文化藝術">
+          <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <path d="M 54 60 L 68 12" stroke="#ffffff" stroke-width="7" stroke-linecap="round" />
+            <path d="M 68 12 Q 86 16 96 30 Q 82 23 68 23 Z" fill="#ffffff" />
+            <path d="M 68 29 Q 85 33 94 45 Q 81 38 68 39 Z" fill="#ffffff" />
+            <circle cx="39" cy="67" r="23" fill="#ffffff" />
+          </svg>
+        </div>
+        <!-- 明德里獨立設色 -->
+        <div class="top-village-name">明德里</div>
+        <!-- 抽籤號次 2 號章 -->
+        <div class="top-candidate-badge" title="里長候選人 2 號">2</div>
+        <div class="candidate-title-sub">里長候選人</div>
+        <div class="candidate-name-main">陳新昱</div>
+      </div>
+      <!-- 右側：政策白皮書 -->
+      <div class="top-whitepaper-tag">政策白皮書</div>
+    </div>
+
+    <!-- 2. 戰略承諾視覺化三行看板 (3-Row Strategy Manifesto，取消外框、大字1.5倍、極致大氣) -->
+    <div class="strategy-banner">
+      <div class="banner-row">
+        <span class="banner-row-icon">💰</span>
+        <div class="banner-row-text">
+          <span>明德里每年編列 <span class="hl-amount">88 萬基層款</span>，將用好用滿，不會繳回國庫</span>
+        </div>
+      </div>
+      <div class="banner-row">
+        <span class="banner-row-icon">🏛️</span>
+        <div class="banner-row-text">
+          <span>每年主動爭取 <span class="hl-green">交通局、工務局、環保局、社會局、文化局</span> 數十萬元專案補助</span>
+        </div>
+      </div>
+      <div class="banner-row">
+        <span class="banner-row-icon">⚖️</span>
+        <div class="banner-row-text">
+          <span>每項政見都有 <span class="hl-gold">明確法源依據與預算規劃</span></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. 9 大旗艦政見通欄橫列 (9 Horizontal Policy Rows，徹底告別卡片重複疲乏) -->
+    <div class="policy-rows-container">
+
+      <!-- 橫列 1 (草地音樂節) -->
+      <div class="policy-row-strip">
+        <div class="row-col-head">
+          <div class="row-icon" title="草地音樂節">
+            <svg viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
+          </div>
+          <div class="row-title-wrap">
+            <div class="row-title-sub">民歌Live</div>
+            <div class="row-title-main">草地音樂節</div>
+          </div>
+        </div>
+        <div class="row-col-budget">
+          <div class="row-budget-source">🏛️ 文化局專案補助</div>
+          <div class="row-budget-amount">專案補助 5～20 萬</div>
+        </div>
+        <div class="row-col-actions">
+          <div class="row-action-item"><span class="row-action-check">✔</span><span>春秋兩季相約草地野餐，精彩節目包含：</span></div>
+          <div class="row-action-item"><span class="row-action-check">✔</span><span>木吉他演唱＋文創二手市集 ＋ 故事爸爸媽媽講故事</span></div>
+        </div>
+      </div>
+
+      <!-- 橫列 2 (手機共治) -->
+      <div class="policy-row-strip">
+        <div class="row-col-head">
+          <div class="row-icon" title="手機共治">
+            <svg viewBox="0 0 24 24"><path d="M17 1.01L7 1c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99zM17 19H7V5h10v14z"/></svg>
+          </div>
+          <div class="row-title-wrap">
+            <div class="row-title-sub">雲端里辦</div>
+            <div class="row-title-main">平行微活動</div>
+          </div>
+        </div>
+        <div class="row-col-budget">
+          <div class="row-budget-source">💻 里民作主 App</div>
+          <div class="row-budget-amount">候選人自研開發</div>
+        </div>
+        <div class="row-col-actions">
+          <div class="row-action-item"><span class="row-action-check">✔</span><span>雲端里辦，手機即報名，20 社區微活動，下樓即體驗</span></div>
+          <div class="row-action-item"><span class="row-action-check">✔</span><span>問題報修，修繕進度，會勘透明，里民共治</span></div>
+        </div>
+      </div>
+
+      <!-- 橫列 3 (防滑走廊) -->
+      <div class="policy-row-strip">
+        <div class="row-col-head">
+          <div class="row-icon" title="通學步道安全">
+            <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+          </div>
+          <div class="row-title-wrap">
+            <div class="row-title-sub">防滑走廊</div>
+            <div class="row-title-main">通學步道安全</div>
+          </div>
+        </div>
+        <div class="row-col-budget">
+          <div class="row-budget-source">🚶 人本交通改善專案</div>
+          <div class="row-budget-amount">市府專案全額補助</div>
+        </div>
+        <div class="row-col-actions">
+          <div class="row-action-item"><span class="row-action-check">✔</span><span>易滑騎樓與無障礙陡坡，用科學方法與明確專案解決</span></div>
+          <div class="row-action-item"><span class="row-action-check">✔</span><span>白天護童夜間巡守，巡守夥伴一鍵通報路況危機</span></div>
+        </div>
+      </div>
+
+      <!-- 橫列 4 (智慧交通) -->
+      <div class="policy-row-strip">
+        <div class="row-col-head">
+          <div class="row-icon" title="智慧交通改善塞車">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 14h-2v-2h2v2zm0-4h-2V7h2v5z"/></svg>
+          </div>
+          <div class="row-title-wrap">
+            <div class="row-title-sub">智慧交通</div>
+            <div class="row-title-main">人車分流綠波</div>
+          </div>
+        </div>
+        <div class="row-col-budget">
+          <div class="row-budget-source">🚦 交通局交控專案</div>
+          <div class="row-budget-amount">交控專案全額補助</div>
+        </div>
+        <div class="row-col-actions">
+          <div class="row-action-item"><span class="row-action-check">✔</span><span>行人時相：學府路口延長、海山路口增設人車分流</span></div>
+          <div class="row-action-item"><span class="row-action-check">✔</span><span>運用科學數據爭取明德路直行綠燈同步</span></div>
+        </div>
+      </div>
+
+      <!-- 橫列 5 (微型無人機) -->
+      <div class="policy-row-strip">
+        <div class="row-col-head">
+          <div class="row-icon" title="科技教育與無人機">
+            <svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+          </div>
+          <div class="row-title-wrap">
+            <div class="row-title-sub">微型無人機</div>
+            <div class="row-title-main">遙控車趣味營</div>
+          </div>
+        </div>
+        <div class="row-col-budget">
+          <div class="row-budget-source">🛸 產學志工講師</div>
+          <div class="row-budget-amount">產學合作市府專案</div>
+        </div>
+        <div class="row-col-actions">
+          <div class="row-action-item"><span class="row-action-check">✔</span><span>安全微型遙控車與無人機巡迴，下樓免費體驗</span></div>
+          <div class="row-action-item"><span class="row-action-check">✔</span><span>長輩手眼協調防退化，祖孫跨世代同樂育科技力</span></div>
+        </div>
+      </div>
+
+      <!-- 橫列 6 (獨老雙老照護) -->
+      <div class="policy-row-strip">
+        <div class="row-col-head">
+          <div class="row-icon" title="獨老雙老居家照護">
+            <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+          </div>
+          <div class="row-title-wrap">
+            <div class="row-title-sub">獨老與雙老</div>
+            <div class="row-title-main">暖心居家照護</div>
+          </div>
+        </div>
+        <div class="row-col-budget">
+          <div class="row-budget-source">👵 衛福部長照專案</div>
+          <div class="row-budget-amount">長照專案公費補助</div>
+        </div>
+        <div class="row-col-actions">
+          <div class="row-action-item"><span class="row-action-check">✔</span><span>協助符合資格獨老申辦緊急救援設備，守護安全</span></div>
+          <div class="row-action-item"><span class="row-action-check">✔</span><span>雙老家庭全面引導對接長照 2.0，送餐陪醫喘息</span></div>
+        </div>
+      </div>
+
+      <!-- 橫列 7 (預防失智App) -->
+      <div class="policy-row-strip">
+        <div class="row-col-head">
+          <div class="row-icon" title="預防失智與健腦遊戲">
+            <svg viewBox="0 0 24 24"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 4.44-2.04z"></path><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-4.44-2.04z"></path></svg>
+          </div>
+          <div class="row-title-wrap">
+            <div class="row-title-sub">預防失智App</div>
+            <div class="row-title-main">AI樂齡趣味營</div>
+          </div>
+        </div>
+        <div class="row-col-budget">
+          <div class="row-budget-source">🧠 失智友善專案</div>
+          <div class="row-budget-amount">衛政社福公費全額</div>
+        </div>
+        <div class="row-col-actions">
+          <div class="row-action-item"><span class="row-action-check">✔</span><span>自研 1 至 50 健腦遊戲，每日 3 分鐘趣味動腦</span></div>
+          <div class="row-action-item"><span class="row-action-check">✔</span><span>手機零門檻 AI 老照片修復與短劇，活化回憶</span></div>
+        </div>
+      </div>
+
+      <!-- 橫列 8 (高EQ教育) -->
+      <div class="policy-row-strip">
+        <div class="row-col-head">
+          <div class="row-icon" title="情緒教育與和諧社區">
+            <svg viewBox="0 0 24 24"><path d="M12 2a5 5 0 1 0 10 0v-2H12z"></path><path d="M12 10a8 8 0 1 0 8 8v-8H12z"></path><circle cx="12" cy="12" r="10"></circle><path d="M8 14s1.5 2 4 2 4-2 4-2"></path><line x1="9" y1="9" x2="9.01" y2="9"></line><line x1="15" y1="9" x2="15.01" y2="9"></line></svg>
+          </div>
+          <div class="row-title-wrap">
+            <div class="row-title-sub">高EQ教育</div>
+            <div class="row-title-main">打造和諧社區</div>
+          </div>
+        </div>
+        <div class="row-col-budget">
+          <div class="row-budget-source">📖 教育局社會局</div>
+          <div class="row-budget-amount">專案補助約 10 萬</div>
+        </div>
+        <div class="row-col-actions">
+          <div class="row-action-item"><span class="row-action-check">✔</span><span>每季免費兒童情緒營，繪本遊戲引導同理覺察</span></div>
+          <div class="row-action-item"><span class="row-action-check">✔</span><span>家長支持講座化解教養焦慮，長輩同理茶會共融</span></div>
+        </div>
+      </div>
+
+      <!-- 橫列 9 (寵物友善) -->
+      <div class="policy-row-strip">
+        <div class="row-col-head">
+          <div class="row-icon" title="友善寵物與毛孩性格標語">
+            <svg viewBox="0 0 24 24"><path d="M4.5 10.5C3.67 10.5 3 11.17 3 12s.67 1.5 1.5 1.5S6 12.83 6 12s-.67-1.5-1.5-1.5zm15 0c-.83 0-1.5.67-1.5 1.5s.67 1.5 1.5 1.5 1.5-.67 1.5-1.5-.67-1.5-1.5-1.5zm-11-4C7.67 6.5 7 7.17 7 8s.67 1.5 1.5 1.5S10 8.83 10 8s-.67-1.5-1.5-1.5zm7 0c-.83 0-1.5.67-1.5 1.5s.67 1.5 1.5 1.5 1.5-.67 1.5-1.5-.67-1.5-1.5-1.5zm-3.5 4.5c-2.48 0-4.5 2.02-4.5 4.5 0 2.21 2.01 4 4.5 4s4.5-1.79 4.5-4c0-2.48-2.02-4.5-4.5-4.5z"/></svg>
+          </div>
+          <div class="row-title-wrap">
+            <div class="row-title-sub">寵物友善</div>
+            <div class="row-title-main">毛孩性格標語</div>
+          </div>
+        </div>
+        <div class="row-col-budget">
+          <div class="row-budget-source">🐕 友善社區計畫</div>
+          <div class="row-budget-amount">基層款約 5 千元</div>
+        </div>
+        <div class="row-col-actions">
+          <div class="row-action-item"><span class="row-action-check">✔</span><span>免費發放牽繩標語套（歡迎摸摸／害羞請保距離）</span></div>
+          <div class="row-action-item"><span class="row-action-check">✔</span><span>公園步道增設便攜袋應急站，建置毛孩交流群</span></div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- 4. 底端列 (鏡像對稱：左側 QRCode + 政見 Podcast ｜ 右側 15 大圖解政見白皮書 + QRCode) -->
+    <div class="footer-bar">
+      <!-- 左側：QRCode + 政見 Podcast -->
+      <div class="footer-unit footer-unit-left">
+        <div class="footer-qr-box" title="掃描收聽《明德里會客室》Podcast 專題">
+          <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://a0987183520.github.io/web/%23podcast"
+            alt="Podcast 語音聽政見 QR Code">
+        </div>
+        <div class="footer-unit-text">
+          <span class="footer-text-main">政見 Podcast</span>
+        </div>
+      </div>
+
+      <div class="footer-divider"></div>
+
+      <!-- 右側：15 大圖解政見白皮書 + QRCode -->
+      <div class="footer-unit footer-unit-right">
+        <div class="footer-unit-text" style="align-items: flex-end; text-align: right;">
+          <span class="footer-text-main">15 大圖解政見白皮書</span>
+        </div>
+        <div class="footer-qr-box" title="掃描瀏覽 15 大完整政見白皮書">
+          <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://a0987183520.github.io/web/"
+            alt="政策白皮書 QR Code">
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+
+</html>
