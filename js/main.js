@@ -2824,38 +2824,63 @@ let currentVideoPolicyId = 1;
 let currentVideoEpNum = 1;
 let podcastTriggerScrollY = 0;
 
-function openPodcastDetails() {
-    // 記錄展開前精準視窗滾動座標
-    podcastTriggerScrollY = window.scrollY;
-    const toggleWrap = document.getElementById('podcast-toggle-wrapper');
+function togglePodcastDrawer() {
     const content = document.getElementById('podcast-collapsible-content');
-    if (toggleWrap) toggleWrap.style.display = 'none';
-    if (content) content.classList.add('active');
+    const btn = document.getElementById('btn-podcast-dropdown');
+    const actionText = document.getElementById('podcast-action-text');
+    const arrow = document.getElementById('podcast-arrow');
+    const showcase = document.getElementById('podcast-showcase');
+
+    if (!content) return;
+
+    const isOpen = content.classList.contains('active');
+    if (!isOpen) {
+        // 展開前記錄視窗滾動座標
+        podcastTriggerScrollY = window.scrollY;
+        content.classList.add('active');
+        if (btn) {
+            btn.classList.add('active');
+            btn.setAttribute('aria-expanded', 'true');
+        }
+        if (actionText) actionText.textContent = '收起';
+        if (arrow) arrow.textContent = '▴';
+    } else {
+        // 收起
+        content.classList.remove('active');
+        if (btn) {
+            btn.classList.remove('active');
+            btn.setAttribute('aria-expanded', 'false');
+        }
+        if (actionText) actionText.textContent = '點選收聽';
+        if (arrow) arrow.textContent = '▾';
+
+        // 焦點與滾動座標精準平滑回到下拉前的位置，徹底防止突兀跳躍
+        if (showcase) {
+            const rect = showcase.getBoundingClientRect();
+            const headerOffset = 95;
+            const targetY = window.scrollY + rect.top - headerOffset;
+            window.scrollTo({ top: Math.max(0, targetY), behavior: 'smooth' });
+        } else if (podcastTriggerScrollY) {
+            window.scrollTo({ top: podcastTriggerScrollY, behavior: 'smooth' });
+        }
+
+        if (btn) {
+            try { btn.focus({ preventScroll: true }); } catch (e) {}
+        }
+    }
+}
+
+function openPodcastDetails() {
+    const content = document.getElementById('podcast-collapsible-content');
+    if (content && !content.classList.contains('active')) {
+        togglePodcastDrawer();
+    }
 }
 
 function closePodcastDetails() {
-    const toggleWrap = document.getElementById('podcast-toggle-wrapper');
     const content = document.getElementById('podcast-collapsible-content');
-    const showcase = document.getElementById('podcast-showcase');
-    const openBtn = document.getElementById('btn-podcast-open');
-
-    if (content) {
-        content.classList.remove('active');
-    }
-    if (toggleWrap) toggleWrap.style.display = 'flex';
-
-    // 視線與焦點精準平滑回到下拉前的位置，徹底防止突兀跳躍
-    if (showcase) {
-        const rect = showcase.getBoundingClientRect();
-        const headerOffset = 95;
-        const targetY = window.scrollY + rect.top - headerOffset;
-        window.scrollTo({ top: Math.max(0, targetY), behavior: 'smooth' });
-    } else if (podcastTriggerScrollY) {
-        window.scrollTo({ top: podcastTriggerScrollY, behavior: 'smooth' });
-    }
-
-    if (openBtn) {
-        try { openBtn.focus({ preventScroll: true }); } catch (e) {}
+    if (content && content.classList.contains('active')) {
+        togglePodcastDrawer();
     }
 }
 

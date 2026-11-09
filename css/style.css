@@ -6897,18 +6897,19 @@ html.is-pwa-standalone #btn-footer-install {
 [data-theme="light"] .policy-credit { color: #1d4ed8; }
 
 /* ==========================================================================
-   明德里會客室 Podcast 官方專區展架與影音播放清單 (Podcast Showcase & Playlist)
+   十五大新政見 ✕ 明德里會客室 一體化整合展架 (Unified Policy & Podcast Hub)
    ========================================================================== */
 
+.policy-unified-header-hub,
 .podcast-showcase-hub {
-    margin: 1.5rem auto 2.5rem auto;
+    margin: 1.5rem auto 2.2rem auto;
     padding: 2.2rem 2rem;
     border-radius: 24px;
     background: linear-gradient(145deg, rgba(22, 35, 29, 0.72) 0%, rgba(13, 20, 17, 0.88) 100%);
     border: 1px solid rgba(251, 191, 36, 0.35);
     box-shadow: 0 16px 40px -10px rgba(0, 0, 0, 0.65), 0 0 25px rgba(251, 191, 36, 0.12);
     width: 100%;
-    max-width: 1200px;
+    max-width: 1050px;
     box-sizing: border-box;
     position: relative;
     overflow: hidden;
@@ -6916,6 +6917,7 @@ html.is-pwa-standalone #btn-footer-install {
     text-align: center;
 }
 
+.policy-unified-header-hub::before,
 .podcast-showcase-hub::before {
     content: '';
     position: absolute;
@@ -6926,18 +6928,80 @@ html.is-pwa-standalone #btn-footer-install {
     background: linear-gradient(90deg, transparent, rgba(251, 191, 36, 0.8), transparent);
 }
 
-.podcast-drawer-title {
-    margin: 0 auto 0.5rem auto !important;
-    font-size: clamp(1.4rem, 2.5vw, 1.85rem) !important;
-    font-weight: 900 !important;
-    color: #fff;
-    letter-spacing: -0.01em;
+.unified-pill-title {
+    margin: 0 auto 1.4rem auto !important;
 }
 
-.podcast-toggle-wrapper {
+/* 明德里會客室 語音抽屜導流橫條 */
+.podcast-bar-wrapper {
     display: flex;
-    justify-content: center;
-    margin-top: 1rem;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(251, 191, 36, 0.35);
+    border-radius: 50px;
+    padding: 0.65rem 1.4rem;
+    max-width: 680px;
+    margin: 0 auto;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+.podcast-bar-wrapper:hover {
+    border-color: rgba(251, 191, 36, 0.6);
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25), 0 0 15px rgba(251, 191, 36, 0.15);
+}
+
+.podcast-bar-left {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+}
+
+.podcast-bar-icon {
+    font-size: 1.3rem;
+    line-height: 1;
+    filter: drop-shadow(0 0 4px rgba(251, 191, 36, 0.6));
+}
+
+.podcast-bar-title {
+    font-size: 1.18rem;
+    font-weight: 800;
+    color: #ffffff;
+    letter-spacing: 0.02em;
+}
+
+.btn-podcast-dropdown {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.48rem 1.25rem;
+    background: linear-gradient(135deg, #fbbf24 0%, #d97706 100%);
+    color: #060b09;
+    border: none;
+    border-radius: 30px;
+    font-size: 0.95rem;
+    font-weight: 800;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    box-shadow: 0 4px 12px rgba(251, 191, 36, 0.32);
+}
+
+.btn-podcast-dropdown:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(251, 191, 36, 0.48);
+    filter: brightness(1.08);
+}
+
+.btn-podcast-dropdown .dropdown-arrow {
+    font-size: 1rem;
+    transition: transform 0.3s ease;
+    display: inline-block;
+}
+
+.btn-podcast-dropdown.active .dropdown-arrow {
+    transform: rotate(180deg);
 }
 
 /* Episodes 4-Column Grid */
@@ -7057,6 +7121,35 @@ html.is-pwa-standalone #btn-footer-install {
     filter: none;
 }
 
+/* 底部收起按鈕列 */
+.podcast-collapse-bottom-row {
+    display: flex;
+    justify-content: center;
+    margin-top: 1.4rem;
+}
+
+.btn-podcast-collapse-inline {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.45rem 1.4rem;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 30px;
+    color: var(--text-secondary);
+    font-size: 0.88rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-podcast-collapse-inline:hover {
+    border-color: #fbbf24;
+    color: #fbbf24;
+    background: rgba(251, 191, 36, 0.12);
+    transform: translateY(-1px);
+}
+
 /* Video Modal Playlist Bar */
 .video-modal-playlist-bar {
     display: flex;
@@ -7128,14 +7221,26 @@ html.is-pwa-standalone #btn-footer-install {
 }
 
 /* Light Mode Adaptations */
+[data-theme="light"] .policy-unified-header-hub,
 [data-theme="light"] .podcast-showcase-hub {
     background: linear-gradient(145deg, #ffffff 0%, #f7f9f6 100%);
     border-color: rgba(217, 119, 6, 0.35);
     box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.08), 0 0 20px rgba(217, 119, 6, 0.08);
 }
 
-[data-theme="light"] .podcast-drawer-title {
-    color: #1c1917 !important;
+[data-theme="light"] .podcast-bar-wrapper {
+    background: #f4f5f1;
+    border-color: rgba(217, 119, 6, 0.35);
+}
+
+[data-theme="light"] .podcast-bar-title {
+    color: #1c1917;
+}
+
+[data-theme="light"] .btn-podcast-collapse-inline {
+    background: #ffffff;
+    border-color: #e5e5e5;
+    color: #52525b;
 }
 
 [data-theme="light"] .podcast-ep-card {
@@ -7152,18 +7257,6 @@ html.is-pwa-standalone #btn-footer-install {
 
 [data-theme="light"] .ep-title {
     color: #1c1917;
-}
-
-[data-theme="light"] .btn-podcast-policy {
-    background: #f5f5f4;
-    border-color: #e7e5e4;
-    color: #44403c;
-}
-
-[data-theme="light"] .btn-podcast-policy:hover {
-    border-color: #d97706;
-    color: #d97706;
-    background: #fff;
 }
 
 [data-theme="light"] .video-modal-playlist-bar {
@@ -7192,14 +7285,26 @@ html.is-pwa-standalone #btn-footer-install {
 }
 
 @media (max-width: 640px) {
+    .policy-unified-header-hub,
     .podcast-showcase-hub {
-        padding: 1.5rem 1rem 1.75rem 1rem;
+        padding: 1.5rem 1rem 1.6rem 1rem;
         border-radius: 18px;
-        margin: 1.2rem auto 2rem auto;
+        margin: 1rem auto 1.8rem auto;
+    }
+    .podcast-bar-wrapper {
+        padding: 0.5rem 0.95rem;
+        border-radius: 40px;
+    }
+    .podcast-bar-title {
+        font-size: 1.05rem;
+    }
+    .btn-podcast-dropdown {
+        padding: 0.4rem 0.95rem;
+        font-size: 0.88rem;
     }
     .podcast-episodes-grid {
         grid-template-columns: 1fr;
-        gap: 1rem;
+        gap: 0.9rem;
     }
     .podcast-ep-card {
         padding: 1.15rem 1rem;

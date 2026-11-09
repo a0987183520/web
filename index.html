@@ -459,34 +459,35 @@
     <section class="policies-section" id="policies-section">
         <div class="container">
             <div class="section-header reveal">
-                <h2 class="policy-glowing-pill-title">我會怎麼做？十五大新政見</h2>
+                <!-- 十五大新政見 ✕ 明德里會客室 一體化整合展架 -->
+                <div class="policy-unified-header-hub glass reveal" id="podcast-showcase">
+                    <!-- 主標題：十五大新政見：我要怎麼做？ -->
+                    <h2 class="policy-glowing-pill-title unified-pill-title">十五大新政見：我要怎麼做？</h2>
 
-                <!-- 明德里會客室 Podcast 抽屜式展架 -->
-                <div class="podcast-showcase-hub glass reveal" id="podcast-showcase">
-                    <div class="transparency-header">
-                        <h3 class="transparency-main-title podcast-drawer-title">🎙️ 明德里會客室</h3>
+                    <!-- 明德里會客室 語音抽屜導流橫條 -->
+                    <div class="podcast-bar-wrapper">
+                        <div class="podcast-bar-left">
+                            <span class="podcast-bar-icon">🎙️</span>
+                            <span class="podcast-bar-title">明德里會客室</span>
+                        </div>
+                        <button type="button" class="btn-podcast-dropdown" id="btn-podcast-dropdown"
+                            onclick="togglePodcastDrawer()" aria-expanded="false" aria-controls="podcast-collapsible-content">
+                            <span class="dropdown-action-text" id="podcast-action-text">點選收聽</span>
+                            <span class="dropdown-arrow" id="podcast-arrow">▾</span>
+                        </button>
+                    </div>
 
-                        <!-- 第 1 層：引導按鈕（預設顯眼露出，點擊後自身隱藏並展開第 2 層） -->
-                        <div class="podcast-toggle-wrapper" id="podcast-toggle-wrapper">
-                            <button type="button" class="btn-budget-toggle" id="btn-podcast-open" onclick="openPodcastDetails()">
-                                <span class="toggle-icon">🎧</span>
-                                <span class="toggle-text">看完整規劃 ▾</span>
-                            </button>
+                    <!-- 展開之 4 集精簡卡片內容容器 -->
+                    <div class="podcast-collapsible-content" id="podcast-collapsible-content">
+                        <div class="podcast-episodes-grid" id="podcast-episodes-grid">
+                            <!-- 由 main.js 動態渲染 4 大極簡集數卡片 -->
                         </div>
 
-                        <!-- 第 2 層：展開內容容器（預設收納折疊） -->
-                        <div class="podcast-collapsible-content" id="podcast-collapsible-content">
-                            <div class="podcast-episodes-grid" id="podcast-episodes-grid">
-                                <!-- 由 main.js 動態渲染 4 大極簡集數卡片 -->
-                            </div>
-
-                            <!-- 底部收起按鈕 -->
-                            <div class="budget-close-wrapper">
-                                <button type="button" class="btn-budget-close" onclick="closePodcastDetails()">
-                                    <span class="close-arrow">▴</span>
-                                    <span class="close-text">收起明德里會客室</span>
-                                </button>
-                            </div>
+                        <!-- 底部收起按鈕 -->
+                        <div class="podcast-collapse-bottom-row">
+                            <button type="button" class="btn-podcast-collapse-inline" onclick="togglePodcastDrawer()">
+                                <span>收起 ▴</span>
+                            </button>
                         </div>
                     </div>
                 </div>
