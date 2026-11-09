@@ -133,16 +133,16 @@
       flex-shrink: 0;
     }
 
-    .brand-logo-group {
+    .brand-candidate-group {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
     }
 
     /* 明德里 2.0 專屬品牌 App 徽章 (翡翠亮綠光感底座 ✕ 雙旗流線音符 Logo) */
     .brand-music-badge {
-      width: 34px;
-      height: 34px;
+      width: 38px;
+      height: 38px;
       border-radius: 8px;
       background: linear-gradient(135deg, #a3e635 0%, #10b981 100%);
       box-shadow: 0 0 14px rgba(16, 185, 129, 0.65);
@@ -160,71 +160,61 @@
       overflow: visible;
     }
 
-    .brand-text-main {
-      font-size: 32px;
-      font-weight: 900;
-      color: #ffffff;
-      letter-spacing: -0.2px;
-    }
-
-    .brand-text-main span.highlight-num {
-      color: #fbbf24;
-      margin-left: 2px;
-    }
-
-    .brand-divider {
-      color: rgba(255, 255, 255, 0.3);
-      margin: 0 8px;
-      font-weight: 300;
-      font-size: 28px;
-    }
-
-    .brand-candidate-name {
+    /* 明德里獨立設色（亮眼純白） */
+    .top-village-name {
       font-size: 34px;
       font-weight: 900;
       color: #ffffff;
-      letter-spacing: 0.2px;
+      letter-spacing: 0.5px;
+      white-space: nowrap;
     }
 
-    .brand-candidate-title {
-      font-size: 29px;
-      font-weight: 900;
-      color: #fbbf24;
-      margin-left: 6px;
-    }
-
-    /* 頂端列右側：政策白皮書 ＋ 精緻 52px QR Code 相框 */
-    .top-policy-group {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .top-policy-label {
-      font-size: 29px;
-      font-weight: 900;
-      color: #fbbf24;
-      letter-spacing: -0.2px;
-    }
-
-    .top-qr-frame {
-      width: 52px;
-      height: 52px;
+    /* 抽籤號次 2 號章 (白底正紅 2 號章 ✕ 金外框，大氣立體) */
+    .top-candidate-badge {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
       background: #ffffff;
-      border: 1.8px solid #fbbf24;
-      border-radius: 6px;
-      padding: 2.5px;
-      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.55);
+      border: 3px solid #dc2626;
+      outline: 2px solid #fbbf24;
+      box-shadow: 0 2px 10px rgba(220, 38, 38, 0.45);
       display: flex;
       align-items: center;
       justify-content: center;
+      color: #dc2626;
+      font-size: 30px;
+      font-weight: 900;
+      line-height: 1;
+      font-family: 'Outfit', sans-serif;
       flex-shrink: 0;
     }
 
-    .top-qr-frame img {
-      width: 100%;
-      height: 100%;
-      display: block;
+    .candidate-title-sub {
+      font-size: 26px;
+      font-weight: 900;
+      color: #fbbf24;
+      letter-spacing: 0.5px;
+      white-space: nowrap;
+    }
+
+    .candidate-name-main {
+      font-size: 38px;
+      font-weight: 900;
+      color: #ffffff;
+      letter-spacing: 1.2px;
+      white-space: nowrap;
+    }
+
+    /* 頂端列右側：政策白皮書主標 (大氣亮金) */
+    .top-whitepaper-tag {
+      font-size: 32px;
+      font-weight: 900;
+      color: #fbbf24;
+      letter-spacing: 2px;
+      display: flex;
+      align-items: center;
+      white-space: nowrap;
+      text-shadow: 0 0 12px rgba(251, 191, 36, 0.35);
     }
 
     /* 
@@ -611,33 +601,27 @@
 
   <div class="page">
 
-    <!-- 1. 頂端導航條 (明德里 2.0 ｜ 陳新昱 候選人 ✕ 政策白皮書 ＋ 掃碼 QR) -->
+    <!-- 1. 頂端導航條 (明德里 ✕ ② 號 ✕ 里長候選人 陳新昱 ｜ 政策白皮書) -->
     <div class="top-bar">
-      <div class="brand-logo-group">
-        <!-- 明德里 2.0 專屬品牌 App 徽章 (黃綠漸層底座 ✕ 極簡純白雙旗流線音符) -->
-        <div class="brand-music-badge" title="明德里2.0 ✕ 生活美學與音樂藝術">
+      <div class="brand-candidate-group">
+        <!-- 綠色音符美化徽章 -->
+        <div class="brand-music-badge" title="生活美學與文化藝術">
           <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-            <!-- 符桿 (純白 ✕ 12度微傾) -->
-            <path d="M 54 60 L 68 12" stroke="#ffffff" stroke-width="7" stroke-linecap="round"/>
-            <!-- 雙層飄逸流線旗幟 (純白) -->
-            <path d="M 68 12 Q 86 16 96 30 Q 82 23 68 23 Z" fill="#ffffff"/>
-            <path d="M 68 29 Q 85 33 94 45 Q 81 38 68 39 Z" fill="#ffffff"/>
-            <!-- 符頭圓球 (純白實心) -->
-            <circle cx="39" cy="67" r="23" fill="#ffffff"/>
+            <path d="M 54 60 L 68 12" stroke="#ffffff" stroke-width="7" stroke-linecap="round" />
+            <path d="M 68 12 Q 86 16 96 30 Q 82 23 68 23 Z" fill="#ffffff" />
+            <path d="M 68 29 Q 85 33 94 45 Q 81 38 68 39 Z" fill="#ffffff" />
+            <circle cx="39" cy="67" r="23" fill="#ffffff" />
           </svg>
         </div>
-        <div class="brand-text-main">明德里<span class="highlight-num">2.0</span></div>
-        <div class="brand-divider">｜</div>
-        <div class="brand-candidate-name">陳新昱</div>
-        <div class="brand-candidate-title">里長候選人</div>
+        <!-- 明德里獨立設色 -->
+        <div class="top-village-name">明德里</div>
+        <!-- 抽籤號次 2 號章 -->
+        <div class="top-candidate-badge" title="里長候選人 2 號">2</div>
+        <div class="candidate-title-sub">里長候選人</div>
+        <div class="candidate-name-main">陳新昱</div>
       </div>
-      <div class="top-policy-group">
-        <div class="top-policy-label">政策白皮書</div>
-        <div class="top-qr-frame">
-          <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://a0987183520.github.io/web/"
-            alt="政策白皮書 QR Code">
-        </div>
-      </div>
+      <!-- 右側：政策白皮書 -->
+      <div class="top-whitepaper-tag">政策白皮書</div>
     </div>
 
     <!-- 2. 上半部 Hero 區塊 -->
