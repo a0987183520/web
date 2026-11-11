@@ -73,6 +73,25 @@
         height: 297mm;
         page-break-after: always;
       }
+
+      body.no-gradient-mode .brand-music-badge {
+        background: #047857 !important;
+        box-shadow: none !important;
+      }
+
+      body.no-gradient-mode .row-icon {
+        background: #ecfdf5 !important;
+        box-shadow: none !important;
+      }
+
+      body.no-gradient-mode,
+      body.no-gradient-mode *,
+      body.no-gradient-mode *::before,
+      body.no-gradient-mode *::after {
+        box-shadow: none !important;
+        filter: none !important;
+        text-shadow: none !important;
+      }
     }
 
     /* 頂端工具列（瀏覽與正反面切換） */
@@ -102,6 +121,43 @@
       align-items: center;
       gap: 6px;
       box-shadow: 0 2px 8px rgba(16, 185, 129, 0.4);
+      transition: all 0.2s;
+    }
+
+    .toolbar .btn-group {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .toolbar button.btn-no-gradient {
+      background: linear-gradient(135deg, #0d9488 0%, #0f766e 100%);
+      box-shadow: 0 2px 8px rgba(13, 148, 136, 0.4);
+    }
+
+    .toolbar button:hover {
+      filter: brightness(1.1);
+      transform: translateY(-1px);
+    }
+
+    /* 無漸層列印模式（點選「另存PDF無漸層」時套用，轉為印刷純色並移除陰影，確保 Illustrator 零警告） */
+    body.no-gradient-mode .brand-music-badge {
+      background: #047857 !important;
+      box-shadow: none !important;
+    }
+
+    body.no-gradient-mode .row-icon {
+      background: #ecfdf5 !important;
+      box-shadow: none !important;
+    }
+
+    body.no-gradient-mode,
+    body.no-gradient-mode *,
+    body.no-gradient-mode *::before,
+    body.no-gradient-mode *::after {
+      box-shadow: none !important;
+      filter: none !important;
+      text-shadow: none !important;
     }
 
     .toolbar .page-switch {
@@ -521,7 +577,10 @@
 <body>
 
   <div class="toolbar">
-    <button onclick="window.print()">🖨️ 列印 / 存為 PDF (背面)</button>
+    <div class="btn-group">
+      <button id="btn-save-pdf" onclick="printNormal()">🖨️ 另存PDF</button>
+      <button id="btn-save-pdf-nograd" onclick="printNoGradient()" class="btn-no-gradient">📄 另存PDF無漸層</button>
+    </div>
     <div class="page-switch">
       <a href="01_DM_A4_p1.html">📄 查看正面 (願景與形象)</a>
       <a href="01_DM_A4_p2.html" class="active">📄 查看背面 (白皮書白底高對比版)</a>
@@ -799,6 +858,49 @@
 
   </div>
 
+  <script>
+    function printNormal() {
+      document.body.classList.remove('no-gradient-mode');
+      updateButtonState();
+      void document.body.offsetHeight;
+      setTimeout(function () {
+        window.print();
+      }, 150);
+    }
+
+    function printNoGradient() {
+      document.body.classList.add('no-gradient-mode');
+      updateButtonState();
+      void document.body.offsetHeight;
+      setTimeout(function () {
+        window.print();
+      }, 150);
+    }
+
+    function updateButtonState() {
+      var isNoGrad = document.body.classList.contains('no-gradient-mode');
+      var btnNormal = document.getElementById('btn-save-pdf');
+      var btnNoGrad = document.getElementById('btn-save-pdf-nograd');
+      if (btnNormal && btnNoGrad) {
+        if (isNoGrad) {
+          btnNormal.style.opacity = '0.7';
+          btnNoGrad.style.opacity = '1';
+          btnNoGrad.style.outline = '2px solid #fbbf24';
+          btnNormal.style.outline = 'none';
+        } else {
+          btnNormal.style.opacity = '1';
+          btnNoGrad.style.opacity = '0.7';
+          btnNormal.style.outline = '2px solid #fbbf24';
+          btnNoGrad.style.outline = 'none';
+        }
+      }
+    }
+
+    if (window.location.search.indexOf('nograd') !== -1) {
+      document.body.classList.add('no-gradient-mode');
+      updateButtonState();
+    }
+  </script>
 </body>
 
 </html>
