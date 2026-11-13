@@ -68,7 +68,7 @@
 
         /* Header / Navbar */
         .header-bar {
-            background: rgba(10, 15, 29, 0.98);
+            background: rgba(10, 15, 29, 0.96);
             backdrop-filter: blur(12px);
             border-bottom: 1px solid rgba(255, 255, 255, 0.12);
             position: sticky;
@@ -161,56 +161,56 @@
         /* Hero */
         .hero {
             text-align: center;
-            padding: 24px 16px 24px;
+            padding: 24px 16px 20px;
         }
 
         .hero h1 {
-            font-size: 2.2rem;
+            font-size: 2.1rem;
             font-weight: 900;
             letter-spacing: -0.5px;
-            margin-bottom: 10px;
-            background: linear-gradient(135deg, #ffffff 40%, #a7f3d0 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            margin-bottom: 8px;
+            color: #ffffff;
         }
 
         .hero-source {
             color: var(--text-secondary);
-            font-size: 0.98rem;
-            font-weight: 500;
+            font-size: 0.95rem;
+            margin-bottom: 8px;
         }
 
-        /* Table Container - Unified Background */
+        /* Table Design */
         .table-wrap {
-            background: var(--bg-table);
-            border: 1px solid var(--border-village);
-            border-radius: 12px;
             overflow-x: auto;
-            margin-bottom: 32px;
-            box-shadow: 0 12px 30px -5px rgba(0, 0, 0, 0.6);
+            background: var(--bg-table);
+            border: 1.5px solid var(--border-village);
+            border-radius: 12px;
+            margin-bottom: 30px;
+            -webkit-overflow-scrolling: touch;
         }
 
         table {
             width: 100%;
             border-collapse: collapse;
-            font-size: 0.94rem;
+            font-size: 0.88rem;
             text-align: left;
-            white-space: nowrap;
-            background: transparent;
+            background: var(--bg-table);
         }
 
-        thead tr {
-            background: rgba(15, 23, 42, 0.9);
-            border-bottom: 2.5px solid var(--border-village);
+        thead {
+            background: #0f172a;
+            border-bottom: 2px solid var(--border-village);
+            position: sticky;
+            top: 52px;
+            z-index: 10;
         }
 
         th {
-            padding: 14px 14px;
-            font-weight: 800;
-            color: #f1f5f9;
-            font-size: 0.88rem;
-            letter-spacing: 0.3px;
-            border-right: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 12px 12px;
+            font-weight: 700;
+            color: #e2e8f0;
+            white-space: nowrap;
+            letter-spacing: 0.5px;
+            border-right: 1px solid var(--border-col);
         }
 
         th:last-child {
@@ -218,29 +218,41 @@
         }
 
         td {
-            padding: 11px 14px;
-            color: #e2e8f0;
-            background: transparent;
+            padding: 11px 12px;
+            white-space: nowrap;
+            border-right: 1px solid var(--border-col);
+            background: var(--bg-table);
         }
 
-        /* Column Specific Formatting */
-        .col-fixed {
-            background: rgba(15, 23, 42, 0.6) !important;
-            border-right: 1.5px solid var(--border-col) !important;
+        td:last-child {
+            border-right: none;
+        }
+
+        /* Row styling: Row 1 has thin inner line, Row 2 has bold village separation line */
+        tr.row-first td {
+            border-bottom: 1px solid var(--border-row);
+        }
+
+        tr.row-second td {
+            border-bottom: 2.5px solid var(--border-village);
+        }
+
+        /* Left fixed columns (ID & Name) styling */
+        td.col-fixed {
+            background: #0d1424 !important;
+            font-weight: 700;
+            vertical-align: middle;
             text-align: center;
         }
 
-        .col-id {
-            width: 55px;
-            font-weight: 800;
+        td.col-id {
             color: #94a3b8;
             font-size: 0.95rem;
         }
 
-        .col-name {
-            width: 110px;
-            font-weight: 800;
-            text-align: center;
+        td.col-name {
+            text-align: left;
+            padding-left: 14px;
         }
 
         .village-title {
@@ -252,46 +264,25 @@
         .mingde-alert-tag {
             display: inline-block;
             font-size: 0.72rem;
-            color: #fca5a5;
-            background: rgba(239, 68, 68, 0.25);
-            padding: 1px 6px;
-            border-radius: 4px;
-            margin-top: 3px;
+            color: #f87171;
             font-weight: 700;
+            margin-top: 2px;
         }
 
         .col-num {
+            font-variant-numeric: tabular-nums;
             font-weight: 600;
-            color: #f1f5f9;
+            color: #cbd5e1;
         }
 
         .col-ret {
-            font-weight: 700;
+            font-variant-numeric: tabular-nums;
+            font-weight: 800;
         }
 
-        /* Row Separation Lines: Crisp & Clear */
-        tr.row-first td {
-            border-bottom: 1px dashed var(--border-row);
-        }
-
-        /* Thick Distinct Border Between Villages */
-        tr.row-second td {
-            border-bottom: 2.5px solid var(--border-village);
-        }
-
-        tbody tr:hover td {
-            background: rgba(255, 255, 255, 0.025);
-        }
-
-        /* Highlight Mingde */
+        /* Mingde Highlight */
         tr.highlight-mingde td {
             background: var(--highlight-mingde-bg) !important;
-            color: #ffffff;
-            font-weight: 700;
-        }
-
-        tr.highlight-mingde .village-title {
-            color: #fecaca;
         }
 
         tr.highlight-mingde.row-first td.col-fixed {
@@ -417,14 +408,24 @@
             background: rgba(0, 0, 0, 0.35);
             border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 12px;
-            padding: 18px;
+            padding: 20px;
             font-size: 0.84rem;
             color: var(--text-muted);
-            line-height: 1.7;
+            line-height: 1.8;
+        }
+
+        .disclaimer-box a {
+            color: #60a5fa;
+            text-decoration: underline;
+            word-break: break-all;
+        }
+
+        .disclaimer-box a:hover {
+            color: #93c5fd;
         }
 
         .disclaimer-box strong {
-            color: #9ca3af;
+            color: #cbd5e1;
         }
 
         /* CTA */
@@ -1908,11 +1909,13 @@
 
         <!-- Legal & Civic Disclaimer -->
         <div class="disclaimer-box">
-            <p><strong>【資料來源與公民監督查證聲明】：</strong></p>
-            <p>1. 本表各項收支數據，均如實轉載自新北市土城區公所官方公開之「新北市土城區 113 年第 1～4 季」及「114 年第 1～4 季」《里基層工作經費執行情形季報表》官方 PDF 原件；設籍人口數據參照新北市土城戶政事務所官方人口統計。</p>
-            <p>2. 法定預算依據新北市政府民政局規定之人口級距（4,000人以下 60萬、4,001～7,000人 65萬、7,001～10,000人 70萬、10,000人以上 75萬）客觀編列對應。本表旨在落實陽光政府、促進地方民主治理與公共利益監督，所有數據客觀如實呈現。</p>
-            <p>3. 各項數據若與主管機關最新更正公文有所出入，一律以新北市政府與土城區公所官方最新發布之原始公文決算為準。歡迎各界檢驗與查對，若有任何行政校正歡迎隨時來信指正，我們將即時比對更新。</p>
-            <p>4. 官方查驗管道：新北市土城區公所官網（政府資訊公開 ➔ 鄰里資訊 ➔ 里基層工作經費執行情形）｜新北市土城戶政事務所官網（人口統計）。</p>
+            <p><strong>【資料來源與公民監督免責聲明】：</strong></p>
+            <p>1. <strong>非唯一評量指標</strong>：本表所列「基層款執行率」僅反映各里辦公處依《新北市政府里基層工作經費督導實施要點》向土城區公所請領核銷之行政財務動支數據，僅供公共事務研究與市民監督參考，<strong>不代表亦不等於各里里長整體服務熱忱或基層盡責度之絕對評價</strong>，各里特性與公共需求各有不同，請理性客觀解讀。</p>
+            <p>2. <strong>數據來源與官方出處</strong>：本表各項收支數據，均如實轉載自新北市政府與土城區公所官方發布之「新北市土城區 113 年第 1～4 季」及「114 年第 1～4 季」《里基層工作經費執行情形季報表》官方文件；各里設籍人口數據參照內政部戶政司人口統計資料庫及新北市土城戶政事務所官方公告統計。各年度法定預算額度係依新北市政府民政局規定之人口級距標準客觀對照。</p>
+            <p>3. <strong>官方公開查詢管道</strong>：市民可逕至主管機關官方公開平台核對原件：<br>
+            ・土城區公所「里基層工作經費執行情形季報表」官方查詢網址：<a href="https://www.tucheng.ntpc.gov.tw" target="_blank" rel="noopener noreferrer">https://www.tucheng.ntpc.gov.tw</a>（路徑：首頁 ➔ 鄰里資訊 ➔ 里基層工作經費執行情形）<br>
+            ・內政部戶政司人口統計資料查詢網址：<a href="https://www.ris.gov.tw/app/portal/346" target="_blank" rel="noopener noreferrer">https://www.ris.gov.tw/app/portal/346</a>（路徑：人口統計資料庫 ➔ 村里鄰戶數及人口數）</p>
+            <p>4. <strong>官方公文為準與即時勘誤機制</strong>：本表旨在促進陽光治理與資訊透明，所有數據均力求精確客觀。各項數據若與主管機關最新更正或校正公文有所出入，一律以新北市政府與土城區公所官方最新發布之原始公文決算為準。<strong>各界若發現有任何筆誤、官方資料更新或需校正之處，歡迎隨時來信指正，我們將於查證官方原始紀錄後立即調整修正</strong>。</p>
         </div>
 
         <!-- CTA Bottom -->
