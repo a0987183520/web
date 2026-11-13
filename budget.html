@@ -21,9 +21,9 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>土城區 47 里基層建設經費與執行率透明儀表板｜科技里長 陳新昱（明德里 2.0）</title>
-    <meta name="description" content="土城區 47 里里基層工作經費官方決算大公開：113～114 年各里人口、法定額度、實際動支金額、執行率及繳回公庫金額一覽表。提供公民監督透明查驗與即時搜尋。">
-    <meta name="keywords" content="土城里長預算, 里基層工作經費, 土城區各里執行率, 科技里長, 陳新昱, 明德里, 明德里里長, 公民監督, 陽光政府">
+    <title>土城區 47 里基層款執行率報表｜明德里 2號里長候選人 陳新昱</title>
+    <meta name="description" content="土城區 47 里基層款執行率報表：公民監督，官方資料。新北市土城區公所官方季報表（民國 113 年至 114 年）完整決算明細。">
+    <meta name="keywords" content="土城區47里基層款執行率報表, 里基層工作經費, 土城里長預算, 明德里, 2號陳新昱, 公民監督">
     <link rel="canonical" href="https://a0987183520.github.io/web/budget.html">
 
     <!-- Favicon -->
@@ -48,7 +48,7 @@
             --accent-gold: #f59e0b;
             --accent-red: #ef4444;
             --accent-blue: #3b82f6;
-            --highlight-mingde: rgba(239, 68, 68, 0.12);
+            --highlight-mingde: rgba(239, 68, 68, 0.14);
             --highlight-border: #ef4444;
         }
 
@@ -83,24 +83,52 @@
         .brand-group {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 6px;
             text-decoration: none;
         }
 
-        .brand-badge {
-            background: #dc2626;
-            color: #fff;
-            font-size: 0.85rem;
+        .brand-location {
+            font-size: 1.15rem;
             font-weight: 900;
-            padding: 3px 10px;
-            border-radius: 9999px;
-            border: 2px solid #fbbf24;
+            color: #ffffff;
+            letter-spacing: 0.5px;
+        }
+
+        .brand-dot {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            font-weight: 700;
+        }
+
+        /* 紅圈白底紅字 官方抽籤大圓章 */
+        .ballot-circle {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 27px;
+            height: 27px;
+            background-color: #ffffff;
+            border: 2.5px solid #dc2626;
+            color: #dc2626;
+            font-size: 1.05rem;
+            font-weight: 900;
+            border-radius: 50%;
+            line-height: 1;
+            box-shadow: 0 0 0 1.5px rgba(251, 191, 36, 0.9), 0 2px 6px rgba(0, 0, 0, 0.4);
+            margin: 0 2px;
         }
 
         .brand-title {
             font-size: 1.05rem;
             font-weight: 700;
-            color: #fff;
+            color: #f3f4f6;
+        }
+
+        .brand-name {
+            font-size: 1.15rem;
+            font-weight: 900;
+            color: #34d399;
+            letter-spacing: 0.5px;
         }
 
         .nav-back-btn {
@@ -110,7 +138,7 @@
             background: rgba(255, 255, 255, 0.08);
             color: #d1d5db;
             text-decoration: none;
-            padding: 6px 14px;
+            padding: 7px 15px;
             border-radius: 8px;
             font-size: 0.9rem;
             font-weight: 500;
@@ -125,7 +153,7 @@
         }
 
         .container {
-            max-width: 1240px;
+            max-width: 1180px;
             margin: 0 auto;
             padding: 24px 16px;
         }
@@ -133,101 +161,37 @@
         /* Hero */
         .hero {
             text-align: center;
-            padding: 32px 16px 24px;
+            padding: 28px 16px 20px;
         }
 
         .hero-pill {
             display: inline-flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
             background: rgba(16, 185, 129, 0.15);
             border: 1px solid rgba(16, 185, 129, 0.4);
             color: #34d399;
-            font-size: 0.85rem;
+            font-size: 0.88rem;
             font-weight: 700;
-            padding: 6px 16px;
+            padding: 5px 16px;
             border-radius: 9999px;
-            margin-bottom: 16px;
+            margin-bottom: 14px;
         }
 
         .hero h1 {
             font-size: 2.1rem;
             font-weight: 900;
             letter-spacing: -0.5px;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
             background: linear-gradient(135deg, #fff 40%, #a7f3d0 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        .hero p {
+        .hero-source {
             color: var(--text-secondary);
-            font-size: 1.02rem;
-            max-width: 760px;
-            margin: 0 auto 24px;
-        }
-
-        /* Stat Cards */
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 16px;
-            margin-bottom: 32px;
-        }
-
-        .stat-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 14px;
-            padding: 20px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .stat-card.alert {
-            border-color: rgba(239, 68, 68, 0.5);
-            background: linear-gradient(180deg, rgba(239, 68, 68, 0.08) 0%, rgba(17, 24, 39, 0.9) 100%);
-        }
-
-        .stat-card.success {
-            border-color: rgba(16, 185, 129, 0.4);
-            background: linear-gradient(180deg, rgba(16, 185, 129, 0.08) 0%, rgba(17, 24, 39, 0.9) 100%);
-        }
-
-        .stat-card.info {
-            border-color: rgba(59, 130, 246, 0.4);
-            background: linear-gradient(180deg, rgba(59, 130, 246, 0.08) 0%, rgba(17, 24, 39, 0.9) 100%);
-        }
-
-        .stat-label {
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-            margin-bottom: 6px;
-            font-weight: 500;
-        }
-
-        .stat-value {
-            font-size: 1.85rem;
-            font-weight: 900;
-            line-height: 1.2;
-            margin-bottom: 6px;
-        }
-
-        .stat-card.alert .stat-value {
-            color: #f87171;
-        }
-
-        .stat-card.success .stat-value {
-            color: #34d399;
-        }
-
-        .stat-card.info .stat-value {
-            color: #60a5fa;
-        }
-
-        .stat-desc {
-            font-size: 0.82rem;
-            color: var(--text-muted);
+            font-size: 0.98rem;
+            margin-bottom: 8px;
         }
 
         /* Tool Bar: Search & Filter */
@@ -236,7 +200,7 @@
             border: 1px solid var(--border-color);
             border-radius: 14px;
             padding: 16px;
-            margin-bottom: 24px;
+            margin-bottom: 20px;
             display: flex;
             flex-wrap: wrap;
             gap: 12px;
@@ -245,13 +209,13 @@
         }
 
         .search-box {
-            flex: 1 1 240px;
+            flex: 1 1 260px;
             position: relative;
         }
 
         .search-input {
             width: 100%;
-            background: rgba(0, 0, 0, 0.35);
+            background: rgba(0, 0, 0, 0.4);
             border: 1px solid var(--border-color);
             border-radius: 10px;
             padding: 10px 14px 10px 38px;
@@ -301,7 +265,7 @@
         }
 
         .sort-select {
-            background: rgba(0, 0, 0, 0.35);
+            background: rgba(0, 0, 0, 0.4);
             border: 1px solid var(--border-color);
             color: #fff;
             padding: 8px 12px;
@@ -317,35 +281,44 @@
             border: 1px solid var(--border-color);
             border-radius: 14px;
             overflow-x: auto;
-            margin-bottom: 32px;
+            margin-bottom: 28px;
             box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
         }
 
         table {
             width: 100%;
             border-collapse: collapse;
-            font-size: 0.9rem;
+            font-size: 0.92rem;
             text-align: left;
             white-space: nowrap;
         }
 
         thead tr {
-            background: rgba(255, 255, 255, 0.04);
+            background: rgba(255, 255, 255, 0.06);
             border-bottom: 2px solid var(--border-color);
         }
 
         th {
-            padding: 14px 16px;
+            padding: 13px 14px;
             font-weight: 700;
             color: #e5e7eb;
             font-size: 0.85rem;
-            letter-spacing: 0.5px;
+            letter-spacing: 0.3px;
         }
 
         td {
-            padding: 13px 16px;
+            padding: 10px 14px;
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
             color: #d1d5db;
+        }
+
+        /* Two-row grouped per village */
+        tr.row-first td {
+            border-bottom: 1px dashed rgba(255, 255, 255, 0.08);
+        }
+
+        tr.row-second td {
+            border-bottom: 2px solid rgba(255, 255, 255, 0.12);
         }
 
         tbody tr:hover {
@@ -353,14 +326,28 @@
         }
 
         /* Highlight Mingde */
-        tr.highlight-mingde {
-            background: rgba(239, 68, 68, 0.15) !important;
+        tr.highlight-mingde td {
+            background: var(--highlight-mingde) !important;
+            color: #fff;
+            font-weight: 700;
+        }
+
+        tr.highlight-mingde.row-first td:first-child {
             border-left: 4px solid #ef4444;
         }
 
-        tr.highlight-mingde td {
-            color: #fff;
+        tr.highlight-mingde.row-second td:first-child {
+            border-left: 4px solid #ef4444;
+        }
+
+        .year-tag {
+            display: inline-block;
+            font-size: 0.82rem;
             font-weight: 700;
+            padding: 2px 7px;
+            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.08);
+            color: #93c5fd;
         }
 
         .badge {
@@ -389,14 +376,8 @@
             border: 1px solid rgba(239, 68, 68, 0.3);
         }
 
-        .badge-top {
-            background: rgba(239, 68, 68, 0.3);
-            color: #fee2e2;
-            border: 1px solid #ef4444;
-        }
-
         .progress-bar-wrap {
-            width: 70px;
+            width: 65px;
             height: 6px;
             background: rgba(255, 255, 255, 0.1);
             border-radius: 9999px;
@@ -416,14 +397,14 @@
             background: linear-gradient(145deg, rgba(17, 24, 39, 0.95), rgba(10, 15, 29, 0.95));
             border: 1px solid rgba(16, 185, 129, 0.3);
             border-radius: 16px;
-            padding: 28px 24px;
-            margin-bottom: 32px;
+            padding: 24px 20px;
+            margin-bottom: 24px;
         }
 
         .analysis-section h2 {
-            font-size: 1.45rem;
+            font-size: 1.35rem;
             color: #fff;
-            margin-bottom: 16px;
+            margin-bottom: 14px;
             display: flex;
             align-items: center;
             gap: 10px;
@@ -432,32 +413,32 @@
         .analysis-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-            margin-top: 16px;
+            gap: 16px;
+            margin-top: 14px;
         }
 
         .analysis-box {
             background: rgba(0, 0, 0, 0.25);
             border: 1px solid var(--border-color);
             border-radius: 12px;
-            padding: 18px;
+            padding: 16px;
         }
 
         .analysis-box h3 {
-            font-size: 1.05rem;
+            font-size: 1rem;
             color: var(--accent-gold);
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
 
         .analysis-box p, .analysis-box li {
-            font-size: 0.9rem;
+            font-size: 0.88rem;
             color: #d1d5db;
             line-height: 1.6;
         }
 
         .analysis-box ul {
-            padding-left: 20px;
-            margin-top: 8px;
+            padding-left: 18px;
+            margin-top: 6px;
         }
 
         /* Legal & Civic Disclaimer */
@@ -465,8 +446,8 @@
             background: rgba(0, 0, 0, 0.3);
             border: 1px solid var(--border-color);
             border-radius: 12px;
-            padding: 20px;
-            font-size: 0.85rem;
+            padding: 18px;
+            font-size: 0.84rem;
             color: var(--text-muted);
             line-height: 1.7;
         }
@@ -478,7 +459,7 @@
         /* CTA */
         .cta-center {
             text-align: center;
-            margin-top: 36px;
+            margin-top: 30px;
         }
 
         .btn-primary {
@@ -488,9 +469,9 @@
             background: linear-gradient(135deg, #10b981 0%, #059669 100%);
             color: #fff;
             text-decoration: none;
-            padding: 14px 28px;
+            padding: 12px 24px;
             border-radius: 12px;
-            font-size: 1.05rem;
+            font-size: 1rem;
             font-weight: 700;
             box-shadow: 0 4px 14px rgba(16, 185, 129, 0.35);
             transition: all 0.2s;
@@ -503,7 +484,7 @@
 
         @media (max-width: 768px) {
             .hero h1 {
-                font-size: 1.65rem;
+                font-size: 1.6rem;
             }
             .toolbar {
                 flex-direction: column;
@@ -513,7 +494,7 @@
                 justify-content: flex-start;
             }
             th, td {
-                padding: 10px 12px;
+                padding: 9px 10px;
                 font-size: 0.82rem;
             }
         }
@@ -524,8 +505,12 @@
     <!-- Header / Navbar -->
     <header class="header-bar">
         <a href="index.html" class="brand-group">
-            <span class="brand-badge">2號</span>
-            <span class="brand-title">陳新昱｜科技里長・明德里 2.0</span>
+            <span class="brand-location">明德里</span>
+            <span class="brand-dot">・</span>
+            <span class="ballot-circle" title="2號">2</span>
+            <span class="brand-title">里長候選人</span>
+            <span class="brand-dot">・</span>
+            <span class="brand-name">陳新昱</span>
         </a>
         <a href="index.html" class="nav-back-btn">
             <span>← 回官網首頁</span>
@@ -536,29 +521,10 @@
 
         <!-- Hero Header -->
         <section class="hero">
-            <div class="hero-pill">📊 公民監督 ✕ 陽光政府 ✕ 官方數據大公開</div>
-            <h1>土城區 47 里基層建設經費與執行率透明儀表板</h1>
-            <p>數據來源：新北市土城區公所官方季報表決算（民國 113～114 年）與土城戶政事務所人口統計。所有公款收支完全公開透明，讓里民看得見、監督得到！</p>
+            <div class="hero-pill">公民監督，官方資料</div>
+            <h1>土城區 47 里基層款執行率報表</h1>
+            <div class="hero-source">資料來源：新北市土城區公所官方季報表（民國 113 年至 114 年）</div>
         </section>
-
-        <!-- Stat Highlights -->
-        <div class="stats-grid">
-            <div class="stat-card info">
-                <div class="stat-label">全土城 47 里每年法定基層款總額</div>
-                <div class="stat-value">約 2,820 萬元</div>
-                <div class="stat-desc">市府編列專供各里路平、路燈、溝渠與公共環境改善之公款</div>
-            </div>
-            <div class="stat-card success">
-                <div class="stat-label">全土城各里兩年平均執行率</div>
-                <div class="stat-value">94.8%</div>
-                <div class="stat-desc">全土城共有 26 個里達到 100% 執行率（全額用好用滿於里民福利）</div>
-            </div>
-            <div class="stat-card alert">
-                <div class="stat-label">明德里兩年累計繳回市庫金額</div>
-                <div class="stat-value">37 萬 8,915 元</div>
-                <div class="stat-desc">全土城繳回金額最高（第 1 名・倒數第 1），114 年執行率僅 64.8%</div>
-            </div>
-        </div>
 
         <!-- Toolbar: Search, Filter, Sort -->
         <div class="toolbar">
@@ -575,31 +541,28 @@
             </div>
 
             <select id="sortSelect" class="sort-select">
-                <option value="default">預設排序（依里別編號 1～47）</option>
-                <option value="ret-desc">兩年繳回金額由高到低（警示排行）</option>
-                <option value="rate-asc">執行率由低到高（待改善排行）</option>
-                <option value="rate-desc">執行率由高到低（優等排行）</option>
+                <option value="default">預設排序（依編號 1～47）</option>
+                <option value="rate-asc">執行率由低到高（待加強放上面）</option>
+                <option value="rate-desc">執行率由高到低（100%模範里放上面）</option>
+                <option value="ret-desc">兩年累計繳回金額由高到低</option>
                 <option value="pop-desc">人口數由多到少</option>
             </select>
         </div>
 
-        <!-- Table Display -->
+        <!-- Table Display (Two rows per village: Row 1 = 113, Row 2 = 114) -->
         <div class="table-wrap">
             <table id="budgetTable">
                 <thead>
                     <tr>
-                        <th>編號</th>
-                        <th>里名</th>
-                        <th>113年人口</th>
-                        <th>113年實支 (元)</th>
-                        <th>113年執行率</th>
-                        <th>114年人口</th>
-                        <th>114年實支 (元)</th>
-                        <th>114年執行率</th>
-                        <th>兩年實支合計 (元)</th>
-                        <th>兩年繳回市庫 (元)</th>
-                        <th>繳回警示排名</th>
-                        <th>治理表現評等</th>
+                        <th style="width: 50px;">編號</th>
+                        <th style="width: 100px;">里名</th>
+                        <th style="width: 80px;">年度</th>
+                        <th>設籍人口</th>
+                        <th>法定額度 (元)</th>
+                        <th>實支金額 (元)</th>
+                        <th>執行率 (%)</th>
+                        <th>繳回公庫 (元)</th>
+                        <th>執行狀態評等</th>
                     </tr>
                 </thead>
                 <tbody id="tableBody">
@@ -614,7 +577,7 @@
             <div class="analysis-grid">
                 <div class="analysis-box">
                     <h3>1. 公款制度的真相：沒提案＝繳回市庫</h3>
-                    <p>新北市「里基層工作經費」不是直接匯入里長私人口袋的零用金，而是必須「有合格專案企劃、有公文陳報、符合六大公共項目」才能向區公所請領核銷。不諳企劃與行政法規的里長，預算年底就會被市庫收回！</p>
+                    <p>新北市「里基層工作經費」依法必須「有合格專案企劃、有公文陳報、符合六大公共項目」才能向區公所請領核銷。不諳企劃與行政法規的里長，預算年底就會被市庫收回！</p>
                 </div>
                 <div class="analysis-box">
                     <h3>2. 明德里過去兩年的警訊（全土城繳回最多）</h3>
@@ -635,7 +598,7 @@
         <!-- Legal & Civic Disclaimer -->
         <div class="disclaimer-box">
             <p><strong>【資料來源與公民監督查證聲明】：</strong></p>
-            <p>1. 本儀表板各項收支數據，均如實轉載自新北市土城區公所官方公開之「新北市土城區 113 年第 1～4 季」及「114 年第 1～4 季」《里基層工作經費執行情形季報表》官方 PDF 原件；設籍人口數據參照新北市土城戶政事務所官方人口統計。</p>
+            <p>1. 本表各項收支數據，均如實轉載自新北市土城區公所官方公開之「新北市土城區 113 年第 1～4 季」及「114 年第 1～4 季」《里基層工作經費執行情形季報表》官方 PDF 原件；設籍人口數據參照新北市土城戶政事務所官方人口統計。</p>
             <p>2. 法定額度以新北市公所編列之法定基本款（每里每年 60 萬元整）為統一計算基準。本表旨在落實陽光政府、促進地方民主治理與公共利益監督，所有數據客觀如實呈現。</p>
             <p>3. 各項數據若與主管機關最新更正公文有所出入，一律以新北市政府與土城區公所官方最新發布之原始公文決算為準。歡迎各界檢驗與查對，若有任何行政校正歡迎隨時來信指正，我們將即時比對更新。</p>
             <p>4. 官方查驗管道：新北市土城區公所官網（政府資訊公開 ➔ 鄰里資訊 ➔ 里基層工作經費執行情形）｜新北市土城戶政事務所官網（人口統計）。</p>
@@ -659,27 +622,30 @@
         let searchQuery = '';
 
         function getProgressBar(rate) {
-            let color = '#10b981';
-            if (rate < 70) color = '#ef4444';
-            else if (rate < 90) color = '#f59e0b';
+            let color = '#10b981'; // 100%
+            if (rate < 70) {
+                color = '#ef4444'; // 60幾% 紅色
+            } else if (rate < 99) {
+                color = '#f59e0b'; // 70幾% 黃色
+            }
             const width = Math.min(100, Math.max(0, rate));
             return `
                 <div class="progress-bar-wrap">
                     <div class="progress-bar-fill" style="width: ${width}%; background: ${color};"></div>
                 </div>
-                <span>${rate}%</span>
+                <span style="color: ${color}; font-weight: 700;">${rate}%</span>
             `;
         }
 
-        function getBadge(r) {
-            if (r.name === '明德里') {
-                return `<span class="badge badge-top">⚠️ 繳回第一（倒數第1）</span>`;
-            }
-            if (r.tot_ret === 0) {
+        function getBadge(rate, ret) {
+            if (rate >= 99.9) {
                 return `<span class="badge badge-success">✓ 100% 用好用滿</span>`;
             }
-            if (r.avg_rate < 80) {
+            if (rate < 70) {
                 return `<span class="badge badge-danger">⚠️ 執行嚴重落後</span>`;
+            }
+            if (rate < 90) {
+                return `<span class="badge badge-warning">⚠️ 未用滿繳回</span>`;
             }
             return `<span class="badge badge-warning">一般執行</span>`;
         }
@@ -719,28 +685,48 @@
                 filtered.sort((a, b) => a.id - b.id);
             }
 
-            tbody.innerHTML = filtered.map(r => {
+            let html = '';
+            filtered.forEach(r => {
                 const isMingde = r.name === '明德里';
                 const rowClass = isMingde ? 'highlight-mingde' : '';
-                return `
-                    <tr class="${rowClass}">
-                        <td>${r.id}</td>
-                        <td><strong>${r.name}</strong></td>
-                        <td>${r.p113.toLocaleString()}</td>
-                        <td>${r.s113.toLocaleString()}</td>
-                        <td>${getProgressBar(r.rate113)}</td>
-                        <td>${r.p114.toLocaleString()}</td>
-                        <td>${r.s114.toLocaleString()}</td>
-                        <td>${getProgressBar(r.rate114)}</td>
-                        <td><strong>${r.tot_spent.toLocaleString()}</strong></td>
-                        <td style="color: ${r.tot_ret > 0 ? '#f87171' : '#34d399'}; font-weight: 700;">
-                            ${r.tot_ret > 0 ? r.tot_ret.toLocaleString() : '0 (全額動支)'}
+                
+                // Row 1: 113年
+                html += `
+                    <tr class="${rowClass} row-first">
+                        <td rowspan="2" style="font-weight: 700; vertical-align: middle; background: rgba(0,0,0,0.15);">${r.id}</td>
+                        <td rowspan="2" style="font-weight: 700; vertical-align: middle; background: rgba(0,0,0,0.15);">
+                            <span style="font-size: 1.05rem;">${r.name}</span>
+                            ${isMingde ? '<br><span style="font-size: 0.75rem; color: #f87171;">⚠️ 全區繳回第一</span>' : ''}
                         </td>
-                        <td>#${r.rank_ret}</td>
-                        <td>${getBadge(r)}</td>
+                        <td><span class="year-tag">113 年</span></td>
+                        <td>${r.p113.toLocaleString()} 人</td>
+                        <td>${r.quota.toLocaleString()}</td>
+                        <td style="font-weight: 600;">${r.s113.toLocaleString()}</td>
+                        <td>${getProgressBar(r.rate113)}</td>
+                        <td style="color: ${r.ret113 > 0 ? '#f87171' : '#34d399'}; font-weight: 700;">
+                            ${r.ret113 > 0 ? r.ret113.toLocaleString() : '0 (全額動支)'}
+                        </td>
+                        <td>${getBadge(r.rate113, r.ret113)}</td>
                     </tr>
                 `;
-            }).join('');
+
+                // Row 2: 114年
+                html += `
+                    <tr class="${rowClass} row-second">
+                        <td><span class="year-tag">114 年</span></td>
+                        <td>${r.p114.toLocaleString()} 人</td>
+                        <td>${r.quota.toLocaleString()}</td>
+                        <td style="font-weight: 600;">${r.s114.toLocaleString()}</td>
+                        <td>${getProgressBar(r.rate114)}</td>
+                        <td style="color: ${r.ret114 > 0 ? '#f87171' : '#34d399'}; font-weight: 700;">
+                            ${r.ret114 > 0 ? r.ret114.toLocaleString() : '0 (全額動支)'}
+                        </td>
+                        <td>${getBadge(r.rate114, r.ret114)}</td>
+                    </tr>
+                `;
+            });
+
+            tbody.innerHTML = html;
         }
 
         // Event listeners
