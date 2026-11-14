@@ -51,7 +51,7 @@
             --accent-gold: #f59e0b;
             --accent-red: #ef4444;
             --accent-blue: #3b82f6;
-            --highlight-mingde-bg: rgba(239, 68, 68, 0.16);
+            --highlight-mingde-bg: rgba(239, 68, 68, 0.18);
         }
 
         * {
@@ -163,7 +163,7 @@
         /* Hero */
         .hero {
             text-align: center;
-            padding: 24px 16px 20px;
+            padding: 24px 16px 16px;
         }
 
         .hero h1 {
@@ -177,7 +177,78 @@
         .hero-source {
             color: var(--text-secondary);
             font-size: 0.95rem;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
+        }
+
+        .hero-sort-note {
+            display: inline-block;
+            font-size: 0.82rem;
+            color: #fca5a5;
+            background: rgba(239, 68, 68, 0.15);
+            border: 1px solid rgba(239, 68, 68, 0.35);
+            padding: 3px 12px;
+            border-radius: 20px;
+            font-weight: 700;
+        }
+
+        /* 六大用途方向卡片區 */
+        .purpose-card {
+            background: linear-gradient(145deg, rgba(15, 23, 42, 0.95), rgba(10, 15, 29, 0.95));
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            border-radius: 14px;
+            padding: 20px;
+            margin-bottom: 24px;
+        }
+
+        .purpose-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+
+        .purpose-header h2 {
+            font-size: 1.18rem;
+            font-weight: 800;
+            color: #ffffff;
+        }
+
+        .purpose-lead {
+            font-size: 0.88rem;
+            color: #cbd5e1;
+            line-height: 1.6;
+            margin-bottom: 14px;
+        }
+
+        .purpose-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+            gap: 10px;
+        }
+
+        .purpose-item {
+            background: rgba(0, 0, 0, 0.35);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 8px;
+            padding: 10px 12px;
+        }
+
+        .purpose-icon {
+            font-size: 1.1rem;
+            margin-bottom: 4px;
+        }
+
+        .purpose-title {
+            font-size: 0.9rem;
+            font-weight: 800;
+            color: #93c5fd;
+            margin-bottom: 3px;
+        }
+
+        .purpose-desc {
+            font-size: 0.76rem;
+            color: #94a3b8;
+            line-height: 1.4;
         }
 
         /* Table Design */
@@ -250,7 +321,23 @@
 
         td.col-id {
             color: #cbd5e1;
-            font-size: 1rem;
+            font-size: 0.95rem;
+            line-height: 1.3;
+        }
+
+        .sort-rank-num {
+            display: block;
+            font-size: 1.05rem;
+            font-weight: 900;
+            color: #f87171;
+        }
+
+        .orig-id {
+            display: block;
+            font-size: 0.68rem;
+            color: #64748b;
+            font-weight: 500;
+            margin-top: 1px;
         }
 
         td.col-name {
@@ -470,7 +557,7 @@
                 font-size: 0.82rem;
             }
             .col-id {
-                width: 42px;
+                width: 48px;
             }
             .col-name {
                 width: 90px;
@@ -504,14 +591,57 @@
         <section class="hero">
             <h1>土城區 47 里基層款執行率</h1>
             <div class="hero-source">資料來源：新北市土城區公所官方季報表（民國 113 年至 114 年）</div>
+            <div class="hero-sort-note">⚡ 表格依兩年綜合執行率由低至高排序（檢視資源動支缺口）</div>
         </section>
 
-        <!-- Table Display (Two rows per village: Row 1 = 113, Row 2 = 114) -->
+        <!-- 法定六大主要用途方向說明模組 -->
+        <section class="purpose-card">
+            <div class="purpose-header">
+                <h2>🛠️ 什麼是「里基層工作經費」？這筆錢能為里民做什麼？</h2>
+            </div>
+            <p class="purpose-lead">
+                依據《新北市政府里基層工作經費督導實施要點》，市府每年編列給各里 60 萬元專款，是里長最直接能改善里民生活的「即戰力基金」。經費<strong>必須由里長主動提案企劃、陳報區公所核准</strong>，專款專用於以下六大公共民生方向（若年底沒提專案請領，餘額全數繳回市庫）：
+            </p>
+            <div class="purpose-grid">
+                <div class="purpose-item">
+                    <div class="purpose-icon">🧹</div>
+                    <div class="purpose-title">1. 社區清潔</div>
+                    <div class="purpose-desc">巷弄環境大掃除、登革熱孳生源清除、消毒藥劑與清掃工具採購。</div>
+                </div>
+                <div class="purpose-item">
+                    <div class="purpose-icon">💡</div>
+                    <div class="purpose-title">2. 路燈照明</div>
+                    <div class="purpose-desc">巷弄照明維護修繕、昏暗死角燈具增設、夜行安全設施巡檢。</div>
+                </div>
+                <div class="purpose-item">
+                    <div class="purpose-icon">🌧️</div>
+                    <div class="purpose-title">3. 溝渠疏通</div>
+                    <div class="purpose-desc">汛期前側溝污泥清疏、積水熱點排除、防蚊防臭淤泥清理。</div>
+                </div>
+                <div class="purpose-item">
+                    <div class="purpose-icon">🛡️</div>
+                    <div class="purpose-title">4. 守望相助</div>
+                    <div class="purpose-desc">巡守隊執勤防護裝備、夜巡反光背心雨具、社區治安巡邏補貼。</div>
+                </div>
+                <div class="purpose-item">
+                    <div class="purpose-icon">🪑</div>
+                    <div class="purpose-title">5. 公共服務</div>
+                    <div class="purpose-desc">里民公布欄維護、公共座椅修繕、里內小型休憩公設急迫性修補。</div>
+                </div>
+                <div class="purpose-item">
+                    <div class="purpose-icon">🚨</div>
+                    <div class="purpose-title">6. 災害防救</div>
+                    <div class="purpose-desc">風災防汛沙包整備、緊急搶修物資、急難應變宣導與演練。</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Table Display (Sorted ascending by execution rate: lowest first) -->
         <div class="table-wrap">
             <table id="budgetTable">
                 <thead>
                     <tr>
-                        <th style="width: 55px; text-align: center;">編號</th>
+                        <th style="width: 65px; text-align: center;">排序</th>
                         <th style="width: 110px; text-align: center;">里名</th>
                         <th style="width: 80px;">年度</th>
                         <th>設籍人口</th>
@@ -523,475 +653,14 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr class=" row-first">
-        <td rowspan="2" class="col-fixed col-id">1</td>
-        <td rowspan="2" class="col-fixed col-name">
-            <span class="village-title">土城里</span>
-            
+                    <tr class="highlight-mingde row-first">
+        <td rowspan="2" class="col-fixed col-id">
+            <span class="sort-rank-num">#1</span>
+            <span class="orig-id">區公所代碼 17</span>
         </td>
-        <td><span class="year-tag">113 年</span></td>
-        <td>4,520 人</td>
-        <td class="col-num">60 萬元</td>
-        <td class="col-num">599,929 元</td>
-        <td><div class="progress-bar-wrap">
-        <div class="progress-bar-fill" style="width: 100%; background: #3b82f6;"></div>
-    </div>
-    <span style="color: #3b82f6; font-weight: 800;">100.0%</span></td>
-        <td class="col-ret" style="color: #3b82f6;">71 元</td>
-        <td><span class="badge badge-blue">用好用滿</span></td>
-    </tr>
-<tr class=" row-second">
-        <td><span class="year-tag">114 年</span></td>
-        <td>4,490 人</td>
-        <td class="col-num">60 萬元</td>
-        <td class="col-num">597,719 元</td>
-        <td><div class="progress-bar-wrap">
-        <div class="progress-bar-fill" style="width: 99.6%; background: #3b82f6;"></div>
-    </div>
-    <span style="color: #3b82f6; font-weight: 800;">99.6%</span></td>
-        <td class="col-ret" style="color: #3b82f6;">2,281 元</td>
-        <td><span class="badge badge-blue">用好用滿</span></td>
-    </tr>
-<tr class=" row-first">
-        <td rowspan="2" class="col-fixed col-id">2</td>
-        <td rowspan="2" class="col-fixed col-name">
-            <span class="village-title">大安里</span>
-            
-        </td>
-        <td><span class="year-tag">113 年</span></td>
-        <td>4,350 人</td>
-        <td class="col-num">60 萬元</td>
-        <td class="col-num">600,000 元</td>
-        <td><div class="progress-bar-wrap">
-        <div class="progress-bar-fill" style="width: 100%; background: #3b82f6;"></div>
-    </div>
-    <span style="color: #3b82f6; font-weight: 800;">100.0%</span></td>
-        <td class="col-ret" style="color: #3b82f6;">0 元</td>
-        <td><span class="badge badge-blue">用好用滿</span></td>
-    </tr>
-<tr class=" row-second">
-        <td><span class="year-tag">114 年</span></td>
-        <td>4,320 人</td>
-        <td class="col-num">60 萬元</td>
-        <td class="col-num">597,792 元</td>
-        <td><div class="progress-bar-wrap">
-        <div class="progress-bar-fill" style="width: 99.6%; background: #3b82f6;"></div>
-    </div>
-    <span style="color: #3b82f6; font-weight: 800;">99.6%</span></td>
-        <td class="col-ret" style="color: #3b82f6;">2,208 元</td>
-        <td><span class="badge badge-blue">用好用滿</span></td>
-    </tr>
-<tr class=" row-first">
-        <td rowspan="2" class="col-fixed col-id">3</td>
-        <td rowspan="2" class="col-fixed col-name">
-            <span class="village-title">中正里</span>
-            
-        </td>
-        <td><span class="year-tag">113 年</span></td>
-        <td>4,850 人</td>
-        <td class="col-num">60 萬元</td>
-        <td class="col-num">599,846 元</td>
-        <td><div class="progress-bar-wrap">
-        <div class="progress-bar-fill" style="width: 100%; background: #3b82f6;"></div>
-    </div>
-    <span style="color: #3b82f6; font-weight: 800;">100.0%</span></td>
-        <td class="col-ret" style="color: #3b82f6;">154 元</td>
-        <td><span class="badge badge-blue">用好用滿</span></td>
-    </tr>
-<tr class=" row-second">
-        <td><span class="year-tag">114 年</span></td>
-        <td>4,820 人</td>
-        <td class="col-num">60 萬元</td>
-        <td class="col-num">600,000 元</td>
-        <td><div class="progress-bar-wrap">
-        <div class="progress-bar-fill" style="width: 100%; background: #3b82f6;"></div>
-    </div>
-    <span style="color: #3b82f6; font-weight: 800;">100.0%</span></td>
-        <td class="col-ret" style="color: #3b82f6;">0 元</td>
-        <td><span class="badge badge-blue">用好用滿</span></td>
-    </tr>
-<tr class=" row-first">
-        <td rowspan="2" class="col-fixed col-id">4</td>
-        <td rowspan="2" class="col-fixed col-name">
-            <span class="village-title">日和里</span>
-            
-        </td>
-        <td><span class="year-tag">113 年</span></td>
-        <td>10,720 人</td>
-        <td class="col-num">60 萬元</td>
-        <td class="col-num">493,592 元</td>
-        <td><div class="progress-bar-wrap">
-        <div class="progress-bar-fill" style="width: 82.3%; background: #f59e0b;"></div>
-    </div>
-    <span style="color: #f59e0b; font-weight: 800;">82.3%</span></td>
-        <td class="col-ret" style="color: #f59e0b;">106,408 元</td>
-        <td><span class="badge badge-yellow">還需努力</span></td>
-    </tr>
-<tr class=" row-second">
-        <td><span class="year-tag">114 年</span></td>
-        <td>10,634 人</td>
-        <td class="col-num">60 萬元</td>
-        <td class="col-num">500,000 元</td>
-        <td><div class="progress-bar-wrap">
-        <div class="progress-bar-fill" style="width: 83.3%; background: #f59e0b;"></div>
-    </div>
-    <span style="color: #f59e0b; font-weight: 800;">83.3%</span></td>
-        <td class="col-ret" style="color: #f59e0b;">100,000 元</td>
-        <td><span class="badge badge-yellow">還需努力</span></td>
-    </tr>
-<tr class=" row-first">
-        <td rowspan="2" class="col-fixed col-id">5</td>
-        <td rowspan="2" class="col-fixed col-name">
-            <span class="village-title">日新里</span>
-            
-        </td>
-        <td><span class="year-tag">113 年</span></td>
-        <td>4,150 人</td>
-        <td class="col-num">60 萬元</td>
-        <td class="col-num">600,000 元</td>
-        <td><div class="progress-bar-wrap">
-        <div class="progress-bar-fill" style="width: 100%; background: #3b82f6;"></div>
-    </div>
-    <span style="color: #3b82f6; font-weight: 800;">100.0%</span></td>
-        <td class="col-ret" style="color: #3b82f6;">0 元</td>
-        <td><span class="badge badge-blue">用好用滿</span></td>
-    </tr>
-<tr class=" row-second">
-        <td><span class="year-tag">114 年</span></td>
-        <td>4,120 人</td>
-        <td class="col-num">60 萬元</td>
-        <td class="col-num">600,000 元</td>
-        <td><div class="progress-bar-wrap">
-        <div class="progress-bar-fill" style="width: 100%; background: #3b82f6;"></div>
-    </div>
-    <span style="color: #3b82f6; font-weight: 800;">100.0%</span></td>
-        <td class="col-ret" style="color: #3b82f6;">0 元</td>
-        <td><span class="badge badge-blue">用好用滿</span></td>
-    </tr>
-<tr class=" row-first">
-        <td rowspan="2" class="col-fixed col-id">6</td>
-        <td rowspan="2" class="col-fixed col-name">
-            <span class="village-title">平和里</span>
-            
-        </td>
-        <td><span class="year-tag">113 年</span></td>
-        <td>5,850 人</td>
-        <td class="col-num">60 萬元</td>
-        <td class="col-num">591,378 元</td>
-        <td><div class="progress-bar-wrap">
-        <div class="progress-bar-fill" style="width: 98.6%; background: #10b981;"></div>
-    </div>
-    <span style="color: #10b981; font-weight: 800;">98.6%</span></td>
-        <td class="col-ret" style="color: #10b981;">8,622 元</td>
-        <td><span class="badge badge-green">還不錯</span></td>
-    </tr>
-<tr class=" row-second">
-        <td><span class="year-tag">114 年</span></td>
-        <td>5,820 人</td>
-        <td class="col-num">60 萬元</td>
-        <td class="col-num">580,000 元</td>
-        <td><div class="progress-bar-wrap">
-        <div class="progress-bar-fill" style="width: 96.7%; background: #10b981;"></div>
-    </div>
-    <span style="color: #10b981; font-weight: 800;">96.7%</span></td>
-        <td class="col-ret" style="color: #10b981;">20,000 元</td>
-        <td><span class="badge badge-green">還不錯</span></td>
-    </tr>
-<tr class=" row-first">
-        <td rowspan="2" class="col-fixed col-id">7</td>
-        <td rowspan="2" class="col-fixed col-name">
-            <span class="village-title">永富里</span>
-            
-        </td>
-        <td><span class="year-tag">113 年</span></td>
-        <td>4,120 人</td>
-        <td class="col-num">60 萬元</td>
-        <td class="col-num">600,000 元</td>
-        <td><div class="progress-bar-wrap">
-        <div class="progress-bar-fill" style="width: 100%; background: #3b82f6;"></div>
-    </div>
-    <span style="color: #3b82f6; font-weight: 800;">100.0%</span></td>
-        <td class="col-ret" style="color: #3b82f6;">0 元</td>
-        <td><span class="badge badge-blue">用好用滿</span></td>
-    </tr>
-<tr class=" row-second">
-        <td><span class="year-tag">114 年</span></td>
-        <td>4,090 人</td>
-        <td class="col-num">60 萬元</td>
-        <td class="col-num">545,466 元</td>
-        <td><div class="progress-bar-wrap">
-        <div class="progress-bar-fill" style="width: 90.9%; background: #10b981;"></div>
-    </div>
-    <span style="color: #10b981; font-weight: 800;">90.9%</span></td>
-        <td class="col-ret" style="color: #10b981;">54,534 元</td>
-        <td><span class="badge badge-green">還不錯</span></td>
-    </tr>
-<tr class=" row-first">
-        <td rowspan="2" class="col-fixed col-id">8</td>
-        <td rowspan="2" class="col-fixed col-name">
-            <span class="village-title">永寧里</span>
-            
-        </td>
-        <td><span class="year-tag">113 年</span></td>
-        <td>8,820 人</td>
-        <td class="col-num">60 萬元</td>
-        <td class="col-num">598,287 元</td>
-        <td><div class="progress-bar-wrap">
-        <div class="progress-bar-fill" style="width: 99.7%; background: #3b82f6;"></div>
-    </div>
-    <span style="color: #3b82f6; font-weight: 800;">99.7%</span></td>
-        <td class="col-ret" style="color: #3b82f6;">1,713 元</td>
-        <td><span class="badge badge-blue">用好用滿</span></td>
-    </tr>
-<tr class=" row-second">
-        <td><span class="year-tag">114 年</span></td>
-        <td>8,781 人</td>
-        <td class="col-num">60 萬元</td>
-        <td class="col-num">570,000 元</td>
-        <td><div class="progress-bar-wrap">
-        <div class="progress-bar-fill" style="width: 95.0%; background: #10b981;"></div>
-    </div>
-    <span style="color: #10b981; font-weight: 800;">95.0%</span></td>
-        <td class="col-ret" style="color: #10b981;">30,000 元</td>
-        <td><span class="badge badge-green">還不錯</span></td>
-    </tr>
-<tr class=" row-first">
-        <td rowspan="2" class="col-fixed col-id">9</td>
-        <td rowspan="2" class="col-fixed col-name">
-            <span class="village-title">永豐里</span>
-            
-        </td>
-        <td><span class="year-tag">113 年</span></td>
-        <td>7,650 人</td>
-        <td class="col-num">60 萬元</td>
-        <td class="col-num">600,000 元</td>
-        <td><div class="progress-bar-wrap">
-        <div class="progress-bar-fill" style="width: 100%; background: #3b82f6;"></div>
-    </div>
-    <span style="color: #3b82f6; font-weight: 800;">100.0%</span></td>
-        <td class="col-ret" style="color: #3b82f6;">0 元</td>
-        <td><span class="badge badge-blue">用好用滿</span></td>
-    </tr>
-<tr class=" row-second">
-        <td><span class="year-tag">114 年</span></td>
-        <td>7,620 人</td>
-        <td class="col-num">60 萬元</td>
-        <td class="col-num">600,000 元</td>
-        <td><div class="progress-bar-wrap">
-        <div class="progress-bar-fill" style="width: 100%; background: #3b82f6;"></div>
-    </div>
-    <span style="color: #3b82f6; font-weight: 800;">100.0%</span></td>
-        <td class="col-ret" style="color: #3b82f6;">0 元</td>
-        <td><span class="badge badge-blue">用好用滿</span></td>
-    </tr>
-<tr class=" row-first">
-        <td rowspan="2" class="col-fixed col-id">10</td>
-        <td rowspan="2" class="col-fixed col-name">
-            <span class="village-title">安和里</span>
-            
-        </td>
-        <td><span class="year-tag">113 年</span></td>
-        <td>5,180 人</td>
-        <td class="col-num">60 萬元</td>
-        <td class="col-num">600,000 元</td>
-        <td><div class="progress-bar-wrap">
-        <div class="progress-bar-fill" style="width: 100%; background: #3b82f6;"></div>
-    </div>
-    <span style="color: #3b82f6; font-weight: 800;">100.0%</span></td>
-        <td class="col-ret" style="color: #3b82f6;">0 元</td>
-        <td><span class="badge badge-blue">用好用滿</span></td>
-    </tr>
-<tr class=" row-second">
-        <td><span class="year-tag">114 年</span></td>
-        <td>5,150 人</td>
-        <td class="col-num">60 萬元</td>
-        <td class="col-num">530,000 元</td>
-        <td><div class="progress-bar-wrap">
-        <div class="progress-bar-fill" style="width: 88.3%; background: #f59e0b;"></div>
-    </div>
-    <span style="color: #f59e0b; font-weight: 800;">88.3%</span></td>
-        <td class="col-ret" style="color: #f59e0b;">70,000 元</td>
-        <td><span class="badge badge-yellow">還需努力</span></td>
-    </tr>
-<tr class=" row-first">
-        <td rowspan="2" class="col-fixed col-id">11</td>
-        <td rowspan="2" class="col-fixed col-name">
-            <span class="village-title">廷寮里</span>
-            
-        </td>
-        <td><span class="year-tag">113 年</span></td>
-        <td>3,880 人</td>
-        <td class="col-num">60 萬元</td>
-        <td class="col-num">559,155 元</td>
-        <td><div class="progress-bar-wrap">
-        <div class="progress-bar-fill" style="width: 93.2%; background: #10b981;"></div>
-    </div>
-    <span style="color: #10b981; font-weight: 800;">93.2%</span></td>
-        <td class="col-ret" style="color: #10b981;">40,845 元</td>
-        <td><span class="badge badge-green">還不錯</span></td>
-    </tr>
-<tr class=" row-second">
-        <td><span class="year-tag">114 年</span></td>
-        <td>3,850 人</td>
-        <td class="col-num">60 萬元</td>
-        <td class="col-num">600,000 元</td>
-        <td><div class="progress-bar-wrap">
-        <div class="progress-bar-fill" style="width: 100%; background: #3b82f6;"></div>
-    </div>
-    <span style="color: #3b82f6; font-weight: 800;">100.0%</span></td>
-        <td class="col-ret" style="color: #3b82f6;">0 元</td>
-        <td><span class="badge badge-blue">用好用滿</span></td>
-    </tr>
-<tr class=" row-first">
-        <td rowspan="2" class="col-fixed col-id">12</td>
-        <td rowspan="2" class="col-fixed col-name">
-            <span class="village-title">沛陂里</span>
-            
-        </td>
-        <td><span class="year-tag">113 年</span></td>
-        <td>2,550 人</td>
-        <td class="col-num">60 萬元</td>
-        <td class="col-num">600,000 元</td>
-        <td><div class="progress-bar-wrap">
-        <div class="progress-bar-fill" style="width: 100%; background: #3b82f6;"></div>
-    </div>
-    <span style="color: #3b82f6; font-weight: 800;">100.0%</span></td>
-        <td class="col-ret" style="color: #3b82f6;">0 元</td>
-        <td><span class="badge badge-blue">用好用滿</span></td>
-    </tr>
-<tr class=" row-second">
-        <td><span class="year-tag">114 年</span></td>
-        <td>2,520 人</td>
-        <td class="col-num">60 萬元</td>
-        <td class="col-num">599,684 元</td>
-        <td><div class="progress-bar-wrap">
-        <div class="progress-bar-fill" style="width: 99.9%; background: #3b82f6;"></div>
-    </div>
-    <span style="color: #3b82f6; font-weight: 800;">99.9%</span></td>
-        <td class="col-ret" style="color: #3b82f6;">316 元</td>
-        <td><span class="badge badge-blue">用好用滿</span></td>
-    </tr>
-<tr class=" row-first">
-        <td rowspan="2" class="col-fixed col-id">13</td>
-        <td rowspan="2" class="col-fixed col-name">
-            <span class="village-title">延吉里</span>
-            
-        </td>
-        <td><span class="year-tag">113 年</span></td>
-        <td>5,450 人</td>
-        <td class="col-num">60 萬元</td>
-        <td class="col-num">545,895 元</td>
-        <td><div class="progress-bar-wrap">
-        <div class="progress-bar-fill" style="width: 91.0%; background: #10b981;"></div>
-    </div>
-    <span style="color: #10b981; font-weight: 800;">91.0%</span></td>
-        <td class="col-ret" style="color: #10b981;">54,105 元</td>
-        <td><span class="badge badge-green">還不錯</span></td>
-    </tr>
-<tr class=" row-second">
-        <td><span class="year-tag">114 年</span></td>
-        <td>5,410 人</td>
-        <td class="col-num">60 萬元</td>
-        <td class="col-num">599,289 元</td>
-        <td><div class="progress-bar-wrap">
-        <div class="progress-bar-fill" style="width: 99.9%; background: #3b82f6;"></div>
-    </div>
-    <span style="color: #3b82f6; font-weight: 800;">99.9%</span></td>
-        <td class="col-ret" style="color: #3b82f6;">711 元</td>
-        <td><span class="badge badge-blue">用好用滿</span></td>
-    </tr>
-<tr class=" row-first">
-        <td rowspan="2" class="col-fixed col-id">14</td>
-        <td rowspan="2" class="col-fixed col-name">
-            <span class="village-title">延和里</span>
-            
-        </td>
-        <td><span class="year-tag">113 年</span></td>
-        <td>6,250 人</td>
-        <td class="col-num">60 萬元</td>
-        <td class="col-num">599,453 元</td>
-        <td><div class="progress-bar-wrap">
-        <div class="progress-bar-fill" style="width: 99.9%; background: #3b82f6;"></div>
-    </div>
-    <span style="color: #3b82f6; font-weight: 800;">99.9%</span></td>
-        <td class="col-ret" style="color: #3b82f6;">547 元</td>
-        <td><span class="badge badge-blue">用好用滿</span></td>
-    </tr>
-<tr class=" row-second">
-        <td><span class="year-tag">114 年</span></td>
-        <td>6,220 人</td>
-        <td class="col-num">60 萬元</td>
-        <td class="col-num">582,204 元</td>
-        <td><div class="progress-bar-wrap">
-        <div class="progress-bar-fill" style="width: 97.0%; background: #10b981;"></div>
-    </div>
-    <span style="color: #10b981; font-weight: 800;">97.0%</span></td>
-        <td class="col-ret" style="color: #10b981;">17,796 元</td>
-        <td><span class="badge badge-green">還不錯</span></td>
-    </tr>
-<tr class=" row-first">
-        <td rowspan="2" class="col-fixed col-id">15</td>
-        <td rowspan="2" class="col-fixed col-name">
-            <span class="village-title">延祿里</span>
-            
-        </td>
-        <td><span class="year-tag">113 年</span></td>
-        <td>4,210 人</td>
-        <td class="col-num">60 萬元</td>
-        <td class="col-num">580,000 元</td>
-        <td><div class="progress-bar-wrap">
-        <div class="progress-bar-fill" style="width: 96.7%; background: #10b981;"></div>
-    </div>
-    <span style="color: #10b981; font-weight: 800;">96.7%</span></td>
-        <td class="col-ret" style="color: #10b981;">20,000 元</td>
-        <td><span class="badge badge-green">還不錯</span></td>
-    </tr>
-<tr class=" row-second">
-        <td><span class="year-tag">114 年</span></td>
-        <td>4,180 人</td>
-        <td class="col-num">60 萬元</td>
-        <td class="col-num">545,466 元</td>
-        <td><div class="progress-bar-wrap">
-        <div class="progress-bar-fill" style="width: 90.9%; background: #10b981;"></div>
-    </div>
-    <span style="color: #10b981; font-weight: 800;">90.9%</span></td>
-        <td class="col-ret" style="color: #10b981;">54,534 元</td>
-        <td><span class="badge badge-green">還不錯</span></td>
-    </tr>
-<tr class=" row-first">
-        <td rowspan="2" class="col-fixed col-id">16</td>
-        <td rowspan="2" class="col-fixed col-name">
-            <span class="village-title">延壽里</span>
-            
-        </td>
-        <td><span class="year-tag">113 年</span></td>
-        <td>4,780 人</td>
-        <td class="col-num">60 萬元</td>
-        <td class="col-num">594,051 元</td>
-        <td><div class="progress-bar-wrap">
-        <div class="progress-bar-fill" style="width: 99.0%; background: #10b981;"></div>
-    </div>
-    <span style="color: #10b981; font-weight: 800;">99.0%</span></td>
-        <td class="col-ret" style="color: #10b981;">5,949 元</td>
-        <td><span class="badge badge-green">還不錯</span></td>
-    </tr>
-<tr class=" row-second">
-        <td><span class="year-tag">114 年</span></td>
-        <td>4,750 人</td>
-        <td class="col-num">60 萬元</td>
-        <td class="col-num">600,000 元</td>
-        <td><div class="progress-bar-wrap">
-        <div class="progress-bar-fill" style="width: 100%; background: #3b82f6;"></div>
-    </div>
-    <span style="color: #3b82f6; font-weight: 800;">100.0%</span></td>
-        <td class="col-ret" style="color: #3b82f6;">0 元</td>
-        <td><span class="badge badge-blue">用好用滿</span></td>
-    </tr>
-<tr class="highlight-mingde row-first">
-        <td rowspan="2" class="col-fixed col-id">17</td>
         <td rowspan="2" class="col-fixed col-name">
             <span class="village-title">明德里</span>
-            <br><span class="mingde-alert-tag">⚠️ 全區繳回第一</span>
+            <br><span class="mingde-alert-tag">⚠️ 全區繳回第一名</span>
         </td>
         <td><span class="year-tag">113 年</span></td>
         <td>6,379 人</td>
@@ -1017,703 +686,10 @@
         <td><span class="badge badge-red">有待加強</span></td>
     </tr>
 <tr class=" row-first">
-        <td rowspan="2" class="col-fixed col-id">18</td>
-        <td rowspan="2" class="col-fixed col-name">
-            <span class="village-title">金城里</span>
-            
+        <td rowspan="2" class="col-fixed col-id">
+            <span class="sort-rank-num">#2</span>
+            <span class="orig-id">區公所代碼 42</span>
         </td>
-        <td><span class="year-tag">113 年</span></td>
-        <td>7,800 人</td>
-        <td class="col-num">60 萬元</td>
-        <td class="col-num">598,837 元</td>
-        <td><div class="progress-bar-wrap">
-        <div class="progress-bar-fill" style="width: 99.8%; background: #3b82f6;"></div>
-    </div>
-    <span style="color: #3b82f6; font-weight: 800;">99.8%</span></td>
-        <td class="col-ret" style="color: #3b82f6;">1,163 元</td>
-        <td><span class="badge badge-blue">用好用滿</span></td>
-    </tr>
-<tr class=" row-second">
-        <td><span class="year-tag">114 年</span></td>
-        <td>7,850 人</td>
-        <td class="col-num">60 萬元</td>
-        <td class="col-num">580,000 元</td>
-        <td><div class="progress-bar-wrap">
-        <div class="progress-bar-fill" style="width: 96.7%; background: #10b981;"></div>
-    </div>
-    <span style="color: #10b981; font-weight: 800;">96.7%</span></td>
-        <td class="col-ret" style="color: #10b981;">20,000 元</td>
-        <td><span class="badge badge-green">還不錯</span></td>
-    </tr>
-<tr class=" row-first">
-        <td rowspan="2" class="col-fixed col-id">19</td>
-        <td rowspan="2" class="col-fixed col-name">
-            <span class="village-title">長風里</span>
-            
-        </td>
-        <td><span class="year-tag">113 年</span></td>
-        <td>1,990 人</td>
-        <td class="col-num">60 萬元</td>
-        <td class="col-num">600,000 元</td>
-        <td><div class="progress-bar-wrap">
-        <div class="progress-bar-fill" style="width: 100%; background: #3b82f6;"></div>
-    </div>
-    <span style="color: #3b82f6; font-weight: 800;">100.0%</span></td>
-        <td class="col-ret" style="color: #3b82f6;">0 元</td>
-        <td><span class="badge badge-blue">用好用滿</span></td>
-    </tr>
-<tr class=" row-second">
-        <td><span class="year-tag">114 年</span></td>
-        <td>1,975 人</td>
-        <td class="col-num">60 萬元</td>
-        <td class="col-num">598,665 元</td>
-        <td><div class="progress-bar-wrap">
-        <div class="progress-bar-fill" style="width: 99.8%; background: #3b82f6;"></div>
-    </div>
-    <span style="color: #3b82f6; font-weight: 800;">99.8%</span></td>
-        <td class="col-ret" style="color: #3b82f6;">1,335 元</td>
-        <td><span class="badge badge-blue">用好用滿</span></td>
-    </tr>
-<tr class=" row-first">
-        <td rowspan="2" class="col-fixed col-id">20</td>
-        <td rowspan="2" class="col-fixed col-name">
-            <span class="village-title">青山里</span>
-            
-        </td>
-        <td><span class="year-tag">113 年</span></td>
-        <td>3,150 人</td>
-        <td class="col-num">60 萬元</td>
-        <td class="col-num">556,615 元</td>
-        <td><div class="progress-bar-wrap">
-        <div class="progress-bar-fill" style="width: 92.8%; background: #10b981;"></div>
-    </div>
-    <span style="color: #10b981; font-weight: 800;">92.8%</span></td>
-        <td class="col-ret" style="color: #10b981;">43,385 元</td>
-        <td><span class="badge badge-green">還不錯</span></td>
-    </tr>
-<tr class=" row-second">
-        <td><span class="year-tag">114 年</span></td>
-        <td>3,120 人</td>
-        <td class="col-num">60 萬元</td>
-        <td class="col-num">528,840 元</td>
-        <td><div class="progress-bar-wrap">
-        <div class="progress-bar-fill" style="width: 88.1%; background: #f59e0b;"></div>
-    </div>
-    <span style="color: #f59e0b; font-weight: 800;">88.1%</span></td>
-        <td class="col-ret" style="color: #f59e0b;">71,160 元</td>
-        <td><span class="badge badge-yellow">還需努力</span></td>
-    </tr>
-<tr class=" row-first">
-        <td rowspan="2" class="col-fixed col-id">21</td>
-        <td rowspan="2" class="col-fixed col-name">
-            <span class="village-title">青雲里</span>
-            
-        </td>
-        <td><span class="year-tag">113 年</span></td>
-        <td>3,750 人</td>
-        <td class="col-num">60 萬元</td>
-        <td class="col-num">489,199 元</td>
-        <td><div class="progress-bar-wrap">
-        <div class="progress-bar-fill" style="width: 81.5%; background: #f59e0b;"></div>
-    </div>
-    <span style="color: #f59e0b; font-weight: 800;">81.5%</span></td>
-        <td class="col-ret" style="color: #f59e0b;">110,801 元</td>
-        <td><span class="badge badge-yellow">還需努力</span></td>
-    </tr>
-<tr class=" row-second">
-        <td><span class="year-tag">114 年</span></td>
-        <td>3,720 人</td>
-        <td class="col-num">60 萬元</td>
-        <td class="col-num">529,104 元</td>
-        <td><div class="progress-bar-wrap">
-        <div class="progress-bar-fill" style="width: 88.2%; background: #f59e0b;"></div>
-    </div>
-    <span style="color: #f59e0b; font-weight: 800;">88.2%</span></td>
-        <td class="col-ret" style="color: #f59e0b;">70,896 元</td>
-        <td><span class="badge badge-yellow">還需努力</span></td>
-    </tr>
-<tr class=" row-first">
-        <td rowspan="2" class="col-fixed col-id">22</td>
-        <td rowspan="2" class="col-fixed col-name">
-            <span class="village-title">柑林里</span>
-            
-        </td>
-        <td><span class="year-tag">113 年</span></td>
-        <td>3,280 人</td>
-        <td class="col-num">60 萬元</td>
-        <td class="col-num">600,000 元</td>
-        <td><div class="progress-bar-wrap">
-        <div class="progress-bar-fill" style="width: 100%; background: #3b82f6;"></div>
-    </div>
-    <span style="color: #3b82f6; font-weight: 800;">100.0%</span></td>
-        <td class="col-ret" style="color: #3b82f6;">0 元</td>
-        <td><span class="badge badge-blue">用好用滿</span></td>
-    </tr>
-<tr class=" row-second">
-        <td><span class="year-tag">114 年</span></td>
-        <td>3,250 人</td>
-        <td class="col-num">60 萬元</td>
-        <td class="col-num">600,000 元</td>
-        <td><div class="progress-bar-wrap">
-        <div class="progress-bar-fill" style="width: 100%; background: #3b82f6;"></div>
-    </div>
-    <span style="color: #3b82f6; font-weight: 800;">100.0%</span></td>
-        <td class="col-ret" style="color: #3b82f6;">0 元</td>
-        <td><span class="badge badge-blue">用好用滿</span></td>
-    </tr>
-<tr class=" row-first">
-        <td rowspan="2" class="col-fixed col-id">23</td>
-        <td rowspan="2" class="col-fixed col-name">
-            <span class="village-title">員仁里</span>
-            
-        </td>
-        <td><span class="year-tag">113 年</span></td>
-        <td>3,480 人</td>
-        <td class="col-num">60 萬元</td>
-        <td class="col-num">600,000 元</td>
-        <td><div class="progress-bar-wrap">
-        <div class="progress-bar-fill" style="width: 100%; background: #3b82f6;"></div>
-    </div>
-    <span style="color: #3b82f6; font-weight: 800;">100.0%</span></td>
-        <td class="col-ret" style="color: #3b82f6;">0 元</td>
-        <td><span class="badge badge-blue">用好用滿</span></td>
-    </tr>
-<tr class=" row-second">
-        <td><span class="year-tag">114 年</span></td>
-        <td>3,450 人</td>
-        <td class="col-num">60 萬元</td>
-        <td class="col-num">600,000 元</td>
-        <td><div class="progress-bar-wrap">
-        <div class="progress-bar-fill" style="width: 100%; background: #3b82f6;"></div>
-    </div>
-    <span style="color: #3b82f6; font-weight: 800;">100.0%</span></td>
-        <td class="col-ret" style="color: #3b82f6;">0 元</td>
-        <td><span class="badge badge-blue">用好用滿</span></td>
-    </tr>
-<tr class=" row-first">
-        <td rowspan="2" class="col-fixed col-id">24</td>
-        <td rowspan="2" class="col-fixed col-name">
-            <span class="village-title">員林里</span>
-            
-        </td>
-        <td><span class="year-tag">113 年</span></td>
-        <td>9,950 人</td>
-        <td class="col-num">60 萬元</td>
-        <td class="col-num">544,933 元</td>
-        <td><div class="progress-bar-wrap">
-        <div class="progress-bar-fill" style="width: 90.8%; background: #10b981;"></div>
-    </div>
-    <span style="color: #10b981; font-weight: 800;">90.8%</span></td>
-        <td class="col-ret" style="color: #10b981;">55,067 元</td>
-        <td><span class="badge badge-green">還不錯</span></td>
-    </tr>
-<tr class=" row-second">
-        <td><span class="year-tag">114 年</span></td>
-        <td>9,893 人</td>
-        <td class="col-num">60 萬元</td>
-        <td class="col-num">569,781 元</td>
-        <td><div class="progress-bar-wrap">
-        <div class="progress-bar-fill" style="width: 95.0%; background: #10b981;"></div>
-    </div>
-    <span style="color: #10b981; font-weight: 800;">95.0%</span></td>
-        <td class="col-ret" style="color: #10b981;">30,219 元</td>
-        <td><span class="badge badge-green">還不錯</span></td>
-    </tr>
-<tr class=" row-first">
-        <td rowspan="2" class="col-fixed col-id">25</td>
-        <td rowspan="2" class="col-fixed col-name">
-            <span class="village-title">員信里</span>
-            
-        </td>
-        <td><span class="year-tag">113 年</span></td>
-        <td>3,350 人</td>
-        <td class="col-num">60 萬元</td>
-        <td class="col-num">566,528 元</td>
-        <td><div class="progress-bar-wrap">
-        <div class="progress-bar-fill" style="width: 94.4%; background: #10b981;"></div>
-    </div>
-    <span style="color: #10b981; font-weight: 800;">94.4%</span></td>
-        <td class="col-ret" style="color: #10b981;">33,472 元</td>
-        <td><span class="badge badge-green">還不錯</span></td>
-    </tr>
-<tr class=" row-second">
-        <td><span class="year-tag">114 年</span></td>
-        <td>3,320 人</td>
-        <td class="col-num">60 萬元</td>
-        <td class="col-num">600,000 元</td>
-        <td><div class="progress-bar-wrap">
-        <div class="progress-bar-fill" style="width: 100%; background: #3b82f6;"></div>
-    </div>
-    <span style="color: #3b82f6; font-weight: 800;">100.0%</span></td>
-        <td class="col-ret" style="color: #3b82f6;">0 元</td>
-        <td><span class="badge badge-blue">用好用滿</span></td>
-    </tr>
-<tr class=" row-first">
-        <td rowspan="2" class="col-fixed col-id">26</td>
-        <td rowspan="2" class="col-fixed col-name">
-            <span class="village-title">員福里</span>
-            
-        </td>
-        <td><span class="year-tag">113 年</span></td>
-        <td>4,650 人</td>
-        <td class="col-num">60 萬元</td>
-        <td class="col-num">545,416 元</td>
-        <td><div class="progress-bar-wrap">
-        <div class="progress-bar-fill" style="width: 90.9%; background: #10b981;"></div>
-    </div>
-    <span style="color: #10b981; font-weight: 800;">90.9%</span></td>
-        <td class="col-ret" style="color: #10b981;">54,584 元</td>
-        <td><span class="badge badge-green">還不錯</span></td>
-    </tr>
-<tr class=" row-second">
-        <td><span class="year-tag">114 年</span></td>
-        <td>4,620 人</td>
-        <td class="col-num">60 萬元</td>
-        <td class="col-num">578,450 元</td>
-        <td><div class="progress-bar-wrap">
-        <div class="progress-bar-fill" style="width: 96.4%; background: #10b981;"></div>
-    </div>
-    <span style="color: #10b981; font-weight: 800;">96.4%</span></td>
-        <td class="col-ret" style="color: #10b981;">21,550 元</td>
-        <td><span class="badge badge-green">還不錯</span></td>
-    </tr>
-<tr class=" row-first">
-        <td rowspan="2" class="col-fixed col-id">27</td>
-        <td rowspan="2" class="col-fixed col-name">
-            <span class="village-title">祖田里</span>
-            
-        </td>
-        <td><span class="year-tag">113 年</span></td>
-        <td>1,680 人</td>
-        <td class="col-num">60 萬元</td>
-        <td class="col-num">535,138 元</td>
-        <td><div class="progress-bar-wrap">
-        <div class="progress-bar-fill" style="width: 89.2%; background: #f59e0b;"></div>
-    </div>
-    <span style="color: #f59e0b; font-weight: 800;">89.2%</span></td>
-        <td class="col-ret" style="color: #f59e0b;">64,862 元</td>
-        <td><span class="badge badge-yellow">還需努力</span></td>
-    </tr>
-<tr class=" row-second">
-        <td><span class="year-tag">114 年</span></td>
-        <td>1,640 人</td>
-        <td class="col-num">60 萬元</td>
-        <td class="col-num">600,000 元</td>
-        <td><div class="progress-bar-wrap">
-        <div class="progress-bar-fill" style="width: 100%; background: #3b82f6;"></div>
-    </div>
-    <span style="color: #3b82f6; font-weight: 800;">100.0%</span></td>
-        <td class="col-ret" style="color: #3b82f6;">0 元</td>
-        <td><span class="badge badge-blue">用好用滿</span></td>
-    </tr>
-<tr class=" row-first">
-        <td rowspan="2" class="col-fixed col-id">28</td>
-        <td rowspan="2" class="col-fixed col-name">
-            <span class="village-title">埤林里</span>
-            
-        </td>
-        <td><span class="year-tag">113 年</span></td>
-        <td>4,080 人</td>
-        <td class="col-num">60 萬元</td>
-        <td class="col-num">600,000 元</td>
-        <td><div class="progress-bar-wrap">
-        <div class="progress-bar-fill" style="width: 100%; background: #3b82f6;"></div>
-    </div>
-    <span style="color: #3b82f6; font-weight: 800;">100.0%</span></td>
-        <td class="col-ret" style="color: #3b82f6;">0 元</td>
-        <td><span class="badge badge-blue">用好用滿</span></td>
-    </tr>
-<tr class=" row-second">
-        <td><span class="year-tag">114 年</span></td>
-        <td>4,050 人</td>
-        <td class="col-num">60 萬元</td>
-        <td class="col-num">600,000 元</td>
-        <td><div class="progress-bar-wrap">
-        <div class="progress-bar-fill" style="width: 100%; background: #3b82f6;"></div>
-    </div>
-    <span style="color: #3b82f6; font-weight: 800;">100.0%</span></td>
-        <td class="col-ret" style="color: #3b82f6;">0 元</td>
-        <td><span class="badge badge-blue">用好用滿</span></td>
-    </tr>
-<tr class=" row-first">
-        <td rowspan="2" class="col-fixed col-id">29</td>
-        <td rowspan="2" class="col-fixed col-name">
-            <span class="village-title">埤塘里</span>
-            
-        </td>
-        <td><span class="year-tag">113 年</span></td>
-        <td>2,780 人</td>
-        <td class="col-num">60 萬元</td>
-        <td class="col-num">596,819 元</td>
-        <td><div class="progress-bar-wrap">
-        <div class="progress-bar-fill" style="width: 99.5%; background: #3b82f6;"></div>
-    </div>
-    <span style="color: #3b82f6; font-weight: 800;">99.5%</span></td>
-        <td class="col-ret" style="color: #3b82f6;">3,181 元</td>
-        <td><span class="badge badge-blue">用好用滿</span></td>
-    </tr>
-<tr class=" row-second">
-        <td><span class="year-tag">114 年</span></td>
-        <td>2,750 人</td>
-        <td class="col-num">60 萬元</td>
-        <td class="col-num">599,851 元</td>
-        <td><div class="progress-bar-wrap">
-        <div class="progress-bar-fill" style="width: 100%; background: #3b82f6;"></div>
-    </div>
-    <span style="color: #3b82f6; font-weight: 800;">100.0%</span></td>
-        <td class="col-ret" style="color: #3b82f6;">149 元</td>
-        <td><span class="badge badge-blue">用好用滿</span></td>
-    </tr>
-<tr class=" row-first">
-        <td rowspan="2" class="col-fixed col-id">30</td>
-        <td rowspan="2" class="col-fixed col-name">
-            <span class="village-title">清化里</span>
-            
-        </td>
-        <td><span class="year-tag">113 年</span></td>
-        <td>1,590 人</td>
-        <td class="col-num">60 萬元</td>
-        <td class="col-num">599,864 元</td>
-        <td><div class="progress-bar-wrap">
-        <div class="progress-bar-fill" style="width: 100%; background: #3b82f6;"></div>
-    </div>
-    <span style="color: #3b82f6; font-weight: 800;">100.0%</span></td>
-        <td class="col-ret" style="color: #3b82f6;">136 元</td>
-        <td><span class="badge badge-blue">用好用滿</span></td>
-    </tr>
-<tr class=" row-second">
-        <td><span class="year-tag">114 年</span></td>
-        <td>1,570 人</td>
-        <td class="col-num">60 萬元</td>
-        <td class="col-num">580,000 元</td>
-        <td><div class="progress-bar-wrap">
-        <div class="progress-bar-fill" style="width: 96.7%; background: #10b981;"></div>
-    </div>
-    <span style="color: #10b981; font-weight: 800;">96.7%</span></td>
-        <td class="col-ret" style="color: #10b981;">20,000 元</td>
-        <td><span class="badge badge-green">還不錯</span></td>
-    </tr>
-<tr class=" row-first">
-        <td rowspan="2" class="col-fixed col-id">31</td>
-        <td rowspan="2" class="col-fixed col-name">
-            <span class="village-title">清水里</span>
-            
-        </td>
-        <td><span class="year-tag">113 年</span></td>
-        <td>5,680 人</td>
-        <td class="col-num">60 萬元</td>
-        <td class="col-num">600,000 元</td>
-        <td><div class="progress-bar-wrap">
-        <div class="progress-bar-fill" style="width: 100%; background: #3b82f6;"></div>
-    </div>
-    <span style="color: #3b82f6; font-weight: 800;">100.0%</span></td>
-        <td class="col-ret" style="color: #3b82f6;">0 元</td>
-        <td><span class="badge badge-blue">用好用滿</span></td>
-    </tr>
-<tr class=" row-second">
-        <td><span class="year-tag">114 年</span></td>
-        <td>5,650 人</td>
-        <td class="col-num">60 萬元</td>
-        <td class="col-num">499,751 元</td>
-        <td><div class="progress-bar-wrap">
-        <div class="progress-bar-fill" style="width: 83.3%; background: #f59e0b;"></div>
-    </div>
-    <span style="color: #f59e0b; font-weight: 800;">83.3%</span></td>
-        <td class="col-ret" style="color: #f59e0b;">100,249 元</td>
-        <td><span class="badge badge-yellow">還需努力</span></td>
-    </tr>
-<tr class=" row-first">
-        <td rowspan="2" class="col-fixed col-id">32</td>
-        <td rowspan="2" class="col-fixed col-name">
-            <span class="village-title">清和里</span>
-            
-        </td>
-        <td><span class="year-tag">113 年</span></td>
-        <td>4,050 人</td>
-        <td class="col-num">60 萬元</td>
-        <td class="col-num">600,000 元</td>
-        <td><div class="progress-bar-wrap">
-        <div class="progress-bar-fill" style="width: 100%; background: #3b82f6;"></div>
-    </div>
-    <span style="color: #3b82f6; font-weight: 800;">100.0%</span></td>
-        <td class="col-ret" style="color: #3b82f6;">0 元</td>
-        <td><span class="badge badge-blue">用好用滿</span></td>
-    </tr>
-<tr class=" row-second">
-        <td><span class="year-tag">114 年</span></td>
-        <td>4,020 人</td>
-        <td class="col-num">60 萬元</td>
-        <td class="col-num">550,806 元</td>
-        <td><div class="progress-bar-wrap">
-        <div class="progress-bar-fill" style="width: 91.8%; background: #10b981;"></div>
-    </div>
-    <span style="color: #10b981; font-weight: 800;">91.8%</span></td>
-        <td class="col-ret" style="color: #10b981;">49,194 元</td>
-        <td><span class="badge badge-green">還不錯</span></td>
-    </tr>
-<tr class=" row-first">
-        <td rowspan="2" class="col-fixed col-id">33</td>
-        <td rowspan="2" class="col-fixed col-name">
-            <span class="village-title">清溪里</span>
-            
-        </td>
-        <td><span class="year-tag">113 年</span></td>
-        <td>2,650 人</td>
-        <td class="col-num">60 萬元</td>
-        <td class="col-num">574,466 元</td>
-        <td><div class="progress-bar-wrap">
-        <div class="progress-bar-fill" style="width: 95.7%; background: #10b981;"></div>
-    </div>
-    <span style="color: #10b981; font-weight: 800;">95.7%</span></td>
-        <td class="col-ret" style="color: #10b981;">25,534 元</td>
-        <td><span class="badge badge-green">還不錯</span></td>
-    </tr>
-<tr class=" row-second">
-        <td><span class="year-tag">114 年</span></td>
-        <td>2,620 人</td>
-        <td class="col-num">60 萬元</td>
-        <td class="col-num">540,000 元</td>
-        <td><div class="progress-bar-wrap">
-        <div class="progress-bar-fill" style="width: 90.0%; background: #10b981;"></div>
-    </div>
-    <span style="color: #10b981; font-weight: 800;">90.0%</span></td>
-        <td class="col-ret" style="color: #10b981;">60,000 元</td>
-        <td><span class="badge badge-green">還不錯</span></td>
-    </tr>
-<tr class=" row-first">
-        <td rowspan="2" class="col-fixed col-id">34</td>
-        <td rowspan="2" class="col-fixed col-name">
-            <span class="village-title">貨饒里</span>
-            
-        </td>
-        <td><span class="year-tag">113 年</span></td>
-        <td>4,280 人</td>
-        <td class="col-num">60 萬元</td>
-        <td class="col-num">583,198 元</td>
-        <td><div class="progress-bar-wrap">
-        <div class="progress-bar-fill" style="width: 97.2%; background: #10b981;"></div>
-    </div>
-    <span style="color: #10b981; font-weight: 800;">97.2%</span></td>
-        <td class="col-ret" style="color: #10b981;">16,802 元</td>
-        <td><span class="badge badge-green">還不錯</span></td>
-    </tr>
-<tr class=" row-second">
-        <td><span class="year-tag">114 年</span></td>
-        <td>4,250 人</td>
-        <td class="col-num">60 萬元</td>
-        <td class="col-num">580,000 元</td>
-        <td><div class="progress-bar-wrap">
-        <div class="progress-bar-fill" style="width: 96.7%; background: #10b981;"></div>
-    </div>
-    <span style="color: #10b981; font-weight: 800;">96.7%</span></td>
-        <td class="col-ret" style="color: #10b981;">20,000 元</td>
-        <td><span class="badge badge-green">還不錯</span></td>
-    </tr>
-<tr class=" row-first">
-        <td rowspan="2" class="col-fixed col-id">35</td>
-        <td rowspan="2" class="col-fixed col-name">
-            <span class="village-title">頂埔里</span>
-            
-        </td>
-        <td><span class="year-tag">113 年</span></td>
-        <td>2,950 人</td>
-        <td class="col-num">60 萬元</td>
-        <td class="col-num">600,000 元</td>
-        <td><div class="progress-bar-wrap">
-        <div class="progress-bar-fill" style="width: 100%; background: #3b82f6;"></div>
-    </div>
-    <span style="color: #3b82f6; font-weight: 800;">100.0%</span></td>
-        <td class="col-ret" style="color: #3b82f6;">0 元</td>
-        <td><span class="badge badge-blue">用好用滿</span></td>
-    </tr>
-<tr class=" row-second">
-        <td><span class="year-tag">114 年</span></td>
-        <td>2,920 人</td>
-        <td class="col-num">60 萬元</td>
-        <td class="col-num">590,093 元</td>
-        <td><div class="progress-bar-wrap">
-        <div class="progress-bar-fill" style="width: 98.3%; background: #10b981;"></div>
-    </div>
-    <span style="color: #10b981; font-weight: 800;">98.3%</span></td>
-        <td class="col-ret" style="color: #10b981;">9,907 元</td>
-        <td><span class="badge badge-green">還不錯</span></td>
-    </tr>
-<tr class=" row-first">
-        <td rowspan="2" class="col-fixed col-id">36</td>
-        <td rowspan="2" class="col-fixed col-name">
-            <span class="village-title">頂新里</span>
-            
-        </td>
-        <td><span class="year-tag">113 年</span></td>
-        <td>2,850 人</td>
-        <td class="col-num">60 萬元</td>
-        <td class="col-num">550,000 元</td>
-        <td><div class="progress-bar-wrap">
-        <div class="progress-bar-fill" style="width: 91.7%; background: #10b981;"></div>
-    </div>
-    <span style="color: #10b981; font-weight: 800;">91.7%</span></td>
-        <td class="col-ret" style="color: #10b981;">50,000 元</td>
-        <td><span class="badge badge-green">還不錯</span></td>
-    </tr>
-<tr class=" row-second">
-        <td><span class="year-tag">114 年</span></td>
-        <td>2,820 人</td>
-        <td class="col-num">60 萬元</td>
-        <td class="col-num">478,000 元</td>
-        <td><div class="progress-bar-wrap">
-        <div class="progress-bar-fill" style="width: 79.7%; background: #f59e0b;"></div>
-    </div>
-    <span style="color: #f59e0b; font-weight: 800;">79.7%</span></td>
-        <td class="col-ret" style="color: #f59e0b;">122,000 元</td>
-        <td><span class="badge badge-yellow">還需努力</span></td>
-    </tr>
-<tr class=" row-first">
-        <td rowspan="2" class="col-fixed col-id">37</td>
-        <td rowspan="2" class="col-fixed col-name">
-            <span class="village-title">頂福里</span>
-            
-        </td>
-        <td><span class="year-tag">113 年</span></td>
-        <td>2,350 人</td>
-        <td class="col-num">60 萬元</td>
-        <td class="col-num">453,668 元</td>
-        <td><div class="progress-bar-wrap">
-        <div class="progress-bar-fill" style="width: 75.6%; background: #f59e0b;"></div>
-    </div>
-    <span style="color: #f59e0b; font-weight: 800;">75.6%</span></td>
-        <td class="col-ret" style="color: #f59e0b;">146,332 元</td>
-        <td><span class="badge badge-yellow">還需努力</span></td>
-    </tr>
-<tr class=" row-second">
-        <td><span class="year-tag">114 年</span></td>
-        <td>2,320 人</td>
-        <td class="col-num">60 萬元</td>
-        <td class="col-num">600,000 元</td>
-        <td><div class="progress-bar-wrap">
-        <div class="progress-bar-fill" style="width: 100%; background: #3b82f6;"></div>
-    </div>
-    <span style="color: #3b82f6; font-weight: 800;">100.0%</span></td>
-        <td class="col-ret" style="color: #3b82f6;">0 元</td>
-        <td><span class="badge badge-blue">用好用滿</span></td>
-    </tr>
-<tr class=" row-first">
-        <td rowspan="2" class="col-fixed col-id">38</td>
-        <td rowspan="2" class="col-fixed col-name">
-            <span class="village-title">復興里</span>
-            
-        </td>
-        <td><span class="year-tag">113 年</span></td>
-        <td>4,580 人</td>
-        <td class="col-num">60 萬元</td>
-        <td class="col-num">600,000 元</td>
-        <td><div class="progress-bar-wrap">
-        <div class="progress-bar-fill" style="width: 100%; background: #3b82f6;"></div>
-    </div>
-    <span style="color: #3b82f6; font-weight: 800;">100.0%</span></td>
-        <td class="col-ret" style="color: #3b82f6;">0 元</td>
-        <td><span class="badge badge-blue">用好用滿</span></td>
-    </tr>
-<tr class=" row-second">
-        <td><span class="year-tag">114 年</span></td>
-        <td>4,550 人</td>
-        <td class="col-num">60 萬元</td>
-        <td class="col-num">573,413 元</td>
-        <td><div class="progress-bar-wrap">
-        <div class="progress-bar-fill" style="width: 95.6%; background: #10b981;"></div>
-    </div>
-    <span style="color: #10b981; font-weight: 800;">95.6%</span></td>
-        <td class="col-ret" style="color: #10b981;">26,587 元</td>
-        <td><span class="badge badge-green">還不錯</span></td>
-    </tr>
-<tr class=" row-first">
-        <td rowspan="2" class="col-fixed col-id">39</td>
-        <td rowspan="2" class="col-fixed col-name">
-            <span class="village-title">瑞興里</span>
-            
-        </td>
-        <td><span class="year-tag">113 年</span></td>
-        <td>3,080 人</td>
-        <td class="col-num">60 萬元</td>
-        <td class="col-num">595,515 元</td>
-        <td><div class="progress-bar-wrap">
-        <div class="progress-bar-fill" style="width: 99.3%; background: #10b981;"></div>
-    </div>
-    <span style="color: #10b981; font-weight: 800;">99.3%</span></td>
-        <td class="col-ret" style="color: #10b981;">4,485 元</td>
-        <td><span class="badge badge-green">還不錯</span></td>
-    </tr>
-<tr class=" row-second">
-        <td><span class="year-tag">114 年</span></td>
-        <td>3,050 人</td>
-        <td class="col-num">60 萬元</td>
-        <td class="col-num">597,884 元</td>
-        <td><div class="progress-bar-wrap">
-        <div class="progress-bar-fill" style="width: 99.6%; background: #3b82f6;"></div>
-    </div>
-    <span style="color: #3b82f6; font-weight: 800;">99.6%</span></td>
-        <td class="col-ret" style="color: #3b82f6;">2,116 元</td>
-        <td><span class="badge badge-blue">用好用滿</span></td>
-    </tr>
-<tr class=" row-first">
-        <td rowspan="2" class="col-fixed col-id">40</td>
-        <td rowspan="2" class="col-fixed col-name">
-            <span class="village-title">裕生里</span>
-            
-        </td>
-        <td><span class="year-tag">113 年</span></td>
-        <td>3,550 人</td>
-        <td class="col-num">60 萬元</td>
-        <td class="col-num">586,527 元</td>
-        <td><div class="progress-bar-wrap">
-        <div class="progress-bar-fill" style="width: 97.8%; background: #10b981;"></div>
-    </div>
-    <span style="color: #10b981; font-weight: 800;">97.8%</span></td>
-        <td class="col-ret" style="color: #10b981;">13,473 元</td>
-        <td><span class="badge badge-green">還不錯</span></td>
-    </tr>
-<tr class=" row-second">
-        <td><span class="year-tag">114 年</span></td>
-        <td>3,520 人</td>
-        <td class="col-num">60 萬元</td>
-        <td class="col-num">599,476 元</td>
-        <td><div class="progress-bar-wrap">
-        <div class="progress-bar-fill" style="width: 99.9%; background: #3b82f6;"></div>
-    </div>
-    <span style="color: #3b82f6; font-weight: 800;">99.9%</span></td>
-        <td class="col-ret" style="color: #3b82f6;">524 元</td>
-        <td><span class="badge badge-blue">用好用滿</span></td>
-    </tr>
-<tr class=" row-first">
-        <td rowspan="2" class="col-fixed col-id">41</td>
-        <td rowspan="2" class="col-fixed col-name">
-            <span class="village-title">廣福里</span>
-            
-        </td>
-        <td><span class="year-tag">113 年</span></td>
-        <td>5,510 人</td>
-        <td class="col-num">60 萬元</td>
-        <td class="col-num">563,098 元</td>
-        <td><div class="progress-bar-wrap">
-        <div class="progress-bar-fill" style="width: 93.8%; background: #10b981;"></div>
-    </div>
-    <span style="color: #10b981; font-weight: 800;">93.8%</span></td>
-        <td class="col-ret" style="color: #10b981;">36,902 元</td>
-        <td><span class="badge badge-green">還不錯</span></td>
-    </tr>
-<tr class=" row-second">
-        <td><span class="year-tag">114 年</span></td>
-        <td>5,473 人</td>
-        <td class="col-num">60 萬元</td>
-        <td class="col-num">546,595 元</td>
-        <td><div class="progress-bar-wrap">
-        <div class="progress-bar-fill" style="width: 91.1%; background: #10b981;"></div>
-    </div>
-    <span style="color: #10b981; font-weight: 800;">91.1%</span></td>
-        <td class="col-ret" style="color: #10b981;">53,405 元</td>
-        <td><span class="badge badge-green">還不錯</span></td>
-    </tr>
-<tr class=" row-first">
-        <td rowspan="2" class="col-fixed col-id">42</td>
         <td rowspan="2" class="col-fixed col-name">
             <span class="village-title">廣興里</span>
             
@@ -1742,7 +718,458 @@
         <td><span class="badge badge-yellow">還需努力</span></td>
     </tr>
 <tr class=" row-first">
-        <td rowspan="2" class="col-fixed col-id">43</td>
+        <td rowspan="2" class="col-fixed col-id">
+            <span class="sort-rank-num">#3</span>
+            <span class="orig-id">區公所代碼 4</span>
+        </td>
+        <td rowspan="2" class="col-fixed col-name">
+            <span class="village-title">日和里</span>
+            
+        </td>
+        <td><span class="year-tag">113 年</span></td>
+        <td>10,720 人</td>
+        <td class="col-num">60 萬元</td>
+        <td class="col-num">493,592 元</td>
+        <td><div class="progress-bar-wrap">
+        <div class="progress-bar-fill" style="width: 82.3%; background: #f59e0b;"></div>
+    </div>
+    <span style="color: #f59e0b; font-weight: 800;">82.3%</span></td>
+        <td class="col-ret" style="color: #f59e0b;">106,408 元</td>
+        <td><span class="badge badge-yellow">還需努力</span></td>
+    </tr>
+<tr class=" row-second">
+        <td><span class="year-tag">114 年</span></td>
+        <td>10,634 人</td>
+        <td class="col-num">60 萬元</td>
+        <td class="col-num">500,000 元</td>
+        <td><div class="progress-bar-wrap">
+        <div class="progress-bar-fill" style="width: 83.3%; background: #f59e0b;"></div>
+    </div>
+    <span style="color: #f59e0b; font-weight: 800;">83.3%</span></td>
+        <td class="col-ret" style="color: #f59e0b;">100,000 元</td>
+        <td><span class="badge badge-yellow">還需努力</span></td>
+    </tr>
+<tr class=" row-first">
+        <td rowspan="2" class="col-fixed col-id">
+            <span class="sort-rank-num">#4</span>
+            <span class="orig-id">區公所代碼 21</span>
+        </td>
+        <td rowspan="2" class="col-fixed col-name">
+            <span class="village-title">青雲里</span>
+            
+        </td>
+        <td><span class="year-tag">113 年</span></td>
+        <td>3,750 人</td>
+        <td class="col-num">60 萬元</td>
+        <td class="col-num">489,199 元</td>
+        <td><div class="progress-bar-wrap">
+        <div class="progress-bar-fill" style="width: 81.5%; background: #f59e0b;"></div>
+    </div>
+    <span style="color: #f59e0b; font-weight: 800;">81.5%</span></td>
+        <td class="col-ret" style="color: #f59e0b;">110,801 元</td>
+        <td><span class="badge badge-yellow">還需努力</span></td>
+    </tr>
+<tr class=" row-second">
+        <td><span class="year-tag">114 年</span></td>
+        <td>3,720 人</td>
+        <td class="col-num">60 萬元</td>
+        <td class="col-num">529,104 元</td>
+        <td><div class="progress-bar-wrap">
+        <div class="progress-bar-fill" style="width: 88.2%; background: #f59e0b;"></div>
+    </div>
+    <span style="color: #f59e0b; font-weight: 800;">88.2%</span></td>
+        <td class="col-ret" style="color: #f59e0b;">70,896 元</td>
+        <td><span class="badge badge-yellow">還需努力</span></td>
+    </tr>
+<tr class=" row-first">
+        <td rowspan="2" class="col-fixed col-id">
+            <span class="sort-rank-num">#5</span>
+            <span class="orig-id">區公所代碼 36</span>
+        </td>
+        <td rowspan="2" class="col-fixed col-name">
+            <span class="village-title">頂新里</span>
+            
+        </td>
+        <td><span class="year-tag">113 年</span></td>
+        <td>2,850 人</td>
+        <td class="col-num">60 萬元</td>
+        <td class="col-num">550,000 元</td>
+        <td><div class="progress-bar-wrap">
+        <div class="progress-bar-fill" style="width: 91.7%; background: #10b981;"></div>
+    </div>
+    <span style="color: #10b981; font-weight: 800;">91.7%</span></td>
+        <td class="col-ret" style="color: #10b981;">50,000 元</td>
+        <td><span class="badge badge-green">還不錯</span></td>
+    </tr>
+<tr class=" row-second">
+        <td><span class="year-tag">114 年</span></td>
+        <td>2,820 人</td>
+        <td class="col-num">60 萬元</td>
+        <td class="col-num">478,000 元</td>
+        <td><div class="progress-bar-wrap">
+        <div class="progress-bar-fill" style="width: 79.7%; background: #f59e0b;"></div>
+    </div>
+    <span style="color: #f59e0b; font-weight: 800;">79.7%</span></td>
+        <td class="col-ret" style="color: #f59e0b;">122,000 元</td>
+        <td><span class="badge badge-yellow">還需努力</span></td>
+    </tr>
+<tr class=" row-first">
+        <td rowspan="2" class="col-fixed col-id">
+            <span class="sort-rank-num">#6</span>
+            <span class="orig-id">區公所代碼 37</span>
+        </td>
+        <td rowspan="2" class="col-fixed col-name">
+            <span class="village-title">頂福里</span>
+            
+        </td>
+        <td><span class="year-tag">113 年</span></td>
+        <td>2,350 人</td>
+        <td class="col-num">60 萬元</td>
+        <td class="col-num">453,668 元</td>
+        <td><div class="progress-bar-wrap">
+        <div class="progress-bar-fill" style="width: 75.6%; background: #f59e0b;"></div>
+    </div>
+    <span style="color: #f59e0b; font-weight: 800;">75.6%</span></td>
+        <td class="col-ret" style="color: #f59e0b;">146,332 元</td>
+        <td><span class="badge badge-yellow">還需努力</span></td>
+    </tr>
+<tr class=" row-second">
+        <td><span class="year-tag">114 年</span></td>
+        <td>2,320 人</td>
+        <td class="col-num">60 萬元</td>
+        <td class="col-num">600,000 元</td>
+        <td><div class="progress-bar-wrap">
+        <div class="progress-bar-fill" style="width: 100%; background: #3b82f6;"></div>
+    </div>
+    <span style="color: #3b82f6; font-weight: 800;">100.0%</span></td>
+        <td class="col-ret" style="color: #3b82f6;">0 元</td>
+        <td><span class="badge badge-blue">用好用滿</span></td>
+    </tr>
+<tr class=" row-first">
+        <td rowspan="2" class="col-fixed col-id">
+            <span class="sort-rank-num">#7</span>
+            <span class="orig-id">區公所代碼 20</span>
+        </td>
+        <td rowspan="2" class="col-fixed col-name">
+            <span class="village-title">青山里</span>
+            
+        </td>
+        <td><span class="year-tag">113 年</span></td>
+        <td>3,150 人</td>
+        <td class="col-num">60 萬元</td>
+        <td class="col-num">556,615 元</td>
+        <td><div class="progress-bar-wrap">
+        <div class="progress-bar-fill" style="width: 92.8%; background: #10b981;"></div>
+    </div>
+    <span style="color: #10b981; font-weight: 800;">92.8%</span></td>
+        <td class="col-ret" style="color: #10b981;">43,385 元</td>
+        <td><span class="badge badge-green">還不錯</span></td>
+    </tr>
+<tr class=" row-second">
+        <td><span class="year-tag">114 年</span></td>
+        <td>3,120 人</td>
+        <td class="col-num">60 萬元</td>
+        <td class="col-num">528,840 元</td>
+        <td><div class="progress-bar-wrap">
+        <div class="progress-bar-fill" style="width: 88.1%; background: #f59e0b;"></div>
+    </div>
+    <span style="color: #f59e0b; font-weight: 800;">88.1%</span></td>
+        <td class="col-ret" style="color: #f59e0b;">71,160 元</td>
+        <td><span class="badge badge-yellow">還需努力</span></td>
+    </tr>
+<tr class=" row-first">
+        <td rowspan="2" class="col-fixed col-id">
+            <span class="sort-rank-num">#8</span>
+            <span class="orig-id">區公所代碼 31</span>
+        </td>
+        <td rowspan="2" class="col-fixed col-name">
+            <span class="village-title">清水里</span>
+            
+        </td>
+        <td><span class="year-tag">113 年</span></td>
+        <td>5,680 人</td>
+        <td class="col-num">60 萬元</td>
+        <td class="col-num">600,000 元</td>
+        <td><div class="progress-bar-wrap">
+        <div class="progress-bar-fill" style="width: 100%; background: #3b82f6;"></div>
+    </div>
+    <span style="color: #3b82f6; font-weight: 800;">100.0%</span></td>
+        <td class="col-ret" style="color: #3b82f6;">0 元</td>
+        <td><span class="badge badge-blue">用好用滿</span></td>
+    </tr>
+<tr class=" row-second">
+        <td><span class="year-tag">114 年</span></td>
+        <td>5,650 人</td>
+        <td class="col-num">60 萬元</td>
+        <td class="col-num">499,751 元</td>
+        <td><div class="progress-bar-wrap">
+        <div class="progress-bar-fill" style="width: 83.3%; background: #f59e0b;"></div>
+    </div>
+    <span style="color: #f59e0b; font-weight: 800;">83.3%</span></td>
+        <td class="col-ret" style="color: #f59e0b;">100,249 元</td>
+        <td><span class="badge badge-yellow">還需努力</span></td>
+    </tr>
+<tr class=" row-first">
+        <td rowspan="2" class="col-fixed col-id">
+            <span class="sort-rank-num">#9</span>
+            <span class="orig-id">區公所代碼 41</span>
+        </td>
+        <td rowspan="2" class="col-fixed col-name">
+            <span class="village-title">廣福里</span>
+            
+        </td>
+        <td><span class="year-tag">113 年</span></td>
+        <td>5,510 人</td>
+        <td class="col-num">60 萬元</td>
+        <td class="col-num">563,098 元</td>
+        <td><div class="progress-bar-wrap">
+        <div class="progress-bar-fill" style="width: 93.8%; background: #10b981;"></div>
+    </div>
+    <span style="color: #10b981; font-weight: 800;">93.8%</span></td>
+        <td class="col-ret" style="color: #10b981;">36,902 元</td>
+        <td><span class="badge badge-green">還不錯</span></td>
+    </tr>
+<tr class=" row-second">
+        <td><span class="year-tag">114 年</span></td>
+        <td>5,473 人</td>
+        <td class="col-num">60 萬元</td>
+        <td class="col-num">546,595 元</td>
+        <td><div class="progress-bar-wrap">
+        <div class="progress-bar-fill" style="width: 91.1%; background: #10b981;"></div>
+    </div>
+    <span style="color: #10b981; font-weight: 800;">91.1%</span></td>
+        <td class="col-ret" style="color: #10b981;">53,405 元</td>
+        <td><span class="badge badge-green">還不錯</span></td>
+    </tr>
+<tr class=" row-first">
+        <td rowspan="2" class="col-fixed col-id">
+            <span class="sort-rank-num">#10</span>
+            <span class="orig-id">區公所代碼 33</span>
+        </td>
+        <td rowspan="2" class="col-fixed col-name">
+            <span class="village-title">清溪里</span>
+            
+        </td>
+        <td><span class="year-tag">113 年</span></td>
+        <td>2,650 人</td>
+        <td class="col-num">60 萬元</td>
+        <td class="col-num">574,466 元</td>
+        <td><div class="progress-bar-wrap">
+        <div class="progress-bar-fill" style="width: 95.7%; background: #10b981;"></div>
+    </div>
+    <span style="color: #10b981; font-weight: 800;">95.7%</span></td>
+        <td class="col-ret" style="color: #10b981;">25,534 元</td>
+        <td><span class="badge badge-green">還不錯</span></td>
+    </tr>
+<tr class=" row-second">
+        <td><span class="year-tag">114 年</span></td>
+        <td>2,620 人</td>
+        <td class="col-num">60 萬元</td>
+        <td class="col-num">540,000 元</td>
+        <td><div class="progress-bar-wrap">
+        <div class="progress-bar-fill" style="width: 90.0%; background: #10b981;"></div>
+    </div>
+    <span style="color: #10b981; font-weight: 800;">90.0%</span></td>
+        <td class="col-ret" style="color: #10b981;">60,000 元</td>
+        <td><span class="badge badge-green">還不錯</span></td>
+    </tr>
+<tr class=" row-first">
+        <td rowspan="2" class="col-fixed col-id">
+            <span class="sort-rank-num">#11</span>
+            <span class="orig-id">區公所代碼 24</span>
+        </td>
+        <td rowspan="2" class="col-fixed col-name">
+            <span class="village-title">員林里</span>
+            
+        </td>
+        <td><span class="year-tag">113 年</span></td>
+        <td>9,950 人</td>
+        <td class="col-num">60 萬元</td>
+        <td class="col-num">544,933 元</td>
+        <td><div class="progress-bar-wrap">
+        <div class="progress-bar-fill" style="width: 90.8%; background: #10b981;"></div>
+    </div>
+    <span style="color: #10b981; font-weight: 800;">90.8%</span></td>
+        <td class="col-ret" style="color: #10b981;">55,067 元</td>
+        <td><span class="badge badge-green">還不錯</span></td>
+    </tr>
+<tr class=" row-second">
+        <td><span class="year-tag">114 年</span></td>
+        <td>9,893 人</td>
+        <td class="col-num">60 萬元</td>
+        <td class="col-num">569,781 元</td>
+        <td><div class="progress-bar-wrap">
+        <div class="progress-bar-fill" style="width: 95.0%; background: #10b981;"></div>
+    </div>
+    <span style="color: #10b981; font-weight: 800;">95.0%</span></td>
+        <td class="col-ret" style="color: #10b981;">30,219 元</td>
+        <td><span class="badge badge-green">還不錯</span></td>
+    </tr>
+<tr class=" row-first">
+        <td rowspan="2" class="col-fixed col-id">
+            <span class="sort-rank-num">#12</span>
+            <span class="orig-id">區公所代碼 26</span>
+        </td>
+        <td rowspan="2" class="col-fixed col-name">
+            <span class="village-title">員福里</span>
+            
+        </td>
+        <td><span class="year-tag">113 年</span></td>
+        <td>4,650 人</td>
+        <td class="col-num">60 萬元</td>
+        <td class="col-num">545,416 元</td>
+        <td><div class="progress-bar-wrap">
+        <div class="progress-bar-fill" style="width: 90.9%; background: #10b981;"></div>
+    </div>
+    <span style="color: #10b981; font-weight: 800;">90.9%</span></td>
+        <td class="col-ret" style="color: #10b981;">54,584 元</td>
+        <td><span class="badge badge-green">還不錯</span></td>
+    </tr>
+<tr class=" row-second">
+        <td><span class="year-tag">114 年</span></td>
+        <td>4,620 人</td>
+        <td class="col-num">60 萬元</td>
+        <td class="col-num">578,450 元</td>
+        <td><div class="progress-bar-wrap">
+        <div class="progress-bar-fill" style="width: 96.4%; background: #10b981;"></div>
+    </div>
+    <span style="color: #10b981; font-weight: 800;">96.4%</span></td>
+        <td class="col-ret" style="color: #10b981;">21,550 元</td>
+        <td><span class="badge badge-green">還不錯</span></td>
+    </tr>
+<tr class=" row-first">
+        <td rowspan="2" class="col-fixed col-id">
+            <span class="sort-rank-num">#13</span>
+            <span class="orig-id">區公所代碼 15</span>
+        </td>
+        <td rowspan="2" class="col-fixed col-name">
+            <span class="village-title">延祿里</span>
+            
+        </td>
+        <td><span class="year-tag">113 年</span></td>
+        <td>4,210 人</td>
+        <td class="col-num">60 萬元</td>
+        <td class="col-num">580,000 元</td>
+        <td><div class="progress-bar-wrap">
+        <div class="progress-bar-fill" style="width: 96.7%; background: #10b981;"></div>
+    </div>
+    <span style="color: #10b981; font-weight: 800;">96.7%</span></td>
+        <td class="col-ret" style="color: #10b981;">20,000 元</td>
+        <td><span class="badge badge-green">還不錯</span></td>
+    </tr>
+<tr class=" row-second">
+        <td><span class="year-tag">114 年</span></td>
+        <td>4,180 人</td>
+        <td class="col-num">60 萬元</td>
+        <td class="col-num">545,466 元</td>
+        <td><div class="progress-bar-wrap">
+        <div class="progress-bar-fill" style="width: 90.9%; background: #10b981;"></div>
+    </div>
+    <span style="color: #10b981; font-weight: 800;">90.9%</span></td>
+        <td class="col-ret" style="color: #10b981;">54,534 元</td>
+        <td><span class="badge badge-green">還不錯</span></td>
+    </tr>
+<tr class=" row-first">
+        <td rowspan="2" class="col-fixed col-id">
+            <span class="sort-rank-num">#14</span>
+            <span class="orig-id">區公所代碼 10</span>
+        </td>
+        <td rowspan="2" class="col-fixed col-name">
+            <span class="village-title">安和里</span>
+            
+        </td>
+        <td><span class="year-tag">113 年</span></td>
+        <td>5,180 人</td>
+        <td class="col-num">60 萬元</td>
+        <td class="col-num">600,000 元</td>
+        <td><div class="progress-bar-wrap">
+        <div class="progress-bar-fill" style="width: 100%; background: #3b82f6;"></div>
+    </div>
+    <span style="color: #3b82f6; font-weight: 800;">100.0%</span></td>
+        <td class="col-ret" style="color: #3b82f6;">0 元</td>
+        <td><span class="badge badge-blue">用好用滿</span></td>
+    </tr>
+<tr class=" row-second">
+        <td><span class="year-tag">114 年</span></td>
+        <td>5,150 人</td>
+        <td class="col-num">60 萬元</td>
+        <td class="col-num">530,000 元</td>
+        <td><div class="progress-bar-wrap">
+        <div class="progress-bar-fill" style="width: 88.3%; background: #f59e0b;"></div>
+    </div>
+    <span style="color: #f59e0b; font-weight: 800;">88.3%</span></td>
+        <td class="col-ret" style="color: #f59e0b;">70,000 元</td>
+        <td><span class="badge badge-yellow">還需努力</span></td>
+    </tr>
+<tr class=" row-first">
+        <td rowspan="2" class="col-fixed col-id">
+            <span class="sort-rank-num">#15</span>
+            <span class="orig-id">區公所代碼 27</span>
+        </td>
+        <td rowspan="2" class="col-fixed col-name">
+            <span class="village-title">祖田里</span>
+            
+        </td>
+        <td><span class="year-tag">113 年</span></td>
+        <td>1,680 人</td>
+        <td class="col-num">60 萬元</td>
+        <td class="col-num">535,138 元</td>
+        <td><div class="progress-bar-wrap">
+        <div class="progress-bar-fill" style="width: 89.2%; background: #f59e0b;"></div>
+    </div>
+    <span style="color: #f59e0b; font-weight: 800;">89.2%</span></td>
+        <td class="col-ret" style="color: #f59e0b;">64,862 元</td>
+        <td><span class="badge badge-yellow">還需努力</span></td>
+    </tr>
+<tr class=" row-second">
+        <td><span class="year-tag">114 年</span></td>
+        <td>1,640 人</td>
+        <td class="col-num">60 萬元</td>
+        <td class="col-num">600,000 元</td>
+        <td><div class="progress-bar-wrap">
+        <div class="progress-bar-fill" style="width: 100%; background: #3b82f6;"></div>
+    </div>
+    <span style="color: #3b82f6; font-weight: 800;">100.0%</span></td>
+        <td class="col-ret" style="color: #3b82f6;">0 元</td>
+        <td><span class="badge badge-blue">用好用滿</span></td>
+    </tr>
+<tr class=" row-first">
+        <td rowspan="2" class="col-fixed col-id">
+            <span class="sort-rank-num">#16</span>
+            <span class="orig-id">區公所代碼 13</span>
+        </td>
+        <td rowspan="2" class="col-fixed col-name">
+            <span class="village-title">延吉里</span>
+            
+        </td>
+        <td><span class="year-tag">113 年</span></td>
+        <td>5,450 人</td>
+        <td class="col-num">60 萬元</td>
+        <td class="col-num">545,895 元</td>
+        <td><div class="progress-bar-wrap">
+        <div class="progress-bar-fill" style="width: 91.0%; background: #10b981;"></div>
+    </div>
+    <span style="color: #10b981; font-weight: 800;">91.0%</span></td>
+        <td class="col-ret" style="color: #10b981;">54,105 元</td>
+        <td><span class="badge badge-green">還不錯</span></td>
+    </tr>
+<tr class=" row-second">
+        <td><span class="year-tag">114 年</span></td>
+        <td>5,410 人</td>
+        <td class="col-num">60 萬元</td>
+        <td class="col-num">599,289 元</td>
+        <td><div class="progress-bar-wrap">
+        <div class="progress-bar-fill" style="width: 99.9%; background: #3b82f6;"></div>
+    </div>
+    <span style="color: #3b82f6; font-weight: 800;">99.9%</span></td>
+        <td class="col-ret" style="color: #3b82f6;">711 元</td>
+        <td><span class="badge badge-blue">用好用滿</span></td>
+    </tr>
+<tr class=" row-first">
+        <td rowspan="2" class="col-fixed col-id">
+            <span class="sort-rank-num">#17</span>
+            <span class="orig-id">區公所代碼 43</span>
+        </td>
         <td rowspan="2" class="col-fixed col-name">
             <span class="village-title">樂利里</span>
             
@@ -1771,13 +1198,16 @@
         <td><span class="badge badge-blue">用好用滿</span></td>
     </tr>
 <tr class=" row-first">
-        <td rowspan="2" class="col-fixed col-id">44</td>
+        <td rowspan="2" class="col-fixed col-id">
+            <span class="sort-rank-num">#18</span>
+            <span class="orig-id">區公所代碼 7</span>
+        </td>
         <td rowspan="2" class="col-fixed col-name">
-            <span class="village-title">學士里</span>
+            <span class="village-title">永富里</span>
             
         </td>
         <td><span class="year-tag">113 年</span></td>
-        <td>6,150 人</td>
+        <td>4,120 人</td>
         <td class="col-num">60 萬元</td>
         <td class="col-num">600,000 元</td>
         <td><div class="progress-bar-wrap">
@@ -1789,47 +1219,21 @@
     </tr>
 <tr class=" row-second">
         <td><span class="year-tag">114 年</span></td>
-        <td>6,120 人</td>
+        <td>4,090 人</td>
         <td class="col-num">60 萬元</td>
-        <td class="col-num">600,000 元</td>
+        <td class="col-num">545,466 元</td>
         <td><div class="progress-bar-wrap">
-        <div class="progress-bar-fill" style="width: 100%; background: #3b82f6;"></div>
+        <div class="progress-bar-fill" style="width: 90.9%; background: #10b981;"></div>
     </div>
-    <span style="color: #3b82f6; font-weight: 800;">100.0%</span></td>
-        <td class="col-ret" style="color: #3b82f6;">0 元</td>
-        <td><span class="badge badge-blue">用好用滿</span></td>
+    <span style="color: #10b981; font-weight: 800;">90.9%</span></td>
+        <td class="col-ret" style="color: #10b981;">54,534 元</td>
+        <td><span class="badge badge-green">還不錯</span></td>
     </tr>
 <tr class=" row-first">
-        <td rowspan="2" class="col-fixed col-id">45</td>
-        <td rowspan="2" class="col-fixed col-name">
-            <span class="village-title">學成里</span>
-            
+        <td rowspan="2" class="col-fixed col-id">
+            <span class="sort-rank-num">#19</span>
+            <span class="orig-id">區公所代碼 46</span>
         </td>
-        <td><span class="year-tag">113 年</span></td>
-        <td>6,540 人</td>
-        <td class="col-num">60 萬元</td>
-        <td class="col-num">599,977 元</td>
-        <td><div class="progress-bar-wrap">
-        <div class="progress-bar-fill" style="width: 100%; background: #3b82f6;"></div>
-    </div>
-    <span style="color: #3b82f6; font-weight: 800;">100.0%</span></td>
-        <td class="col-ret" style="color: #3b82f6;">23 元</td>
-        <td><span class="badge badge-blue">用好用滿</span></td>
-    </tr>
-<tr class=" row-second">
-        <td><span class="year-tag">114 年</span></td>
-        <td>6,510 人</td>
-        <td class="col-num">60 萬元</td>
-        <td class="col-num">600,000 元</td>
-        <td><div class="progress-bar-wrap">
-        <div class="progress-bar-fill" style="width: 100%; background: #3b82f6;"></div>
-    </div>
-    <span style="color: #3b82f6; font-weight: 800;">100.0%</span></td>
-        <td class="col-ret" style="color: #3b82f6;">0 元</td>
-        <td><span class="badge badge-blue">用好用滿</span></td>
-    </tr>
-<tr class=" row-first">
-        <td rowspan="2" class="col-fixed col-id">46</td>
         <td rowspan="2" class="col-fixed col-name">
             <span class="village-title">學府里</span>
             
@@ -1858,7 +1262,330 @@
         <td><span class="badge badge-green">還不錯</span></td>
     </tr>
 <tr class=" row-first">
-        <td rowspan="2" class="col-fixed col-id">47</td>
+        <td rowspan="2" class="col-fixed col-id">
+            <span class="sort-rank-num">#20</span>
+            <span class="orig-id">區公所代碼 32</span>
+        </td>
+        <td rowspan="2" class="col-fixed col-name">
+            <span class="village-title">清和里</span>
+            
+        </td>
+        <td><span class="year-tag">113 年</span></td>
+        <td>4,050 人</td>
+        <td class="col-num">60 萬元</td>
+        <td class="col-num">600,000 元</td>
+        <td><div class="progress-bar-wrap">
+        <div class="progress-bar-fill" style="width: 100%; background: #3b82f6;"></div>
+    </div>
+    <span style="color: #3b82f6; font-weight: 800;">100.0%</span></td>
+        <td class="col-ret" style="color: #3b82f6;">0 元</td>
+        <td><span class="badge badge-blue">用好用滿</span></td>
+    </tr>
+<tr class=" row-second">
+        <td><span class="year-tag">114 年</span></td>
+        <td>4,020 人</td>
+        <td class="col-num">60 萬元</td>
+        <td class="col-num">550,806 元</td>
+        <td><div class="progress-bar-wrap">
+        <div class="progress-bar-fill" style="width: 91.8%; background: #10b981;"></div>
+    </div>
+    <span style="color: #10b981; font-weight: 800;">91.8%</span></td>
+        <td class="col-ret" style="color: #10b981;">49,194 元</td>
+        <td><span class="badge badge-green">還不錯</span></td>
+    </tr>
+<tr class=" row-first">
+        <td rowspan="2" class="col-fixed col-id">
+            <span class="sort-rank-num">#21</span>
+            <span class="orig-id">區公所代碼 11</span>
+        </td>
+        <td rowspan="2" class="col-fixed col-name">
+            <span class="village-title">廷寮里</span>
+            
+        </td>
+        <td><span class="year-tag">113 年</span></td>
+        <td>3,880 人</td>
+        <td class="col-num">60 萬元</td>
+        <td class="col-num">559,155 元</td>
+        <td><div class="progress-bar-wrap">
+        <div class="progress-bar-fill" style="width: 93.2%; background: #10b981;"></div>
+    </div>
+    <span style="color: #10b981; font-weight: 800;">93.2%</span></td>
+        <td class="col-ret" style="color: #10b981;">40,845 元</td>
+        <td><span class="badge badge-green">還不錯</span></td>
+    </tr>
+<tr class=" row-second">
+        <td><span class="year-tag">114 年</span></td>
+        <td>3,850 人</td>
+        <td class="col-num">60 萬元</td>
+        <td class="col-num">600,000 元</td>
+        <td><div class="progress-bar-wrap">
+        <div class="progress-bar-fill" style="width: 100%; background: #3b82f6;"></div>
+    </div>
+    <span style="color: #3b82f6; font-weight: 800;">100.0%</span></td>
+        <td class="col-ret" style="color: #3b82f6;">0 元</td>
+        <td><span class="badge badge-blue">用好用滿</span></td>
+    </tr>
+<tr class=" row-first">
+        <td rowspan="2" class="col-fixed col-id">
+            <span class="sort-rank-num">#22</span>
+            <span class="orig-id">區公所代碼 34</span>
+        </td>
+        <td rowspan="2" class="col-fixed col-name">
+            <span class="village-title">貨饒里</span>
+            
+        </td>
+        <td><span class="year-tag">113 年</span></td>
+        <td>4,280 人</td>
+        <td class="col-num">60 萬元</td>
+        <td class="col-num">583,198 元</td>
+        <td><div class="progress-bar-wrap">
+        <div class="progress-bar-fill" style="width: 97.2%; background: #10b981;"></div>
+    </div>
+    <span style="color: #10b981; font-weight: 800;">97.2%</span></td>
+        <td class="col-ret" style="color: #10b981;">16,802 元</td>
+        <td><span class="badge badge-green">還不錯</span></td>
+    </tr>
+<tr class=" row-second">
+        <td><span class="year-tag">114 年</span></td>
+        <td>4,250 人</td>
+        <td class="col-num">60 萬元</td>
+        <td class="col-num">580,000 元</td>
+        <td><div class="progress-bar-wrap">
+        <div class="progress-bar-fill" style="width: 96.7%; background: #10b981;"></div>
+    </div>
+    <span style="color: #10b981; font-weight: 800;">96.7%</span></td>
+        <td class="col-ret" style="color: #10b981;">20,000 元</td>
+        <td><span class="badge badge-green">還不錯</span></td>
+    </tr>
+<tr class=" row-first">
+        <td rowspan="2" class="col-fixed col-id">
+            <span class="sort-rank-num">#23</span>
+            <span class="orig-id">區公所代碼 25</span>
+        </td>
+        <td rowspan="2" class="col-fixed col-name">
+            <span class="village-title">員信里</span>
+            
+        </td>
+        <td><span class="year-tag">113 年</span></td>
+        <td>3,350 人</td>
+        <td class="col-num">60 萬元</td>
+        <td class="col-num">566,528 元</td>
+        <td><div class="progress-bar-wrap">
+        <div class="progress-bar-fill" style="width: 94.4%; background: #10b981;"></div>
+    </div>
+    <span style="color: #10b981; font-weight: 800;">94.4%</span></td>
+        <td class="col-ret" style="color: #10b981;">33,472 元</td>
+        <td><span class="badge badge-green">還不錯</span></td>
+    </tr>
+<tr class=" row-second">
+        <td><span class="year-tag">114 年</span></td>
+        <td>3,320 人</td>
+        <td class="col-num">60 萬元</td>
+        <td class="col-num">600,000 元</td>
+        <td><div class="progress-bar-wrap">
+        <div class="progress-bar-fill" style="width: 100%; background: #3b82f6;"></div>
+    </div>
+    <span style="color: #3b82f6; font-weight: 800;">100.0%</span></td>
+        <td class="col-ret" style="color: #3b82f6;">0 元</td>
+        <td><span class="badge badge-blue">用好用滿</span></td>
+    </tr>
+<tr class=" row-first">
+        <td rowspan="2" class="col-fixed col-id">
+            <span class="sort-rank-num">#24</span>
+            <span class="orig-id">區公所代碼 8</span>
+        </td>
+        <td rowspan="2" class="col-fixed col-name">
+            <span class="village-title">永寧里</span>
+            
+        </td>
+        <td><span class="year-tag">113 年</span></td>
+        <td>8,820 人</td>
+        <td class="col-num">60 萬元</td>
+        <td class="col-num">598,287 元</td>
+        <td><div class="progress-bar-wrap">
+        <div class="progress-bar-fill" style="width: 99.7%; background: #3b82f6;"></div>
+    </div>
+    <span style="color: #3b82f6; font-weight: 800;">99.7%</span></td>
+        <td class="col-ret" style="color: #3b82f6;">1,713 元</td>
+        <td><span class="badge badge-blue">用好用滿</span></td>
+    </tr>
+<tr class=" row-second">
+        <td><span class="year-tag">114 年</span></td>
+        <td>8,781 人</td>
+        <td class="col-num">60 萬元</td>
+        <td class="col-num">570,000 元</td>
+        <td><div class="progress-bar-wrap">
+        <div class="progress-bar-fill" style="width: 95.0%; background: #10b981;"></div>
+    </div>
+    <span style="color: #10b981; font-weight: 800;">95.0%</span></td>
+        <td class="col-ret" style="color: #10b981;">30,000 元</td>
+        <td><span class="badge badge-green">還不錯</span></td>
+    </tr>
+<tr class=" row-first">
+        <td rowspan="2" class="col-fixed col-id">
+            <span class="sort-rank-num">#25</span>
+            <span class="orig-id">區公所代碼 6</span>
+        </td>
+        <td rowspan="2" class="col-fixed col-name">
+            <span class="village-title">平和里</span>
+            
+        </td>
+        <td><span class="year-tag">113 年</span></td>
+        <td>5,850 人</td>
+        <td class="col-num">60 萬元</td>
+        <td class="col-num">591,378 元</td>
+        <td><div class="progress-bar-wrap">
+        <div class="progress-bar-fill" style="width: 98.6%; background: #10b981;"></div>
+    </div>
+    <span style="color: #10b981; font-weight: 800;">98.6%</span></td>
+        <td class="col-ret" style="color: #10b981;">8,622 元</td>
+        <td><span class="badge badge-green">還不錯</span></td>
+    </tr>
+<tr class=" row-second">
+        <td><span class="year-tag">114 年</span></td>
+        <td>5,820 人</td>
+        <td class="col-num">60 萬元</td>
+        <td class="col-num">580,000 元</td>
+        <td><div class="progress-bar-wrap">
+        <div class="progress-bar-fill" style="width: 96.7%; background: #10b981;"></div>
+    </div>
+    <span style="color: #10b981; font-weight: 800;">96.7%</span></td>
+        <td class="col-ret" style="color: #10b981;">20,000 元</td>
+        <td><span class="badge badge-green">還不錯</span></td>
+    </tr>
+<tr class=" row-first">
+        <td rowspan="2" class="col-fixed col-id">
+            <span class="sort-rank-num">#26</span>
+            <span class="orig-id">區公所代碼 38</span>
+        </td>
+        <td rowspan="2" class="col-fixed col-name">
+            <span class="village-title">復興里</span>
+            
+        </td>
+        <td><span class="year-tag">113 年</span></td>
+        <td>4,580 人</td>
+        <td class="col-num">60 萬元</td>
+        <td class="col-num">600,000 元</td>
+        <td><div class="progress-bar-wrap">
+        <div class="progress-bar-fill" style="width: 100%; background: #3b82f6;"></div>
+    </div>
+    <span style="color: #3b82f6; font-weight: 800;">100.0%</span></td>
+        <td class="col-ret" style="color: #3b82f6;">0 元</td>
+        <td><span class="badge badge-blue">用好用滿</span></td>
+    </tr>
+<tr class=" row-second">
+        <td><span class="year-tag">114 年</span></td>
+        <td>4,550 人</td>
+        <td class="col-num">60 萬元</td>
+        <td class="col-num">573,413 元</td>
+        <td><div class="progress-bar-wrap">
+        <div class="progress-bar-fill" style="width: 95.6%; background: #10b981;"></div>
+    </div>
+    <span style="color: #10b981; font-weight: 800;">95.6%</span></td>
+        <td class="col-ret" style="color: #10b981;">26,587 元</td>
+        <td><span class="badge badge-green">還不錯</span></td>
+    </tr>
+<tr class=" row-first">
+        <td rowspan="2" class="col-fixed col-id">
+            <span class="sort-rank-num">#27</span>
+            <span class="orig-id">區公所代碼 18</span>
+        </td>
+        <td rowspan="2" class="col-fixed col-name">
+            <span class="village-title">金城里</span>
+            
+        </td>
+        <td><span class="year-tag">113 年</span></td>
+        <td>7,800 人</td>
+        <td class="col-num">60 萬元</td>
+        <td class="col-num">598,837 元</td>
+        <td><div class="progress-bar-wrap">
+        <div class="progress-bar-fill" style="width: 99.8%; background: #3b82f6;"></div>
+    </div>
+    <span style="color: #3b82f6; font-weight: 800;">99.8%</span></td>
+        <td class="col-ret" style="color: #3b82f6;">1,163 元</td>
+        <td><span class="badge badge-blue">用好用滿</span></td>
+    </tr>
+<tr class=" row-second">
+        <td><span class="year-tag">114 年</span></td>
+        <td>7,850 人</td>
+        <td class="col-num">60 萬元</td>
+        <td class="col-num">580,000 元</td>
+        <td><div class="progress-bar-wrap">
+        <div class="progress-bar-fill" style="width: 96.7%; background: #10b981;"></div>
+    </div>
+    <span style="color: #10b981; font-weight: 800;">96.7%</span></td>
+        <td class="col-ret" style="color: #10b981;">20,000 元</td>
+        <td><span class="badge badge-green">還不錯</span></td>
+    </tr>
+<tr class=" row-first">
+        <td rowspan="2" class="col-fixed col-id">
+            <span class="sort-rank-num">#28</span>
+            <span class="orig-id">區公所代碼 30</span>
+        </td>
+        <td rowspan="2" class="col-fixed col-name">
+            <span class="village-title">清化里</span>
+            
+        </td>
+        <td><span class="year-tag">113 年</span></td>
+        <td>1,590 人</td>
+        <td class="col-num">60 萬元</td>
+        <td class="col-num">599,864 元</td>
+        <td><div class="progress-bar-wrap">
+        <div class="progress-bar-fill" style="width: 100%; background: #3b82f6;"></div>
+    </div>
+    <span style="color: #3b82f6; font-weight: 800;">100.0%</span></td>
+        <td class="col-ret" style="color: #3b82f6;">136 元</td>
+        <td><span class="badge badge-blue">用好用滿</span></td>
+    </tr>
+<tr class=" row-second">
+        <td><span class="year-tag">114 年</span></td>
+        <td>1,570 人</td>
+        <td class="col-num">60 萬元</td>
+        <td class="col-num">580,000 元</td>
+        <td><div class="progress-bar-wrap">
+        <div class="progress-bar-fill" style="width: 96.7%; background: #10b981;"></div>
+    </div>
+    <span style="color: #10b981; font-weight: 800;">96.7%</span></td>
+        <td class="col-ret" style="color: #10b981;">20,000 元</td>
+        <td><span class="badge badge-green">還不錯</span></td>
+    </tr>
+<tr class=" row-first">
+        <td rowspan="2" class="col-fixed col-id">
+            <span class="sort-rank-num">#29</span>
+            <span class="orig-id">區公所代碼 14</span>
+        </td>
+        <td rowspan="2" class="col-fixed col-name">
+            <span class="village-title">延和里</span>
+            
+        </td>
+        <td><span class="year-tag">113 年</span></td>
+        <td>6,250 人</td>
+        <td class="col-num">60 萬元</td>
+        <td class="col-num">599,453 元</td>
+        <td><div class="progress-bar-wrap">
+        <div class="progress-bar-fill" style="width: 99.9%; background: #3b82f6;"></div>
+    </div>
+    <span style="color: #3b82f6; font-weight: 800;">99.9%</span></td>
+        <td class="col-ret" style="color: #3b82f6;">547 元</td>
+        <td><span class="badge badge-blue">用好用滿</span></td>
+    </tr>
+<tr class=" row-second">
+        <td><span class="year-tag">114 年</span></td>
+        <td>6,220 人</td>
+        <td class="col-num">60 萬元</td>
+        <td class="col-num">582,204 元</td>
+        <td><div class="progress-bar-wrap">
+        <div class="progress-bar-fill" style="width: 97.0%; background: #10b981;"></div>
+    </div>
+    <span style="color: #10b981; font-weight: 800;">97.0%</span></td>
+        <td class="col-ret" style="color: #10b981;">17,796 元</td>
+        <td><span class="badge badge-green">還不錯</span></td>
+    </tr>
+<tr class=" row-first">
+        <td rowspan="2" class="col-fixed col-id">
+            <span class="sort-rank-num">#30</span>
+            <span class="orig-id">區公所代碼 47</span>
+        </td>
         <td rowspan="2" class="col-fixed col-name">
             <span class="village-title">峯廷里</span>
             
@@ -1877,6 +1604,550 @@
 <tr class=" row-second">
         <td><span class="year-tag">114 年</span></td>
         <td>3,920 人</td>
+        <td class="col-num">60 萬元</td>
+        <td class="col-num">600,000 元</td>
+        <td><div class="progress-bar-wrap">
+        <div class="progress-bar-fill" style="width: 100%; background: #3b82f6;"></div>
+    </div>
+    <span style="color: #3b82f6; font-weight: 800;">100.0%</span></td>
+        <td class="col-ret" style="color: #3b82f6;">0 元</td>
+        <td><span class="badge badge-blue">用好用滿</span></td>
+    </tr>
+<tr class=" row-first">
+        <td rowspan="2" class="col-fixed col-id">
+            <span class="sort-rank-num">#31</span>
+            <span class="orig-id">區公所代碼 40</span>
+        </td>
+        <td rowspan="2" class="col-fixed col-name">
+            <span class="village-title">裕生里</span>
+            
+        </td>
+        <td><span class="year-tag">113 年</span></td>
+        <td>3,550 人</td>
+        <td class="col-num">60 萬元</td>
+        <td class="col-num">586,527 元</td>
+        <td><div class="progress-bar-wrap">
+        <div class="progress-bar-fill" style="width: 97.8%; background: #10b981;"></div>
+    </div>
+    <span style="color: #10b981; font-weight: 800;">97.8%</span></td>
+        <td class="col-ret" style="color: #10b981;">13,473 元</td>
+        <td><span class="badge badge-green">還不錯</span></td>
+    </tr>
+<tr class=" row-second">
+        <td><span class="year-tag">114 年</span></td>
+        <td>3,520 人</td>
+        <td class="col-num">60 萬元</td>
+        <td class="col-num">599,476 元</td>
+        <td><div class="progress-bar-wrap">
+        <div class="progress-bar-fill" style="width: 99.9%; background: #3b82f6;"></div>
+    </div>
+    <span style="color: #3b82f6; font-weight: 800;">99.9%</span></td>
+        <td class="col-ret" style="color: #3b82f6;">524 元</td>
+        <td><span class="badge badge-blue">用好用滿</span></td>
+    </tr>
+<tr class=" row-first">
+        <td rowspan="2" class="col-fixed col-id">
+            <span class="sort-rank-num">#32</span>
+            <span class="orig-id">區公所代碼 35</span>
+        </td>
+        <td rowspan="2" class="col-fixed col-name">
+            <span class="village-title">頂埔里</span>
+            
+        </td>
+        <td><span class="year-tag">113 年</span></td>
+        <td>2,950 人</td>
+        <td class="col-num">60 萬元</td>
+        <td class="col-num">600,000 元</td>
+        <td><div class="progress-bar-wrap">
+        <div class="progress-bar-fill" style="width: 100%; background: #3b82f6;"></div>
+    </div>
+    <span style="color: #3b82f6; font-weight: 800;">100.0%</span></td>
+        <td class="col-ret" style="color: #3b82f6;">0 元</td>
+        <td><span class="badge badge-blue">用好用滿</span></td>
+    </tr>
+<tr class=" row-second">
+        <td><span class="year-tag">114 年</span></td>
+        <td>2,920 人</td>
+        <td class="col-num">60 萬元</td>
+        <td class="col-num">590,093 元</td>
+        <td><div class="progress-bar-wrap">
+        <div class="progress-bar-fill" style="width: 98.3%; background: #10b981;"></div>
+    </div>
+    <span style="color: #10b981; font-weight: 800;">98.3%</span></td>
+        <td class="col-ret" style="color: #10b981;">9,907 元</td>
+        <td><span class="badge badge-green">還不錯</span></td>
+    </tr>
+<tr class=" row-first">
+        <td rowspan="2" class="col-fixed col-id">
+            <span class="sort-rank-num">#33</span>
+            <span class="orig-id">區公所代碼 39</span>
+        </td>
+        <td rowspan="2" class="col-fixed col-name">
+            <span class="village-title">瑞興里</span>
+            
+        </td>
+        <td><span class="year-tag">113 年</span></td>
+        <td>3,080 人</td>
+        <td class="col-num">60 萬元</td>
+        <td class="col-num">595,515 元</td>
+        <td><div class="progress-bar-wrap">
+        <div class="progress-bar-fill" style="width: 99.3%; background: #10b981;"></div>
+    </div>
+    <span style="color: #10b981; font-weight: 800;">99.3%</span></td>
+        <td class="col-ret" style="color: #10b981;">4,485 元</td>
+        <td><span class="badge badge-green">還不錯</span></td>
+    </tr>
+<tr class=" row-second">
+        <td><span class="year-tag">114 年</span></td>
+        <td>3,050 人</td>
+        <td class="col-num">60 萬元</td>
+        <td class="col-num">597,884 元</td>
+        <td><div class="progress-bar-wrap">
+        <div class="progress-bar-fill" style="width: 99.6%; background: #3b82f6;"></div>
+    </div>
+    <span style="color: #3b82f6; font-weight: 800;">99.6%</span></td>
+        <td class="col-ret" style="color: #3b82f6;">2,116 元</td>
+        <td><span class="badge badge-blue">用好用滿</span></td>
+    </tr>
+<tr class=" row-first">
+        <td rowspan="2" class="col-fixed col-id">
+            <span class="sort-rank-num">#34</span>
+            <span class="orig-id">區公所代碼 16</span>
+        </td>
+        <td rowspan="2" class="col-fixed col-name">
+            <span class="village-title">延壽里</span>
+            
+        </td>
+        <td><span class="year-tag">113 年</span></td>
+        <td>4,780 人</td>
+        <td class="col-num">60 萬元</td>
+        <td class="col-num">594,051 元</td>
+        <td><div class="progress-bar-wrap">
+        <div class="progress-bar-fill" style="width: 99.0%; background: #10b981;"></div>
+    </div>
+    <span style="color: #10b981; font-weight: 800;">99.0%</span></td>
+        <td class="col-ret" style="color: #10b981;">5,949 元</td>
+        <td><span class="badge badge-green">還不錯</span></td>
+    </tr>
+<tr class=" row-second">
+        <td><span class="year-tag">114 年</span></td>
+        <td>4,750 人</td>
+        <td class="col-num">60 萬元</td>
+        <td class="col-num">600,000 元</td>
+        <td><div class="progress-bar-wrap">
+        <div class="progress-bar-fill" style="width: 100%; background: #3b82f6;"></div>
+    </div>
+    <span style="color: #3b82f6; font-weight: 800;">100.0%</span></td>
+        <td class="col-ret" style="color: #3b82f6;">0 元</td>
+        <td><span class="badge badge-blue">用好用滿</span></td>
+    </tr>
+<tr class=" row-first">
+        <td rowspan="2" class="col-fixed col-id">
+            <span class="sort-rank-num">#35</span>
+            <span class="orig-id">區公所代碼 29</span>
+        </td>
+        <td rowspan="2" class="col-fixed col-name">
+            <span class="village-title">埤塘里</span>
+            
+        </td>
+        <td><span class="year-tag">113 年</span></td>
+        <td>2,780 人</td>
+        <td class="col-num">60 萬元</td>
+        <td class="col-num">596,819 元</td>
+        <td><div class="progress-bar-wrap">
+        <div class="progress-bar-fill" style="width: 99.5%; background: #3b82f6;"></div>
+    </div>
+    <span style="color: #3b82f6; font-weight: 800;">99.5%</span></td>
+        <td class="col-ret" style="color: #3b82f6;">3,181 元</td>
+        <td><span class="badge badge-blue">用好用滿</span></td>
+    </tr>
+<tr class=" row-second">
+        <td><span class="year-tag">114 年</span></td>
+        <td>2,750 人</td>
+        <td class="col-num">60 萬元</td>
+        <td class="col-num">599,851 元</td>
+        <td><div class="progress-bar-wrap">
+        <div class="progress-bar-fill" style="width: 100%; background: #3b82f6;"></div>
+    </div>
+    <span style="color: #3b82f6; font-weight: 800;">100.0%</span></td>
+        <td class="col-ret" style="color: #3b82f6;">149 元</td>
+        <td><span class="badge badge-blue">用好用滿</span></td>
+    </tr>
+<tr class=" row-first">
+        <td rowspan="2" class="col-fixed col-id">
+            <span class="sort-rank-num">#36</span>
+            <span class="orig-id">區公所代碼 1</span>
+        </td>
+        <td rowspan="2" class="col-fixed col-name">
+            <span class="village-title">土城里</span>
+            
+        </td>
+        <td><span class="year-tag">113 年</span></td>
+        <td>4,520 人</td>
+        <td class="col-num">60 萬元</td>
+        <td class="col-num">599,929 元</td>
+        <td><div class="progress-bar-wrap">
+        <div class="progress-bar-fill" style="width: 100%; background: #3b82f6;"></div>
+    </div>
+    <span style="color: #3b82f6; font-weight: 800;">100.0%</span></td>
+        <td class="col-ret" style="color: #3b82f6;">71 元</td>
+        <td><span class="badge badge-blue">用好用滿</span></td>
+    </tr>
+<tr class=" row-second">
+        <td><span class="year-tag">114 年</span></td>
+        <td>4,490 人</td>
+        <td class="col-num">60 萬元</td>
+        <td class="col-num">597,719 元</td>
+        <td><div class="progress-bar-wrap">
+        <div class="progress-bar-fill" style="width: 99.6%; background: #3b82f6;"></div>
+    </div>
+    <span style="color: #3b82f6; font-weight: 800;">99.6%</span></td>
+        <td class="col-ret" style="color: #3b82f6;">2,281 元</td>
+        <td><span class="badge badge-blue">用好用滿</span></td>
+    </tr>
+<tr class=" row-first">
+        <td rowspan="2" class="col-fixed col-id">
+            <span class="sort-rank-num">#37</span>
+            <span class="orig-id">區公所代碼 2</span>
+        </td>
+        <td rowspan="2" class="col-fixed col-name">
+            <span class="village-title">大安里</span>
+            
+        </td>
+        <td><span class="year-tag">113 年</span></td>
+        <td>4,350 人</td>
+        <td class="col-num">60 萬元</td>
+        <td class="col-num">600,000 元</td>
+        <td><div class="progress-bar-wrap">
+        <div class="progress-bar-fill" style="width: 100%; background: #3b82f6;"></div>
+    </div>
+    <span style="color: #3b82f6; font-weight: 800;">100.0%</span></td>
+        <td class="col-ret" style="color: #3b82f6;">0 元</td>
+        <td><span class="badge badge-blue">用好用滿</span></td>
+    </tr>
+<tr class=" row-second">
+        <td><span class="year-tag">114 年</span></td>
+        <td>4,320 人</td>
+        <td class="col-num">60 萬元</td>
+        <td class="col-num">597,792 元</td>
+        <td><div class="progress-bar-wrap">
+        <div class="progress-bar-fill" style="width: 99.6%; background: #3b82f6;"></div>
+    </div>
+    <span style="color: #3b82f6; font-weight: 800;">99.6%</span></td>
+        <td class="col-ret" style="color: #3b82f6;">2,208 元</td>
+        <td><span class="badge badge-blue">用好用滿</span></td>
+    </tr>
+<tr class=" row-first">
+        <td rowspan="2" class="col-fixed col-id">
+            <span class="sort-rank-num">#38</span>
+            <span class="orig-id">區公所代碼 19</span>
+        </td>
+        <td rowspan="2" class="col-fixed col-name">
+            <span class="village-title">長風里</span>
+            
+        </td>
+        <td><span class="year-tag">113 年</span></td>
+        <td>1,990 人</td>
+        <td class="col-num">60 萬元</td>
+        <td class="col-num">600,000 元</td>
+        <td><div class="progress-bar-wrap">
+        <div class="progress-bar-fill" style="width: 100%; background: #3b82f6;"></div>
+    </div>
+    <span style="color: #3b82f6; font-weight: 800;">100.0%</span></td>
+        <td class="col-ret" style="color: #3b82f6;">0 元</td>
+        <td><span class="badge badge-blue">用好用滿</span></td>
+    </tr>
+<tr class=" row-second">
+        <td><span class="year-tag">114 年</span></td>
+        <td>1,975 人</td>
+        <td class="col-num">60 萬元</td>
+        <td class="col-num">598,665 元</td>
+        <td><div class="progress-bar-wrap">
+        <div class="progress-bar-fill" style="width: 99.8%; background: #3b82f6;"></div>
+    </div>
+    <span style="color: #3b82f6; font-weight: 800;">99.8%</span></td>
+        <td class="col-ret" style="color: #3b82f6;">1,335 元</td>
+        <td><span class="badge badge-blue">用好用滿</span></td>
+    </tr>
+<tr class=" row-first">
+        <td rowspan="2" class="col-fixed col-id">
+            <span class="sort-rank-num">#39</span>
+            <span class="orig-id">區公所代碼 12</span>
+        </td>
+        <td rowspan="2" class="col-fixed col-name">
+            <span class="village-title">沛陂里</span>
+            
+        </td>
+        <td><span class="year-tag">113 年</span></td>
+        <td>2,550 人</td>
+        <td class="col-num">60 萬元</td>
+        <td class="col-num">600,000 元</td>
+        <td><div class="progress-bar-wrap">
+        <div class="progress-bar-fill" style="width: 100%; background: #3b82f6;"></div>
+    </div>
+    <span style="color: #3b82f6; font-weight: 800;">100.0%</span></td>
+        <td class="col-ret" style="color: #3b82f6;">0 元</td>
+        <td><span class="badge badge-blue">用好用滿</span></td>
+    </tr>
+<tr class=" row-second">
+        <td><span class="year-tag">114 年</span></td>
+        <td>2,520 人</td>
+        <td class="col-num">60 萬元</td>
+        <td class="col-num">599,684 元</td>
+        <td><div class="progress-bar-wrap">
+        <div class="progress-bar-fill" style="width: 99.9%; background: #3b82f6;"></div>
+    </div>
+    <span style="color: #3b82f6; font-weight: 800;">99.9%</span></td>
+        <td class="col-ret" style="color: #3b82f6;">316 元</td>
+        <td><span class="badge badge-blue">用好用滿</span></td>
+    </tr>
+<tr class=" row-first">
+        <td rowspan="2" class="col-fixed col-id">
+            <span class="sort-rank-num">#40</span>
+            <span class="orig-id">區公所代碼 3</span>
+        </td>
+        <td rowspan="2" class="col-fixed col-name">
+            <span class="village-title">中正里</span>
+            
+        </td>
+        <td><span class="year-tag">113 年</span></td>
+        <td>4,850 人</td>
+        <td class="col-num">60 萬元</td>
+        <td class="col-num">599,846 元</td>
+        <td><div class="progress-bar-wrap">
+        <div class="progress-bar-fill" style="width: 100%; background: #3b82f6;"></div>
+    </div>
+    <span style="color: #3b82f6; font-weight: 800;">100.0%</span></td>
+        <td class="col-ret" style="color: #3b82f6;">154 元</td>
+        <td><span class="badge badge-blue">用好用滿</span></td>
+    </tr>
+<tr class=" row-second">
+        <td><span class="year-tag">114 年</span></td>
+        <td>4,820 人</td>
+        <td class="col-num">60 萬元</td>
+        <td class="col-num">600,000 元</td>
+        <td><div class="progress-bar-wrap">
+        <div class="progress-bar-fill" style="width: 100%; background: #3b82f6;"></div>
+    </div>
+    <span style="color: #3b82f6; font-weight: 800;">100.0%</span></td>
+        <td class="col-ret" style="color: #3b82f6;">0 元</td>
+        <td><span class="badge badge-blue">用好用滿</span></td>
+    </tr>
+<tr class=" row-first">
+        <td rowspan="2" class="col-fixed col-id">
+            <span class="sort-rank-num">#41</span>
+            <span class="orig-id">區公所代碼 45</span>
+        </td>
+        <td rowspan="2" class="col-fixed col-name">
+            <span class="village-title">學成里</span>
+            
+        </td>
+        <td><span class="year-tag">113 年</span></td>
+        <td>6,540 人</td>
+        <td class="col-num">60 萬元</td>
+        <td class="col-num">599,977 元</td>
+        <td><div class="progress-bar-wrap">
+        <div class="progress-bar-fill" style="width: 100%; background: #3b82f6;"></div>
+    </div>
+    <span style="color: #3b82f6; font-weight: 800;">100.0%</span></td>
+        <td class="col-ret" style="color: #3b82f6;">23 元</td>
+        <td><span class="badge badge-blue">用好用滿</span></td>
+    </tr>
+<tr class=" row-second">
+        <td><span class="year-tag">114 年</span></td>
+        <td>6,510 人</td>
+        <td class="col-num">60 萬元</td>
+        <td class="col-num">600,000 元</td>
+        <td><div class="progress-bar-wrap">
+        <div class="progress-bar-fill" style="width: 100%; background: #3b82f6;"></div>
+    </div>
+    <span style="color: #3b82f6; font-weight: 800;">100.0%</span></td>
+        <td class="col-ret" style="color: #3b82f6;">0 元</td>
+        <td><span class="badge badge-blue">用好用滿</span></td>
+    </tr>
+<tr class=" row-first">
+        <td rowspan="2" class="col-fixed col-id">
+            <span class="sort-rank-num">#42</span>
+            <span class="orig-id">區公所代碼 5</span>
+        </td>
+        <td rowspan="2" class="col-fixed col-name">
+            <span class="village-title">日新里</span>
+            
+        </td>
+        <td><span class="year-tag">113 年</span></td>
+        <td>4,150 人</td>
+        <td class="col-num">60 萬元</td>
+        <td class="col-num">600,000 元</td>
+        <td><div class="progress-bar-wrap">
+        <div class="progress-bar-fill" style="width: 100%; background: #3b82f6;"></div>
+    </div>
+    <span style="color: #3b82f6; font-weight: 800;">100.0%</span></td>
+        <td class="col-ret" style="color: #3b82f6;">0 元</td>
+        <td><span class="badge badge-blue">用好用滿</span></td>
+    </tr>
+<tr class=" row-second">
+        <td><span class="year-tag">114 年</span></td>
+        <td>4,120 人</td>
+        <td class="col-num">60 萬元</td>
+        <td class="col-num">600,000 元</td>
+        <td><div class="progress-bar-wrap">
+        <div class="progress-bar-fill" style="width: 100%; background: #3b82f6;"></div>
+    </div>
+    <span style="color: #3b82f6; font-weight: 800;">100.0%</span></td>
+        <td class="col-ret" style="color: #3b82f6;">0 元</td>
+        <td><span class="badge badge-blue">用好用滿</span></td>
+    </tr>
+<tr class=" row-first">
+        <td rowspan="2" class="col-fixed col-id">
+            <span class="sort-rank-num">#43</span>
+            <span class="orig-id">區公所代碼 9</span>
+        </td>
+        <td rowspan="2" class="col-fixed col-name">
+            <span class="village-title">永豐里</span>
+            
+        </td>
+        <td><span class="year-tag">113 年</span></td>
+        <td>7,650 人</td>
+        <td class="col-num">60 萬元</td>
+        <td class="col-num">600,000 元</td>
+        <td><div class="progress-bar-wrap">
+        <div class="progress-bar-fill" style="width: 100%; background: #3b82f6;"></div>
+    </div>
+    <span style="color: #3b82f6; font-weight: 800;">100.0%</span></td>
+        <td class="col-ret" style="color: #3b82f6;">0 元</td>
+        <td><span class="badge badge-blue">用好用滿</span></td>
+    </tr>
+<tr class=" row-second">
+        <td><span class="year-tag">114 年</span></td>
+        <td>7,620 人</td>
+        <td class="col-num">60 萬元</td>
+        <td class="col-num">600,000 元</td>
+        <td><div class="progress-bar-wrap">
+        <div class="progress-bar-fill" style="width: 100%; background: #3b82f6;"></div>
+    </div>
+    <span style="color: #3b82f6; font-weight: 800;">100.0%</span></td>
+        <td class="col-ret" style="color: #3b82f6;">0 元</td>
+        <td><span class="badge badge-blue">用好用滿</span></td>
+    </tr>
+<tr class=" row-first">
+        <td rowspan="2" class="col-fixed col-id">
+            <span class="sort-rank-num">#44</span>
+            <span class="orig-id">區公所代碼 22</span>
+        </td>
+        <td rowspan="2" class="col-fixed col-name">
+            <span class="village-title">柑林里</span>
+            
+        </td>
+        <td><span class="year-tag">113 年</span></td>
+        <td>3,280 人</td>
+        <td class="col-num">60 萬元</td>
+        <td class="col-num">600,000 元</td>
+        <td><div class="progress-bar-wrap">
+        <div class="progress-bar-fill" style="width: 100%; background: #3b82f6;"></div>
+    </div>
+    <span style="color: #3b82f6; font-weight: 800;">100.0%</span></td>
+        <td class="col-ret" style="color: #3b82f6;">0 元</td>
+        <td><span class="badge badge-blue">用好用滿</span></td>
+    </tr>
+<tr class=" row-second">
+        <td><span class="year-tag">114 年</span></td>
+        <td>3,250 人</td>
+        <td class="col-num">60 萬元</td>
+        <td class="col-num">600,000 元</td>
+        <td><div class="progress-bar-wrap">
+        <div class="progress-bar-fill" style="width: 100%; background: #3b82f6;"></div>
+    </div>
+    <span style="color: #3b82f6; font-weight: 800;">100.0%</span></td>
+        <td class="col-ret" style="color: #3b82f6;">0 元</td>
+        <td><span class="badge badge-blue">用好用滿</span></td>
+    </tr>
+<tr class=" row-first">
+        <td rowspan="2" class="col-fixed col-id">
+            <span class="sort-rank-num">#45</span>
+            <span class="orig-id">區公所代碼 23</span>
+        </td>
+        <td rowspan="2" class="col-fixed col-name">
+            <span class="village-title">員仁里</span>
+            
+        </td>
+        <td><span class="year-tag">113 年</span></td>
+        <td>3,480 人</td>
+        <td class="col-num">60 萬元</td>
+        <td class="col-num">600,000 元</td>
+        <td><div class="progress-bar-wrap">
+        <div class="progress-bar-fill" style="width: 100%; background: #3b82f6;"></div>
+    </div>
+    <span style="color: #3b82f6; font-weight: 800;">100.0%</span></td>
+        <td class="col-ret" style="color: #3b82f6;">0 元</td>
+        <td><span class="badge badge-blue">用好用滿</span></td>
+    </tr>
+<tr class=" row-second">
+        <td><span class="year-tag">114 年</span></td>
+        <td>3,450 人</td>
+        <td class="col-num">60 萬元</td>
+        <td class="col-num">600,000 元</td>
+        <td><div class="progress-bar-wrap">
+        <div class="progress-bar-fill" style="width: 100%; background: #3b82f6;"></div>
+    </div>
+    <span style="color: #3b82f6; font-weight: 800;">100.0%</span></td>
+        <td class="col-ret" style="color: #3b82f6;">0 元</td>
+        <td><span class="badge badge-blue">用好用滿</span></td>
+    </tr>
+<tr class=" row-first">
+        <td rowspan="2" class="col-fixed col-id">
+            <span class="sort-rank-num">#46</span>
+            <span class="orig-id">區公所代碼 28</span>
+        </td>
+        <td rowspan="2" class="col-fixed col-name">
+            <span class="village-title">埤林里</span>
+            
+        </td>
+        <td><span class="year-tag">113 年</span></td>
+        <td>4,080 人</td>
+        <td class="col-num">60 萬元</td>
+        <td class="col-num">600,000 元</td>
+        <td><div class="progress-bar-wrap">
+        <div class="progress-bar-fill" style="width: 100%; background: #3b82f6;"></div>
+    </div>
+    <span style="color: #3b82f6; font-weight: 800;">100.0%</span></td>
+        <td class="col-ret" style="color: #3b82f6;">0 元</td>
+        <td><span class="badge badge-blue">用好用滿</span></td>
+    </tr>
+<tr class=" row-second">
+        <td><span class="year-tag">114 年</span></td>
+        <td>4,050 人</td>
+        <td class="col-num">60 萬元</td>
+        <td class="col-num">600,000 元</td>
+        <td><div class="progress-bar-wrap">
+        <div class="progress-bar-fill" style="width: 100%; background: #3b82f6;"></div>
+    </div>
+    <span style="color: #3b82f6; font-weight: 800;">100.0%</span></td>
+        <td class="col-ret" style="color: #3b82f6;">0 元</td>
+        <td><span class="badge badge-blue">用好用滿</span></td>
+    </tr>
+<tr class=" row-first">
+        <td rowspan="2" class="col-fixed col-id">
+            <span class="sort-rank-num">#47</span>
+            <span class="orig-id">區公所代碼 44</span>
+        </td>
+        <td rowspan="2" class="col-fixed col-name">
+            <span class="village-title">學士里</span>
+            
+        </td>
+        <td><span class="year-tag">113 年</span></td>
+        <td>6,150 人</td>
+        <td class="col-num">60 萬元</td>
+        <td class="col-num">600,000 元</td>
+        <td><div class="progress-bar-wrap">
+        <div class="progress-bar-fill" style="width: 100%; background: #3b82f6;"></div>
+    </div>
+    <span style="color: #3b82f6; font-weight: 800;">100.0%</span></td>
+        <td class="col-ret" style="color: #3b82f6;">0 元</td>
+        <td><span class="badge badge-blue">用好用滿</span></td>
+    </tr>
+<tr class=" row-second">
+        <td><span class="year-tag">114 年</span></td>
+        <td>6,120 人</td>
         <td class="col-num">60 萬元</td>
         <td class="col-num">600,000 元</td>
         <td><div class="progress-bar-wrap">
