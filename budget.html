@@ -222,7 +222,7 @@
 
         .purpose-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
             gap: 10px;
         }
 
@@ -249,6 +249,33 @@
             font-size: 0.76rem;
             color: #94a3b8;
             line-height: 1.4;
+        }
+
+        /* 第七項特別彈性卡片 */
+        .purpose-item-extra {
+            border-color: rgba(52, 211, 153, 0.35);
+            background: rgba(16, 185, 129, 0.08);
+        }
+
+        .purpose-item-extra .purpose-title {
+            color: #34d399;
+        }
+
+        .purpose-policy-note {
+            margin-top: 14px;
+            background: rgba(0, 0, 0, 0.25);
+            border-left: 3.5px solid #34d399;
+            padding: 9px 12px;
+            border-radius: 0 6px 6px 0;
+            font-size: 0.82rem;
+            color: #cbd5e1;
+            line-height: 1.5;
+        }
+
+        .purpose-policy-note a {
+            color: #60a5fa;
+            text-decoration: underline;
+            font-weight: 700;
         }
 
         /* Table Design */
@@ -594,45 +621,53 @@
             <div class="hero-sort-note">⚡ 表格依兩年綜合執行率由低至高排序（檢視資源動支缺口）</div>
         </section>
 
-        <!-- 法定六大主要用途方向說明模組 -->
+        <!-- 法定六大主要用途方向與其他專案彈性說明模組 -->
         <section class="purpose-card">
             <div class="purpose-header">
                 <h2>🛠️ 什麼是「里基層工作經費」？這筆錢能為里民做什麼？</h2>
             </div>
             <p class="purpose-lead">
-                依據《新北市政府里基層工作經費督導實施要點》，市府每年編列給各里 60 萬元專款，是里長最直接能改善里民生活的「即戰力基金」。經費<strong>必須由里長主動提案企劃、陳報區公所核准</strong>，專款專用於以下六大公共民生方向（若年底沒提專案請領，餘額全數繳回市庫）：
+                依據《新北市政府里基層工作經費督導實施要點》，市府每年編列給各里 60 萬元專款，是里長最直接能改善里民生活的「即戰力基金」。經費<strong>必須由里長主動提案企劃、陳報區公所核准</strong>才能動支（若年底沒提專案請領，餘額全數繳回市庫）：
             </p>
             <div class="purpose-grid">
                 <div class="purpose-item">
                     <div class="purpose-icon">🧹</div>
                     <div class="purpose-title">1. 社區清潔</div>
-                    <div class="purpose-desc">巷弄環境大掃除、登革熱孳生源清除、消毒藥劑與清掃工具採購。</div>
+                    <div class="purpose-desc">巷弄環境大掃除、登革熱防治噴藥、清掃工具採購。</div>
                 </div>
                 <div class="purpose-item">
                     <div class="purpose-icon">💡</div>
                     <div class="purpose-title">2. 路燈照明</div>
-                    <div class="purpose-desc">巷弄照明維護修繕、昏暗死角燈具增設、夜行安全設施巡檢。</div>
+                    <div class="purpose-desc">巷弄死角燈具增設、昏暗路段巡檢修繕、安全照明。</div>
                 </div>
                 <div class="purpose-item">
                     <div class="purpose-icon">🌧️</div>
                     <div class="purpose-title">3. 溝渠疏通</div>
-                    <div class="purpose-desc">汛期前側溝污泥清疏、積水熱點排除、防蚊防臭淤泥清理。</div>
+                    <div class="purpose-desc">汛期前水溝清淤、積水熱點排除、防蚊防惡臭清理。</div>
                 </div>
                 <div class="purpose-item">
                     <div class="purpose-icon">🛡️</div>
                     <div class="purpose-title">4. 守望相助</div>
-                    <div class="purpose-desc">巡守隊執勤防護裝備、夜巡反光背心雨具、社區治安巡邏補貼。</div>
+                    <div class="purpose-desc">巡守隊反光雨具裝備、夜巡防護用品、守護社區治安。</div>
                 </div>
                 <div class="purpose-item">
                     <div class="purpose-icon">🪑</div>
                     <div class="purpose-title">5. 公共服務</div>
-                    <div class="purpose-desc">里民公布欄維護、公共座椅修繕、里內小型休憩公設急迫性修補。</div>
+                    <div class="purpose-desc">里民公布欄維護、休憩座椅修繕、巷弄小型公設修補。</div>
                 </div>
                 <div class="purpose-item">
                     <div class="purpose-icon">🚨</div>
                     <div class="purpose-title">6. 災害防救</div>
-                    <div class="purpose-desc">風災防汛沙包整備、緊急搶修物資、急難應變宣導與演練。</div>
+                    <div class="purpose-desc">風災防汛沙包整備、緊急搶修物資、急難演練宣導。</div>
                 </div>
+                <div class="purpose-item purpose-item-extra">
+                    <div class="purpose-icon">💡</div>
+                    <div class="purpose-title">7. 其他公益需求（專案核定）</div>
+                    <div class="purpose-desc">依要點第 2 點，具公共性與公益性之需求，報公所核定即可辦理！</div>
+                </div>
+            </div>
+            <div class="purpose-policy-note">
+                💡 <strong>制度彈性關鍵</strong>：依實施要點第二點規定，只要里長具備專案企劃能力，能提報符合「公共性、公益性與必要性」的具體計畫（例如陳新昱 15 大政見中的巷弄反光鏡盲區改善、AED 急救站維護、綠色微美化、數位里民通告等），經報請區公所核定後均可依法動支或申請跨局處補助！這正是為什麼里長「懂企劃」能為里民爭取最多福利的根本關鍵。
             </div>
         </section>
 
