@@ -201,7 +201,7 @@
         thead {
             background: #0f172a;
             border-bottom: 2.5px solid var(--border-village);
-            position: static; /* 避免 sticky 在手機或特定瀏覽器遮擋第一行資料 */
+            position: static;
         }
 
         th {
@@ -359,6 +359,78 @@
         .progress-bar-fill {
             height: 100%;
             border-radius: 9999px;
+        }
+
+        /* Population Bracket Legend Card */
+        .bracket-section {
+            background: linear-gradient(145deg, rgba(17, 24, 39, 0.95), rgba(15, 23, 42, 0.95));
+            border: 1px solid rgba(59, 130, 246, 0.35);
+            border-radius: 14px;
+            padding: 22px 20px;
+            margin-bottom: 24px;
+        }
+
+        .bracket-section h2 {
+            font-size: 1.25rem;
+            color: #ffffff;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .bracket-desc {
+            font-size: 0.9rem;
+            color: #94a3b8;
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+
+        .bracket-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 14px;
+        }
+
+        .bracket-card {
+            background: rgba(0, 0, 0, 0.35);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 14px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .bracket-tier-title {
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: #93c5fd;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+        }
+
+        .bracket-pop-range {
+            font-size: 1.05rem;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 6px;
+        }
+
+        .bracket-budget {
+            font-size: 1.3rem;
+            font-weight: 900;
+            color: #34d399;
+            margin-bottom: 8px;
+        }
+
+        .bracket-villages {
+            font-size: 0.8rem;
+            color: #94a3b8;
+            line-height: 1.5;
+            border-top: 1px dashed rgba(255, 255, 255, 0.1);
+            padding-top: 8px;
         }
 
         /* Deep Dive Analysis Card */
@@ -1889,6 +1961,43 @@
                 </tbody>
             </table>
         </div>
+
+        <!-- Population to Budget Tier Conversion Legend -->
+        <section class="bracket-section">
+            <h2>📊 新北市里基層工作經費「人口 ✕ 法定預算」官方換算標準表</h2>
+            <p class="bracket-desc">
+                依據新北市政府民政局《新北市政府里基層工作經費督導實施要點》與編列標準，各里每年法定預算額度並非單一齊頭式發放，而是依據各里官方設籍人口規模劃分四大法定級距。例如：<strong>土城里設籍人口 4,520 人，落在 4,001～7,000 人級距，因此每年法定預算為 65 萬元</strong>；明德里設籍 6,380 人亦屬此級距。
+            </p>
+            <div class="bracket-grid">
+                <div class="bracket-card">
+                    <div class="bracket-tier-title">第一級距（小型里）</div>
+                    <div class="bracket-pop-range">4,000 人（含）以下</div>
+                    <div class="bracket-budget">每年 60 萬元</div>
+                    <div class="bracket-villages">包含：祖田里、清化里、長風里、頂福里、沛陂里、清溪里、埤塘里、頂新里、頂埔里、瑞興里、青山里、柑林里、員信里、員仁里、裕生里、樂利里、青雲里、廷寮里、峰廷里等 19 里。</div>
+                </div>
+
+                <div class="bracket-card" style="border-color: rgba(52, 211, 153, 0.4); background: rgba(16, 185, 129, 0.08);">
+                    <div class="bracket-tier-title" style="color: #34d399;">第二級距（中型里・核心指標）</div>
+                    <div class="bracket-pop-range">4,001 ～ 7,000 人</div>
+                    <div class="bracket-budget">每年 65 萬元</div>
+                    <div class="bracket-villages"><strong>土城里 (4,520人)</strong>、<strong>明德里 (6,380人)</strong>、清和里、埤林里、永富里、日新里、延祿里、貨饒里、大安里、復興里、員福里、延壽里、中正里、學府里、安和里、延吉里、清水里、平和里、學士里、延和里、學成里、廣福里等 22 里。</div>
+                </div>
+
+                <div class="bracket-card">
+                    <div class="bracket-tier-title">第三級距（大型里）</div>
+                    <div class="bracket-pop-range">7,001 ～ 10,000 人</div>
+                    <div class="bracket-budget">每年 70 萬元</div>
+                    <div class="bracket-villages">包含：廣興里 (7,080人)、永豐里 (7,620人)、金城里 (7,850人)、永寧里 (8,781人)、員林里 (9,893人) 等 5 里。</div>
+                </div>
+
+                <div class="bracket-card">
+                    <div class="bracket-tier-title">第四級距（超大型里）</div>
+                    <div class="bracket-pop-range">10,001 人以上</div>
+                    <div class="bracket-budget">每年 75 萬元</div>
+                    <div class="bracket-villages">包含：日和里 (10,634人，全土城人口規模第 1 名)。</div>
+                </div>
+            </div>
+        </section>
 
         <!-- Deep Dive Analysis Section -->
         <section class="analysis-section">
