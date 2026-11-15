@@ -2338,6 +2338,15 @@ function initLineGuideModal() {
 }
 
 // 預算大解密漸進式揭露切換（第 1 層展開與底部收起）
+function toggleBudgetDetails() {
+    const content = document.getElementById('budget-collapsible-content');
+    if (content && content.classList.contains('active')) {
+        closeBudgetDetails();
+    } else {
+        openBudgetDetails();
+    }
+}
+
 function openBudgetDetails() {
     const toggleWrap = document.getElementById('budget-toggle-wrapper');
     const content = document.getElementById('budget-collapsible-content');
