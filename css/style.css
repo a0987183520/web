@@ -8286,3 +8286,106 @@ table#budgetTable tr.highlight-mingde .village-title {
         font-size: 1.20rem !important;
     }
 }
+
+
+/* ==========================================================================
+   客觀大數據體檢報告 Header & 抽屜底部收起按鈕樣式
+   ========================================================================== */
+.report-brand {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1.10rem;
+    font-weight: 800;
+    color: #f8fafc;
+    letter-spacing: 0.02em;
+}
+
+.report-badge-icon {
+    font-size: 1.25rem;
+}
+
+.report-badge-text {
+    background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+[data-theme="light"] .report-badge-text {
+    background: linear-gradient(135deg, #0f172a 0%, #334155 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.purpose-lead-numbered {
+    margin-bottom: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-size: 1.06rem;
+    color: #e2e8f0;
+    line-height: 1.65;
+    font-weight: 500;
+    text-align: left;
+}
+
+.purpose-lead-numbered p {
+    margin: 0;
+}
+
+[data-theme="light"] .purpose-lead-numbered {
+    color: #334155;
+}
+
+.drawer-bottom-close-row {
+    margin-top: 10px;
+    width: 100%;
+}
+
+.btn-drawer-close {
+    width: 100%;
+    padding: 10px 16px;
+    background: rgba(30, 41, 59, 0.8);
+    border: 1.5px solid rgba(255, 255, 255, 0.18);
+    border-radius: 8px;
+    color: #93c5fd;
+    font-size: 1.18rem;
+    font-weight: 800;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    transition: all 0.2s ease;
+}
+
+.btn-drawer-close:hover {
+    background: rgba(59, 130, 246, 0.25);
+    border-color: rgba(96, 165, 250, 0.5);
+    color: #ffffff;
+}
+
+[data-theme="light"] .btn-drawer-close {
+    background: #e2e8f0;
+    border: 1.5px solid rgba(0, 0, 0, 0.15);
+    color: #1e40af;
+}
+
+@media (max-width: 768px) {
+    .report-brand {
+        font-size: 0.98rem;
+    }
+    .purpose-lead-numbered {
+        font-size: 1.20rem !important;
+        gap: 8px;
+    }
+    .hero h1 {
+        font-size: 2.05rem !important;
+        line-height: 1.25 !important;
+    }
+    /* 6 項用途排版：完美 2 欄 3 列 */
+    .purpose-grid, .purpose-grid-two-col {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 8px;
+    }
+}
