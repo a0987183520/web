@@ -7970,3 +7970,275 @@ table#budgetTable tr.highlight-mingde .village-title {
     }
 }
 
+
+
+/* ==========================================================================
+   手機版抽屜式展開與大字體專用樣式
+   ========================================================================== */
+.col-mobile-only {
+    display: none;
+}
+
+.col-desktop-only {
+    display: table-cell;
+}
+
+.desktop-text {
+    display: inline;
+}
+
+.mobile-text {
+    display: none;
+}
+
+.mobile-drawer-row {
+    display: none !important;
+}
+
+.clickable-row {
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .col-desktop-only, .desktop-text {
+        display: none !important;
+    }
+    .col-mobile-only, .mobile-text {
+        display: inline !important;
+    }
+    
+    /* 點擊展開抽屜行 */
+    .mobile-drawer-row.active {
+        display: table-row !important;
+    }
+    
+    .mobile-drawer-cell {
+        background: #0f172a !important;
+        border-bottom: 4.5px solid #64748b !important;
+        padding: 16px 14px !important;
+    }
+    
+    [data-theme="light"] .mobile-drawer-cell {
+        background: #f8fafc !important;
+        border-bottom: 4.5px solid #cbd5e1 !important;
+    }
+    
+    .mobile-drawer-content {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        text-align: left;
+    }
+    
+    .drawer-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-bottom: 8px;
+        border-bottom: 1.5px solid rgba(255, 255, 255, 0.18);
+    }
+    
+    [data-theme="light"] .drawer-header {
+        border-bottom: 1.5px solid rgba(0, 0, 0, 0.15);
+    }
+    
+    .drawer-village-name {
+        font-size: 1.25rem;
+        font-weight: 900;
+        color: #ffffff;
+    }
+    
+    [data-theme="light"] .drawer-village-name {
+        color: #0f172a;
+    }
+    
+    .drawer-close-tag {
+        font-size: 1.15rem;
+        font-weight: 800;
+        color: #60a5fa;
+        background: rgba(96, 165, 250, 0.15);
+        padding: 4px 10px;
+        border-radius: 6px;
+        cursor: pointer;
+    }
+    
+    .drawer-year-card {
+        background: rgba(0, 0, 0, 0.35);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 8px;
+        padding: 10px 12px;
+    }
+    
+    [data-theme="light"] .drawer-year-card {
+        background: #ffffff;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+    }
+    
+    .drawer-year-badge {
+        font-size: 1.20rem;
+        font-weight: 800;
+        color: #93c5fd;
+        margin-bottom: 8px;
+    }
+    
+    [data-theme="light"] .drawer-year-badge {
+        color: #2563eb;
+    }
+    
+    .drawer-stat-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+    }
+    
+    .drawer-stat-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 1.20rem;
+    }
+    
+    .drawer-stat-label {
+        color: #cbd5e1;
+        font-weight: 700;
+    }
+    
+    [data-theme="light"] .drawer-stat-label {
+        color: #475569;
+    }
+    
+    .drawer-stat-val {
+        font-weight: 800;
+        color: #ffffff;
+    }
+    
+    [data-theme="light"] .drawer-stat-val {
+        color: #0f172a;
+    }
+    
+    .drawer-pbar-wrap {
+        display: inline-block;
+        width: 38px;
+        height: 6px;
+        background: rgba(255, 255, 255, 0.15);
+        border-radius: 9999px;
+        overflow: hidden;
+        vertical-align: middle;
+        margin-left: 6px;
+    }
+    
+    .drawer-pbar-fill {
+        display: block;
+        height: 100%;
+        border-radius: 9999px;
+    }
+    
+    .drawer-summary-card {
+        background: rgba(239, 68, 68, 0.15);
+        border: 1px solid rgba(239, 68, 68, 0.35);
+        border-radius: 8px;
+        padding: 10px 12px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 1.22rem;
+    }
+    
+    [data-theme="light"] .drawer-summary-card {
+        background: #fee2e2;
+        border: 1px solid rgba(220, 38, 38, 0.3);
+    }
+    
+    .drawer-sum-title {
+        color: #fca5a5;
+        font-weight: 800;
+    }
+    
+    [data-theme="light"] .drawer-sum-title {
+        color: #b91c1c;
+    }
+    
+    .drawer-toggle-arrow {
+        font-size: 1.15rem;
+        margin-left: 4px;
+        color: #93c5fd;
+        font-weight: 900;
+        vertical-align: middle;
+    }
+    
+    .approx-ret-text {
+        font-size: 1.25rem !important;
+        font-weight: 900 !important;
+        letter-spacing: -0.01em;
+    }
+    
+    /* 手機版所有字型大小絕不小於標題（全面拉升至 1.20rem ~ 1.25rem） */
+    .purpose-header h2 {
+        font-size: 1.35rem !important;
+    }
+    
+    .purpose-lead {
+        font-size: 1.22rem !important;
+        line-height: 1.65 !important;
+    }
+    
+    .purpose-title {
+        font-size: 1.20rem !important;
+    }
+    
+    .purpose-icon {
+        font-size: 1.35rem !important;
+    }
+    
+    table#budgetTable {
+        font-size: 1.22rem !important;
+    }
+    
+    table#budgetTable th {
+        font-size: 1.22rem !important;
+        padding: 10px 6px !important;
+    }
+    
+    table#budgetTable td {
+        font-size: 1.22rem !important;
+        padding: 10px 6px !important;
+    }
+    
+    table#budgetTable th.th-fixed, table#budgetTable td.col-fixed.col-name {
+        width: 82px !important;
+        padding-left: 4px !important;
+        padding-right: 4px !important;
+    }
+    
+    table#budgetTable .village-title {
+        font-size: 1.25rem !important;
+    }
+    
+    table#budgetTable th.th-year, table#budgetTable td.col-year {
+        width: 72px !important;
+    }
+    
+    .year-tag {
+        font-size: 1.15rem !important;
+        padding: 3px 5px !important;
+    }
+    
+    .badge {
+        font-size: 1.15rem !important;
+        padding: 3px 7px !important;
+    }
+    
+    .disclaimer-box {
+        font-size: 1.20rem !important;
+        line-height: 1.75 !important;
+        padding: 18px 16px !important;
+    }
+    
+    .disclaimer-title {
+        font-size: 1.32rem !important;
+    }
+    
+    .disclaimer-box p {
+        font-size: 1.20rem !important;
+    }
+}
