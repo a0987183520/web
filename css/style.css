@@ -8079,10 +8079,13 @@ table#budgetTable tr.highlight-mingde .village-title {
 }
 
 .clickable-row {
-    cursor: pointer;
+    cursor: default;
 }
 
 @media (max-width: 768px) {
+    .clickable-row {
+        cursor: pointer;
+    }
     .col-desktop-only, .desktop-text {
         display: none !important;
     }
@@ -8517,63 +8520,54 @@ table#budgetTable tr.highlight-mingde td.col-ret .approx-ret-text {
     padding: 4px 0;
 }
 
+/* 電腦版不需要展開抽屜，徹底隱藏明細按鈕與文字，游標維持箭頭 */
 .drawer-toggle-arrow {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 3px;
-    font-size: 0.92rem; /* 標註「明細 ▾」大字清晰易讀 */
-    font-weight: 800;
-    line-height: 1;
-    color: #c084fc; /* 科技丁香紫，與紫色外框完美呼應 */
-    background: rgba(192, 132, 252, 0.12);
-    border: 1px solid rgba(192, 132, 252, 0.35);
-    padding: 3px 6px;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    user-select: none;
-    margin-top: 3px;
-    letter-spacing: 0.02em;
+    display: none !important;
 }
 
-tr.highlight-mingde .drawer-toggle-arrow {
-    color: #f87171 !important;
-    background: rgba(239, 68, 68, 0.15) !important;
-    border-color: rgba(239, 68, 68, 0.4) !important;
-}
+/* 手機端（768px 以下）顯示「明細 ▾ / 收起 ▴」膠囊，以利查閱完整進度條與詳細數據 */
+@media (max-width: 768px) {
+    .drawer-toggle-arrow {
+        display: inline-flex !important;
+        align-items: center;
+        justify-content: center;
+        gap: 3px;
+        font-size: 0.92rem; /* 標註「明細 ▾」大字清晰易讀 */
+        font-weight: 800;
+        line-height: 1;
+        color: #c084fc; /* 科技丁香紫，與紫色外框完美呼應 */
+        background: rgba(192, 132, 252, 0.12);
+        border: 1px solid rgba(192, 132, 252, 0.35);
+        padding: 3px 6px;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        user-select: none;
+        margin-top: 3px;
+        letter-spacing: 0.02em;
+    }
 
-[data-theme="light"] .drawer-toggle-arrow {
-    color: #7c3aed;
-    background: rgba(124, 58, 237, 0.08);
-    border-color: rgba(124, 58, 237, 0.25);
-}
+    tr.highlight-mingde .drawer-toggle-arrow {
+        color: #f87171 !important;
+        background: rgba(239, 68, 68, 0.15) !important;
+        border-color: rgba(239, 68, 68, 0.4) !important;
+    }
 
-[data-theme="light"] tr.highlight-mingde .drawer-toggle-arrow {
-    color: #dc2626 !important;
-    background: rgba(220, 38, 38, 0.08) !important;
-    border-color: rgba(220, 38, 38, 0.3) !important;
-}
+    [data-theme="light"] .drawer-toggle-arrow {
+        color: #7c3aed;
+        background: rgba(124, 58, 237, 0.08);
+        border-color: rgba(124, 58, 237, 0.25);
+    }
 
-.clickable-row:hover .drawer-toggle-arrow {
-    transform: translateY(1px);
-    background: rgba(192, 132, 252, 0.25);
-    color: #ffffff;
-}
+    [data-theme="light"] tr.highlight-mingde .drawer-toggle-arrow {
+        color: #dc2626 !important;
+        background: rgba(220, 38, 38, 0.08) !important;
+        border-color: rgba(220, 38, 38, 0.3) !important;
+    }
 
-tr.highlight-mingde .drawer-toggle-arrow {
-    color: #f87171 !important; /* 明德里專屬警戒紅 */
-}
-
-[data-theme="light"] .drawer-toggle-arrow {
-    color: #7c3aed;
-}
-
-[data-theme="light"] tr.highlight-mingde .drawer-toggle-arrow {
-    color: #dc2626 !important;
-}
-
-.clickable-row:hover .drawer-toggle-arrow {
-    transform: scale(1.22);
-    color: #ffffff;
+    .clickable-row:hover .drawer-toggle-arrow {
+        transform: translateY(1px);
+        background: rgba(192, 132, 252, 0.25);
+        color: #ffffff;
+    }
 }

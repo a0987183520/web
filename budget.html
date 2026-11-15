@@ -34,7 +34,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css?v=27.42">
+    <link rel="stylesheet" href="css/style.css?v=27.43">
 
     <style>
         :root {
@@ -4644,6 +4644,8 @@
     <!-- 手機端抽屜點選展開/收起與頂部重定位腳本 -->
     <script>
         function toggleVillageDrawer(index) {
+            // 電腦版（寬度 > 768px）所有欄位已完整展示，不觸發抽屜展開
+            if (window.innerWidth > 768) return;
             var drawer = document.getElementById('drawer-' + index);
             var arrow = document.getElementById('arrow-' + index);
             var villageRow = document.getElementById('village-row-' + index);
