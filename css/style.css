@@ -7322,18 +7322,19 @@ html.is-pwa-standalone #btn-footer-install {
 
 
 /* ==========================================================================
-   土城區 47 里基層款執行率（緊湊欄寬、高對比免責聲明、零多餘留白）
+   土城區 47 里基層款執行率（清晰大字版 ✕ 電腦3欄/手機2欄 ✕ 高對比免責聲明）
    ========================================================================== */
 
-/* 用途卡片緊湊化 */
+/* 用途卡片（清晰大字 ✕ 電腦一列三欄） */
 .purpose-card {
     background: linear-gradient(145deg, rgba(15, 23, 42, 0.95), rgba(10, 15, 29, 0.95));
-    border: 1px solid rgba(59, 130, 246, 0.3);
+    border: 1px solid rgba(59, 130, 246, 0.35);
     border-radius: 12px;
-    padding: 16px 16px;
-    margin: 0 auto 18px auto;
-    max-width: 660px;
+    padding: 20px 22px;
+    margin: 0 auto 20px auto;
+    max-width: 720px;
     text-align: left;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
 }
 
 [data-theme="light"] .purpose-card {
@@ -7345,13 +7346,14 @@ html.is-pwa-standalone #btn-footer-install {
     display: flex;
     align-items: center;
     gap: 8px;
-    margin-bottom: 6px;
+    margin-bottom: 8px;
 }
 
 .purpose-header h2 {
-    font-size: 1.05rem;
+    font-size: 1.25rem;
     font-weight: 800;
     color: #ffffff;
+    letter-spacing: -0.01em;
 }
 
 [data-theme="light"] .purpose-header h2 {
@@ -7359,75 +7361,93 @@ html.is-pwa-standalone #btn-footer-install {
 }
 
 .purpose-lead {
-    font-size: 0.85rem;
-    color: #cbd5e1;
-    line-height: 1.5;
-    margin-bottom: 10px;
+    font-size: 1.06rem;
+    color: #e2e8f0;
+    line-height: 1.65;
+    margin-bottom: 16px;
+    font-weight: 500;
 }
 
 [data-theme="light"] .purpose-lead {
-    color: #475569;
+    color: #334155;
 }
 
-.purpose-grid-two-col {
+/* 電腦版：一列三欄 */
+.purpose-grid, .purpose-grid-two-col {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 6px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
 }
 
 .purpose-item {
-    background: rgba(0, 0, 0, 0.35);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 6px;
-    padding: 7px 10px;
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 8px;
+    padding: 11px 12px;
     display: flex;
     align-items: center;
-    gap: 6px;
+    justify-content: center;
+    gap: 8px;
+    transition: all 0.2s ease;
+}
+
+.purpose-item:hover {
+    border-color: rgba(96, 165, 250, 0.45);
+    background: rgba(30, 41, 59, 0.6);
 }
 
 [data-theme="light"] .purpose-item {
     background: #ffffff;
-    border: 1px solid rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .purpose-icon {
-    font-size: 1rem;
+    font-size: 1.25rem;
     flex-shrink: 0;
 }
 
 .purpose-title {
-    font-size: 0.84rem;
+    font-size: 1.05rem;
     font-weight: 800;
     color: #93c5fd;
-    line-height: 1.3;
+    line-height: 1.35;
 }
 
 [data-theme="light"] .purpose-title {
-    color: #2563eb;
+    color: #1d4ed8;
 }
 
-.purpose-item-extra {
-    border-color: rgba(52, 211, 153, 0.35);
-    background: rgba(16, 185, 129, 0.08);
+/* 第 7 項：其他公益（在 3 欄模式下全幅橫跨置中） */
+.purpose-item-extra,
+.purpose-grid .purpose-item:nth-child(7),
+.purpose-grid-two-col .purpose-item:nth-child(7) {
+    grid-column: 1 / -1;
+    border-color: rgba(52, 211, 153, 0.45);
+    background: rgba(16, 185, 129, 0.12);
 }
 
-.purpose-item-extra .purpose-title {
+.purpose-item-extra .purpose-title,
+.purpose-grid .purpose-item:nth-child(7) .purpose-title,
+.purpose-grid-two-col .purpose-item:nth-child(7) .purpose-title {
     color: #34d399;
 }
 
-[data-theme="light"] .purpose-item-extra .purpose-title {
-    color: #059669;
+[data-theme="light"] .purpose-item-extra,
+[data-theme="light"] .purpose-grid .purpose-item:nth-child(7) {
+    background: #ecfdf5;
+    border-color: rgba(16, 185, 129, 0.4);
 }
 
-/* Table Wrap & Tight Columns (剛剛好就好，不刻意放大) */
+/* Table Wrap & Tight Columns (清晰大字 ✕ 720px 置中) */
 .table-wrap {
     overflow-x: auto;
     background: #0a0f1d;
     border: 2px solid #475569;
     border-radius: 10px;
     margin: 0 auto 20px auto;
-    max-width: 660px;
+    max-width: 720px;
     -webkit-overflow-scrolling: touch;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
 }
 
 [data-theme="light"] .table-wrap {
@@ -7438,7 +7458,7 @@ html.is-pwa-standalone #btn-footer-install {
 table#budgetTable {
     width: 100%;
     border-collapse: collapse;
-    font-size: 0.84rem;
+    font-size: 1.05rem;
     text-align: left;
     background: #0a0f1d;
 }
@@ -7458,7 +7478,8 @@ table#budgetTable thead {
 }
 
 table#budgetTable th {
-    padding: 10px 8px;
+    padding: 11px 8px;
+    font-size: 1.05rem;
     font-weight: 800;
     color: #ffffff;
     white-space: nowrap;
@@ -7484,7 +7505,7 @@ table#budgetTable th.th-fixed {
     background: #111e38;
     box-shadow: 2px 0 6px rgba(0, 0, 0, 0.4);
     text-align: center;
-    width: 72px;
+    width: 80px;
 }
 
 [data-theme="light"] table#budgetTable th.th-fixed {
@@ -7493,7 +7514,9 @@ table#budgetTable th.th-fixed {
 }
 
 table#budgetTable td {
-    padding: 8px 8px;
+    padding: 10px 8px;
+    font-size: 1.05rem;
+    font-weight: 700;
     white-space: nowrap;
     border-right: 1px solid rgba(255, 255, 255, 0.15);
     background: #0a0f1d;
@@ -7512,90 +7535,85 @@ table#budgetTable td:last-child {
 
 /* 緊湊欄位寬度定義 */
 table#budgetTable td.col-fixed.col-name {
-    width: 72px;
-    padding: 6px 8px;
+    width: 80px;
+    padding: 8px 8px;
     text-align: center;
 }
 table#budgetTable td.col-year {
-    width: 65px;
+    width: 72px;
     text-align: center;
-    padding: 6px 6px;
+    padding: 8px 6px;
 }
 table#budgetTable td.col-num {
-    width: 100px;
+    width: 115px;
     text-align: right;
-    padding-right: 10px;
+    padding-right: 12px;
 }
 table#budgetTable td.col-rate {
-    width: 95px;
+    width: 110px;
     text-align: left;
+    padding-left: 10px;
 }
 table#budgetTable td.col-ret {
-    width: 100px;
+    width: 115px;
     text-align: right;
-    padding-right: 10px;
+    padding-right: 12px;
 }
 table#budgetTable td.col-badge {
-    width: 85px;
+    width: 98px;
     text-align: center;
 }
 
-/* 斑馬紋分組：奇偶里交替底色 */
-tr.village-base td {
-    background-color: #0a0f1d !important;
+/* 斑馬紋分組與加粗實線邊界 */
+table#budgetTable tr.village-base td {
+    background-color: #0a0f1d;
 }
-tr.village-alt td {
-    background-color: #0f182c !important;
+table#budgetTable tr.village-alt td {
+    background-color: #0f182c;
 }
-
-[data-theme="light"] tr.village-base td {
-    background-color: #ffffff !important;
+table#budgetTable tr.village-base.row-first td,
+table#budgetTable tr.village-alt.row-first td {
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.16);
 }
-[data-theme="light"] tr.village-alt td {
-    background-color: #f8fafc !important;
-}
-
-/* 同一里之 113 與 114 年間的分隔線（細虛線） */
-table#budgetTable tr.row-first td {
-    border-bottom: 1px dashed rgba(255, 255, 255, 0.22) !important;
-}
-[data-theme="light"] table#budgetTable tr.row-first td {
-    border-bottom: 1px dashed rgba(0, 0, 0, 0.15) !important;
-}
-
-/* 各里與各里之間的分界線（高對比加粗 4px 實線） */
-table#budgetTable tr.row-second td {
+table#budgetTable tr.village-base.row-second td,
+table#budgetTable tr.village-alt.row-second td {
     border-bottom: 4px solid #475569 !important;
 }
-[data-theme="light"] table#budgetTable tr.row-second td {
-    border-bottom: 4px solid #94a3b8 !important;
+
+[data-theme="light"] table#budgetTable tr.village-base td {
+    background-color: #ffffff;
+}
+[data-theme="light"] table#budgetTable tr.village-alt td {
+    background-color: #f8fafc;
+}
+[data-theme="light"] table#budgetTable tr.village-base.row-first td,
+[data-theme="light"] table#budgetTable tr.village-alt.row-first td {
+    border-bottom: 1px dashed rgba(0, 0, 0, 0.14);
+}
+[data-theme="light"] table#budgetTable tr.village-base.row-second td,
+[data-theme="light"] table#budgetTable tr.village-alt.row-second td {
+    border-bottom: 4px solid #cbd5e1 !important;
 }
 
-/* 首欄 Sticky 里名底色 */
-table#budgetTable tr.village-base td.col-fixed.col-name {
-    background-color: #0c1424 !important;
+/* 里名凍結釘選欄 */
+table#budgetTable td.col-fixed.col-name {
     position: sticky;
     left: 0;
     z-index: 5;
-    font-weight: 800;
-    vertical-align: middle;
-    border-right: 2px solid rgba(255, 255, 255, 0.38);
+    background-color: #0c1322 !important;
+    border-right: 2px solid rgba(255, 255, 255, 0.25);
     border-bottom: 4px solid #475569 !important;
     box-shadow: 2px 0 6px rgba(0, 0, 0, 0.4);
+    vertical-align: middle;
 }
 table#budgetTable tr.village-alt td.col-fixed.col-name {
-    background-color: #121d36 !important;
-    position: sticky;
-    left: 0;
-    z-index: 5;
-    font-weight: 800;
-    vertical-align: middle;
-    border-right: 2px solid rgba(255, 255, 255, 0.38);
+    background-color: #111a2e !important;
+    border-right: 2px solid rgba(255, 255, 255, 0.25);
     border-bottom: 4px solid #475569 !important;
     box-shadow: 2px 0 6px rgba(0, 0, 0, 0.4);
 }
 
-[data-theme="light"] table#budgetTable tr.village-base td.col-fixed.col-name {
+[data-theme="light"] table#budgetTable td.col-fixed.col-name {
     background-color: #f1f5f9 !important;
     border-right: 2px solid rgba(0, 0, 0, 0.15);
     border-bottom: 4px solid #94a3b8 !important;
@@ -7609,7 +7627,7 @@ table#budgetTable tr.village-alt td.col-fixed.col-name {
 }
 
 table#budgetTable .village-title {
-    font-size: 0.98rem;
+    font-size: 1.15rem;
     color: #ffffff;
     font-weight: 900;
 }
@@ -7652,9 +7670,9 @@ table#budgetTable tr.highlight-mingde .village-title {
 
 .year-tag {
     display: inline-block;
-    font-size: 0.78rem;
+    font-size: 1.02rem;
     font-weight: 800;
-    padding: 2px 5px;
+    padding: 3px 6px;
     border-radius: 4px;
     background: rgba(255, 255, 255, 0.08);
     color: #93c5fd;
@@ -7669,9 +7687,9 @@ table#budgetTable tr.highlight-mingde .village-title {
 
 .badge {
     display: inline-block;
-    padding: 2px 7px;
+    padding: 3px 9px;
     border-radius: 5px;
-    font-size: 0.76rem;
+    font-size: 1.02rem;
     font-weight: 800;
     letter-spacing: 0.2px;
 }
@@ -7701,18 +7719,18 @@ table#budgetTable tr.highlight-mingde .village-title {
 }
 
 .progress-bar-wrap {
-    width: 40px;
-    height: 5px;
-    background: rgba(255, 255, 255, 0.12);
+    width: 44px;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.15);
     border-radius: 9999px;
     overflow: hidden;
     display: inline-block;
     vertical-align: middle;
-    margin-right: 4px;
+    margin-right: 6px;
 }
 
 [data-theme="light"] .progress-bar-wrap {
-    background: rgba(0, 0, 0, 0.08);
+    background: rgba(0, 0, 0, 0.1);
 }
 
 .progress-bar-fill {
@@ -7720,18 +7738,19 @@ table#budgetTable tr.highlight-mingde .village-title {
     border-radius: 9999px;
 }
 
-/* 免責聲明文字高對比化（告別暗灰，清晰易讀） */
+/* 免責聲明文字高對比化（告別暗灰，清晰大字） */
 .disclaimer-box {
     background: rgba(15, 23, 42, 0.95);
-    border: 1px solid rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.14);
     border-radius: 10px;
-    padding: 16px 18px;
-    font-size: 0.83rem;
-    color: #e2e8f0 !important; /* 鮮明亮灰白，不再暗沉 */
-    line-height: 1.7;
-    max-width: 660px;
-    margin: 18px auto 0 auto;
+    padding: 20px 22px;
+    font-size: 1.05rem;
+    color: #e2e8f0 !important;
+    line-height: 1.75;
+    max-width: 720px;
+    margin: 20px auto 0 auto;
     text-align: left;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
 }
 
 [data-theme="light"] .disclaimer-box {
@@ -7741,10 +7760,10 @@ table#budgetTable tr.highlight-mingde .village-title {
 }
 
 .disclaimer-title {
-    font-size: 0.92rem;
+    font-size: 1.20rem;
     font-weight: 800;
-    color: #fbbf24 !important; /* 亮金黃色標題 */
-    margin-bottom: 8px;
+    color: #fbbf24 !important;
+    margin-bottom: 10px;
 }
 
 [data-theme="light"] .disclaimer-title {
@@ -7753,7 +7772,9 @@ table#budgetTable tr.highlight-mingde .village-title {
 
 .disclaimer-box p {
     color: #e2e8f0 !important;
-    margin-bottom: 6px;
+    margin-bottom: 8px;
+    font-size: 1.05rem;
+    line-height: 1.75;
 }
 
 [data-theme="light"] .disclaimer-box p {
@@ -7773,69 +7794,95 @@ table#budgetTable tr.highlight-mingde .village-title {
 
 .disclaimer-box strong {
     color: #ffffff !important;
-    font-weight: 700;
+    font-weight: 800;
 }
 
 [data-theme="light"] .disclaimer-box strong {
     color: #0f172a !important;
 }
 
+/* 行動裝置響應式（手機版：一列兩欄 ✕ 清晰大字） */
 @media (max-width: 768px) {
     .purpose-card, .table-wrap, .disclaimer-box {
         max-width: 100%;
         margin-left: 0;
         margin-right: 0;
     }
-    .purpose-grid-two-col {
+    /* 手機版：維持一列兩欄，字體大且清晰 */
+    .purpose-grid, .purpose-grid-two-col {
         grid-template-columns: repeat(2, 1fr) !important;
-        gap: 5px;
+        gap: 8px;
+    }
+    .purpose-item {
+        padding: 10px 8px;
+        justify-content: center;
+    }
+    .purpose-title {
+        font-size: 1.02rem;
+    }
+    .purpose-icon {
+        font-size: 1.2rem;
+    }
+    .purpose-item-extra,
+    .purpose-grid .purpose-item:nth-child(7),
+    .purpose-grid-two-col .purpose-item:nth-child(7) {
+        grid-column: 1 / -1 !important;
     }
     table#budgetTable {
-        font-size: 0.8rem;
+        font-size: 1.02rem;
     }
     table#budgetTable th, table#budgetTable td {
-        padding: 6px 5px;
+        padding: 9px 6px;
+        font-size: 1.02rem;
     }
     table#budgetTable th.th-fixed, table#budgetTable td.col-fixed.col-name {
-        width: 64px;
-        padding-left: 3px;
-        padding-right: 3px;
+        width: 74px;
+        padding-left: 4px;
+        padding-right: 4px;
     }
     table#budgetTable .village-title {
-        font-size: 0.88rem;
+        font-size: 1.08rem;
     }
     table#budgetTable td.col-year {
-        width: 58px;
+        width: 66px;
     }
     table#budgetTable td.col-num {
-        width: 82px;
+        width: 95px;
         padding-right: 6px;
     }
     table#budgetTable td.col-rate {
-        width: 80px;
+        width: 90px;
     }
     table#budgetTable td.col-ret {
-        width: 82px;
+        width: 95px;
         padding-right: 6px;
     }
     table#budgetTable td.col-badge {
-        width: 75px;
+        width: 86px;
     }
     .year-tag {
-        font-size: 0.72rem;
-        padding: 1px 3px;
+        font-size: 0.98rem;
+        padding: 2px 4px;
     }
     .progress-bar-wrap {
-        width: 30px;
-        height: 4px;
-        margin-right: 2px;
+        width: 32px;
+        height: 5px;
+        margin-right: 3px;
     }
     .badge {
-        padding: 1px 5px;
-        font-size: 0.68rem;
+        font-size: 0.98rem;
+        padding: 2px 6px;
     }
-    table#budgetTable tr.row-second td {
+    table#budgetTable tr.village-base.row-second td,
+    table#budgetTable tr.village-alt.row-second td {
         border-bottom: 4.5px solid #64748b !important;
+    }
+    .disclaimer-box {
+        font-size: 1.02rem;
+        padding: 16px 14px;
+    }
+    .disclaimer-title {
+        font-size: 1.15rem;
     }
 }
 
@@ -7912,3 +7959,4 @@ table#budgetTable tr.highlight-mingde .village-title {
         max-width: 320px;
     }
 }
+
