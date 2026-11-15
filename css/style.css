@@ -7838,3 +7838,77 @@ table#budgetTable tr.highlight-mingde .village-title {
         border-bottom: 4.5px solid #64748b !important;
     }
 }
+
+/* ==========================================================================
+   土城區 47 里基層款執行率 獨立網頁入口按鈕
+   ========================================================================== */
+.qa-insight-btn-wrap {
+    margin-top: 0.95rem;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.btn-budget-portal {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 11px 26px;
+    background: linear-gradient(135deg, #1d4ed8 0%, #2563eb 50%, #3b82f6 100%);
+    color: #ffffff !important;
+    text-decoration: none !important;
+    font-size: 1.08rem;
+    font-weight: 700;
+    border-radius: 50px;
+    border: 1.5px solid rgba(191, 219, 254, 0.5);
+    box-shadow: 0 4px 16px rgba(37, 99, 235, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    letter-spacing: 0.02em;
+}
+
+.btn-budget-portal:hover {
+    transform: translateY(-2px);
+    background: linear-gradient(135deg, #2563eb 0%, #3b82f6 50%, #60a5fa 100%);
+    box-shadow: 0 6px 22px rgba(59, 130, 246, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+    border-color: rgba(255, 255, 255, 0.8);
+    color: #ffffff !important;
+}
+
+.btn-budget-portal:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(37, 99, 235, 0.3);
+}
+
+.btn-portal-icon {
+    font-size: 1.15rem;
+    line-height: 1;
+}
+
+.btn-portal-arrow {
+    font-size: 1.05rem;
+    transition: transform 0.2s ease;
+}
+
+.btn-budget-portal:hover .btn-portal-arrow {
+    transform: translateX(3px);
+}
+
+[data-theme="light"] .btn-budget-portal {
+    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+    box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3);
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
+@media (max-width: 768px) {
+    .qa-insight-btn-wrap {
+        margin-top: 0.85rem;
+    }
+    .btn-budget-portal {
+        font-size: 0.98rem;
+        padding: 10px 20px;
+        width: 100%;
+        max-width: 320px;
+    }
+}
