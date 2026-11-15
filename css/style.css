@@ -7574,13 +7574,16 @@ table#budgetTable tr.village-base td {
 table#budgetTable tr.village-alt td {
     background-color: #0f182c;
 }
+/* 同一里內部資料線（113與114年間）：淡雅微透虛線 */
 table#budgetTable tr.village-base.row-first td,
 table#budgetTable tr.village-alt.row-first td {
-    border-bottom: 1px dashed rgba(255, 255, 255, 0.16);
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.12) !important;
 }
+
+/* 里與里之間的外部分隔線：明亮高對比科技水藍實線（鮮明辨識不同里） */
 table#budgetTable tr.village-base.row-second td,
 table#budgetTable tr.village-alt.row-second td {
-    border-bottom: 4px solid #475569 !important;
+    border-bottom: 3.5px solid #38bdf8 !important; /* 明亮天藍色，絕對不與灰色混淆 */
 }
 
 [data-theme="light"] table#budgetTable tr.village-base td {
@@ -7591,41 +7594,41 @@ table#budgetTable tr.village-alt.row-second td {
 }
 [data-theme="light"] table#budgetTable tr.village-base.row-first td,
 [data-theme="light"] table#budgetTable tr.village-alt.row-first td {
-    border-bottom: 1px dashed rgba(0, 0, 0, 0.14);
+    border-bottom: 1px dashed rgba(0, 0, 0, 0.1) !important;
 }
 [data-theme="light"] table#budgetTable tr.village-base.row-second td,
 [data-theme="light"] table#budgetTable tr.village-alt.row-second td {
-    border-bottom: 4px solid #cbd5e1 !important;
+    border-bottom: 3.5px solid #2563eb !important; /* 淺色模式：精準寶藍實線 */
 }
 
-/* 里名凍結釘選欄 */
+/* 里名凍結釘選欄（底部分隔線與各里邊界完全對齊） */
 table#budgetTable td.col-fixed.col-name {
     position: sticky;
     left: 0;
     z-index: 5;
     background-color: #0c1322 !important;
     border-right: 2px solid rgba(255, 255, 255, 0.25);
-    border-bottom: 4px solid #475569 !important;
+    border-bottom: 3.5px solid #38bdf8 !important;
     box-shadow: 2px 0 6px rgba(0, 0, 0, 0.4);
     vertical-align: middle;
 }
 table#budgetTable tr.village-alt td.col-fixed.col-name {
     background-color: #111a2e !important;
     border-right: 2px solid rgba(255, 255, 255, 0.25);
-    border-bottom: 4px solid #475569 !important;
+    border-bottom: 3.5px solid #38bdf8 !important;
     box-shadow: 2px 0 6px rgba(0, 0, 0, 0.4);
 }
 
 [data-theme="light"] table#budgetTable td.col-fixed.col-name {
     background-color: #f1f5f9 !important;
     border-right: 2px solid rgba(0, 0, 0, 0.15);
-    border-bottom: 4px solid #94a3b8 !important;
+    border-bottom: 3.5px solid #2563eb !important;
     box-shadow: 2px 0 6px rgba(0, 0, 0, 0.08);
 }
 [data-theme="light"] table#budgetTable tr.village-alt td.col-fixed.col-name {
     background-color: #e2e8f0 !important;
     border-right: 2px solid rgba(0, 0, 0, 0.15);
-    border-bottom: 4px solid #94a3b8 !important;
+    border-bottom: 3.5px solid #2563eb !important;
     box-shadow: 2px 0 6px rgba(0, 0, 0, 0.08);
 }
 
@@ -7929,7 +7932,7 @@ table#budgetTable tr.highlight-mingde .village-title {
     }
     table#budgetTable tr.village-base.row-second td,
     table#budgetTable tr.village-alt.row-second td {
-        border-bottom: 4.5px solid #64748b !important;
+        border-bottom: 3.5px solid #38bdf8 !important; /* 手機端：高辨識度天藍邊界 */
     }
     .disclaimer-box {
         font-size: 1.02rem;
@@ -8058,13 +8061,13 @@ table#budgetTable tr.highlight-mingde .village-title {
     
     .mobile-drawer-cell {
         background: #0f172a !important;
-        border-bottom: 4.5px solid #64748b !important;
+        border-bottom: 3.5px solid #38bdf8 !important;
         padding: 16px 14px !important;
     }
     
     [data-theme="light"] .mobile-drawer-cell {
         background: #f8fafc !important;
-        border-bottom: 4.5px solid #cbd5e1 !important;
+        border-bottom: 3.5px solid #2563eb !important;
     }
     
     .mobile-drawer-content {
@@ -8388,4 +8391,43 @@ table#budgetTable tr.highlight-mingde .village-title {
         grid-template-columns: repeat(2, 1fr) !important;
         gap: 8px;
     }
+}
+
+/* 抽屜收起後該里頂置對齊之聚焦點亮呼吸動畫 */
+@keyframes villageRowPulseDark {
+    0% {
+        background-color: rgba(56, 189, 248, 0.4) !important;
+        box-shadow: inset 0 0 0 1.5px #38bdf8;
+    }
+    40% {
+        background-color: rgba(56, 189, 248, 0.22) !important;
+        box-shadow: inset 0 0 0 1px rgba(56, 189, 248, 0.6);
+    }
+    100% {
+        background-color: transparent;
+        box-shadow: none;
+    }
+}
+
+@keyframes villageRowPulseLight {
+    0% {
+        background-color: rgba(37, 99, 235, 0.25) !important;
+        box-shadow: inset 0 0 0 1.5px #2563eb;
+    }
+    40% {
+        background-color: rgba(37, 99, 235, 0.12) !important;
+        box-shadow: inset 0 0 0 1px rgba(37, 99, 235, 0.4);
+    }
+    100% {
+        background-color: transparent;
+        box-shadow: none;
+    }
+}
+
+tr.row-focus-pulse td {
+    animation: villageRowPulseDark 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) !important;
+}
+
+[data-theme="light"] tr.row-focus-pulse td {
+    animation: villageRowPulseLight 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) !important;
 }

@@ -34,7 +34,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css?v=27.37">
+    <link rel="stylesheet" href="css/style.css?v=27.39">
 
     <style>
         :root {
@@ -67,92 +67,8 @@
             background-color: var(--bg-primary);
             color: var(--text-primary);
             line-height: 1.6;
+            padding-top: 10px;
             padding-bottom: 60px;
-        }
-
-        /* Header / Navbar */
-        .header-bar {
-            background: rgba(10, 15, 29, 0.98);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.14);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            padding: 12px 20px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .brand-group {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            text-decoration: none;
-        }
-
-        .brand-location {
-            font-size: 1.15rem;
-            font-weight: 900;
-            color: #ffffff;
-            letter-spacing: 0.5px;
-        }
-
-        .brand-dot {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            font-weight: 700;
-        }
-
-        .ballot-circle {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 27px;
-            height: 27px;
-            background-color: #ffffff;
-            border: 2.5px solid #dc2626;
-            color: #dc2626;
-            font-size: 1.05rem;
-            font-weight: 900;
-            border-radius: 50%;
-            line-height: 1;
-            box-shadow: 0 0 0 1.5px rgba(251, 191, 36, 0.9), 0 2px 6px rgba(0, 0, 0, 0.4);
-            margin: 0 2px;
-        }
-
-        .brand-title {
-            font-size: 1.05rem;
-            font-weight: 700;
-            color: #f3f4f6;
-        }
-
-        .brand-name {
-            font-size: 1.15rem;
-            font-weight: 900;
-            color: #34d399;
-            letter-spacing: 0.5px;
-        }
-
-        .nav-back-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            background: rgba(255, 255, 255, 0.08);
-            color: #d1d5db;
-            text-decoration: none;
-            padding: 7px 15px;
-            border-radius: 8px;
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: all 0.2s;
-            border: 1px solid rgba(255, 255, 255, 0.15);
-        }
-
-        .nav-back-btn:hover {
-            background: rgba(16, 185, 129, 0.2);
-            color: var(--accent-green);
-            border-color: var(--accent-green);
         }
 
         .container {
@@ -176,17 +92,6 @@
     </style>
 </head>
 <body>
-
-    <!-- Header / Navbar -->
-        <header class="header-bar">
-        <div class="report-brand">
-            <span class="report-badge-icon">📊</span>
-            <span class="report-badge-text">土城區 47 里基層經費大數據體檢報告</span>
-        </div>
-        <a href="index.html" class="nav-back-btn">
-            <span>← 回官網首頁</span>
-        </a>
-    </header>
 
     <div class="container">
 
@@ -254,7 +159,7 @@
                     </tr>
                 </thead>
                 <tbody>
-<tr class="highlight-mingde row-first clickable-row" onclick="toggleVillageDrawer(0)" title="點擊展開/收起 明德里 審計明細">
+<tr id="village-row-0" class="highlight-mingde row-first clickable-row" onclick="toggleVillageDrawer(0)" title="點擊展開/收起 明德里 審計明細">
         <td rowspan="2" class="col-fixed col-name">
             <span class="village-title">明德里</span>
         </td>
@@ -347,7 +252,7 @@
         </div>
     </td>
 </tr>
-<tr class="village-alt row-first clickable-row" onclick="toggleVillageDrawer(1)" title="點擊展開/收起 廣興里 審計明細">
+<tr id="village-row-1" class="village-alt row-first clickable-row" onclick="toggleVillageDrawer(1)" title="點擊展開/收起 廣興里 審計明細">
         <td rowspan="2" class="col-fixed col-name">
             <span class="village-title">廣興里</span>
         </td>
@@ -440,7 +345,7 @@
         </div>
     </td>
 </tr>
-<tr class="village-base row-first clickable-row" onclick="toggleVillageDrawer(2)" title="點擊展開/收起 日和里 審計明細">
+<tr id="village-row-2" class="village-base row-first clickable-row" onclick="toggleVillageDrawer(2)" title="點擊展開/收起 日和里 審計明細">
         <td rowspan="2" class="col-fixed col-name">
             <span class="village-title">日和里</span>
         </td>
@@ -533,7 +438,7 @@
         </div>
     </td>
 </tr>
-<tr class="village-alt row-first clickable-row" onclick="toggleVillageDrawer(3)" title="點擊展開/收起 青雲里 審計明細">
+<tr id="village-row-3" class="village-alt row-first clickable-row" onclick="toggleVillageDrawer(3)" title="點擊展開/收起 青雲里 審計明細">
         <td rowspan="2" class="col-fixed col-name">
             <span class="village-title">青雲里</span>
         </td>
@@ -626,7 +531,7 @@
         </div>
     </td>
 </tr>
-<tr class="village-base row-first clickable-row" onclick="toggleVillageDrawer(4)" title="點擊展開/收起 頂新里 審計明細">
+<tr id="village-row-4" class="village-base row-first clickable-row" onclick="toggleVillageDrawer(4)" title="點擊展開/收起 頂新里 審計明細">
         <td rowspan="2" class="col-fixed col-name">
             <span class="village-title">頂新里</span>
         </td>
@@ -719,7 +624,7 @@
         </div>
     </td>
 </tr>
-<tr class="village-alt row-first clickable-row" onclick="toggleVillageDrawer(5)" title="點擊展開/收起 頂福里 審計明細">
+<tr id="village-row-5" class="village-alt row-first clickable-row" onclick="toggleVillageDrawer(5)" title="點擊展開/收起 頂福里 審計明細">
         <td rowspan="2" class="col-fixed col-name">
             <span class="village-title">頂福里</span>
         </td>
@@ -812,7 +717,7 @@
         </div>
     </td>
 </tr>
-<tr class="village-base row-first clickable-row" onclick="toggleVillageDrawer(6)" title="點擊展開/收起 青山里 審計明細">
+<tr id="village-row-6" class="village-base row-first clickable-row" onclick="toggleVillageDrawer(6)" title="點擊展開/收起 青山里 審計明細">
         <td rowspan="2" class="col-fixed col-name">
             <span class="village-title">青山里</span>
         </td>
@@ -905,7 +810,7 @@
         </div>
     </td>
 </tr>
-<tr class="village-alt row-first clickable-row" onclick="toggleVillageDrawer(7)" title="點擊展開/收起 清水里 審計明細">
+<tr id="village-row-7" class="village-alt row-first clickable-row" onclick="toggleVillageDrawer(7)" title="點擊展開/收起 清水里 審計明細">
         <td rowspan="2" class="col-fixed col-name">
             <span class="village-title">清水里</span>
         </td>
@@ -998,7 +903,7 @@
         </div>
     </td>
 </tr>
-<tr class="village-base row-first clickable-row" onclick="toggleVillageDrawer(8)" title="點擊展開/收起 廣福里 審計明細">
+<tr id="village-row-8" class="village-base row-first clickable-row" onclick="toggleVillageDrawer(8)" title="點擊展開/收起 廣福里 審計明細">
         <td rowspan="2" class="col-fixed col-name">
             <span class="village-title">廣福里</span>
         </td>
@@ -1091,7 +996,7 @@
         </div>
     </td>
 </tr>
-<tr class="village-alt row-first clickable-row" onclick="toggleVillageDrawer(9)" title="點擊展開/收起 清溪里 審計明細">
+<tr id="village-row-9" class="village-alt row-first clickable-row" onclick="toggleVillageDrawer(9)" title="點擊展開/收起 清溪里 審計明細">
         <td rowspan="2" class="col-fixed col-name">
             <span class="village-title">清溪里</span>
         </td>
@@ -1184,7 +1089,7 @@
         </div>
     </td>
 </tr>
-<tr class="village-base row-first clickable-row" onclick="toggleVillageDrawer(10)" title="點擊展開/收起 員林里 審計明細">
+<tr id="village-row-10" class="village-base row-first clickable-row" onclick="toggleVillageDrawer(10)" title="點擊展開/收起 員林里 審計明細">
         <td rowspan="2" class="col-fixed col-name">
             <span class="village-title">員林里</span>
         </td>
@@ -1277,7 +1182,7 @@
         </div>
     </td>
 </tr>
-<tr class="village-alt row-first clickable-row" onclick="toggleVillageDrawer(11)" title="點擊展開/收起 員福里 審計明細">
+<tr id="village-row-11" class="village-alt row-first clickable-row" onclick="toggleVillageDrawer(11)" title="點擊展開/收起 員福里 審計明細">
         <td rowspan="2" class="col-fixed col-name">
             <span class="village-title">員福里</span>
         </td>
@@ -1370,7 +1275,7 @@
         </div>
     </td>
 </tr>
-<tr class="village-base row-first clickable-row" onclick="toggleVillageDrawer(12)" title="點擊展開/收起 延祿里 審計明細">
+<tr id="village-row-12" class="village-base row-first clickable-row" onclick="toggleVillageDrawer(12)" title="點擊展開/收起 延祿里 審計明細">
         <td rowspan="2" class="col-fixed col-name">
             <span class="village-title">延祿里</span>
         </td>
@@ -1463,7 +1368,7 @@
         </div>
     </td>
 </tr>
-<tr class="village-alt row-first clickable-row" onclick="toggleVillageDrawer(13)" title="點擊展開/收起 安和里 審計明細">
+<tr id="village-row-13" class="village-alt row-first clickable-row" onclick="toggleVillageDrawer(13)" title="點擊展開/收起 安和里 審計明細">
         <td rowspan="2" class="col-fixed col-name">
             <span class="village-title">安和里</span>
         </td>
@@ -1556,7 +1461,7 @@
         </div>
     </td>
 </tr>
-<tr class="village-base row-first clickable-row" onclick="toggleVillageDrawer(14)" title="點擊展開/收起 祖田里 審計明細">
+<tr id="village-row-14" class="village-base row-first clickable-row" onclick="toggleVillageDrawer(14)" title="點擊展開/收起 祖田里 審計明細">
         <td rowspan="2" class="col-fixed col-name">
             <span class="village-title">祖田里</span>
         </td>
@@ -1649,7 +1554,7 @@
         </div>
     </td>
 </tr>
-<tr class="village-alt row-first clickable-row" onclick="toggleVillageDrawer(15)" title="點擊展開/收起 延吉里 審計明細">
+<tr id="village-row-15" class="village-alt row-first clickable-row" onclick="toggleVillageDrawer(15)" title="點擊展開/收起 延吉里 審計明細">
         <td rowspan="2" class="col-fixed col-name">
             <span class="village-title">延吉里</span>
         </td>
@@ -1742,7 +1647,7 @@
         </div>
     </td>
 </tr>
-<tr class="village-base row-first clickable-row" onclick="toggleVillageDrawer(16)" title="點擊展開/收起 樂利里 審計明細">
+<tr id="village-row-16" class="village-base row-first clickable-row" onclick="toggleVillageDrawer(16)" title="點擊展開/收起 樂利里 審計明細">
         <td rowspan="2" class="col-fixed col-name">
             <span class="village-title">樂利里</span>
         </td>
@@ -1835,7 +1740,7 @@
         </div>
     </td>
 </tr>
-<tr class="village-alt row-first clickable-row" onclick="toggleVillageDrawer(17)" title="點擊展開/收起 永富里 審計明細">
+<tr id="village-row-17" class="village-alt row-first clickable-row" onclick="toggleVillageDrawer(17)" title="點擊展開/收起 永富里 審計明細">
         <td rowspan="2" class="col-fixed col-name">
             <span class="village-title">永富里</span>
         </td>
@@ -1928,7 +1833,7 @@
         </div>
     </td>
 </tr>
-<tr class="village-base row-first clickable-row" onclick="toggleVillageDrawer(18)" title="點擊展開/收起 學府里 審計明細">
+<tr id="village-row-18" class="village-base row-first clickable-row" onclick="toggleVillageDrawer(18)" title="點擊展開/收起 學府里 審計明細">
         <td rowspan="2" class="col-fixed col-name">
             <span class="village-title">學府里</span>
         </td>
@@ -2021,7 +1926,7 @@
         </div>
     </td>
 </tr>
-<tr class="village-alt row-first clickable-row" onclick="toggleVillageDrawer(19)" title="點擊展開/收起 清和里 審計明細">
+<tr id="village-row-19" class="village-alt row-first clickable-row" onclick="toggleVillageDrawer(19)" title="點擊展開/收起 清和里 審計明細">
         <td rowspan="2" class="col-fixed col-name">
             <span class="village-title">清和里</span>
         </td>
@@ -2114,7 +2019,7 @@
         </div>
     </td>
 </tr>
-<tr class="village-base row-first clickable-row" onclick="toggleVillageDrawer(20)" title="點擊展開/收起 廷寮里 審計明細">
+<tr id="village-row-20" class="village-base row-first clickable-row" onclick="toggleVillageDrawer(20)" title="點擊展開/收起 廷寮里 審計明細">
         <td rowspan="2" class="col-fixed col-name">
             <span class="village-title">廷寮里</span>
         </td>
@@ -2207,7 +2112,7 @@
         </div>
     </td>
 </tr>
-<tr class="village-alt row-first clickable-row" onclick="toggleVillageDrawer(21)" title="點擊展開/收起 貨饒里 審計明細">
+<tr id="village-row-21" class="village-alt row-first clickable-row" onclick="toggleVillageDrawer(21)" title="點擊展開/收起 貨饒里 審計明細">
         <td rowspan="2" class="col-fixed col-name">
             <span class="village-title">貨饒里</span>
         </td>
@@ -2300,7 +2205,7 @@
         </div>
     </td>
 </tr>
-<tr class="village-base row-first clickable-row" onclick="toggleVillageDrawer(22)" title="點擊展開/收起 員信里 審計明細">
+<tr id="village-row-22" class="village-base row-first clickable-row" onclick="toggleVillageDrawer(22)" title="點擊展開/收起 員信里 審計明細">
         <td rowspan="2" class="col-fixed col-name">
             <span class="village-title">員信里</span>
         </td>
@@ -2393,7 +2298,7 @@
         </div>
     </td>
 </tr>
-<tr class="village-alt row-first clickable-row" onclick="toggleVillageDrawer(23)" title="點擊展開/收起 永寧里 審計明細">
+<tr id="village-row-23" class="village-alt row-first clickable-row" onclick="toggleVillageDrawer(23)" title="點擊展開/收起 永寧里 審計明細">
         <td rowspan="2" class="col-fixed col-name">
             <span class="village-title">永寧里</span>
         </td>
@@ -2486,7 +2391,7 @@
         </div>
     </td>
 </tr>
-<tr class="village-base row-first clickable-row" onclick="toggleVillageDrawer(24)" title="點擊展開/收起 平和里 審計明細">
+<tr id="village-row-24" class="village-base row-first clickable-row" onclick="toggleVillageDrawer(24)" title="點擊展開/收起 平和里 審計明細">
         <td rowspan="2" class="col-fixed col-name">
             <span class="village-title">平和里</span>
         </td>
@@ -2579,7 +2484,7 @@
         </div>
     </td>
 </tr>
-<tr class="village-alt row-first clickable-row" onclick="toggleVillageDrawer(25)" title="點擊展開/收起 復興里 審計明細">
+<tr id="village-row-25" class="village-alt row-first clickable-row" onclick="toggleVillageDrawer(25)" title="點擊展開/收起 復興里 審計明細">
         <td rowspan="2" class="col-fixed col-name">
             <span class="village-title">復興里</span>
         </td>
@@ -2672,7 +2577,7 @@
         </div>
     </td>
 </tr>
-<tr class="village-base row-first clickable-row" onclick="toggleVillageDrawer(26)" title="點擊展開/收起 金城里 審計明細">
+<tr id="village-row-26" class="village-base row-first clickable-row" onclick="toggleVillageDrawer(26)" title="點擊展開/收起 金城里 審計明細">
         <td rowspan="2" class="col-fixed col-name">
             <span class="village-title">金城里</span>
         </td>
@@ -2765,7 +2670,7 @@
         </div>
     </td>
 </tr>
-<tr class="village-alt row-first clickable-row" onclick="toggleVillageDrawer(27)" title="點擊展開/收起 清化里 審計明細">
+<tr id="village-row-27" class="village-alt row-first clickable-row" onclick="toggleVillageDrawer(27)" title="點擊展開/收起 清化里 審計明細">
         <td rowspan="2" class="col-fixed col-name">
             <span class="village-title">清化里</span>
         </td>
@@ -2858,7 +2763,7 @@
         </div>
     </td>
 </tr>
-<tr class="village-base row-first clickable-row" onclick="toggleVillageDrawer(28)" title="點擊展開/收起 延和里 審計明細">
+<tr id="village-row-28" class="village-base row-first clickable-row" onclick="toggleVillageDrawer(28)" title="點擊展開/收起 延和里 審計明細">
         <td rowspan="2" class="col-fixed col-name">
             <span class="village-title">延和里</span>
         </td>
@@ -2951,7 +2856,7 @@
         </div>
     </td>
 </tr>
-<tr class="village-alt row-first clickable-row" onclick="toggleVillageDrawer(29)" title="點擊展開/收起 峯廷里 審計明細">
+<tr id="village-row-29" class="village-alt row-first clickable-row" onclick="toggleVillageDrawer(29)" title="點擊展開/收起 峯廷里 審計明細">
         <td rowspan="2" class="col-fixed col-name">
             <span class="village-title">峯廷里</span>
         </td>
@@ -3044,7 +2949,7 @@
         </div>
     </td>
 </tr>
-<tr class="village-base row-first clickable-row" onclick="toggleVillageDrawer(30)" title="點擊展開/收起 裕生里 審計明細">
+<tr id="village-row-30" class="village-base row-first clickable-row" onclick="toggleVillageDrawer(30)" title="點擊展開/收起 裕生里 審計明細">
         <td rowspan="2" class="col-fixed col-name">
             <span class="village-title">裕生里</span>
         </td>
@@ -3137,7 +3042,7 @@
         </div>
     </td>
 </tr>
-<tr class="village-alt row-first clickable-row" onclick="toggleVillageDrawer(31)" title="點擊展開/收起 頂埔里 審計明細">
+<tr id="village-row-31" class="village-alt row-first clickable-row" onclick="toggleVillageDrawer(31)" title="點擊展開/收起 頂埔里 審計明細">
         <td rowspan="2" class="col-fixed col-name">
             <span class="village-title">頂埔里</span>
         </td>
@@ -3230,7 +3135,7 @@
         </div>
     </td>
 </tr>
-<tr class="village-base row-first clickable-row" onclick="toggleVillageDrawer(32)" title="點擊展開/收起 瑞興里 審計明細">
+<tr id="village-row-32" class="village-base row-first clickable-row" onclick="toggleVillageDrawer(32)" title="點擊展開/收起 瑞興里 審計明細">
         <td rowspan="2" class="col-fixed col-name">
             <span class="village-title">瑞興里</span>
         </td>
@@ -3323,7 +3228,7 @@
         </div>
     </td>
 </tr>
-<tr class="village-alt row-first clickable-row" onclick="toggleVillageDrawer(33)" title="點擊展開/收起 延壽里 審計明細">
+<tr id="village-row-33" class="village-alt row-first clickable-row" onclick="toggleVillageDrawer(33)" title="點擊展開/收起 延壽里 審計明細">
         <td rowspan="2" class="col-fixed col-name">
             <span class="village-title">延壽里</span>
         </td>
@@ -3416,7 +3321,7 @@
         </div>
     </td>
 </tr>
-<tr class="village-base row-first clickable-row" onclick="toggleVillageDrawer(34)" title="點擊展開/收起 埤塘里 審計明細">
+<tr id="village-row-34" class="village-base row-first clickable-row" onclick="toggleVillageDrawer(34)" title="點擊展開/收起 埤塘里 審計明細">
         <td rowspan="2" class="col-fixed col-name">
             <span class="village-title">埤塘里</span>
         </td>
@@ -3509,7 +3414,7 @@
         </div>
     </td>
 </tr>
-<tr class="village-alt row-first clickable-row" onclick="toggleVillageDrawer(35)" title="點擊展開/收起 土城里 審計明細">
+<tr id="village-row-35" class="village-alt row-first clickable-row" onclick="toggleVillageDrawer(35)" title="點擊展開/收起 土城里 審計明細">
         <td rowspan="2" class="col-fixed col-name">
             <span class="village-title">土城里</span>
         </td>
@@ -3602,7 +3507,7 @@
         </div>
     </td>
 </tr>
-<tr class="village-base row-first clickable-row" onclick="toggleVillageDrawer(36)" title="點擊展開/收起 大安里 審計明細">
+<tr id="village-row-36" class="village-base row-first clickable-row" onclick="toggleVillageDrawer(36)" title="點擊展開/收起 大安里 審計明細">
         <td rowspan="2" class="col-fixed col-name">
             <span class="village-title">大安里</span>
         </td>
@@ -3695,7 +3600,7 @@
         </div>
     </td>
 </tr>
-<tr class="village-alt row-first clickable-row" onclick="toggleVillageDrawer(37)" title="點擊展開/收起 長風里 審計明細">
+<tr id="village-row-37" class="village-alt row-first clickable-row" onclick="toggleVillageDrawer(37)" title="點擊展開/收起 長風里 審計明細">
         <td rowspan="2" class="col-fixed col-name">
             <span class="village-title">長風里</span>
         </td>
@@ -3788,7 +3693,7 @@
         </div>
     </td>
 </tr>
-<tr class="village-base row-first clickable-row" onclick="toggleVillageDrawer(38)" title="點擊展開/收起 沛陂里 審計明細">
+<tr id="village-row-38" class="village-base row-first clickable-row" onclick="toggleVillageDrawer(38)" title="點擊展開/收起 沛陂里 審計明細">
         <td rowspan="2" class="col-fixed col-name">
             <span class="village-title">沛陂里</span>
         </td>
@@ -3881,7 +3786,7 @@
         </div>
     </td>
 </tr>
-<tr class="village-alt row-first clickable-row" onclick="toggleVillageDrawer(39)" title="點擊展開/收起 中正里 審計明細">
+<tr id="village-row-39" class="village-alt row-first clickable-row" onclick="toggleVillageDrawer(39)" title="點擊展開/收起 中正里 審計明細">
         <td rowspan="2" class="col-fixed col-name">
             <span class="village-title">中正里</span>
         </td>
@@ -3974,7 +3879,7 @@
         </div>
     </td>
 </tr>
-<tr class="village-base row-first clickable-row" onclick="toggleVillageDrawer(40)" title="點擊展開/收起 學成里 審計明細">
+<tr id="village-row-40" class="village-base row-first clickable-row" onclick="toggleVillageDrawer(40)" title="點擊展開/收起 學成里 審計明細">
         <td rowspan="2" class="col-fixed col-name">
             <span class="village-title">學成里</span>
         </td>
@@ -4067,7 +3972,7 @@
         </div>
     </td>
 </tr>
-<tr class="village-alt row-first clickable-row" onclick="toggleVillageDrawer(41)" title="點擊展開/收起 日新里 審計明細">
+<tr id="village-row-41" class="village-alt row-first clickable-row" onclick="toggleVillageDrawer(41)" title="點擊展開/收起 日新里 審計明細">
         <td rowspan="2" class="col-fixed col-name">
             <span class="village-title">日新里</span>
         </td>
@@ -4160,7 +4065,7 @@
         </div>
     </td>
 </tr>
-<tr class="village-base row-first clickable-row" onclick="toggleVillageDrawer(42)" title="點擊展開/收起 永豐里 審計明細">
+<tr id="village-row-42" class="village-base row-first clickable-row" onclick="toggleVillageDrawer(42)" title="點擊展開/收起 永豐里 審計明細">
         <td rowspan="2" class="col-fixed col-name">
             <span class="village-title">永豐里</span>
         </td>
@@ -4253,7 +4158,7 @@
         </div>
     </td>
 </tr>
-<tr class="village-alt row-first clickable-row" onclick="toggleVillageDrawer(43)" title="點擊展開/收起 柑林里 審計明細">
+<tr id="village-row-43" class="village-alt row-first clickable-row" onclick="toggleVillageDrawer(43)" title="點擊展開/收起 柑林里 審計明細">
         <td rowspan="2" class="col-fixed col-name">
             <span class="village-title">柑林里</span>
         </td>
@@ -4346,7 +4251,7 @@
         </div>
     </td>
 </tr>
-<tr class="village-base row-first clickable-row" onclick="toggleVillageDrawer(44)" title="點擊展開/收起 員仁里 審計明細">
+<tr id="village-row-44" class="village-base row-first clickable-row" onclick="toggleVillageDrawer(44)" title="點擊展開/收起 員仁里 審計明細">
         <td rowspan="2" class="col-fixed col-name">
             <span class="village-title">員仁里</span>
         </td>
@@ -4439,7 +4344,7 @@
         </div>
     </td>
 </tr>
-<tr class="village-alt row-first clickable-row" onclick="toggleVillageDrawer(45)" title="點擊展開/收起 埤林里 審計明細">
+<tr id="village-row-45" class="village-alt row-first clickable-row" onclick="toggleVillageDrawer(45)" title="點擊展開/收起 埤林里 審計明細">
         <td rowspan="2" class="col-fixed col-name">
             <span class="village-title">埤林里</span>
         </td>
@@ -4532,7 +4437,7 @@
         </div>
     </td>
 </tr>
-<tr class="village-base row-first clickable-row" onclick="toggleVillageDrawer(46)" title="點擊展開/收起 學士里 審計明細">
+<tr id="village-row-46" class="village-base row-first clickable-row" onclick="toggleVillageDrawer(46)" title="點擊展開/收起 學士里 審計明細">
         <td rowspan="2" class="col-fixed col-name">
             <span class="village-title">學士里</span>
         </td>
@@ -4641,19 +4546,67 @@
     </div>
 
 
-    <!-- 手機端抽屜點選展開/收起腳本 -->
+    <!-- 手機端抽屜點選展開/收起與頂部重定位腳本 -->
     <script>
         function toggleVillageDrawer(index) {
             var drawer = document.getElementById('drawer-' + index);
             var arrow = document.getElementById('arrow-' + index);
+            var villageRow = document.getElementById('village-row-' + index);
             if (!drawer) return;
+            
             var isOpen = drawer.classList.contains('active');
+            
             if (isOpen) {
+                // 先記錄該里相對於文件頂端的絕對座標
+                var targetY = null;
+                if (villageRow) {
+                    var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                    targetY = scrollTop + villageRow.getBoundingClientRect().top - 12; // 保留 12px 舒適頂部呼吸邊距
+                }
+                
+                // 收起抽屜
                 drawer.classList.remove('active');
                 if (arrow) arrow.textContent = '▾';
+                
+                // 將收起的該里平滑滾動移到螢幕頂端，讓讀者清晰確認剛剛查閱的是哪一個里
+                if (targetY !== null && villageRow) {
+                    setTimeout(function() {
+                        window.scrollTo({
+                            top: Math.max(0, targetY),
+                            behavior: 'smooth'
+                        });
+                        
+                        // 視覺光暈呼吸提示：點亮剛剛收起的該里
+                        var nextRow = villageRow.nextElementSibling;
+                        villageRow.classList.add('row-focus-pulse');
+                        if (nextRow && nextRow.classList.contains('row-second')) {
+                            nextRow.classList.add('row-focus-pulse');
+                        }
+                        setTimeout(function() {
+                            villageRow.classList.remove('row-focus-pulse');
+                            if (nextRow) nextRow.classList.remove('row-focus-pulse');
+                        }, 1200);
+                    }, 25);
+                }
             } else {
+                // 開啟抽屜
                 drawer.classList.add('active');
                 if (arrow) arrow.textContent = '▴';
+                
+                // 若點擊展開時該里位置偏下或部分在視野外，平滑滾動至頂部以確保明細完全呈現在眼前
+                if (villageRow) {
+                    var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                    var rowRectTop = villageRow.getBoundingClientRect().top;
+                    if (rowRectTop < 10 || rowRectTop > (window.innerHeight * 0.45)) {
+                        var openTargetY = scrollTop + rowRectTop - 12;
+                        setTimeout(function() {
+                            window.scrollTo({
+                                top: Math.max(0, openTargetY),
+                                behavior: 'smooth'
+                            });
+                        }, 25);
+                    }
+                }
             }
         }
     </script>
