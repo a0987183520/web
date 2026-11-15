@@ -7575,15 +7575,13 @@ table#budgetTable tr.village-alt td {
     background-color: #0f182c;
 }
 /* 同一里內部資料線（113與114年間）：淡雅微透虛線 */
-table#budgetTable tr.village-base.row-first td,
-table#budgetTable tr.village-alt.row-first td {
+table#budgetTable tr.row-first td {
     border-bottom: 1px dashed rgba(255, 255, 255, 0.12) !important;
 }
 
-/* 里與里之間的外部分隔線：明亮高對比科技水藍實線（鮮明辨識不同里） */
-table#budgetTable tr.village-base.row-second td,
-table#budgetTable tr.village-alt.row-second td {
-    border-bottom: 3.5px solid #38bdf8 !important; /* 明亮天藍色，絕對不與灰色混淆 */
+/* 里與里之間外部分隔線：每里獨立一線，全面套用未曾使用之高對比科技紫羅蘭（#8b5cf6），絕不與文字或燈號打架 */
+table#budgetTable tr.row-second td {
+    border-bottom: 3px solid #8b5cf6 !important;
 }
 
 [data-theme="light"] table#budgetTable tr.village-base td {
@@ -7592,13 +7590,11 @@ table#budgetTable tr.village-alt.row-second td {
 [data-theme="light"] table#budgetTable tr.village-alt td {
     background-color: #f8fafc;
 }
-[data-theme="light"] table#budgetTable tr.village-base.row-first td,
-[data-theme="light"] table#budgetTable tr.village-alt.row-first td {
+[data-theme="light"] table#budgetTable tr.row-first td {
     border-bottom: 1px dashed rgba(0, 0, 0, 0.1) !important;
 }
-[data-theme="light"] table#budgetTable tr.village-base.row-second td,
-[data-theme="light"] table#budgetTable tr.village-alt.row-second td {
-    border-bottom: 3.5px solid #2563eb !important; /* 淺色模式：精準寶藍實線 */
+[data-theme="light"] table#budgetTable tr.row-second td {
+    border-bottom: 3px solid #7c3aed !important; /* 淺色模式：皇家紫實線 */
 }
 
 /* 里名凍結釘選欄（底部分隔線與各里邊界完全對齊） */
@@ -7608,27 +7604,27 @@ table#budgetTable td.col-fixed.col-name {
     z-index: 5;
     background-color: #0c1322 !important;
     border-right: 2px solid rgba(255, 255, 255, 0.25);
-    border-bottom: 3.5px solid #38bdf8 !important;
+    border-bottom: 3px solid #8b5cf6 !important;
     box-shadow: 2px 0 6px rgba(0, 0, 0, 0.4);
     vertical-align: middle;
 }
 table#budgetTable tr.village-alt td.col-fixed.col-name {
     background-color: #111a2e !important;
     border-right: 2px solid rgba(255, 255, 255, 0.25);
-    border-bottom: 3.5px solid #38bdf8 !important;
+    border-bottom: 3px solid #8b5cf6 !important;
     box-shadow: 2px 0 6px rgba(0, 0, 0, 0.4);
 }
 
 [data-theme="light"] table#budgetTable td.col-fixed.col-name {
     background-color: #f1f5f9 !important;
     border-right: 2px solid rgba(0, 0, 0, 0.15);
-    border-bottom: 3.5px solid #2563eb !important;
+    border-bottom: 3px solid #7c3aed !important;
     box-shadow: 2px 0 6px rgba(0, 0, 0, 0.08);
 }
 [data-theme="light"] table#budgetTable tr.village-alt td.col-fixed.col-name {
     background-color: #e2e8f0 !important;
     border-right: 2px solid rgba(0, 0, 0, 0.15);
-    border-bottom: 3.5px solid #2563eb !important;
+    border-bottom: 3px solid #7c3aed !important;
     box-shadow: 2px 0 6px rgba(0, 0, 0, 0.08);
 }
 
@@ -7677,18 +7673,18 @@ table#budgetTable tr.highlight-mingde .village-title {
 .year-tag {
     display: inline-block;
     font-size: 1.02rem;
-    font-weight: 800;
+    font-weight: 700;
     padding: 3px 6px;
     border-radius: 4px;
     background: rgba(255, 255, 255, 0.08);
-    color: #93c5fd;
-    border: 1px solid rgba(147, 197, 253, 0.25);
+    color: #e2e8f0; /* 純粹洗鍊的亮銀灰白，不帶任何彩度，不跟任何顏色打架 */
+    border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 [data-theme="light"] .year-tag {
-    background: rgba(59, 130, 246, 0.08);
-    color: #2563eb;
-    border: 1px solid rgba(59, 130, 246, 0.2);
+    background: #f1f5f9;
+    color: #334155;
+    border: 1px solid #cbd5e1;
 }
 
 .badge {
@@ -7930,9 +7926,8 @@ table#budgetTable tr.highlight-mingde .village-title {
         font-size: 0.98rem;
         padding: 2px 6px;
     }
-    table#budgetTable tr.village-base.row-second td,
-    table#budgetTable tr.village-alt.row-second td {
-        border-bottom: 3.5px solid #38bdf8 !important; /* 手機端：高辨識度天藍邊界 */
+    table#budgetTable tr.row-second td {
+        border-bottom: 3px solid #8b5cf6 !important; /* 手機端：每里獨立科技紫羅蘭邊界 */
     }
     .disclaimer-box {
         font-size: 1.02rem;
@@ -8061,13 +8056,13 @@ table#budgetTable tr.highlight-mingde .village-title {
     
     .mobile-drawer-cell {
         background: #0f172a !important;
-        border-bottom: 3.5px solid #38bdf8 !important;
+        border-bottom: 3px solid #8b5cf6 !important;
         padding: 16px 14px !important;
     }
     
     [data-theme="light"] .mobile-drawer-cell {
         background: #f8fafc !important;
-        border-bottom: 3.5px solid #2563eb !important;
+        border-bottom: 3px solid #7c3aed !important;
     }
     
     .mobile-drawer-content {
@@ -8393,15 +8388,15 @@ table#budgetTable tr.highlight-mingde .village-title {
     }
 }
 
-/* 抽屜收起後該里頂置對齊之聚焦點亮呼吸動畫 */
+/* 抽屜收起後該里頂置對齊之聚焦點亮呼吸動畫（科技紫羅蘭） */
 @keyframes villageRowPulseDark {
     0% {
-        background-color: rgba(56, 189, 248, 0.4) !important;
-        box-shadow: inset 0 0 0 1.5px #38bdf8;
+        background-color: rgba(139, 92, 246, 0.4) !important;
+        box-shadow: inset 0 0 0 1.5px #8b5cf6;
     }
     40% {
-        background-color: rgba(56, 189, 248, 0.22) !important;
-        box-shadow: inset 0 0 0 1px rgba(56, 189, 248, 0.6);
+        background-color: rgba(139, 92, 246, 0.22) !important;
+        box-shadow: inset 0 0 0 1px rgba(139, 92, 246, 0.6);
     }
     100% {
         background-color: transparent;
@@ -8411,12 +8406,12 @@ table#budgetTable tr.highlight-mingde .village-title {
 
 @keyframes villageRowPulseLight {
     0% {
-        background-color: rgba(37, 99, 235, 0.25) !important;
-        box-shadow: inset 0 0 0 1.5px #2563eb;
+        background-color: rgba(124, 58, 237, 0.25) !important;
+        box-shadow: inset 0 0 0 1.5px #7c3aed;
     }
     40% {
-        background-color: rgba(37, 99, 235, 0.12) !important;
-        box-shadow: inset 0 0 0 1px rgba(37, 99, 235, 0.4);
+        background-color: rgba(124, 58, 237, 0.12) !important;
+        box-shadow: inset 0 0 0 1px rgba(124, 58, 237, 0.4);
     }
     100% {
         background-color: transparent;
@@ -8430,4 +8425,26 @@ tr.row-focus-pulse td {
 
 [data-theme="light"] tr.row-focus-pulse td {
     animation: villageRowPulseLight 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) !important;
+}
+
+/* 數字與金額純粹化：繳回公庫與約xx萬採高對比純淨白，消除彩度干擾 */
+table#budgetTable td.col-ret .col-desktop-only,
+table#budgetTable td.col-ret .approx-ret-text {
+    color: #f8fafc !important;
+}
+
+[data-theme="light"] table#budgetTable td.col-ret .col-desktop-only,
+[data-theme="light"] table#budgetTable td.col-ret .approx-ret-text {
+    color: #0f172a !important;
+}
+
+/* 明德里專屬警示紅：金額維持警戒紅高亮 */
+table#budgetTable tr.highlight-mingde td.col-ret .col-desktop-only,
+table#budgetTable tr.highlight-mingde td.col-ret .approx-ret-text {
+    color: #f87171 !important;
+    font-weight: 900 !important;
+}
+[data-theme="light"] table#budgetTable tr.highlight-mingde td.col-ret .col-desktop-only,
+[data-theme="light"] table#budgetTable tr.highlight-mingde td.col-ret .approx-ret-text {
+    color: #dc2626 !important;
 }
