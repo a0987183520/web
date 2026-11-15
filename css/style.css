@@ -7574,14 +7574,47 @@ table#budgetTable tr.village-base td {
 table#budgetTable tr.village-alt td {
     background-color: #0f182c;
 }
-/* 同一里內部資料線（113與114年間）：淡雅微透虛線 */
+/* ==========================================================================
+   各里獨立四面外框與雙層線條體系 (4-Sided Village Frame & Layered Borders)
+   ========================================================================== */
+
+/* 1. 頂部與內部線：各里首列頂部 3px 紫羅蘭實線，113與114內部為 1px 淡雅微虛線 */
 table#budgetTable tr.row-first td {
+    border-top: 3px solid #8b5cf6 !important;
     border-bottom: 1px dashed rgba(255, 255, 255, 0.12) !important;
 }
 
-/* 里與里之間外部分隔線：每里獨立一線，全面套用未曾使用之高對比科技紫羅蘭（#8b5cf6），絕不與文字或燈號打架 */
+/* 2. 底部線：各里次列底部 3px 紫羅蘭實線 */
 table#budgetTable tr.row-second td {
     border-bottom: 3px solid #8b5cf6 !important;
+}
+
+/* 3. 左邊界：里名凍結釘選欄左側 3px 紫羅蘭實線（構成封閉外框） */
+table#budgetTable td.col-fixed.col-name {
+    position: sticky;
+    left: 0;
+    z-index: 5;
+    background-color: #0c1322 !important;
+    border-left: 3px solid #8b5cf6 !important; /* 左側紫色邊框 */
+    border-right: 2px solid rgba(255, 255, 255, 0.22);
+    border-top: 3px solid #8b5cf6 !important;  /* 頂部紫色邊框 */
+    border-bottom: 3px solid #8b5cf6 !important; /* 底部紫色邊框 */
+    box-shadow: 2px 0 6px rgba(0, 0, 0, 0.4);
+    vertical-align: middle;
+}
+table#budgetTable tr.village-alt td.col-fixed.col-name {
+    background-color: #111a2e !important;
+    border-left: 3px solid #8b5cf6 !important;
+    border-right: 2px solid rgba(255, 255, 255, 0.22);
+    border-top: 3px solid #8b5cf6 !important;
+    border-bottom: 3px solid #8b5cf6 !important;
+    box-shadow: 2px 0 6px rgba(0, 0, 0, 0.4);
+}
+
+/* 4. 右邊界：各列最後一欄（col-badge）右側 3px 紫羅蘭實線（構成封閉外框） */
+table#budgetTable tr.row-first td.col-badge,
+table#budgetTable tr.row-second td.col-badge {
+    border-right: 3px solid #8b5cf6 !important; /* 右側紫色邊框 */
 }
 
 [data-theme="light"] table#budgetTable tr.village-base td {
@@ -7591,41 +7624,31 @@ table#budgetTable tr.row-second td {
     background-color: #f8fafc;
 }
 [data-theme="light"] table#budgetTable tr.row-first td {
+    border-top: 3px solid #7c3aed !important;
     border-bottom: 1px dashed rgba(0, 0, 0, 0.1) !important;
 }
 [data-theme="light"] table#budgetTable tr.row-second td {
-    border-bottom: 3px solid #7c3aed !important; /* 淺色模式：皇家紫實線 */
+    border-bottom: 3px solid #7c3aed !important;
 }
-
-/* 里名凍結釘選欄（底部分隔線與各里邊界完全對齊） */
-table#budgetTable td.col-fixed.col-name {
-    position: sticky;
-    left: 0;
-    z-index: 5;
-    background-color: #0c1322 !important;
-    border-right: 2px solid rgba(255, 255, 255, 0.25);
-    border-bottom: 3px solid #8b5cf6 !important;
-    box-shadow: 2px 0 6px rgba(0, 0, 0, 0.4);
-    vertical-align: middle;
-}
-table#budgetTable tr.village-alt td.col-fixed.col-name {
-    background-color: #111a2e !important;
-    border-right: 2px solid rgba(255, 255, 255, 0.25);
-    border-bottom: 3px solid #8b5cf6 !important;
-    box-shadow: 2px 0 6px rgba(0, 0, 0, 0.4);
-}
-
 [data-theme="light"] table#budgetTable td.col-fixed.col-name {
     background-color: #f1f5f9 !important;
+    border-left: 3px solid #7c3aed !important;
     border-right: 2px solid rgba(0, 0, 0, 0.15);
+    border-top: 3px solid #7c3aed !important;
     border-bottom: 3px solid #7c3aed !important;
     box-shadow: 2px 0 6px rgba(0, 0, 0, 0.08);
 }
 [data-theme="light"] table#budgetTable tr.village-alt td.col-fixed.col-name {
     background-color: #e2e8f0 !important;
+    border-left: 3px solid #7c3aed !important;
     border-right: 2px solid rgba(0, 0, 0, 0.15);
+    border-top: 3px solid #7c3aed !important;
     border-bottom: 3px solid #7c3aed !important;
     box-shadow: 2px 0 6px rgba(0, 0, 0, 0.08);
+}
+[data-theme="light"] table#budgetTable tr.row-first td.col-badge,
+[data-theme="light"] table#budgetTable tr.row-second td.col-badge {
+    border-right: 3px solid #7c3aed !important;
 }
 
 table#budgetTable .village-title {
@@ -7638,29 +7661,47 @@ table#budgetTable .village-title {
     color: #0f172a;
 }
 
-/* 明德里置頂警示樣式 */
+/* 明德里置頂警示樣式（完整四面紅色外框） */
 table#budgetTable tr.highlight-mingde td {
     background-color: rgba(239, 68, 68, 0.18) !important;
+}
+table#budgetTable tr.highlight-mingde.row-first td {
+    border-top: 4px solid #ef4444 !important;
+}
+table#budgetTable tr.highlight-mingde.row-second td {
+    border-bottom: 4px solid #ef4444 !important;
 }
 table#budgetTable tr.highlight-mingde td.col-fixed.col-name {
     background-color: #2e141c !important;
     border-left: 5px solid #ef4444 !important;
+    border-right: 2px solid rgba(255, 255, 255, 0.22);
+    border-top: 4px solid #ef4444 !important;
     border-bottom: 4px solid #ef4444 !important;
 }
-table#budgetTable tr.highlight-mingde.row-second td {
-    border-bottom: 4px solid #ef4444 !important;
+table#budgetTable tr.highlight-mingde.row-first td.col-badge,
+table#budgetTable tr.highlight-mingde.row-second td.col-badge {
+    border-right: 4px solid #ef4444 !important;
 }
 
 [data-theme="light"] table#budgetTable tr.highlight-mingde td {
     background-color: #fee2e2 !important;
 }
-[data-theme="light"] table#budgetTable tr.highlight-mingde td.col-fixed.col-name {
-    background-color: #fecaca !important;
-    border-left: 5px solid #ef4444 !important;
-    border-bottom: 4px solid #dc2626 !important;
+[data-theme="light"] table#budgetTable tr.highlight-mingde.row-first td {
+    border-top: 4px solid #dc2626 !important;
 }
 [data-theme="light"] table#budgetTable tr.highlight-mingde.row-second td {
     border-bottom: 4px solid #dc2626 !important;
+}
+[data-theme="light"] table#budgetTable tr.highlight-mingde td.col-fixed.col-name {
+    background-color: #fecaca !important;
+    border-left: 5px solid #ef4444 !important;
+    border-right: 2px solid rgba(0, 0, 0, 0.15);
+    border-top: 4px solid #dc2626 !important;
+    border-bottom: 4px solid #dc2626 !important;
+}
+[data-theme="light"] table#budgetTable tr.highlight-mingde.row-first td.col-badge,
+[data-theme="light"] table#budgetTable tr.highlight-mingde.row-second td.col-badge {
+    border-right: 4px solid #dc2626 !important;
 }
 
 table#budgetTable tr.highlight-mingde .village-title {
@@ -8056,13 +8097,30 @@ table#budgetTable tr.highlight-mingde .village-title {
     
     .mobile-drawer-cell {
         background: #0f172a !important;
+        border-left: 3px solid #8b5cf6 !important;
+        border-right: 3px solid #8b5cf6 !important;
         border-bottom: 3px solid #8b5cf6 !important;
+        border-top: 1px dashed rgba(255, 255, 255, 0.12) !important;
         padding: 16px 14px !important;
     }
     
     [data-theme="light"] .mobile-drawer-cell {
         background: #f8fafc !important;
+        border-left: 3px solid #7c3aed !important;
+        border-right: 3px solid #7c3aed !important;
         border-bottom: 3px solid #7c3aed !important;
+        border-top: 1px dashed rgba(0, 0, 0, 0.1) !important;
+    }
+    
+    tr#drawer-0 .mobile-drawer-cell {
+        border-left: 5px solid #ef4444 !important;
+        border-right: 4px solid #ef4444 !important;
+        border-bottom: 4px solid #ef4444 !important;
+    }
+    [data-theme="light"] tr#drawer-0 .mobile-drawer-cell {
+        border-left: 5px solid #ef4444 !important;
+        border-right: 4px solid #dc2626 !important;
+        border-bottom: 4px solid #dc2626 !important;
     }
     
     .mobile-drawer-content {
@@ -8447,4 +8505,44 @@ table#budgetTable tr.highlight-mingde td.col-ret .approx-ret-text {
 [data-theme="light"] table#budgetTable tr.highlight-mingde td.col-ret .col-desktop-only,
 [data-theme="light"] table#budgetTable tr.highlight-mingde td.col-ret .approx-ret-text {
     color: #dc2626 !important;
+}
+
+/* 里名直立容器與放大的倒三角形展開/收起按鈕 */
+.village-name-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    padding: 4px 0;
+}
+
+.drawer-toggle-arrow {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.35rem; /* 大尺寸高辨識度倒三角形 */
+    line-height: 1;
+    color: #c084fc; /* 科技丁香紫，與紫色外框完美呼應 */
+    cursor: pointer;
+    transition: transform 0.2s ease, color 0.2s ease;
+    user-select: none;
+    margin-top: 2px;
+}
+
+tr.highlight-mingde .drawer-toggle-arrow {
+    color: #f87171 !important; /* 明德里專屬警戒紅 */
+}
+
+[data-theme="light"] .drawer-toggle-arrow {
+    color: #7c3aed;
+}
+
+[data-theme="light"] tr.highlight-mingde .drawer-toggle-arrow {
+    color: #dc2626 !important;
+}
+
+.clickable-row:hover .drawer-toggle-arrow {
+    transform: scale(1.22);
+    color: #ffffff;
 }
