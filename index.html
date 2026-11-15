@@ -140,7 +140,7 @@
       ]
     }
     </script>
-    <link rel="stylesheet" href="css/style.css?v=27.30">
+    <link rel="stylesheet" href="css/style.css?v=27.31">
     <style>
         /* 調整主版面兩欄比例與間距，僅在桌機版生效以確保手機版正常響應式排版 */
         @media (min-width: 951px) {
@@ -519,14 +519,15 @@
 
                         <!-- 土城區 47 里基層款執行率透明儀表板（兩階段展開/收合） -->
             <!-- 土城區 47 里基層款執行率透明儀表板（兩階段展開/收合） -->
-            <div class="budget-transparency-banner glass reveal" id="budget-banner">
-                <div class="transparency-header">
+            <!-- 土城區 47 里基層款執行率公開資訊表格（兩階段展開/收合） -->
+            <div class="budget-transparency-banner glass reveal" id="budget-banner" style="max-width: 720px; margin: 1.5rem auto 0 auto; padding: 2.2rem 1.6rem;">
+                <div class="transparency-header" style="max-width: 660px; margin: 0 auto;">
                     <h3 class="transparency-main-title" onclick="toggleBudgetDetails()" style="cursor: pointer;" title="點擊展開或收起 47 里執行率對照">
                         土城區 47 里基層款執行率
                     </h3>
 
                     <!-- 第 1 階段：引導按鈕（預設顯眼露出，點擊後自身隱藏並展開第 2 階段） -->
-                    <div class="budget-toggle-wrapper" id="budget-toggle-wrapper">
+                    <div class="budget-toggle-wrapper" id="budget-toggle-wrapper" style="margin-top: 1rem;">
                         <button type="button" class="btn-budget-toggle" id="btn-budget-open" onclick="openBudgetDetails()">
                             <span class="toggle-icon">📊</span>
                             <span class="toggle-text">點看 47 里執行率對照 ▾</span>
@@ -536,12 +537,12 @@
                     <!-- 第 2 階段：展開內容容器（預設收納折疊） -->
                     <div class="budget-collapsible-content" id="budget-collapsible-content">
                         <!-- 副標題 -->
-                        <p class="transparency-subtitle" style="margin-bottom: 1.5rem;">
+                        <p class="transparency-subtitle" style="margin-bottom: 1.2rem; font-size: 0.95rem;">
                             新北市土城區公所官方季報（民國 113～114 年）完整決算明細<br>
-                            全區 47 里每里每年法定額度 60 萬元整，專案實報實銷，年底未支用款項全數繳回市庫！
+                            全區 47 里每里每年法定額度 60 萬元整，專案實報實銷，年底未支用款項全數繳回市庫。
                         </p>
 
-        <!-- 主要用途方向模組（雙欄呈現，極致精簡白話） -->
+        <!-- 主要用途方向模組（緊湊寬度，剛好就好，避免過度留白） -->
         <div class="purpose-card">
             <div class="purpose-header">
                 <h2>🛠️ 這筆錢能為里民做什麼？</h2>
@@ -583,13 +584,13 @@
             </div>
         </div>
 
-                        <!-- Table Display (Sorted ascending by execution rate: lowest first, 6 Lean Columns) -->
+                        <!-- Table Display (Compact, tight column widths, no useless whitespace) -->
                         <div class="table-wrap">
                             <table id="budgetTable">
                                 <thead>
                                     <tr>
                                         <th class="th-fixed">里名</th>
-                                        <th style="width: 75px; text-align: center;">年度</th>
+                                        <th style="width: 68px; text-align: center;">年度</th>
                                         <th>實際動支</th>
                                         <th>執行率</th>
                                         <th>繳回公庫</th>
@@ -603,22 +604,22 @@
         </td>
         <td class="col-year"><span class="year-tag">113 年</span></td>
         <td class="col-num">432,185 元</td>
-        <td><div class="progress-bar-wrap">
+        <td class="col-rate"><div class="progress-bar-wrap">
         <div class="progress-bar-fill" style="width: 72.0%; background: #ef4444;"></div>
     </div>
     <span style="color: #ef4444; font-weight: 800;">72.0%</span></td>
         <td class="col-ret" style="color: #ef4444;">167,815 元</td>
-        <td style="text-align: center;"><span class="badge badge-red">希望能說明</span></td>
+        <td class="col-badge" style="text-align: center;"><span class="badge badge-red">希望能說明</span></td>
     </tr>
 <tr class="highlight-mingde row-second">
         <td class="col-year"><span class="year-tag">114 年</span></td>
         <td class="col-num">388,900 元</td>
-        <td><div class="progress-bar-wrap">
+        <td class="col-rate"><div class="progress-bar-wrap">
         <div class="progress-bar-fill" style="width: 64.8%; background: #ef4444;"></div>
     </div>
     <span style="color: #ef4444; font-weight: 800;">64.8%</span></td>
         <td class="col-ret" style="color: #ef4444;">211,100 元</td>
-        <td style="text-align: center;"><span class="badge badge-red">希望能說明</span></td>
+        <td class="col-badge" style="text-align: center;"><span class="badge badge-red">希望能說明</span></td>
     </tr>
 <tr class="village-alt row-first">
         <td rowspan="2" class="col-fixed col-name">
@@ -626,22 +627,22 @@
         </td>
         <td class="col-year"><span class="year-tag">113 年</span></td>
         <td class="col-num">454,000 元</td>
-        <td><div class="progress-bar-wrap">
+        <td class="col-rate"><div class="progress-bar-wrap">
         <div class="progress-bar-fill" style="width: 75.7%; background: #ef4444;"></div>
     </div>
     <span style="color: #ef4444; font-weight: 800;">75.7%</span></td>
         <td class="col-ret" style="color: #ef4444;">146,000 元</td>
-        <td style="text-align: center;"><span class="badge badge-red">希望能說明</span></td>
+        <td class="col-badge" style="text-align: center;"><span class="badge badge-red">希望能說明</span></td>
     </tr>
 <tr class="village-alt row-second">
         <td class="col-year"><span class="year-tag">114 年</span></td>
         <td class="col-num">500,000 元</td>
-        <td><div class="progress-bar-wrap">
+        <td class="col-rate"><div class="progress-bar-wrap">
         <div class="progress-bar-fill" style="width: 83.3%; background: #f97316;"></div>
     </div>
     <span style="color: #f97316; font-weight: 800;">83.3%</span></td>
         <td class="col-ret" style="color: #f97316;">100,000 元</td>
-        <td style="text-align: center;"><span class="badge badge-orange">尚待努力</span></td>
+        <td class="col-badge" style="text-align: center;"><span class="badge badge-orange">尚待努力</span></td>
     </tr>
 <tr class="village-base row-first">
         <td rowspan="2" class="col-fixed col-name">
@@ -649,22 +650,22 @@
         </td>
         <td class="col-year"><span class="year-tag">113 年</span></td>
         <td class="col-num">493,592 元</td>
-        <td><div class="progress-bar-wrap">
+        <td class="col-rate"><div class="progress-bar-wrap">
         <div class="progress-bar-fill" style="width: 82.3%; background: #f97316;"></div>
     </div>
     <span style="color: #f97316; font-weight: 800;">82.3%</span></td>
         <td class="col-ret" style="color: #f97316;">106,408 元</td>
-        <td style="text-align: center;"><span class="badge badge-orange">尚待努力</span></td>
+        <td class="col-badge" style="text-align: center;"><span class="badge badge-orange">尚待努力</span></td>
     </tr>
 <tr class="village-base row-second">
         <td class="col-year"><span class="year-tag">114 年</span></td>
         <td class="col-num">500,000 元</td>
-        <td><div class="progress-bar-wrap">
+        <td class="col-rate"><div class="progress-bar-wrap">
         <div class="progress-bar-fill" style="width: 83.3%; background: #f97316;"></div>
     </div>
     <span style="color: #f97316; font-weight: 800;">83.3%</span></td>
         <td class="col-ret" style="color: #f97316;">100,000 元</td>
-        <td style="text-align: center;"><span class="badge badge-orange">尚待努力</span></td>
+        <td class="col-badge" style="text-align: center;"><span class="badge badge-orange">尚待努力</span></td>
     </tr>
 <tr class="village-alt row-first">
         <td rowspan="2" class="col-fixed col-name">
@@ -672,22 +673,22 @@
         </td>
         <td class="col-year"><span class="year-tag">113 年</span></td>
         <td class="col-num">489,199 元</td>
-        <td><div class="progress-bar-wrap">
+        <td class="col-rate"><div class="progress-bar-wrap">
         <div class="progress-bar-fill" style="width: 81.5%; background: #f97316;"></div>
     </div>
     <span style="color: #f97316; font-weight: 800;">81.5%</span></td>
         <td class="col-ret" style="color: #f97316;">110,801 元</td>
-        <td style="text-align: center;"><span class="badge badge-orange">尚待努力</span></td>
+        <td class="col-badge" style="text-align: center;"><span class="badge badge-orange">尚待努力</span></td>
     </tr>
 <tr class="village-alt row-second">
         <td class="col-year"><span class="year-tag">114 年</span></td>
         <td class="col-num">529,104 元</td>
-        <td><div class="progress-bar-wrap">
+        <td class="col-rate"><div class="progress-bar-wrap">
         <div class="progress-bar-fill" style="width: 88.2%; background: #f97316;"></div>
     </div>
     <span style="color: #f97316; font-weight: 800;">88.2%</span></td>
         <td class="col-ret" style="color: #f97316;">70,896 元</td>
-        <td style="text-align: center;"><span class="badge badge-orange">尚待努力</span></td>
+        <td class="col-badge" style="text-align: center;"><span class="badge badge-orange">尚待努力</span></td>
     </tr>
 <tr class="village-base row-first">
         <td rowspan="2" class="col-fixed col-name">
@@ -695,22 +696,22 @@
         </td>
         <td class="col-year"><span class="year-tag">113 年</span></td>
         <td class="col-num">550,000 元</td>
-        <td><div class="progress-bar-wrap">
+        <td class="col-rate"><div class="progress-bar-wrap">
         <div class="progress-bar-fill" style="width: 91.7%; background: #f97316;"></div>
     </div>
     <span style="color: #f97316; font-weight: 800;">91.7%</span></td>
         <td class="col-ret" style="color: #f97316;">50,000 元</td>
-        <td style="text-align: center;"><span class="badge badge-orange">尚待努力</span></td>
+        <td class="col-badge" style="text-align: center;"><span class="badge badge-orange">尚待努力</span></td>
     </tr>
 <tr class="village-base row-second">
         <td class="col-year"><span class="year-tag">114 年</span></td>
         <td class="col-num">478,000 元</td>
-        <td><div class="progress-bar-wrap">
+        <td class="col-rate"><div class="progress-bar-wrap">
         <div class="progress-bar-fill" style="width: 79.7%; background: #f97316;"></div>
     </div>
     <span style="color: #f97316; font-weight: 800;">79.7%</span></td>
         <td class="col-ret" style="color: #f97316;">122,000 元</td>
-        <td style="text-align: center;"><span class="badge badge-orange">尚待努力</span></td>
+        <td class="col-badge" style="text-align: center;"><span class="badge badge-orange">尚待努力</span></td>
     </tr>
 <tr class="village-alt row-first">
         <td rowspan="2" class="col-fixed col-name">
@@ -718,22 +719,22 @@
         </td>
         <td class="col-year"><span class="year-tag">113 年</span></td>
         <td class="col-num">453,668 元</td>
-        <td><div class="progress-bar-wrap">
+        <td class="col-rate"><div class="progress-bar-wrap">
         <div class="progress-bar-fill" style="width: 75.6%; background: #ef4444;"></div>
     </div>
     <span style="color: #ef4444; font-weight: 800;">75.6%</span></td>
         <td class="col-ret" style="color: #ef4444;">146,332 元</td>
-        <td style="text-align: center;"><span class="badge badge-red">希望能說明</span></td>
+        <td class="col-badge" style="text-align: center;"><span class="badge badge-red">希望能說明</span></td>
     </tr>
 <tr class="village-alt row-second">
         <td class="col-year"><span class="year-tag">114 年</span></td>
         <td class="col-num">600,000 元</td>
-        <td><div class="progress-bar-wrap">
+        <td class="col-rate"><div class="progress-bar-wrap">
         <div class="progress-bar-fill" style="width: 100%; background: #10b981;"></div>
     </div>
     <span style="color: #10b981; font-weight: 800;">100.0%</span></td>
         <td class="col-ret" style="color: #10b981;">0 元</td>
-        <td style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
+        <td class="col-badge" style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
     </tr>
 <tr class="village-base row-first">
         <td rowspan="2" class="col-fixed col-name">
@@ -741,22 +742,22 @@
         </td>
         <td class="col-year"><span class="year-tag">113 年</span></td>
         <td class="col-num">556,615 元</td>
-        <td><div class="progress-bar-wrap">
+        <td class="col-rate"><div class="progress-bar-wrap">
         <div class="progress-bar-fill" style="width: 92.8%; background: #f97316;"></div>
     </div>
     <span style="color: #f97316; font-weight: 800;">92.8%</span></td>
         <td class="col-ret" style="color: #f97316;">43,385 元</td>
-        <td style="text-align: center;"><span class="badge badge-orange">尚待努力</span></td>
+        <td class="col-badge" style="text-align: center;"><span class="badge badge-orange">尚待努力</span></td>
     </tr>
 <tr class="village-base row-second">
         <td class="col-year"><span class="year-tag">114 年</span></td>
         <td class="col-num">528,840 元</td>
-        <td><div class="progress-bar-wrap">
+        <td class="col-rate"><div class="progress-bar-wrap">
         <div class="progress-bar-fill" style="width: 88.1%; background: #f97316;"></div>
     </div>
     <span style="color: #f97316; font-weight: 800;">88.1%</span></td>
         <td class="col-ret" style="color: #f97316;">71,160 元</td>
-        <td style="text-align: center;"><span class="badge badge-orange">尚待努力</span></td>
+        <td class="col-badge" style="text-align: center;"><span class="badge badge-orange">尚待努力</span></td>
     </tr>
 <tr class="village-alt row-first">
         <td rowspan="2" class="col-fixed col-name">
@@ -764,22 +765,22 @@
         </td>
         <td class="col-year"><span class="year-tag">113 年</span></td>
         <td class="col-num">600,000 元</td>
-        <td><div class="progress-bar-wrap">
+        <td class="col-rate"><div class="progress-bar-wrap">
         <div class="progress-bar-fill" style="width: 100%; background: #10b981;"></div>
     </div>
     <span style="color: #10b981; font-weight: 800;">100.0%</span></td>
         <td class="col-ret" style="color: #10b981;">0 元</td>
-        <td style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
+        <td class="col-badge" style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
     </tr>
 <tr class="village-alt row-second">
         <td class="col-year"><span class="year-tag">114 年</span></td>
         <td class="col-num">499,751 元</td>
-        <td><div class="progress-bar-wrap">
+        <td class="col-rate"><div class="progress-bar-wrap">
         <div class="progress-bar-fill" style="width: 83.3%; background: #f97316;"></div>
     </div>
     <span style="color: #f97316; font-weight: 800;">83.3%</span></td>
         <td class="col-ret" style="color: #f97316;">100,249 元</td>
-        <td style="text-align: center;"><span class="badge badge-orange">尚待努力</span></td>
+        <td class="col-badge" style="text-align: center;"><span class="badge badge-orange">尚待努力</span></td>
     </tr>
 <tr class="village-base row-first">
         <td rowspan="2" class="col-fixed col-name">
@@ -787,22 +788,22 @@
         </td>
         <td class="col-year"><span class="year-tag">113 年</span></td>
         <td class="col-num">563,098 元</td>
-        <td><div class="progress-bar-wrap">
+        <td class="col-rate"><div class="progress-bar-wrap">
         <div class="progress-bar-fill" style="width: 93.8%; background: #f97316;"></div>
     </div>
     <span style="color: #f97316; font-weight: 800;">93.8%</span></td>
         <td class="col-ret" style="color: #f97316;">36,902 元</td>
-        <td style="text-align: center;"><span class="badge badge-orange">尚待努力</span></td>
+        <td class="col-badge" style="text-align: center;"><span class="badge badge-orange">尚待努力</span></td>
     </tr>
 <tr class="village-base row-second">
         <td class="col-year"><span class="year-tag">114 年</span></td>
         <td class="col-num">546,595 元</td>
-        <td><div class="progress-bar-wrap">
+        <td class="col-rate"><div class="progress-bar-wrap">
         <div class="progress-bar-fill" style="width: 91.1%; background: #f97316;"></div>
     </div>
     <span style="color: #f97316; font-weight: 800;">91.1%</span></td>
         <td class="col-ret" style="color: #f97316;">53,405 元</td>
-        <td style="text-align: center;"><span class="badge badge-orange">尚待努力</span></td>
+        <td class="col-badge" style="text-align: center;"><span class="badge badge-orange">尚待努力</span></td>
     </tr>
 <tr class="village-alt row-first">
         <td rowspan="2" class="col-fixed col-name">
@@ -810,22 +811,22 @@
         </td>
         <td class="col-year"><span class="year-tag">113 年</span></td>
         <td class="col-num">574,466 元</td>
-        <td><div class="progress-bar-wrap">
+        <td class="col-rate"><div class="progress-bar-wrap">
         <div class="progress-bar-fill" style="width: 95.7%; background: #f59e0b;"></div>
     </div>
     <span style="color: #f59e0b; font-weight: 800;">95.7%</span></td>
         <td class="col-ret" style="color: #f59e0b;">25,534 元</td>
-        <td style="text-align: center;"><span class="badge badge-yellow">還不錯</span></td>
+        <td class="col-badge" style="text-align: center;"><span class="badge badge-yellow">還不錯</span></td>
     </tr>
 <tr class="village-alt row-second">
         <td class="col-year"><span class="year-tag">114 年</span></td>
         <td class="col-num">540,000 元</td>
-        <td><div class="progress-bar-wrap">
+        <td class="col-rate"><div class="progress-bar-wrap">
         <div class="progress-bar-fill" style="width: 90.0%; background: #f97316;"></div>
     </div>
     <span style="color: #f97316; font-weight: 800;">90.0%</span></td>
         <td class="col-ret" style="color: #f97316;">60,000 元</td>
-        <td style="text-align: center;"><span class="badge badge-orange">尚待努力</span></td>
+        <td class="col-badge" style="text-align: center;"><span class="badge badge-orange">尚待努力</span></td>
     </tr>
 <tr class="village-base row-first">
         <td rowspan="2" class="col-fixed col-name">
@@ -833,22 +834,22 @@
         </td>
         <td class="col-year"><span class="year-tag">113 年</span></td>
         <td class="col-num">544,933 元</td>
-        <td><div class="progress-bar-wrap">
+        <td class="col-rate"><div class="progress-bar-wrap">
         <div class="progress-bar-fill" style="width: 90.8%; background: #f97316;"></div>
     </div>
     <span style="color: #f97316; font-weight: 800;">90.8%</span></td>
         <td class="col-ret" style="color: #f97316;">55,067 元</td>
-        <td style="text-align: center;"><span class="badge badge-orange">尚待努力</span></td>
+        <td class="col-badge" style="text-align: center;"><span class="badge badge-orange">尚待努力</span></td>
     </tr>
 <tr class="village-base row-second">
         <td class="col-year"><span class="year-tag">114 年</span></td>
         <td class="col-num">569,781 元</td>
-        <td><div class="progress-bar-wrap">
+        <td class="col-rate"><div class="progress-bar-wrap">
         <div class="progress-bar-fill" style="width: 95.0%; background: #f59e0b;"></div>
     </div>
     <span style="color: #f59e0b; font-weight: 800;">95.0%</span></td>
         <td class="col-ret" style="color: #f59e0b;">30,219 元</td>
-        <td style="text-align: center;"><span class="badge badge-yellow">還不錯</span></td>
+        <td class="col-badge" style="text-align: center;"><span class="badge badge-yellow">還不錯</span></td>
     </tr>
 <tr class="village-alt row-first">
         <td rowspan="2" class="col-fixed col-name">
@@ -856,22 +857,22 @@
         </td>
         <td class="col-year"><span class="year-tag">113 年</span></td>
         <td class="col-num">545,416 元</td>
-        <td><div class="progress-bar-wrap">
+        <td class="col-rate"><div class="progress-bar-wrap">
         <div class="progress-bar-fill" style="width: 90.9%; background: #f97316;"></div>
     </div>
     <span style="color: #f97316; font-weight: 800;">90.9%</span></td>
         <td class="col-ret" style="color: #f97316;">54,584 元</td>
-        <td style="text-align: center;"><span class="badge badge-orange">尚待努力</span></td>
+        <td class="col-badge" style="text-align: center;"><span class="badge badge-orange">尚待努力</span></td>
     </tr>
 <tr class="village-alt row-second">
         <td class="col-year"><span class="year-tag">114 年</span></td>
         <td class="col-num">578,450 元</td>
-        <td><div class="progress-bar-wrap">
+        <td class="col-rate"><div class="progress-bar-wrap">
         <div class="progress-bar-fill" style="width: 96.4%; background: #f59e0b;"></div>
     </div>
     <span style="color: #f59e0b; font-weight: 800;">96.4%</span></td>
         <td class="col-ret" style="color: #f59e0b;">21,550 元</td>
-        <td style="text-align: center;"><span class="badge badge-yellow">還不錯</span></td>
+        <td class="col-badge" style="text-align: center;"><span class="badge badge-yellow">還不錯</span></td>
     </tr>
 <tr class="village-base row-first">
         <td rowspan="2" class="col-fixed col-name">
@@ -879,22 +880,22 @@
         </td>
         <td class="col-year"><span class="year-tag">113 年</span></td>
         <td class="col-num">580,000 元</td>
-        <td><div class="progress-bar-wrap">
+        <td class="col-rate"><div class="progress-bar-wrap">
         <div class="progress-bar-fill" style="width: 96.7%; background: #f59e0b;"></div>
     </div>
     <span style="color: #f59e0b; font-weight: 800;">96.7%</span></td>
         <td class="col-ret" style="color: #f59e0b;">20,000 元</td>
-        <td style="text-align: center;"><span class="badge badge-yellow">還不錯</span></td>
+        <td class="col-badge" style="text-align: center;"><span class="badge badge-yellow">還不錯</span></td>
     </tr>
 <tr class="village-base row-second">
         <td class="col-year"><span class="year-tag">114 年</span></td>
         <td class="col-num">545,466 元</td>
-        <td><div class="progress-bar-wrap">
+        <td class="col-rate"><div class="progress-bar-wrap">
         <div class="progress-bar-fill" style="width: 90.9%; background: #f97316;"></div>
     </div>
     <span style="color: #f97316; font-weight: 800;">90.9%</span></td>
         <td class="col-ret" style="color: #f97316;">54,534 元</td>
-        <td style="text-align: center;"><span class="badge badge-orange">尚待努力</span></td>
+        <td class="col-badge" style="text-align: center;"><span class="badge badge-orange">尚待努力</span></td>
     </tr>
 <tr class="village-alt row-first">
         <td rowspan="2" class="col-fixed col-name">
@@ -902,22 +903,22 @@
         </td>
         <td class="col-year"><span class="year-tag">113 年</span></td>
         <td class="col-num">600,000 元</td>
-        <td><div class="progress-bar-wrap">
+        <td class="col-rate"><div class="progress-bar-wrap">
         <div class="progress-bar-fill" style="width: 100%; background: #10b981;"></div>
     </div>
     <span style="color: #10b981; font-weight: 800;">100.0%</span></td>
         <td class="col-ret" style="color: #10b981;">0 元</td>
-        <td style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
+        <td class="col-badge" style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
     </tr>
 <tr class="village-alt row-second">
         <td class="col-year"><span class="year-tag">114 年</span></td>
         <td class="col-num">530,000 元</td>
-        <td><div class="progress-bar-wrap">
+        <td class="col-rate"><div class="progress-bar-wrap">
         <div class="progress-bar-fill" style="width: 88.3%; background: #f97316;"></div>
     </div>
     <span style="color: #f97316; font-weight: 800;">88.3%</span></td>
         <td class="col-ret" style="color: #f97316;">70,000 元</td>
-        <td style="text-align: center;"><span class="badge badge-orange">尚待努力</span></td>
+        <td class="col-badge" style="text-align: center;"><span class="badge badge-orange">尚待努力</span></td>
     </tr>
 <tr class="village-base row-first">
         <td rowspan="2" class="col-fixed col-name">
@@ -925,22 +926,22 @@
         </td>
         <td class="col-year"><span class="year-tag">113 年</span></td>
         <td class="col-num">535,138 元</td>
-        <td><div class="progress-bar-wrap">
+        <td class="col-rate"><div class="progress-bar-wrap">
         <div class="progress-bar-fill" style="width: 89.2%; background: #f97316;"></div>
     </div>
     <span style="color: #f97316; font-weight: 800;">89.2%</span></td>
         <td class="col-ret" style="color: #f97316;">64,862 元</td>
-        <td style="text-align: center;"><span class="badge badge-orange">尚待努力</span></td>
+        <td class="col-badge" style="text-align: center;"><span class="badge badge-orange">尚待努力</span></td>
     </tr>
 <tr class="village-base row-second">
         <td class="col-year"><span class="year-tag">114 年</span></td>
         <td class="col-num">600,000 元</td>
-        <td><div class="progress-bar-wrap">
+        <td class="col-rate"><div class="progress-bar-wrap">
         <div class="progress-bar-fill" style="width: 100%; background: #10b981;"></div>
     </div>
     <span style="color: #10b981; font-weight: 800;">100.0%</span></td>
         <td class="col-ret" style="color: #10b981;">0 元</td>
-        <td style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
+        <td class="col-badge" style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
     </tr>
 <tr class="village-alt row-first">
         <td rowspan="2" class="col-fixed col-name">
@@ -948,22 +949,22 @@
         </td>
         <td class="col-year"><span class="year-tag">113 年</span></td>
         <td class="col-num">545,895 元</td>
-        <td><div class="progress-bar-wrap">
+        <td class="col-rate"><div class="progress-bar-wrap">
         <div class="progress-bar-fill" style="width: 91.0%; background: #f97316;"></div>
     </div>
     <span style="color: #f97316; font-weight: 800;">91.0%</span></td>
         <td class="col-ret" style="color: #f97316;">54,105 元</td>
-        <td style="text-align: center;"><span class="badge badge-orange">尚待努力</span></td>
+        <td class="col-badge" style="text-align: center;"><span class="badge badge-orange">尚待努力</span></td>
     </tr>
 <tr class="village-alt row-second">
         <td class="col-year"><span class="year-tag">114 年</span></td>
         <td class="col-num">599,289 元</td>
-        <td><div class="progress-bar-wrap">
+        <td class="col-rate"><div class="progress-bar-wrap">
         <div class="progress-bar-fill" style="width: 99.9%; background: #10b981;"></div>
     </div>
     <span style="color: #10b981; font-weight: 800;">99.9%</span></td>
         <td class="col-ret" style="color: #10b981;">711 元</td>
-        <td style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
+        <td class="col-badge" style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
     </tr>
 <tr class="village-base row-first">
         <td rowspan="2" class="col-fixed col-name">
@@ -971,22 +972,22 @@
         </td>
         <td class="col-year"><span class="year-tag">113 年</span></td>
         <td class="col-num">545,456 元</td>
-        <td><div class="progress-bar-wrap">
+        <td class="col-rate"><div class="progress-bar-wrap">
         <div class="progress-bar-fill" style="width: 90.9%; background: #f97316;"></div>
     </div>
     <span style="color: #f97316; font-weight: 800;">90.9%</span></td>
         <td class="col-ret" style="color: #f97316;">54,544 元</td>
-        <td style="text-align: center;"><span class="badge badge-orange">尚待努力</span></td>
+        <td class="col-badge" style="text-align: center;"><span class="badge badge-orange">尚待努力</span></td>
     </tr>
 <tr class="village-base row-second">
         <td class="col-year"><span class="year-tag">114 年</span></td>
         <td class="col-num">600,000 元</td>
-        <td><div class="progress-bar-wrap">
+        <td class="col-rate"><div class="progress-bar-wrap">
         <div class="progress-bar-fill" style="width: 100%; background: #10b981;"></div>
     </div>
     <span style="color: #10b981; font-weight: 800;">100.0%</span></td>
         <td class="col-ret" style="color: #10b981;">0 元</td>
-        <td style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
+        <td class="col-badge" style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
     </tr>
 <tr class="village-alt row-first">
         <td rowspan="2" class="col-fixed col-name">
@@ -994,22 +995,22 @@
         </td>
         <td class="col-year"><span class="year-tag">113 年</span></td>
         <td class="col-num">600,000 元</td>
-        <td><div class="progress-bar-wrap">
+        <td class="col-rate"><div class="progress-bar-wrap">
         <div class="progress-bar-fill" style="width: 100%; background: #10b981;"></div>
     </div>
     <span style="color: #10b981; font-weight: 800;">100.0%</span></td>
         <td class="col-ret" style="color: #10b981;">0 元</td>
-        <td style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
+        <td class="col-badge" style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
     </tr>
 <tr class="village-alt row-second">
         <td class="col-year"><span class="year-tag">114 年</span></td>
         <td class="col-num">545,466 元</td>
-        <td><div class="progress-bar-wrap">
+        <td class="col-rate"><div class="progress-bar-wrap">
         <div class="progress-bar-fill" style="width: 90.9%; background: #f97316;"></div>
     </div>
     <span style="color: #f97316; font-weight: 800;">90.9%</span></td>
         <td class="col-ret" style="color: #f97316;">54,534 元</td>
-        <td style="text-align: center;"><span class="badge badge-orange">尚待努力</span></td>
+        <td class="col-badge" style="text-align: center;"><span class="badge badge-orange">尚待努力</span></td>
     </tr>
 <tr class="village-base row-first">
         <td rowspan="2" class="col-fixed col-name">
@@ -1017,22 +1018,22 @@
         </td>
         <td class="col-year"><span class="year-tag">113 年</span></td>
         <td class="col-num">600,000 元</td>
-        <td><div class="progress-bar-wrap">
+        <td class="col-rate"><div class="progress-bar-wrap">
         <div class="progress-bar-fill" style="width: 100%; background: #10b981;"></div>
     </div>
     <span style="color: #10b981; font-weight: 800;">100.0%</span></td>
         <td class="col-ret" style="color: #10b981;">0 元</td>
-        <td style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
+        <td class="col-badge" style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
     </tr>
 <tr class="village-base row-second">
         <td class="col-year"><span class="year-tag">114 年</span></td>
         <td class="col-num">545,466 元</td>
-        <td><div class="progress-bar-wrap">
+        <td class="col-rate"><div class="progress-bar-wrap">
         <div class="progress-bar-fill" style="width: 90.9%; background: #f97316;"></div>
     </div>
     <span style="color: #f97316; font-weight: 800;">90.9%</span></td>
         <td class="col-ret" style="color: #f97316;">54,534 元</td>
-        <td style="text-align: center;"><span class="badge badge-orange">尚待努力</span></td>
+        <td class="col-badge" style="text-align: center;"><span class="badge badge-orange">尚待努力</span></td>
     </tr>
 <tr class="village-alt row-first">
         <td rowspan="2" class="col-fixed col-name">
@@ -1040,22 +1041,22 @@
         </td>
         <td class="col-year"><span class="year-tag">113 年</span></td>
         <td class="col-num">600,000 元</td>
-        <td><div class="progress-bar-wrap">
+        <td class="col-rate"><div class="progress-bar-wrap">
         <div class="progress-bar-fill" style="width: 100%; background: #10b981;"></div>
     </div>
     <span style="color: #10b981; font-weight: 800;">100.0%</span></td>
         <td class="col-ret" style="color: #10b981;">0 元</td>
-        <td style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
+        <td class="col-badge" style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
     </tr>
 <tr class="village-alt row-second">
         <td class="col-year"><span class="year-tag">114 年</span></td>
         <td class="col-num">550,806 元</td>
-        <td><div class="progress-bar-wrap">
+        <td class="col-rate"><div class="progress-bar-wrap">
         <div class="progress-bar-fill" style="width: 91.8%; background: #f97316;"></div>
     </div>
     <span style="color: #f97316; font-weight: 800;">91.8%</span></td>
         <td class="col-ret" style="color: #f97316;">49,194 元</td>
-        <td style="text-align: center;"><span class="badge badge-orange">尚待努力</span></td>
+        <td class="col-badge" style="text-align: center;"><span class="badge badge-orange">尚待努力</span></td>
     </tr>
 <tr class="village-base row-first">
         <td rowspan="2" class="col-fixed col-name">
@@ -1063,22 +1064,22 @@
         </td>
         <td class="col-year"><span class="year-tag">113 年</span></td>
         <td class="col-num">559,155 元</td>
-        <td><div class="progress-bar-wrap">
+        <td class="col-rate"><div class="progress-bar-wrap">
         <div class="progress-bar-fill" style="width: 93.2%; background: #f97316;"></div>
     </div>
     <span style="color: #f97316; font-weight: 800;">93.2%</span></td>
         <td class="col-ret" style="color: #f97316;">40,845 元</td>
-        <td style="text-align: center;"><span class="badge badge-orange">尚待努力</span></td>
+        <td class="col-badge" style="text-align: center;"><span class="badge badge-orange">尚待努力</span></td>
     </tr>
 <tr class="village-base row-second">
         <td class="col-year"><span class="year-tag">114 年</span></td>
         <td class="col-num">600,000 元</td>
-        <td><div class="progress-bar-wrap">
+        <td class="col-rate"><div class="progress-bar-wrap">
         <div class="progress-bar-fill" style="width: 100%; background: #10b981;"></div>
     </div>
     <span style="color: #10b981; font-weight: 800;">100.0%</span></td>
         <td class="col-ret" style="color: #10b981;">0 元</td>
-        <td style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
+        <td class="col-badge" style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
     </tr>
 <tr class="village-alt row-first">
         <td rowspan="2" class="col-fixed col-name">
@@ -1086,22 +1087,22 @@
         </td>
         <td class="col-year"><span class="year-tag">113 年</span></td>
         <td class="col-num">583,198 元</td>
-        <td><div class="progress-bar-wrap">
+        <td class="col-rate"><div class="progress-bar-wrap">
         <div class="progress-bar-fill" style="width: 97.2%; background: #f59e0b;"></div>
     </div>
     <span style="color: #f59e0b; font-weight: 800;">97.2%</span></td>
         <td class="col-ret" style="color: #f59e0b;">16,802 元</td>
-        <td style="text-align: center;"><span class="badge badge-yellow">還不錯</span></td>
+        <td class="col-badge" style="text-align: center;"><span class="badge badge-yellow">還不錯</span></td>
     </tr>
 <tr class="village-alt row-second">
         <td class="col-year"><span class="year-tag">114 年</span></td>
         <td class="col-num">580,000 元</td>
-        <td><div class="progress-bar-wrap">
+        <td class="col-rate"><div class="progress-bar-wrap">
         <div class="progress-bar-fill" style="width: 96.7%; background: #f59e0b;"></div>
     </div>
     <span style="color: #f59e0b; font-weight: 800;">96.7%</span></td>
         <td class="col-ret" style="color: #f59e0b;">20,000 元</td>
-        <td style="text-align: center;"><span class="badge badge-yellow">還不錯</span></td>
+        <td class="col-badge" style="text-align: center;"><span class="badge badge-yellow">還不錯</span></td>
     </tr>
 <tr class="village-base row-first">
         <td rowspan="2" class="col-fixed col-name">
@@ -1109,22 +1110,22 @@
         </td>
         <td class="col-year"><span class="year-tag">113 年</span></td>
         <td class="col-num">566,528 元</td>
-        <td><div class="progress-bar-wrap">
+        <td class="col-rate"><div class="progress-bar-wrap">
         <div class="progress-bar-fill" style="width: 94.4%; background: #f97316;"></div>
     </div>
     <span style="color: #f97316; font-weight: 800;">94.4%</span></td>
         <td class="col-ret" style="color: #f97316;">33,472 元</td>
-        <td style="text-align: center;"><span class="badge badge-orange">尚待努力</span></td>
+        <td class="col-badge" style="text-align: center;"><span class="badge badge-orange">尚待努力</span></td>
     </tr>
 <tr class="village-base row-second">
         <td class="col-year"><span class="year-tag">114 年</span></td>
         <td class="col-num">600,000 元</td>
-        <td><div class="progress-bar-wrap">
+        <td class="col-rate"><div class="progress-bar-wrap">
         <div class="progress-bar-fill" style="width: 100%; background: #10b981;"></div>
     </div>
     <span style="color: #10b981; font-weight: 800;">100.0%</span></td>
         <td class="col-ret" style="color: #10b981;">0 元</td>
-        <td style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
+        <td class="col-badge" style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
     </tr>
 <tr class="village-alt row-first">
         <td rowspan="2" class="col-fixed col-name">
@@ -1132,22 +1133,22 @@
         </td>
         <td class="col-year"><span class="year-tag">113 年</span></td>
         <td class="col-num">598,287 元</td>
-        <td><div class="progress-bar-wrap">
+        <td class="col-rate"><div class="progress-bar-wrap">
         <div class="progress-bar-fill" style="width: 99.7%; background: #10b981;"></div>
     </div>
     <span style="color: #10b981; font-weight: 800;">99.7%</span></td>
         <td class="col-ret" style="color: #10b981;">1,713 元</td>
-        <td style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
+        <td class="col-badge" style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
     </tr>
 <tr class="village-alt row-second">
         <td class="col-year"><span class="year-tag">114 年</span></td>
         <td class="col-num">570,000 元</td>
-        <td><div class="progress-bar-wrap">
+        <td class="col-rate"><div class="progress-bar-wrap">
         <div class="progress-bar-fill" style="width: 95.0%; background: #f59e0b;"></div>
     </div>
     <span style="color: #f59e0b; font-weight: 800;">95.0%</span></td>
         <td class="col-ret" style="color: #f59e0b;">30,000 元</td>
-        <td style="text-align: center;"><span class="badge badge-yellow">還不錯</span></td>
+        <td class="col-badge" style="text-align: center;"><span class="badge badge-yellow">還不錯</span></td>
     </tr>
 <tr class="village-base row-first">
         <td rowspan="2" class="col-fixed col-name">
@@ -1155,22 +1156,22 @@
         </td>
         <td class="col-year"><span class="year-tag">113 年</span></td>
         <td class="col-num">591,378 元</td>
-        <td><div class="progress-bar-wrap">
+        <td class="col-rate"><div class="progress-bar-wrap">
         <div class="progress-bar-fill" style="width: 98.6%; background: #f59e0b;"></div>
     </div>
     <span style="color: #f59e0b; font-weight: 800;">98.6%</span></td>
         <td class="col-ret" style="color: #f59e0b;">8,622 元</td>
-        <td style="text-align: center;"><span class="badge badge-yellow">還不錯</span></td>
+        <td class="col-badge" style="text-align: center;"><span class="badge badge-yellow">還不錯</span></td>
     </tr>
 <tr class="village-base row-second">
         <td class="col-year"><span class="year-tag">114 年</span></td>
         <td class="col-num">580,000 元</td>
-        <td><div class="progress-bar-wrap">
+        <td class="col-rate"><div class="progress-bar-wrap">
         <div class="progress-bar-fill" style="width: 96.7%; background: #f59e0b;"></div>
     </div>
     <span style="color: #f59e0b; font-weight: 800;">96.7%</span></td>
         <td class="col-ret" style="color: #f59e0b;">20,000 元</td>
-        <td style="text-align: center;"><span class="badge badge-yellow">還不錯</span></td>
+        <td class="col-badge" style="text-align: center;"><span class="badge badge-yellow">還不錯</span></td>
     </tr>
 <tr class="village-alt row-first">
         <td rowspan="2" class="col-fixed col-name">
@@ -1178,22 +1179,22 @@
         </td>
         <td class="col-year"><span class="year-tag">113 年</span></td>
         <td class="col-num">600,000 元</td>
-        <td><div class="progress-bar-wrap">
+        <td class="col-rate"><div class="progress-bar-wrap">
         <div class="progress-bar-fill" style="width: 100%; background: #10b981;"></div>
     </div>
     <span style="color: #10b981; font-weight: 800;">100.0%</span></td>
         <td class="col-ret" style="color: #10b981;">0 元</td>
-        <td style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
+        <td class="col-badge" style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
     </tr>
 <tr class="village-alt row-second">
         <td class="col-year"><span class="year-tag">114 年</span></td>
         <td class="col-num">573,413 元</td>
-        <td><div class="progress-bar-wrap">
+        <td class="col-rate"><div class="progress-bar-wrap">
         <div class="progress-bar-fill" style="width: 95.6%; background: #f59e0b;"></div>
     </div>
     <span style="color: #f59e0b; font-weight: 800;">95.6%</span></td>
         <td class="col-ret" style="color: #f59e0b;">26,587 元</td>
-        <td style="text-align: center;"><span class="badge badge-yellow">還不錯</span></td>
+        <td class="col-badge" style="text-align: center;"><span class="badge badge-yellow">還不錯</span></td>
     </tr>
 <tr class="village-base row-first">
         <td rowspan="2" class="col-fixed col-name">
@@ -1201,22 +1202,22 @@
         </td>
         <td class="col-year"><span class="year-tag">113 年</span></td>
         <td class="col-num">598,837 元</td>
-        <td><div class="progress-bar-wrap">
+        <td class="col-rate"><div class="progress-bar-wrap">
         <div class="progress-bar-fill" style="width: 99.8%; background: #10b981;"></div>
     </div>
     <span style="color: #10b981; font-weight: 800;">99.8%</span></td>
         <td class="col-ret" style="color: #10b981;">1,163 元</td>
-        <td style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
+        <td class="col-badge" style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
     </tr>
 <tr class="village-base row-second">
         <td class="col-year"><span class="year-tag">114 年</span></td>
         <td class="col-num">580,000 元</td>
-        <td><div class="progress-bar-wrap">
+        <td class="col-rate"><div class="progress-bar-wrap">
         <div class="progress-bar-fill" style="width: 96.7%; background: #f59e0b;"></div>
     </div>
     <span style="color: #f59e0b; font-weight: 800;">96.7%</span></td>
         <td class="col-ret" style="color: #f59e0b;">20,000 元</td>
-        <td style="text-align: center;"><span class="badge badge-yellow">還不錯</span></td>
+        <td class="col-badge" style="text-align: center;"><span class="badge badge-yellow">還不錯</span></td>
     </tr>
 <tr class="village-alt row-first">
         <td rowspan="2" class="col-fixed col-name">
@@ -1224,22 +1225,22 @@
         </td>
         <td class="col-year"><span class="year-tag">113 年</span></td>
         <td class="col-num">599,864 元</td>
-        <td><div class="progress-bar-wrap">
+        <td class="col-rate"><div class="progress-bar-wrap">
         <div class="progress-bar-fill" style="width: 100%; background: #10b981;"></div>
     </div>
     <span style="color: #10b981; font-weight: 800;">100.0%</span></td>
         <td class="col-ret" style="color: #10b981;">136 元</td>
-        <td style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
+        <td class="col-badge" style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
     </tr>
 <tr class="village-alt row-second">
         <td class="col-year"><span class="year-tag">114 年</span></td>
         <td class="col-num">580,000 元</td>
-        <td><div class="progress-bar-wrap">
+        <td class="col-rate"><div class="progress-bar-wrap">
         <div class="progress-bar-fill" style="width: 96.7%; background: #f59e0b;"></div>
     </div>
     <span style="color: #f59e0b; font-weight: 800;">96.7%</span></td>
         <td class="col-ret" style="color: #f59e0b;">20,000 元</td>
-        <td style="text-align: center;"><span class="badge badge-yellow">還不錯</span></td>
+        <td class="col-badge" style="text-align: center;"><span class="badge badge-yellow">還不錯</span></td>
     </tr>
 <tr class="village-base row-first">
         <td rowspan="2" class="col-fixed col-name">
@@ -1247,22 +1248,22 @@
         </td>
         <td class="col-year"><span class="year-tag">113 年</span></td>
         <td class="col-num">599,453 元</td>
-        <td><div class="progress-bar-wrap">
+        <td class="col-rate"><div class="progress-bar-wrap">
         <div class="progress-bar-fill" style="width: 99.9%; background: #10b981;"></div>
     </div>
     <span style="color: #10b981; font-weight: 800;">99.9%</span></td>
         <td class="col-ret" style="color: #10b981;">547 元</td>
-        <td style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
+        <td class="col-badge" style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
     </tr>
 <tr class="village-base row-second">
         <td class="col-year"><span class="year-tag">114 年</span></td>
         <td class="col-num">582,204 元</td>
-        <td><div class="progress-bar-wrap">
+        <td class="col-rate"><div class="progress-bar-wrap">
         <div class="progress-bar-fill" style="width: 97.0%; background: #f59e0b;"></div>
     </div>
     <span style="color: #f59e0b; font-weight: 800;">97.0%</span></td>
         <td class="col-ret" style="color: #f59e0b;">17,796 元</td>
-        <td style="text-align: center;"><span class="badge badge-yellow">還不錯</span></td>
+        <td class="col-badge" style="text-align: center;"><span class="badge badge-yellow">還不錯</span></td>
     </tr>
 <tr class="village-alt row-first">
         <td rowspan="2" class="col-fixed col-name">
@@ -1270,22 +1271,22 @@
         </td>
         <td class="col-year"><span class="year-tag">113 年</span></td>
         <td class="col-num">583,788 元</td>
-        <td><div class="progress-bar-wrap">
+        <td class="col-rate"><div class="progress-bar-wrap">
         <div class="progress-bar-fill" style="width: 97.3%; background: #f59e0b;"></div>
     </div>
     <span style="color: #f59e0b; font-weight: 800;">97.3%</span></td>
         <td class="col-ret" style="color: #f59e0b;">16,212 元</td>
-        <td style="text-align: center;"><span class="badge badge-yellow">還不錯</span></td>
+        <td class="col-badge" style="text-align: center;"><span class="badge badge-yellow">還不錯</span></td>
     </tr>
 <tr class="village-alt row-second">
         <td class="col-year"><span class="year-tag">114 年</span></td>
         <td class="col-num">600,000 元</td>
-        <td><div class="progress-bar-wrap">
+        <td class="col-rate"><div class="progress-bar-wrap">
         <div class="progress-bar-fill" style="width: 100%; background: #10b981;"></div>
     </div>
     <span style="color: #10b981; font-weight: 800;">100.0%</span></td>
         <td class="col-ret" style="color: #10b981;">0 元</td>
-        <td style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
+        <td class="col-badge" style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
     </tr>
 <tr class="village-base row-first">
         <td rowspan="2" class="col-fixed col-name">
@@ -1293,22 +1294,22 @@
         </td>
         <td class="col-year"><span class="year-tag">113 年</span></td>
         <td class="col-num">586,527 元</td>
-        <td><div class="progress-bar-wrap">
+        <td class="col-rate"><div class="progress-bar-wrap">
         <div class="progress-bar-fill" style="width: 97.8%; background: #f59e0b;"></div>
     </div>
     <span style="color: #f59e0b; font-weight: 800;">97.8%</span></td>
         <td class="col-ret" style="color: #f59e0b;">13,473 元</td>
-        <td style="text-align: center;"><span class="badge badge-yellow">還不錯</span></td>
+        <td class="col-badge" style="text-align: center;"><span class="badge badge-yellow">還不錯</span></td>
     </tr>
 <tr class="village-base row-second">
         <td class="col-year"><span class="year-tag">114 年</span></td>
         <td class="col-num">599,476 元</td>
-        <td><div class="progress-bar-wrap">
+        <td class="col-rate"><div class="progress-bar-wrap">
         <div class="progress-bar-fill" style="width: 99.9%; background: #10b981;"></div>
     </div>
     <span style="color: #10b981; font-weight: 800;">99.9%</span></td>
         <td class="col-ret" style="color: #10b981;">524 元</td>
-        <td style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
+        <td class="col-badge" style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
     </tr>
 <tr class="village-alt row-first">
         <td rowspan="2" class="col-fixed col-name">
@@ -1316,22 +1317,22 @@
         </td>
         <td class="col-year"><span class="year-tag">113 年</span></td>
         <td class="col-num">600,000 元</td>
-        <td><div class="progress-bar-wrap">
+        <td class="col-rate"><div class="progress-bar-wrap">
         <div class="progress-bar-fill" style="width: 100%; background: #10b981;"></div>
     </div>
     <span style="color: #10b981; font-weight: 800;">100.0%</span></td>
         <td class="col-ret" style="color: #10b981;">0 元</td>
-        <td style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
+        <td class="col-badge" style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
     </tr>
 <tr class="village-alt row-second">
         <td class="col-year"><span class="year-tag">114 年</span></td>
         <td class="col-num">590,093 元</td>
-        <td><div class="progress-bar-wrap">
+        <td class="col-rate"><div class="progress-bar-wrap">
         <div class="progress-bar-fill" style="width: 98.3%; background: #f59e0b;"></div>
     </div>
     <span style="color: #f59e0b; font-weight: 800;">98.3%</span></td>
         <td class="col-ret" style="color: #f59e0b;">9,907 元</td>
-        <td style="text-align: center;"><span class="badge badge-yellow">還不錯</span></td>
+        <td class="col-badge" style="text-align: center;"><span class="badge badge-yellow">還不錯</span></td>
     </tr>
 <tr class="village-base row-first">
         <td rowspan="2" class="col-fixed col-name">
@@ -1339,22 +1340,22 @@
         </td>
         <td class="col-year"><span class="year-tag">113 年</span></td>
         <td class="col-num">595,515 元</td>
-        <td><div class="progress-bar-wrap">
+        <td class="col-rate"><div class="progress-bar-wrap">
         <div class="progress-bar-fill" style="width: 99.3%; background: #f59e0b;"></div>
     </div>
     <span style="color: #f59e0b; font-weight: 800;">99.3%</span></td>
         <td class="col-ret" style="color: #f59e0b;">4,485 元</td>
-        <td style="text-align: center;"><span class="badge badge-yellow">還不錯</span></td>
+        <td class="col-badge" style="text-align: center;"><span class="badge badge-yellow">還不錯</span></td>
     </tr>
 <tr class="village-base row-second">
         <td class="col-year"><span class="year-tag">114 年</span></td>
         <td class="col-num">597,884 元</td>
-        <td><div class="progress-bar-wrap">
+        <td class="col-rate"><div class="progress-bar-wrap">
         <div class="progress-bar-fill" style="width: 99.6%; background: #10b981;"></div>
     </div>
     <span style="color: #10b981; font-weight: 800;">99.6%</span></td>
         <td class="col-ret" style="color: #10b981;">2,116 元</td>
-        <td style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
+        <td class="col-badge" style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
     </tr>
 <tr class="village-alt row-first">
         <td rowspan="2" class="col-fixed col-name">
@@ -1362,22 +1363,22 @@
         </td>
         <td class="col-year"><span class="year-tag">113 年</span></td>
         <td class="col-num">594,051 元</td>
-        <td><div class="progress-bar-wrap">
+        <td class="col-rate"><div class="progress-bar-wrap">
         <div class="progress-bar-fill" style="width: 99.0%; background: #f59e0b;"></div>
     </div>
     <span style="color: #f59e0b; font-weight: 800;">99.0%</span></td>
         <td class="col-ret" style="color: #f59e0b;">5,949 元</td>
-        <td style="text-align: center;"><span class="badge badge-yellow">還不錯</span></td>
+        <td class="col-badge" style="text-align: center;"><span class="badge badge-yellow">還不錯</span></td>
     </tr>
 <tr class="village-alt row-second">
         <td class="col-year"><span class="year-tag">114 年</span></td>
         <td class="col-num">600,000 元</td>
-        <td><div class="progress-bar-wrap">
+        <td class="col-rate"><div class="progress-bar-wrap">
         <div class="progress-bar-fill" style="width: 100%; background: #10b981;"></div>
     </div>
     <span style="color: #10b981; font-weight: 800;">100.0%</span></td>
         <td class="col-ret" style="color: #10b981;">0 元</td>
-        <td style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
+        <td class="col-badge" style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
     </tr>
 <tr class="village-base row-first">
         <td rowspan="2" class="col-fixed col-name">
@@ -1385,22 +1386,22 @@
         </td>
         <td class="col-year"><span class="year-tag">113 年</span></td>
         <td class="col-num">596,819 元</td>
-        <td><div class="progress-bar-wrap">
+        <td class="col-rate"><div class="progress-bar-wrap">
         <div class="progress-bar-fill" style="width: 99.5%; background: #10b981;"></div>
     </div>
     <span style="color: #10b981; font-weight: 800;">99.5%</span></td>
         <td class="col-ret" style="color: #10b981;">3,181 元</td>
-        <td style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
+        <td class="col-badge" style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
     </tr>
 <tr class="village-base row-second">
         <td class="col-year"><span class="year-tag">114 年</span></td>
         <td class="col-num">599,851 元</td>
-        <td><div class="progress-bar-wrap">
+        <td class="col-rate"><div class="progress-bar-wrap">
         <div class="progress-bar-fill" style="width: 100%; background: #10b981;"></div>
     </div>
     <span style="color: #10b981; font-weight: 800;">100.0%</span></td>
         <td class="col-ret" style="color: #10b981;">149 元</td>
-        <td style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
+        <td class="col-badge" style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
     </tr>
 <tr class="village-alt row-first">
         <td rowspan="2" class="col-fixed col-name">
@@ -1408,22 +1409,22 @@
         </td>
         <td class="col-year"><span class="year-tag">113 年</span></td>
         <td class="col-num">599,929 元</td>
-        <td><div class="progress-bar-wrap">
+        <td class="col-rate"><div class="progress-bar-wrap">
         <div class="progress-bar-fill" style="width: 100%; background: #10b981;"></div>
     </div>
     <span style="color: #10b981; font-weight: 800;">100.0%</span></td>
         <td class="col-ret" style="color: #10b981;">71 元</td>
-        <td style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
+        <td class="col-badge" style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
     </tr>
 <tr class="village-alt row-second">
         <td class="col-year"><span class="year-tag">114 年</span></td>
         <td class="col-num">597,719 元</td>
-        <td><div class="progress-bar-wrap">
+        <td class="col-rate"><div class="progress-bar-wrap">
         <div class="progress-bar-fill" style="width: 99.6%; background: #10b981;"></div>
     </div>
     <span style="color: #10b981; font-weight: 800;">99.6%</span></td>
         <td class="col-ret" style="color: #10b981;">2,281 元</td>
-        <td style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
+        <td class="col-badge" style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
     </tr>
 <tr class="village-base row-first">
         <td rowspan="2" class="col-fixed col-name">
@@ -1431,22 +1432,22 @@
         </td>
         <td class="col-year"><span class="year-tag">113 年</span></td>
         <td class="col-num">600,000 元</td>
-        <td><div class="progress-bar-wrap">
+        <td class="col-rate"><div class="progress-bar-wrap">
         <div class="progress-bar-fill" style="width: 100%; background: #10b981;"></div>
     </div>
     <span style="color: #10b981; font-weight: 800;">100.0%</span></td>
         <td class="col-ret" style="color: #10b981;">0 元</td>
-        <td style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
+        <td class="col-badge" style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
     </tr>
 <tr class="village-base row-second">
         <td class="col-year"><span class="year-tag">114 年</span></td>
         <td class="col-num">597,792 元</td>
-        <td><div class="progress-bar-wrap">
+        <td class="col-rate"><div class="progress-bar-wrap">
         <div class="progress-bar-fill" style="width: 99.6%; background: #10b981;"></div>
     </div>
     <span style="color: #10b981; font-weight: 800;">99.6%</span></td>
         <td class="col-ret" style="color: #10b981;">2,208 元</td>
-        <td style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
+        <td class="col-badge" style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
     </tr>
 <tr class="village-alt row-first">
         <td rowspan="2" class="col-fixed col-name">
@@ -1454,22 +1455,22 @@
         </td>
         <td class="col-year"><span class="year-tag">113 年</span></td>
         <td class="col-num">600,000 元</td>
-        <td><div class="progress-bar-wrap">
+        <td class="col-rate"><div class="progress-bar-wrap">
         <div class="progress-bar-fill" style="width: 100%; background: #10b981;"></div>
     </div>
     <span style="color: #10b981; font-weight: 800;">100.0%</span></td>
         <td class="col-ret" style="color: #10b981;">0 元</td>
-        <td style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
+        <td class="col-badge" style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
     </tr>
 <tr class="village-alt row-second">
         <td class="col-year"><span class="year-tag">114 年</span></td>
         <td class="col-num">598,665 元</td>
-        <td><div class="progress-bar-wrap">
+        <td class="col-rate"><div class="progress-bar-wrap">
         <div class="progress-bar-fill" style="width: 99.8%; background: #10b981;"></div>
     </div>
     <span style="color: #10b981; font-weight: 800;">99.8%</span></td>
         <td class="col-ret" style="color: #10b981;">1,335 元</td>
-        <td style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
+        <td class="col-badge" style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
     </tr>
 <tr class="village-base row-first">
         <td rowspan="2" class="col-fixed col-name">
@@ -1477,22 +1478,22 @@
         </td>
         <td class="col-year"><span class="year-tag">113 年</span></td>
         <td class="col-num">600,000 元</td>
-        <td><div class="progress-bar-wrap">
+        <td class="col-rate"><div class="progress-bar-wrap">
         <div class="progress-bar-fill" style="width: 100%; background: #10b981;"></div>
     </div>
     <span style="color: #10b981; font-weight: 800;">100.0%</span></td>
         <td class="col-ret" style="color: #10b981;">0 元</td>
-        <td style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
+        <td class="col-badge" style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
     </tr>
 <tr class="village-base row-second">
         <td class="col-year"><span class="year-tag">114 年</span></td>
         <td class="col-num">599,684 元</td>
-        <td><div class="progress-bar-wrap">
+        <td class="col-rate"><div class="progress-bar-wrap">
         <div class="progress-bar-fill" style="width: 99.9%; background: #10b981;"></div>
     </div>
     <span style="color: #10b981; font-weight: 800;">99.9%</span></td>
         <td class="col-ret" style="color: #10b981;">316 元</td>
-        <td style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
+        <td class="col-badge" style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
     </tr>
 <tr class="village-alt row-first">
         <td rowspan="2" class="col-fixed col-name">
@@ -1500,22 +1501,22 @@
         </td>
         <td class="col-year"><span class="year-tag">113 年</span></td>
         <td class="col-num">599,846 元</td>
-        <td><div class="progress-bar-wrap">
+        <td class="col-rate"><div class="progress-bar-wrap">
         <div class="progress-bar-fill" style="width: 100%; background: #10b981;"></div>
     </div>
     <span style="color: #10b981; font-weight: 800;">100.0%</span></td>
         <td class="col-ret" style="color: #10b981;">154 元</td>
-        <td style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
+        <td class="col-badge" style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
     </tr>
 <tr class="village-alt row-second">
         <td class="col-year"><span class="year-tag">114 年</span></td>
         <td class="col-num">600,000 元</td>
-        <td><div class="progress-bar-wrap">
+        <td class="col-rate"><div class="progress-bar-wrap">
         <div class="progress-bar-fill" style="width: 100%; background: #10b981;"></div>
     </div>
     <span style="color: #10b981; font-weight: 800;">100.0%</span></td>
         <td class="col-ret" style="color: #10b981;">0 元</td>
-        <td style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
+        <td class="col-badge" style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
     </tr>
 <tr class="village-base row-first">
         <td rowspan="2" class="col-fixed col-name">
@@ -1523,22 +1524,22 @@
         </td>
         <td class="col-year"><span class="year-tag">113 年</span></td>
         <td class="col-num">599,977 元</td>
-        <td><div class="progress-bar-wrap">
+        <td class="col-rate"><div class="progress-bar-wrap">
         <div class="progress-bar-fill" style="width: 100%; background: #10b981;"></div>
     </div>
     <span style="color: #10b981; font-weight: 800;">100.0%</span></td>
         <td class="col-ret" style="color: #10b981;">23 元</td>
-        <td style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
+        <td class="col-badge" style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
     </tr>
 <tr class="village-base row-second">
         <td class="col-year"><span class="year-tag">114 年</span></td>
         <td class="col-num">600,000 元</td>
-        <td><div class="progress-bar-wrap">
+        <td class="col-rate"><div class="progress-bar-wrap">
         <div class="progress-bar-fill" style="width: 100%; background: #10b981;"></div>
     </div>
     <span style="color: #10b981; font-weight: 800;">100.0%</span></td>
         <td class="col-ret" style="color: #10b981;">0 元</td>
-        <td style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
+        <td class="col-badge" style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
     </tr>
 <tr class="village-alt row-first">
         <td rowspan="2" class="col-fixed col-name">
@@ -1546,22 +1547,22 @@
         </td>
         <td class="col-year"><span class="year-tag">113 年</span></td>
         <td class="col-num">600,000 元</td>
-        <td><div class="progress-bar-wrap">
+        <td class="col-rate"><div class="progress-bar-wrap">
         <div class="progress-bar-fill" style="width: 100%; background: #10b981;"></div>
     </div>
     <span style="color: #10b981; font-weight: 800;">100.0%</span></td>
         <td class="col-ret" style="color: #10b981;">0 元</td>
-        <td style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
+        <td class="col-badge" style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
     </tr>
 <tr class="village-alt row-second">
         <td class="col-year"><span class="year-tag">114 年</span></td>
         <td class="col-num">600,000 元</td>
-        <td><div class="progress-bar-wrap">
+        <td class="col-rate"><div class="progress-bar-wrap">
         <div class="progress-bar-fill" style="width: 100%; background: #10b981;"></div>
     </div>
     <span style="color: #10b981; font-weight: 800;">100.0%</span></td>
         <td class="col-ret" style="color: #10b981;">0 元</td>
-        <td style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
+        <td class="col-badge" style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
     </tr>
 <tr class="village-base row-first">
         <td rowspan="2" class="col-fixed col-name">
@@ -1569,22 +1570,22 @@
         </td>
         <td class="col-year"><span class="year-tag">113 年</span></td>
         <td class="col-num">600,000 元</td>
-        <td><div class="progress-bar-wrap">
+        <td class="col-rate"><div class="progress-bar-wrap">
         <div class="progress-bar-fill" style="width: 100%; background: #10b981;"></div>
     </div>
     <span style="color: #10b981; font-weight: 800;">100.0%</span></td>
         <td class="col-ret" style="color: #10b981;">0 元</td>
-        <td style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
+        <td class="col-badge" style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
     </tr>
 <tr class="village-base row-second">
         <td class="col-year"><span class="year-tag">114 年</span></td>
         <td class="col-num">600,000 元</td>
-        <td><div class="progress-bar-wrap">
+        <td class="col-rate"><div class="progress-bar-wrap">
         <div class="progress-bar-fill" style="width: 100%; background: #10b981;"></div>
     </div>
     <span style="color: #10b981; font-weight: 800;">100.0%</span></td>
         <td class="col-ret" style="color: #10b981;">0 元</td>
-        <td style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
+        <td class="col-badge" style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
     </tr>
 <tr class="village-alt row-first">
         <td rowspan="2" class="col-fixed col-name">
@@ -1592,22 +1593,22 @@
         </td>
         <td class="col-year"><span class="year-tag">113 年</span></td>
         <td class="col-num">600,000 元</td>
-        <td><div class="progress-bar-wrap">
+        <td class="col-rate"><div class="progress-bar-wrap">
         <div class="progress-bar-fill" style="width: 100%; background: #10b981;"></div>
     </div>
     <span style="color: #10b981; font-weight: 800;">100.0%</span></td>
         <td class="col-ret" style="color: #10b981;">0 元</td>
-        <td style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
+        <td class="col-badge" style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
     </tr>
 <tr class="village-alt row-second">
         <td class="col-year"><span class="year-tag">114 年</span></td>
         <td class="col-num">600,000 元</td>
-        <td><div class="progress-bar-wrap">
+        <td class="col-rate"><div class="progress-bar-wrap">
         <div class="progress-bar-fill" style="width: 100%; background: #10b981;"></div>
     </div>
     <span style="color: #10b981; font-weight: 800;">100.0%</span></td>
         <td class="col-ret" style="color: #10b981;">0 元</td>
-        <td style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
+        <td class="col-badge" style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
     </tr>
 <tr class="village-base row-first">
         <td rowspan="2" class="col-fixed col-name">
@@ -1615,22 +1616,22 @@
         </td>
         <td class="col-year"><span class="year-tag">113 年</span></td>
         <td class="col-num">600,000 元</td>
-        <td><div class="progress-bar-wrap">
+        <td class="col-rate"><div class="progress-bar-wrap">
         <div class="progress-bar-fill" style="width: 100%; background: #10b981;"></div>
     </div>
     <span style="color: #10b981; font-weight: 800;">100.0%</span></td>
         <td class="col-ret" style="color: #10b981;">0 元</td>
-        <td style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
+        <td class="col-badge" style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
     </tr>
 <tr class="village-base row-second">
         <td class="col-year"><span class="year-tag">114 年</span></td>
         <td class="col-num">600,000 元</td>
-        <td><div class="progress-bar-wrap">
+        <td class="col-rate"><div class="progress-bar-wrap">
         <div class="progress-bar-fill" style="width: 100%; background: #10b981;"></div>
     </div>
     <span style="color: #10b981; font-weight: 800;">100.0%</span></td>
         <td class="col-ret" style="color: #10b981;">0 元</td>
-        <td style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
+        <td class="col-badge" style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
     </tr>
 <tr class="village-alt row-first">
         <td rowspan="2" class="col-fixed col-name">
@@ -1638,22 +1639,22 @@
         </td>
         <td class="col-year"><span class="year-tag">113 年</span></td>
         <td class="col-num">600,000 元</td>
-        <td><div class="progress-bar-wrap">
+        <td class="col-rate"><div class="progress-bar-wrap">
         <div class="progress-bar-fill" style="width: 100%; background: #10b981;"></div>
     </div>
     <span style="color: #10b981; font-weight: 800;">100.0%</span></td>
         <td class="col-ret" style="color: #10b981;">0 元</td>
-        <td style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
+        <td class="col-badge" style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
     </tr>
 <tr class="village-alt row-second">
         <td class="col-year"><span class="year-tag">114 年</span></td>
         <td class="col-num">600,000 元</td>
-        <td><div class="progress-bar-wrap">
+        <td class="col-rate"><div class="progress-bar-wrap">
         <div class="progress-bar-fill" style="width: 100%; background: #10b981;"></div>
     </div>
     <span style="color: #10b981; font-weight: 800;">100.0%</span></td>
         <td class="col-ret" style="color: #10b981;">0 元</td>
-        <td style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
+        <td class="col-badge" style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
     </tr>
 <tr class="village-base row-first">
         <td rowspan="2" class="col-fixed col-name">
@@ -1661,49 +1662,30 @@
         </td>
         <td class="col-year"><span class="year-tag">113 年</span></td>
         <td class="col-num">600,000 元</td>
-        <td><div class="progress-bar-wrap">
+        <td class="col-rate"><div class="progress-bar-wrap">
         <div class="progress-bar-fill" style="width: 100%; background: #10b981;"></div>
     </div>
     <span style="color: #10b981; font-weight: 800;">100.0%</span></td>
         <td class="col-ret" style="color: #10b981;">0 元</td>
-        <td style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
+        <td class="col-badge" style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
     </tr>
 <tr class="village-base row-second">
         <td class="col-year"><span class="year-tag">114 年</span></td>
         <td class="col-num">600,000 元</td>
-        <td><div class="progress-bar-wrap">
+        <td class="col-rate"><div class="progress-bar-wrap">
         <div class="progress-bar-fill" style="width: 100%; background: #10b981;"></div>
     </div>
     <span style="color: #10b981; font-weight: 800;">100.0%</span></td>
         <td class="col-ret" style="color: #10b981;">0 元</td>
-        <td style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
+        <td class="col-badge" style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
     </tr>
                                 </tbody>
                             </table>
                         </div>
 
-        <!-- Deep Dive Analysis Section -->
-        <div class="analysis-section">
-            <h2>💡 為什麼里長「懂企劃」是守住里民權益的關鍵？</h2>
-            <div class="analysis-grid">
-                <div class="analysis-box">
-                    <h3>1. 制度真相：沒提案＝預算全數繳回</h3>
-                    <p>里基層經費非自動入帳，依法必須具備合格專案企劃陳報公所。若未申請核銷，年底經費全數繳回市庫，里民權益直接歸零。</p>
-                </div>
-                <div class="analysis-box">
-                    <h3>2. 明德里警訊：全土城繳回第 1 名</h3>
-                    <p>公所官方決算證實：明德里 113 年繳回 16.8 萬、114 年繳回 21.1 萬，兩年累計繳回 37.8 萬元，為全土城 47 里損失最高！</p>
-                </div>
-                <div class="analysis-box">
-                    <h3>3. 專業解方：116 年升級 88 萬全數留里</h3>
-                    <p>市府已核定下屆經費調升至每年 88 萬元。陳新昱具 30 年系統管理與提案資歷，承諾專款 100% 用好用滿，並爭取外部資源挹注社區。</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Legal & Civic Disclaimer -->
-        <div class="disclaimer-box" style="margin-top: 18px; text-align: left;">
-            <p><strong>【資料來源與公民監督免責聲明】：</strong></p>
+        <!-- Legal & Civic Disclaimer（高對比亮色文字，清晰易讀） -->
+        <div class="disclaimer-box">
+            <p class="disclaimer-title">【資料來源與公民監督免責聲明】：</p>
             <p>1. <strong>資料來源出處</strong>：本表各項收支數據，均如實轉載自新北市政府與土城區公所官方發布之「新北市土城區 113 年第 1～4 季」及「114 年第 1～4 季」《里基層工作經費執行情形季報表》官方決算文件。各里法定預算係以土城區公所 113～114 年度預算統一編列之法定基本款（每里每年 60 萬元整）為一致比較基準。</p>
             <p>2. <strong>非唯一評量指標</strong>：本表所列「基層款執行率」僅反映各里辦公處依《新北市政府里基層工作經費督導實施要點》向土城區公所請領核銷之行政財務動支數據，僅供公共事務研究與市民監督參考，<strong>不代表亦不等於各里里長整體服務熱忱或基層盡責度之絕對評價</strong>，各里特性與公共需求各有不同，請理性客觀解讀。</p>
             <p>3. <strong>官方公開查詢管道</strong>：市民可逕至土城區公所官方公開平台核對原件：<a href="https://www.tucheng.ntpc.gov.tw" target="_blank" rel="noopener noreferrer">https://www.tucheng.ntpc.gov.tw</a>（路徑：首頁 ➔ 鄰里資訊 ➔ 里基層工作經費執行情形）。</p>
@@ -1711,7 +1693,7 @@
         </div>
 
                         <!-- 底部向上收合按鈕 -->
-                        <div class="budget-close-wrapper" style="text-align: center; margin-top: 24px;">
+                        <div class="budget-close-wrapper" style="text-align: center; margin-top: 20px;">
                             <button type="button" class="btn-budget-close" onclick="closeBudgetDetails()">
                                 <span class="close-arrow">▴</span>
                                 <span class="close-text">收起 47 里執行率對照</span>
