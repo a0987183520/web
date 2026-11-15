@@ -7842,3 +7842,95 @@ table#budgetTable tr.highlight-mingde .village-title {
         font-size: 0.78rem;
     }
 }
+
+/* ==========================================================================
+   土城區 47 里基層款執行率（雙欄與斑馬紋邊界清晰化）
+   ========================================================================== */
+
+.purpose-grid-two-col {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+}
+
+/* 斑馬紋分組：奇偶里交替底色，視覺層次分明 */
+tr.village-base td {
+    background-color: #0a0f1d !important;
+}
+tr.village-alt td {
+    background-color: #0f182c !important;
+}
+
+[data-theme="light"] tr.village-base td {
+    background-color: #ffffff !important;
+}
+[data-theme="light"] tr.village-alt td {
+    background-color: #f8fafc !important;
+}
+
+/* 同一里之 113 與 114 年間的分隔線（細虛線） */
+table#budgetTable tr.row-first td {
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.22) !important;
+}
+[data-theme="light"] table#budgetTable tr.row-first td {
+    border-bottom: 1px dashed rgba(0, 0, 0, 0.15) !important;
+}
+
+/* 各里與各里之間的分界線（高對比加粗 4px 實線，手機端清晰分明） */
+table#budgetTable tr.row-second td {
+    border-bottom: 4px solid #475569 !important;
+}
+[data-theme="light"] table#budgetTable tr.row-second td {
+    border-bottom: 4px solid #94a3b8 !important;
+}
+
+/* 首欄 Sticky 里名底色同步斑馬紋 */
+table#budgetTable tr.village-base td.col-fixed.col-name {
+    background-color: #0c1424 !important;
+}
+table#budgetTable tr.village-alt td.col-fixed.col-name {
+    background-color: #121d36 !important;
+}
+
+[data-theme="light"] table#budgetTable tr.village-base td.col-fixed.col-name {
+    background-color: #f1f5f9 !important;
+}
+[data-theme="light"] table#budgetTable tr.village-alt td.col-fixed.col-name {
+    background-color: #e2e8f0 !important;
+}
+
+/* 明德里置頂警示樣式（全土城繳回第一名） */
+table#budgetTable tr.highlight-mingde td {
+    background-color: rgba(239, 68, 68, 0.18) !important;
+}
+table#budgetTable tr.highlight-mingde td.col-fixed.col-name {
+    background-color: #2b131c !important;
+    border-left: 5px solid #ef4444 !important;
+}
+table#budgetTable tr.highlight-mingde.row-second td {
+    border-bottom: 4px solid #ef4444 !important;
+}
+
+[data-theme="light"] table#budgetTable tr.highlight-mingde td {
+    background-color: #fee2e2 !important;
+}
+[data-theme="light"] table#budgetTable tr.highlight-mingde td.col-fixed.col-name {
+    background-color: #fecaca !important;
+    border-left: 5px solid #ef4444 !important;
+}
+[data-theme="light"] table#budgetTable tr.highlight-mingde.row-second td {
+    border-bottom: 4px solid #dc2626 !important;
+}
+
+@media (max-width: 768px) {
+    .purpose-grid-two-col {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 6px;
+    }
+    table#budgetTable tr.row-second td {
+        border-bottom: 4.5px solid #64748b !important;
+    }
+    [data-theme="light"] table#budgetTable tr.row-second td {
+        border-bottom: 4.5px solid #64748b !important;
+    }
+}

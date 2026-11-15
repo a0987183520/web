@@ -34,14 +34,15 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css?v=27.30">
 
     <style>
         :root {
             --bg-primary: #0a0f1d;
             --bg-secondary: #0f172a;
             --bg-table: #0a0f1d;
-            --border-village: rgba(255, 255, 255, 0.35);
-            --border-row: rgba(255, 255, 255, 0.12);
+            --border-village: #475569;
+            --border-row: rgba(255, 255, 255, 0.18);
             --border-col: rgba(255, 255, 255, 0.22);
             --border-fixed-col: rgba(255, 255, 255, 0.38);
             --text-primary: #f9fafb;
@@ -52,7 +53,7 @@
             --accent-red: #ef4444;
             --accent-orange: #f97316;
             --accent-blue: #3b82f6;
-            --highlight-mingde-bg: rgba(239, 68, 68, 0.16);
+            --highlight-mingde-bg: rgba(239, 68, 68, 0.18);
         }
 
         * {
@@ -103,7 +104,6 @@
             font-weight: 700;
         }
 
-        /* 紅圈白底紅字 官方抽籤大圓章 */
         .ballot-circle {
             display: inline-flex;
             align-items: center;
@@ -161,7 +161,6 @@
             padding: 24px 16px;
         }
 
-        /* Hero */
         .hero {
             text-align: center;
             padding: 20px 16px 16px;
@@ -175,351 +174,6 @@
             color: #ffffff;
         }
 
-        /* 六大主要用途方向模組（極致精簡大器） */
-        .purpose-card {
-            background: linear-gradient(145deg, rgba(15, 23, 42, 0.95), rgba(10, 15, 29, 0.95));
-            border: 1px solid rgba(59, 130, 246, 0.3);
-            border-radius: 14px;
-            padding: 20px 22px;
-            margin-bottom: 20px;
-        }
-
-        .purpose-header {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 8px;
-        }
-
-        .purpose-header h2 {
-            font-size: 1.18rem;
-            font-weight: 800;
-            color: #ffffff;
-        }
-
-        .purpose-lead {
-            font-size: 0.9rem;
-            color: #cbd5e1;
-            line-height: 1.6;
-            margin-bottom: 12px;
-        }
-
-        .purpose-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-            gap: 8px;
-        }
-
-        .purpose-item {
-            background: rgba(0, 0, 0, 0.35);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 8px;
-            padding: 9px 11px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .purpose-icon {
-            font-size: 1.15rem;
-            flex-shrink: 0;
-        }
-
-        .purpose-title {
-            font-size: 0.88rem;
-            font-weight: 800;
-            color: #93c5fd;
-            line-height: 1.3;
-        }
-
-        .purpose-item-extra {
-            border-color: rgba(52, 211, 153, 0.35);
-            background: rgba(16, 185, 129, 0.08);
-        }
-
-        .purpose-item-extra .purpose-title {
-            color: #34d399;
-        }
-
-        /* 法定預算置頂提示條（取代重複欄位，清爽大器） */
-        .budget-notice-bar {
-            background: rgba(59, 130, 246, 0.12);
-            border: 1px solid rgba(59, 130, 246, 0.35);
-            border-radius: 10px;
-            padding: 12px 16px;
-            margin-bottom: 16px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-size: 0.88rem;
-            color: #cbd5e1;
-            line-height: 1.5;
-        }
-
-        .notice-icon {
-            font-size: 1.25rem;
-            flex-shrink: 0;
-        }
-
-        .notice-content strong {
-            color: #60a5fa;
-            font-weight: 800;
-        }
-
-        /* Table Design */
-        .table-wrap {
-            overflow-x: auto;
-            background: var(--bg-table);
-            border: 2px solid var(--border-village);
-            border-radius: 12px;
-            margin-bottom: 26px;
-            -webkit-overflow-scrolling: touch;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 0.88rem;
-            text-align: left;
-            background: var(--bg-table);
-        }
-
-        thead {
-            background: #0f172a;
-            border-bottom: 2.5px solid var(--border-village);
-        }
-
-        th {
-            padding: 12px 10px;
-            font-weight: 800;
-            color: #ffffff;
-            white-space: nowrap;
-            letter-spacing: 0.5px;
-            border-right: 1.5px solid var(--border-col);
-            background: #111e38;
-        }
-
-        th:last-child {
-            border-right: none;
-        }
-
-        th.th-fixed {
-            position: sticky;
-            left: 0;
-            z-index: 10;
-            background: #111e38;
-            box-shadow: 2px 0 6px rgba(0, 0, 0, 0.4);
-            text-align: center;
-            width: 85px;
-        }
-
-        td {
-            padding: 10px 10px;
-            white-space: nowrap;
-            border-right: 1px solid var(--border-col);
-            background: var(--bg-table);
-        }
-
-        td:last-child {
-            border-right: none;
-        }
-
-        /* Row styling: Row 1 has inner separation line, Row 2 has bold village separation line */
-        tr.row-first td {
-            border-bottom: 1.5px solid var(--border-row);
-        }
-
-        tr.row-second td {
-            border-bottom: 3px solid var(--border-village);
-        }
-
-        /* Left fixed village name styling - 手機左右滾動時始終釘選在左側 */
-        td.col-fixed.col-name {
-            position: sticky;
-            left: 0;
-            z-index: 5;
-            background: #0f172a;
-            font-weight: 800;
-            vertical-align: middle;
-            text-align: center;
-            border-right: 2px solid var(--border-fixed-col);
-            border-bottom: 3px solid var(--border-village);
-            box-shadow: 2px 0 6px rgba(0, 0, 0, 0.4);
-            width: 85px;
-            padding: 8px 10px;
-        }
-
-        .village-title {
-            font-size: 1.02rem;
-            color: #ffffff;
-            font-weight: 900;
-        }
-
-        .col-year {
-            text-align: center;
-            width: 72px;
-        }
-
-        .col-num {
-            font-variant-numeric: tabular-nums;
-            font-weight: 600;
-            color: #cbd5e1;
-        }
-
-        .col-ret {
-            font-variant-numeric: tabular-nums;
-            font-weight: 800;
-        }
-
-        /* Mingde Highlight - 置頂高亮紅色警示底色 */
-        tr.highlight-mingde td {
-            background: var(--highlight-mingde-bg) !important;
-        }
-
-        tr.highlight-mingde td.col-fixed.col-name {
-            background: #2a161c !important;
-            border-left: 5px solid #ef4444 !important;
-        }
-
-        tr.highlight-mingde .village-title {
-            color: #fca5a5;
-        }
-
-        .year-tag {
-            display: inline-block;
-            font-size: 0.8rem;
-            font-weight: 800;
-            padding: 2px 6px;
-            border-radius: 5px;
-            background: rgba(255, 255, 255, 0.08);
-            color: #93c5fd;
-            border: 1px solid rgba(147, 197, 253, 0.25);
-        }
-
-        /* Four-tier Badges with Unified Colors */
-        .badge {
-            display: inline-block;
-            padding: 3px 9px;
-            border-radius: 6px;
-            font-size: 0.78rem;
-            font-weight: 800;
-            letter-spacing: 0.3px;
-        }
-
-        /* 綠色: 100% 用好用滿 */
-        .badge-green {
-            background: rgba(16, 185, 129, 0.22);
-            color: #34d399;
-            border: 1px solid rgba(16, 185, 129, 0.5);
-        }
-
-        /* 黃色: 95%~99% 還不錯 */
-        .badge-yellow {
-            background: rgba(245, 158, 11, 0.22);
-            color: #fbbf24;
-            border: 1px solid rgba(245, 158, 11, 0.5);
-        }
-
-        /* 橘色: 80%~94% 尚待努力 */
-        .badge-orange {
-            background: rgba(249, 115, 22, 0.22);
-            color: #fb923c;
-            border: 1px solid rgba(249, 115, 22, 0.5);
-        }
-
-        /* 紅色: 79%以下 希望能說明 */
-        .badge-red {
-            background: rgba(239, 68, 68, 0.25);
-            color: #f87171;
-            border: 1px solid rgba(239, 68, 68, 0.5);
-        }
-
-        .progress-bar-wrap {
-            width: 55px;
-            height: 6px;
-            background: rgba(255, 255, 255, 0.12);
-            border-radius: 9999px;
-            overflow: hidden;
-            display: inline-block;
-            vertical-align: middle;
-            margin-right: 5px;
-        }
-
-        .progress-bar-fill {
-            height: 100%;
-            border-radius: 9999px;
-        }
-
-        /* Deep Dive Analysis Card */
-        .analysis-section {
-            background: linear-gradient(145deg, rgba(15, 23, 42, 0.95), rgba(10, 15, 29, 0.95));
-            border: 1px solid rgba(16, 185, 129, 0.3);
-            border-radius: 14px;
-            padding: 22px 20px;
-            margin-bottom: 22px;
-        }
-
-        .analysis-section h2 {
-            font-size: 1.3rem;
-            color: #fff;
-            margin-bottom: 14px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .analysis-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 14px;
-            margin-top: 12px;
-        }
-
-        .analysis-box {
-            background: rgba(0, 0, 0, 0.35);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 10px;
-            padding: 15px;
-        }
-
-        .analysis-box h3 {
-            font-size: 0.98rem;
-            color: var(--accent-gold);
-            margin-bottom: 8px;
-        }
-
-        .analysis-box p {
-            font-size: 0.88rem;
-            color: #d1d5db;
-            line-height: 1.6;
-        }
-
-        /* Legal & Civic Disclaimer */
-        .disclaimer-box {
-            background: rgba(0, 0, 0, 0.35);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 12px;
-            padding: 18px;
-            font-size: 0.83rem;
-            color: var(--text-muted);
-            line-height: 1.8;
-        }
-
-        .disclaimer-box a {
-            color: #60a5fa;
-            text-decoration: underline;
-            word-break: break-all;
-        }
-
-        .disclaimer-box a:hover {
-            color: #93c5fd;
-        }
-
-        .disclaimer-box strong {
-            color: #cbd5e1;
-        }
-
-        /* CTA */
         .cta-center {
             text-align: center;
             margin-top: 26px;
@@ -543,73 +197,6 @@
         .btn-primary:hover {
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(16, 185, 129, 0.5);
-        }
-
-        /* Mobile Optimization */
-        @media (max-width: 768px) {
-            .container {
-                padding: 16px 10px;
-            }
-            .hero {
-                padding: 14px 6px 12px;
-            }
-            .hero h1 {
-                font-size: 1.55rem;
-            }
-            .purpose-card {
-                padding: 14px 14px;
-            }
-            .purpose-header h2 {
-                font-size: 1.05rem;
-            }
-            .purpose-lead {
-                font-size: 0.82rem;
-            }
-            .purpose-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .budget-notice-bar {
-                padding: 10px 12px;
-                font-size: 0.8rem;
-                gap: 8px;
-            }
-            table {
-                font-size: 0.8rem;
-            }
-            th, td {
-                padding: 7px 6px;
-            }
-            th.th-fixed, td.col-fixed.col-name {
-                width: 68px;
-                padding-left: 4px;
-                padding-right: 4px;
-            }
-            .village-title {
-                font-size: 0.9rem;
-            }
-            .year-tag {
-                font-size: 0.72rem;
-                padding: 1px 4px;
-            }
-            .progress-bar-wrap {
-                width: 35px;
-                height: 4px;
-                margin-right: 3px;
-            }
-            .badge {
-                padding: 2px 5px;
-                font-size: 0.7rem;
-            }
-            .analysis-section {
-                padding: 16px 12px;
-            }
-            .analysis-section h2 {
-                font-size: 1.15rem;
-            }
-            .disclaimer-box {
-                padding: 14px 12px;
-                font-size: 0.78rem;
-            }
         }
     </style>
 </head>
@@ -637,15 +224,17 @@
             <h1>土城區 47 里基層款執行率</h1>
         </section>
 
-        <!-- 法定主要用途方向說明模組（精簡大器） -->
-        <section class="purpose-card">
+        <!-- 主要用途方向模組（雙欄呈現，極致精簡白話） -->
+        <div class="purpose-card">
             <div class="purpose-header">
-                <h2>🛠️ 什麼是「里基層工作經費」？這筆錢能為里民做什麼？</h2>
+                <h2>🛠️ 這筆錢能為里民做什麼？</h2>
             </div>
             <p class="purpose-lead">
-                116年以前，市府每年會編列給各里至少 60 萬元專款，讓里長改善里民生活與環境。但經費必須由里長主動提案、陳報區公所核准才能支用。若年底沒申請完畢，餘額將全數繳回市庫。
+                市府每年會編列給各里至少 60 萬元專款，讓里長改善里民生活與環境。<br>
+                但經費必須由里長主動提案、公所核准才能支用。<br>
+                若年底沒申請完畢，餘額將繳回市庫。
             </p>
-            <div class="purpose-grid">
+            <div class="purpose-grid-two-col">
                 <div class="purpose-item">
                     <span class="purpose-icon">🧹</span>
                     <span class="purpose-title">1. 社區清潔</span>
@@ -670,18 +259,10 @@
                     <span class="purpose-icon">🚨</span>
                     <span class="purpose-title">6. 災害防救</span>
                 </div>
-                <div class="purpose-item purpose-item-extra">
+                <div class="purpose-item purpose-item-extra" style="grid-column: 1 / -1;">
                     <span class="purpose-icon">💡</span>
-                    <span class="purpose-title">7. 其他公益需求（專案核定）</span>
+                    <span class="purpose-title">7. 其他公益</span>
                 </div>
-            </div>
-        </section>
-
-        <!-- 法定預算置頂統一基準說明條（取代94列重複欄位，精簡版面） -->
-        <div class="budget-notice-bar">
-            <span class="notice-icon">📌</span>
-            <div class="notice-content">
-                <strong>全區法定預算統一基準：</strong>依新北市土城區公所 113～114 年公務預算編列標準，全土城 47 里統一為<strong>每年每里 60 萬元整</strong>（專案實報實銷，未動支餘額年底全數繳回市庫）。
             </div>
         </div>
 
@@ -699,7 +280,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr class="highlight-mingde row-first">
+<tr class="highlight-mingde row-first">
         <td rowspan="2" class="col-fixed col-name">
             <span class="village-title">明德里</span>
         </td>
@@ -722,7 +303,7 @@
         <td class="col-ret" style="color: #ef4444;">211,100 元</td>
         <td style="text-align: center;"><span class="badge badge-red">希望能說明</span></td>
     </tr>
-<tr class=" row-first">
+<tr class="village-alt row-first">
         <td rowspan="2" class="col-fixed col-name">
             <span class="village-title">廣興里</span>
         </td>
@@ -735,7 +316,7 @@
         <td class="col-ret" style="color: #ef4444;">146,000 元</td>
         <td style="text-align: center;"><span class="badge badge-red">希望能說明</span></td>
     </tr>
-<tr class=" row-second">
+<tr class="village-alt row-second">
         <td class="col-year"><span class="year-tag">114 年</span></td>
         <td class="col-num">500,000 元</td>
         <td><div class="progress-bar-wrap">
@@ -745,7 +326,7 @@
         <td class="col-ret" style="color: #f97316;">100,000 元</td>
         <td style="text-align: center;"><span class="badge badge-orange">尚待努力</span></td>
     </tr>
-<tr class=" row-first">
+<tr class="village-base row-first">
         <td rowspan="2" class="col-fixed col-name">
             <span class="village-title">日和里</span>
         </td>
@@ -758,7 +339,7 @@
         <td class="col-ret" style="color: #f97316;">106,408 元</td>
         <td style="text-align: center;"><span class="badge badge-orange">尚待努力</span></td>
     </tr>
-<tr class=" row-second">
+<tr class="village-base row-second">
         <td class="col-year"><span class="year-tag">114 年</span></td>
         <td class="col-num">500,000 元</td>
         <td><div class="progress-bar-wrap">
@@ -768,7 +349,7 @@
         <td class="col-ret" style="color: #f97316;">100,000 元</td>
         <td style="text-align: center;"><span class="badge badge-orange">尚待努力</span></td>
     </tr>
-<tr class=" row-first">
+<tr class="village-alt row-first">
         <td rowspan="2" class="col-fixed col-name">
             <span class="village-title">青雲里</span>
         </td>
@@ -781,7 +362,7 @@
         <td class="col-ret" style="color: #f97316;">110,801 元</td>
         <td style="text-align: center;"><span class="badge badge-orange">尚待努力</span></td>
     </tr>
-<tr class=" row-second">
+<tr class="village-alt row-second">
         <td class="col-year"><span class="year-tag">114 年</span></td>
         <td class="col-num">529,104 元</td>
         <td><div class="progress-bar-wrap">
@@ -791,7 +372,7 @@
         <td class="col-ret" style="color: #f97316;">70,896 元</td>
         <td style="text-align: center;"><span class="badge badge-orange">尚待努力</span></td>
     </tr>
-<tr class=" row-first">
+<tr class="village-base row-first">
         <td rowspan="2" class="col-fixed col-name">
             <span class="village-title">頂新里</span>
         </td>
@@ -804,7 +385,7 @@
         <td class="col-ret" style="color: #f97316;">50,000 元</td>
         <td style="text-align: center;"><span class="badge badge-orange">尚待努力</span></td>
     </tr>
-<tr class=" row-second">
+<tr class="village-base row-second">
         <td class="col-year"><span class="year-tag">114 年</span></td>
         <td class="col-num">478,000 元</td>
         <td><div class="progress-bar-wrap">
@@ -814,7 +395,7 @@
         <td class="col-ret" style="color: #f97316;">122,000 元</td>
         <td style="text-align: center;"><span class="badge badge-orange">尚待努力</span></td>
     </tr>
-<tr class=" row-first">
+<tr class="village-alt row-first">
         <td rowspan="2" class="col-fixed col-name">
             <span class="village-title">頂福里</span>
         </td>
@@ -827,7 +408,7 @@
         <td class="col-ret" style="color: #ef4444;">146,332 元</td>
         <td style="text-align: center;"><span class="badge badge-red">希望能說明</span></td>
     </tr>
-<tr class=" row-second">
+<tr class="village-alt row-second">
         <td class="col-year"><span class="year-tag">114 年</span></td>
         <td class="col-num">600,000 元</td>
         <td><div class="progress-bar-wrap">
@@ -837,7 +418,7 @@
         <td class="col-ret" style="color: #10b981;">0 元</td>
         <td style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
     </tr>
-<tr class=" row-first">
+<tr class="village-base row-first">
         <td rowspan="2" class="col-fixed col-name">
             <span class="village-title">青山里</span>
         </td>
@@ -850,7 +431,7 @@
         <td class="col-ret" style="color: #f97316;">43,385 元</td>
         <td style="text-align: center;"><span class="badge badge-orange">尚待努力</span></td>
     </tr>
-<tr class=" row-second">
+<tr class="village-base row-second">
         <td class="col-year"><span class="year-tag">114 年</span></td>
         <td class="col-num">528,840 元</td>
         <td><div class="progress-bar-wrap">
@@ -860,7 +441,7 @@
         <td class="col-ret" style="color: #f97316;">71,160 元</td>
         <td style="text-align: center;"><span class="badge badge-orange">尚待努力</span></td>
     </tr>
-<tr class=" row-first">
+<tr class="village-alt row-first">
         <td rowspan="2" class="col-fixed col-name">
             <span class="village-title">清水里</span>
         </td>
@@ -873,7 +454,7 @@
         <td class="col-ret" style="color: #10b981;">0 元</td>
         <td style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
     </tr>
-<tr class=" row-second">
+<tr class="village-alt row-second">
         <td class="col-year"><span class="year-tag">114 年</span></td>
         <td class="col-num">499,751 元</td>
         <td><div class="progress-bar-wrap">
@@ -883,7 +464,7 @@
         <td class="col-ret" style="color: #f97316;">100,249 元</td>
         <td style="text-align: center;"><span class="badge badge-orange">尚待努力</span></td>
     </tr>
-<tr class=" row-first">
+<tr class="village-base row-first">
         <td rowspan="2" class="col-fixed col-name">
             <span class="village-title">廣福里</span>
         </td>
@@ -896,7 +477,7 @@
         <td class="col-ret" style="color: #f97316;">36,902 元</td>
         <td style="text-align: center;"><span class="badge badge-orange">尚待努力</span></td>
     </tr>
-<tr class=" row-second">
+<tr class="village-base row-second">
         <td class="col-year"><span class="year-tag">114 年</span></td>
         <td class="col-num">546,595 元</td>
         <td><div class="progress-bar-wrap">
@@ -906,7 +487,7 @@
         <td class="col-ret" style="color: #f97316;">53,405 元</td>
         <td style="text-align: center;"><span class="badge badge-orange">尚待努力</span></td>
     </tr>
-<tr class=" row-first">
+<tr class="village-alt row-first">
         <td rowspan="2" class="col-fixed col-name">
             <span class="village-title">清溪里</span>
         </td>
@@ -919,7 +500,7 @@
         <td class="col-ret" style="color: #f59e0b;">25,534 元</td>
         <td style="text-align: center;"><span class="badge badge-yellow">還不錯</span></td>
     </tr>
-<tr class=" row-second">
+<tr class="village-alt row-second">
         <td class="col-year"><span class="year-tag">114 年</span></td>
         <td class="col-num">540,000 元</td>
         <td><div class="progress-bar-wrap">
@@ -929,7 +510,7 @@
         <td class="col-ret" style="color: #f97316;">60,000 元</td>
         <td style="text-align: center;"><span class="badge badge-orange">尚待努力</span></td>
     </tr>
-<tr class=" row-first">
+<tr class="village-base row-first">
         <td rowspan="2" class="col-fixed col-name">
             <span class="village-title">員林里</span>
         </td>
@@ -942,7 +523,7 @@
         <td class="col-ret" style="color: #f97316;">55,067 元</td>
         <td style="text-align: center;"><span class="badge badge-orange">尚待努力</span></td>
     </tr>
-<tr class=" row-second">
+<tr class="village-base row-second">
         <td class="col-year"><span class="year-tag">114 年</span></td>
         <td class="col-num">569,781 元</td>
         <td><div class="progress-bar-wrap">
@@ -952,7 +533,7 @@
         <td class="col-ret" style="color: #f59e0b;">30,219 元</td>
         <td style="text-align: center;"><span class="badge badge-yellow">還不錯</span></td>
     </tr>
-<tr class=" row-first">
+<tr class="village-alt row-first">
         <td rowspan="2" class="col-fixed col-name">
             <span class="village-title">員福里</span>
         </td>
@@ -965,7 +546,7 @@
         <td class="col-ret" style="color: #f97316;">54,584 元</td>
         <td style="text-align: center;"><span class="badge badge-orange">尚待努力</span></td>
     </tr>
-<tr class=" row-second">
+<tr class="village-alt row-second">
         <td class="col-year"><span class="year-tag">114 年</span></td>
         <td class="col-num">578,450 元</td>
         <td><div class="progress-bar-wrap">
@@ -975,7 +556,7 @@
         <td class="col-ret" style="color: #f59e0b;">21,550 元</td>
         <td style="text-align: center;"><span class="badge badge-yellow">還不錯</span></td>
     </tr>
-<tr class=" row-first">
+<tr class="village-base row-first">
         <td rowspan="2" class="col-fixed col-name">
             <span class="village-title">延祿里</span>
         </td>
@@ -988,7 +569,7 @@
         <td class="col-ret" style="color: #f59e0b;">20,000 元</td>
         <td style="text-align: center;"><span class="badge badge-yellow">還不錯</span></td>
     </tr>
-<tr class=" row-second">
+<tr class="village-base row-second">
         <td class="col-year"><span class="year-tag">114 年</span></td>
         <td class="col-num">545,466 元</td>
         <td><div class="progress-bar-wrap">
@@ -998,7 +579,7 @@
         <td class="col-ret" style="color: #f97316;">54,534 元</td>
         <td style="text-align: center;"><span class="badge badge-orange">尚待努力</span></td>
     </tr>
-<tr class=" row-first">
+<tr class="village-alt row-first">
         <td rowspan="2" class="col-fixed col-name">
             <span class="village-title">安和里</span>
         </td>
@@ -1011,7 +592,7 @@
         <td class="col-ret" style="color: #10b981;">0 元</td>
         <td style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
     </tr>
-<tr class=" row-second">
+<tr class="village-alt row-second">
         <td class="col-year"><span class="year-tag">114 年</span></td>
         <td class="col-num">530,000 元</td>
         <td><div class="progress-bar-wrap">
@@ -1021,7 +602,7 @@
         <td class="col-ret" style="color: #f97316;">70,000 元</td>
         <td style="text-align: center;"><span class="badge badge-orange">尚待努力</span></td>
     </tr>
-<tr class=" row-first">
+<tr class="village-base row-first">
         <td rowspan="2" class="col-fixed col-name">
             <span class="village-title">祖田里</span>
         </td>
@@ -1034,7 +615,7 @@
         <td class="col-ret" style="color: #f97316;">64,862 元</td>
         <td style="text-align: center;"><span class="badge badge-orange">尚待努力</span></td>
     </tr>
-<tr class=" row-second">
+<tr class="village-base row-second">
         <td class="col-year"><span class="year-tag">114 年</span></td>
         <td class="col-num">600,000 元</td>
         <td><div class="progress-bar-wrap">
@@ -1044,7 +625,7 @@
         <td class="col-ret" style="color: #10b981;">0 元</td>
         <td style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
     </tr>
-<tr class=" row-first">
+<tr class="village-alt row-first">
         <td rowspan="2" class="col-fixed col-name">
             <span class="village-title">延吉里</span>
         </td>
@@ -1057,7 +638,7 @@
         <td class="col-ret" style="color: #f97316;">54,105 元</td>
         <td style="text-align: center;"><span class="badge badge-orange">尚待努力</span></td>
     </tr>
-<tr class=" row-second">
+<tr class="village-alt row-second">
         <td class="col-year"><span class="year-tag">114 年</span></td>
         <td class="col-num">599,289 元</td>
         <td><div class="progress-bar-wrap">
@@ -1067,7 +648,7 @@
         <td class="col-ret" style="color: #10b981;">711 元</td>
         <td style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
     </tr>
-<tr class=" row-first">
+<tr class="village-base row-first">
         <td rowspan="2" class="col-fixed col-name">
             <span class="village-title">樂利里</span>
         </td>
@@ -1080,7 +661,7 @@
         <td class="col-ret" style="color: #f97316;">54,544 元</td>
         <td style="text-align: center;"><span class="badge badge-orange">尚待努力</span></td>
     </tr>
-<tr class=" row-second">
+<tr class="village-base row-second">
         <td class="col-year"><span class="year-tag">114 年</span></td>
         <td class="col-num">600,000 元</td>
         <td><div class="progress-bar-wrap">
@@ -1090,7 +671,7 @@
         <td class="col-ret" style="color: #10b981;">0 元</td>
         <td style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
     </tr>
-<tr class=" row-first">
+<tr class="village-alt row-first">
         <td rowspan="2" class="col-fixed col-name">
             <span class="village-title">永富里</span>
         </td>
@@ -1103,7 +684,7 @@
         <td class="col-ret" style="color: #10b981;">0 元</td>
         <td style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
     </tr>
-<tr class=" row-second">
+<tr class="village-alt row-second">
         <td class="col-year"><span class="year-tag">114 年</span></td>
         <td class="col-num">545,466 元</td>
         <td><div class="progress-bar-wrap">
@@ -1113,7 +694,7 @@
         <td class="col-ret" style="color: #f97316;">54,534 元</td>
         <td style="text-align: center;"><span class="badge badge-orange">尚待努力</span></td>
     </tr>
-<tr class=" row-first">
+<tr class="village-base row-first">
         <td rowspan="2" class="col-fixed col-name">
             <span class="village-title">學府里</span>
         </td>
@@ -1126,7 +707,7 @@
         <td class="col-ret" style="color: #10b981;">0 元</td>
         <td style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
     </tr>
-<tr class=" row-second">
+<tr class="village-base row-second">
         <td class="col-year"><span class="year-tag">114 年</span></td>
         <td class="col-num">545,466 元</td>
         <td><div class="progress-bar-wrap">
@@ -1136,7 +717,7 @@
         <td class="col-ret" style="color: #f97316;">54,534 元</td>
         <td style="text-align: center;"><span class="badge badge-orange">尚待努力</span></td>
     </tr>
-<tr class=" row-first">
+<tr class="village-alt row-first">
         <td rowspan="2" class="col-fixed col-name">
             <span class="village-title">清和里</span>
         </td>
@@ -1149,7 +730,7 @@
         <td class="col-ret" style="color: #10b981;">0 元</td>
         <td style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
     </tr>
-<tr class=" row-second">
+<tr class="village-alt row-second">
         <td class="col-year"><span class="year-tag">114 年</span></td>
         <td class="col-num">550,806 元</td>
         <td><div class="progress-bar-wrap">
@@ -1159,7 +740,7 @@
         <td class="col-ret" style="color: #f97316;">49,194 元</td>
         <td style="text-align: center;"><span class="badge badge-orange">尚待努力</span></td>
     </tr>
-<tr class=" row-first">
+<tr class="village-base row-first">
         <td rowspan="2" class="col-fixed col-name">
             <span class="village-title">廷寮里</span>
         </td>
@@ -1172,7 +753,7 @@
         <td class="col-ret" style="color: #f97316;">40,845 元</td>
         <td style="text-align: center;"><span class="badge badge-orange">尚待努力</span></td>
     </tr>
-<tr class=" row-second">
+<tr class="village-base row-second">
         <td class="col-year"><span class="year-tag">114 年</span></td>
         <td class="col-num">600,000 元</td>
         <td><div class="progress-bar-wrap">
@@ -1182,7 +763,7 @@
         <td class="col-ret" style="color: #10b981;">0 元</td>
         <td style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
     </tr>
-<tr class=" row-first">
+<tr class="village-alt row-first">
         <td rowspan="2" class="col-fixed col-name">
             <span class="village-title">貨饒里</span>
         </td>
@@ -1195,7 +776,7 @@
         <td class="col-ret" style="color: #f59e0b;">16,802 元</td>
         <td style="text-align: center;"><span class="badge badge-yellow">還不錯</span></td>
     </tr>
-<tr class=" row-second">
+<tr class="village-alt row-second">
         <td class="col-year"><span class="year-tag">114 年</span></td>
         <td class="col-num">580,000 元</td>
         <td><div class="progress-bar-wrap">
@@ -1205,7 +786,7 @@
         <td class="col-ret" style="color: #f59e0b;">20,000 元</td>
         <td style="text-align: center;"><span class="badge badge-yellow">還不錯</span></td>
     </tr>
-<tr class=" row-first">
+<tr class="village-base row-first">
         <td rowspan="2" class="col-fixed col-name">
             <span class="village-title">員信里</span>
         </td>
@@ -1218,7 +799,7 @@
         <td class="col-ret" style="color: #f97316;">33,472 元</td>
         <td style="text-align: center;"><span class="badge badge-orange">尚待努力</span></td>
     </tr>
-<tr class=" row-second">
+<tr class="village-base row-second">
         <td class="col-year"><span class="year-tag">114 年</span></td>
         <td class="col-num">600,000 元</td>
         <td><div class="progress-bar-wrap">
@@ -1228,7 +809,7 @@
         <td class="col-ret" style="color: #10b981;">0 元</td>
         <td style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
     </tr>
-<tr class=" row-first">
+<tr class="village-alt row-first">
         <td rowspan="2" class="col-fixed col-name">
             <span class="village-title">永寧里</span>
         </td>
@@ -1241,7 +822,7 @@
         <td class="col-ret" style="color: #10b981;">1,713 元</td>
         <td style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
     </tr>
-<tr class=" row-second">
+<tr class="village-alt row-second">
         <td class="col-year"><span class="year-tag">114 年</span></td>
         <td class="col-num">570,000 元</td>
         <td><div class="progress-bar-wrap">
@@ -1251,7 +832,7 @@
         <td class="col-ret" style="color: #f59e0b;">30,000 元</td>
         <td style="text-align: center;"><span class="badge badge-yellow">還不錯</span></td>
     </tr>
-<tr class=" row-first">
+<tr class="village-base row-first">
         <td rowspan="2" class="col-fixed col-name">
             <span class="village-title">平和里</span>
         </td>
@@ -1264,7 +845,7 @@
         <td class="col-ret" style="color: #f59e0b;">8,622 元</td>
         <td style="text-align: center;"><span class="badge badge-yellow">還不錯</span></td>
     </tr>
-<tr class=" row-second">
+<tr class="village-base row-second">
         <td class="col-year"><span class="year-tag">114 年</span></td>
         <td class="col-num">580,000 元</td>
         <td><div class="progress-bar-wrap">
@@ -1274,7 +855,7 @@
         <td class="col-ret" style="color: #f59e0b;">20,000 元</td>
         <td style="text-align: center;"><span class="badge badge-yellow">還不錯</span></td>
     </tr>
-<tr class=" row-first">
+<tr class="village-alt row-first">
         <td rowspan="2" class="col-fixed col-name">
             <span class="village-title">復興里</span>
         </td>
@@ -1287,7 +868,7 @@
         <td class="col-ret" style="color: #10b981;">0 元</td>
         <td style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
     </tr>
-<tr class=" row-second">
+<tr class="village-alt row-second">
         <td class="col-year"><span class="year-tag">114 年</span></td>
         <td class="col-num">573,413 元</td>
         <td><div class="progress-bar-wrap">
@@ -1297,7 +878,7 @@
         <td class="col-ret" style="color: #f59e0b;">26,587 元</td>
         <td style="text-align: center;"><span class="badge badge-yellow">還不錯</span></td>
     </tr>
-<tr class=" row-first">
+<tr class="village-base row-first">
         <td rowspan="2" class="col-fixed col-name">
             <span class="village-title">金城里</span>
         </td>
@@ -1310,7 +891,7 @@
         <td class="col-ret" style="color: #10b981;">1,163 元</td>
         <td style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
     </tr>
-<tr class=" row-second">
+<tr class="village-base row-second">
         <td class="col-year"><span class="year-tag">114 年</span></td>
         <td class="col-num">580,000 元</td>
         <td><div class="progress-bar-wrap">
@@ -1320,7 +901,7 @@
         <td class="col-ret" style="color: #f59e0b;">20,000 元</td>
         <td style="text-align: center;"><span class="badge badge-yellow">還不錯</span></td>
     </tr>
-<tr class=" row-first">
+<tr class="village-alt row-first">
         <td rowspan="2" class="col-fixed col-name">
             <span class="village-title">清化里</span>
         </td>
@@ -1333,7 +914,7 @@
         <td class="col-ret" style="color: #10b981;">136 元</td>
         <td style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
     </tr>
-<tr class=" row-second">
+<tr class="village-alt row-second">
         <td class="col-year"><span class="year-tag">114 年</span></td>
         <td class="col-num">580,000 元</td>
         <td><div class="progress-bar-wrap">
@@ -1343,7 +924,7 @@
         <td class="col-ret" style="color: #f59e0b;">20,000 元</td>
         <td style="text-align: center;"><span class="badge badge-yellow">還不錯</span></td>
     </tr>
-<tr class=" row-first">
+<tr class="village-base row-first">
         <td rowspan="2" class="col-fixed col-name">
             <span class="village-title">延和里</span>
         </td>
@@ -1356,7 +937,7 @@
         <td class="col-ret" style="color: #10b981;">547 元</td>
         <td style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
     </tr>
-<tr class=" row-second">
+<tr class="village-base row-second">
         <td class="col-year"><span class="year-tag">114 年</span></td>
         <td class="col-num">582,204 元</td>
         <td><div class="progress-bar-wrap">
@@ -1366,7 +947,7 @@
         <td class="col-ret" style="color: #f59e0b;">17,796 元</td>
         <td style="text-align: center;"><span class="badge badge-yellow">還不錯</span></td>
     </tr>
-<tr class=" row-first">
+<tr class="village-alt row-first">
         <td rowspan="2" class="col-fixed col-name">
             <span class="village-title">峯廷里</span>
         </td>
@@ -1379,7 +960,7 @@
         <td class="col-ret" style="color: #f59e0b;">16,212 元</td>
         <td style="text-align: center;"><span class="badge badge-yellow">還不錯</span></td>
     </tr>
-<tr class=" row-second">
+<tr class="village-alt row-second">
         <td class="col-year"><span class="year-tag">114 年</span></td>
         <td class="col-num">600,000 元</td>
         <td><div class="progress-bar-wrap">
@@ -1389,7 +970,7 @@
         <td class="col-ret" style="color: #10b981;">0 元</td>
         <td style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
     </tr>
-<tr class=" row-first">
+<tr class="village-base row-first">
         <td rowspan="2" class="col-fixed col-name">
             <span class="village-title">裕生里</span>
         </td>
@@ -1402,7 +983,7 @@
         <td class="col-ret" style="color: #f59e0b;">13,473 元</td>
         <td style="text-align: center;"><span class="badge badge-yellow">還不錯</span></td>
     </tr>
-<tr class=" row-second">
+<tr class="village-base row-second">
         <td class="col-year"><span class="year-tag">114 年</span></td>
         <td class="col-num">599,476 元</td>
         <td><div class="progress-bar-wrap">
@@ -1412,7 +993,7 @@
         <td class="col-ret" style="color: #10b981;">524 元</td>
         <td style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
     </tr>
-<tr class=" row-first">
+<tr class="village-alt row-first">
         <td rowspan="2" class="col-fixed col-name">
             <span class="village-title">頂埔里</span>
         </td>
@@ -1425,7 +1006,7 @@
         <td class="col-ret" style="color: #10b981;">0 元</td>
         <td style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
     </tr>
-<tr class=" row-second">
+<tr class="village-alt row-second">
         <td class="col-year"><span class="year-tag">114 年</span></td>
         <td class="col-num">590,093 元</td>
         <td><div class="progress-bar-wrap">
@@ -1435,7 +1016,7 @@
         <td class="col-ret" style="color: #f59e0b;">9,907 元</td>
         <td style="text-align: center;"><span class="badge badge-yellow">還不錯</span></td>
     </tr>
-<tr class=" row-first">
+<tr class="village-base row-first">
         <td rowspan="2" class="col-fixed col-name">
             <span class="village-title">瑞興里</span>
         </td>
@@ -1448,7 +1029,7 @@
         <td class="col-ret" style="color: #f59e0b;">4,485 元</td>
         <td style="text-align: center;"><span class="badge badge-yellow">還不錯</span></td>
     </tr>
-<tr class=" row-second">
+<tr class="village-base row-second">
         <td class="col-year"><span class="year-tag">114 年</span></td>
         <td class="col-num">597,884 元</td>
         <td><div class="progress-bar-wrap">
@@ -1458,7 +1039,7 @@
         <td class="col-ret" style="color: #10b981;">2,116 元</td>
         <td style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
     </tr>
-<tr class=" row-first">
+<tr class="village-alt row-first">
         <td rowspan="2" class="col-fixed col-name">
             <span class="village-title">延壽里</span>
         </td>
@@ -1471,7 +1052,7 @@
         <td class="col-ret" style="color: #f59e0b;">5,949 元</td>
         <td style="text-align: center;"><span class="badge badge-yellow">還不錯</span></td>
     </tr>
-<tr class=" row-second">
+<tr class="village-alt row-second">
         <td class="col-year"><span class="year-tag">114 年</span></td>
         <td class="col-num">600,000 元</td>
         <td><div class="progress-bar-wrap">
@@ -1481,7 +1062,7 @@
         <td class="col-ret" style="color: #10b981;">0 元</td>
         <td style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
     </tr>
-<tr class=" row-first">
+<tr class="village-base row-first">
         <td rowspan="2" class="col-fixed col-name">
             <span class="village-title">埤塘里</span>
         </td>
@@ -1494,7 +1075,7 @@
         <td class="col-ret" style="color: #10b981;">3,181 元</td>
         <td style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
     </tr>
-<tr class=" row-second">
+<tr class="village-base row-second">
         <td class="col-year"><span class="year-tag">114 年</span></td>
         <td class="col-num">599,851 元</td>
         <td><div class="progress-bar-wrap">
@@ -1504,7 +1085,7 @@
         <td class="col-ret" style="color: #10b981;">149 元</td>
         <td style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
     </tr>
-<tr class=" row-first">
+<tr class="village-alt row-first">
         <td rowspan="2" class="col-fixed col-name">
             <span class="village-title">土城里</span>
         </td>
@@ -1517,7 +1098,7 @@
         <td class="col-ret" style="color: #10b981;">71 元</td>
         <td style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
     </tr>
-<tr class=" row-second">
+<tr class="village-alt row-second">
         <td class="col-year"><span class="year-tag">114 年</span></td>
         <td class="col-num">597,719 元</td>
         <td><div class="progress-bar-wrap">
@@ -1527,7 +1108,7 @@
         <td class="col-ret" style="color: #10b981;">2,281 元</td>
         <td style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
     </tr>
-<tr class=" row-first">
+<tr class="village-base row-first">
         <td rowspan="2" class="col-fixed col-name">
             <span class="village-title">大安里</span>
         </td>
@@ -1540,7 +1121,7 @@
         <td class="col-ret" style="color: #10b981;">0 元</td>
         <td style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
     </tr>
-<tr class=" row-second">
+<tr class="village-base row-second">
         <td class="col-year"><span class="year-tag">114 年</span></td>
         <td class="col-num">597,792 元</td>
         <td><div class="progress-bar-wrap">
@@ -1550,7 +1131,7 @@
         <td class="col-ret" style="color: #10b981;">2,208 元</td>
         <td style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
     </tr>
-<tr class=" row-first">
+<tr class="village-alt row-first">
         <td rowspan="2" class="col-fixed col-name">
             <span class="village-title">長風里</span>
         </td>
@@ -1563,7 +1144,7 @@
         <td class="col-ret" style="color: #10b981;">0 元</td>
         <td style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
     </tr>
-<tr class=" row-second">
+<tr class="village-alt row-second">
         <td class="col-year"><span class="year-tag">114 年</span></td>
         <td class="col-num">598,665 元</td>
         <td><div class="progress-bar-wrap">
@@ -1573,7 +1154,7 @@
         <td class="col-ret" style="color: #10b981;">1,335 元</td>
         <td style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
     </tr>
-<tr class=" row-first">
+<tr class="village-base row-first">
         <td rowspan="2" class="col-fixed col-name">
             <span class="village-title">沛陂里</span>
         </td>
@@ -1586,7 +1167,7 @@
         <td class="col-ret" style="color: #10b981;">0 元</td>
         <td style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
     </tr>
-<tr class=" row-second">
+<tr class="village-base row-second">
         <td class="col-year"><span class="year-tag">114 年</span></td>
         <td class="col-num">599,684 元</td>
         <td><div class="progress-bar-wrap">
@@ -1596,7 +1177,7 @@
         <td class="col-ret" style="color: #10b981;">316 元</td>
         <td style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
     </tr>
-<tr class=" row-first">
+<tr class="village-alt row-first">
         <td rowspan="2" class="col-fixed col-name">
             <span class="village-title">中正里</span>
         </td>
@@ -1609,7 +1190,7 @@
         <td class="col-ret" style="color: #10b981;">154 元</td>
         <td style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
     </tr>
-<tr class=" row-second">
+<tr class="village-alt row-second">
         <td class="col-year"><span class="year-tag">114 年</span></td>
         <td class="col-num">600,000 元</td>
         <td><div class="progress-bar-wrap">
@@ -1619,7 +1200,7 @@
         <td class="col-ret" style="color: #10b981;">0 元</td>
         <td style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
     </tr>
-<tr class=" row-first">
+<tr class="village-base row-first">
         <td rowspan="2" class="col-fixed col-name">
             <span class="village-title">學成里</span>
         </td>
@@ -1632,7 +1213,7 @@
         <td class="col-ret" style="color: #10b981;">23 元</td>
         <td style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
     </tr>
-<tr class=" row-second">
+<tr class="village-base row-second">
         <td class="col-year"><span class="year-tag">114 年</span></td>
         <td class="col-num">600,000 元</td>
         <td><div class="progress-bar-wrap">
@@ -1642,7 +1223,7 @@
         <td class="col-ret" style="color: #10b981;">0 元</td>
         <td style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
     </tr>
-<tr class=" row-first">
+<tr class="village-alt row-first">
         <td rowspan="2" class="col-fixed col-name">
             <span class="village-title">日新里</span>
         </td>
@@ -1655,7 +1236,7 @@
         <td class="col-ret" style="color: #10b981;">0 元</td>
         <td style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
     </tr>
-<tr class=" row-second">
+<tr class="village-alt row-second">
         <td class="col-year"><span class="year-tag">114 年</span></td>
         <td class="col-num">600,000 元</td>
         <td><div class="progress-bar-wrap">
@@ -1665,7 +1246,7 @@
         <td class="col-ret" style="color: #10b981;">0 元</td>
         <td style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
     </tr>
-<tr class=" row-first">
+<tr class="village-base row-first">
         <td rowspan="2" class="col-fixed col-name">
             <span class="village-title">永豐里</span>
         </td>
@@ -1678,7 +1259,7 @@
         <td class="col-ret" style="color: #10b981;">0 元</td>
         <td style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
     </tr>
-<tr class=" row-second">
+<tr class="village-base row-second">
         <td class="col-year"><span class="year-tag">114 年</span></td>
         <td class="col-num">600,000 元</td>
         <td><div class="progress-bar-wrap">
@@ -1688,7 +1269,7 @@
         <td class="col-ret" style="color: #10b981;">0 元</td>
         <td style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
     </tr>
-<tr class=" row-first">
+<tr class="village-alt row-first">
         <td rowspan="2" class="col-fixed col-name">
             <span class="village-title">柑林里</span>
         </td>
@@ -1701,7 +1282,7 @@
         <td class="col-ret" style="color: #10b981;">0 元</td>
         <td style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
     </tr>
-<tr class=" row-second">
+<tr class="village-alt row-second">
         <td class="col-year"><span class="year-tag">114 年</span></td>
         <td class="col-num">600,000 元</td>
         <td><div class="progress-bar-wrap">
@@ -1711,7 +1292,7 @@
         <td class="col-ret" style="color: #10b981;">0 元</td>
         <td style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
     </tr>
-<tr class=" row-first">
+<tr class="village-base row-first">
         <td rowspan="2" class="col-fixed col-name">
             <span class="village-title">員仁里</span>
         </td>
@@ -1724,7 +1305,7 @@
         <td class="col-ret" style="color: #10b981;">0 元</td>
         <td style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
     </tr>
-<tr class=" row-second">
+<tr class="village-base row-second">
         <td class="col-year"><span class="year-tag">114 年</span></td>
         <td class="col-num">600,000 元</td>
         <td><div class="progress-bar-wrap">
@@ -1734,7 +1315,7 @@
         <td class="col-ret" style="color: #10b981;">0 元</td>
         <td style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
     </tr>
-<tr class=" row-first">
+<tr class="village-alt row-first">
         <td rowspan="2" class="col-fixed col-name">
             <span class="village-title">埤林里</span>
         </td>
@@ -1747,7 +1328,7 @@
         <td class="col-ret" style="color: #10b981;">0 元</td>
         <td style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
     </tr>
-<tr class=" row-second">
+<tr class="village-alt row-second">
         <td class="col-year"><span class="year-tag">114 年</span></td>
         <td class="col-num">600,000 元</td>
         <td><div class="progress-bar-wrap">
@@ -1757,7 +1338,7 @@
         <td class="col-ret" style="color: #10b981;">0 元</td>
         <td style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
     </tr>
-<tr class=" row-first">
+<tr class="village-base row-first">
         <td rowspan="2" class="col-fixed col-name">
             <span class="village-title">學士里</span>
         </td>
@@ -1770,7 +1351,7 @@
         <td class="col-ret" style="color: #10b981;">0 元</td>
         <td style="text-align: center;"><span class="badge badge-green">用好用滿</span></td>
     </tr>
-<tr class=" row-second">
+<tr class="village-base row-second">
         <td class="col-year"><span class="year-tag">114 年</span></td>
         <td class="col-num">600,000 元</td>
         <td><div class="progress-bar-wrap">
@@ -1785,7 +1366,7 @@
         </div>
 
         <!-- Deep Dive Analysis Section -->
-        <section class="analysis-section">
+        <div class="analysis-section">
             <h2>💡 為什麼里長「懂企劃」是守住里民權益的關鍵？</h2>
             <div class="analysis-grid">
                 <div class="analysis-box">
@@ -1801,16 +1382,15 @@
                     <p>市府已核定下屆經費調升至每年 88 萬元。陳新昱具 30 年系統管理與提案資歷，承諾專款 100% 用好用滿，並爭取外部資源挹注社區。</p>
                 </div>
             </div>
-        </section>
+        </div>
 
         <!-- Legal & Civic Disclaimer -->
-        <div class="disclaimer-box">
+        <div class="disclaimer-box" style="margin-top: 18px; text-align: left;">
             <p><strong>【資料來源與公民監督免責聲明】：</strong></p>
             <p>1. <strong>資料來源出處</strong>：本表各項收支數據，均如實轉載自新北市政府與土城區公所官方發布之「新北市土城區 113 年第 1～4 季」及「114 年第 1～4 季」《里基層工作經費執行情形季報表》官方決算文件。各里法定預算係以土城區公所 113～114 年度預算統一編列之法定基本款（每里每年 60 萬元整）為一致比較基準。</p>
             <p>2. <strong>非唯一評量指標</strong>：本表所列「基層款執行率」僅反映各里辦公處依《新北市政府里基層工作經費督導實施要點》向土城區公所請領核銷之行政財務動支數據，僅供公共事務研究與市民監督參考，<strong>不代表亦不等於各里里長整體服務熱忱或基層盡責度之絕對評價</strong>，各里特性與公共需求各有不同，請理性客觀解讀。</p>
-            <p>3. <strong>官方公開查詢管道</strong>：市民可逕至主管機關官方公開平台核對原件：<br>
-            ・土城區公所「里基層工作經費執行情形季報表」官方查詢網址：<a href="https://www.tucheng.ntpc.gov.tw" target="_blank" rel="noopener noreferrer">https://www.tucheng.ntpc.gov.tw</a>（路徑：首頁 ➔ 鄰里資訊 ➔ 里基層工作經費執行情形）</p>
-            <p>4. <strong>官方公文為準與即時勘誤機制</strong>：本表旨在促進陽光治理與資訊透明，所有數據均力求精確客觀。各項數據若與主管機關最新更正或校正公文有所出入，一律以新北市政府與土城區公所官方最新發布之原始公文決算為準。<strong>各界若發現有任何筆誤、官方資料更新或需校正之處，歡迎隨時來信指正，我們將於查證官方原始紀錄後立即調整修正</strong>。</p>
+            <p>3. <strong>官方公開查詢管道</strong>：市民可逕至土城區公所官方公開平台核對原件：<a href="https://www.tucheng.ntpc.gov.tw" target="_blank" rel="noopener noreferrer">https://www.tucheng.ntpc.gov.tw</a>（路徑：首頁 ➔ 鄰里資訊 ➔ 里基層工作經費執行情形）。</p>
+            <p>4. <strong>官方公文為準與即時勘誤機制</strong>：本表旨在促進陽光治理與資訊透明，所有數據均力求精確客觀。若與主管機關最新更正公文有所出入，一律以官方原始公文決算為準。歡迎隨時指正，我們將於查證後立即修正。</p>
         </div>
 
         <!-- CTA Bottom -->
